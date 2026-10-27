@@ -1,0 +1,97 @@
+kind: scene_patch
+id: scene_af670ef477045df65772cc7b
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+bindings: {}
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.task_edit2_mapping_world
+        parameters:
+          mapping_joint_world_contract:
+            revision: task_edit2_mapping_world_20261018_v1
+            group_key: connectivity_restaurant_hotel
+            scene: restaurant_hotel
+            room: full_scene
+            source_members:
+            - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+              source_sha256: 9a5030cda763d9e758fc87594b87df625790567b12f98454ff2d18bc5d39bd01
+              task_sha256: fc759351a269566cc6f95d90871e740c116c7f6599eac7308005f229ac60a35b
+              scene_sha256: 4c019b8fef0679516ad296fad1c62f17470afdd5c685fe2525cb2c79556c146c
+            - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_003.json
+              source_sha256: 81bf3cbe581f78e8c15e913f4c4acb15d8222977996cae785a075190dee19f73
+              task_sha256: 1850bac527aade63a55b4223165f605c5773e99af2ba5edd8ea88a79b1700736
+              scene_sha256: b25a6152d2bf3a948fd810db7e10938ab95181102618391b963fd647d8a9121a
+            - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_005.json
+              source_sha256: 0030942866160481a1ce3ded32d487560ce8de27e4398f9f978ac08c6180d393
+              task_sha256: c62eaffc23398514365a8e70480361be4537986d74f55df2b9cdbbe83b212457
+              scene_sha256: d7624f96ffd6fdc9f4c0c1d257d8f98a1e67d4f614c2536698023ea11cdfc66b
+            - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_006.json
+              source_sha256: 5ed4202d7f63652db8408ee9f8dce7fe56b1b3d025077cb0fd86e8829ba0d43f
+              task_sha256: 40cf348eb838ace4bcac7da23e16b1ac47a6e372c30ea6b6ac1170200ce7f022
+              scene_sha256: 0e21d500af56b235cc2c6648e9a2df409c275445e0d047f20332ffefbfbd2209
+            - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_007.json
+              source_sha256: eebd47567bfdcdf22d0b5f88ca4aef5591d3295a0a7349fe2e76bdd8963e34c6
+              task_sha256: 619a143582b5e266a2ff51fe2a17f16d047f4cc4f85dfe7e0171f1b00a5c26e4
+              scene_sha256: 58393617a20ee3e9c42bfc5d2f938e03ee6dcf9898cb6b89b9433bed1a253d19
+            representative_source: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+            common_start_proposal:
+              operation: robot_pose
+              phase: before_construction
+              position:
+              - 6.200000286102295
+              - -19.399999618530273
+              - 0.1
+              yaw_deg: 177.08916969878248
+              head_pitch_deg: 0.0
+            seed: 0
+            episode_budget:
+              origin: new_uncalibrated_geometric_pilot
+              calibrated: false
+              max_steps: 948
+              wall_timeout_s: 2844.0
+              derivation: ceil(2 * Manhattan_MST(all unique saved camera/path XY)
+                / 0.25m) + 12 * distinct required rooms + 4 * unique semantic questions
+              evidence:
+                manhattan_mst_m: 108.41418285965389
+                translation_increment_m: 0.25
+                geometric_traversals: 2
+                translation_actions: 868
+                inspection_turn_actions: 60
+                answer_actions: 20
+                wall_seconds_per_action: 3.0
+                wall_bound_calibrated: false
+                point_set: all_saved_source_camera_and_path_XY_superset
+                unique_xy_count: 400
+              limitation: Geometry ignores walls, door operation and controller timing;
+                native route and budget calibration remain mandatory.
+            full_building_required: true
+            retain_native_furniture_and_doors: true
+            source_world_equivalence: unverified_pending_all_source_relations_in_this_actual_reset
+            qualification_api: session.mapping_joint_world_identity(contract) and
+              session.mapping_joint_world_qualification(contract)
+            pending_gates:
+            - full_building_inventory_geometry
+            - all_original_source_relations
+            - source_runtime_door_reconciliation_and_public_crossings
+            - common_start_support_and_clearance
+            - controller_and_eight_plus_initial_global
+            - shared_budget_native_calibration
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - 6.200000286102295
+        - -19.399999618530273
+        - 0.1
+        yaw_deg: 177.08916969878248
+        head_pitch_deg: 0.0
+seed: 0

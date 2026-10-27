@@ -1,0 +1,100 @@
+kind: scene_patch
+id: category_55b6750f64537930372330e1
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Physical Dynamics/Stacking & Stability/Beechwood_0_garden/dining_room_0/Beechwood_0_garden__dining_room_0.json
+target: null
+qualification: null
+bindings:
+  object_0:
+    name: stack_obj0
+    category: outline_tray
+    model: mmegts
+  object_1:
+    name: stack_obj1
+    category: coffee_bean_jar
+    model: loduxu
+  object_2:
+    name: stack_obj2
+    category: refried_beans_can
+    model: dafdgk
+  floor:
+    name: floors_jymrik_0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        position:
+        - -6.580744501061185
+        - 16.630283693230787
+        - -1.1615455150604248e-05
+        yaw_deg: 75.00000000000003
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 45.0
+      - operation: restore_robot_head_mount
+      - operation: object_physics
+        binding: object_0
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: object_0
+        visual_only: false
+      - operation: object_physics
+        binding: object_1
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: object_1
+        visual_only: false
+      - operation: object_physics
+        binding: object_2
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: object_2
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - object_0
+        - object_1
+        - object_2
+        manipulation_bindings:
+        - object_0
+        - object_1
+        - object_2
+        relocation_policy: independent_groups
+        placement_groups:
+        - - object_0
+        - - object_1
+        - - object_2
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: dining_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - independent_candidate_support_adaptation_requires_review
+        - source_qa_reference_layout_changed
+        - native_grasp_execution_unverified
+seed: 0

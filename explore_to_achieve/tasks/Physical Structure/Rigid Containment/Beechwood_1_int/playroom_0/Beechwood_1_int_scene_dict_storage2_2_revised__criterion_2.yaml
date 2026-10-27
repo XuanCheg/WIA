@@ -1,0 +1,28 @@
+kind: rigid_containment_task
+id: tabletop_Beechwood_1_int_scene_dict_storage2_2_revised_support_000_multi_answer_and_place
+version: 1
+status: ready
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/Beechwood_1_int/playroom_0/Beechwood_1_int_scene_dict_storage2_2_revised__criterion_2.json
+scene_file: Physical Structure/Rigid Containment/Beechwood_1_int/playroom_0/Beechwood_1_int_scene_dict_storage2_2_revised__multi_extra1.yaml
+targets:
+- target
+- extra1
+goal: answer_and_place
+allow_remove_after_verification: true
+public:
+  objective: 'Which container does each object best fit inside?
+
+    - snow globe
+
+    - address
+
+    Containers: tupperware, teacup, bucket'
+  success_criteria: Answer for every named object and complete a real pickup and stable
+    partial insertion for each. A verified object may be removed to free a shared
+    container.
+  environment: Retrieve the nearby objects using the real R1 robot.
+  constraints:
+  - Complete all object subtasks before declaring DONE. An object resting entirely
+    on top does not count as inside.

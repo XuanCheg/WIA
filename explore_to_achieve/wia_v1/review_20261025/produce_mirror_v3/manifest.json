@@ -1,0 +1,31 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "entries": [
+    {
+      "document_alias": "R-S3",
+      "variant_id": "r_s3_seed101_produce_v3",
+      "label": "R-S3 produce / pot and cutting board / seed 101 / lateral pot clearance",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/produce_mirror_v3/r_s3_seed101_produce_v3/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/produce_mirror_v3/r_s3_seed101_produce_v3/scene.yaml",
+      "variant": "adapted",
+      "seed": 101,
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/produce_mirror_v2/r_s3_seed101_produce_v2/task.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/produce_mirror_v2/r_s3_seed101_produce_v2/scene.yaml",
+      "native_validation_run": false,
+      "physical_success_verified": false
+    },
+    {
+      "document_alias": "R-S3",
+      "variant_id": "r_s3_seed202_produce_v3",
+      "label": "R-S3 produce / pot and cutting board / seed 202 / lateral pot clearance",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/produce_mirror_v3/r_s3_seed202_produce_v3/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/produce_mirror_v3/r_s3_seed202_produce_v3/scene.yaml",
+      "variant": "adapted",
+      "seed": 202,
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/produce_mirror_v2/r_s3_seed202_produce_v2/task.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/produce_mirror_v2/r_s3_seed202_produce_v2/scene.yaml",
+      "native_validation_run": false,
+      "physical_success_verified": false
+    }
+  ]
+}

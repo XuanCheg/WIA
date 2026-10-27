@@ -1,0 +1,321 @@
+{
+  "source_repository": "/local_home2/zhouxinyang/models/Show-Harness-Explore",
+  "source_head": "8ff14cd3683079498949cfe95534cd25f486b496",
+  "destination_repository": "/local_home2/zhouxinyang/models/WIA",
+  "policy": "Single canonical implementation; legacy scripts alias the canonical module and execute it with runpy. Source task values, seeds, output names and explicit external input paths are retained.",
+  "external_inputs": "Historical asset, inventory and calibration paths remain external inputs. No assets are downloaded and no authoring command was executed by this migration.",
+  "commands": [
+    {
+      "source": "scripts/build_wia_authored_capture_records.py",
+      "destination": "src/wia/authoring/commands/build_wia_authored_capture_records.py",
+      "source_sha256": "9a9c4f796fbe75b7f27ccb2b3f6fc8e13cf1c56bd0a07e85bac0f4fe894b9b44",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_capture_review.py",
+      "destination": "src/wia/authoring/commands/build_wia_capture_review.py",
+      "source_sha256": "9adde9134a42dcf4af49bf52e0d9559c1cca245d8d1376ef29229dfef69ec1bc",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_control_family_repairs.py",
+      "destination": "src/wia/authoring/commands/build_wia_control_family_repairs.py",
+      "source_sha256": "1fdb428d2f226a8d4992a1d0cf1a513172588926958963491330a021ccd53101",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_cover_variants.py",
+      "destination": "src/wia/authoring/commands/build_wia_cover_variants.py",
+      "source_sha256": "b3f3715efe147048cbe1d3e2ebdef344edbaf4d9eae3060443c2f7663cdc82c3",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_dimensional.py",
+      "destination": "src/wia/authoring/commands/build_wia_dimensional.py",
+      "source_sha256": "bb86eaa45f1344eb5b0534707d4cec89b7802c1fb78c2aa53af0f5676438e061",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_furnished_existing.py",
+      "destination": "src/wia/authoring/commands/build_wia_furnished_existing.py",
+      "source_sha256": "213b4a0f263cc70dfde5b32f9e7cba403fa9122e8b286f6e16e021ab3acaf56e",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_furnished_temporal.py",
+      "destination": "src/wia/authoring/commands/build_wia_furnished_temporal.py",
+      "source_sha256": "07e7a64d4ad4a07e12b6728ec1033bcfa516fe736a262a27b5b6c3ae6938f266",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_history_collection_variants.py",
+      "destination": "src/wia/authoring/commands/build_wia_history_collection_variants.py",
+      "source_sha256": "ba220c2cac11481648da607911e094f4320d6cc781a8913886b5e8dabd3d0808",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_household_mirror.py",
+      "destination": "src/wia/authoring/commands/build_wia_household_mirror.py",
+      "source_sha256": "a3f6b793cd3942cc33dc0e04b6cec5d77e9a0b7491b37a47da429c8d4e27faad",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_mirror.py",
+      "destination": "src/wia/authoring/commands/build_wia_mirror.py",
+      "source_sha256": "6adb9ac0c3fc945276a0efdc553f49c3c63acbec616893a9a7f43dc77148b5de",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_ramp_calibration.py",
+      "destination": "src/wia/authoring/commands/build_wia_ramp_calibration.py",
+      "source_sha256": "f8c18c7b63e1112f480ebbbab99845ade502e2b930400a4fd6e8b8e6243bcc2c",
+      "external_or_historical_path_lines": [
+        "Regenerate with the [builder](/local_home2/zhouxinyang/models/Show-Harness-Explore/scripts/build_wia_ramp_calibration.py): `python -B scripts/build_wia_ramp_calibration.py`. Append `--check` for a deterministic no-write comparison or use `--output-dir /tmp/wia-ramp-candidates` for a separate copy. Existing unrelated files are never deleted or overwritten. The generator performs no native, GPU or Agent experiments and leaves the original task, scene, source and WIA registry unchanged.",
+        "Run the [CPU bookkeeping tests](/local_home2/zhouxinyang/models/Show-Harness-Explore/tests/test_wia_ramp_calibration.py) with `python -B -m pytest -q -p no:cacheprovider tests/test_wia_ramp_calibration.py`. These checks validate the single-factor configuration and public-payload equality; they do not qualify physical outcomes."
+      ]
+    },
+    {
+      "source": "scripts/build_wia_regional_t11.py",
+      "destination": "src/wia/authoring/commands/build_wia_regional_t11.py",
+      "source_sha256": "ddc1ce8a1a6d590f7ae458a519044fe5adbead566617a5e53258bff36f327991",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_registry.py",
+      "destination": "src/wia/authoring/commands/build_wia_registry.py",
+      "source_sha256": "50bf8a25bbdf5237b2a9e105ac831463b4d7d72dc518f0063854655dc09eac67",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_review.py",
+      "destination": "src/wia/authoring/commands/build_wia_review.py",
+      "source_sha256": "a8bfc9c8012a75086198cca02cdaee40bdb2690081d5e326021b9b466a9d7c55",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_rigid_family.py",
+      "destination": "src/wia/authoring/commands/build_wia_rigid_family.py",
+      "source_sha256": "80799b97c3282ab7bb2cf41b6299a757fc01555333f8d9bbc5a70eeda5b864dc",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_rigid_native_support_revisions.py",
+      "destination": "src/wia/authoring/commands/build_wia_rigid_native_support_revisions.py",
+      "source_sha256": "3618543abf7415c8b7ea691c71d4d1e1b0818655ec410c779416204f3bdb5010",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_rigid_pilot.py",
+      "destination": "src/wia/authoring/commands/build_wia_rigid_pilot.py",
+      "source_sha256": "6cbe6b967113bb776fd37a9e455415fab6db6c0d0f92c93c590fcc8d8aa9e043",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_room_collection.py",
+      "destination": "src/wia/authoring/commands/build_wia_room_collection.py",
+      "source_sha256": "d4218897d4eb6b1aada11404c3ee238b2b2c3ae90bd5092694a803a2e50010da",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_spatial_tray.py",
+      "destination": "src/wia/authoring/commands/build_wia_spatial_tray.py",
+      "source_sha256": "be0f641eb7f44096a33dcbd230aef32a336c9b3af45ba1a3c7f69bef53f2b298",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_temporal_pairs.py",
+      "destination": "src/wia/authoring/commands/build_wia_temporal_pairs.py",
+      "source_sha256": "344efb8a93fc9cd855833b7813a1a3828281065364f62fc790437133c041ab33",
+      "external_or_historical_path_lines": [
+        "ASSET_ROOT = Path('/local_home2/zhouxinyang/data/behavior/behavior-1k-assets')"
+      ]
+    },
+    {
+      "source": "scripts/build_wia_temporal_posture_v2.py",
+      "destination": "src/wia/authoring/commands/build_wia_temporal_posture_v2.py",
+      "source_sha256": "9a8a929e654f419d4de4a52182230f80c7413d3096c50f7d3f0c13c6c95fc1ce",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_temporal_scene_variants.py",
+      "destination": "src/wia/authoring/commands/build_wia_temporal_scene_variants.py",
+      "source_sha256": "249525b20aba348d8abaa8359d896d4dae3d612cc7fc42455f6a4b345974818f",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_temporal_start_v3.py",
+      "destination": "src/wia/authoring/commands/build_wia_temporal_start_v3.py",
+      "source_sha256": "5f1a002dcd4ea9e1b0cd5520c0359b129840f58293eb35e9a60674cbc4eda666",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_variant_capture_records.py",
+      "destination": "src/wia/authoring/commands/build_wia_variant_capture_records.py",
+      "source_sha256": "067c645bcc34c3347870e11ea66b23e5351c57fcad51700b2b1cc401442fc81a",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_workstation_capture_records.py",
+      "destination": "src/wia/authoring/commands/build_wia_workstation_capture_records.py",
+      "source_sha256": "92b3bdf5bb7440108f943c75af5075e7a9c63109f9f5b03fd36e1fe88398090d",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/build_wia_workstation_variants.py",
+      "destination": "src/wia/authoring/commands/build_wia_workstation_variants.py",
+      "source_sha256": "b0837648bf60aa1f203f8ef1b9eae8ac59e19f2fad11498ee9a917c0839d49c9",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/design_wia_collection_round.py",
+      "destination": "src/wia/authoring/commands/design_wia_collection_round.py",
+      "source_sha256": "180b50214d75d3d76f30aecd2349a69b2351236e93bb7b104341b8b9bb63e363",
+      "external_or_historical_path_lines": [
+        "Run: /local_home2/zhouxinyang/miniconda3/envs/behavior/bin/python -B \\",
+        "ASSETS = Path('/local_home2/zhouxinyang/data/behavior/behavior-1k-assets')"
+      ]
+    },
+    {
+      "source": "scripts/design_wia_existing_round.py",
+      "destination": "src/wia/authoring/commands/design_wia_existing_round.py",
+      "source_sha256": "cad4dc39b78976ce342cb438115f81760d04a421f2fb7bac02c568b0b214f978",
+      "external_or_historical_path_lines": [
+        "Run: /local_home2/zhouxinyang/miniconda3/envs/behavior/bin/python -B"
+      ]
+    },
+    {
+      "source": "scripts/design_wia_furnished_round.py",
+      "destination": "src/wia/authoring/commands/design_wia_furnished_round.py",
+      "source_sha256": "2a72fb1bdf62ae8d0b239011ac70a9cd64cf3711a4ee739dbf6bb530829e9695",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/design_wia_household_round.py",
+      "destination": "src/wia/authoring/commands/design_wia_household_round.py",
+      "source_sha256": "0291a631d1686969217c308dc907772cfc57f62829b8c15f3306f8c60535d887",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/design_wia_produce_mirror.py",
+      "destination": "src/wia/authoring/commands/design_wia_produce_mirror.py",
+      "source_sha256": "e66cfb14935cbf562b0f7c9ef5f92def489dbb6959b00c44dfd75911ca4f35ac",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/design_wia_review_revisions.py",
+      "destination": "src/wia/authoring/commands/design_wia_review_revisions.py",
+      "source_sha256": "56b02f5b3633f1ff56f2a807aa3a96f600fa3828bf96f3afce6de5f6bfefc6b6",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/design_wia_rigid_furnished.py",
+      "destination": "src/wia/authoring/commands/design_wia_rigid_furnished.py",
+      "source_sha256": "9638ab5ebb5f4da82ab25113455cab74e3408d03e920ae4bb0a1cc6ef2c5bcac",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/design_wia_temporal_round.py",
+      "destination": "src/wia/authoring/commands/design_wia_temporal_round.py",
+      "source_sha256": "4e4fb02785e051448719628d30febb32e3f103708829683357901e80051ff841",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/inspect_wia_furnished_assets.py",
+      "destination": "src/wia/authoring/commands/inspect_wia_furnished_assets.py",
+      "source_sha256": "90b9669535a444472987fe9a99c88ed2eb8d55c149e873b663b0fc976a79dce6",
+      "external_or_historical_path_lines": [
+        "ASSETS = Path('/local_home2/zhouxinyang/data/behavior')"
+      ]
+    },
+    {
+      "source": "scripts/plot_wia_collection_layouts.py",
+      "destination": "src/wia/authoring/commands/plot_wia_collection_layouts.py",
+      "source_sha256": "2aba2f18d5b78d18586c93f34459cb3677b127b4f68dcd86621fb6ff0520e9da",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/report_wia_furnished_round.py",
+      "destination": "src/wia/authoring/commands/report_wia_furnished_round.py",
+      "source_sha256": "b4047aba4e6309c4d004d6ef698a05a42b7fda1868eed118566d5d1c6107fdab",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/report_wia_review_revisions.py",
+      "destination": "src/wia/authoring/commands/report_wia_review_revisions.py",
+      "source_sha256": "5021484d8b58fc55cec1d7264a4c7141e25a485314e4011b6893f02c7e08ba30",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/revise_wia_appearance_framing.py",
+      "destination": "src/wia/authoring/commands/revise_wia_appearance_framing.py",
+      "source_sha256": "254a5e763aac95c0965156706a54b5d048a979ebd5505ca84dccdc1f6c87291b",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/revise_wia_appearance_produce_framing.py",
+      "destination": "src/wia/authoring/commands/revise_wia_appearance_produce_framing.py",
+      "source_sha256": "d791b4bb9706024af9fd50fa7c67cd4f65dad7e7af2db91c680ea7a21b4e1414",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/revise_wia_household_assets.py",
+      "destination": "src/wia/authoring/commands/revise_wia_household_assets.py",
+      "source_sha256": "e37819223479741e8e696352fd9238c0764198a0e1b39291ef8fa3afea7bc520",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/revise_wia_household_furnished.py",
+      "destination": "src/wia/authoring/commands/revise_wia_household_furnished.py",
+      "source_sha256": "b869135a7bbc388e64efdf41ed23d6492acbfd537027ab9efa8aa14e5533db42",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/revise_wia_mirror_seed202_clearance.py",
+      "destination": "src/wia/authoring/commands/revise_wia_mirror_seed202_clearance.py",
+      "source_sha256": "2159adc441bf749db7645bfacb83b4792080bae915d3be8dfb5a75ea1ebaa871",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/revise_wia_spatial_furnished.py",
+      "destination": "src/wia/authoring/commands/revise_wia_spatial_furnished.py",
+      "source_sha256": "7cbf1162c2e9af03f96dbce641cacfeb9033ae2cc0b76856977c9e53212ff243",
+      "external_or_historical_path_lines": []
+    },
+    {
+      "source": "scripts/revise_wia_spatial_supports.py",
+      "destination": "src/wia/authoring/commands/revise_wia_spatial_supports.py",
+      "source_sha256": "ffe1af20fc2dc380ab111f62650be83c1e095d03b4be565b77819de5a21925df",
+      "external_or_historical_path_lines": [
+        "Run: /local_home2/zhouxinyang/miniconda3/envs/behavior/bin/python -B"
+      ]
+    }
+  ],
+  "artifact_root": {
+    "environment": "WIA_ARTIFACT_ROOT",
+    "default": "WIA checkout outputs directory",
+    "policy": "Required historical inventory, geometry and calibration inputs are not copied or downloaded; dictionary inputs are loaded lazily with actionable missing-file errors."
+  },
+  "historical_input_files": [
+    "docs/research/world_interactive_agency_v1/task_recheck_61.csv",
+    "outputs/wia_v1_20261024_furnished/asset_inventory/*.json",
+    "outputs/wia_v1_20261025_revision/assets.json",
+    "outputs/wia_v1_20261023/capture_campaign/queue/jobs/capture_b6e079233b9e09ca93dab9c4a43f0d7a/attempts/01/preview_complete.json",
+    "outputs/shared_control_runtime_20261026/family/tray_p1/probe/result.json",
+    "outputs/wia_v1_20261025_revision/rigid_inventory/*.json"
+  ],
+  "optional_execution_dependencies": {
+    "design_wia_collection_round": [
+      "cv2"
+    ],
+    "plot_wia_collection_layouts": [
+      "matplotlib"
+    ],
+    "inspect_wia_furnished_assets": [
+      "pxr",
+      "cryptography",
+      "externally installed Isaac USD libraries"
+    ]
+  },
+  "identifier_policy": "Imports use canonical wia modules. Historical core.tasks/core.esi_converters module identifiers stored in task definitions, manifests and provenance are retained verbatim; runtime import translation belongs to the vetted module resolver.",
+  "native_library_bootstrap": "inspect_wia_furnished_assets retains its execution-only sys.path integration for externally installed Isaac USD Python libraries; authoring package imports never modify sys.path."
+}

@@ -1,0 +1,635 @@
+{
+  "schema": "wia_room_collection_design_v1",
+  "main_authored": true,
+  "native_validation_run": false,
+  "physical_success_verified": false,
+  "entries": [
+    {
+      "document_alias": "T07",
+      "variant_id": "t07_furnished_collection_v9",
+      "label": "T07 furnished room collection V9 (native grasp-ray initialization anchor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/corev2__category_bb85ad2d7d19a7fdde23a2a0.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/corev2__category_bb85ad2d7d19a7fdde23a2a0.yaml",
+      "scene_inventory_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261024_furnished/asset_inventory/Beechwood_0_int.json",
+      "room": "full_scene",
+      "layout": {
+        "scene_model": "Beechwood_0_int",
+        "native_inventory": [],
+        "added_inventory": [
+          {
+            "name": "wia_t07_target_01",
+            "category": "banana",
+            "model": "znakxm",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "role": "target",
+            "room": "living_room_0",
+            "public_name": "banana",
+            "support": "coffee_table_qlmqyy_0",
+            "position": [
+              3.85,
+              -8.0,
+              0.6521425913109691
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "name": "wia_t07_target_02",
+            "category": "marjoram_shaker",
+            "model": "xlspnl",
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ],
+            "role": "target",
+            "room": "kitchen_0",
+            "public_name": "small marjoram shaker",
+            "support": "countertop_tpuwys_0",
+            "position": [
+              0.35,
+              -5.4,
+              1.12
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "name": "wia_t07_target_03",
+            "category": "cola_bottle",
+            "model": "oyqdtz",
+            "scale": [
+              0.65,
+              0.65,
+              0.65
+            ],
+            "role": "target",
+            "room": "corridor_0",
+            "public_name": "miniature cola bottle",
+            "support": "wia_t07_corridor_open_shelf",
+            "position": [
+              1.8,
+              -3.6,
+              1.01
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "name": "wia_t07_target_04",
+            "category": "box_of_oatmeal",
+            "model": "jtqeef",
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "role": "target",
+            "room": "private_office_0",
+            "public_name": "miniature oatmeal box",
+            "support": "desk_rzyfxk_1",
+            "position": [
+              6.2,
+              -3.2,
+              1.028614484029041
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "support_surface_mode": "local_raycast",
+            "support_alignment_mode": "local_raycast"
+          },
+          {
+            "name": "wia_t07_target_05",
+            "category": "pepper_grinder",
+            "model": "tfoogy",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "role": "target",
+            "room": "utility_room_0",
+            "public_name": "pepper grinder",
+            "support": "bottom_cabinet_slgzfc_0",
+            "position": [
+              4.35,
+              0.4,
+              1.1441997753784308
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "name": "wia_t07_target_06",
+            "category": "bottle_of_orange_juice",
+            "model": "edltwh",
+            "scale": [
+              0.7,
+              0.7,
+              0.7
+            ],
+            "role": "target",
+            "room": "storage_room_1",
+            "public_name": "miniature orange juice bottle",
+            "support": "wia_t07_storage_open_shelf",
+            "position": [
+              6.2,
+              0.3,
+              1.01
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "support_objects": [
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_t07_corridor_open_shelf",
+            "category": "shelf",
+            "position": [
+              1.8,
+              -3.6,
+              0.74
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              0.45,
+              0.28,
+              0.04
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.48,
+              0.32,
+              0.18,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_t07_storage_open_shelf",
+            "category": "shelf",
+            "position": [
+              6.2,
+              0.3,
+              0.74
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              0.45,
+              0.28,
+              0.04
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.48,
+              0.32,
+              0.18,
+              1.0
+            ]
+          }
+        ],
+        "route": [
+          "living_room_0",
+          "kitchen_0",
+          "corridor_0",
+          "private_office_0",
+          "utility_room_0",
+          "storage_room_1"
+        ],
+        "plate": {
+          "name": "collection_plate",
+          "category": "tray",
+          "model": "gsxbym",
+          "right_eef_position_base_m": [
+            0.4,
+            -0.25,
+            0.8
+          ],
+          "rim_axis": "y",
+          "rim_penetration_m": 0.025,
+          "usable_bounds_local_m": [
+            [
+              -0.147,
+              -0.21,
+              -0.0049
+            ],
+            [
+              0.147,
+              0.21,
+              0.17
+            ]
+          ],
+          "pinch_reference": "native_assisted_grasp_ray_center"
+        },
+        "robot_start": {
+          "position": [
+            4.5,
+            -7.0,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.9238795325112867,
+            0.38268343236508984
+          ]
+        },
+        "source_objects_policy": "replace_authored_source_objects",
+        "scene_config": {
+          "load_room_instances": null,
+          "load_room_types": null,
+          "load_object_categories": null,
+          "not_load_object_categories": null
+        },
+        "public_environment": "Original furnished rooms and doors, with objects on openly exposed supporting surfaces.",
+        "allow_authored_navigation_inventory": true
+      },
+      "main_authored_layout": true,
+      "static_target_room_segmentation_checked": true,
+      "native_validation_run": false,
+      "native_support_verified": false,
+      "native_robot_feasibility_verified": false,
+      "physical_success_verified": false,
+      "original_source_qa_unused": true,
+      "operation": "visit_rooms_and_collect_on_right_hand_tray",
+      "source_identity": "Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/t07_furnished_collection_v9.json",
+      "version": 9,
+      "review_notes": [
+        "Adds native robot floor/upright/obstacle initialization evidence; task actions remain untested.",
+        "Use the existing structured PhysX contact-vector decoder; thresholds and layout are unchanged from V3. Tray setup failure diagnostics are retained without automatic retries.",
+        "V6 preserves the original live 1.0 m segmentation configuration, original route and robot start; target neighborhoods are checked on CPU at that explicit resolution, not confirmed by a native run.",
+        "V9 is based directly on V6 and adds only plate.pinch_reference = native_assisted_grasp_ray_center. The original yaw 135 degrees, rim_penetration_m = 0.025 m, start, physical room route, targets, supports, scales, orientations, policies, controller settings, physics, ray definitions and task criteria remain unchanged. The initializer reads the installed native assisted-grasp start and end points on the right hand, transforms every local point by its current native link pose, and uses the mean of all resulting world points as the tray-rim pinch anchor. The hypothesis is that using the actual native grasp-ray volume avoids dependence on a fingertip-distance approximation. Pose variants had empty native grasp-ray candidate sets despite both-finger tray contacts; this does not establish the cause. Native confirmation remains pending. No grasp calculation, attachment, manual joint, retry, ray update or acceptance relaxation is introduced; the existing closure and settling procedure remains unchanged."
+      ],
+      "native_grasp_ray_anchor_provenance": {
+        "parent_design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/collection_navigation_design_v6.json",
+        "parent_design_sha256": "32c1f8d7aa0dbfaad37704c0ee54d5f7dcc8dbce052d27ec7ddfaf6b706d4637",
+        "parent_variant_id": "t07_furnished_collection_v6",
+        "change": {
+          "parameter": "layout.plate.pinch_reference",
+          "previous_effective_value": "eef_fingertip",
+          "requested_value": "native_assisted_grasp_ray_center"
+        },
+        "hypothesis": "V9 is based directly on V6 and adds only plate.pinch_reference = native_assisted_grasp_ray_center. The original yaw 135 degrees, rim_penetration_m = 0.025 m, start, physical room route, targets, supports, scales, orientations, policies, controller settings, physics, ray definitions and task criteria remain unchanged. The initializer reads the installed native assisted-grasp start and end points on the right hand, transforms every local point by its current native link pose, and uses the mean of all resulting world points as the tray-rim pinch anchor. The hypothesis is that using the actual native grasp-ray volume avoids dependence on a fingertip-distance approximation. Pose variants had empty native grasp-ray candidate sets despite both-finger tray contacts; this does not establish the cause. Native confirmation remains pending. No grasp calculation, attachment, manual joint, retry, ray update or acceptance relaxation is introduced; the existing closure and settling procedure remains unchanged.",
+        "native_confirmation": false,
+        "native_validation_run": false,
+        "physical_success_verified": false
+      }
+    }
+  ],
+  "revision_evidence": {
+    "parent_design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/collection_design_v4.json",
+    "parent_design_sha256": "496e2cf128a8f486a7042fdc568e2afb7df27937c5afa1c41dcdbd27a0c8633d",
+    "diagnosis": "Main-agent native review found the original R1 segmentation map uses 1.0 m, while historical helper checks assumed 0.1 m. Historical 0.1 m checks are not native map confirmation. Live map configuration and room thresholds remain unchanged.",
+    "storage_room_naming": {
+      "scene": "Beechwood_0_int",
+      "raw_room_instance_id": 11,
+      "native_map_resolution_m": 1.0,
+      "native_room_name": "storage_room_1",
+      "fine_map_resolution_m": 0.1,
+      "fine_room_name": "storage_room_2",
+      "cause": "Raw storage room instance ID 10 disappears during native 1.0 m nearest-neighbor resize; raw ID 11 is therefore named storage_room_1 at runtime. The north storage placement and original route are intentional."
+    },
+    "neighborhood_checks": [
+      {
+        "document_alias": "T07",
+        "target": "wia_t07_target_01",
+        "world_xy_m": [
+          3.85,
+          -8.0
+        ],
+        "required_room": "living_room_0",
+        "map_resolution_m": 1.0,
+        "neighborhood_offsets_m": [
+          -0.12,
+          0.0,
+          0.12
+        ],
+        "samples": 9,
+        "labels": [
+          "living_room_0",
+          "living_room_0",
+          "living_room_0",
+          "living_room_0",
+          "living_room_0",
+          "living_room_0",
+          "living_room_0",
+          "living_room_0",
+          "living_room_0"
+        ],
+        "fine_0_1_m_label": "living_room_0"
+      },
+      {
+        "document_alias": "T07",
+        "target": "wia_t07_target_02",
+        "world_xy_m": [
+          0.35,
+          -5.4
+        ],
+        "required_room": "kitchen_0",
+        "map_resolution_m": 1.0,
+        "neighborhood_offsets_m": [
+          -0.12,
+          0.0,
+          0.12
+        ],
+        "samples": 9,
+        "labels": [
+          "kitchen_0",
+          "kitchen_0",
+          "kitchen_0",
+          "kitchen_0",
+          "kitchen_0",
+          "kitchen_0",
+          "kitchen_0",
+          "kitchen_0",
+          "kitchen_0"
+        ],
+        "fine_0_1_m_label": "kitchen_0"
+      },
+      {
+        "document_alias": "T07",
+        "target": "wia_t07_target_03",
+        "world_xy_m": [
+          1.8,
+          -3.6
+        ],
+        "required_room": "corridor_0",
+        "map_resolution_m": 1.0,
+        "neighborhood_offsets_m": [
+          -0.12,
+          0.0,
+          0.12
+        ],
+        "samples": 9,
+        "labels": [
+          "corridor_0",
+          "corridor_0",
+          "corridor_0",
+          "corridor_0",
+          "corridor_0",
+          "corridor_0",
+          "corridor_0",
+          "corridor_0",
+          "corridor_0"
+        ],
+        "fine_0_1_m_label": "corridor_0"
+      },
+      {
+        "document_alias": "T07",
+        "target": "wia_t07_target_04",
+        "world_xy_m": [
+          6.2,
+          -3.2
+        ],
+        "required_room": "private_office_0",
+        "map_resolution_m": 1.0,
+        "neighborhood_offsets_m": [
+          -0.12,
+          0.0,
+          0.12
+        ],
+        "samples": 9,
+        "labels": [
+          "private_office_0",
+          "private_office_0",
+          "private_office_0",
+          "private_office_0",
+          "private_office_0",
+          "private_office_0",
+          "private_office_0",
+          "private_office_0",
+          "private_office_0"
+        ],
+        "fine_0_1_m_label": "private_office_0"
+      },
+      {
+        "document_alias": "T07",
+        "target": "wia_t07_target_05",
+        "world_xy_m": [
+          4.35,
+          0.4
+        ],
+        "required_room": "utility_room_0",
+        "map_resolution_m": 1.0,
+        "neighborhood_offsets_m": [
+          -0.12,
+          0.0,
+          0.12
+        ],
+        "samples": 9,
+        "labels": [
+          "utility_room_0",
+          "utility_room_0",
+          "utility_room_0",
+          "utility_room_0",
+          "utility_room_0",
+          "utility_room_0",
+          "utility_room_0",
+          "utility_room_0",
+          "utility_room_0"
+        ],
+        "fine_0_1_m_label": "utility_room_0"
+      },
+      {
+        "document_alias": "T07",
+        "target": "wia_t07_target_06",
+        "world_xy_m": [
+          6.2,
+          0.3
+        ],
+        "required_room": "storage_room_1",
+        "map_resolution_m": 1.0,
+        "neighborhood_offsets_m": [
+          -0.12,
+          0.0,
+          0.12
+        ],
+        "samples": 9,
+        "labels": [
+          "storage_room_1",
+          "storage_room_1",
+          "storage_room_1",
+          "storage_room_1",
+          "storage_room_1",
+          "storage_room_1",
+          "storage_room_1",
+          "storage_room_1",
+          "storage_room_1"
+        ],
+        "fine_0_1_m_label": "storage_room_2"
+      },
+      {
+        "document_alias": "T08",
+        "target": "wia_t08_target_01",
+        "world_xy_m": [
+          -23.0,
+          -12.0
+        ],
+        "required_room": "bathroom_0",
+        "map_resolution_m": 1.0,
+        "neighborhood_offsets_m": [
+          -0.12,
+          0.0,
+          0.12
+        ],
+        "samples": 9,
+        "labels": [
+          "bathroom_0",
+          "bathroom_0",
+          "bathroom_0",
+          "bathroom_0",
+          "bathroom_0",
+          "bathroom_0",
+          "bathroom_0",
+          "bathroom_0",
+          "bathroom_0"
+        ],
+        "fine_0_1_m_label": "bathroom_0"
+      },
+      {
+        "document_alias": "T08",
+        "target": "wia_t08_target_02",
+        "world_xy_m": [
+          -18.4,
+          -10.15
+        ],
+        "required_room": "shared_office_0",
+        "map_resolution_m": 1.0,
+        "neighborhood_offsets_m": [
+          -0.12,
+          0.0,
+          0.12
+        ],
+        "samples": 9,
+        "labels": [
+          "shared_office_0",
+          "shared_office_0",
+          "shared_office_0",
+          "shared_office_0",
+          "shared_office_0",
+          "shared_office_0",
+          "shared_office_0",
+          "shared_office_0",
+          "shared_office_0"
+        ],
+        "fine_0_1_m_label": "shared_office_0"
+      },
+      {
+        "document_alias": "T08",
+        "target": "wia_t08_target_03",
+        "world_xy_m": [
+          -11.0,
+          9.6
+        ],
+        "required_room": "corridor_0",
+        "map_resolution_m": 1.0,
+        "neighborhood_offsets_m": [
+          -0.12,
+          0.0,
+          0.12
+        ],
+        "samples": 9,
+        "labels": [
+          "corridor_0",
+          "corridor_0",
+          "corridor_0",
+          "corridor_0",
+          "corridor_0",
+          "corridor_0",
+          "corridor_0",
+          "corridor_0",
+          "corridor_0"
+        ],
+        "fine_0_1_m_label": "corridor_0"
+      },
+      {
+        "document_alias": "T08",
+        "target": "wia_t08_target_04",
+        "world_xy_m": [
+          -1.0,
+          12.0
+        ],
+        "required_room": "conference_hall_0",
+        "map_resolution_m": 1.0,
+        "neighborhood_offsets_m": [
+          -0.12,
+          0.0,
+          0.12
+        ],
+        "samples": 9,
+        "labels": [
+          "conference_hall_0",
+          "conference_hall_0",
+          "conference_hall_0",
+          "conference_hall_0",
+          "conference_hall_0",
+          "conference_hall_0",
+          "conference_hall_0",
+          "conference_hall_0",
+          "conference_hall_0"
+        ],
+        "fine_0_1_m_label": "conference_hall_0"
+      }
+    ],
+    "validation_scope": "CPU static map and definition checks only. Native support, access, initialization and task execution remain pending.",
+    "native_validation_run": false,
+    "physical_success_verified": false,
+    "T07_V9_native_grasp_ray_anchor": {
+      "parent_design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/collection_navigation_design_v6.json",
+      "parent_design_sha256": "32c1f8d7aa0dbfaad37704c0ee54d5f7dcc8dbce052d27ec7ddfaf6b706d4637",
+      "parent_variant_id": "t07_furnished_collection_v6",
+      "change": {
+        "parameter": "layout.plate.pinch_reference",
+        "previous_effective_value": "eef_fingertip",
+        "requested_value": "native_assisted_grasp_ray_center"
+      },
+      "hypothesis": "V9 is based directly on V6 and adds only plate.pinch_reference = native_assisted_grasp_ray_center. The original yaw 135 degrees, rim_penetration_m = 0.025 m, start, physical room route, targets, supports, scales, orientations, policies, controller settings, physics, ray definitions and task criteria remain unchanged. The initializer reads the installed native assisted-grasp start and end points on the right hand, transforms every local point by its current native link pose, and uses the mean of all resulting world points as the tray-rim pinch anchor. The hypothesis is that using the actual native grasp-ray volume avoids dependence on a fingertip-distance approximation. Pose variants had empty native grasp-ray candidate sets despite both-finger tray contacts; this does not establish the cause. Native confirmation remains pending. No grasp calculation, attachment, manual joint, retry, ray update or acceptance relaxation is introduced; the existing closure and settling procedure remains unchanged.",
+      "native_confirmation": false,
+      "native_validation_run": false,
+      "physical_success_verified": false
+    }
+  }
+}

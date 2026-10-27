@@ -1,0 +1,22 @@
+{
+  "head_rgb": true,
+  "wrist_rgb": true,
+  "additional_robot_rgb": true,
+  "trunk_state": true,
+  "ee_pose_in_base": true,
+  "gripper_width": true,
+  "gripper_command": true,
+  "gripper_joint_state": true,
+  "base_odometry": true,
+  "holding_estimate": true,
+  "gripper_contact": true,
+  "action_feedback": true,
+  "recent_history": true,
+  "head_depth": true,
+  "wrist_depth": true,
+  "lidar": true,
+  "force_torque": true,
+  "tactile": true,
+  "perception": true,
+  "camera_geometry": true
+}

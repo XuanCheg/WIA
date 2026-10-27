@@ -1,0 +1,521 @@
+{
+  "status": "accepted_minimal_patch",
+  "reason": null,
+  "checks": {
+    "target_movable_collidable": true,
+    "supports": {
+      "table": {
+        "name": "support_table_top",
+        "fixed_base": true,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "passed": true
+      },
+      "pickup_support": {
+        "name": "coffee_table_gcollb_0",
+        "fixed_base": false,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "passed": true
+      }
+    },
+    "supported_objects": {
+      "target": {
+        "name": "obj_containee",
+        "support_binding": "pickup_support",
+        "support_name": "coffee_table_gcollb_0",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          3.3102450370788574,
+          1.0094480514526367,
+          0.46327245235443115
+        ],
+        "aabb_min": [
+          2.837517023086548,
+          0.7104708552360535,
+          0.46327224373817444
+        ],
+        "aabb_max": [
+          3.001610279083252,
+          0.9128217101097107,
+          0.53990238904953
+        ],
+        "support_surface_z_m": 0.4632721245288849,
+        "bottom_minus_support_top_m": 1.1920928955078125e-07,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/coffee_table_gcollb_0/base_link",
+            "body1": "/World/scene_0/obj_containee/base_link"
+          },
+          {
+            "body0": "/World/scene_0/coffee_table_gcollb_0/base_link",
+            "body1": "/World/scene_0/obj_containee/base_link"
+          },
+          {
+            "body0": "/World/scene_0/coffee_table_gcollb_0/base_link",
+            "body1": "/World/scene_0/obj_containee/base_link"
+          },
+          {
+            "body0": "/World/scene_0/coffee_table_gcollb_0/base_link",
+            "body1": "/World/scene_0/obj_containee/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "container_2": {
+        "name": "obj_container_2",
+        "support_binding": "table",
+        "support_name": "support_table_top",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          2.32297682762146,
+          0.8649135231971741,
+          0.45000001788139343
+        ],
+        "aabb_min": [
+          1.9974497556686401,
+          0.1458239108324051,
+          0.4499993324279785
+        ],
+        "aabb_max": [
+          2.2756097316741943,
+          0.4861665666103363,
+          0.5761390924453735
+        ],
+        "support_surface_z_m": 0.45000001788139343,
+        "bottom_minus_support_top_m": -6.854534149169922e-07,
+        "linear_speed_m_s": 0.0005331886350177228,
+        "angular_speed_rad_s": 0.010100425221025944,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_container_2/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_2/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_2/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_2/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "container_1": {
+        "name": "obj_container_1",
+        "support_binding": "table",
+        "support_name": "support_table_top",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          2.32297682762146,
+          0.8649135231971741,
+          0.45000001788139343
+        ],
+        "aabb_min": [
+          2.0235719680786133,
+          0.5467038154602051,
+          0.44999921321868896
+        ],
+        "aabb_max": [
+          2.248725175857544,
+          0.8234644532203674,
+          0.5551509857177734
+        ],
+        "support_surface_z_m": 0.45000001788139343,
+        "bottom_minus_support_top_m": -8.046627044677734e-07,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "container_0": {
+        "name": "obj_container_0",
+        "support_binding": "table",
+        "support_name": "support_table_top",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          2.32297682762146,
+          0.8649135231971741,
+          0.45000001788139343
+        ],
+        "aabb_min": [
+          1.7813538312911987,
+          0.2396010160446167,
+          0.44999998807907104
+        ],
+        "aabb_max": [
+          1.9285513162612915,
+          0.42107459902763367,
+          0.5178141593933105
+        ],
+        "support_surface_z_m": 0.45000001788139343,
+        "bottom_minus_support_top_m": -2.9802322387695312e-08,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          }
+        ],
+        "passed": true
+      }
+    },
+    "floor_aabb_max_z_m": 1.9371509552001953e-07,
+    "table_leg_floor_gaps_m": {
+      "support_table_leg_1": -1.9371509552001953e-07,
+      "support_table_leg_2": -1.9371509552001953e-07,
+      "support_table_leg_3": -1.9371509552001953e-07,
+      "support_table_leg_4": -1.9371509552001953e-07
+    },
+    "table_leg_local_floor_surfaces": {
+      "support_table_leg_1": {
+        "position": [
+          1.7729767560958862,
+          0.14491352438926697,
+          1.9371509552001953e-07
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_mcivwr_0/base_link"
+      },
+      "support_table_leg_2": {
+        "position": [
+          1.7729767560958862,
+          0.824913501739502,
+          1.9371509552001953e-07
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_mcivwr_0/base_link"
+      },
+      "support_table_leg_3": {
+        "position": [
+          2.2829766273498535,
+          0.14491352438926697,
+          1.9371509552001953e-07
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_mcivwr_0/base_link"
+      },
+      "support_table_leg_4": {
+        "position": [
+          2.2829766273498535,
+          0.824913501739502,
+          1.9371509552001953e-07
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_mcivwr_0/base_link"
+      }
+    },
+    "robot_nonfloor_contacts": [],
+    "furniture_aabb_overlap_candidates": []
+  },
+  "applied_scene_patches": [
+    {
+      "operation": "robot_pose",
+      "phase": "before_construction",
+      "position": [
+        1.2829767215251922,
+        0.48491351678967476,
+        0.1
+      ],
+      "yaw_deg": 0.0,
+      "heading_offsets_deg": [
+        0.0
+      ],
+      "jitter_xy_m": [
+        0.0,
+        0.0
+      ],
+      "head_pitch_deg": 0.0
+    },
+    {
+      "operation": "add_primitive",
+      "phase": "before_construction",
+      "name": "support_table_top",
+      "primitive_type": "Cube",
+      "position": [
+        2.0279767215251923,
+        0.48491351678967476,
+        0.43
+      ],
+      "dimensions_m": [
+        0.59,
+        0.76,
+        0.04
+      ],
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rgba": [
+        0.48,
+        0.29,
+        0.14,
+        1.0
+      ],
+      "shared_jitter_x_m": 0.0
+    },
+    {
+      "operation": "add_primitive",
+      "phase": "before_construction",
+      "name": "support_table_leg_1",
+      "primitive_type": "Cube",
+      "position": [
+        1.7729767215251921,
+        0.14491351678967473,
+        0.20500000000000002
+      ],
+      "dimensions_m": [
+        0.035,
+        0.035,
+        0.41000000000000003
+      ],
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rgba": [
+        0.3,
+        0.2,
+        0.12,
+        1.0
+      ],
+      "shared_jitter_x_m": 0.0
+    },
+    {
+      "operation": "add_primitive",
+      "phase": "before_construction",
+      "name": "support_table_leg_2",
+      "primitive_type": "Cube",
+      "position": [
+        1.7729767215251921,
+        0.8249135167896748,
+        0.20500000000000002
+      ],
+      "dimensions_m": [
+        0.035,
+        0.035,
+        0.41000000000000003
+      ],
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rgba": [
+        0.3,
+        0.2,
+        0.12,
+        1.0
+      ],
+      "shared_jitter_x_m": 0.0
+    },
+    {
+      "operation": "add_primitive",
+      "phase": "before_construction",
+      "name": "support_table_leg_3",
+      "primitive_type": "Cube",
+      "position": [
+        2.282976721525192,
+        0.14491351678967473,
+        0.20500000000000002
+      ],
+      "dimensions_m": [
+        0.035,
+        0.035,
+        0.41000000000000003
+      ],
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rgba": [
+        0.3,
+        0.2,
+        0.12,
+        1.0
+      ],
+      "shared_jitter_x_m": 0.0
+    },
+    {
+      "operation": "add_primitive",
+      "phase": "before_construction",
+      "name": "support_table_leg_4",
+      "primitive_type": "Cube",
+      "position": [
+        2.282976721525192,
+        0.8249135167896748,
+        0.20500000000000002
+      ],
+      "dimensions_m": [
+        0.035,
+        0.035,
+        0.41000000000000003
+      ],
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rgba": [
+        0.3,
+        0.2,
+        0.12,
+        1.0
+      ],
+      "shared_jitter_x_m": 0.0
+    },
+    {
+      "operation": "object_pose",
+      "phase": "after_postprocessing",
+      "binding": "container_0",
+      "position": [
+        1.8550237667560576,
+        0.316533041447401,
+        0.4834043143987656
+      ],
+      "candidates": [],
+      "quaternion_xyzw": [
+        1.6880219652626534e-08,
+        -7.79982563259295e-09,
+        4.8210489404441126e-08,
+        0.9999999999999987
+      ],
+      "jitter_xy_m": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "operation": "object_pose",
+      "phase": "after_postprocessing",
+      "binding": "container_1",
+      "position": [
+        2.1361502039432523,
+        0.6850845094025135,
+        0.48556291896104814
+      ],
+      "candidates": [],
+      "quaternion_xyzw": [
+        -2.5309982447464207e-06,
+        2.9034865747019417e-06,
+        -1.2229206447409666e-07,
+        0.9999999999925745
+      ],
+      "jitter_xy_m": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "operation": "object_pose",
+      "phase": "after_postprocessing",
+      "binding": "container_2",
+      "position": [
+        2.1361502039432523,
+        0.316533041447401,
+        0.5037553108036518
+      ],
+      "candidates": [],
+      "quaternion_xyzw": [
+        -0.0007792637371605133,
+        9.68331447058488e-05,
+        -1.0163118276019198e-06,
+        0.999999691685121
+      ],
+      "jitter_xy_m": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "operation": "object_pose",
+      "phase": "after_postprocessing",
+      "binding": "target",
+      "position": [
+        2.93255352973938,
+        0.8115564584732056,
+        0.5056697130203247
+      ],
+      "candidates": [],
+      "quaternion_xyzw": [
+        7.610025932081044e-06,
+        -6.331742042675614e-06,
+        1.1293078387097921e-05,
+        1.0
+      ],
+      "jitter_xy_m": [
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

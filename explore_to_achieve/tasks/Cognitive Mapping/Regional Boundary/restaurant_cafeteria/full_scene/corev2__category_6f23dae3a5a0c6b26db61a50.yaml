@@ -1,0 +1,142 @@
+kind: category_robot_task
+id: task_a2a69e7d4437df99efab7d3d
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Cognitive Mapping/Regional Boundary/restaurant_cafeteria/full_scene/q_043.json
+public:
+  objective: 'Which room is chandelier closest to among these options: bathroom_0,
+    kitchen_0, dining_room_0? Inspect each queried anchor using its public description
+    and relate it to the named regions.'
+  success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+    choosing from: bathroom_0, kitchen_0, dining_room_0. Each queried anchor must
+    be identified in delivered robot-camera observations. Room occupancy alone does
+    not establish the anchor relation; no extra room tour is required.'
+  environment: Explore the preserved original building using the robot-mounted observations.
+  constraints:
+  - Preserve original room boundaries, queried anchors and doorway geometry.
+  - Use legal robot controls; door opening requires actual physical interaction.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+private:
+  bindings:
+    anchor_a:
+      name: chandelier_nflhjl_5
+      category: chandelier
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.cognitive_mapping_regional_boundary
+    operation: answer_observed_anchor_region_relation
+    binding_keys:
+    - anchor_a
+    parameters:
+      target_regions:
+      - dining_room_0
+      source_task_type: object_closer_region
+      anchor_preservation_tolerance_m: 0.02
+      maximum_step_displacement_m: 0.1
+      maximum_stop_speed_m_s: 0.03
+      maximum_stop_angular_speed_rad_s: 0.1
+      floor_idx: 0
+      floor_contact_height_tolerance_m: 0.005
+      minimum_floor_contact_vertical_normal: 0.5
+      stop_samples: 3
+      required_regions:
+      - dining_room_0
+      scoring_version: task_completion_v2
+      required_order: []
+      arrival_report_required: true
+      public_route_required: false
+      public_route_evidence: []
+      source_public_question: null
+      candidate_regions:
+      - bathroom_0
+      - kitchen_0
+      - dining_room_0
+      recorded_distances: &id001
+        dining_room_0:
+          bbox_distance: 0.0
+          center_distance: 6.319573318394326
+        kitchen_0:
+          bbox_distance: 3.005308250546591
+          center_distance: 7.027818781865131
+      expansion_ratio: 0.35
+      expansion_min_m: 0.75
+      metric: source_wall_limited_expanded_bbox_then_centre
+      distance_reproduction_tolerance_m: 0.15
+      source_verification:
+        distance_to_regions: *id001
+        instance_visible_pixels: 434
+        metric: distance from object XY center to expanded region bbox; center distance
+          used as tiebreaker
+        semantic_visible_pixels: 434
+      task_revision: task_edit_20261018_v1
+      source_path: Cognitive Mapping/Regional Boundary/restaurant_cafeteria/full_scene/q_043.json
+      mapping_composition_contract: null
+      legacy_operation: anchor_region_exploration
+      source_qa:
+        question: 'Which room is chandelier closest to among these options: bathroom_0,
+          kitchen_0, dining_room_0?'
+        answer: dining_room_0
+        options:
+        - bathroom_0
+        - kitchen_0
+        - dining_room_0
+        scored: true
+      source_door_policy:
+        version: mapping_source_runtime_doors_v1
+        generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_region.py
+        source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+        source_trav_map_basename: floor_trav_no_door
+        runtime_policy: retain_native_doors
+        reconciled: null
+        physical_opening_and_crossing_verified: null
+      mechanism_contract:
+        invariants:
+        - original_building_and_region_boundaries
+        - original_task_anchors_and_reference
+        - source_order_and_intentional_revisits
+        required_native_evidence:
+        - source_runtime_door_policy_reconciled
+        - task_relevant_door_qualification
+        - public_anchor_identity_and_delivered_rgb
+        unavailable_is_not_agent_failure: true
+      actual_capability: observed_anchor_region_relation
+      required_anchor_bindings:
+      - anchor_a
+      public_anchor_labels:
+        anchor_a: chandelier
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: navigation
+        group_bindings: []
+        manipulation_bindings: []
+        relocation_policy: preserve
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: bounded_group
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: null
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0

@@ -1,0 +1,27 @@
+{
+  "repository_name": "WIA",
+  "initial_extraction_date": "2026-10-27",
+  "history_policy": "This checkout starts a new independent Git history. The source repository and its history remain preserved.",
+  "source_repository": "/local_home2/zhouxinyang/models/Show-Harness-Explore",
+  "source_revision": "8ff14cd3683079498949cfe95534cd25f486b496",
+  "extraction_mapping": "provenance/extraction.json",
+  "upstream_dependencies": {
+    "ESI-Bench": {
+      "path": "ESI",
+      "url": "https://github.com/ESI-Bench/ESI-Bench",
+      "commit": "9f6f15ed43e81654a97de9e4db2a1fedadca2bc1"
+    }
+  },
+  "legacy_harness_compatibility": {
+    "recorded_date": "2026-10-27",
+    "harness_revision_at_migration": "8ff14cd3683079498949cfe95534cd25f486b496",
+    "original_harness_path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench",
+    "compatibility_symlink_target": "../WIA/ESI",
+    "archived_checkout_path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/.git/legacy-esi-checkout-9f6f15ed",
+    "archived_checkout_gitdir": "/local_home2/zhouxinyang/models/Show-Harness-Explore/.git/modules/ESI-Bench",
+    "archived_checkout_commit": "9f6f15ed43e81654a97de9e4db2a1fedadca2bc1",
+    "wia_submodule_path": "ESI",
+    "wia_submodule_commit": "9f6f15ed43e81654a97de9e4db2a1fedadca2bc1",
+    "archived_checkout_status": "clean"
+  }
+}

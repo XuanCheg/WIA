@@ -1,0 +1,474 @@
+{
+  "schema": "wia_mirror_design_v1",
+  "revision": "wia_mirror_v1",
+  "author": "main_agent",
+  "status": "native_layout_and_optical_review_pending",
+  "source": {
+    "identity": "Specular Reflection/Correspondence/hall_glass_ceiling/empty_room_0/q_007.json",
+    "sha256": "8db1dff0211f9d4530e974c9995ff61f8bac64170c2534bce8040d8a5a59b2eb",
+    "role": "background_loader_only; original optical inventory and QA are replaced explicitly by active_layout; no original optical answer is reused"
+  },
+  "scene_model": "hall_glass_ceiling",
+  "room": "empty_room_0",
+  "floor_name": "floors_nbzwbf_0",
+  "seeds": [
+    101,
+    202
+  ],
+  "layout": {
+    "shared_layout_id": "wia_hall_dimensional_workstation_v1",
+    "floor_z_proposal_m": 0.01,
+    "table_center_m": [
+      8.0,
+      -1.0,
+      0.61
+    ],
+    "table_dimensions_m": [
+      1.2,
+      2.4,
+      0.1
+    ],
+    "tabletop_z_proposal_m": 0.66,
+    "leg_centers_xy_m": [
+      [
+        7.48,
+        -2.08
+      ],
+      [
+        7.48,
+        0.08
+      ],
+      [
+        8.52,
+        -2.08
+      ],
+      [
+        8.52,
+        0.08
+      ]
+    ],
+    "leg_dimensions_m": [
+      0.06,
+      0.06,
+      0.55
+    ],
+    "leg_center_z_m": 0.285,
+    "robot_position_m": [
+      6.7,
+      -1.0,
+      0.11
+    ],
+    "robot_yaw_deg": 0.0,
+    "candidate_x_m": 7.6,
+    "candidate_y_slots_m": [
+      -1.78,
+      -1.26,
+      -0.74,
+      -0.22
+    ],
+    "sorting_pad_x_m": 8.32,
+    "sorting_pad_y_slots_m": [
+      -1.78,
+      -1.26,
+      -0.74,
+      -0.22
+    ],
+    "sorting_pad_dimensions_m": [
+      0.3,
+      0.32,
+      0.012
+    ],
+    "pad_z_m": 0.666,
+    "candidate_rgba": [
+      0.65,
+      0.65,
+      0.65,
+      1.0
+    ],
+    "pad_rgba": [
+      [
+        0.1,
+        0.3,
+        0.95,
+        1.0
+      ],
+      [
+        0.95,
+        0.8,
+        0.1,
+        1.0
+      ],
+      [
+        0.75,
+        0.15,
+        0.85,
+        1.0
+      ],
+      [
+        0.1,
+        0.85,
+        0.85,
+        1.0
+      ]
+    ],
+    "pad_labels": [
+      "blue",
+      "yellow",
+      "purple",
+      "cyan"
+    ],
+    "delivery_pad_x_m": 8.32,
+    "delivery_pad_y_m": [
+      -1.65,
+      -0.35
+    ],
+    "delivery_pad_dimensions_m": [
+      0.3,
+      0.35,
+      0.012
+    ]
+  },
+  "module": "core.esi_converters.wia_mirror",
+  "shared_layout_id": "wia_hall_mirror_workstation_v1",
+  "full_reference_execution": "deferred_until_user_review",
+  "mirror": {
+    "name": "wia_mirror_panel",
+    "type": "PrimitiveObject",
+    "primitive_type": "Cube",
+    "position_m": [
+      8.82,
+      -1.0,
+      1.2
+    ],
+    "dimensions_m": [
+      0.025,
+      1.6,
+      1.5
+    ],
+    "normal_local": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "fixed_base": true,
+    "visual_only": false,
+    "material": {
+      "metallic_constant": 1.0,
+      "reflection_roughness_constant": 0.0,
+      "diffuse_color_constant": [
+        0.95,
+        0.95,
+        0.95
+      ]
+    },
+    "material_application": "Initialization-only native PBR setters; no rendered texture or fake reflection. Native readback and actual mounted-image review remain required.",
+    "plane_measurement": "Actual observer-side collision face of the axis-aligned cuboid, from native transformed mesh vertices; configured root coordinates are proposals only.",
+    "stand_post_y_m": [
+      -1.69,
+      -0.31
+    ],
+    "stand_post_dimensions_m": [
+      0.06,
+      0.06,
+      0.44
+    ],
+    "stand_post_center_z_m": 0.23
+  },
+  "cue": {
+    "public_label": "red rectangular outline",
+    "border_thickness_m": 0.012,
+    "depth_m": 0.008,
+    "inner_width_m": 0.24,
+    "inner_height_m": 0.5,
+    "center_z_m": 0.95,
+    "mirror_front_clearance_m": 0.012,
+    "direct_x_m": 7.45,
+    "rgba": [
+      0.95,
+      0.04,
+      0.03,
+      1.0
+    ],
+    "seed_center_y_m": [
+      -1.22,
+      -0.78
+    ],
+    "native_rule": "Use the initial head-camera world eye as a frozen reference. For mirror mode reflect each native candidate center across the measured panel face, intersect eye-to-virtual-center with cue plane, and require exactly one projected candidate center inside the measured red opening. Report all ray intersections and reject ambiguous or unavailable geometry. This geometric rule does not prove reflected visibility."
+  },
+  "anchor": {
+    "name": "wia_reference_beacon",
+    "public_label": "fixed yellow reference pillar",
+    "position_m": [
+      8.13,
+      -2.04,
+      0.81
+    ],
+    "dimensions_m": [
+      0.1,
+      0.1,
+      0.3
+    ],
+    "rgba": [
+      0.95,
+      0.8,
+      0.1,
+      1.0
+    ],
+    "distance_metric": "Native object collision centroid XY distance to native fixed pillar centroid XY; never current robot position.",
+    "single_target_rule": "For R-S1 place the fixed anchor at y=-2.04 when cue targets negative-y candidate, y=0.04 otherwise, so selected begins nearer. For R-S2 use the opposite side, so selected begins farther. The anchor is fixed for the entire episode. For R-S3 retain y=-2.04 and reverse the measured initial order."
+  },
+  "scoring": {
+    "minimum_lift_m": 0.05,
+    "stability_duration_s": 0.5,
+    "maximum_linear_speed_m_s": 0.02,
+    "maximum_angular_speed_rad_s": 0.1,
+    "max_sample_gap_s": 0.1,
+    "fixture_position_tolerance_m": 0.002,
+    "fixture_angle_tolerance_rad": 0.01,
+    "dimension_relative_tolerance": 1e-05,
+    "aperture_clearance_margin_m": 0.001,
+    "minimum_assignment_gap_m": 0.015,
+    "threshold_status": "Explicit provisional development contract; native calibration and legal reference execution deferred until user review.",
+    "unselected_position_tolerance_m": 0.02,
+    "minimum_required_motion_m": 0.05,
+    "selection_commitment": "First post-begin native grasp commits the real object; a different candidate grasp violates single-target selection. Spatial swap requires both targets.",
+    "optical_scope": "Physical outcome and geometric selection are scored separately from optical visibility/necessity. No mirrored segmentation-mask proxy or source QA truth."
+  },
+  "tasks": [
+    {
+      "alias": "R-C1",
+      "operation": "mirror_select_deliver",
+      "title": "Match a framed reflection to a real block",
+      "candidate_dimensions_m": [
+        0.065,
+        0.065,
+        0.12
+      ],
+      "candidate_y_m": [
+        -1.5,
+        -1.0,
+        -0.5
+      ],
+      "candidate_yaw_deg": [
+        0,
+        0,
+        0
+      ],
+      "appearance_mode": "reflected",
+      "goal": "Find the real grey block whose reflection appears inside the red outline on the mirror in the initial head-camera view. Pick up that real block, lift it at least 5 cm, and release it on the blue pad.",
+      "destination": "blue"
+    },
+    {
+      "alias": "R-C2",
+      "operation": "mirror_select_deliver",
+      "title": "Match a reflection across a wider candidate array",
+      "candidate_dimensions_m": [
+        0.065,
+        0.065,
+        0.12
+      ],
+      "candidate_y_m": [
+        -1.72,
+        -1.0,
+        -0.28
+      ],
+      "candidate_yaw_deg": [
+        0,
+        0,
+        0
+      ],
+      "appearance_mode": "reflected",
+      "goal": "Match the reflection in the red outline in the initial head-camera view to its real grey block among the widely spaced candidates. Grasp, lift and deliver that block to the blue pad.",
+      "destination": "blue",
+      "cue_seed_center_y_m": [
+        -1.32,
+        -0.68
+      ]
+    },
+    {
+      "alias": "R-C3",
+      "operation": "mirror_select_deliver",
+      "title": "Match a reflection with rotated identical candidates",
+      "candidate_dimensions_m": [
+        0.065,
+        0.1,
+        0.12
+      ],
+      "candidate_y_m": [
+        -1.5,
+        -1.0,
+        -0.5
+      ],
+      "candidate_yaw_deg": [
+        0,
+        90,
+        45
+      ],
+      "appearance_mode": "reflected",
+      "goal": "The grey blocks have the same shape but different orientations. Find the real block corresponding to the reflection in the red outline in the initial head-camera view. Grasp, lift and deliver it to the blue pad.",
+      "destination": "blue"
+    },
+    {
+      "alias": "R-A1",
+      "operation": "classify_appearance_deliver",
+      "title": "Classify a framed reflected appearance before delivery",
+      "candidate_dimensions_m": [
+        0.065,
+        0.065,
+        0.12
+      ],
+      "candidate_y_m": [
+        -1.5,
+        -1.0,
+        -0.5
+      ],
+      "candidate_yaw_deg": [
+        0,
+        0,
+        0
+      ],
+      "appearance_mode": "reflected",
+      "goal": "Inspect the grey block appearance inside the red outline in the initial head-camera view. Report ANSWER: reflected or ANSWER: direct before grasping a candidate. Deliver the corresponding real block to blue if the appearance is reflected, or to yellow if it is direct.",
+      "destination_if_reflected": "blue",
+      "destination_if_direct": "yellow",
+      "matched_control": "R-A2"
+    },
+    {
+      "alias": "R-A2",
+      "operation": "classify_appearance_deliver",
+      "title": "Classify a framed direct appearance in the same workstation",
+      "candidate_dimensions_m": [
+        0.065,
+        0.065,
+        0.12
+      ],
+      "candidate_y_m": [
+        -1.5,
+        -1.0,
+        -0.5
+      ],
+      "candidate_yaw_deg": [
+        0,
+        0,
+        0
+      ],
+      "appearance_mode": "direct",
+      "goal": "Inspect the grey block appearance inside the red outline in the initial head-camera view. Report ANSWER: reflected or ANSWER: direct before grasping a candidate. Deliver the corresponding real block to blue if the appearance is reflected, or to yellow if it is direct.",
+      "destination_if_reflected": "blue",
+      "destination_if_direct": "yellow",
+      "matched_control": "R-A1",
+      "cue_seed_center_y_m": [
+        -1.5,
+        -0.5
+      ],
+      "control_difference": "Only the framed evidence position changes from the mirror to a direct view; candidate geometry, pads, mirror, robot and public wording remain identical for each paired seed."
+    },
+    {
+      "alias": "R-S1",
+      "operation": "mirror_reconfigure",
+      "title": "Move the reflected target farther from a fixed reference",
+      "candidate_dimensions_m": [
+        0.065,
+        0.065,
+        0.12
+      ],
+      "candidate_y_m": [
+        -1.5,
+        -0.5
+      ],
+      "candidate_yaw_deg": [
+        0,
+        0
+      ],
+      "appearance_mode": "reflected",
+      "goal": "Identify the real block whose reflection is inside the red outline in the initial head-camera view. Move that block so it is at least 20 cm farther from the fixed yellow reference pillar than the other block. Grasp and lift it, then leave both blocks stably released on the worktable. Keep the other block in place.",
+      "relation": "selected_farther",
+      "distance_gap_m": 0.2,
+      "requires_both_objects_moved": false,
+      "non_goal_initialization_required": true
+    },
+    {
+      "alias": "R-S2",
+      "operation": "mirror_reconfigure",
+      "title": "Establish a tighter fixed-reference distance order",
+      "candidate_dimensions_m": [
+        0.065,
+        0.065,
+        0.12
+      ],
+      "candidate_y_m": [
+        -1.5,
+        -0.5
+      ],
+      "candidate_yaw_deg": [
+        0,
+        0
+      ],
+      "appearance_mode": "reflected",
+      "goal": "Identify the real block whose reflection is inside the red outline in the initial head-camera view. Move that block so it is at least 10 cm closer to the fixed yellow reference pillar than the other block. Grasp and lift it, then leave both blocks stably released on the worktable. Keep the other block in place.",
+      "relation": "selected_nearer",
+      "distance_gap_m": 0.1,
+      "requires_both_objects_moved": false,
+      "non_goal_initialization_required": true
+    },
+    {
+      "alias": "R-S3",
+      "operation": "mirror_reconfigure",
+      "title": "Swap distance order relative to the fixed reference",
+      "candidate_dimensions_m": [
+        0.065,
+        0.065,
+        0.12
+      ],
+      "candidate_y_m": [
+        -1.5,
+        -0.5
+      ],
+      "candidate_yaw_deg": [
+        0,
+        0
+      ],
+      "appearance_mode": "reflected",
+      "goal": "Use the mirror to identify the two grey blocks and their initial order relative to the fixed yellow reference pillar. Swap which block is closer to that pillar, with at least a 20 cm distance gap. Grasp and lift both real blocks and leave both stably released on the worktable. Moving the robot does not change the reference.",
+      "relation": "reverse_initial_distance_order",
+      "distance_gap_m": 0.2,
+      "requires_both_objects_moved": true,
+      "non_goal_initialization_required": true
+    }
+  ],
+  "invariants": [
+    "All eight proposal aliases remain distinct; seeds are counterbalanced versions, not extra proposals.",
+    "Real movable collidable original-per-episode candidates, genuine reflective native material and fixed collidable physical apparatus.",
+    "No source QA labels, source free-camera images, semantic target highlights or internal object identifiers in policy input.",
+    "All optical geometry is measured from native collision/visual properties; source annotations or mirror segmentation masks cannot certify visibility.",
+    "Use the actual mounted initial head eye, then freeze it for correspondence; legal later robot movement cannot redefine which object was requested.",
+    "Within-layout direct/reflected classification controls retain identical public wording and candidate/destination layouts.",
+    "Physical scoring must retain grasp/lift/release/stability and protected-fixture evidence; full native reference and optical causal controls await review.",
+    "Spatial starts must fail their final goal predicate and require real object displacement; moving only the robot is never progress.",
+    "Candidate/cue permutation requires native qualification; any ambiguous or off-window cue fails closed and remains reviewable."
+  ],
+  "pending_questions_for_main_native_review": [
+    "Check actual initial head-camera height/FOV, mirror reflection quality and complete mounted-view shortcut exposure.",
+    "Validate cue-window alignment after true robot settling; alter only versioned initial-layout proposals if needed.",
+    "Verify the measured selected identity and fixed-anchor order; reject already-correct R-S1/R-S2 starts rather than silently changing the goal."
+  ],
+  "completion_items": {
+    "mirror_select_deliver": [
+      "selection",
+      "grasp_lift",
+      "stable_placement"
+    ],
+    "classify_appearance_deliver": [
+      "appearance_report",
+      "selection",
+      "grasp_lift",
+      "stable_placement"
+    ],
+    "mirror_reconfigure": [
+      "selection",
+      "grasp_lift",
+      "reconfiguration",
+      "stable_placement"
+    ]
+  }
+}

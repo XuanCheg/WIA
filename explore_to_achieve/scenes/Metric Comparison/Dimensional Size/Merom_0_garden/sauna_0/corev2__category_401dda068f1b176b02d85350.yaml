@@ -1,0 +1,158 @@
+kind: scene_patch
+id: category_d5409b5ab5fe3196481824dd
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Metric Comparison/Dimensional Size/Merom_0_garden/sauna_0/Merom_0_garden__sauna_0_2.json
+target: null
+qualification: null
+bindings:
+  task_obj1:
+    name: task_obj1
+    category: mug
+    model: fapsrj
+  task_obj2:
+    name: task_obj2
+    category: mug
+    model: fapsrj
+  ref_obj1:
+    name: ref_obj1
+    category: cactus
+    model: imitmg
+  ref_obj2:
+    name: ref_obj2
+    category: ice_cream_cone
+    model: thwtmp
+  target:
+    name: task_obj2
+    category: mug
+    model: fapsrj
+  destination:
+    name: esi_interaction_support_group_99_top
+    category: table
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.task_edit2_destinations
+        parameters:
+          destination_contract:
+            version: task_edit2_20261018_v1
+            source_identity: Metric Comparison/Dimensional Size/Merom_0_garden/sauna_0/Merom_0_garden__sauna_0_2.json
+            scene: Merom_0_garden
+            room: sauna_0
+            selection_seed: 0
+            destination_binding:
+              name: esi_interaction_support_group_99_top
+              category: table
+            public_label: the blue delivery table in this room
+            label_relation:
+              kind: reserved_blue_delivery_table
+              slot: 99
+              rgba:
+              - 0.05
+              - 0.2
+              - 0.95
+              - 1.0
+            placement_relation: on_top
+            target_bindings:
+              target:
+                name: task_obj2
+                category: mug
+                model: fapsrj
+            fit_margin_m: 0.04
+            label_distance_gap_m: 0.1
+            distinguishability_verified: false
+            fit_verified: false
+            access_verified: false
+            native_qualification_required:
+            - current_loaded_label_relation
+            - every_target_surface_fit
+            - public_visual_label_association
+            - public_control_approach_and_release
+            fallback_table: true
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.task_edit2_destinations
+        parameters:
+          destination_contract:
+            version: task_edit2_20261018_v1
+            source_identity: Metric Comparison/Dimensional Size/Merom_0_garden/sauna_0/Merom_0_garden__sauna_0_2.json
+            scene: Merom_0_garden
+            room: sauna_0
+            selection_seed: 0
+            destination_binding:
+              name: esi_interaction_support_group_99_top
+              category: table
+            public_label: the blue delivery table in this room
+            label_relation:
+              kind: reserved_blue_delivery_table
+              slot: 99
+              rgba:
+              - 0.05
+              - 0.2
+              - 0.95
+              - 1.0
+            placement_relation: on_top
+            target_bindings:
+              target:
+                name: task_obj2
+                category: mug
+                model: fapsrj
+            fit_margin_m: 0.04
+            label_distance_gap_m: 0.1
+            distinguishability_verified: false
+            fit_verified: false
+            access_verified: false
+            native_qualification_required:
+            - current_loaded_label_relation
+            - every_target_surface_fit
+            - public_visual_label_association
+            - public_control_approach_and_release
+            fallback_table: true
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - task_obj1
+        - task_obj2
+        - ref_obj1
+        - ref_obj2
+        manipulation_bindings:
+        - task_obj1
+        - task_obj2
+        relocation_policy: comparison_pairs
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+        placement_groups:
+        - - task_obj1
+          - ref_obj1
+        - - task_obj2
+          - ref_obj2
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: sauna_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - native_grasp_ik_and_aperture_pending
+        - comparison_pair_layout_adapted_requires_review
+seed: 0

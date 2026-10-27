@@ -1,0 +1,2662 @@
+kind: category_robot_task
+id: task_redesign_ebb26cc29316e397864246bd__t39_historical_multi_collection_v3
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Temporal Understanding/Agent Observation/Beechwood_0_int/living_room_1/Beechwood_0_int__living_room_1__run_000.json
+public:
+  objective: 'Inspect all nine food items on the pantry shelves: three hamburgers
+    with filling, three plain buns, and three club sandwiches. Choose your own route
+    and remember the order in which you first inspect the distinct instances within
+    each category. Do not grasp or move any item before submitting ANSWER: SURVEY_COMPLETE
+    after all nine have been inspected. A delayed delivery request will then ask for
+    one to three items in total, using the first one or two instances you inspected
+    in each requested category. Retrieve those history-selected instances and leave
+    every requested item stably released on the same blue-rimmed serving tray.'
+  success_criteria: Survey all nine distinct items, receive the delayed category-count
+    request, physically grasp every requested history-selected instance, and leave
+    all of them stably supported on the serving tray with the robot withdrawn and
+    its hand empty.
+  environment: Food shelves face different approach directions in a furnished living
+    area, with a separate serving tray for delivery.
+  constraints:
+  - Preserve all food items during the survey; after SURVEY_COMPLETE, move only the
+    requested instances.
+  - 'An inspection uses a synchronized mounted-camera view within 2 m: at least 144
+    visible pixels and a visible bounding-box short side of at least 12 pixels. This
+    records visual exposure, not recognition.'
+  - Simultaneous first inspections of two instances in the same requested category
+    do not establish an order and make that category history ambiguous. Different
+    categories may be first inspected together. Repeated views of an instance count
+    once.
+  - The frozen global overview is context only; it does not create a live inspection
+    event.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - gripper
+private:
+  bindings:
+    pantry_shelf_1_deck:
+      name: pantry_shelf_1_deck
+      category: shelf
+    pantry_shelf_1_roof:
+      name: pantry_shelf_1_roof
+      category: shelf
+    pantry_shelf_1_back:
+      name: pantry_shelf_1_back
+      category: shelf
+    pantry_shelf_1_side_left:
+      name: pantry_shelf_1_side_left
+      category: shelf
+    pantry_shelf_1_side_right:
+      name: pantry_shelf_1_side_right
+      category: shelf
+    pantry_shelf_1_leg_0:
+      name: pantry_shelf_1_leg_0
+      category: shelf
+    pantry_shelf_1_leg_1:
+      name: pantry_shelf_1_leg_1
+      category: shelf
+    pantry_shelf_1_leg_2:
+      name: pantry_shelf_1_leg_2
+      category: shelf
+    pantry_shelf_1_leg_3:
+      name: pantry_shelf_1_leg_3
+      category: shelf
+    pantry_item_1:
+      name: pantry_item_1
+      category: hamburger
+      model: fyswch
+    pantry_shelf_2_deck:
+      name: pantry_shelf_2_deck
+      category: shelf
+    pantry_shelf_2_roof:
+      name: pantry_shelf_2_roof
+      category: shelf
+    pantry_shelf_2_back:
+      name: pantry_shelf_2_back
+      category: shelf
+    pantry_shelf_2_side_left:
+      name: pantry_shelf_2_side_left
+      category: shelf
+    pantry_shelf_2_side_right:
+      name: pantry_shelf_2_side_right
+      category: shelf
+    pantry_shelf_2_leg_0:
+      name: pantry_shelf_2_leg_0
+      category: shelf
+    pantry_shelf_2_leg_1:
+      name: pantry_shelf_2_leg_1
+      category: shelf
+    pantry_shelf_2_leg_2:
+      name: pantry_shelf_2_leg_2
+      category: shelf
+    pantry_shelf_2_leg_3:
+      name: pantry_shelf_2_leg_3
+      category: shelf
+    pantry_item_2:
+      name: pantry_item_2
+      category: hamburger_bun
+      model: fqxumh
+    pantry_shelf_3_deck:
+      name: pantry_shelf_3_deck
+      category: shelf
+    pantry_shelf_3_roof:
+      name: pantry_shelf_3_roof
+      category: shelf
+    pantry_shelf_3_back:
+      name: pantry_shelf_3_back
+      category: shelf
+    pantry_shelf_3_side_left:
+      name: pantry_shelf_3_side_left
+      category: shelf
+    pantry_shelf_3_side_right:
+      name: pantry_shelf_3_side_right
+      category: shelf
+    pantry_shelf_3_leg_0:
+      name: pantry_shelf_3_leg_0
+      category: shelf
+    pantry_shelf_3_leg_1:
+      name: pantry_shelf_3_leg_1
+      category: shelf
+    pantry_shelf_3_leg_2:
+      name: pantry_shelf_3_leg_2
+      category: shelf
+    pantry_shelf_3_leg_3:
+      name: pantry_shelf_3_leg_3
+      category: shelf
+    pantry_item_3:
+      name: pantry_item_3
+      category: club_sandwich
+      model: ablfyd
+    pantry_delivery_table:
+      name: pantry_delivery_table
+      category: breakfast_table
+    pantry_delivery_table_leg_0:
+      name: pantry_delivery_table_leg_0
+      category: breakfast_table
+    pantry_delivery_table_leg_1:
+      name: pantry_delivery_table_leg_1
+      category: breakfast_table
+    pantry_delivery_table_leg_2:
+      name: pantry_delivery_table_leg_2
+      category: breakfast_table
+    pantry_delivery_table_leg_3:
+      name: pantry_delivery_table_leg_3
+      category: breakfast_table
+    pantry_delivery_tray:
+      name: pantry_delivery_tray
+      category: tray
+    pantry_delivery_rim_0:
+      name: pantry_delivery_rim_0
+      category: tray
+    pantry_delivery_rim_1:
+      name: pantry_delivery_rim_1
+      category: tray
+    pantry_delivery_rim_2:
+      name: pantry_delivery_rim_2
+      category: tray
+    pantry_delivery_rim_3:
+      name: pantry_delivery_rim_3
+      category: tray
+    pantry_item_s1_hamburger_bun:
+      name: pantry_item_s1_hamburger_bun
+      category: hamburger_bun
+      model: fqxumh
+    pantry_item_s1_club_sandwich:
+      name: pantry_item_s1_club_sandwich
+      category: club_sandwich
+      model: ablfyd
+    pantry_item_s2_club_sandwich:
+      name: pantry_item_s2_club_sandwich
+      category: club_sandwich
+      model: ablfyd
+    pantry_item_s2_hamburger:
+      name: pantry_item_s2_hamburger
+      category: hamburger
+      model: fyswch
+    pantry_item_s3_hamburger:
+      name: pantry_item_s3_hamburger
+      category: hamburger
+      model: fyswch
+    pantry_item_s3_hamburger_bun:
+      name: pantry_item_s3_hamburger_bun
+      category: hamburger_bun
+      model: fqxumh
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.temporal_understanding_agent_observation
+    operation: history_multi_retrieval_v1
+    binding_keys:
+    - pantry_shelf_1_deck
+    - pantry_shelf_1_roof
+    - pantry_shelf_1_back
+    - pantry_shelf_1_side_left
+    - pantry_shelf_1_side_right
+    - pantry_shelf_1_leg_0
+    - pantry_shelf_1_leg_1
+    - pantry_shelf_1_leg_2
+    - pantry_shelf_1_leg_3
+    - pantry_item_1
+    - pantry_shelf_2_deck
+    - pantry_shelf_2_roof
+    - pantry_shelf_2_back
+    - pantry_shelf_2_side_left
+    - pantry_shelf_2_side_right
+    - pantry_shelf_2_leg_0
+    - pantry_shelf_2_leg_1
+    - pantry_shelf_2_leg_2
+    - pantry_shelf_2_leg_3
+    - pantry_item_2
+    - pantry_shelf_3_deck
+    - pantry_shelf_3_roof
+    - pantry_shelf_3_back
+    - pantry_shelf_3_side_left
+    - pantry_shelf_3_side_right
+    - pantry_shelf_3_leg_0
+    - pantry_shelf_3_leg_1
+    - pantry_shelf_3_leg_2
+    - pantry_shelf_3_leg_3
+    - pantry_item_3
+    - pantry_delivery_table
+    - pantry_delivery_table_leg_0
+    - pantry_delivery_table_leg_1
+    - pantry_delivery_table_leg_2
+    - pantry_delivery_table_leg_3
+    - pantry_delivery_tray
+    - pantry_delivery_rim_0
+    - pantry_delivery_rim_1
+    - pantry_delivery_rim_2
+    - pantry_delivery_rim_3
+    - pantry_item_s1_hamburger_bun
+    - pantry_item_s1_club_sandwich
+    - pantry_item_s2_club_sandwich
+    - pantry_item_s2_hamburger
+    - pantry_item_s3_hamburger
+    - pantry_item_s3_hamburger_bun
+    parameters:
+      target_keys:
+      - pantry_item_1
+      - pantry_item_s1_hamburger_bun
+      - pantry_item_s1_club_sandwich
+      - pantry_item_2
+      - pantry_item_s2_club_sandwich
+      - pantry_item_s2_hamburger
+      - pantry_item_3
+      - pantry_item_s3_hamburger
+      - pantry_item_s3_hamburger_bun
+      public_target_labels:
+        pantry_item_1: the hamburger with filling at pantry shelf 1
+        pantry_item_s1_hamburger_bun: the plain bun at pantry shelf 1
+        pantry_item_s1_club_sandwich: the club sandwich at pantry shelf 1
+        pantry_item_2: the plain bun at pantry shelf 2
+        pantry_item_s2_club_sandwich: the club sandwich at pantry shelf 2
+        pantry_item_s2_hamburger: the hamburger with filling at pantry shelf 2
+        pantry_item_3: the club sandwich at pantry shelf 3
+        pantry_item_s3_hamburger: the hamburger with filling at pantry shelf 3
+        pantry_item_s3_hamburger_bun: the plain bun at pantry shelf 3
+      followup_seed: 7
+      destination_key: pantry_delivery_tray
+      destination_label: the blue-rimmed serving tray
+      placement_relation: on_top
+      release_stability_steps: 15
+      maximum_release_speed_m_s: 0.02
+      maximum_release_angular_speed_rad_s: 0.1
+      apparatus:
+        target_support_bindings:
+          pantry_item_1: pantry_shelf_1_deck
+          pantry_item_s1_hamburger_bun: pantry_shelf_1_deck
+          pantry_item_s1_club_sandwich: pantry_shelf_1_deck
+          pantry_item_2: pantry_shelf_2_deck
+          pantry_item_s2_club_sandwich: pantry_shelf_2_deck
+          pantry_item_s2_hamburger: pantry_shelf_2_deck
+          pantry_item_3: pantry_shelf_3_deck
+          pantry_item_s3_hamburger: pantry_shelf_3_deck
+          pantry_item_s3_hamburger_bun: pantry_shelf_3_deck
+      encounter_policy: mounted_visibility_v1
+      encounter_min_pixels: 144
+      encounter_min_extent_px: 12
+      encounter_max_distance_m: 2.0
+      requires_native_visual_discovery: true
+      redesign_revision: history_pantry_route_v1
+      target_categories:
+        pantry_item_1: hamburgers with filling
+        pantry_item_s1_hamburger_bun: plain buns
+        pantry_item_s1_club_sandwich: club sandwiches
+        pantry_item_2: plain buns
+        pantry_item_s2_club_sandwich: club sandwiches
+        pantry_item_s2_hamburger: hamburgers with filling
+        pantry_item_3: club sandwiches
+        pantry_item_s3_hamburger: hamburgers with filling
+        pantry_item_s3_hamburger_bun: plain buns
+      query_rule: earliest_per_category
+      require_history_subset: true
+      query_min_category_instances: 2
+      query_min_total: 1
+      query_max_total: 3
+      history_collection_revision: history_multi_retrieval_v1
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: history_pantry_route_v1
+          layout:
+            scene_model: Beechwood_0_int
+            rooms:
+            - living_room_1
+            floor_name: floors_sktjer_0
+            objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_deck
+              category: shelf
+              position:
+              - -4.6
+              - -0.3
+              - 0.7825000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.65
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_roof
+              category: shelf
+              position:
+              - -4.6
+              - -0.3
+              - 1.2675
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.65
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_back
+              category: shelf
+              position:
+              - -4.48375
+              - -0.098649093620118
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.65
+              - 0.035
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_side_left
+              category: shelf
+              position:
+              - -4.866302811663714
+              - -0.14625000000000002
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_side_right
+              category: shelf
+              position:
+              - -4.333697188336285
+              - -0.45375
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_leg_0
+              category: shelf
+              position:
+              - -4.951817240078565
+              - -0.33936533479473213
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_leg_1
+              category: shelf
+              position:
+              - -4.741817240078564
+              - 0.02436533479473213
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_leg_2
+              category: shelf
+              position:
+              - -4.458182759921435
+              - -0.6243653347947321
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_leg_3
+              category: shelf
+              position:
+              - -4.248182759921434
+              - -0.26063466520526785
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: DatasetObject
+              name: pantry_item_1
+              category: hamburger
+              model: fyswch
+              position:
+              - -4.805884572681198
+              - -0.2966025403784439
+              - 0.8337
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_deck
+              category: shelf
+              position:
+              - -3.3
+              - -0.65
+              - 0.7825000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.65
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_roof
+              category: shelf
+              position:
+              - -3.3
+              - -0.65
+              - 1.2675
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.65
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_back
+              category: shelf
+              position:
+              - -3.3
+              - -0.41750000000000004
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.65
+              - 0.035
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_side_left
+              category: shelf
+              position:
+              - -3.6075
+              - -0.65
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_side_right
+              category: shelf
+              position:
+              - -2.9924999999999997
+              - -0.65
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_leg_0
+              category: shelf
+              position:
+              - -3.585
+              - -0.86
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_leg_1
+              category: shelf
+              position:
+              - -3.585
+              - -0.44000000000000006
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_leg_2
+              category: shelf
+              position:
+              - -3.0149999999999997
+              - -0.86
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_leg_3
+              category: shelf
+              position:
+              - -3.0149999999999997
+              - -0.44000000000000006
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: DatasetObject
+              name: pantry_item_2
+              category: hamburger_bun
+              model: fqxumh
+              position:
+              - -3.48
+              - -0.75
+              - 0.8160000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_deck
+              category: shelf
+              position:
+              - -1.2
+              - -0.5
+              - 0.7825000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.65
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_roof
+              category: shelf
+              position:
+              - -1.2
+              - -0.5
+              - 1.2675
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.65
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_back
+              category: shelf
+              position:
+              - -1.2
+              - -0.2675
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.65
+              - 0.035
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_side_left
+              category: shelf
+              position:
+              - -1.5074999999999998
+              - -0.5
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_side_right
+              category: shelf
+              position:
+              - -0.8925
+              - -0.5
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_leg_0
+              category: shelf
+              position:
+              - -1.4849999999999999
+              - -0.71
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_leg_1
+              category: shelf
+              position:
+              - -1.4849999999999999
+              - -0.29000000000000004
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_leg_2
+              category: shelf
+              position:
+              - -0.9149999999999999
+              - -0.71
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_leg_3
+              category: shelf
+              position:
+              - -0.9149999999999999
+              - -0.29000000000000004
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: DatasetObject
+              name: pantry_item_3
+              category: club_sandwich
+              model: ablfyd
+              position:
+              - -1.38
+              - -0.6
+              - 0.8435
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_table
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.6
+              - 0.5
+              - 0.05
+              position:
+              - -3.3
+              - -1.8
+              - 0.695
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.35
+              - 0.28
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_table_leg_0
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+              position:
+              - -3.54
+              - -1.99
+              - 0.33499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_table_leg_1
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+              position:
+              - -3.54
+              - -1.61
+              - 0.33499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_table_leg_2
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+              position:
+              - -3.0599999999999996
+              - -1.99
+              - 0.33499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_table_leg_3
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+              position:
+              - -3.0599999999999996
+              - -1.61
+              - 0.33499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_tray
+              category: tray
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.5
+              - 0.4
+              - 0.02
+              position:
+              - -3.3
+              - -1.8
+              - 0.73
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_rim_0
+              category: tray
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.01
+              - 0.4
+              - 0.06
+              position:
+              - -3.545
+              - -1.8
+              - 0.76
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_rim_1
+              category: tray
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.01
+              - 0.4
+              - 0.06
+              position:
+              - -3.0549999999999997
+              - -1.8
+              - 0.76
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_rim_2
+              category: tray
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.5
+              - 0.01
+              - 0.06
+              position:
+              - -3.3
+              - -1.995
+              - 0.76
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_rim_3
+              category: tray
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.5
+              - 0.01
+              - 0.06
+              position:
+              - -3.3
+              - -1.605
+              - 0.76
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - type: DatasetObject
+              name: pantry_item_s1_hamburger_bun
+              category: hamburger_bun
+              model: fqxumh
+              position:
+              - -4.6499999999999995
+              - -0.3866025403784439
+              - 0.8160000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: DatasetObject
+              name: pantry_item_s1_club_sandwich
+              category: club_sandwich
+              model: ablfyd
+              position:
+              - -4.494115427318801
+              - -0.47660254037844385
+              - 0.8435
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: DatasetObject
+              name: pantry_item_s2_club_sandwich
+              category: club_sandwich
+              model: ablfyd
+              position:
+              - -3.3
+              - -0.75
+              - 0.8435
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: DatasetObject
+              name: pantry_item_s2_hamburger
+              category: hamburger
+              model: fyswch
+              position:
+              - -3.1199999999999997
+              - -0.75
+              - 0.8337
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: DatasetObject
+              name: pantry_item_s3_hamburger
+              category: hamburger
+              model: fyswch
+              position:
+              - -1.2
+              - -0.6
+              - 0.8337
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: DatasetObject
+              name: pantry_item_s3_hamburger_bun
+              category: hamburger_bun
+              model: fqxumh
+              position:
+              - -1.02
+              - -0.6
+              - 0.8160000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            supported_items:
+            - name: pantry_item_1
+              support: pantry_shelf_1_deck
+            - name: pantry_item_s1_hamburger_bun
+              support: pantry_shelf_1_deck
+            - name: pantry_item_s1_club_sandwich
+              support: pantry_shelf_1_deck
+            - name: pantry_item_2
+              support: pantry_shelf_2_deck
+            - name: pantry_item_s2_club_sandwich
+              support: pantry_shelf_2_deck
+            - name: pantry_item_s2_hamburger
+              support: pantry_shelf_2_deck
+            - name: pantry_item_3
+              support: pantry_shelf_3_deck
+            - name: pantry_item_s3_hamburger
+              support: pantry_shelf_3_deck
+            - name: pantry_item_s3_hamburger_bun
+              support: pantry_shelf_3_deck
+            robot_start:
+              position:
+              - -0.2
+              - 0.0
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: history_pantry_route_v1
+          layout:
+            scene_model: Beechwood_0_int
+            rooms:
+            - living_room_1
+            floor_name: floors_sktjer_0
+            objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_deck
+              category: shelf
+              position:
+              - -4.6
+              - -0.3
+              - 0.7825000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.65
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_roof
+              category: shelf
+              position:
+              - -4.6
+              - -0.3
+              - 1.2675
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.65
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_back
+              category: shelf
+              position:
+              - -4.48375
+              - -0.098649093620118
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.65
+              - 0.035
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_side_left
+              category: shelf
+              position:
+              - -4.866302811663714
+              - -0.14625000000000002
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_side_right
+              category: shelf
+              position:
+              - -4.333697188336285
+              - -0.45375
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_leg_0
+              category: shelf
+              position:
+              - -4.951817240078565
+              - -0.33936533479473213
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_leg_1
+              category: shelf
+              position:
+              - -4.741817240078564
+              - 0.02436533479473213
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_leg_2
+              category: shelf
+              position:
+              - -4.458182759921435
+              - -0.6243653347947321
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_1_leg_3
+              category: shelf
+              position:
+              - -4.248182759921434
+              - -0.26063466520526785
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: DatasetObject
+              name: pantry_item_1
+              category: hamburger
+              model: fyswch
+              position:
+              - -4.805884572681198
+              - -0.2966025403784439
+              - 0.8337
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_deck
+              category: shelf
+              position:
+              - -3.3
+              - -0.65
+              - 0.7825000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.65
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_roof
+              category: shelf
+              position:
+              - -3.3
+              - -0.65
+              - 1.2675
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.65
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_back
+              category: shelf
+              position:
+              - -3.3
+              - -0.41750000000000004
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.65
+              - 0.035
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_side_left
+              category: shelf
+              position:
+              - -3.6075
+              - -0.65
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_side_right
+              category: shelf
+              position:
+              - -2.9924999999999997
+              - -0.65
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_leg_0
+              category: shelf
+              position:
+              - -3.585
+              - -0.86
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_leg_1
+              category: shelf
+              position:
+              - -3.585
+              - -0.44000000000000006
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_leg_2
+              category: shelf
+              position:
+              - -3.0149999999999997
+              - -0.86
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_2_leg_3
+              category: shelf
+              position:
+              - -3.0149999999999997
+              - -0.44000000000000006
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: DatasetObject
+              name: pantry_item_2
+              category: hamburger_bun
+              model: fqxumh
+              position:
+              - -3.48
+              - -0.75
+              - 0.8160000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_deck
+              category: shelf
+              position:
+              - -1.2
+              - -0.5
+              - 0.7825000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.65
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_roof
+              category: shelf
+              position:
+              - -1.2
+              - -0.5
+              - 1.2675
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.65
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_back
+              category: shelf
+              position:
+              - -1.2
+              - -0.2675
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.65
+              - 0.035
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_side_left
+              category: shelf
+              position:
+              - -1.5074999999999998
+              - -0.5
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_side_right
+              category: shelf
+              position:
+              - -0.8925
+              - -0.5
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_leg_0
+              category: shelf
+              position:
+              - -1.4849999999999999
+              - -0.71
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_leg_1
+              category: shelf
+              position:
+              - -1.4849999999999999
+              - -0.29000000000000004
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_leg_2
+              category: shelf
+              position:
+              - -0.9149999999999999
+              - -0.71
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: pantry_shelf_3_leg_3
+              category: shelf
+              position:
+              - -0.9149999999999999
+              - -0.29000000000000004
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: DatasetObject
+              name: pantry_item_3
+              category: club_sandwich
+              model: ablfyd
+              position:
+              - -1.38
+              - -0.6
+              - 0.8435
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_table
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.6
+              - 0.5
+              - 0.05
+              position:
+              - -3.3
+              - -1.8
+              - 0.695
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.35
+              - 0.28
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_table_leg_0
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+              position:
+              - -3.54
+              - -1.99
+              - 0.33499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_table_leg_1
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+              position:
+              - -3.54
+              - -1.61
+              - 0.33499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_table_leg_2
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+              position:
+              - -3.0599999999999996
+              - -1.99
+              - 0.33499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_table_leg_3
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+              position:
+              - -3.0599999999999996
+              - -1.61
+              - 0.33499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_tray
+              category: tray
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.5
+              - 0.4
+              - 0.02
+              position:
+              - -3.3
+              - -1.8
+              - 0.73
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_rim_0
+              category: tray
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.01
+              - 0.4
+              - 0.06
+              position:
+              - -3.545
+              - -1.8
+              - 0.76
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_rim_1
+              category: tray
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.01
+              - 0.4
+              - 0.06
+              position:
+              - -3.0549999999999997
+              - -1.8
+              - 0.76
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_rim_2
+              category: tray
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.5
+              - 0.01
+              - 0.06
+              position:
+              - -3.3
+              - -1.995
+              - 0.76
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - type: PrimitiveObject
+              name: pantry_delivery_rim_3
+              category: tray
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.5
+              - 0.01
+              - 0.06
+              position:
+              - -3.3
+              - -1.605
+              - 0.76
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - type: DatasetObject
+              name: pantry_item_s1_hamburger_bun
+              category: hamburger_bun
+              model: fqxumh
+              position:
+              - -4.6499999999999995
+              - -0.3866025403784439
+              - 0.8160000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: DatasetObject
+              name: pantry_item_s1_club_sandwich
+              category: club_sandwich
+              model: ablfyd
+              position:
+              - -4.494115427318801
+              - -0.47660254037844385
+              - 0.8435
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: DatasetObject
+              name: pantry_item_s2_club_sandwich
+              category: club_sandwich
+              model: ablfyd
+              position:
+              - -3.3
+              - -0.75
+              - 0.8435
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: DatasetObject
+              name: pantry_item_s2_hamburger
+              category: hamburger
+              model: fyswch
+              position:
+              - -3.1199999999999997
+              - -0.75
+              - 0.8337
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: DatasetObject
+              name: pantry_item_s3_hamburger
+              category: hamburger
+              model: fyswch
+              position:
+              - -1.2
+              - -0.6
+              - 0.8337
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            - type: DatasetObject
+              name: pantry_item_s3_hamburger_bun
+              category: hamburger_bun
+              model: fqxumh
+              position:
+              - -1.02
+              - -0.6
+              - 0.8160000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+            supported_items:
+            - name: pantry_item_1
+              support: pantry_shelf_1_deck
+            - name: pantry_item_s1_hamburger_bun
+              support: pantry_shelf_1_deck
+            - name: pantry_item_s1_club_sandwich
+              support: pantry_shelf_1_deck
+            - name: pantry_item_2
+              support: pantry_shelf_2_deck
+            - name: pantry_item_s2_club_sandwich
+              support: pantry_shelf_2_deck
+            - name: pantry_item_s2_hamburger
+              support: pantry_shelf_2_deck
+            - name: pantry_item_3
+              support: pantry_shelf_3_deck
+            - name: pantry_item_s3_hamburger
+              support: pantry_shelf_3_deck
+            - name: pantry_item_s3_hamburger_bun
+              support: pantry_shelf_3_deck
+            robot_start:
+              position:
+              - -0.2
+              - 0.0
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+            human_review:
+              detail_binding_groups:
+              - - pantry_item_1
+                - pantry_item_s1_hamburger_bun
+                - pantry_item_s1_club_sandwich
+              - - pantry_item_2
+                - pantry_item_s2_club_sandwich
+                - pantry_item_s2_hamburger
+              - - pantry_item_3
+                - pantry_item_s3_hamburger
+                - pantry_item_s3_hamburger_bun
+              detail_elevation_deg: 0.0
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  parent_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/history_collection_v2/tasks/t39_historical_multi_collection_v2.yaml
+  parent_task_sha256: 2c28518370a6cdcc5774fb924c6c76f8eb13ca8fa7696e4f1d6ff385260a8fa2
+  parent_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/history_collection_v2/scenes/t39_historical_multi_collection_v2.yaml
+  parent_scene_sha256: f2a7c490eeb0a831bab499cb3915265c5858836602c30be99b49fcb290d88984
+  source_identity: Temporal Understanding/Agent Observation/Beechwood_0_int/living_room_1/Beechwood_0_int__living_room_1__run_000.json
+  source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Temporal
+    Understanding/Agent Observation/Beechwood_0_int/living_room_1/Beechwood_0_int__living_room_1__run_000.json
+  source_sha256: 7fd66c94dd1b1752289cabc6c84f544acc43687fd6547b4e7dee3f0906b7bae7
+  document_alias: T39
+  variant_id: t39_historical_multi_collection_v3
+  history_collection_revision: history_multi_retrieval_v1
+  full_reference_execution: pending
+  budget_status: Inherited pilot budgets; sufficiency for nine-item survey and up
+    to three deliveries is unqualified.
+  inherited_episode_defaults:
+    seed: 0
+    max_steps: 60
+    wall_timeout_s: 5400.0
+    world_advances_during_inference: true
+    observation_condition: current
+    action_mode: parameterized
+  inventory_placement:
+  - name: pantry_item_1
+    category: hamburger
+    model: fyswch
+    support: pantry_shelf_1_deck
+    station: 1
+    local_x_m: -0.18
+    local_y_m: -0.1
+    root_above_deck_top_m: 0.03369999999999995
+  - name: pantry_item_s1_hamburger_bun
+    category: hamburger_bun
+    model: fqxumh
+    support: pantry_shelf_1_deck
+    station: 1
+    local_x_m: 0.0
+    local_y_m: -0.1
+    root_above_deck_top_m: 0.016000000000000014
+  - name: pantry_item_s1_club_sandwich
+    category: club_sandwich
+    model: ablfyd
+    support: pantry_shelf_1_deck
+    station: 1
+    local_x_m: 0.18
+    local_y_m: -0.1
+    root_above_deck_top_m: 0.04349999999999998
+  - name: pantry_item_2
+    category: hamburger_bun
+    model: fqxumh
+    support: pantry_shelf_2_deck
+    station: 2
+    local_x_m: -0.18
+    local_y_m: -0.1
+    root_above_deck_top_m: 0.016000000000000014
+  - name: pantry_item_s2_club_sandwich
+    category: club_sandwich
+    model: ablfyd
+    support: pantry_shelf_2_deck
+    station: 2
+    local_x_m: 0.0
+    local_y_m: -0.1
+    root_above_deck_top_m: 0.04349999999999998
+  - name: pantry_item_s2_hamburger
+    category: hamburger
+    model: fyswch
+    support: pantry_shelf_2_deck
+    station: 2
+    local_x_m: 0.18
+    local_y_m: -0.1
+    root_above_deck_top_m: 0.03369999999999995
+  - name: pantry_item_3
+    category: club_sandwich
+    model: ablfyd
+    support: pantry_shelf_3_deck
+    station: 3
+    local_x_m: -0.18
+    local_y_m: -0.1
+    root_above_deck_top_m: 0.04349999999999998
+  - name: pantry_item_s3_hamburger
+    category: hamburger
+    model: fyswch
+    support: pantry_shelf_3_deck
+    station: 3
+    local_x_m: 0.0
+    local_y_m: -0.1
+    root_above_deck_top_m: 0.03369999999999995
+  - name: pantry_item_s3_hamburger_bun
+    category: hamburger_bun
+    model: fqxumh
+    support: pantry_shelf_3_deck
+    station: 3
+    local_x_m: 0.18
+    local_y_m: -0.1
+    root_above_deck_top_m: 0.016000000000000014
+  original_asset_root_height_m:
+    hamburger: 0.03369999999999995
+    hamburger_bun: 0.016000000000000014
+    club_sandwich: 0.04349999999999998
+  initialization_status: authored_not_native_validated
+  native_validation_run: false
+  native_initialization_run: false
+  native_initialization_verified: false
+  native_geometry_verified: false
+  native_support_verified: false
+  native_visibility_verified: false
+  native_history_verified: false
+  physical_success_verified: false
+  scientific_validation_run: false
+  scientific_configuration_verified: false
+  budget_sufficiency_verified: false
+  human_review_revision: Explicit front-facing food groups; actor state, mounted views,
+    history/query and scoring unchanged.
+  parent_builder_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/scripts/build_wia_history_collection_variants.py
+  parent_builder_sha256: ba220c2cac11481648da607911e094f4320d6cc781a8913886b5e8dabd3d0808
+  revision_method: Main-authored human-only three pantry detail groups at zero-degree
+    elevation; no actor, mounted-observation, query or scorer change.
+  repair_reason: Main-authored human-only three pantry detail groups at zero-degree
+    elevation; no actor, mounted-observation, query or scorer change.

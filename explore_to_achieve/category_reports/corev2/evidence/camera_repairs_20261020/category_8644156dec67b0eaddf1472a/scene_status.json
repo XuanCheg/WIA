@@ -1,0 +1,378 @@
+{
+  "scene_id": "tabletop_Beechwood_1_int_scene_dict_storage2_1_revised_support_000_multi",
+  "qualification_status": "accepted_minimal_patch",
+  "reason": null,
+  "source_question_unchanged": true,
+  "new_evaluator": false,
+  "run_mode": "benchmark",
+  "review_status": "ready",
+  "native_environment": {
+    "available": true
+  },
+  "initialization_checks": {
+    "target_movable_collidable": true,
+    "supports": {
+      "table": {
+        "name": "support_table_top",
+        "fixed_base": true,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "passed": true
+      },
+      "pickup_support": {
+        "name": "sofa_qnnwfx_0",
+        "fixed_base": true,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "passed": true
+      },
+      "multi_support_extra1": {
+        "name": "sofa_qnnwfx_0",
+        "fixed_base": true,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "passed": true
+      },
+      "multi_support_extra2": {
+        "name": "sofa_qnnwfx_0",
+        "fixed_base": true,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "passed": true
+      }
+    },
+    "supported_objects": {
+      "target": {
+        "name": "obj_containee",
+        "support_binding": "pickup_support",
+        "support_name": "sofa_qnnwfx_0",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          1.5812797546386719,
+          -3.501093626022339,
+          0.9016463756561279
+        ],
+        "aabb_min": [
+          1.4501423835754395,
+          -3.6395113468170166,
+          0.6480000019073486
+        ],
+        "aabb_max": [
+          1.5462453365325928,
+          -3.5540413856506348,
+          0.7786052227020264
+        ],
+        "support_surface_z_m": 0.650214433670044,
+        "bottom_minus_support_top_m": -0.0022144317626953125,
+        "linear_speed_m_s": 0.0002613879623822868,
+        "angular_speed_rad_s": 0.00509841600432992,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_containee/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_containee/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_containee/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "container_2": {
+        "name": "obj_container_2",
+        "support_binding": "table",
+        "support_name": "support_table_top",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          2.8568758964538574,
+          -4.132786750793457,
+          0.45000001788139343
+        ],
+        "aabb_min": [
+          2.5529301166534424,
+          -4.61206579208374,
+          0.44999998807907104
+        ],
+        "aabb_max": [
+          2.8074896335601807,
+          -4.4025163650512695,
+          0.7823556661605835
+        ],
+        "support_surface_z_m": 0.45000001788139343,
+        "bottom_minus_support_top_m": -2.9802322387695312e-08,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_container_2/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_2/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_2/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_2/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "container_1": {
+        "name": "obj_container_1",
+        "support_binding": "table",
+        "support_name": "support_table_top",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          2.8568758964538574,
+          -4.132786750793457,
+          0.45000001788139343
+        ],
+        "aabb_min": [
+          2.576852560043335,
+          -4.342319488525391,
+          0.44999977946281433
+        ],
+        "aabb_max": [
+          2.78100323677063,
+          -4.173363208770752,
+          0.7185660600662231
+        ],
+        "support_surface_z_m": 0.45000001788139343,
+        "bottom_minus_support_top_m": -2.384185791015625e-07,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "container_0": {
+        "name": "obj_container_0",
+        "support_binding": "table",
+        "support_name": "support_table_top",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          2.8568758964538574,
+          -4.132786750793457,
+          0.45000001788139343
+        ],
+        "aabb_min": [
+          2.3407721519470215,
+          -4.559065341949463,
+          0.4499996602535248
+        ],
+        "aabb_max": [
+          2.4889438152313232,
+          -4.436874866485596,
+          0.6454833149909973
+        ],
+        "support_surface_z_m": 0.45000001788139343,
+        "bottom_minus_support_top_m": -3.5762786865234375e-07,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "extra1": {
+        "name": "multi_extra1",
+        "support_binding": "multi_support_extra1",
+        "support_name": "sofa_qnnwfx_0",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          1.5812797546386719,
+          -3.501093626022339,
+          0.9016463756561279
+        ],
+        "aabb_min": [
+          1.236799716949463,
+          -3.693134069442749,
+          0.6511838436126709
+        ],
+        "aabb_max": [
+          1.331945776939392,
+          -3.5360422134399414,
+          0.7764183282852173
+        ],
+        "support_surface_z_m": 0.6512635350227356,
+        "bottom_minus_support_top_m": -7.969141006469727e-05,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/multi_extra1/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/multi_extra1/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/multi_extra1/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/multi_extra1/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "extra2": {
+        "name": "multi_extra2",
+        "support_binding": "multi_support_extra2",
+        "support_name": "sofa_qnnwfx_0",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          1.5812797546386719,
+          -3.501093626022339,
+          0.9016463756561279
+        ],
+        "aabb_min": [
+          1.4573395252227783,
+          -3.9107625484466553,
+          0.4982684552669525
+        ],
+        "aabb_max": [
+          1.5594900846481323,
+          -3.753735065460205,
+          0.6279924511909485
+        ],
+        "support_surface_z_m": 0.5010830760002136,
+        "bottom_minus_support_top_m": -0.0028146207332611084,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/multi_extra2/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/multi_extra2/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/multi_extra2/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          }
+        ],
+        "passed": true
+      }
+    },
+    "floor_aabb_max_z_m": 0.002000182867050171,
+    "table_leg_floor_gaps_m": {
+      "support_table_leg_1": -0.002000182867050171,
+      "support_table_leg_2": -0.002000182867050171,
+      "support_table_leg_3": -0.002000182867050171,
+      "support_table_leg_4": -0.002000182867050171
+    },
+    "table_leg_local_floor_surfaces": {
+      "support_table_leg_1": {
+        "position": [
+          2.3368759155273438,
+          -4.612786293029785,
+          0.002000182867050171
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_esoefs_0/base_link"
+      },
+      "support_table_leg_2": {
+        "position": [
+          2.3368759155273438,
+          -4.172786712646484,
+          0.002000182867050171
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_esoefs_0/base_link"
+      },
+      "support_table_leg_3": {
+        "position": [
+          2.81687593460083,
+          -4.612786293029785,
+          0.002000182867050171
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_esoefs_0/base_link"
+      },
+      "support_table_leg_4": {
+        "position": [
+          2.81687593460083,
+          -4.172786712646484,
+          0.002000182867050171
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_esoefs_0/base_link"
+      }
+    },
+    "robot_nonfloor_contacts": [],
+    "furniture_aabb_overlap_candidates": []
+  }
+}

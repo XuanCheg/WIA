@@ -1,0 +1,26 @@
+kind: scene_patch
+id: pilot_action_order_beechwood_0_garden_dining_room_0_original_v1
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Action Sequencing/Action Order Inference/Beechwood_0_garden/dining_room_0/Beechwood_0_garden__dining_room_0.json
+target: null
+bindings: {}
+qualification: null
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+runtime:
+  post_controller_settle_steps: 0
+  trunk_config: configs/esi_trunk.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size: [512, 512]
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0
+seed: 0

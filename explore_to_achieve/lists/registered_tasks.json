@@ -1,0 +1,675 @@
+{
+  "schema": "esi_task_catalog_v1",
+  "status": "ready",
+  "scene_root": "../scenes",
+  "task_count": 27,
+  "target_count_counts": {
+    "1": 17,
+    "2": 7,
+    "3": 3
+  },
+  "registered_at_utc": "2026-10-13T14:12:32.054374+00:00",
+  "tasks": [
+    {
+      "id": "tabletop_Beechwood_0_int_scene_dict_storage2_0_revised_support_000_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.yaml",
+      "task_sha256": "2a56ebaff1869562f97c2d2b4c385128ce2706d499f963db368808eb0d6a6098",
+      "scene_file": "Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "eba0a8fc18183f76089c84b2",
+        "fingerprint": "f6c6a9557efe38d29741378e38b637aced25d431932eec222cc9b40056ac4c85",
+        "scene_sha256": "d78ad73be42bdac1bd8b2323a7570eb8eb6431d7539869fd3a601968d6aab925",
+        "question_sha256": "f3757c9769c92c0b6daabbb575d5795e71ea9d6c20bcbe955b8257366cbca0d6",
+        "revision": 2,
+        "approved_at_utc": "2026-10-13T02:57:10.964588+00:00"
+      }
+    },
+    {
+      "id": "tabletop_Beechwood_1_int_scene_dict_storage2_2_revised_support_000_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/Beechwood_1_int/playroom_0/Beechwood_1_int_scene_dict_storage2_2_revised.yaml",
+      "task_sha256": "a04246855d5add19c1c18e9bfec5af564e94df2f12f952c2b5aedbd3f45634f8",
+      "scene_file": "Physical Structure/Rigid Containment/Beechwood_1_int/playroom_0/Beechwood_1_int_scene_dict_storage2_2_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/Beechwood_1_int/playroom_0/Beechwood_1_int_scene_dict_storage2_2_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "e57fd0f329f126cb224fb829",
+        "fingerprint": "d147ff941dd29fc754a087ca6cb085f0b002f383e029c276f20b122a23bc3f9b",
+        "scene_sha256": "83a573dde2403e13de0ece450cd2f90ce31f9a6c42c71ed4c12e06447330d07d",
+        "question_sha256": "ab17124e8298e6ad06c5e4c27f9c00fdca19dbd7c8294b6f56ca856849aa5ee3",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T11:29:31.580240+00:00"
+      }
+    },
+    {
+      "id": "tabletop_Beechwood_1_int_scene_dict_storage2_2_revised_support_000_multi_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/Beechwood_1_int/playroom_0/Beechwood_1_int_scene_dict_storage2_2_revised__criterion_2.yaml",
+      "task_sha256": "790f4c5f3cf3fac8f2356095419f367c8176d5a9f1da98fc88c1cffec624ef8d",
+      "scene_file": "Physical Structure/Rigid Containment/Beechwood_1_int/playroom_0/Beechwood_1_int_scene_dict_storage2_2_revised__multi_extra1.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/Beechwood_1_int/playroom_0/Beechwood_1_int_scene_dict_storage2_2_revised__criterion_2.json",
+      "status": "ready",
+      "targets": [
+        "target",
+        "extra1"
+      ],
+      "target_count": 2,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "8e3be435dce67f4767a508bb",
+        "fingerprint": "4c74cb3198d848bf218c620ec246fb7252f2ae2dfd36b1eb454c2bd909c563be",
+        "scene_sha256": "94a6e33f70e9325c7ae4b4b1cc7032e3befc109c19161871df95dcd93e7b39b1",
+        "question_sha256": "85a58ab354f1064bffac659cefa3de897c0a339066fdfff304bddd6deb528f42",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T12:28:23.397302+00:00"
+      }
+    },
+    {
+      "id": "tabletop_Beechwood_1_int_scene_dict_storage2_1_revised_support_000_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.yaml",
+      "task_sha256": "84d2501bf6c9d66963060671f2230406f6572ac8e594ed3ba5066a071e0d5e39",
+      "scene_file": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "ff1814aecc19d528b3d3a902",
+        "fingerprint": "2d1aa14ebc7ccedb0663e8bd9f5b2722a83a384fef4fc5e57814e5393d0ba840",
+        "scene_sha256": "72b5f46f9bd008d26b117aacb25c73dffad9357ecab5ca28bb1585e47fe66c91",
+        "question_sha256": "b3605aab6b6009c9733f639a2649d56c604c88db76ce1b29ba86a103dcc4b0a7",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T11:29:24.404788+00:00"
+      }
+    },
+    {
+      "id": "tabletop_Beechwood_1_int_scene_dict_storage2_1_revised_support_000_multi_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.yaml",
+      "task_sha256": "14124a9082efcaa9e23608d8c0da77c842046197a7934d5aa42a101c5ffc8721",
+      "scene_file": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__multi_extra1_extra2.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json",
+      "status": "ready",
+      "targets": [
+        "target",
+        "extra1",
+        "extra2"
+      ],
+      "target_count": 3,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "80c7a045462136ac14c6b84a",
+        "fingerprint": "31595942f0f1f4efd1d729e12b94d4b6a0f479f7faded78dde45e03cdd334157",
+        "scene_sha256": "7a336437af393f24fc2163380ec49b6d4575ca36a4cfa9ddc9da6e3cf96422a7",
+        "question_sha256": "3d5a24b945238a080f727335332d71334c1d76431abf5b5569aa49a5602afa37",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T12:28:12.369594+00:00"
+      }
+    },
+    {
+      "id": "tabletop_Benevolence_0_int_scene_dict_storage2_2_revised_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/Benevolence_0_int/empty_room_0/Benevolence_0_int_scene_dict_storage2_2_revised.yaml",
+      "task_sha256": "0350489f81afa3defc370a6aebe55a4b4f4615bb3bba5ce1636cd680113465cb",
+      "scene_file": "Physical Structure/Rigid Containment/Benevolence_0_int/empty_room_0/Benevolence_0_int_scene_dict_storage2_2_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/Benevolence_0_int/empty_room_0/Benevolence_0_int_scene_dict_storage2_2_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "16ad91d0487dc7bb3211de66",
+        "fingerprint": "7491b4205b7595f98f5d468ef4d83ebf10f37c9c056d84a9e807b4ee2f3e1ff9",
+        "scene_sha256": "f4d6df4fae25f7d26299d7444e46a5a24680d4535ed55c132f39146f9ce3a6b1",
+        "question_sha256": "08ac48b316dfc9576a8a8b7ecc0d4f433956ff42d3734142193411990e13d668",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T03:02:29.779092+00:00"
+      }
+    },
+    {
+      "id": "tabletop_Benevolence_1_int_scene_dict_storage2_2_revised_free_floor_repair_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised.yaml",
+      "task_sha256": "46dce6cc1f2d2e0831515e6a1626d8cbec69cd9d26359d7c2712a248030aed82",
+      "scene_file": "Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "37b95613e720cb2c8fe3a2f5",
+        "fingerprint": "0920744e05d62784e1a82012c3d30249e34856d46fa8723a9b7edda7b56178e8",
+        "scene_sha256": "085a459749703c7ce6ef6b62ae690fbc9997a107a2a45d6d265ceebc5c9e71b6",
+        "question_sha256": "453fa74cfe086d34ea0bec37bfa0e890bd4b38b0893e9a849bdbe1ccb96230ab",
+        "revision": 8,
+        "approved_at_utc": "2026-10-13T06:55:33.172965+00:00"
+      }
+    },
+    {
+      "id": "tabletop_Benevolence_1_int_scene_dict_storage2_2_revised_free_floor_repair_multi_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised__criterion_2.yaml",
+      "task_sha256": "721e65d24dda5aabd57d3f3fca0459ae99c3fd5b09014f164335fa9ed18b6372",
+      "scene_file": "Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised__multi_extra1.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised__criterion_2.json",
+      "status": "ready",
+      "targets": [
+        "target",
+        "extra1"
+      ],
+      "target_count": 2,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "f1538ef2e2405b4e0f1bd571",
+        "fingerprint": "0e2d62ac09493399c27924061bddbf916166677a3a9b71de23b9d91dfcaaa2b4",
+        "scene_sha256": "8d1375ad6b75d4605651ba42d22057d3080a937147f8d27fa435d9f11bce3f00",
+        "question_sha256": "10df98c33fb2d6ab98248ff9824a7e042dfa7728cb5dbeb1b12a737bf64aadc8",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T12:28:09.817866+00:00"
+      }
+    },
+    {
+      "id": "tabletop_Ihlen_1_int_scene_dict_storage2_1_revised_support_000_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.yaml",
+      "task_sha256": "a1f2b8deef71ab55ee434aad5f98b6a3cd95ee44d772783b081bae85b22a229e",
+      "scene_file": "Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "8c3b10f3f9b03822e9893803",
+        "fingerprint": "352f23a3a5edc2e9048a905b5f1400cbad9469b9b42f3488b7134a6dd4de29f2",
+        "scene_sha256": "e7ffccb8a725da17605490a67b37b270ca22872ec1ee961f9bfca594671af9d0",
+        "question_sha256": "1a9bddbf21c57eb6dc37022c21727a45b45f0efde31bdb75df008238d1757035",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T03:03:18.770358+00:00"
+      }
+    },
+    {
+      "id": "tabletop_Ihlen_1_int_scene_dict_storage2_1_revised_support_000_multi_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised__criterion_2.yaml",
+      "task_sha256": "2ca26016dbd20276e5993828fb539e13b1b511eeda60c32ec67855e79c2383d4",
+      "scene_file": "Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised__multi_extra1.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised__criterion_2.json",
+      "status": "ready",
+      "targets": [
+        "target",
+        "extra1"
+      ],
+      "target_count": 2,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "10b4027b3f77d196cc71fba7",
+        "fingerprint": "c5d08ec38c687ed94ddfcab863baed2eefa0ff103defdac3482d075b96b6f1e6",
+        "scene_sha256": "d62111e402d0ea0dfaa18b62a295d9a9494a78a1c91bc2972657b9e07d4425d4",
+        "question_sha256": "1606898f960025022ede9445235ee05de61bde6fed81ed16f48e5384986c23ee",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T12:30:23.226888+00:00"
+      }
+    },
+    {
+      "id": "tabletop_Merom_0_int_scene_dict_storage2_2_revised_support_000_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/Merom_0_int/living_room_0/Merom_0_int_scene_dict_storage2_2_revised.yaml",
+      "task_sha256": "288e202beac1fe728e67c0046730e71586231108ae3ec9ef8175575d8f473e9d",
+      "scene_file": "Physical Structure/Rigid Containment/Merom_0_int/living_room_0/Merom_0_int_scene_dict_storage2_2_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/Merom_0_int/living_room_0/Merom_0_int_scene_dict_storage2_2_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "ab11823934047d022285402e",
+        "fingerprint": "3b2e057075dc9af243222e33da2056305856afd70f0a6104c525a228de843d43",
+        "scene_sha256": "ace39514cef30577210ec5b9e1686b73aee498bc7abbec83599ccbd9609b240b",
+        "question_sha256": "443c32d1e63f3f953b560c3fe70b294707e2e20e17aa4cbeddb67f806db340f9",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T11:29:13.863727+00:00"
+      }
+    },
+    {
+      "id": "tabletop_Pomaria_1_int_scene_dict_storage2_1_revised_support_000_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/Pomaria_1_int/living_room_0/Pomaria_1_int_scene_dict_storage2_1_revised.yaml",
+      "task_sha256": "36d1d09e29a074bcef59afb442d7b8df9a4d561b98a4e6a42b002a0dbb0990c7",
+      "scene_file": "Physical Structure/Rigid Containment/Pomaria_1_int/living_room_0/Pomaria_1_int_scene_dict_storage2_1_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/Pomaria_1_int/living_room_0/Pomaria_1_int_scene_dict_storage2_1_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "097ce1dc3cf9d7c38d1440d4",
+        "fingerprint": "ae8608d0a2a62eab9ac6a5fc717fc424a1aaed410476618a883efd6dff205512",
+        "scene_sha256": "835355369a612bdcad403e39803fe24e582253b12933cec0d340aa891159dac3",
+        "question_sha256": "dd43a9e284ea581816de6a2f514c5037bebcbc9bda3990c786523d03da7b4fff",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T03:04:30.895385+00:00"
+      }
+    },
+    {
+      "id": "tabletop_Wainscott_0_garden_scene_dict_storage2_2_revised_local_floor_repair_free_floor_repair_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/Wainscott_0_garden/living_room_1/Wainscott_0_garden_scene_dict_storage2_2_revised.yaml",
+      "task_sha256": "85e07080bd782b3f2939d5d283cd95d00eb27a45e560ee2815f09abb979f2787",
+      "scene_file": "Physical Structure/Rigid Containment/Wainscott_0_garden/living_room_1/Wainscott_0_garden_scene_dict_storage2_2_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/Wainscott_0_garden/living_room_1/Wainscott_0_garden_scene_dict_storage2_2_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "d452e826e7f8f3ac48ea2732",
+        "fingerprint": "d4457b14129bb86154fec79e01069a563ec3f9d7a5ebe2cd1933587c4b06ddd0",
+        "scene_sha256": "687f5ff6013d82b501a49fead6723975a5b3b41bf6ac76a37bf8fe6bee024df2",
+        "question_sha256": "18717ab95388a94c03862e7c8904256a7792db2173e5aee43f8f1ddb3a889a4c",
+        "revision": 5,
+        "approved_at_utc": "2026-10-13T03:19:10.918460+00:00"
+      }
+    },
+    {
+      "id": "tabletop_Wainscott_0_garden_scene_dict_storage2_2_revised_local_floor_repair_free_floor_repair_multi_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/Wainscott_0_garden/living_room_1/Wainscott_0_garden_scene_dict_storage2_2_revised__criterion_3.yaml",
+      "task_sha256": "ebcca19d550933a4409c32ef311fe4108f9860b8dfff415143bdc42686776b58",
+      "scene_file": "Physical Structure/Rigid Containment/Wainscott_0_garden/living_room_1/Wainscott_0_garden_scene_dict_storage2_2_revised__multi_extra2.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/Wainscott_0_garden/living_room_1/Wainscott_0_garden_scene_dict_storage2_2_revised__criterion_3.json",
+      "status": "ready",
+      "targets": [
+        "target",
+        "extra2"
+      ],
+      "target_count": 2,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "6147f772fa6e141d511953ee",
+        "fingerprint": "f66112f30d2dbadf51c09aec1faeb8a7851ee1b33c51d80813208bcf6b5ccf64",
+        "scene_sha256": "b76ca60d2e44fbe334a82495045be0761c2c4c1d32d1ad380c1a8ec4c644262c",
+        "question_sha256": "07a782aa857c3f26495fb016d5b5b283819105f8f77b2aaa241e04ca220dc4dc",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T12:36:39.635387+00:00"
+      }
+    },
+    {
+      "id": "tabletop_grocery_store_half_stocked_scene_dict_storage2_1_revised_free_floor_repair_support_000_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_1_revised.yaml",
+      "task_sha256": "e488c224833ae1af9b9d639173160772b7ed4e9618f7e9d03c696701ac6c64a2",
+      "scene_file": "Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_1_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_1_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "59d24489a47d45792e347f0d",
+        "fingerprint": "48dc273c4add5aeb5656d57be48e478a244dc0810e9b9b1dae50e0bdc10f1439",
+        "scene_sha256": "1451cfc0b00b5f4c2b43c425a2ad657fdb72b9e4504c9a8ff7a4d3301418510b",
+        "question_sha256": "b5a11c435b2b64f5296148b1af6604cd0421f0666c0be599ff740e61c0d53812",
+        "revision": 6,
+        "approved_at_utc": "2026-10-13T08:41:07.803647+00:00"
+      }
+    },
+    {
+      "id": "tabletop_grocery_store_half_stocked_scene_dict_storage2_2_revised_support_000_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_2_revised.yaml",
+      "task_sha256": "ad391d34fcb41961d2638f86e282b54be8134117028553fe15cc4026fc2180f6",
+      "scene_file": "Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_2_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_2_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "4b22d8081e79dffe15316702",
+        "fingerprint": "207a787e84d17a21c9b7bb7389caab9098489e82d07d21f61c263c07bd0e59b3",
+        "scene_sha256": "86b64d4761ddc96b34c762000971e9bfb46bedac85d52331cec35e1b9c87a7db",
+        "question_sha256": "9e840a265db39ead042be13bb65a244e867412b1c31f9650713fe556acefa5c1",
+        "revision": 5,
+        "approved_at_utc": "2026-10-13T06:57:17.173293+00:00"
+      }
+    },
+    {
+      "id": "tabletop_grocery_store_half_stocked_scene_dict_storage2_2_revised_support_000_multi_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_2_revised__criterion_2.yaml",
+      "task_sha256": "880e8b5a5c43483bd6e0745f1a740d5edc690e6614ae9e3387c98694a101774f",
+      "scene_file": "Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_2_revised__multi_extra1.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_2_revised__criterion_2.json",
+      "status": "ready",
+      "targets": [
+        "target",
+        "extra1"
+      ],
+      "target_count": 2,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "b7d28c774176929d8c46ab78",
+        "fingerprint": "d2a7635f805be3eaffd3f4bf0f26f6c265915c19b4c5690d3e3e9392557bd595",
+        "scene_sha256": "f7ac01a4e4a26b9ddda1775d206b22eadf8c393c7387148ba14ce50296e8e063",
+        "question_sha256": "bae7ba477cb4d80006768fe53ee659347362ed695bc238173adfd14522e6e443",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T12:36:28.650218+00:00"
+      }
+    },
+    {
+      "id": "tabletop_hall_arch_wood_scene_dict_storage2_1_revised_free_floor_repair_final_settle_coarse_angular_limit_separate_pickup_000_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/hall_arch_wood/empty_room_0/hall_arch_wood_scene_dict_storage2_1_revised.yaml",
+      "task_sha256": "2775e085aa7cd7de26e7e999a9e834295e9a074c160406b35e94024778402d09",
+      "scene_file": "Physical Structure/Rigid Containment/hall_arch_wood/empty_room_0/hall_arch_wood_scene_dict_storage2_1_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/hall_arch_wood/empty_room_0/hall_arch_wood_scene_dict_storage2_1_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "5cea3d315b7c6be94b4d937a",
+        "fingerprint": "2a5c9371ac4281252d5e07fa1a5bd3226dbcade3d77e1b5d7001fb535047769c",
+        "scene_sha256": "7f1723aad0445b1793746cf81170db2bc6d84e20dcb8963d73271dc721973001",
+        "question_sha256": "025cb554b358028741ec0274d67ce50386611d2ada310ee4cb39ccbb287361e2",
+        "revision": 6,
+        "approved_at_utc": "2026-10-13T06:57:24.998373+00:00"
+      }
+    },
+    {
+      "id": "tabletop_hall_conference_large_scene_dict_storage2_0_revised_free_floor_repair_support_000_head_camera_clear_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_0_revised.yaml",
+      "task_sha256": "4e8025689a265b23105b3b8dbd9c79e071c8ff862b7869b05e6299a439b8b2e0",
+      "scene_file": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_0_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_0_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "3a5cd5f3b2b7985985a0c747",
+        "fingerprint": "52f9326887926ce83ce62f0c2a7895efa563d5704ec21389b9457b2ad18f4b93",
+        "scene_sha256": "e391faa2fba6cf686b42c25693a8d164a31acc85acf6cf3d580ef4d5a8975cda",
+        "question_sha256": "b98e05553e7b59d41ec18b1f9dadb6625d6458407fb865c866c9b3d87f52b671",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T11:29:04.686947+00:00"
+      }
+    },
+    {
+      "id": "tabletop_hall_conference_large_scene_dict_storage2_0_revised_free_floor_repair_support_000_head_camera_clear_multi_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_0_revised__criterion_3.yaml",
+      "task_sha256": "3caa3d9321bbdc293da323d7b64774b8196bf1c7714e83100028f75425942897",
+      "scene_file": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_0_revised__multi_extra2.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_0_revised__criterion_3.json",
+      "status": "ready",
+      "targets": [
+        "target",
+        "extra2"
+      ],
+      "target_count": 2,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "94b83127ebcc769daa355b48",
+        "fingerprint": "2286804119610c6248ee35fac321f9b95b3d8639172dfe8577ba8f8148068cbf",
+        "scene_sha256": "fa069db78cf474adb13d56b8f093d313fc9a7e2e5cf684c57ee4511a6635a069",
+        "question_sha256": "aa3fbf72896e67246b492eca29906e2ff36d70ae7aa56d6f1116448f06240856",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T13:22:23.496363+00:00"
+      }
+    },
+    {
+      "id": "tabletop_hall_conference_large_scene_dict_storage2_2_revised_free_floor_repair_support_000_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_2_revised.yaml",
+      "task_sha256": "83d994dbbe2a9c07f4ea81cbe92c584ec5288a8fdadc60302458c5ec935a0fac",
+      "scene_file": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_2_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_2_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "fb97f69cf09308fcdc42b6f5",
+        "fingerprint": "28c7e47a0ae2ac565b7ede1e614288c5b8e2654913cf5e9875c79fcddbdad0a5",
+        "scene_sha256": "a7a33bb8d3b01fdd27ff170bbddcc3a267dbddf00cb0171584630e80c546f417",
+        "question_sha256": "45be2bc847872b73bd3df5bbef9461b9041f262dc66a75a56551c4e8065a05b2",
+        "revision": 5,
+        "approved_at_utc": "2026-10-13T07:23:54.010481+00:00"
+      }
+    },
+    {
+      "id": "tabletop_hall_conference_large_scene_dict_storage2_2_revised_free_floor_repair_support_000_multi_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_2_revised__criterion_2.yaml",
+      "task_sha256": "05fd9b147146b458ee3eab75b673759504bcddb1334764f46a8ad9f3dc59bf02",
+      "scene_file": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_2_revised__multi_extra1.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_2_revised__criterion_2.json",
+      "status": "ready",
+      "targets": [
+        "target",
+        "extra1"
+      ],
+      "target_count": 2,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "84a3a7054aebb1beb1a56d3b",
+        "fingerprint": "1711085bee8a0b6b9f8b9e3cff019422ceabf3db276f20275b372532d788fe4c",
+        "scene_sha256": "ba497f0f257e4400fb2f588732a740643f5502e2f8315ccb347ee6b22f82200e",
+        "question_sha256": "13709822d3b91dfc527424f52a4012c8280217bb50e803ae223a6dcd9e727f3a",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T13:22:42.688660+00:00"
+      }
+    },
+    {
+      "id": "tabletop_house_double_floor_lower_scene_dict_storage2_0_revised_support_000_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/house_double_floor_lower/living_room_0/house_double_floor_lower_scene_dict_storage2_0_revised.yaml",
+      "task_sha256": "9e0b4d62dcb6fc585103eff251c25c082396dc8cff3fb134aff976e47f792ba8",
+      "scene_file": "Physical Structure/Rigid Containment/house_double_floor_lower/living_room_0/house_double_floor_lower_scene_dict_storage2_0_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/house_double_floor_lower/living_room_0/house_double_floor_lower_scene_dict_storage2_0_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "dc6a73d314c8d032389ca14c",
+        "fingerprint": "30137383adecda9b877b545a023677a08d72d3c9fc2425bcfe9b37213fb068d5",
+        "scene_sha256": "d6d8a1d082601737d34bc7ef2e6b6b3360141c959492927dfbf602c1a0083b48",
+        "question_sha256": "517839dcc88364dc8ca6596ab26161e1b7fc6adf799e409d52c499c0de0d8208",
+        "revision": 6,
+        "approved_at_utc": "2026-10-13T06:57:37.065536+00:00"
+      }
+    },
+    {
+      "id": "tabletop_house_double_floor_lower_scene_dict_storage2_0_revised_support_000_multi_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/house_double_floor_lower/living_room_0/house_double_floor_lower_scene_dict_storage2_0_revised__criterion_4.yaml",
+      "task_sha256": "315b1fbd6e23d686d7d3c11572a29726cbd206a347198ef151ae3a2e1da49114",
+      "scene_file": "Physical Structure/Rigid Containment/house_double_floor_lower/living_room_0/house_double_floor_lower_scene_dict_storage2_0_revised__multi_extra1_extra2.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/house_double_floor_lower/living_room_0/house_double_floor_lower_scene_dict_storage2_0_revised__criterion_4.json",
+      "status": "ready",
+      "targets": [
+        "target",
+        "extra1",
+        "extra2"
+      ],
+      "target_count": 3,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "5d33c66a2f59d9a72b422c66",
+        "fingerprint": "a034086fee06cc1ee6e8a392fe19d8d0928f269e6603b0467b94e2e9d87a2b2b",
+        "scene_sha256": "611fcbcb1138ce60ef2dd6c8f1838b2ccde969077c7dc65954d66266fb4a525f",
+        "question_sha256": "dd5f205c9f8528f8c66c2627f3d78cf46263c3d2863713c692f111dd9c1da502",
+        "revision": 32,
+        "approved_at_utc": "2026-10-13T14:02:30.427277+00:00"
+      }
+    },
+    {
+      "id": "tabletop_office_vendor_machine_scene_dict_storage2_2_revised_free_floor_repair_support_000_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/office_vendor_machine/meeting_room_0/office_vendor_machine_scene_dict_storage2_2_revised.yaml",
+      "task_sha256": "2415eebc3d8fedcce81067efaf1d0798f7fd4fee5b8ba3873c5b71ade0748c63",
+      "scene_file": "Physical Structure/Rigid Containment/office_vendor_machine/meeting_room_0/office_vendor_machine_scene_dict_storage2_2_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/office_vendor_machine/meeting_room_0/office_vendor_machine_scene_dict_storage2_2_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "8b38569bb98eee19fadcf0b4",
+        "fingerprint": "51aed87ec238e710a42b5126767df840a3234c01f913ab3296a06eb173372d58",
+        "scene_sha256": "d2687ddbd869b4cf7ee1e2f9c6f4fdbe9477f5c9443f6a37add707f2bdaab644",
+        "question_sha256": "173f9b4e197866cb9af583323e87700122a4ce1b264c9dd9ea1b79640b8fa8a4",
+        "revision": 1,
+        "approved_at_utc": "2026-10-13T11:28:56.289376+00:00"
+      }
+    },
+    {
+      "id": "tabletop_restaurant_hotel_scene_dict_storage2_1_revised_saucer_lateral_clearance_free_floor_repair_support_000_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/restaurant_hotel/lobby_0/restaurant_hotel_scene_dict_storage2_1_revised.yaml",
+      "task_sha256": "39e980b97cae5e9d1031c0300417dcbce075cd8ada525d8c67d7be02a3a7a93d",
+      "scene_file": "Physical Structure/Rigid Containment/restaurant_hotel/lobby_0/restaurant_hotel_scene_dict_storage2_1_revised.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/restaurant_hotel/lobby_0/restaurant_hotel_scene_dict_storage2_1_revised.json",
+      "status": "ready",
+      "targets": [
+        "target"
+      ],
+      "target_count": 1,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "c0688e142d5c7dd4c19f5087",
+        "fingerprint": "0fafc127ea7a7e5d592aec9ae16df3dcd939f074574a0bc74fc826f3b1d7bb1c",
+        "scene_sha256": "2517e4ff50459c66a31642a7955217fcb601952fb22e59e079b92a3a01462670",
+        "question_sha256": "fad6d4c9e934c649d30280e4eff36c05e563435d623d688fc2bd35fae6030e08",
+        "revision": 4,
+        "approved_at_utc": "2026-10-13T06:57:43.593654+00:00"
+      }
+    },
+    {
+      "id": "tabletop_restaurant_hotel_scene_dict_storage2_1_revised_saucer_lateral_clearance_free_floor_repair_support_000_multi_answer_and_place",
+      "task_file": "Physical Structure/Rigid Containment/restaurant_hotel/lobby_0/restaurant_hotel_scene_dict_storage2_1_revised__criterion_4.yaml",
+      "task_sha256": "04405f51476d2c972d91fa0032734486568f87b72393581a472564e0918d88ae",
+      "scene_file": "Physical Structure/Rigid Containment/restaurant_hotel/lobby_0/restaurant_hotel_scene_dict_storage2_1_revised__multi_extra1_extra2.yaml",
+      "question_source_json": "Physical Structure/Rigid Containment/restaurant_hotel/lobby_0/restaurant_hotel_scene_dict_storage2_1_revised__criterion_4.json",
+      "status": "ready",
+      "targets": [
+        "target",
+        "extra1",
+        "extra2"
+      ],
+      "target_count": 3,
+      "goal": "answer_and_place",
+      "max_steps": 60,
+      "seed": 0,
+      "manual_review": {
+        "decision": "approved",
+        "scene_id": "e2638ecfae6035aef2b9fa9e",
+        "fingerprint": "f82d307baca79dee76f26b90e4e56ce0ad447b71cc30e0f9a782ebe1237aad96",
+        "scene_sha256": "a051b5c10355d335f60129404d46d6688a49015214444f148d36f524867737dc",
+        "question_sha256": "d6eac491cb3589575e8e4664745e3ca1af5cda3e9a094268368b01aa4c42d4ba",
+        "revision": 3,
+        "approved_at_utc": "2026-10-13T14:08:45.187643+00:00"
+      }
+    }
+  ]
+}

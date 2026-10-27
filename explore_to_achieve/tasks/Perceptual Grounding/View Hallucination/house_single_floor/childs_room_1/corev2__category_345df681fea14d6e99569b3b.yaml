@@ -1,0 +1,335 @@
+kind: category_robot_task
+id: task_fa344c86a0000b036e8164c0
+version: 3
+status: pending
+source:
+  provider: esi
+  json: Perceptual Grounding/View Hallucination/house_single_floor/childs_room_1/house_single_floor__childs_room_1_3.json
+public:
+  objective: 'Inspect the candidate at its original support whose shape may look different
+    across views. Change viewpoint using a public base translation or torso-height
+    change until you see a new diagnostic feature; preserve the candidate pose and
+    appearance. Determine whether the candidate is hair tie or bracelet. Report its
+    category as ANSWER: <category> before grasping it. Then grasp that same original
+    candidate and release it on the desk in this room.'
+  success_criteria: Complete informative inspection, report the correct identity before
+    target grasp, select the same bound original candidate, and leave it released
+    and supported at the destination for 15 consecutive native samples. The final
+    placement must still hold when you finish.
+  environment: All eight mounted cameras and the frozen initial global image are available.
+    The source object identity, dimensions, material and appearance-producing orientation
+    are preserved; the declared complete task-prop group may be translated together
+    onto a measured support.
+  constraints:
+  - Preserve target pose/material until informative identification. Never substitute
+    another object.
+  - Preserve original external furniture and the building floor.
+  - No minimum excursion, lift threshold or return-to-start trip is required.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - gripper
+  - trunk_height
+private:
+  bindings:
+    target:
+      name: target_obj
+      category: bracelet
+      model: thqqmo
+    support:
+      name: table_lamp_uupwiq_0
+      category: table_lamp
+    destination:
+      name: desk_bhkhxo_0
+      category: desk
+      model: bhkhxo
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.partial_occlusion
+    operation: viewpoint_identify_and_place_v2
+    binding_keys:
+    - target
+    - support
+    - destination
+    parameters:
+      task_revision: task_edit2_20261018_v1
+      identity_choices:
+      - hair tie
+      - bracelet
+      expected_identity: bracelet
+      placement_relation: on_top
+      destination_public_label: the desk in this room
+      destination_selection_seed: 0
+      release_stability_steps: 15
+      maximum_release_speed_m_s: 0.02
+      maximum_release_angular_speed_rad_s: 0.1
+      completion_item_ids:
+      - informative_inspection
+      - identity
+      - correct_bound_selection
+      - stable_placement
+      mechanism_contract:
+        preserved_relations:
+        - source target identity and scale
+        - misleading original source view
+        - informative alternate views
+        - support and external room geometry
+        required_native_evidence:
+        - all eight initial robot views
+        - reachable informative view
+        - named destination fit and access
+        - original bound selection and stable release
+        native_operation_verified: false
+      grounding_revision: task_edit2_grounding_20261018_v1
+      grounding_contract:
+        version: task_edit2_grounding_20261018_v1
+        source_identity: Perceptual Grounding/View Hallucination/house_single_floor/childs_room_1/house_single_floor__childs_room_1_3.json
+        recipe: viewpoint
+        source_category: View Hallucination
+        dependency_group:
+        - target
+        source_actors:
+          target:
+            name: target_obj
+            category: bracelet
+            model: thqqmo
+            position:
+            - 20.488080978393555
+            - 13.813282012939453
+            - 0.36264753341674805
+            orientation:
+            - 0.3136061131954193
+            - 0.03972966596484184
+            - -0.0712425485253334
+            - 0.9460430145263672
+            scale:
+            - 1
+            - 1
+            - 1
+        source_reference:
+          position_m:
+          - 21.065127649844605
+          - 13.813282012939453
+          - 0.41264753341674804
+          quaternion_xyzw:
+          - 0.47793183305517073
+          - 0.47793183305517073
+          - 0.5211344960300789
+          - 0.5211344960300789
+          selection:
+            view_index: 0
+            view:
+              _key: view_00_az000_h0.05.png
+              azimuth_deg: 0.0
+              height_offset: 0.05
+              position:
+              - 21.065127649844605
+              - 13.813282012939453
+              - 0.41264753341674804
+              quaternion_xyzw:
+              - 0.47793183305517073
+              - 0.47793183305517073
+              - 0.5211344960300789
+              - 0.5211344960300789
+              type: ring
+              visibility:
+              - _key: target_obj
+                value: true
+        source_camera_translation_policy: translate_with_group
+        external_support_binding:
+          name: table_lamp_uupwiq_0
+          category: table_lamp
+        external_support_preserved: true
+        floor_background_context_adapted: false
+        recognition_difficulty: unavailable_until_all_eight_and_initial_global_are_audited
+        initial_geometry_translation_only: true
+        target_fixed_base_override_permitted: false
+        position_tolerance_m: 0.02
+        orientation_tolerance_deg: 2.0
+        native_material_appearance_review_required: true
+        occluder_motion_permitted: false
+        inspection_only_alternative: Inspect and report the original candidate without
+          retrieval if native grasp/access cannot be qualified; this is a separately
+          declared alternative and cannot count as retrieval success.
+      requires_native_visual_discovery: true
+      native_visual_adapter: task_visual_evidence
+      identity_before_target_grasp: true
+      source_task_revision: task_edit_20261018_v1
+      definition_revision: task_edit2_20261018_v1
+      destination_contract:
+        version: task_edit2_20261018_v1
+        source_identity: Perceptual Grounding/View Hallucination/house_single_floor/childs_room_1/house_single_floor__childs_room_1_3.json
+        scene: house_single_floor
+        room: childs_room_1
+        selection_seed: 0
+        destination_binding:
+          name: desk_bhkhxo_0
+          category: desk
+          model: bhkhxo
+        public_label: the desk in this room
+        label_relation:
+          kind: unique_room_category
+        placement_relation: on_top
+        target_bindings:
+          target:
+            name: target_obj
+            category: bracelet
+            model: thqqmo
+        fit_margin_m: 0.04
+        label_distance_gap_m: 0.1
+        distinguishability_verified: false
+        fit_verified: false
+        access_verified: false
+        native_qualification_required:
+        - current_loaded_label_relation
+        - every_target_surface_fit
+        - public_visual_label_association
+        - public_control_approach_and_release
+        fallback_table: false
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - target
+        manipulation_bindings:
+        - target
+        relocation_policy: preserve
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: childs_room_1
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - grounding_initial_all_inputs_and_native_diagnostic_features_pending
+qualification:
+  on_failure: skip
+  target_movable_collidable: true
+  support: support
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  grounding_contract:
+    version: task_edit2_grounding_20261018_v1
+    source_identity: Perceptual Grounding/View Hallucination/house_single_floor/childs_room_1/house_single_floor__childs_room_1_3.json
+    recipe: viewpoint
+    source_category: View Hallucination
+    dependency_group:
+    - target
+    source_actors:
+      target:
+        name: target_obj
+        category: bracelet
+        model: thqqmo
+        position:
+        - 20.488080978393555
+        - 13.813282012939453
+        - 0.36264753341674805
+        orientation:
+        - 0.3136061131954193
+        - 0.03972966596484184
+        - -0.0712425485253334
+        - 0.9460430145263672
+        scale:
+        - 1
+        - 1
+        - 1
+    source_reference:
+      position_m:
+      - 21.065127649844605
+      - 13.813282012939453
+      - 0.41264753341674804
+      quaternion_xyzw:
+      - 0.47793183305517073
+      - 0.47793183305517073
+      - 0.5211344960300789
+      - 0.5211344960300789
+      selection:
+        view_index: 0
+        view:
+          _key: view_00_az000_h0.05.png
+          azimuth_deg: 0.0
+          height_offset: 0.05
+          position:
+          - 21.065127649844605
+          - 13.813282012939453
+          - 0.41264753341674804
+          quaternion_xyzw:
+          - 0.47793183305517073
+          - 0.47793183305517073
+          - 0.5211344960300789
+          - 0.5211344960300789
+          type: ring
+          visibility:
+          - _key: target_obj
+            value: true
+    source_camera_translation_policy: translate_with_group
+    external_support_binding:
+      name: table_lamp_uupwiq_0
+      category: table_lamp
+    external_support_preserved: true
+    floor_background_context_adapted: false
+    recognition_difficulty: unavailable_until_all_eight_and_initial_global_are_audited
+    initial_geometry_translation_only: true
+    target_fixed_base_override_permitted: false
+    position_tolerance_m: 0.02
+    orientation_tolerance_deg: 2.0
+    native_material_appearance_review_required: true
+    occluder_motion_permitted: false
+    inspection_only_alternative: Inspect and report the original candidate without
+      retrieval if native grasp/access cannot be qualified; this is a separately declared
+      alternative and cannot count as retrieval success.
+  definition_revision: task_edit2_20261018_v1
+  destination_contract:
+    version: task_edit2_20261018_v1
+    source_identity: Perceptual Grounding/View Hallucination/house_single_floor/childs_room_1/house_single_floor__childs_room_1_3.json
+    scene: house_single_floor
+    room: childs_room_1
+    selection_seed: 0
+    destination_binding:
+      name: desk_bhkhxo_0
+      category: desk
+      model: bhkhxo
+    public_label: the desk in this room
+    label_relation:
+      kind: unique_room_category
+    placement_relation: on_top
+    target_bindings:
+      target:
+        name: target_obj
+        category: bracelet
+        model: thqqmo
+    fit_margin_m: 0.04
+    label_distance_gap_m: 0.1
+    distinguishability_verified: false
+    fit_verified: false
+    access_verified: false
+    native_qualification_required:
+    - current_loaded_label_relation
+    - every_target_surface_fit
+    - public_visual_label_association
+    - public_control_approach_and_release
+    fallback_table: false

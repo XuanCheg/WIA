@@ -1,0 +1,1515 @@
+kind: category_robot_task
+id: task_58660289a0ea0751ff5b903d__t07_furnished_collection_v6__design_preview_v1__corridor_reset_v1__native_velocity_v2
+version: 4
+status: pending
+source:
+  provider: esi
+  json: Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/t07_furnished_collection_v6.json
+public:
+  objective: 'Visit living room 0, then kitchen 0, then corridor 0, then private office
+    0, then utility room 0, then storage room 1, in that order. In each designated
+    room, pick up the selected object: banana in living room 0; small marjoram shaker
+    in kitchen 0; miniature cola bottle in corridor 0; miniature oatmeal box in private
+    office 0; pepper grinder in utility room 0; miniature orange juice bottle in storage
+    room 1. Place every selected object on the tray held in your right hand.'
+  success_criteria: Finish with all selected objects physically resting on the tray,
+    your left hand released, and the tray held steadily in your right hand.
+  environment: Original furnished rooms and doors, with objects on openly exposed
+    supporting surfaces.
+  constraints:
+  - Keep the tray in your right hand and use your left hand to pick and place.
+  - Pick up each selected object while you and the object are in its designated room.
+  - Only the selected physical objects count; repeated views do not create additional
+    objects.
+  - Complete both the room visits and the object pickups in the declared room order.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - gripper
+private:
+  bindings:
+    wia_t07_target_01:
+      name: wia_t07_target_01
+      category: banana
+      model: znakxm
+    wia_t07_target_02:
+      name: wia_t07_target_02
+      category: marjoram_shaker
+      model: xlspnl
+    wia_t07_target_03:
+      name: wia_t07_target_03
+      category: cola_bottle
+      model: oyqdtz
+    wia_t07_target_04:
+      name: wia_t07_target_04
+      category: box_of_oatmeal
+      model: jtqeef
+    wia_t07_target_05:
+      name: wia_t07_target_05
+      category: pepper_grinder
+      model: tfoogy
+    wia_t07_target_06:
+      name: wia_t07_target_06
+      category: bottle_of_orange_juice
+      model: edltwh
+    collection_plate:
+      name: collection_plate
+      category: tray
+      model: gsxbym
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.wia_room_collection
+    operation: visit_rooms_and_collect_on_right_hand_tray
+    binding_keys:
+    - wia_t07_target_01
+    - wia_t07_target_02
+    - wia_t07_target_03
+    - wia_t07_target_04
+    - wia_t07_target_05
+    - wia_t07_target_06
+    - collection_plate
+    parameters:
+      revision: wia_room_collection_v1
+      operation: visit_rooms_and_collect_on_right_hand_tray
+      layout:
+        scene_model: Beechwood_0_int
+        native_inventory: []
+        added_inventory:
+        - name: wia_t07_target_01
+          category: banana
+          model: znakxm
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          role: target
+          room: living_room_0
+          public_name: banana
+          support: coffee_table_qlmqyy_0
+          position:
+          - 3.85
+          - -8.0
+          - 0.6521425913109691
+          orientation:
+          - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+        - name: wia_t07_target_02
+          category: marjoram_shaker
+          model: xlspnl
+          scale:
+          - 0.8
+          - 0.8
+          - 0.8
+          role: target
+          room: kitchen_0
+          public_name: small marjoram shaker
+          support: countertop_tpuwys_0
+          position:
+          - 0.35
+          - -5.4
+          - 1.12
+          orientation:
+          - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+        - name: wia_t07_target_03
+          category: cola_bottle
+          model: oyqdtz
+          scale:
+          - 0.65
+          - 0.65
+          - 0.65
+          role: target
+          room: corridor_0
+          public_name: miniature cola bottle
+          support: wia_t07_corridor_open_shelf
+          position:
+          - 1.8
+          - -3.6
+          - 1.01
+          orientation:
+          - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+          relocation:
+            position:
+            - 1.8
+            - -3.6
+            - 1.01
+            orientation:
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+        - name: wia_t07_target_04
+          category: box_of_oatmeal
+          model: jtqeef
+          scale:
+          - 0.5
+          - 0.5
+          - 0.5
+          role: target
+          room: private_office_0
+          public_name: miniature oatmeal box
+          support: desk_rzyfxk_1
+          position:
+          - 6.2
+          - -3.2
+          - 1.028614484029041
+          orientation:
+          - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+          support_surface_mode: local_raycast
+          support_alignment_mode: local_raycast
+        - name: wia_t07_target_05
+          category: pepper_grinder
+          model: tfoogy
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          role: target
+          room: utility_room_0
+          public_name: pepper grinder
+          support: bottom_cabinet_slgzfc_0
+          position:
+          - 4.35
+          - 0.4
+          - 1.1441997753784308
+          orientation:
+          - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+        - name: wia_t07_target_06
+          category: bottle_of_orange_juice
+          model: edltwh
+          scale:
+          - 0.7
+          - 0.7
+          - 0.7
+          role: target
+          room: storage_room_1
+          public_name: miniature orange juice bottle
+          support: wia_t07_storage_open_shelf
+          position:
+          - 6.2
+          - 0.3
+          - 1.01
+          orientation:
+          - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+        support_objects:
+        - type: PrimitiveObject
+          primitive_type: Cube
+          name: wia_t07_corridor_open_shelf
+          category: shelf
+          position:
+          - 1.8
+          - -3.6
+          - 0.74
+          orientation:
+          - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+          scale:
+          - 0.45
+          - 0.28
+          - 0.04
+          fixed_base: true
+          visual_only: false
+          rgba:
+          - 0.48
+          - 0.32
+          - 0.18
+          - 1.0
+        - type: PrimitiveObject
+          primitive_type: Cube
+          name: wia_t07_storage_open_shelf
+          category: shelf
+          position:
+          - 6.2
+          - 0.3
+          - 0.74
+          orientation:
+          - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+          scale:
+          - 0.45
+          - 0.28
+          - 0.04
+          fixed_base: true
+          visual_only: false
+          rgba:
+          - 0.48
+          - 0.32
+          - 0.18
+          - 1.0
+        route:
+        - living_room_0
+        - kitchen_0
+        - corridor_0
+        - private_office_0
+        - utility_room_0
+        - storage_room_1
+        plate:
+          name: collection_plate
+          category: tray
+          model: gsxbym
+          right_eef_position_base_m:
+          - 0.4
+          - -0.25
+          - 0.8
+          rim_axis: y
+          rim_penetration_m: 0.025
+          usable_bounds_local_m:
+          - - -0.147
+            - -0.21
+            - -0.0049
+          - - 0.147
+            - 0.21
+            - 0.17
+        robot_start:
+          position:
+          - 4.5
+          - -7.0
+          - 0.02
+          orientation:
+          - 0.0
+          - 0.0
+          - 0.9238795325112867
+          - 0.38268343236508984
+        source_objects_policy: replace_authored_source_objects
+        scene_config:
+          load_room_instances: null
+          load_room_types: null
+          load_object_categories: null
+          not_load_object_categories: null
+        public_environment: Original furnished rooms and doors, with objects on openly
+          exposed supporting surfaces.
+        allow_authored_navigation_inventory: true
+      plate:
+        name: collection_plate
+        category: tray
+        model: gsxbym
+        right_eef_position_base_m:
+        - 0.4
+        - -0.25
+        - 0.8
+        rim_axis: y
+        rim_penetration_m: 0.025
+        usable_bounds_local_m:
+        - - -0.147
+          - -0.21
+          - -0.0049
+        - - 0.147
+          - 0.21
+          - 0.17
+      targets:
+      - wia_t07_target_01
+      - wia_t07_target_02
+      - wia_t07_target_03
+      - wia_t07_target_04
+      - wia_t07_target_05
+      - wia_t07_target_06
+      distractors: []
+      terminal_dwell_s: 1.0
+      maximum_relative_speed_m_s: 0.03
+      maximum_plate_tilt_deg: 10.0
+      maximum_plate_speed_m_s: 0.03
+      maximum_plate_angular_speed_rad_s: 0.1
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_initial_joint_velocity
+        parameters:
+          revision: wia_initial_joint_velocity_v1
+          expected_scene: Beechwood_0_int
+          source_scene_file: /local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/Beechwood_0_int/json/Beechwood_0_int_best.json
+          source_scene_sha256: 80d0469afc247fb655dfba4d5bf35f4b06ff14eb751d98f9a422e113b044bc7a
+          overrides:
+            bottom_cabinet_no_top_spojpj_2:
+            - 0.0
+            - 0.0
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_room_collection
+        parameters:
+          revision: wia_room_collection_v1
+          operation: visit_rooms_and_collect_on_right_hand_tray
+          layout:
+            scene_model: Beechwood_0_int
+            native_inventory: []
+            added_inventory:
+            - name: wia_t07_target_01
+              category: banana
+              model: znakxm
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: living_room_0
+              public_name: banana
+              support: coffee_table_qlmqyy_0
+              position:
+              - 3.85
+              - -8.0
+              - 0.6521425913109691
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t07_target_02
+              category: marjoram_shaker
+              model: xlspnl
+              scale:
+              - 0.8
+              - 0.8
+              - 0.8
+              role: target
+              room: kitchen_0
+              public_name: small marjoram shaker
+              support: countertop_tpuwys_0
+              position:
+              - 0.35
+              - -5.4
+              - 1.12
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t07_target_03
+              category: cola_bottle
+              model: oyqdtz
+              scale:
+              - 0.65
+              - 0.65
+              - 0.65
+              role: target
+              room: corridor_0
+              public_name: miniature cola bottle
+              support: wia_t07_corridor_open_shelf
+              position:
+              - 1.8
+              - -3.6
+              - 1.01
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              relocation:
+                position:
+                - 1.8
+                - -3.6
+                - 1.01
+                orientation:
+                - 0.0
+                - 0.0
+                - 0.0
+                - 1.0
+            - name: wia_t07_target_04
+              category: box_of_oatmeal
+              model: jtqeef
+              scale:
+              - 0.5
+              - 0.5
+              - 0.5
+              role: target
+              room: private_office_0
+              public_name: miniature oatmeal box
+              support: desk_rzyfxk_1
+              position:
+              - 6.2
+              - -3.2
+              - 1.028614484029041
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: wia_t07_target_05
+              category: pepper_grinder
+              model: tfoogy
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: utility_room_0
+              public_name: pepper grinder
+              support: bottom_cabinet_slgzfc_0
+              position:
+              - 4.35
+              - 0.4
+              - 1.1441997753784308
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t07_target_06
+              category: bottle_of_orange_juice
+              model: edltwh
+              scale:
+              - 0.7
+              - 0.7
+              - 0.7
+              role: target
+              room: storage_room_1
+              public_name: miniature orange juice bottle
+              support: wia_t07_storage_open_shelf
+              position:
+              - 6.2
+              - 0.3
+              - 1.01
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            support_objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t07_corridor_open_shelf
+              category: shelf
+              position:
+              - 1.8
+              - -3.6
+              - 0.74
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.45
+              - 0.28
+              - 0.04
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t07_storage_open_shelf
+              category: shelf
+              position:
+              - 6.2
+              - 0.3
+              - 0.74
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.45
+              - 0.28
+              - 0.04
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            route:
+            - living_room_0
+            - kitchen_0
+            - corridor_0
+            - private_office_0
+            - utility_room_0
+            - storage_room_1
+            plate:
+              name: collection_plate
+              category: tray
+              model: gsxbym
+              right_eef_position_base_m:
+              - 0.4
+              - -0.25
+              - 0.8
+              rim_axis: y
+              rim_penetration_m: 0.025
+              usable_bounds_local_m:
+              - - -0.147
+                - -0.21
+                - -0.0049
+              - - 0.147
+                - 0.21
+                - 0.17
+            robot_start:
+              position:
+              - 4.5
+              - -7.0
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.9238795325112867
+              - 0.38268343236508984
+            source_objects_policy: replace_authored_source_objects
+            scene_config:
+              load_room_instances: null
+              load_room_types: null
+              load_object_categories: null
+              not_load_object_categories: null
+            public_environment: Original furnished rooms and doors, with objects on
+              openly exposed supporting surfaces.
+            allow_authored_navigation_inventory: true
+          plate:
+            name: collection_plate
+            category: tray
+            model: gsxbym
+            right_eef_position_base_m:
+            - 0.4
+            - -0.25
+            - 0.8
+            rim_axis: y
+            rim_penetration_m: 0.025
+            usable_bounds_local_m:
+            - - -0.147
+              - -0.21
+              - -0.0049
+            - - 0.147
+              - 0.21
+              - 0.17
+          targets:
+          - wia_t07_target_01
+          - wia_t07_target_02
+          - wia_t07_target_03
+          - wia_t07_target_04
+          - wia_t07_target_05
+          - wia_t07_target_06
+          distractors: []
+          terminal_dwell_s: 1.0
+          maximum_relative_speed_m_s: 0.03
+          maximum_plate_tilt_deg: 10.0
+          maximum_plate_speed_m_s: 0.03
+          maximum_plate_angular_speed_rad_s: 0.1
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Beechwood_0_int
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_room_collection
+        parameters:
+          revision: wia_room_collection_v1
+          operation: visit_rooms_and_collect_on_right_hand_tray
+          layout:
+            scene_model: Beechwood_0_int
+            native_inventory: []
+            added_inventory:
+            - name: wia_t07_target_01
+              category: banana
+              model: znakxm
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: living_room_0
+              public_name: banana
+              support: coffee_table_qlmqyy_0
+              position:
+              - 3.85
+              - -8.0
+              - 0.6521425913109691
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t07_target_02
+              category: marjoram_shaker
+              model: xlspnl
+              scale:
+              - 0.8
+              - 0.8
+              - 0.8
+              role: target
+              room: kitchen_0
+              public_name: small marjoram shaker
+              support: countertop_tpuwys_0
+              position:
+              - 0.35
+              - -5.4
+              - 1.12
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t07_target_03
+              category: cola_bottle
+              model: oyqdtz
+              scale:
+              - 0.65
+              - 0.65
+              - 0.65
+              role: target
+              room: corridor_0
+              public_name: miniature cola bottle
+              support: wia_t07_corridor_open_shelf
+              position:
+              - 1.8
+              - -3.6
+              - 1.01
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              relocation:
+                position:
+                - 1.8
+                - -3.6
+                - 1.01
+                orientation:
+                - 0.0
+                - 0.0
+                - 0.0
+                - 1.0
+            - name: wia_t07_target_04
+              category: box_of_oatmeal
+              model: jtqeef
+              scale:
+              - 0.5
+              - 0.5
+              - 0.5
+              role: target
+              room: private_office_0
+              public_name: miniature oatmeal box
+              support: desk_rzyfxk_1
+              position:
+              - 6.2
+              - -3.2
+              - 1.028614484029041
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: wia_t07_target_05
+              category: pepper_grinder
+              model: tfoogy
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: utility_room_0
+              public_name: pepper grinder
+              support: bottom_cabinet_slgzfc_0
+              position:
+              - 4.35
+              - 0.4
+              - 1.1441997753784308
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t07_target_06
+              category: bottle_of_orange_juice
+              model: edltwh
+              scale:
+              - 0.7
+              - 0.7
+              - 0.7
+              role: target
+              room: storage_room_1
+              public_name: miniature orange juice bottle
+              support: wia_t07_storage_open_shelf
+              position:
+              - 6.2
+              - 0.3
+              - 1.01
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            support_objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t07_corridor_open_shelf
+              category: shelf
+              position:
+              - 1.8
+              - -3.6
+              - 0.74
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.45
+              - 0.28
+              - 0.04
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t07_storage_open_shelf
+              category: shelf
+              position:
+              - 6.2
+              - 0.3
+              - 0.74
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.45
+              - 0.28
+              - 0.04
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            route:
+            - living_room_0
+            - kitchen_0
+            - corridor_0
+            - private_office_0
+            - utility_room_0
+            - storage_room_1
+            plate:
+              name: collection_plate
+              category: tray
+              model: gsxbym
+              right_eef_position_base_m:
+              - 0.4
+              - -0.25
+              - 0.8
+              rim_axis: y
+              rim_penetration_m: 0.025
+              usable_bounds_local_m:
+              - - -0.147
+                - -0.21
+                - -0.0049
+              - - 0.147
+                - 0.21
+                - 0.17
+            robot_start:
+              position:
+              - 4.5
+              - -7.0
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.9238795325112867
+              - 0.38268343236508984
+            source_objects_policy: replace_authored_source_objects
+            scene_config:
+              load_room_instances: null
+              load_room_types: null
+              load_object_categories: null
+              not_load_object_categories: null
+            public_environment: Original furnished rooms and doors, with objects on
+              openly exposed supporting surfaces.
+            allow_authored_navigation_inventory: true
+          plate:
+            name: collection_plate
+            category: tray
+            model: gsxbym
+            right_eef_position_base_m:
+            - 0.4
+            - -0.25
+            - 0.8
+            rim_axis: y
+            rim_penetration_m: 0.025
+            usable_bounds_local_m:
+            - - -0.147
+              - -0.21
+              - -0.0049
+            - - 0.147
+              - 0.21
+              - 0.17
+          targets:
+          - wia_t07_target_01
+          - wia_t07_target_02
+          - wia_t07_target_03
+          - wia_t07_target_04
+          - wia_t07_target_05
+          - wia_t07_target_06
+          distractors: []
+          terminal_dwell_s: 1.0
+          maximum_relative_speed_m_s: 0.03
+          maximum_plate_tilt_deg: 10.0
+          maximum_plate_speed_m_s: 0.03
+          maximum_plate_angular_speed_rad_s: 0.1
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Beechwood_0_int
+          disable_grid: false
+    unqualified_tray_preview:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_initial_joint_velocity
+        parameters:
+          revision: wia_initial_joint_velocity_v1
+          expected_scene: Beechwood_0_int
+          source_scene_file: /local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/Beechwood_0_int/json/Beechwood_0_int_best.json
+          source_scene_sha256: 80d0469afc247fb655dfba4d5bf35f4b06ff14eb751d98f9a422e113b044bc7a
+          overrides:
+            bottom_cabinet_no_top_spojpj_2:
+            - 0.0
+            - 0.0
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_room_collection
+        parameters:
+          revision: wia_room_collection_v1
+          operation: visit_rooms_and_collect_on_right_hand_tray
+          layout:
+            scene_model: Beechwood_0_int
+            native_inventory: []
+            added_inventory:
+            - name: wia_t07_target_01
+              category: banana
+              model: znakxm
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: living_room_0
+              public_name: banana
+              support: coffee_table_qlmqyy_0
+              position:
+              - 3.85
+              - -8.0
+              - 0.6521425913109691
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t07_target_02
+              category: marjoram_shaker
+              model: xlspnl
+              scale:
+              - 0.8
+              - 0.8
+              - 0.8
+              role: target
+              room: kitchen_0
+              public_name: small marjoram shaker
+              support: countertop_tpuwys_0
+              position:
+              - 0.35
+              - -5.4
+              - 1.12
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t07_target_03
+              category: cola_bottle
+              model: oyqdtz
+              scale:
+              - 0.65
+              - 0.65
+              - 0.65
+              role: target
+              room: corridor_0
+              public_name: miniature cola bottle
+              support: wia_t07_corridor_open_shelf
+              position:
+              - 1.8
+              - -3.6
+              - 1.01
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              relocation:
+                position:
+                - 1.8
+                - -3.6
+                - 1.01
+                orientation:
+                - 0.0
+                - 0.0
+                - 0.0
+                - 1.0
+            - name: wia_t07_target_04
+              category: box_of_oatmeal
+              model: jtqeef
+              scale:
+              - 0.5
+              - 0.5
+              - 0.5
+              role: target
+              room: private_office_0
+              public_name: miniature oatmeal box
+              support: desk_rzyfxk_1
+              position:
+              - 6.2
+              - -3.2
+              - 1.028614484029041
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: wia_t07_target_05
+              category: pepper_grinder
+              model: tfoogy
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: utility_room_0
+              public_name: pepper grinder
+              support: bottom_cabinet_slgzfc_0
+              position:
+              - 4.35
+              - 0.4
+              - 1.1441997753784308
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t07_target_06
+              category: bottle_of_orange_juice
+              model: edltwh
+              scale:
+              - 0.7
+              - 0.7
+              - 0.7
+              role: target
+              room: storage_room_1
+              public_name: miniature orange juice bottle
+              support: wia_t07_storage_open_shelf
+              position:
+              - 6.2
+              - 0.3
+              - 1.01
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            support_objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t07_corridor_open_shelf
+              category: shelf
+              position:
+              - 1.8
+              - -3.6
+              - 0.74
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.45
+              - 0.28
+              - 0.04
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t07_storage_open_shelf
+              category: shelf
+              position:
+              - 6.2
+              - 0.3
+              - 0.74
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.45
+              - 0.28
+              - 0.04
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            route:
+            - living_room_0
+            - kitchen_0
+            - corridor_0
+            - private_office_0
+            - utility_room_0
+            - storage_room_1
+            plate:
+              name: collection_plate
+              category: tray
+              model: gsxbym
+              right_eef_position_base_m:
+              - 0.4
+              - -0.25
+              - 0.8
+              rim_axis: y
+              rim_penetration_m: 0.025
+              usable_bounds_local_m:
+              - - -0.147
+                - -0.21
+                - -0.0049
+              - - 0.147
+                - 0.21
+                - 0.17
+            robot_start:
+              position:
+              - 4.5
+              - -7.0
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.9238795325112867
+              - 0.38268343236508984
+            source_objects_policy: replace_authored_source_objects
+            scene_config:
+              load_room_instances: null
+              load_room_types: null
+              load_object_categories: null
+              not_load_object_categories: null
+            public_environment: Original furnished rooms and doors, with objects on
+              openly exposed supporting surfaces.
+            allow_authored_navigation_inventory: true
+          plate:
+            name: collection_plate
+            category: tray
+            model: gsxbym
+            right_eef_position_base_m:
+            - 0.4
+            - -0.25
+            - 0.8
+            rim_axis: y
+            rim_penetration_m: 0.025
+            usable_bounds_local_m:
+            - - -0.147
+              - -0.21
+              - -0.0049
+            - - 0.147
+              - 0.21
+              - 0.17
+          targets:
+          - wia_t07_target_01
+          - wia_t07_target_02
+          - wia_t07_target_03
+          - wia_t07_target_04
+          - wia_t07_target_05
+          - wia_t07_target_06
+          distractors: []
+          terminal_dwell_s: 1.0
+          maximum_relative_speed_m_s: 0.03
+          maximum_plate_tilt_deg: 10.0
+          maximum_plate_speed_m_s: 0.03
+          maximum_plate_angular_speed_rad_s: 0.1
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Beechwood_0_int
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_room_collection
+        parameters:
+          revision: wia_room_collection_v1
+          operation: visit_rooms_and_collect_on_right_hand_tray
+          layout:
+            scene_model: Beechwood_0_int
+            native_inventory: []
+            added_inventory:
+            - name: wia_t07_target_01
+              category: banana
+              model: znakxm
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: living_room_0
+              public_name: banana
+              support: coffee_table_qlmqyy_0
+              position:
+              - 3.85
+              - -8.0
+              - 0.6521425913109691
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t07_target_02
+              category: marjoram_shaker
+              model: xlspnl
+              scale:
+              - 0.8
+              - 0.8
+              - 0.8
+              role: target
+              room: kitchen_0
+              public_name: small marjoram shaker
+              support: countertop_tpuwys_0
+              position:
+              - 0.35
+              - -5.4
+              - 1.12
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t07_target_03
+              category: cola_bottle
+              model: oyqdtz
+              scale:
+              - 0.65
+              - 0.65
+              - 0.65
+              role: target
+              room: corridor_0
+              public_name: miniature cola bottle
+              support: wia_t07_corridor_open_shelf
+              position:
+              - 1.8
+              - -3.6
+              - 1.01
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              relocation:
+                position:
+                - 1.8
+                - -3.6
+                - 1.01
+                orientation:
+                - 0.0
+                - 0.0
+                - 0.0
+                - 1.0
+            - name: wia_t07_target_04
+              category: box_of_oatmeal
+              model: jtqeef
+              scale:
+              - 0.5
+              - 0.5
+              - 0.5
+              role: target
+              room: private_office_0
+              public_name: miniature oatmeal box
+              support: desk_rzyfxk_1
+              position:
+              - 6.2
+              - -3.2
+              - 1.028614484029041
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: wia_t07_target_05
+              category: pepper_grinder
+              model: tfoogy
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: utility_room_0
+              public_name: pepper grinder
+              support: bottom_cabinet_slgzfc_0
+              position:
+              - 4.35
+              - 0.4
+              - 1.1441997753784308
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t07_target_06
+              category: bottle_of_orange_juice
+              model: edltwh
+              scale:
+              - 0.7
+              - 0.7
+              - 0.7
+              role: target
+              room: storage_room_1
+              public_name: miniature orange juice bottle
+              support: wia_t07_storage_open_shelf
+              position:
+              - 6.2
+              - 0.3
+              - 1.01
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            support_objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t07_corridor_open_shelf
+              category: shelf
+              position:
+              - 1.8
+              - -3.6
+              - 0.74
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.45
+              - 0.28
+              - 0.04
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t07_storage_open_shelf
+              category: shelf
+              position:
+              - 6.2
+              - 0.3
+              - 0.74
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.45
+              - 0.28
+              - 0.04
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            route:
+            - living_room_0
+            - kitchen_0
+            - corridor_0
+            - private_office_0
+            - utility_room_0
+            - storage_room_1
+            plate:
+              name: collection_plate
+              category: tray
+              model: gsxbym
+              right_eef_position_base_m:
+              - 0.4
+              - -0.25
+              - 0.8
+              rim_axis: y
+              rim_penetration_m: 0.025
+              usable_bounds_local_m:
+              - - -0.147
+                - -0.21
+                - -0.0049
+              - - 0.147
+                - 0.21
+                - 0.17
+            robot_start:
+              position:
+              - 4.5
+              - -7.0
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.9238795325112867
+              - 0.38268343236508984
+            source_objects_policy: replace_authored_source_objects
+            scene_config:
+              load_room_instances: null
+              load_room_types: null
+              load_object_categories: null
+              not_load_object_categories: null
+            public_environment: Original furnished rooms and doors, with objects on
+              openly exposed supporting surfaces.
+            allow_authored_navigation_inventory: true
+          plate:
+            name: collection_plate
+            category: tray
+            model: gsxbym
+            right_eef_position_base_m:
+            - 0.4
+            - -0.25
+            - 0.8
+            rim_axis: y
+            rim_penetration_m: 0.025
+            usable_bounds_local_m:
+            - - -0.147
+              - -0.21
+              - -0.0049
+            - - 0.147
+              - 0.21
+              - 0.17
+          targets:
+          - wia_t07_target_01
+          - wia_t07_target_02
+          - wia_t07_target_03
+          - wia_t07_target_04
+          - wia_t07_target_05
+          - wia_t07_target_06
+          distractors: []
+          terminal_dwell_s: 1.0
+          maximum_relative_speed_m_s: 0.03
+          maximum_plate_tilt_deg: 10.0
+          maximum_plate_speed_m_s: 0.03
+          maximum_plate_angular_speed_rad_s: 0.1
+          unqualified_tray_preview: true
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Beechwood_0_int
+          disable_grid: false
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0
+  max_steps: 187
+  wall_timeout_s: 561.0
+repair:
+  design_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/collection_navigation_design_v6.json
+  design_sha256: 32c1f8d7aa0dbfaad37704c0ee54d5f7dcc8dbce052d27ec7ddfaf6b706d4637
+  parent_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/t07_corridor_reset_v1/task.yaml
+  parent_task_sha256: 502c28ef64f7d432611d11814cca4efbcb10d327e8efa7dae0a978a007873740
+  parent_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/t07_corridor_reset_v1/scene.yaml
+  parent_scene_sha256: 45dea7ef5fa9bbed48aa43b1e8d580c2325246d8cadba4049b881777a6900755
+  source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Cognitive
+    Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/t07_furnished_collection_v6.json
+  source_sha256: 2d1baa36a69fb36a9c7411d8649e08ef64aed604ce45bc5b430d4a1882e4c227
+  source_identity: Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/t07_furnished_collection_v6.json
+  scene_model: Beechwood_0_int
+  room: full_scene
+  document_alias: T07
+  variant_id: t07_native_velocity_v2
+  label: T07 furnished room collection V6 (original native 1.0 m room map)
+  contract_revision: wia_room_collection_v1
+  runtime:
+    reflection_sensor_profile: {}
+    requires_native_visual_discovery: false
+    post_controller_settle_steps: 0
+    trunk_config: configs/esi_trunk.json
+    robot_camera_config: configs/esi_robot_cameras.json
+    viewer_config: configs/esi_viewer.json
+    camera_size:
+    - 512
+    - 512
+    viewer_main_view: global_diagonal
+    debug_cameras: true
+    human_depth_visualizations: true
+    preview_fps: 2.0
+  native_validation_run: false
+  physical_success_verified: false
+  native_inventory_spawned: false
+  added_inventory_explicit: true
+  original_source_qa_unused: true
+  full_reference_execution: pending
+  recommended_primitive_profile: fine
+  controller_profile_file: configs/esi_primitives_fine.json
+  parent_task_defaults:
+    seed: 0
+    max_steps: 187
+    wall_timeout_s: 561.0
+  declared_task_default_overrides: {}
+  revision_scope: Restore the authored corridor bottle pose before support alignment,
+    including XY and orientation; preserve shelf, route, tray initializer and thresholds.
+  native_support_verified: false
+  tray_initialization_status: unresolved; diagnostic preview cannot qualify success
+  scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/t07_native_velocity_v2/scene.yaml
+  repair_reason: Reset only the named background cabinet saved joint velocities before
+    native construction; preserve all asset poses, source inventory, tray grasp contract,
+    controllers and scoring. The source snapshot otherwise starts this joint at 60.46693
+    rad/s and produces nonfinite native transforms.

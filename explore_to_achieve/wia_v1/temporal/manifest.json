@@ -1,0 +1,1162 @@
+{
+  "schema": "wia_tm2_matched_history_v1",
+  "status": "pending-native-validation",
+  "baseline_task_file": "explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_006a82c80075ae1fb18c5bc6.yaml",
+  "baseline_scene_file": "explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_006a82c80075ae1fb18c5bc6.yaml",
+  "baseline_source_file": "explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_01.json",
+  "butter_donor_source_file": "explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_03.json",
+  "converter_module": "core.esi_converters.temporal_understanding_two_phase",
+  "converter_operation": "compare_change_and_restore_or_collect",
+  "seed": 0,
+  "encounter_policy": {
+    "encounter_policy": "mounted_visibility_v1",
+    "encounter_min_pixels": 144,
+    "encounter_min_extent_px": 12,
+    "encounter_max_distance_m": 2.0
+  },
+  "encounter_threshold_basis": "Preserved selected T40 baseline; not newly calibrated.",
+  "public_payload_equal": true,
+  "common_public_payload": {
+    "task_id": "wia_tm2_matched_history_v1",
+    "task_version": 1,
+    "objective": "Comparing Phase 1 and Phase 2, did the contents of any comparison box change?\n\nPhase 1: freely inspect comparison locations in a read-only survey of at most 10 decisions. Use mounted cameras, base/torso motion and empty arms; preserve all objects and furniture. Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved in this same episode. Phase 2: compare with memory and submit ANSWER: <original option>. Then perform the applicable operation: if an object was added, put the actual added object on the collection and inspection tray; if replaced, put the current replacement on the collection and inspection tray; if moved, return the displaced object to its remembered original container/support; if removed, select the matching category and model by appearance from the public spare inventory and replenish the remembered original location; if unchanged, inspect all comparison locations with informative views and leave the contents in place. No grasp is required for no-change. If several locations changed, complete the applicable operation for each change. You may finish Phase 1 before visiting every location; the phase switches automatically after ten decisions. Survey coverage is recorded but is not a transition or full-success gate. The spare tray contains the complete candidate inventory from the beginning in every event variant. Public spare inventory: spare 1 on the stocked spare tray: shaker; spare 2 on the stocked spare tray: jar of cumin; spare 3 on the stocked spare tray: butter; spare 4 on the stocked spare tray: bottle of lavender oil. The spare table is visible and reachable during both phases. Original answer options: [\"yes\", \"no\"]",
+    "success_criteria": "Use informative observations in both phases, report the correct original comparison answer, and complete the applicable change-dependent operation. Manipulation requires real selection of the history-bound object and stable released placement with native destination support/contact. Preserve all other source contents, spare distractors, containers and furniture. Inspection-only no-change requires informative comparison-location views, never a fabricated pickup.",
+    "environment": "One native reset with the exact source event and same robot/cameras/history throughout. Declared collection/inspection tray and spare-table apparatus are initialized before the survey.",
+    "constraints": [
+      "Phase 1 is bounded to 10 decisions and strictly read-only, including the spare inventory.",
+      "The hidden event delivers no intermediate frames. Use only public guarded controls afterward.",
+      "There is no extra minimum travel distance, arbitrary any-container visit or return-to-start requirement.",
+      "Do not move any source object other than the comparison-selected target; preserve apparatus and distractors."
+    ]
+  },
+  "common_public_task_section": {
+    "objective": "Comparing Phase 1 and Phase 2, did the contents of any comparison box change?\n\nPhase 1: freely inspect comparison locations in a read-only survey of at most 10 decisions. Use mounted cameras, base/torso motion and empty arms; preserve all objects and furniture. Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved in this same episode. Phase 2: compare with memory and submit ANSWER: <original option>. Then perform the applicable operation: if an object was added, put the actual added object on the collection and inspection tray; if replaced, put the current replacement on the collection and inspection tray; if moved, return the displaced object to its remembered original container/support; if removed, select the matching category and model by appearance from the public spare inventory and replenish the remembered original location; if unchanged, inspect all comparison locations with informative views and leave the contents in place. No grasp is required for no-change. If several locations changed, complete the applicable operation for each change. You may finish Phase 1 before visiting every location; the phase switches automatically after ten decisions. Survey coverage is recorded but is not a transition or full-success gate. The spare tray contains the complete candidate inventory from the beginning in every event variant. Public spare inventory: spare 1 on the stocked spare tray: shaker; spare 2 on the stocked spare tray: jar of cumin; spare 3 on the stocked spare tray: butter; spare 4 on the stocked spare tray: bottle of lavender oil. The spare table is visible and reachable during both phases. Original answer options: [\"yes\", \"no\"]",
+    "success_criteria": "Use informative observations in both phases, report the correct original comparison answer, and complete the applicable change-dependent operation. Manipulation requires real selection of the history-bound object and stable released placement with native destination support/contact. Preserve all other source contents, spare distractors, containers and furniture. Inspection-only no-change requires informative comparison-location views, never a fabricated pickup.",
+    "environment": "One native reset with the exact source event and same robot/cameras/history throughout. Declared collection/inspection tray and spare-table apparatus are initialized before the survey.",
+    "constraints": [
+      "Phase 1 is bounded to 10 decisions and strictly read-only, including the spare inventory.",
+      "The hidden event delivers no intermediate frames. Use only public guarded controls afterward.",
+      "There is no extra minimum travel distance, arbitrary any-container visit or return-to-start requirement.",
+      "Do not move any source object other than the comparison-selected target; preserve apparatus and distractors."
+    ]
+  },
+  "public_task_identity_policy": "A deliberate shared neutral task ID/version is public. Exact instance identity is the private source identity, variant key, task path and task-file SHA256.",
+  "declared_active_phase_2_state_equal": true,
+  "common_declared_active_phase_2_state": {
+    "scene": "house_single_floor",
+    "room": "dining_room_0",
+    "boxes": [
+      {
+        "binding_key": "container_00",
+        "label": "left box",
+        "identity": {
+          "name": "render_unobserved_box_0_carton",
+          "category": "carton",
+          "model": "cdmmwy"
+        },
+        "source_geometry": {
+          "position": [
+            6.6453999999999995,
+            3.5004,
+            0.9212516951560974
+          ],
+          "quaternion_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bbox": [
+            [
+              6.529161071777343,
+              3.345233201980591,
+              0.8126344680786133
+            ],
+            [
+              6.7596512794494625,
+              3.6596856117248535,
+              0.9994605779647827
+            ]
+          ]
+        }
+      },
+      {
+        "binding_key": "container_01",
+        "label": "middle box",
+        "identity": {
+          "name": "render_unobserved_box_1_carton",
+          "category": "carton",
+          "model": "cdmmwy"
+        },
+        "source_geometry": {
+          "position": [
+            7.2954,
+            3.5004,
+            0.9212516951560974
+          ],
+          "quaternion_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bbox": [
+            [
+              7.179161071777344,
+              3.345233201980591,
+              0.8126344680786133
+            ],
+            [
+              7.409651279449463,
+              3.6596856117248535,
+              0.9994605779647827
+            ]
+          ]
+        }
+      },
+      {
+        "binding_key": "container_02",
+        "label": "right box",
+        "identity": {
+          "name": "render_unobserved_box_2_carton",
+          "category": "carton",
+          "model": "cdmmwy"
+        },
+        "source_geometry": {
+          "position": [
+            7.9454,
+            3.5004,
+            0.9212516951560974
+          ],
+          "quaternion_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bbox": [
+            [
+              7.829161071777344,
+              3.345233201980591,
+              0.8126344680786133
+            ],
+            [
+              8.059651279449463,
+              3.6596856117248535,
+              0.9994605779647827
+            ]
+          ]
+        }
+      }
+    ],
+    "active_contents": [
+      {
+        "binding_key": "image2_content_01",
+        "container_binding": "container_01",
+        "identity": {
+          "name": "render_unobserved_content_phase2_content_jar_of_cumin_1",
+          "category": "jar_of_cumin",
+          "model": "tsktnz"
+        },
+        "source_geometry": {
+          "position": [
+            7.294406175613403,
+            3.502459406852722,
+            0.906047523021698
+          ],
+          "quaternion_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bbox_size_m": [
+            0.06,
+            0.06000002098083496,
+            0.07185805511474609
+          ]
+        }
+      }
+    ],
+    "public_spare_inventory": [
+      {
+        "binding_key": "public_spare_1",
+        "binding": {
+          "name": "public_spare_1",
+          "category": "shaker",
+          "model": "hbheag"
+        },
+        "public_label": "spare 1 on the stocked spare tray",
+        "public_category": "shaker",
+        "support_binding": "change_spare_tray"
+      },
+      {
+        "binding_key": "public_spare_2",
+        "binding": {
+          "name": "public_spare_2",
+          "category": "jar_of_cumin",
+          "model": "tsktnz"
+        },
+        "public_label": "spare 2 on the stocked spare tray",
+        "public_category": "jar_of_cumin",
+        "support_binding": "change_spare_tray"
+      },
+      {
+        "binding_key": "public_spare_3",
+        "binding": {
+          "name": "public_spare_3",
+          "category": "butter",
+          "model": "ovirmc"
+        },
+        "public_label": "spare 3 on the stocked spare tray",
+        "public_category": "butter",
+        "support_binding": "change_spare_tray"
+      },
+      {
+        "binding_key": "public_spare_4",
+        "binding": {
+          "name": "public_spare_4",
+          "category": "bottle_of_lavender_oil",
+          "model": "csalbx"
+        },
+        "public_label": "spare 4 on the stocked spare tray",
+        "public_category": "bottle_of_lavender_oil",
+        "support_binding": "change_spare_tray"
+      }
+    ],
+    "apparatus": {
+      "primitives": [
+        {
+          "name": "change_collection_table",
+          "position": [
+            5.2,
+            3.3,
+            0.695
+          ],
+          "dimensions_m": [
+            0.6,
+            0.5,
+            0.05
+          ],
+          "rgba": [
+            0.35,
+            0.28,
+            0.18,
+            1.0
+          ]
+        },
+        {
+          "name": "change_collection_table_leg_0",
+          "position": [
+            4.96,
+            3.11,
+            0.33499999999999996
+          ],
+          "dimensions_m": [
+            0.04,
+            0.04,
+            0.6699999999999999
+          ]
+        },
+        {
+          "name": "change_collection_table_leg_1",
+          "position": [
+            4.96,
+            3.4899999999999998,
+            0.33499999999999996
+          ],
+          "dimensions_m": [
+            0.04,
+            0.04,
+            0.6699999999999999
+          ]
+        },
+        {
+          "name": "change_collection_table_leg_2",
+          "position": [
+            5.44,
+            3.11,
+            0.33499999999999996
+          ],
+          "dimensions_m": [
+            0.04,
+            0.04,
+            0.6699999999999999
+          ]
+        },
+        {
+          "name": "change_collection_table_leg_3",
+          "position": [
+            5.44,
+            3.4899999999999998,
+            0.33499999999999996
+          ],
+          "dimensions_m": [
+            0.04,
+            0.04,
+            0.6699999999999999
+          ]
+        },
+        {
+          "name": "change_collection_tray",
+          "category": "tray",
+          "position": [
+            5.2,
+            3.3,
+            0.73
+          ],
+          "dimensions_m": [
+            0.5,
+            0.4,
+            0.02
+          ],
+          "rgba": [
+            0.15,
+            0.3,
+            0.9,
+            1.0
+          ]
+        },
+        {
+          "name": "change_collection_rim_0",
+          "category": "tray",
+          "position": [
+            4.955,
+            3.3,
+            0.76
+          ],
+          "dimensions_m": [
+            0.01,
+            0.4,
+            0.06
+          ],
+          "rgba": [
+            0.15,
+            0.3,
+            0.9,
+            1.0
+          ]
+        },
+        {
+          "name": "change_collection_rim_1",
+          "category": "tray",
+          "position": [
+            5.445,
+            3.3,
+            0.76
+          ],
+          "dimensions_m": [
+            0.01,
+            0.4,
+            0.06
+          ],
+          "rgba": [
+            0.15,
+            0.3,
+            0.9,
+            1.0
+          ]
+        },
+        {
+          "name": "change_collection_rim_2",
+          "category": "tray",
+          "position": [
+            5.2,
+            3.105,
+            0.76
+          ],
+          "dimensions_m": [
+            0.5,
+            0.01,
+            0.06
+          ],
+          "rgba": [
+            0.15,
+            0.3,
+            0.9,
+            1.0
+          ]
+        },
+        {
+          "name": "change_collection_rim_3",
+          "category": "tray",
+          "position": [
+            5.2,
+            3.4949999999999997,
+            0.76
+          ],
+          "dimensions_m": [
+            0.5,
+            0.01,
+            0.06
+          ],
+          "rgba": [
+            0.15,
+            0.3,
+            0.9,
+            1.0
+          ]
+        },
+        {
+          "name": "change_spare_table",
+          "position": [
+            6.15,
+            2.45,
+            0.695
+          ],
+          "dimensions_m": [
+            0.6,
+            0.5,
+            0.05
+          ],
+          "rgba": [
+            0.35,
+            0.28,
+            0.18,
+            1.0
+          ]
+        },
+        {
+          "name": "change_spare_table_leg_0",
+          "position": [
+            5.91,
+            2.2600000000000002,
+            0.33499999999999996
+          ],
+          "dimensions_m": [
+            0.04,
+            0.04,
+            0.6699999999999999
+          ]
+        },
+        {
+          "name": "change_spare_table_leg_1",
+          "position": [
+            5.91,
+            2.64,
+            0.33499999999999996
+          ],
+          "dimensions_m": [
+            0.04,
+            0.04,
+            0.6699999999999999
+          ]
+        },
+        {
+          "name": "change_spare_table_leg_2",
+          "position": [
+            6.390000000000001,
+            2.2600000000000002,
+            0.33499999999999996
+          ],
+          "dimensions_m": [
+            0.04,
+            0.04,
+            0.6699999999999999
+          ]
+        },
+        {
+          "name": "change_spare_table_leg_3",
+          "position": [
+            6.390000000000001,
+            2.64,
+            0.33499999999999996
+          ],
+          "dimensions_m": [
+            0.04,
+            0.04,
+            0.6699999999999999
+          ]
+        },
+        {
+          "name": "change_spare_tray",
+          "category": "tray",
+          "position": [
+            6.15,
+            2.45,
+            0.73
+          ],
+          "dimensions_m": [
+            0.5,
+            0.4,
+            0.02
+          ],
+          "rgba": [
+            0.15,
+            0.3,
+            0.9,
+            1.0
+          ]
+        },
+        {
+          "name": "change_spare_rim_0",
+          "category": "tray",
+          "position": [
+            5.905,
+            2.45,
+            0.76
+          ],
+          "dimensions_m": [
+            0.01,
+            0.4,
+            0.06
+          ],
+          "rgba": [
+            0.15,
+            0.3,
+            0.9,
+            1.0
+          ]
+        },
+        {
+          "name": "change_spare_rim_1",
+          "category": "tray",
+          "position": [
+            6.3950000000000005,
+            2.45,
+            0.76
+          ],
+          "dimensions_m": [
+            0.01,
+            0.4,
+            0.06
+          ],
+          "rgba": [
+            0.15,
+            0.3,
+            0.9,
+            1.0
+          ]
+        },
+        {
+          "name": "change_spare_rim_2",
+          "category": "tray",
+          "position": [
+            6.15,
+            2.2550000000000003,
+            0.76
+          ],
+          "dimensions_m": [
+            0.5,
+            0.01,
+            0.06
+          ],
+          "rgba": [
+            0.15,
+            0.3,
+            0.9,
+            1.0
+          ]
+        },
+        {
+          "name": "change_spare_rim_3",
+          "category": "tray",
+          "position": [
+            6.15,
+            2.645,
+            0.76
+          ],
+          "dimensions_m": [
+            0.5,
+            0.01,
+            0.06
+          ],
+          "rgba": [
+            0.15,
+            0.3,
+            0.9,
+            1.0
+          ]
+        }
+      ],
+      "dataset_objects": [
+        {
+          "type": "DatasetObject",
+          "name": "public_spare_1",
+          "category": "shaker",
+          "model": "hbheag",
+          "position": [
+            6.0200000000000005,
+            2.35,
+            0.788977990812315
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "fixed_base": false,
+          "visual_only": false
+        },
+        {
+          "type": "DatasetObject",
+          "name": "public_spare_2",
+          "category": "jar_of_cumin",
+          "model": "tsktnz",
+          "position": [
+            6.28,
+            2.35,
+            0.778929027557373
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "fixed_base": false,
+          "visual_only": false
+        },
+        {
+          "type": "DatasetObject",
+          "name": "public_spare_3",
+          "category": "butter",
+          "model": "ovirmc",
+          "position": [
+            6.0200000000000005,
+            2.5500000000000003,
+            0.7507897019386292
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "fixed_base": false,
+          "visual_only": false
+        },
+        {
+          "type": "DatasetObject",
+          "name": "public_spare_4",
+          "category": "bottle_of_lavender_oil",
+          "model": "csalbx",
+          "position": [
+            6.28,
+            2.5500000000000003,
+            0.7812698484659195
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "fixed_base": false,
+          "visual_only": false
+        }
+      ],
+      "floor_contact_names": [
+        "change_collection_table_leg_0",
+        "change_collection_table_leg_1",
+        "change_collection_table_leg_2",
+        "change_collection_table_leg_3",
+        "change_spare_table_leg_0",
+        "change_spare_table_leg_1",
+        "change_spare_table_leg_2",
+        "change_spare_table_leg_3"
+      ]
+    },
+    "sensor_and_robot_start_configuration": {
+      "scene_runtime": {
+        "reflection_sensor_profile": {},
+        "requires_native_visual_discovery": true,
+        "post_controller_settle_steps": 0,
+        "trunk_config": "configs/esi_trunk.json",
+        "robot_camera_config": "configs/esi_robot_cameras.json",
+        "viewer_config": "configs/esi_viewer.json",
+        "camera_size": [
+          512,
+          512
+        ],
+        "viewer_main_view": "global_diagonal",
+        "debug_cameras": true,
+        "human_depth_visualizations": true,
+        "preview_fps": 2.0
+      },
+      "configuration_files": {
+        "robot_camera_config": {
+          "file": "configs/esi_robot_cameras.json",
+          "sha256": "7c4f7dc3ccfb472b6ac4ae9d13ece3c0e7bd1ae9a184c31551200a8d1b38dd80"
+        },
+        "trunk_config": {
+          "file": "configs/esi_trunk.json",
+          "sha256": "56924f308bf3a5a0fe3ba57af79852871d97f314108f7f3989e189e28bc36586"
+        },
+        "viewer_config": {
+          "file": "configs/esi_viewer.json",
+          "sha256": "f3872067a3fb6a7d0eb3cc8e14886e49a31c8eb993d84ca427d074c46edaa025"
+        }
+      },
+      "robot_pose_patches": {
+        "original": [],
+        "adapted": [
+          {
+            "operation": "robot_pose",
+            "position": [
+              5.800000000000003,
+              2.45,
+              -2.0831823348999023e-05
+            ],
+            "yaw_deg": 35.15573310432805,
+            "head_pitch_deg": 35.0
+          }
+        ],
+        "saved_image1": [
+          {
+            "operation": "robot_pose",
+            "position": [
+              5.800000000000003,
+              2.45,
+              -2.0831823348999023e-05
+            ],
+            "yaw_deg": 35.15573310432805,
+            "head_pitch_deg": 35.0
+          }
+        ],
+        "saved_image2": [
+          {
+            "operation": "robot_pose",
+            "position": [
+              5.800000000000003,
+              2.45,
+              -2.0831823348999023e-05
+            ],
+            "yaw_deg": 35.15573310432805,
+            "head_pitch_deg": 35.0
+          }
+        ]
+      },
+      "source_camera_policy": {
+        "agent_position_policy": "search_traversable_edge_positions_and_maximize_visible_boxes",
+        "gt_view_images": "image2_gt.png",
+        "mode": "two_phase_primary_plus_room_and_gt_views",
+        "phases": 2,
+        "primary_images": "image1.png + image2.png",
+        "room_view_images": "*"
+      },
+      "source_primary_camera_poses": {
+        "image1": [
+          {
+            "_key": "image1.png",
+            "candidate_label": "east_0.20",
+            "look_target": [
+              7.294405698776245,
+              3.5024588108062744,
+              0.9060474038124084
+            ],
+            "pitch_deg": 11.631047027383973,
+            "position": [
+              8.55,
+              2.4,
+              1.249979168176651
+            ],
+            "quaternion_xyzw": [
+              0.5755794865180954,
+              0.2605837797781484,
+              0.31968408194024,
+              0.7061206951861169
+            ],
+            "selection_mode": "maximize_visible_boxes",
+            "target_metrics": [
+              {
+                "centered_score": 0.0,
+                "is_visible": false,
+                "target_name": "render_unobserved_box_0_carton",
+                "visible_pixels": 0
+              }
+            ],
+            "view_name": "maximize_box_visibility",
+            "visible_box_count": 0,
+            "visible_pixel_sum": 0
+          }
+        ],
+        "image2": [
+          {
+            "_key": "image2.png",
+            "candidate_label": "east_0.20",
+            "look_target": [
+              7.2944066524505615,
+              3.502456784248352,
+              0.9060475528240204
+            ],
+            "pitch_deg": 11.631056031887402,
+            "position": [
+              8.55,
+              2.4,
+              1.249979168176651
+            ],
+            "quaternion_xyzw": [
+              0.5755793613505044,
+              0.26058390857008745,
+              0.319684291236426,
+              0.7061206549296981
+            ],
+            "selection_mode": "maximize_visible_boxes",
+            "target_metrics": [
+              {
+                "centered_score": 0.0,
+                "is_visible": false,
+                "target_name": "render_unobserved_box_0_carton",
+                "visible_pixels": 0
+              }
+            ],
+            "view_name": "maximize_box_visibility",
+            "visible_box_count": 0,
+            "visible_pixel_sum": 0
+          }
+        ]
+      },
+      "source_gt_camera_metadata": {
+        "dir": "gt_view",
+        "image1": {
+          "fov_deg": 55.0,
+          "images": [
+            {
+              "box_index": 0,
+              "camera_pose": {
+                "position": [
+                  7.9096514906739905,
+                  3.448997084572201,
+                  1.4962887056099525
+                ],
+                "quaternion_xyzw": [
+                  0.2820644341555037,
+                  0.25862378929878393,
+                  0.6243730596774459,
+                  0.6809637824013097
+                ]
+              },
+              "container_name": "render_unobserved_box_0_carton",
+              "fov_deg": 55.0,
+              "image_path": "image1_box_00.png",
+              "look_target": [
+                7.294359445571899,
+                3.502447485923767,
+                0.8786794066429138
+              ],
+              "pitch_deg": 45.0,
+              "position_label": "the box",
+              "requested_clearance_m": 0.5,
+              "view_direction": "front"
+            }
+          ],
+          "output_dir": "gt_view",
+          "success": true
+        },
+        "image2": {
+          "fov_deg": 55.0,
+          "images": [
+            {
+              "box_index": 0,
+              "camera_pose": {
+                "position": [
+                  7.909652809139296,
+                  3.502460189007919,
+                  1.5212933220963591
+                ],
+                "quaternion_xyzw": [
+                  0.27059714403703966,
+                  0.2705989561061236,
+                  0.6532836697954055,
+                  0.6532792950736471
+                ]
+              },
+              "container_name": "render_unobserved_box_0_carton",
+              "fov_deg": 55.0,
+              "image_path": "image2_box_00.png",
+              "look_target": [
+                7.294406890869141,
+                3.5024560689926147,
+                0.9060474038124084
+              ],
+              "pitch_deg": 45.0,
+              "position_label": "the box",
+              "requested_clearance_m": 0.5,
+              "view_direction": "front"
+            }
+          ],
+          "output_dir": "gt_view",
+          "success": true
+        }
+      }
+    }
+  },
+  "phase_1_histories_differ": true,
+  "expected_physical_targets_differ": true,
+  "observation_contract": {
+    "frozen_initial_overview_retained": true,
+    "full_input_history_status": "history_available",
+    "memory_free_claim": false,
+    "inherited_render_metadata_is_new_agent_observation": false
+  },
+  "native_phase_2_equivalence": "PENDING",
+  "observation_shortcut_audit": "PENDING",
+  "reference_execution": "PENDING",
+  "native_experiments_run": false,
+  "limitations": [
+    "Declared active Phase-2 equality does not establish native world or delivered-image equality.",
+    "Inactive source actors and history-dependent support rebasing may differ; native equivalence is pending.",
+    "The retained frozen initial overview makes full input history available; no memory-free claim is made.",
+    "No native phase observations, reference execution, shortcut audit or physical success were produced."
+  ],
+  "instances": [
+    {
+      "history_variant": "a",
+      "source_file": "explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_a_v1.json",
+      "source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_a_v1.json",
+      "task_file": "explore_to_achieve/wia_v1/temporal/tasks/history_a_v1.yaml",
+      "scene_file": "explore_to_achieve/wia_v1/temporal/scenes/history_a_v1.yaml",
+      "source_file_sha256": "5cbe09a91dc1ca9824294125c465e650aa1a046b0cfce06101402101cae3edd5",
+      "task_file_sha256": "ba076a8ae1257b24ac9257492637cf0b2e8927c6c742735b765d10a93bf40719",
+      "scene_file_sha256": "15761090114c43d8f2e866e39183463bb09e7793a0aae05be8d1989fa12bdae2",
+      "source_id": "wia_history_a_v1",
+      "status": "pending",
+      "private_answer": "yes",
+      "physical_branch": "removed",
+      "physical_target_key": "public_spare_1",
+      "physical_destination_key": "container_00",
+      "placement_relation": "inside",
+      "source_event_recipe": {
+        "branch": "removed",
+        "changed_containers": [
+          "container_00"
+        ],
+        "source_container": "container_00",
+        "original_key": "image1_content_00",
+        "current_key": null,
+        "phase_1_slots": {
+          "container_00": "image1_content_00",
+          "container_01": "image1_content_01",
+          "container_02": null
+        },
+        "phase_2_slots": {
+          "container_00": null,
+          "container_01": "image2_content_01",
+          "container_02": null
+        }
+      },
+      "phase_1_inventory": [
+        {
+          "category": "shaker",
+          "model": "hbheag"
+        },
+        {
+          "category": "jar_of_cumin",
+          "model": "tsktnz"
+        },
+        null
+      ],
+      "phase_2_inventory": [
+        null,
+        {
+          "category": "jar_of_cumin",
+          "model": "tsktnz"
+        },
+        null
+      ],
+      "phase_1_dependent_support_groups": [
+        [
+          "container_00",
+          "image1_content_00"
+        ],
+        [
+          "container_01",
+          "image1_content_01"
+        ],
+        [
+          "container_02"
+        ]
+      ],
+      "offstage_phase_1_bindings": {
+        "image1_content_00": {
+          "name": "render_unobserved_content_phase1_content_shaker_0",
+          "category": "shaker",
+          "model": "hbheag"
+        },
+        "image1_content_01": {
+          "name": "render_unobserved_content_phase1_content_jar_of_cumin_1",
+          "category": "jar_of_cumin",
+          "model": "tsktnz"
+        }
+      },
+      "native_gates": {
+        "phase_1_informative_access": "pending",
+        "protected_read_only_survey": "pending",
+        "exact_hidden_event": "pending",
+        "apparatus_support_and_access": "pending",
+        "phase_2_informative_access": "pending",
+        "bound_selection": "pending",
+        "stable_terminal_relation": "pending",
+        "source_interior_fit": "pending"
+      }
+    },
+    {
+      "history_variant": "b",
+      "source_file": "explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json",
+      "source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json",
+      "task_file": "explore_to_achieve/wia_v1/temporal/tasks/history_b_v1.yaml",
+      "scene_file": "explore_to_achieve/wia_v1/temporal/scenes/history_b_v1.yaml",
+      "source_file_sha256": "d43c28f070ad1160669144b643bd04de9e33e960d6c1e75a918b29a116354f26",
+      "task_file_sha256": "65dab4197ec3805cbdb741127278ffb742ec0fb69255b2f35c14effdc8826d2c",
+      "scene_file_sha256": "b64b05ee694f7374a41dba50b068633595effb258b536a48a85247c67ae6d51d",
+      "source_id": "wia_history_b_v1",
+      "status": "pending",
+      "private_answer": "yes",
+      "physical_branch": "removed",
+      "physical_target_key": "public_spare_3",
+      "physical_destination_key": "container_00",
+      "placement_relation": "inside",
+      "source_event_recipe": {
+        "branch": "removed",
+        "changed_containers": [
+          "container_00"
+        ],
+        "source_container": "container_00",
+        "original_key": "image1_content_00",
+        "current_key": null,
+        "phase_1_slots": {
+          "container_00": "image1_content_00",
+          "container_01": "image1_content_01",
+          "container_02": null
+        },
+        "phase_2_slots": {
+          "container_00": null,
+          "container_01": "image2_content_01",
+          "container_02": null
+        }
+      },
+      "phase_1_inventory": [
+        {
+          "category": "butter",
+          "model": "ovirmc"
+        },
+        {
+          "category": "jar_of_cumin",
+          "model": "tsktnz"
+        },
+        null
+      ],
+      "phase_2_inventory": [
+        null,
+        {
+          "category": "jar_of_cumin",
+          "model": "tsktnz"
+        },
+        null
+      ],
+      "phase_1_dependent_support_groups": [
+        [
+          "container_00",
+          "image1_content_00"
+        ],
+        [
+          "container_01",
+          "image1_content_01"
+        ],
+        [
+          "container_02"
+        ]
+      ],
+      "offstage_phase_1_bindings": {
+        "image1_content_00": {
+          "name": "render_unobserved_content_phase1_content_butter_0",
+          "category": "butter",
+          "model": "ovirmc"
+        },
+        "image1_content_01": {
+          "name": "render_unobserved_content_phase1_content_jar_of_cumin_1",
+          "category": "jar_of_cumin",
+          "model": "tsktnz"
+        }
+      },
+      "native_gates": {
+        "phase_1_informative_access": "pending",
+        "protected_read_only_survey": "pending",
+        "exact_hidden_event": "pending",
+        "apparatus_support_and_access": "pending",
+        "phase_2_informative_access": "pending",
+        "bound_selection": "pending",
+        "stable_terminal_relation": "pending",
+        "source_interior_fit": "pending"
+      }
+    },
+    {
+      "history_variant": "c",
+      "source_file": "explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_c_v1.json",
+      "source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_c_v1.json",
+      "task_file": "explore_to_achieve/wia_v1/temporal/tasks/history_c_v1.yaml",
+      "scene_file": "explore_to_achieve/wia_v1/temporal/scenes/history_c_v1.yaml",
+      "source_file_sha256": "54bc54baede0a567450b012633b2d497eec3260c787dfc969046403b4bf640d3",
+      "task_file_sha256": "ad88785ed0401578069a290ddb4428039fb6f1490af3166cc9c8e7d0490a5a90",
+      "scene_file_sha256": "fec3d4270493b94d039188594f0087b60ea4e01b9a57cd8a766dfc9e9805b188",
+      "source_id": "wia_history_c_v1",
+      "status": "pending",
+      "private_answer": "no",
+      "physical_branch": "no_change",
+      "physical_target_key": null,
+      "physical_destination_key": null,
+      "placement_relation": null,
+      "source_event_recipe": {
+        "branch": "no_change",
+        "changed_containers": [],
+        "phase_1_slots": {
+          "container_00": null,
+          "container_01": "image1_content_01",
+          "container_02": null
+        },
+        "phase_2_slots": {
+          "container_00": null,
+          "container_01": "image2_content_01",
+          "container_02": null
+        }
+      },
+      "phase_1_inventory": [
+        null,
+        {
+          "category": "jar_of_cumin",
+          "model": "tsktnz"
+        },
+        null
+      ],
+      "phase_2_inventory": [
+        null,
+        {
+          "category": "jar_of_cumin",
+          "model": "tsktnz"
+        },
+        null
+      ],
+      "phase_1_dependent_support_groups": [
+        [
+          "container_00"
+        ],
+        [
+          "container_01",
+          "image1_content_01"
+        ],
+        [
+          "container_02"
+        ]
+      ],
+      "offstage_phase_1_bindings": {
+        "image1_content_01": {
+          "name": "render_unobserved_content_phase1_content_jar_of_cumin_1",
+          "category": "jar_of_cumin",
+          "model": "tsktnz"
+        }
+      },
+      "native_gates": {
+        "phase_1_informative_access": "pending",
+        "protected_read_only_survey": "pending",
+        "exact_hidden_event": "pending",
+        "apparatus_support_and_access": "pending",
+        "phase_2_informative_access": "pending",
+        "bound_selection": "pending",
+        "stable_terminal_relation": "pending",
+        "source_interior_fit": "pending"
+      }
+    }
+  ]
+}

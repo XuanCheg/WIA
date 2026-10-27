@@ -1,0 +1,814 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "artifact_path_base": "absolute",
+  "status": "pending_native_review",
+  "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_design_v2.json",
+  "design_sha256": "d63fd4c10723a44e96bb56fb3b02ca7806d335abc6bed647ad5069ca8e7a6c8f",
+  "full_reference_execution": "pending",
+  "native_validation_run": false,
+  "native_geometry_verified": false,
+  "native_visibility_verified": false,
+  "native_shape_verified": false,
+  "native_hand_path_verified": false,
+  "native_gripper_path_verified": false,
+  "native_optics_verified": false,
+  "native_selected_identity_verified": false,
+  "native_non_goal_initialization_verified": false,
+  "physical_success_verified": false,
+  "scientific_controls_verified": false,
+  "continuous_path_certified": false,
+  "entries": [
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_history_a_m_furnished_v2",
+      "label": "T40 history A furnished M v2 (lower native counter)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_a_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_a_v3.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t40_history_a_m_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t40_history_a_m_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t40_history_a_m_furnished_v2.json",
+      "scene_model": "Merom_0_garden",
+      "room": "playroom_0",
+      "floor_name": "floors_jrdgxz_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -13.115400000000001,
+          -14.950399999999998,
+          0.00656492700176714
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "countertop_tpuwys_0"
+      },
+      "robot_start": {
+        "position": [
+          -4.8,
+          -11.45,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_m_v2",
+      "environment": "A furnished playroom with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "M",
+      "history_variant": "a",
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "countertop_tpuwys_0",
+        "static_aabb_m": [
+          [
+            -6.104446948092266,
+            -13.121390998541202,
+            0.8005993844072294
+          ],
+          [
+            -5.547493536377764,
+            -10.41771346312872,
+            0.8191993950803804
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_design_v2.json",
+      "design_sha256": "d63fd4c10723a44e96bb56fb3b02ca7806d335abc6bed647ad5069ca8e7a6c8f",
+      "parent_task_sha256": "f293c0d06c976cdef58991b1cb5b00317a3611c10db0b670adf61f58d37bf6f6",
+      "parent_scene_sha256": "25b975cf3c5cea3cc533611f0f1767ecccca41cbf50e380ffbb2637e78a9cc0b",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_a_v1.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_a_v1.json",
+      "parent_source_sha256": "5cbe09a91dc1ca9824294125c465e650aa1a046b0cfce06101402101cae3edd5",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t40_history_a_m_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t40_history_a_m_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t40_history_a_m_furnished_v2.json",
+      "source_sha256": "f8ef61d34dd83a6aac01a6f79c40626dd51d862d2ed4a39a8edfa707670c7985",
+      "task_sha256": "89a66c21d61d362affde9746e9d594a8ef02125695b2b6e584c4936491bde6b4",
+      "scene_sha256": "3496b224fb7771e121b033bfd0176bf101a94d228ad187c6c9931398c0c44b5c",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "wia_tm2_matched_history_v3",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_history_b_m_furnished_v2",
+      "label": "T40 history B furnished M v2 (lower native counter)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_b_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_b_v3.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t40_history_b_m_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t40_history_b_m_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t40_history_b_m_furnished_v2.json",
+      "scene_model": "Merom_0_garden",
+      "room": "playroom_0",
+      "floor_name": "floors_jrdgxz_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -13.115400000000001,
+          -14.950399999999998,
+          0.00656492700176714
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "countertop_tpuwys_0"
+      },
+      "robot_start": {
+        "position": [
+          -4.8,
+          -11.45,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_m_v2",
+      "environment": "A furnished playroom with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "M",
+      "history_variant": "b",
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "countertop_tpuwys_0",
+        "static_aabb_m": [
+          [
+            -6.104446948092266,
+            -13.121390998541202,
+            0.8005993844072294
+          ],
+          [
+            -5.547493536377764,
+            -10.41771346312872,
+            0.8191993950803804
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_design_v2.json",
+      "design_sha256": "d63fd4c10723a44e96bb56fb3b02ca7806d335abc6bed647ad5069ca8e7a6c8f",
+      "parent_task_sha256": "d81a57085094f4460887dcc6d0d19f53d91d06c72a5b9caccc4bca2a45bd1798",
+      "parent_scene_sha256": "1048bad99736e7843c47101eeb2dbe84aa7b56af34006dbe8a7a3c3bec15551f",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json",
+      "parent_source_sha256": "d43c28f070ad1160669144b643bd04de9e33e960d6c1e75a918b29a116354f26",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t40_history_b_m_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t40_history_b_m_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t40_history_b_m_furnished_v2.json",
+      "source_sha256": "3ed2780256708f46772981e71151a47fb02e0b07f3781692748fac78c52a1f75",
+      "task_sha256": "d4773fea22cc9dd93f3724823ef8eca853a5b79b002253f784f0f315e2da7bf8",
+      "scene_sha256": "8a76ad691443c4556130c5e35b1af742e90d7665ca9b72fc7d5145c9955b6bef",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "wia_tm2_matched_history_v3",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_history_c_m_furnished_v2",
+      "label": "T40 history C furnished M v2 (lower native counter)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_c_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_c_v3.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t40_history_c_m_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t40_history_c_m_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t40_history_c_m_furnished_v2.json",
+      "scene_model": "Merom_0_garden",
+      "room": "playroom_0",
+      "floor_name": "floors_jrdgxz_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -13.115400000000001,
+          -14.950399999999998,
+          0.00656492700176714
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "countertop_tpuwys_0"
+      },
+      "robot_start": {
+        "position": [
+          -4.8,
+          -11.45,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_m_v2",
+      "environment": "A furnished playroom with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "M",
+      "history_variant": "c",
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "countertop_tpuwys_0",
+        "static_aabb_m": [
+          [
+            -6.104446948092266,
+            -13.121390998541202,
+            0.8005993844072294
+          ],
+          [
+            -5.547493536377764,
+            -10.41771346312872,
+            0.8191993950803804
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_design_v2.json",
+      "design_sha256": "d63fd4c10723a44e96bb56fb3b02ca7806d335abc6bed647ad5069ca8e7a6c8f",
+      "parent_task_sha256": "703eca900ddf4f9c9bb5df5efdc3441e1a28496c92ed2f2521b4976b5de0edd1",
+      "parent_scene_sha256": "e06aed2faf0b53aa567eb72b8d9446e3b194a70dbb54a70f4af53b8a9417a2a7",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_c_v1.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_c_v1.json",
+      "parent_source_sha256": "54bc54baede0a567450b012633b2d497eec3260c787dfc969046403b4bf640d3",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t40_history_c_m_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t40_history_c_m_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t40_history_c_m_furnished_v2.json",
+      "source_sha256": "16e34e49d5bdf87f99d35e0dc5eb986ea67d3dd3055e13ac1c4da69d49bdff67",
+      "task_sha256": "4457219fdd8ff407c3abe4612ffbeb62aacc4f89fdafd6ef79da4c56820839a8",
+      "scene_sha256": "a7843af152a80c6bbedfe2955ff6ae843774721c69dbda891fda05cd4faf8940",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "wia_tm2_matched_history_v3",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T41",
+      "variant_id": "t41_m_furnished_v2",
+      "label": "T41 furnished M v2 (lower native counter)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t41_m_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t41_m_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t41_m_furnished_v2.json",
+      "scene_model": "Merom_0_garden",
+      "room": "playroom_0",
+      "floor_name": "floors_jrdgxz_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -13.115400000000001,
+          -14.950399999999998,
+          0.00656492700176714
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "countertop_tpuwys_0"
+      },
+      "robot_start": {
+        "position": [
+          -4.8,
+          -11.45,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_m_v2",
+      "environment": "A furnished playroom with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "M",
+      "history_variant": null,
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "countertop_tpuwys_0",
+        "static_aabb_m": [
+          [
+            -6.104446948092266,
+            -13.121390998541202,
+            0.8005993844072294
+          ],
+          [
+            -5.547493536377764,
+            -10.41771346312872,
+            0.8191993950803804
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_design_v2.json",
+      "design_sha256": "d63fd4c10723a44e96bb56fb3b02ca7806d335abc6bed647ad5069ca8e7a6c8f",
+      "parent_task_sha256": "3131cab9a3b32a1a583adb842d70625af58469f057ba2e856bf2bcf5232cded2",
+      "parent_scene_sha256": "72f9af84b357126f5c80166bdc05be091ce4667ab96d028fd5aa3ebd51472e72",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_04.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_04.json",
+      "parent_source_sha256": "8cfc13cd0974fd04c29d94313285c74368da80eabde56bd8c26e48b92991ed2e",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t41_m_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t41_m_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t41_m_furnished_v2.json",
+      "source_sha256": "5a624db937e78eaf762d711fb0dc3a9963fc752cfa8fd0b89b254fc6f5d3a3c9",
+      "task_sha256": "9c8e13f8fe26ea90c8708659c2e2baca9744c00092876e724db837afe383e47a",
+      "scene_sha256": "5eacf261077bf54b8474e18087eb6d28a60086363d95371e19a1afb4e6796a5c",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_bd0c096bec07a9036cd4bb66",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T45",
+      "variant_id": "t45_m_furnished_v2",
+      "label": "T45 furnished M v2 (lower native counter)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t45_m_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t45_m_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t45_m_furnished_v2.json",
+      "scene_model": "Merom_0_garden",
+      "room": "playroom_0",
+      "floor_name": "floors_jrdgxz_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -13.115400000000001,
+          -14.950399999999998,
+          0.00656492700176714
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "countertop_tpuwys_0"
+      },
+      "robot_start": {
+        "position": [
+          -4.8,
+          -11.45,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_m_v2",
+      "environment": "A furnished playroom with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "M",
+      "history_variant": null,
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "countertop_tpuwys_0",
+        "static_aabb_m": [
+          [
+            -6.104446948092266,
+            -13.121390998541202,
+            0.8005993844072294
+          ],
+          [
+            -5.547493536377764,
+            -10.41771346312872,
+            0.8191993950803804
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_design_v2.json",
+      "design_sha256": "d63fd4c10723a44e96bb56fb3b02ca7806d335abc6bed647ad5069ca8e7a6c8f",
+      "parent_task_sha256": "1dfb5254d06aab219c89b85e2a7b9451b08b8585133ef5c2df66186a22eb794d",
+      "parent_scene_sha256": "7bd46bd06eb9ff62c99370b5110cfd797172b3795c6236025fac2de89f2e1f3d",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_00.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_00.json",
+      "parent_source_sha256": "7da052c10560bcb33637509e3097effb9195f1f7d65de326fad46f69b65a96a5",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t45_m_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t45_m_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t45_m_furnished_v2.json",
+      "source_sha256": "b7ced4a26c6aefd7e500f3178dcf87496daa87397ef760a781a594289e2fbd18",
+      "task_sha256": "dc518bfe4994c8bb0435c080c5e9ba5fb9983ff111c125f5d1800caeb7a2f460",
+      "scene_sha256": "ac3d49a5732e830fb827953da397b9de66e3d950a1131902d2a0bed91801f26e",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_939a8fa9a40b1fc7e04a5db0",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T46",
+      "variant_id": "t46_m_furnished_v2",
+      "label": "T46 furnished M v2 (lower native counter)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_0498b76051279b8acd7e914e.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_0498b76051279b8acd7e914e.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t46_m_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t46_m_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t46_m_furnished_v2.json",
+      "scene_model": "Merom_0_garden",
+      "room": "playroom_0",
+      "floor_name": "floors_jrdgxz_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -13.115400000000001,
+          -14.950399999999998,
+          0.00656492700176714
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "countertop_tpuwys_0"
+      },
+      "robot_start": {
+        "position": [
+          -4.8,
+          -11.45,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_m_v2",
+      "environment": "A furnished playroom with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "M",
+      "history_variant": null,
+      "review_role": "primary",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "countertop_tpuwys_0",
+        "static_aabb_m": [
+          [
+            -6.104446948092266,
+            -13.121390998541202,
+            0.8005993844072294
+          ],
+          [
+            -5.547493536377764,
+            -10.41771346312872,
+            0.8191993950803804
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_design_v2.json",
+      "design_sha256": "d63fd4c10723a44e96bb56fb3b02ca7806d335abc6bed647ad5069ca8e7a6c8f",
+      "parent_task_sha256": "b4e8b9fee4ff00141e878c6b3157e3e88757d1b67c872e8bf7da5eb42ff9cf2a",
+      "parent_scene_sha256": "2326e1a299a949ee1e712d6451d94f206edaa3b7b4b4194f3e24131e573c62b4",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_02.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_02.json",
+      "parent_source_sha256": "b9f1ad4b77cc2b812250156f6e6489018e2515b6bd08ac754f00ee7f6a10e746",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t46_m_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t46_m_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t46_m_furnished_v2.json",
+      "source_sha256": "9706f1da482623ed383222e851e98c9d5ed67db8ef70594e8295d13ab2af6e89",
+      "task_sha256": "9e9b861323e37b80956221904959ec2ba9e1f25b13010e2e7d896f78b20f50db",
+      "scene_sha256": "16103c558b11009cb5d0ea0e0e45a81bfca6e7d37d30283d1599649acbfe7f8c",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_0498b76051279b8acd7e914e",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T47",
+      "variant_id": "t47_m_furnished_v2",
+      "label": "T47 furnished M v2 (lower native counter)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_b892978c0400005618c6589c.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_b892978c0400005618c6589c.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t47_m_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t47_m_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t47_m_furnished_v2.json",
+      "scene_model": "Merom_0_garden",
+      "room": "playroom_0",
+      "floor_name": "floors_jrdgxz_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -13.115400000000001,
+          -14.950399999999998,
+          0.00656492700176714
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "countertop_tpuwys_0"
+      },
+      "robot_start": {
+        "position": [
+          -4.8,
+          -11.45,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_m_v2",
+      "environment": "A furnished playroom with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "M",
+      "history_variant": null,
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "countertop_tpuwys_0",
+        "static_aabb_m": [
+          [
+            -6.104446948092266,
+            -13.121390998541202,
+            0.8005993844072294
+          ],
+          [
+            -5.547493536377764,
+            -10.41771346312872,
+            0.8191993950803804
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_design_v2.json",
+      "design_sha256": "d63fd4c10723a44e96bb56fb3b02ca7806d335abc6bed647ad5069ca8e7a6c8f",
+      "parent_task_sha256": "79f8ea2fc71fff1e4fd27bc8060330d7924de14f0547b27e91c364be3e114b13",
+      "parent_scene_sha256": "0c21ae1771404e53c38ee57ee105fa1dd111930036d3aae962613b00bd283910",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_03.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_03.json",
+      "parent_source_sha256": "3e1bd904feb74ef859a8e34c2b0fe2325d5fa47d7a04f8bcae90b1fb507f5106",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t47_m_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t47_m_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t47_m_furnished_v2.json",
+      "source_sha256": "e2b9190f53c26684b18f478b90e8ed197d560dad2d8881e95753a719a08b7cbe",
+      "task_sha256": "5fe96353fb61953c79bc4f496ca0951a4b6bff912cc33e92101db2637691787e",
+      "scene_sha256": "bf02c225246584590367417774fa089a3126d1cada8394b42227210fa89d4c29",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_b892978c0400005618c6589c",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T48",
+      "variant_id": "t48_m_furnished_v2",
+      "label": "T48 furnished M v2 (lower native counter)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_7fd79b0d5819ace319f077c7.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_7fd79b0d5819ace319f077c7.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t48_m_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t48_m_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t48_m_furnished_v2.json",
+      "scene_model": "Merom_0_garden",
+      "room": "playroom_0",
+      "floor_name": "floors_jrdgxz_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -13.115400000000001,
+          -14.950399999999998,
+          0.00656492700176714
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "countertop_tpuwys_0"
+      },
+      "robot_start": {
+        "position": [
+          -4.8,
+          -11.45,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_m_v2",
+      "environment": "A furnished playroom with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "M",
+      "history_variant": null,
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "countertop_tpuwys_0",
+        "static_aabb_m": [
+          [
+            -6.104446948092266,
+            -13.121390998541202,
+            0.8005993844072294
+          ],
+          [
+            -5.547493536377764,
+            -10.41771346312872,
+            0.8191993950803804
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_design_v2.json",
+      "design_sha256": "d63fd4c10723a44e96bb56fb3b02ca7806d335abc6bed647ad5069ca8e7a6c8f",
+      "parent_task_sha256": "9f50ff5cc566daaf6377e56984d80a8c4fdd5d69af4e0e829afb242512be9bb0",
+      "parent_scene_sha256": "c0c31854dfe3ff072e900d8d7b845ed41731f86d5579682217e631a5d84dc021",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_05.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_05.json",
+      "parent_source_sha256": "95bf2c4fb0186ae076c70d64315dc2b240ece466fcb832616010aa46d91bd2b9",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/tasks/t48_m_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_merom_v2/scenes/t48_m_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Merom_0_garden/playroom_0/t48_m_furnished_v2.json",
+      "source_sha256": "278a91d1a0380f78d1c5d0c96c74d210698f36383a1f8e6ed62ff7e377a911df",
+      "task_sha256": "874aef0177b4eb6f10e115294ff951a0d1b68ba65aeb6899e942c0f08aa08fa7",
+      "scene_sha256": "120fdf86452dadf87d85842077a9d2ebe7ee76540dabf9df504dc50dc55b2961",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_7fd79b0d5819ace319f077c7",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    }
+  ]
+}

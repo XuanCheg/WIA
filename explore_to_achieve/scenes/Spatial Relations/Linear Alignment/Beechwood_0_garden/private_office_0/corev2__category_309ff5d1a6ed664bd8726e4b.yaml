@@ -1,0 +1,81 @@
+kind: scene_patch
+id: category_ec4c5aaef015a86d4ff66a26
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Spatial Relations/Linear Alignment/Beechwood_0_garden/private_office_0/Beechwood_0_garden__private_office_0.json
+target: null
+qualification: null
+bindings:
+  alignment_1:
+    name: obj1
+    category: bottle_of_vodka
+    model: nwegts
+  alignment_2:
+    name: obj2
+    category: liquid_soap_bottle
+    model: hazvbh
+  alignment_3:
+    name: obj3
+    category: pepper_grinder
+    model: tfoogy
+  source_floor:
+    name: floors_kkdimd_0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: object_physics
+        phase: before_construction
+        binding: alignment_1
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: alignment_1
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: alignment_2
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: alignment_2
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: alignment_3
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: alignment_3
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - alignment_1
+        - alignment_2
+        - alignment_3
+        manipulation_bindings:
+        - alignment_1
+        - alignment_2
+        - alignment_3
+        relocation_policy: rigid_group
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: private_office_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+seed: 0

@@ -1,0 +1,233 @@
+{
+  "original_source": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/q_000.json",
+  "source_identity": "Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/q_000.json",
+  "big_task": "Cognitive Mapping",
+  "small_task": "Long-Term Navigation",
+  "converter_version": "cognitive_mapping_long_term_navigation_task_edit_20261018",
+  "converter_module": "core.esi_converters.cognitive_mapping_long_term_navigation",
+  "candidate_id": "category_99cadcb68fbc084b0b56e818",
+  "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_99cadcb68fbc084b0b56e818/scene.yaml",
+  "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_99cadcb68fbc084b0b56e818/task.yaml",
+  "reuse_level": "L2",
+  "change_summary": [
+    "Preserve source geometry and references while restoring the declared mapping capability.",
+    "Separate semantic answers, physical progress, constraints and native evaluation validity.",
+    "Screen the actual R1 floor stance while preserving the original floorplan and furniture."
+  ],
+  "goal_predicate": {
+    "type": "category_operation",
+    "module": "core.esi_converters.cognitive_mapping_long_term_navigation",
+    "operation": "execute_supplied_ordered_route",
+    "binding_keys": [],
+    "parameters": {
+      "start_region": "living_room_0",
+      "target_region": "storage_room_1",
+      "start_xy": [
+        4.5,
+        -7.0
+      ],
+      "goal_xy": [
+        6.0,
+        0.0
+      ],
+      "floor_idx": 0,
+      "floor_z": 0.0,
+      "initial_yaw_rad": 2.356194490192345,
+      "start_position_tolerance_m": 0.05,
+      "start_heading_tolerance_deg": 2.0,
+      "stability_steps": 3,
+      "required_regions": [
+        "living_room_0",
+        "kitchen_0",
+        "corridor_0",
+        "private_office_0",
+        "utility_room_0",
+        "storage_room_1"
+      ],
+      "scoring_version": "task_completion_v2",
+      "required_order": [
+        "living_room_0",
+        "kitchen_0",
+        "corridor_0",
+        "private_office_0",
+        "utility_room_0",
+        "storage_room_1"
+      ],
+      "arrival_report_required": true,
+      "public_route_required": true,
+      "public_route_evidence": [
+        {
+          "region": "living_room_0",
+          "source_phrase": "Follow this supplied room route in order: living_room_0 -> kitchen_0 -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1."
+        },
+        {
+          "region": "kitchen_0",
+          "source_phrase": "Follow this supplied room route in order: living_room_0 -> kitchen_0 -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1."
+        },
+        {
+          "region": "corridor_0",
+          "source_phrase": "Follow this supplied room route in order: living_room_0 -> kitchen_0 -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1."
+        },
+        {
+          "region": "private_office_0",
+          "source_phrase": "Follow this supplied room route in order: living_room_0 -> kitchen_0 -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1."
+        },
+        {
+          "region": "utility_room_0",
+          "source_phrase": "Follow this supplied room route in order: living_room_0 -> kitchen_0 -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1."
+        },
+        {
+          "region": "storage_room_1",
+          "source_phrase": "Follow this supplied room route in order: living_room_0 -> kitchen_0 -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1."
+        }
+      ],
+      "source_public_question": "Follow this supplied room route in order: living_room_0 -> kitchen_0 -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1.",
+      "task_revision": "task_edit_20261018_v1",
+      "source_path": "Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/q_000.json",
+      "mapping_composition_contract": null,
+      "legacy_operation": "navigation_exploration_arrivals",
+      "source_qa": {
+        "question": "You are beginning in the living room 0 standing at the point shown in the image. You want to navigate to the storage room 1. You will perform the following actions. For each blank, choose either 'turn back,' 'turn left,' or 'turn right.' 1. Go to the kitchen 0. 2. [please fill in] Choose the next turn direction. 3. Go to the corridor 0. 4. [please fill in] Choose the next turn direction. 5. Go to the private office 0. 6. [please fill in] Choose the next turn direction. 7. Go to the utility room 0. 8. turn back. Choose the next turn direction. 9. Go to the storage room 1. You have reached the final destination.",
+        "answer": "turn back | turn back | turn left",
+        "options": [
+          [
+            "turn back",
+            "turn left",
+            "turn right"
+          ],
+          [
+            "turn back",
+            "turn left",
+            "turn right"
+          ],
+          [
+            "turn back",
+            "turn left",
+            "turn right"
+          ]
+        ],
+        "scored": false
+      },
+      "source_door_policy": {
+        "version": "mapping_source_runtime_doors_v1",
+        "generator": "ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_plan.py",
+        "source_policy": "exclude_door_and_sliding_door_then_remove_door_named_objects",
+        "source_trav_map_basename": "floor_trav_no_door",
+        "runtime_policy": "retain_native_doors",
+        "reconciled": null,
+        "physical_opening_and_crossing_verified": null
+      },
+      "mechanism_contract": {
+        "invariants": [
+          "original_building_and_region_boundaries",
+          "original_task_anchors_and_reference",
+          "source_order_and_intentional_revisits"
+        ],
+        "required_native_evidence": [
+          "source_runtime_door_policy_reconciled",
+          "task_relevant_door_qualification"
+        ],
+        "unavailable_is_not_agent_failure": true
+      },
+      "actual_capability": "supplied_order_route_execution"
+    }
+  },
+  "qa_preserved": true,
+  "limitations": [
+    "Source/runtime door-policy reconciliation and task-relevant physical door trials remain required.",
+    "Unknown source-answer/native-graph agreement produces unavailable comparable results."
+  ],
+  "status": "generated",
+  "failure_stage": null,
+  "failure_reason": null,
+  "warning_codes": [
+    "assumption_review_required",
+    "interaction_layout_native_review_pending",
+    "long_route_budget_unqualified",
+    "mounted_sensor_coverage_unverified",
+    "native_mapping_relation_and_door_qualification_pending",
+    "native_route_unverified",
+    "robot_spawn_unqualified",
+    "same_source_region_spawn_repair_requires_native_evidence",
+    "source_runtime_door_policy_difference"
+  ],
+  "assumptions": [],
+  "sample_evidence": [],
+  "review_record_id": null,
+  "source_sha256": "e4bdfc349cee2f68a4d87e13dbf097118327730e2994c6f8a065416e836b055b",
+  "seed": 0,
+  "revision": "99cadcb68fbc084b0b56e818",
+  "attempted_repairs": [
+    "Reversible robot-only initialization declaration; native execution not run."
+  ],
+  "next_step": "Reconcile source/native relations and qualify the required native doors, public anchors and route.",
+  "scene_model": "Beechwood_0_int",
+  "room": "full_scene",
+  "question": "You are beginning in the living room 0 standing at the point shown in the image. You want to navigate to the storage room 1. You will perform the following actions. For each blank, choose either 'turn back,' 'turn left,' or 'turn right.' 1. Go to the kitchen 0. 2. [please fill in] Choose the next turn direction. 3. Go to the corridor 0. 4. [please fill in] Choose the next turn direction. 5. Go to the private office 0. 6. [please fill in] Choose the next turn direction. 7. Go to the utility room 0. 8. turn back. Choose the next turn direction. 9. Go to the storage room 1. You have reached the final destination.",
+  "interaction_policy": {
+    "mode": "navigation",
+    "group_bindings": [],
+    "manipulation_bindings": [],
+    "relocation_policy": "preserve",
+    "source_region": "living_room_0",
+    "minimum_grasp_height_m": 0.35,
+    "maximum_grasp_height_m": 1.1,
+    "maximum_stance_distance_m": 0.85
+  },
+  "private_navigation_evidence": {
+    "source_start_region": "living_room_0",
+    "source_target_region": "storage_room_1",
+    "source_task_type": "navigation_actions",
+    "source_path_distance_m": 11.361019134521484,
+    "source_region_sequence": [
+      "living_room_0",
+      "kitchen_0",
+      "corridor_0",
+      "private_office_0",
+      "utility_room_0",
+      "storage_room_1"
+    ],
+    "native_route_verified": false
+  },
+  "operation": "execute_supplied_ordered_route",
+  "rule_revision": "task_edit_20261018_v1",
+  "operation_recipe": "execute_supplied_ordered_route",
+  "available_operation_recipes": [
+    "execute_supplied_ordered_route",
+    "navigation_exploration_arrivals"
+  ],
+  "actual_capability": "supplied_order_route_execution",
+  "source_mechanism_provenance": {
+    "version": "mapping_source_runtime_doors_v1",
+    "generator": "ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_plan.py",
+    "source_policy": "exclude_door_and_sliding_door_then_remove_door_named_objects",
+    "source_trav_map_basename": "floor_trav_no_door",
+    "runtime_policy": "retain_native_doors",
+    "reconciled": null,
+    "physical_opening_and_crossing_verified": null
+  },
+  "private_source_qa": {
+    "question": "You are beginning in the living room 0 standing at the point shown in the image. You want to navigate to the storage room 1. You will perform the following actions. For each blank, choose either 'turn back,' 'turn left,' or 'turn right.' 1. Go to the kitchen 0. 2. [please fill in] Choose the next turn direction. 3. Go to the corridor 0. 4. [please fill in] Choose the next turn direction. 5. Go to the private office 0. 6. [please fill in] Choose the next turn direction. 7. Go to the utility room 0. 8. turn back. Choose the next turn direction. 9. Go to the storage room 1. You have reached the final destination.",
+    "answer": "turn back | turn back | turn left",
+    "options": [
+      [
+        "turn back",
+        "turn left",
+        "turn right"
+      ],
+      [
+        "turn back",
+        "turn left",
+        "turn right"
+      ],
+      [
+        "turn back",
+        "turn left",
+        "turn right"
+      ]
+    ],
+    "scored": false
+  },
+  "variant": "adapted",
+  "diagnostic_dir": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_99cadcb68fbc084b0b56e818"
+}

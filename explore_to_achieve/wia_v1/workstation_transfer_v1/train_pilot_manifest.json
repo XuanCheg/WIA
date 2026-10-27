@@ -1,0 +1,146 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "artifact_path_base": "absolute",
+  "status": "pending_native_review",
+  "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_pilot_design.json",
+  "design_sha256": "64b99c54be04c8de6d7149d684ce38dff12ce39d7c59fc18e141d22f9053f1d6",
+  "full_reference_execution": "pending",
+  "native_validation_run": false,
+  "native_geometry_verified": false,
+  "native_visibility_verified": false,
+  "native_shape_verified": false,
+  "native_hand_path_verified": false,
+  "native_gripper_path_verified": false,
+  "native_optics_verified": false,
+  "native_selected_identity_verified": false,
+  "native_non_goal_initialization_verified": false,
+  "physical_success_verified": false,
+  "scientific_controls_verified": false,
+  "continuous_path_certified": false,
+  "entries": [
+    {
+      "document_alias": "D1-1",
+      "variant_id": "d1_1_seed101_v2_hall_train_v1",
+      "label": "D1-1 hall_train native scene pilot",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d1_1_seed101_v2.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d1_1_seed101_v2.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_1_seed101_v2_hall_train_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_1_seed101_v2_hall_train_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_train_station/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_train_station",
+      "room": "empty_room_0",
+      "floor_name": "floors_rfqpbd_0",
+      "translation_m": [
+        -8,
+        1,
+        0
+      ],
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_pilot_design.json",
+      "design_sha256": "64b99c54be04c8de6d7149d684ce38dff12ce39d7c59fc18e141d22f9053f1d6",
+      "parent_task_sha256": "3ed2f4824ed69336cf658471ca5925573a7a797383642d8085251d1775fabf3f",
+      "parent_scene_sha256": "e61d2c152a59acd000f90304f83b060163e4f5839249a77dfccc868fa4b24129",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Specular Reflection/Correspondence/hall_train_station/empty_room_0/wia_background_v1.json",
+      "source_sha256": "bc716ec89327b1a3109006b28d7bf3050497be5bc3603c2f4e6666f8c16c7cf7",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_1_seed101_v2_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_1_seed101_v2_hall_train_v1.yaml",
+      "task_sha256": "c33ac8be49d07385e4a7df9940c0d976af3031dc10efe5924f829535a044071c",
+      "scene_sha256": "786fe3b5cb78c13d7ff5a6d445d79a19fc233c47fb72abd8473b3dd4397fbabd",
+      "variant": "adapted",
+      "seed": 101,
+      "task_id": "wia_dimensional_d1_1_v2",
+      "task_version": 3,
+      "module": "core.esi_converters.wia_dimensional",
+      "revision": "wia_dimensional_v3",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "R-C2",
+      "variant_id": "r_c2_seed202_v1_hall_train_v1",
+      "label": "R-C2 hall_train native scene pilot",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c2_seed202_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c2_seed202_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c2_seed202_v1_hall_train_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c2_seed202_v1_hall_train_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_train_station/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_train_station",
+      "room": "empty_room_0",
+      "floor_name": "floors_rfqpbd_0",
+      "translation_m": [
+        -8,
+        1,
+        0
+      ],
+      "object_overrides": {
+        "wia_mirror_cue_low": {
+          "position": [
+            0.7955000000000005,
+            0.20899999999999996,
+            0.95
+          ]
+        },
+        "wia_mirror_cue_high": {
+          "position": [
+            0.7955000000000005,
+            0.46099999999999997,
+            0.95
+          ]
+        },
+        "wia_mirror_cue_bottom": {
+          "position": [
+            0.7955000000000005,
+            0.33499999999999996,
+            0.694
+          ]
+        },
+        "wia_mirror_cue_top": {
+          "position": [
+            0.7955000000000005,
+            0.33499999999999996,
+            1.206
+          ]
+        }
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_pilot_design.json",
+      "design_sha256": "64b99c54be04c8de6d7149d684ce38dff12ce39d7c59fc18e141d22f9053f1d6",
+      "parent_task_sha256": "39c7e74f6ee9fff4c53433242f635ef5cf066e4d2f387e9cffdf045122bfc3a6",
+      "parent_scene_sha256": "d8d4dba129e734a8377a6a2714e0f2cb3acb55f73114746fd69bb00dd0c8db73",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Specular Reflection/Correspondence/hall_train_station/empty_room_0/wia_background_v1.json",
+      "source_sha256": "bc716ec89327b1a3109006b28d7bf3050497be5bc3603c2f4e6666f8c16c7cf7",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c2_seed202_v1_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c2_seed202_v1_hall_train_v1.yaml",
+      "task_sha256": "e25eae2339876a3508b90453f43d26530f89195a3cbe899135f1d23969d744b6",
+      "scene_sha256": "b684419d3c46bd55f46d10545153d6a5ce72f11617ee5d3d0da0b0f562b9461b",
+      "variant": "adapted",
+      "seed": 202,
+      "task_id": "wia_mirror_r_c2_v1",
+      "task_version": 2,
+      "module": "core.esi_converters.wia_mirror",
+      "revision": "wia_mirror_v2",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    }
+  ]
+}

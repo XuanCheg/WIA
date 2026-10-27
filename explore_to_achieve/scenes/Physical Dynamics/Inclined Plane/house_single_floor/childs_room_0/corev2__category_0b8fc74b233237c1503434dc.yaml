@@ -1,0 +1,373 @@
+kind: scene_patch
+id: category_d2ab1721d6b63eb9de830a48
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Physical Dynamics/Inclined Plane/house_single_floor/childs_room_0/house_single_floor__childs_room_0__run_000.json
+target: null
+qualification: null
+bindings:
+  target:
+    name: task_obj
+    category: bowl
+    model: wryghu
+  slope:
+    name: slope
+  floor:
+    name: floors_vcsslq_0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        position:
+        - 21.726964071729725
+        - 18.34239470693604
+        - 0.0
+        yaw_deg: -105.00000000000004
+        head_pitch_deg: 45.0
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_physics
+        binding: target
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: target
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - target
+        - slope
+        manipulation_bindings:
+        - target
+        relocation_policy: rigid_group
+        layout_parameters:
+          inclined_apparatus:
+            schema: task_edit2_inclined_apparatus_20261018_v1
+            status: pending_native_pickup_measurement
+            ramp_bounds_m:
+            - - 21.29789924621582
+              - 17.3656005859375
+              - -0.0
+            - - 21.7637996673584
+              - 17.665599822998047
+              - 0.10220000147819519
+            trial_initial_bounds_m:
+            - - 21.490999221801758
+              - 17.448299407958984
+              - 0.055399999022483826
+            - - 21.616300582885742
+              - 17.57900047302246
+              - 0.15230000019073486
+            trial_final_bounds_m:
+            - - 21.477699279785156
+              - 17.45170021057129
+              - 0.05609999969601631
+            - - 21.607799530029297
+              - 17.582500457763672
+              - 0.1404000073671341
+            source_positions_m:
+              pos_on_floor:
+              - 21.534799575805664
+              - 17.720300674438477
+              - 0.049300000071525574
+              pos_init:
+              - 21.54439926147461
+              - 17.51460075378418
+              - 0.09920000284910202
+              pos_final:
+              - 21.537900924682617
+              - 17.51689910888672
+              - 0.09619999676942825
+            source_floor_z_m: -0.0
+            pickup_bounds_m: null
+            horizontal_diameter_margin_m: null
+            required_bounds_m: null
+            path_provenance: Saved source initial/final roots and AABBs; intermediate
+              path is unavailable.
+            source_observation_horizon: 30 source steps; not a one-second runoff certificate
+            one_second_runoff_native_validated: false
+            required_native_gates:
+            - original_pickup_contact_feasibility
+            - complete_envelope_support
+            - native_robot_approach
+            - real_grasp_lift
+            - top_face_supported_release
+            - one_second_safe_motion
+          inclined_source_parameters:
+            slope_position:
+            - 21.5309
+            - 17.5156
+            - 0.0511
+            slope_quaternion:
+            - 0.0
+            - 0.0882
+            - 0.0
+            - 0.9961
+            slope_scale:
+            - 0.4697
+            - 0.3
+            - 0.02
+            target_floor_position:
+            - 21.534799575805664
+            - 17.720300674438477
+            - 0.049300000071525574
+            floor_z_m: 0.0
+            static_friction: 2.744
+            dynamic_friction: 1.7137
+            task_revision: task_edit2_inclined_apparatus_20261018_v1
+            mechanism_contract:
+              preserve:
+              - target_identity_scale_mass_material
+              - ramp_angle_quaternion_scale_friction
+              - target_pickup_to_ramp_common_translation
+              - source_camera_common_translation
+              goal: native_supported_release_and_safe_apparatus_trial
+              intended_motion:
+              - sliding
+              - rolling
+              - safe_runoff_on_deck
+              safety_context: Escape from the selected apparatus onto the building
+                floor is a failed safe trial.
+            apparatus_proposal:
+              schema: task_edit2_inclined_apparatus_20261018_v1
+              status: pending_native_pickup_measurement
+              ramp_bounds_m:
+              - - 21.29789924621582
+                - 17.3656005859375
+                - -0.0
+              - - 21.7637996673584
+                - 17.665599822998047
+                - 0.10220000147819519
+              trial_initial_bounds_m:
+              - - 21.490999221801758
+                - 17.448299407958984
+                - 0.055399999022483826
+              - - 21.616300582885742
+                - 17.57900047302246
+                - 0.15230000019073486
+              trial_final_bounds_m:
+              - - 21.477699279785156
+                - 17.45170021057129
+                - 0.05609999969601631
+              - - 21.607799530029297
+                - 17.582500457763672
+                - 0.1404000073671341
+              source_positions_m:
+                pos_on_floor:
+                - 21.534799575805664
+                - 17.720300674438477
+                - 0.049300000071525574
+                pos_init:
+                - 21.54439926147461
+                - 17.51460075378418
+                - 0.09920000284910202
+                pos_final:
+                - 21.537900924682617
+                - 17.51689910888672
+                - 0.09619999676942825
+              source_floor_z_m: -0.0
+              pickup_bounds_m: null
+              horizontal_diameter_margin_m: null
+              required_bounds_m: null
+              path_provenance: Saved source initial/final roots and AABBs; intermediate
+                path is unavailable.
+              source_observation_horizon: 30 source steps; not a one-second runoff
+                certificate
+              one_second_runoff_native_validated: false
+              required_native_gates:
+              - original_pickup_contact_feasibility
+              - complete_envelope_support
+              - native_robot_approach
+              - real_grasp_lift
+              - top_face_supported_release
+              - one_second_safe_motion
+            source_identity: Physical Dynamics/Inclined Plane/house_single_floor/childs_room_0/house_single_floor__childs_room_0__run_000.json
+            source_sha256: 2d154579d6b2dc10bacaaa3927122bceb59713249992b0f2a4ddbef24f9565f2
+            target_identity:
+              category: bowl
+              model: wryghu
+            original_source_camera_poses:
+            - azimuth_deg: 0
+              position:
+              - 22.1309
+              - 17.5156
+              - 0.4
+              quaternion_xyzw:
+              - 0.3717
+              - 0.3717
+              - 0.6015
+              - 0.6015
+              target:
+              - 21.5309
+              - 17.5156
+              - 0.1
+              view_idx: 0
+            - azimuth_deg: 90
+              position:
+              - 21.5309
+              - 18.1156
+              - 0.4
+              quaternion_xyzw:
+              - 0.0
+              - 0.5257
+              - 0.8507
+              - -0.0
+              target:
+              - 21.5309
+              - 17.5156
+              - 0.1
+              view_idx: 1
+            - azimuth_deg: 180
+              position:
+              - 20.9309
+              - 17.5156
+              - 0.4
+              quaternion_xyzw:
+              - -0.3717
+              - 0.3717
+              - 0.6015
+              - -0.6015
+              target:
+              - 21.5309
+              - 17.5156
+              - 0.1
+              view_idx: 2
+            - azimuth_deg: 270
+              position:
+              - 21.5309
+              - 16.9156
+              - 0.4
+              quaternion_xyzw:
+              - 0.5257
+              - -0.0
+              - -0.0
+              - 0.8507
+              target:
+              - 21.5309
+              - 17.5156
+              - 0.1
+              view_idx: 3
+            - azimuth_deg: 0
+              position:
+              - 22.1309
+              - 17.5156
+              - 0.4
+              quaternion_xyzw:
+              - 0.3717
+              - 0.3717
+              - 0.6015
+              - 0.6015
+              target:
+              - 21.5309
+              - 17.5156
+              - 0.1
+              view_idx: 0
+            - azimuth_deg: 90
+              position:
+              - 21.5309
+              - 18.1156
+              - 0.4
+              quaternion_xyzw:
+              - 0.0
+              - 0.5257
+              - 0.8507
+              - -0.0
+              target:
+              - 21.5309
+              - 17.5156
+              - 0.1
+              view_idx: 1
+            - azimuth_deg: 180
+              position:
+              - 20.9309
+              - 17.5156
+              - 0.4
+              quaternion_xyzw:
+              - -0.3717
+              - 0.3717
+              - 0.6015
+              - -0.6015
+              target:
+              - 21.5309
+              - 17.5156
+              - 0.1
+              view_idx: 2
+            - azimuth_deg: 270
+              position:
+              - 21.5309
+              - 16.9156
+              - 0.4
+              quaternion_xyzw:
+              - 0.5257
+              - -0.0
+              - -0.0
+              - 0.8507
+              target:
+              - 21.5309
+              - 17.5156
+              - 0.1
+              view_idx: 3
+            source_target_reference:
+              pos_on_floor:
+              - 21.534799575805664
+              - 17.720300674438477
+              - 0.049300000071525574
+              pos_init:
+              - 21.54439926147461
+              - 17.51460075378418
+              - 0.09920000284910202
+              pos_final:
+              - 21.537900924682617
+              - 17.51689910888672
+              - 0.09619999676942825
+              aabb_min_init:
+              - 21.490999221801758
+              - 17.448299407958984
+              - 0.055399999022483826
+              aabb_max_init:
+              - 21.616300582885742
+              - 17.57900047302246
+              - 0.15230000019073486
+              aabb_min_final:
+              - 21.477699279785156
+              - 17.45170021057129
+              - 0.05609999969601631
+              aabb_max_final:
+              - 21.607799530029297
+              - 17.582500457763672
+              - 0.1404000073671341
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+        placement_groups: []
+        support_bindings:
+        - target
+        - slope
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: childs_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - native_whole_apparatus_support_pending
+        - native_pickup_bounds_and_physics_required
+        - native_runoff_and_release_pending
+seed: 0

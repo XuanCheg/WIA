@@ -1,0 +1,66 @@
+kind: scene_patch
+id: category_90a66221592e0228a8431cfe
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Enumerative Perception/Merged Observation/Benevolence_1_int/living_room_0/q_001.json
+target: null
+qualification: null
+bindings:
+  floor:
+    name: floors_buiarh_0
+  target_00:
+    name: render_count_target_club_sandwich_0
+    category: club_sandwich
+    model: ablfyd
+  target_01:
+    name: render_count_target_club_sandwich_1
+    category: club_sandwich
+    model: ablfyd
+  target_02:
+    name: render_count_target_club_sandwich_2
+    category: club_sandwich
+    model: ablfyd
+  target_03:
+    name: render_count_target_club_sandwich_3
+    category: club_sandwich
+    model: ablfyd
+  target_04:
+    name: render_count_target_club_sandwich_4
+    category: club_sandwich
+    model: ablfyd
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: navigation
+        group_bindings:
+        - target_00
+        - target_01
+        - target_02
+        - target_03
+        - target_04
+        manipulation_bindings: []
+        relocation_policy: preserve
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: bounded_group
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: living_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+seed: 0
+runtime:
+  requires_native_visual_discovery: true

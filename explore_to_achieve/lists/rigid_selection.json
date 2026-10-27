@@ -1,0 +1,221 @@
+{
+  "count": 27,
+  "decisions": [
+    {
+      "source_identity": "Physical Structure/Rigid Containment/hall_arch_wood/empty_room_0/hall_arch_wood_scene_dict_storage2_1_revised.json",
+      "candidate_id": "category_654f8bfa37612193a879dd59",
+      "selection": "proposed_core",
+      "short_id": "R4",
+      "reason": "Curved banana shape with bowl, tupperware and basket alternatives; distinct geometry and one target. Current native task qualification remains unestablished.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_2_revised__criterion_2.json",
+      "candidate_id": "category_5cd40f4881c27570f05e0a5d",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Two conference layout families are redundant with retained heterogeneous-container cases; historical cold-load cost is high and one layout places targets about 12.6 m from the container table. High travel cost is not automatically useful benchmark difficulty.",
+      "target_count": 2
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_0_revised__criterion_3.json",
+      "candidate_id": "category_67cf502f0e7d80a6c51f61b8",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Two conference layout families are redundant with retained heterogeneous-container cases; historical cold-load cost is high and one layout places targets about 12.6 m from the container table. High travel cost is not automatically useful benchmark difficulty.",
+      "target_count": 2
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_2_revised.json",
+      "candidate_id": "category_919e836750cbdec7b2ef6473",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Two conference layout families are redundant with retained heterogeneous-container cases; historical cold-load cost is high and one layout places targets about 12.6 m from the container table. High travel cost is not automatically useful benchmark difficulty.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_0_revised.json",
+      "candidate_id": "category_f3b6dbc547bfc34dd495260e",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Two conference layout families are redundant with retained heterogeneous-container cases; historical cold-load cost is high and one layout places targets about 12.6 m from the container table. High travel cost is not automatically useful benchmark difficulty.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/Wainscott_0_garden/living_room_1/Wainscott_0_garden_scene_dict_storage2_2_revised__criterion_3.json",
+      "candidate_id": "category_0c6e1d179791dd0fe4755394",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Same-model size-choice family already covered; retain as archive rather than another Core episode.",
+      "target_count": 2
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/Wainscott_0_garden/living_room_1/Wainscott_0_garden_scene_dict_storage2_2_revised.json",
+      "candidate_id": "category_e6bc95de025433300555b1e1",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Same-model size-choice family already covered; retain as archive rather than another Core episode.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/house_double_floor_lower/living_room_0/house_double_floor_lower_scene_dict_storage2_0_revised__criterion_4.json",
+      "candidate_id": "category_5e7d4c0444caa30aa75f97e4",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Additional heterogeneous-container or multi-target layout is redundant with the six selected families; preserve as an existing reserve without adding a Core slot.",
+      "target_count": 3
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/house_double_floor_lower/living_room_0/house_double_floor_lower_scene_dict_storage2_0_revised.json",
+      "candidate_id": "category_c41e310e1bebfabd4de67985",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Additional heterogeneous-container or multi-target layout is redundant with the six selected families; preserve as an existing reserve without adding a Core slot.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/restaurant_hotel/lobby_0/restaurant_hotel_scene_dict_storage2_1_revised__criterion_4.json",
+      "candidate_id": "category_069d5f2a70d982613fb30a27",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Additional heterogeneous-container or multi-target layout is redundant with the six selected families; preserve as an existing reserve without adding a Core slot.",
+      "target_count": 3
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/restaurant_hotel/lobby_0/restaurant_hotel_scene_dict_storage2_1_revised.json",
+      "candidate_id": "category_6fc1fff5122b52f75638dcbf",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Additional heterogeneous-container or multi-target layout is redundant with the six selected families; preserve as an existing reserve without adding a Core slot.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/office_vendor_machine/meeting_room_0/office_vendor_machine_scene_dict_storage2_2_revised.json",
+      "candidate_id": "category_5b210eb4680b3f11dbc52146",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Thin-letter insertion is an interesting reserve but unverified grasp/access is not evidence of valid high difficulty; omit from the initial cost-limited shortlist.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json",
+      "candidate_id": "category_34c618e3e729c224000d39d3",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Single-target parent is covered by a selected multi-target episode; do not keep a second runnable entry.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/playroom_0/Beechwood_1_int_scene_dict_storage2_2_revised__criterion_2.json",
+      "candidate_id": "category_64f0dc4894d3a242253c9643",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Additional heterogeneous-container or multi-target layout is redundant with the six selected families; preserve as an existing reserve without adding a Core slot.",
+      "target_count": 2
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json",
+      "candidate_id": "category_8644156dec67b0eaddf1472a",
+      "selection": "proposed_core",
+      "short_id": "R6",
+      "reason": "One existing three-target episode with box, can and pencil assets and heterogeneous containers. Target-to-table horizontal distances about 1.2-1.5 m avoid selecting the most travel-heavy multi-target layout. Difficulty is a static inference, not an Agent measurement.",
+      "target_count": 3
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/playroom_0/Beechwood_1_int_scene_dict_storage2_2_revised.json",
+      "candidate_id": "category_cc51a6badc23adb7cacbac1d",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Additional heterogeneous-container or multi-target layout is redundant with the six selected families; preserve as an existing reserve without adding a Core slot.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_2_revised__criterion_2.json",
+      "candidate_id": "category_1c44f7c63aab8eeecccb6ed8",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Additional ball/container family is lower marginal coverage; the cubicle extension also requires explicit source-asset interpretation and physical qualification.",
+      "target_count": 2
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_2_revised.json",
+      "candidate_id": "category_8216b182cce84f4fd4f5177b",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Additional ball/container family is lower marginal coverage; the cubicle extension also requires explicit source-asset interpretation and physical qualification.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_1_revised.json",
+      "candidate_id": "category_85149bb259d79b75368be5da",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Same-model size-choice family already covered; retain as archive rather than another Core episode.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/Pomaria_1_int/living_room_0/Pomaria_1_int_scene_dict_storage2_1_revised.json",
+      "candidate_id": "category_09622404ae05d59a58ef8984",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Same-model size-choice family already covered; retain as archive rather than another Core episode.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json",
+      "candidate_id": "category_e58c1c507e7cc7a429b80bd9",
+      "selection": "proposed_core",
+      "short_id": "R1",
+      "reason": "Same-model size discrimination with a box-shaped target; historical native qualification receipt exists.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/Merom_0_int/living_room_0/Merom_0_int_scene_dict_storage2_2_revised.json",
+      "candidate_id": "category_a27c56821464654bad113773",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Same-model size-choice family already covered; retain as archive rather than another Core episode.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised__criterion_2.json",
+      "candidate_id": "category_3133dfe51ce8a16bf6cb674f",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Overlapping extension of a selected single-target task; prefer the evidence-backed lower-burden single-target version.",
+      "target_count": 2
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json",
+      "candidate_id": "category_b1fffff9aef66e7517638538",
+      "selection": "proposed_core",
+      "short_id": "R2",
+      "reason": "Heterogeneous mug, packing box and tote choices; historical native qualification receipt exists. Keep the single-target version instead of its overlapping extension.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/Benevolence_0_int/empty_room_0/Benevolence_0_int_scene_dict_storage2_2_revised.json",
+      "candidate_id": "category_82e78e6b5059c2f0f88cfce9",
+      "selection": "proposed_core",
+      "short_id": "R3",
+      "reason": "Irregular rigid teddy-bear shape and two different container types; historical native qualification receipt exists. Do not infer deformable-cloth capability from the object name.",
+      "target_count": 1
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised__criterion_2.json",
+      "candidate_id": "category_2ffe98c5d556f073969e1d5b",
+      "selection": "proposed_core",
+      "short_id": "R5",
+      "reason": "Two targets and same-model container size choices in one existing episode. The racket has nonuniform scale; no claim of a standard long-racket geometry or measured high difficulty.",
+      "target_count": 2
+    },
+    {
+      "source_identity": "Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised.json",
+      "candidate_id": "category_95526e99958c591fe04ed92b",
+      "selection": "exclude_from_proposed_core",
+      "short_id": null,
+      "reason": "Single-target parent is covered by a selected multi-target episode; do not keep a second runnable entry.",
+      "target_count": 1
+    }
+  ]
+}

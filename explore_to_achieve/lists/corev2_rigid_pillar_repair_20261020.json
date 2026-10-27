@@ -1,0 +1,272 @@
+{
+  "schema": "corev2_rigid_pillar_repair_v1",
+  "date": "2026-10-20",
+  "original_selection": {
+    "source_identity": "Physical Structure/Rigid Containment/hall_arch_wood/empty_room_0/hall_arch_wood_scene_dict_storage2_1_revised.json",
+    "candidate_id": "category_654f8bfa37612193a879dd59",
+    "selection": "proposed_core",
+    "short_id": "R4",
+    "reason": "Curved banana shape with bowl, tupperware and basket alternatives; distinct geometry and one target. Current native task qualification remains unestablished.",
+    "target_count": 1,
+    "target_categories": [
+      "banana"
+    ],
+    "container_categories": [
+      "wicker_basket",
+      "tupperware",
+      "bowl"
+    ],
+    "task_file": "explore_to_achieve/tasks/Physical Structure/Rigid Containment/hall_arch_wood/empty_room_0/hall_arch_wood_scene_dict_storage2_1_revised.yaml",
+    "table_horizontal_distances_m": {
+      "target": 2.9744
+    },
+    "distance_scope": "Declared horizontal Euclidean target-to-container-table-centre distance; not a traversable path length or execution cost.",
+    "scale_patches": [],
+    "current_execution_qualified": false,
+    "difficulty_evidence": "Static task/geometry assessment only; no new experiment or empirical difficulty ranking.",
+    "category": "Physical Structure",
+    "subcategory": "Rigid Containment",
+    "scene": "hall_arch_wood",
+    "room": "empty_room_0",
+    "source_identities": [
+      "Physical Structure/Rigid Containment/hall_arch_wood/empty_room_0/hall_arch_wood_scene_dict_storage2_1_revised.json"
+    ],
+    "setup_status": "native_preflight_passed",
+    "warning_codes": [
+      "current_setup_unverified",
+      "native_grasp_execution_unverified",
+      "source_answers_after_scaling_unverified"
+    ],
+    "final_release_qualified": false,
+    "scene_file": "explore_to_achieve/scenes/Physical Structure/Rigid Containment/hall_arch_wood/empty_room_0/hall_arch_wood_scene_dict_storage2_1_revised.yaml",
+    "evidence_note": "Fresh exact-definition capture verified; initialization evidence is separate from execution qualification.",
+    "resolved_scene_file_basename": "hall_arch_wood_scene_dict_storage2_1_revised.yaml",
+    "issues": [
+      "camera_visual_review_notes",
+      "camera_visual_review_pending",
+      "execution_not_qualified",
+      "initial_global_small_object_scale",
+      "native_grasp_execution_unverified",
+      "source_answers_after_scaling_unverified"
+    ],
+    "camera_audit": {
+      "status": "review_notes",
+      "finding": "Full-resolution comparison with the close overhead view identifies the gray surface as the hall floor, not an occluding roof. The robot and task objects are visible but small in the whole-loaded-floor overview. Preserve the common overview extent; use separate human closeups for detailed review.",
+      "evidence_scope": "current",
+      "image_count": 25,
+      "mounted_calibration": "unverified",
+      "capture_job_id": "capture_dcfe606f0bc40d678cc81e0c36d088f6",
+      "correction": "The earlier roof-only classification was a visual audit error, corrected on 2026-10-20."
+    },
+    "latest_capture_status": {
+      "candidate_id": "category_654f8bfa37612193a879dd59",
+      "job_id": "capture_eeec37b00f5723ad10d08158148e08e4",
+      "state": "QUEUED",
+      "failure_cause": null,
+      "partial_image_count": 0,
+      "gpu": null,
+      "observed_at_unix": 1792484023.7977703
+    },
+    "capture_candidate_id": "category_954f5ef8396298caceb2781b",
+    "current_capture_job_id": "capture_d2f85f0a53425057b35cc33640fd8372",
+    "historical_evidence_only": false,
+    "current_capture": {
+      "candidate_id": "category_654f8bfa37612193a879dd59",
+      "capture_candidate_id": "category_954f5ef8396298caceb2781b",
+      "job_id": "capture_d2f85f0a53425057b35cc33640fd8372",
+      "state": "REVIEW_PENDING",
+      "complete": true,
+      "image_count": 25,
+      "initialization_accepted": true,
+      "execution_qualified": false,
+      "duration_s": 461.73027874995023,
+      "gpu": 5,
+      "receipts": [
+        {
+          "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_654f8bfa37612193a879dd59/preview_complete.json",
+          "sha256": "3428fad5fa1a189b50e6c77d4d4c7595fda92918680b5b7ba89e32d23ce3116d"
+        },
+        {
+          "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_654f8bfa37612193a879dd59/scene_status.json",
+          "sha256": "0185218d89c4e9ec60d7335da4150ac94726fd0b91ad9c8aded7f669e56b0086"
+        },
+        {
+          "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_654f8bfa37612193a879dd59/private_scene/qualification.json",
+          "sha256": "f89b0d13fa166124053a5d39c8bd354ef4b8f025c01e5d845f935bc5b88e83a6"
+        }
+      ],
+      "initial_agent_bundle": {
+        "available": true,
+        "kind": "frozen_initial_native_agent_input_bundle",
+        "robot_actions": 0,
+        "model_calls": 0,
+        "snapshot_id": 2,
+        "action_step": 0,
+        "captured_at": "2026-10-20T11:09:47.574096+00:00",
+        "reset_identity": {
+          "episode_id": "reset_debdf12153c945429dd015522a3ddea4",
+          "reset_id": "debdf12153c945429dd015522a3ddea4",
+          "seed": 0
+        },
+        "native_time_s": 10.841667232103646,
+        "native_time_after_s": 10.841667232103646,
+        "physics_steps": 0,
+        "views": [
+          "chassis_front_left",
+          "chassis_front_right",
+          "chassis_left",
+          "chassis_rear",
+          "chassis_right",
+          "head",
+          "initial_overview_rgb",
+          "right_wrist",
+          "wrist"
+        ],
+        "capture_input_identity": {
+          "job_id": "capture_d2f85f0a53425057b35cc33640fd8372",
+          "capture_signature": "d2f85f0a53425057b35cc33640fd8372e9a69fb38842798b9f6716509d674864",
+          "task_sha256": "2775e085aa7cd7de26e7e999a9e834295e9a074c160406b35e94024778402d09",
+          "seed": 0,
+          "variant": "tabletop"
+        }
+      },
+      "error": null
+    },
+    "pending_capture": {
+      "capture_candidate_id": "category_954f5ef8396298caceb2781b",
+      "job_id": "capture_d2f85f0a53425057b35cc33640fd8372",
+      "reason": "Human camera bearing repair; fresh native initialization and visual review required.",
+      "state": "REVIEW_PENDING",
+      "resolution": "promoted",
+      "initialization_accepted": true
+    },
+    "capture_history": [
+      {
+        "capture_candidate_id": "category_8e62ad0242218f39c5c42277",
+        "job_id": "capture_dcfe606f0bc40d678cc81e0c36d088f6",
+        "current_capture": {
+          "candidate_id": "category_654f8bfa37612193a879dd59",
+          "capture_candidate_id": "category_8e62ad0242218f39c5c42277",
+          "job_id": "capture_dcfe606f0bc40d678cc81e0c36d088f6",
+          "state": "REVIEW_PENDING",
+          "complete": true,
+          "image_count": 25,
+          "error": null,
+          "attempts": 1,
+          "duration_s": 351.88772695325315,
+          "gpu": 5,
+          "initialization_accepted": true,
+          "execution_qualified": false,
+          "native_qualification_status": "accepted_minimal_patch",
+          "initialization_reason": null,
+          "initial_agent_bundle": {
+            "available": true,
+            "kind": "frozen_initial_native_agent_input_bundle",
+            "robot_actions": 0,
+            "model_calls": 0,
+            "snapshot_id": 2,
+            "action_step": 0,
+            "captured_at": "2026-10-20T09:41:27.651781+00:00",
+            "reset_identity": {
+              "episode_id": "reset_d33322af8a054afa97b02d4a484b9f2d",
+              "reset_id": "d33322af8a054afa97b02d4a484b9f2d",
+              "seed": 0
+            },
+            "native_time_s": 10.841667232103646,
+            "native_time_after_s": 10.841667232103646,
+            "physics_steps": 0,
+            "views": [
+              "chassis_front_left",
+              "chassis_front_right",
+              "chassis_left",
+              "chassis_rear",
+              "chassis_right",
+              "head",
+              "initial_overview_rgb",
+              "right_wrist",
+              "wrist"
+            ],
+            "capture_input_identity": {
+              "job_id": "capture_dcfe606f0bc40d678cc81e0c36d088f6",
+              "capture_signature": "dcfe606f0bc40d678cc81e0c36d088f64711b721809deaecb778b0454273a124",
+              "task_sha256": "2775e085aa7cd7de26e7e999a9e834295e9a074c160406b35e94024778402d09",
+              "seed": 0,
+              "variant": "tabletop"
+            }
+          },
+          "setup_warning_codes": [],
+          "receipts": [
+            {
+              "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_654f8bfa37612193a879dd59/preview_complete.json",
+              "sha256": "eef040954505f89c44eb10e693adf94e568fbce56936e507d8f19cc09ee32703"
+            },
+            {
+              "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_654f8bfa37612193a879dd59/scene_status.json",
+              "sha256": "0185218d89c4e9ec60d7335da4150ac94726fd0b91ad9c8aded7f669e56b0086"
+            },
+            {
+              "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_654f8bfa37612193a879dd59/private_scene/qualification.json",
+              "sha256": "f89b0d13fa166124053a5d39c8bd354ef4b8f025c01e5d845f935bc5b88e83a6"
+            }
+          ]
+        }
+      }
+    ],
+    "camera_refresh_note": "New native camera revision completed; earlier visual findings need rechecking against these images."
+  },
+  "proposal": {
+    "canonical_id": "category_654f8bfa37612193a879dd59",
+    "scene_file": "explore_to_achieve/scenes/Physical Structure/Rigid Containment/hall_arch_wood/empty_room_0/corev2__category_654f8bfa37612193a879dd59__pillar_repair.yaml",
+    "task_file": "explore_to_achieve/tasks/Physical Structure/Rigid Containment/hall_arch_wood/empty_room_0/corev2__category_654f8bfa37612193a879dd59__pillar_repair.yaml",
+    "translation_xy_m": [
+      2.1000022888183594,
+      0.8799998092651364
+    ],
+    "target_xy_m": [
+      -31.25,
+      9.43
+    ],
+    "pillar": "pillar_zjotnf_2",
+    "pillar_xy_m": [
+      -32.659481048583984,
+      10.330321311950684
+    ],
+    "capture_candidate_id": "category_b580d5d9aed5abcb6b4f0542",
+    "job_id": "capture_35f94bc9014156eabfb95145911a12a6"
+  },
+  "visual_check": {
+    "accepted": true,
+    "finding": "Native top and side views show the existing pillar between the initial robot and the translated banana/pickup support. The banana is absent from the inspected initial head, front-right chassis and right chassis views. The small support is clear of the pillar and has open surrounding floor. Native checks establish support contact and no furniture overlap. No full approach/grasp/insertion rollout was performed.",
+    "inspected_views": [
+      "object_top",
+      "object_side",
+      "head",
+      "chassis_front_right",
+      "chassis_right"
+    ],
+    "human_approval_granted": false
+  },
+  "result": {
+    "selected": true,
+    "candidate_id": "category_654f8bfa37612193a879dd59",
+    "job_id": "capture_35f94bc9014156eabfb95145911a12a6",
+    "active_count": 46,
+    "receipts": [
+      {
+        "file": "explore_to_achieve/category_reports/corev2/evidence/rigid_pillar_repair_20261020/category_654f8bfa37612193a879dd59/preview_complete.json",
+        "sha256": "d2712ffb80a86216668680900571f9d744d82cef3db0a3445d659f03fcd39446"
+      },
+      {
+        "file": "explore_to_achieve/category_reports/corev2/evidence/rigid_pillar_repair_20261020/category_654f8bfa37612193a879dd59/scene_status.json",
+        "sha256": "769489af5d75e7dd7e326c0b059bb506faebceaa6ffdded1173934d8bf4350cc"
+      },
+      {
+        "file": "explore_to_achieve/category_reports/corev2/evidence/rigid_pillar_repair_20261020/category_654f8bfa37612193a879dd59/private_scene/qualification.json",
+        "sha256": "26cb4cf8ea45c5747017bc0858483f750403fa86610ae3cfb0f3b3f792cf10d6"
+      }
+    ]
+  },
+  "other_retained_records_unchanged": true,
+  "original_review_preserved": true,
+  "full_execution_qualified": false
+}

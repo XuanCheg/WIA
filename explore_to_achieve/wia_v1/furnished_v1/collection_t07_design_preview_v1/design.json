@@ -1,0 +1,15 @@
+{
+  "schema": "wia_explicit_unqualified_scene_preview_v1",
+  "author": "main_agent",
+  "parent_variant_id": "t07_furnished_collection_v6",
+  "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/collection_navigation_v6/T07__t07_furnished_collection_v6.task.yaml",
+  "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/collection_navigation_v6/T07__t07_furnished_collection_v6.scene.yaml",
+  "variant": "unqualified_tray_preview",
+  "purpose": "Expose the exact original-route household layout for human design review while the native initial tray grip remains unqualified. This is never task-ready or a success certificate.",
+  "changes": [
+    "Add one diagnostic scene variant with unqualified_tray_preview=True only in its after-postprocessing room initializer.",
+    "Preserve original/adapted variants and every public/evaluation/runtime field exactly; update wrapper IDs only."
+  ],
+  "native_validation_run": false,
+  "physical_success_verified": false
+}

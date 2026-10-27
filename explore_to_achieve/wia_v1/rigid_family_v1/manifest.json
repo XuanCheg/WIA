@@ -1,0 +1,125 @@
+{
+  "family_revision": "wia_rigid_family_v1",
+  "legal_robot_reference_verified": false,
+  "native_validation_run": false,
+  "output_dir": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1",
+  "parameters_calibrated": false,
+  "parameters_provisional": true,
+  "physical_parameters": {
+    "container_pose_tolerance_m": 0.02,
+    "interior_margin_m": 0.002,
+    "max_sample_gap_s": 0.1,
+    "maximum_angular_speed_rad_s": 0.1,
+    "maximum_container_rotation_rad": 0.05,
+    "maximum_linear_speed_m_s": 0.02,
+    "minimum_lift_m": 0.05,
+    "penetration_tolerance_m": 0.001,
+    "scale_relative_tolerance": 0.0001,
+    "stability_duration_s": 0.5,
+    "withdrawal_clearance_m": 0.02
+  },
+  "physical_success_verified": false,
+  "reference_execution_status": "Deferred until user scene review.",
+  "schema": "wia_rigid_family_manifest_v1",
+  "status": "pending_scene_review_and_native_calibration",
+  "tasks": [
+    {
+      "document_alias": "T22",
+      "original_qa_provenance": {
+        "answer_type": "choice",
+        "original_answer": "medium packing box",
+        "original_options": [
+          "large packing box",
+          "medium packing box",
+          "small packing box"
+        ],
+        "original_qa_id": "2061",
+        "original_question": "Which container does the gift box best fit inside: the large packing box or the medium packing box or the small packing box?",
+        "question_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json",
+        "question_source_identity": "Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json",
+        "question_source_sha256": "f3757c9769c92c0b6daabbb575d5795e71ea9d6c20bcbe955b8257366cbca0d6",
+        "scene_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json",
+        "scene_source_identity": "Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json",
+        "scene_source_sha256": "f3757c9769c92c0b6daabbb575d5795e71ea9d6c20bcbe955b8257366cbca0d6",
+        "verification_basis": "Original QA answer and named source target_container/idx metadata; no AABB inference.",
+        "verified_answer_by_public_label": {
+          "gift box": "medium packing box"
+        }
+      },
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.yaml",
+      "parent_scene_sha256": "d78ad73be42bdac1bd8b2323a7570eb8eb6431d7539869fd3a601968d6aab925",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.yaml",
+      "parent_task_sha256": "2a56ebaff1869562f97c2d2b4c385128ce2706d499f963db368808eb0d6a6098",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/scenes/rigid_t22_v1.yaml",
+      "scene_sha256": "2290f6c01a3eb38ba4c6b2bc2b8f51d929b15628cc49eb056b19f345e0ab6493",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/tasks/rigid_t22_v1.yaml",
+      "task_sha256": "013b60fb02639af583d12ccbc4d6feccf39f66400a177bdfd56031d2f02abe61"
+    },
+    {
+      "document_alias": "T23",
+      "original_qa_provenance": {
+        "answer_type": "sequence",
+        "original_answer": "[{\"_key\":\"colored pencil\",\"value\":\"bucket\"},{\"_key\":\"granola box\",\"value\":\"wicker basket\"},{\"_key\":\"spray can\",\"value\":\"bucket\"}]",
+        "original_options": [
+          "bucket",
+          "mug",
+          "wicker basket"
+        ],
+        "original_qa_id": "2074",
+        "original_question": "Which container does each object best fit inside?\n- granola box\n- spray can\n- colored pencil\nContainers: bucket, mug, wicker basket",
+        "question_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json",
+        "question_source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json",
+        "question_source_sha256": "3d5a24b945238a080f727335332d71334c1d76431abf5b5569aa49a5602afa37",
+        "scene_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json",
+        "scene_source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json",
+        "scene_source_sha256": "b3605aab6b6009c9733f639a2649d56c604c88db76ce1b29ba86a103dcc4b0a7",
+        "verification_basis": "Original QA answer and named source target_container/idx metadata; no AABB inference.",
+        "verified_answer_by_public_label": {
+          "colored pencil": "bucket",
+          "granola box": "wicker basket",
+          "spray can": "bucket"
+        }
+      },
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__multi_extra1_extra2.yaml",
+      "parent_scene_sha256": "7a336437af393f24fc2163380ec49b6d4575ca36a4cfa9ddc9da6e3cf96422a7",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.yaml",
+      "parent_task_sha256": "14124a9082efcaa9e23608d8c0da77c842046197a7934d5aa42a101c5ffc8721",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/scenes/rigid_t23_v1.yaml",
+      "scene_sha256": "a6e03dcc38c2e6b50c0cd9686fa84bbc6e039b36179bdc9eae50f47d8f2334bd",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/tasks/rigid_t23_v1.yaml",
+      "task_sha256": "e89be4743fe5937489e1b67925b8be245a6013086d605734954e9d0248fa01a8"
+    },
+    {
+      "document_alias": "T24",
+      "original_qa_provenance": {
+        "answer_type": "sequence",
+        "original_answer": "[{\"_key\":\"first aid kit\",\"value\":\"packing box\"}]",
+        "original_options": [
+          "packing box",
+          "mug",
+          "tote"
+        ],
+        "original_qa_id": "2089",
+        "original_question": "Which container does the first aid kit best fit inside: the packing box or the mug or the tote?",
+        "question_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json",
+        "question_source_identity": "Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json",
+        "question_source_sha256": "1a9bddbf21c57eb6dc37022c21727a45b45f0efde31bdb75df008238d1757035",
+        "scene_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json",
+        "scene_source_identity": "Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json",
+        "scene_source_sha256": "1a9bddbf21c57eb6dc37022c21727a45b45f0efde31bdb75df008238d1757035",
+        "verification_basis": "Original QA answer and named source target_container/idx metadata; no AABB inference.",
+        "verified_answer_by_public_label": {
+          "first aid kit": "packing box"
+        }
+      },
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.yaml",
+      "parent_scene_sha256": "e7ffccb8a725da17605490a67b37b270ca22872ec1ee961f9bfca594671af9d0",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.yaml",
+      "parent_task_sha256": "a1f2b8deef71ab55ee434aad5f98b6a3cd95ee44d772783b081bae85b22a229e",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/scenes/rigid_t24_v1.yaml",
+      "scene_sha256": "8974223a50da7e4305affa06afa7cd3ce5f838f33e3b59e19c2b52edefa1783d",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/tasks/rigid_t24_v1.yaml",
+      "task_sha256": "06ace66bd8b4796022c39c7600ad5fb7afeb8259aab3339320b262b237568e24"
+    }
+  ]
+}

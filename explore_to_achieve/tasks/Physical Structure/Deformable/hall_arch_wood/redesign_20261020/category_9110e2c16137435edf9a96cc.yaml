@@ -1,0 +1,271 @@
+kind: category_robot_task
+id: task_redesign_9110e2c16137435edf9a96cc
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json
+public:
+  objective: Use the working gripper to gently sweep the cloth sideways until the
+    covered item is exposed. Keep the item in its starting place while uncovering
+    it. Then grasp the exposed item, lift it clear of its starting support and cloth,
+    and hold it steadily.
+  success_criteria: Make physical hand contact with the cloth, move it at least 10
+    cm sideways and entirely clear the original item footprint with 2 cm margin before
+    grasping the item. Hold the item with a real native grasp at least 5 cm above
+    its starting height for 0.25 seconds.
+  environment: The item starts fully covered by a cloth on an accessible support in
+    the room.
+  constraints:
+  - Use only existing guarded base, arm, trunk and gripper controls.
+  - Push or sweep with small hand motions; never remove, teleport or resize the cloth.
+  - Keep the original room assets and floor geometry unchanged.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    item:
+      name: cover_small_item_render_item_0834926443
+      category: beefsteak_tomato
+      model: ogpans
+    cloth:
+      name: cover_small_item_render_cloth_0834926443
+      category: bath_towel
+      model: thmepr
+    floor:
+      name: floors_hhszec_0
+      category: floors
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.physical_structure_deformable
+    operation: sweep_cloth_retrieve_item
+    binding_keys:
+    - item
+    - cloth
+    - floor
+    parameters:
+      source_item_xy:
+      - -36.65
+      - 12.35
+      floor_height_estimate_m: -0.0
+      task_revision: task_edit2_deformable_20261018_v1
+      mechanism_contract:
+        preserve:
+        - native_cloth_dynamics
+        - authored_initial_cloth_scale
+        - covered_item_identity
+        - initial_cover_relation
+        goal: native_cloth_sweep_reveal_then_retrieve
+        rigid_proxy_allowed: false
+      source_identity: Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json
+      source_sha256: d7bfd45c7ecc136f920b85f68e4d235195e8d554cb52ff533c7df0942029dfb5
+      deformable_cover:
+        schema: task_edit2_deformable_20261018_v1
+        source_identity: Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json
+        source_sha256: d7bfd45c7ecc136f920b85f68e4d235195e8d554cb52ff533c7df0942029dfb5
+        bindings:
+          item:
+            name: cover_small_item_render_item_0834926443
+            category: beefsteak_tomato
+            model: ogpans
+          cloth:
+            name: cover_small_item_render_cloth_0834926443
+            category: bath_towel
+            model: thmepr
+        world_mesh_before_physics_required: true
+        settled_cloth_root_is_rigid_invariant: false
+        native_mesh_cover_and_support_required: true
+        rigid_proxy_allowed: false
+        actual_sweep_grasp_and_lift_pending: true
+      cover_revision: full_cover_redrape_v1
+      authored_cloth_scale_multiplier: 1.0
+      authored_cloth_asset:
+        name: cover_small_item_render_cloth_0834926443
+        category: bath_towel
+        model: thmepr
+      parent_source_cloth_asset:
+        name: cover_small_item_render_cloth_0834926443
+        category: paper_towel
+        model: mdcnha
+      requires_native_visual_discovery: true
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.deformable_redrape
+        parameters:
+          cloth_name: cover_small_item_render_cloth_0834926443
+          item_names:
+          - cover_small_item_render_item_0834926443
+          item_asset:
+            name: cover_small_item_render_item_0834926443
+            category: beefsteak_tomato
+            model: ogpans
+          cloth_asset:
+            name: cover_small_item_render_cloth_0834926443
+            category: bath_towel
+            model: thmepr
+          source_item_xy:
+          - -36.65
+          - 12.35
+          floor_height_m: -0.0
+          cloth_mass_kg: 1.0
+          cloth_drop_xy_offset_m:
+          - 0.0
+          - 0.0
+          robot_clearance_xy_m:
+          - -36.65
+          - 11.1
+          cloth_scale_multiplier: 1.0
+          settle_steps: 600
+      - operation: add_existing_r1
+      - operation: robot_pose
+        position:
+        - -35.949999999999996
+        - 12.35
+        - -0.0
+        yaw_deg: 180.0
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 45.0
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: item
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: cloth
+        visual_only: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.deformable_redrape
+        parameters:
+          cloth_name: cover_small_item_render_cloth_0834926443
+          item_names:
+          - cover_small_item_render_item_0834926443
+          item_asset:
+            name: cover_small_item_render_item_0834926443
+            category: beefsteak_tomato
+            model: ogpans
+          cloth_asset:
+            name: cover_small_item_render_cloth_0834926443
+            category: bath_towel
+            model: thmepr
+          source_item_xy:
+          - -36.65
+          - 12.35
+          floor_height_m: -0.0
+          cloth_mass_kg: 1.0
+          cloth_drop_xy_offset_m:
+          - 0.0
+          - 0.0
+          robot_clearance_xy_m:
+          - -36.65
+          - 11.1
+          cloth_scale_multiplier: 1.0
+          settle_steps: 600
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - item
+        - cloth
+        manipulation_bindings:
+        - item
+        relocation_policy: rigid_group
+        layout_parameters:
+          deformable_cover:
+            schema: task_edit2_deformable_20261018_v1
+            source_identity: Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json
+            source_sha256: d7bfd45c7ecc136f920b85f68e4d235195e8d554cb52ff533c7df0942029dfb5
+            bindings:
+              item:
+                name: cover_small_item_render_item_0834926443
+                category: beefsteak_tomato
+                model: ogpans
+              cloth:
+                name: cover_small_item_render_cloth_0834926443
+                category: bath_towel
+                model: thmepr
+            world_mesh_before_physics_required: true
+            settled_cloth_root_is_rigid_invariant: false
+            native_mesh_cover_and_support_required: true
+            rigid_proxy_allowed: false
+            actual_sweep_grasp_and_lift_pending: true
+          deformable_source_parameters:
+            source_item_xy:
+            - -36.65
+            - 12.35
+            floor_height_estimate_m: -0.0
+            task_revision: task_edit2_deformable_20261018_v1
+            mechanism_contract:
+              preserve:
+              - native_cloth_mesh
+              - cloth_scale
+              - covered_item_identity
+              - initial_cover_relation
+              goal: native_cloth_sweep_reveal_then_retrieve
+              rigid_proxy_allowed: false
+            source_identity: Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json
+            source_sha256: d7bfd45c7ecc136f920b85f68e4d235195e8d554cb52ff533c7df0942029dfb5
+            deformable_cover:
+              schema: task_edit2_deformable_20261018_v1
+              source_identity: Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json
+              source_sha256: d7bfd45c7ecc136f920b85f68e4d235195e8d554cb52ff533c7df0942029dfb5
+              bindings:
+                item:
+                  name: cover_small_item_render_item_0834926443
+                  category: beefsteak_tomato
+                  model: ogpans
+                cloth:
+                  name: cover_small_item_render_cloth_0834926443
+                  category: bath_towel
+                  model: thmepr
+              world_mesh_before_physics_required: true
+              settled_cloth_root_is_rigid_invariant: false
+              native_mesh_cover_and_support_required: true
+              rigid_proxy_allowed: false
+              actual_sweep_grasp_and_lift_pending: true
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+        placement_groups: []
+        support_bindings:
+        - item
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: empty_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - covered_pair_accessible_support_requires_review
+        - native_cloth_cover_after_translation_unverified
+        - source_qa_reference_layout_changed
+        - native_full_cloth_footprint_required
+        - native_mesh_translation_and_settled_cover_pending
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0

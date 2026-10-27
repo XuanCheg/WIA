@@ -1,0 +1,176 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "revision": "background_ramp_floor_v3",
+  "artifact_path_base": "absolute",
+  "parent_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/manifest.json",
+  "parent_manifest_sha256": "dab33df0648660f1137840f4e68801761cc8bb3b35d74f10d6846031b7405d61",
+  "source_scene_audit": [
+    {
+      "alias": "T38",
+      "source_scene": "house_single_floor",
+      "source_room": "living_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Agent Observation/house_single_floor/redesign_20261020/category_cdb38ede71f9e832885a7654.yaml"
+    },
+    {
+      "alias": "T42",
+      "source_scene": "house_single_floor",
+      "source_room": "living_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/ramp_calibration/material_000/scene.yaml"
+    },
+    {
+      "alias": "T43",
+      "source_scene": "house_single_floor",
+      "source_room": "living_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_75bff6e58684ce3d067bfee5.yaml"
+    },
+    {
+      "alias": "T44",
+      "source_scene": "house_single_floor",
+      "source_room": "living_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_c8b7b9e832f5ee2958b6efe0.yaml"
+    }
+  ],
+  "native_validation_run": false,
+  "physical_success_verified": false,
+  "scientific_controls_verified": false,
+  "reference_execution_status": "deferred_until_user_review",
+  "entries": [
+    {
+      "document_alias": "T38",
+      "variant_id": "t38_complete_ground_v3",
+      "label": "T38 floor-binding repair for authored house workstation",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_ramp_floor_v3/tasks/t38_complete_ground_v3.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_ramp_floor_v3/scenes/t38_complete_ground_v3.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Agent Observation/house_single_floor/redesign_20261020/category_cdb38ede71f9e832885a7654.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Agent Observation/house_single_floor/redesign_20261020/category_cdb38ede71f9e832885a7654.yaml",
+      "variant": "adapted",
+      "task_sha256": "0d940c8addc5aa606b759a6939d914872fe4c2c6a3a4e81f73fb5d8669447b6e",
+      "scene_sha256": "7092feca52219a974594e2e4bdfa5e3ab204ab8c2d85b7db0ff04c1b90b43ad5",
+      "immediate_parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t38_complete_ground_v2.yaml",
+      "immediate_parent_task_sha256": "e326f6dc48d28e06bf9c13178d420afdddd1c274de37f87cee96fedd924389cb",
+      "immediate_parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t38_complete_ground_v2.yaml",
+      "immediate_parent_scene_sha256": "74d5408a0355c47573ea74034455d555731e22bc75bdeddce3a02d85686432bd",
+      "floor_binding": "floors_uzsntg_0",
+      "floor_binding_changes": {
+        "task": [
+          "/scene/variants/adapted/patches/0/parameters/layout/floor_name",
+          "/scene/variants/adapted/patches/1/parameters/layout/floor_name"
+        ],
+        "scene": [
+          "/scene/variants/adapted/patches/0/parameters/layout/floor_name",
+          "/scene/variants/adapted/patches/1/parameters/layout/floor_name"
+        ]
+      },
+      "repair_reason": "V3 changes only the active_layout robot-floor binding to floors_uzsntg_0 for the unchanged authored house workstation robot start [14, 2, 0.02]. The main-agent floor audit identifies this floor as containing that start; the former restored source-floor region excludes it. Both active layout hooks now name the same native robot-support floor. Complete-ground loading, all poses/assets/scales/friction, QA, scorer, budget, runtime and seed remain unchanged. Native validation of this revision and actual operability remain unverified; public-control reference execution is deferred until user review.",
+      "native_validation_run": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "reference_execution_status": "deferred_until_user_review",
+      "parent_task_sha256": "ea6df4fad3fa06acdc92bf59dec29b9720c616767c453ca62a80259f46bf8bfa",
+      "parent_scene_sha256": "ac6f064848c8a86ab167caed27911ea024b7d21a8e718f30796d2461d29e3fff"
+    },
+    {
+      "document_alias": "T42",
+      "variant_id": "t42_complete_ground_v3",
+      "label": "T42 complete ground with corrected native robot-floor binding",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_ramp_floor_v3/tasks/t42_complete_ground_v3.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_ramp_floor_v3/scenes/t42_complete_ground_v3.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/ramp_calibration/material_000/task.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/ramp_calibration/material_000/scene.yaml",
+      "variant": "adapted",
+      "task_sha256": "2b8c2d4b41599cb0ac2d33d2f44a7e4891a1b21c05c1990788047de4d252c26e",
+      "scene_sha256": "239261f3a0a169ab1774cec34d757b27cec2784ef039a22ed552b43d6c46556b",
+      "immediate_parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t42_complete_ground_v2.yaml",
+      "immediate_parent_task_sha256": "cd324cab9adeaac2ad4addf727a2db6664d630a19c2b0fe1ae316fa18e087df7",
+      "immediate_parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t42_complete_ground_v2.yaml",
+      "immediate_parent_scene_sha256": "a669103639e591414f4027c014344f2cb2ff128a13755bdf486b751ef643033d",
+      "floor_binding": "floors_uzsntg_0",
+      "floor_binding_changes": {
+        "task": [
+          "/scene/variants/adapted/patches/0/parameters/layout/floor_name",
+          "/scene/variants/adapted/patches/1/parameters/layout/floor_name"
+        ],
+        "scene": [
+          "/scene/variants/adapted/patches/0/parameters/layout/floor_name",
+          "/scene/variants/adapted/patches/1/parameters/layout/floor_name"
+        ]
+      },
+      "repair_reason": "V3 changes only the active_layout robot-floor binding to floors_uzsntg_0 for the unchanged shared robot start [14, 2, 0.02]. The main-agent native T42 V2 initialization receipt reports contact with that floor; the former restored source-floor binding covers a different region. Both active layout hooks now name the same native robot-support floor. Complete-ground loading, all apparatus poses/assets/scales/friction, QA, scorer, budget, runtime and seed remain unchanged. Native validation of this revision and actual operability remain unverified; public-control reference execution is deferred until user review.",
+      "native_validation_run": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "reference_execution_status": "deferred_until_user_review",
+      "parent_task_sha256": "bc9df7ce15623b0463b178a54ab718818bd076bb3c5d798c66200f8d55d00158",
+      "parent_scene_sha256": "ab3b457406eb73e2422858404dbcd4163d31d9fcac0109753d76094ff1f3d9d0"
+    },
+    {
+      "document_alias": "T43",
+      "variant_id": "t43_complete_ground_v3",
+      "label": "T43 complete ground with corrected native robot-floor binding",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_ramp_floor_v3/tasks/t43_complete_ground_v3.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_ramp_floor_v3/scenes/t43_complete_ground_v3.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_75bff6e58684ce3d067bfee5.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_75bff6e58684ce3d067bfee5.yaml",
+      "variant": "adapted",
+      "task_sha256": "c4d3b0b50a691e409d74cff8497d0fdfd4f55e783872514cfc9edd14d54feaee",
+      "scene_sha256": "273d0ec7696b1423d511074ae1c9276e22964b302716442568c60b2b2ad8d81f",
+      "immediate_parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t43_complete_ground_v2.yaml",
+      "immediate_parent_task_sha256": "bbf2c24f181d45db5d78764eab17e73f8526d696e4dbb5bfb90253a537b5f894",
+      "immediate_parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t43_complete_ground_v2.yaml",
+      "immediate_parent_scene_sha256": "eb069228b268538253e342dd1b9c040d9eb9f4fb565e2540f7223a291b4a791d",
+      "floor_binding": "floors_uzsntg_0",
+      "floor_binding_changes": {
+        "task": [
+          "/scene/variants/adapted/patches/0/parameters/layout/floor_name",
+          "/scene/variants/adapted/patches/1/parameters/layout/floor_name"
+        ],
+        "scene": [
+          "/scene/variants/adapted/patches/0/parameters/layout/floor_name",
+          "/scene/variants/adapted/patches/1/parameters/layout/floor_name"
+        ]
+      },
+      "repair_reason": "V3 changes only the active_layout robot-floor binding to floors_uzsntg_0 for the unchanged shared robot start [14, 2, 0.02]. The main-agent native T42 V2 initialization receipt reports contact with that floor; the former restored source-floor binding covers a different region. Both active layout hooks now name the same native robot-support floor. Complete-ground loading, all apparatus poses/assets/scales/friction, QA, scorer, budget, runtime and seed remain unchanged. Native validation of this revision and actual operability remain unverified; public-control reference execution is deferred until user review.",
+      "native_validation_run": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "reference_execution_status": "deferred_until_user_review",
+      "parent_task_sha256": "0bd0a5c817b82e22e5fc3c17ac8aed280879365f0175712f84956515d9fff214",
+      "parent_scene_sha256": "105316a7e6f590dd3949204dc66cfcaa7db46c7adefcf7c4d55ce9448a0486b5"
+    },
+    {
+      "document_alias": "T44",
+      "variant_id": "t44_complete_ground_v3",
+      "label": "T44 complete ground with corrected native robot-floor binding",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_ramp_floor_v3/tasks/t44_complete_ground_v3.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_ramp_floor_v3/scenes/t44_complete_ground_v3.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_c8b7b9e832f5ee2958b6efe0.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_c8b7b9e832f5ee2958b6efe0.yaml",
+      "variant": "adapted",
+      "task_sha256": "86dfbada66ddc1d33f17e2f6a9667b8144f0f0f8ed032ef1382864b1bcf647e3",
+      "scene_sha256": "ba51c433f8013defaad52b8a73b57e4ee086c7fbd86110a9dde18e7d57891656",
+      "immediate_parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t44_complete_ground_v2.yaml",
+      "immediate_parent_task_sha256": "eeaca598088851a4b8195f5667c00c09bc989dca4d8dbcdfb3baa50ad39f5e7f",
+      "immediate_parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t44_complete_ground_v2.yaml",
+      "immediate_parent_scene_sha256": "695222ed8e853cbc84f4e693915d633264ac3ea88e5113def3cd4ca0d934e38e",
+      "floor_binding": "floors_uzsntg_0",
+      "floor_binding_changes": {
+        "task": [
+          "/scene/variants/adapted/patches/0/parameters/layout/floor_name",
+          "/scene/variants/adapted/patches/1/parameters/layout/floor_name"
+        ],
+        "scene": [
+          "/scene/variants/adapted/patches/0/parameters/layout/floor_name",
+          "/scene/variants/adapted/patches/1/parameters/layout/floor_name"
+        ]
+      },
+      "repair_reason": "V3 changes only the active_layout robot-floor binding to floors_uzsntg_0 for the unchanged shared robot start [14, 2, 0.02]. The main-agent native T42 V2 initialization receipt reports contact with that floor; the former restored source-floor binding covers a different region. Both active layout hooks now name the same native robot-support floor. Complete-ground loading, all apparatus poses/assets/scales/friction, QA, scorer, budget, runtime and seed remain unchanged. Native validation of this revision and actual operability remain unverified; public-control reference execution is deferred until user review.",
+      "native_validation_run": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "reference_execution_status": "deferred_until_user_review",
+      "parent_task_sha256": "7bb6d7a1686a6b3d32804dfda180493935983fc6413a114cd5bc6580a5575d8f",
+      "parent_scene_sha256": "4f4d5617dd0104ae86c0fac6e8a080a9c6c12442725ac7c4269c834118d36282"
+    }
+  ],
+  "label": "Floor-binding repair for authored house workstations"
+}

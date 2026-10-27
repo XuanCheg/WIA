@@ -1,0 +1,1181 @@
+kind: category_robot_task
+id: task_temporal_core_e2c420bb1af5598c3c026223
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Temporal Understanding/Agent Observation/hall_conference_large/bathroom_0/hall_conference_large__bathroom_0__run_000.json
+public:
+  objective: 'Survey all 3 distinct targets along this route: Survey the red, green
+    and blue table landmarks in the bathroom 0, changing viewpoint as needed. Remember
+    actual first sightings; the listed landmarks do not prescribe encounter order.
+    Target inventory: the bottle of soda at the red table; the jar of jam at the green
+    table; the box of sanitary napkins at the blue table. Remember their first-observed
+    order. After observing every target from an informative legal viewpoint, submit
+    ANSWER: SURVEY_COMPLETE. A reproducible rank question will then be revealed. Identify
+    that history-selected target, retrieve it, and place it on the blue-rimmed delivery
+    tray.'
+  success_criteria: 'Complete the informative survey without moving targets, resolve
+    the revealed rank using your own first-encounter history, then grasp the same
+    bound object and release it stably at the named destination. Submit the selected
+    public target label as ANSWER: <label>. Simultaneous first encounters do not define
+    an order and invalidate that order question.'
+  environment: One continuous native episode; no actor replay or historical count
+    answer is supplied. The colored target stations and named delivery surface are
+    explicit initialized apparatus.
+  constraints:
+  - During the survey, preserve targets, furniture and apparatus; use legal mounted-view
+    inspection.
+  - After the follow-up, manipulate only the selected target through public controls.
+  - No arbitrary travel distance, return trip or lift-height bonus is required.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    hidden_obj_0:
+      name: hidden_obj_0
+      category: bottle_of_soda
+      model: eqyqlx
+    history_added_jam:
+      name: history_added_jam
+      category: jar_of_jam
+      model: vxjbjf
+    history_added_box:
+      name: history_added_box
+      category: box_of_sanitary_napkins
+      model: ykpeja
+    history_red_station:
+      name: history_red_station
+      category: breakfast_table
+    history_red_station_leg_0:
+      name: history_red_station_leg_0
+      category: breakfast_table
+    history_red_station_leg_1:
+      name: history_red_station_leg_1
+      category: breakfast_table
+    history_red_station_leg_2:
+      name: history_red_station_leg_2
+      category: breakfast_table
+    history_red_station_leg_3:
+      name: history_red_station_leg_3
+      category: breakfast_table
+    history_green_station:
+      name: history_green_station
+      category: breakfast_table
+    history_green_station_leg_0:
+      name: history_green_station_leg_0
+      category: breakfast_table
+    history_green_station_leg_1:
+      name: history_green_station_leg_1
+      category: breakfast_table
+    history_green_station_leg_2:
+      name: history_green_station_leg_2
+      category: breakfast_table
+    history_green_station_leg_3:
+      name: history_green_station_leg_3
+      category: breakfast_table
+    history_blue_station:
+      name: history_blue_station
+      category: breakfast_table
+    history_blue_station_leg_0:
+      name: history_blue_station_leg_0
+      category: breakfast_table
+    history_blue_station_leg_1:
+      name: history_blue_station_leg_1
+      category: breakfast_table
+    history_blue_station_leg_2:
+      name: history_blue_station_leg_2
+      category: breakfast_table
+    history_blue_station_leg_3:
+      name: history_blue_station_leg_3
+      category: breakfast_table
+    history_delivery_table:
+      name: history_delivery_table
+      category: breakfast_table
+    history_delivery_table_leg_0:
+      name: history_delivery_table_leg_0
+      category: breakfast_table
+    history_delivery_table_leg_1:
+      name: history_delivery_table_leg_1
+      category: breakfast_table
+    history_delivery_table_leg_2:
+      name: history_delivery_table_leg_2
+      category: breakfast_table
+    history_delivery_table_leg_3:
+      name: history_delivery_table_leg_3
+      category: breakfast_table
+    history_delivery_tray:
+      name: history_delivery_tray
+      category: tray
+    history_delivery_rim_0:
+      name: history_delivery_rim_0
+      category: tray
+    history_delivery_rim_1:
+      name: history_delivery_rim_1
+      category: tray
+    history_delivery_rim_2:
+      name: history_delivery_rim_2
+      category: tray
+    history_delivery_rim_3:
+      name: history_delivery_rim_3
+      category: tray
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.temporal_understanding_agent_observation
+    operation: survey_history_retrieve_place
+    binding_keys:
+    - hidden_obj_0
+    - history_added_jam
+    - history_added_box
+    - history_red_station
+    - history_red_station_leg_0
+    - history_red_station_leg_1
+    - history_red_station_leg_2
+    - history_red_station_leg_3
+    - history_green_station
+    - history_green_station_leg_0
+    - history_green_station_leg_1
+    - history_green_station_leg_2
+    - history_green_station_leg_3
+    - history_blue_station
+    - history_blue_station_leg_0
+    - history_blue_station_leg_1
+    - history_blue_station_leg_2
+    - history_blue_station_leg_3
+    - history_delivery_table
+    - history_delivery_table_leg_0
+    - history_delivery_table_leg_1
+    - history_delivery_table_leg_2
+    - history_delivery_table_leg_3
+    - history_delivery_tray
+    - history_delivery_rim_0
+    - history_delivery_rim_1
+    - history_delivery_rim_2
+    - history_delivery_rim_3
+    parameters:
+      task_revision: task_edit2_temporal_20261018_v1
+      requires_native_visual_discovery: true
+      target_keys:
+      - hidden_obj_0
+      - history_added_jam
+      - history_added_box
+      public_target_labels:
+        hidden_obj_0: the bottle of soda at the red table
+        history_added_jam: the jar of jam at the green table
+        history_added_box: the box of sanitary napkins at the blue table
+      public_route: Survey the red, green and blue table landmarks in the bathroom
+        0, changing viewpoint as needed. Remember actual first sightings; the listed
+        landmarks do not prescribe encounter order.
+      followup_seed: 7
+      followup_rule: rank_selected_after_frozen_complete_unique_history
+      destination_key: history_delivery_tray
+      destination_label: the blue-rimmed delivery tray
+      placement_relation: on_top
+      apparatus:
+        primitives:
+        - name: history_red_station
+          position:
+          - 0.3499110698699951
+          - 33.900001525878906
+          - 0.6950317320227622
+          dimensions_m:
+          - 0.6
+          - 0.5
+          - 0.05
+          rgba:
+          - 0.85
+          - 0.18
+          - 0.12
+          - 1.0
+        - name: history_red_station_leg_0
+          position:
+          - 0.1099110698699951
+          - 33.71000152587891
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_red_station_leg_1
+          position:
+          - 0.1099110698699951
+          - 34.090001525878904
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_red_station_leg_2
+          position:
+          - 0.5899110698699951
+          - 33.71000152587891
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_red_station_leg_3
+          position:
+          - 0.5899110698699951
+          - 34.090001525878904
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_green_station
+          position:
+          - 1.2499110698699951
+          - 33.900001525878906
+          - 0.6950317320227622
+          dimensions_m:
+          - 0.6
+          - 0.5
+          - 0.05
+          rgba:
+          - 0.15
+          - 0.7
+          - 0.25
+          - 1.0
+        - name: history_green_station_leg_0
+          position:
+          - 1.0099110698699951
+          - 33.71000152587891
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_green_station_leg_1
+          position:
+          - 1.0099110698699951
+          - 34.090001525878904
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_green_station_leg_2
+          position:
+          - 1.489911069869995
+          - 33.71000152587891
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_green_station_leg_3
+          position:
+          - 1.489911069869995
+          - 34.090001525878904
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_blue_station
+          position:
+          - 2.149911069869995
+          - 33.900001525878906
+          - 0.6950317320227622
+          dimensions_m:
+          - 0.6
+          - 0.5
+          - 0.05
+          rgba:
+          - 0.15
+          - 0.3
+          - 0.85
+          - 1.0
+        - name: history_blue_station_leg_0
+          position:
+          - 1.909911069869995
+          - 33.71000152587891
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_blue_station_leg_1
+          position:
+          - 1.909911069869995
+          - 34.090001525878904
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_blue_station_leg_2
+          position:
+          - 2.389911069869995
+          - 33.71000152587891
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_blue_station_leg_3
+          position:
+          - 2.389911069869995
+          - 34.090001525878904
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_delivery_table
+          position:
+          - 1.2499110698699951
+          - 32.800001525878905
+          - 0.6950317320227622
+          dimensions_m:
+          - 0.6
+          - 0.5
+          - 0.05
+          rgba:
+          - 0.35
+          - 0.28
+          - 0.18
+          - 1.0
+        - name: history_delivery_table_leg_0
+          position:
+          - 1.0099110698699951
+          - 32.61000152587891
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_delivery_table_leg_1
+          position:
+          - 1.0099110698699951
+          - 32.9900015258789
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_delivery_table_leg_2
+          position:
+          - 1.489911069869995
+          - 32.61000152587891
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_delivery_table_leg_3
+          position:
+          - 1.489911069869995
+          - 32.9900015258789
+          - 0.33503173202276226
+          dimensions_m:
+          - 0.04
+          - 0.04
+          - 0.6699999999999999
+        - name: history_delivery_tray
+          category: tray
+          position:
+          - 1.2499110698699951
+          - 32.800001525878905
+          - 0.7300317320227623
+          dimensions_m:
+          - 0.5
+          - 0.4
+          - 0.02
+          rgba:
+          - 0.15
+          - 0.3
+          - 0.9
+          - 1.0
+        - name: history_delivery_rim_0
+          category: tray
+          position:
+          - 1.004911069869995
+          - 32.800001525878905
+          - 0.7600317320227623
+          dimensions_m:
+          - 0.01
+          - 0.4
+          - 0.06
+          rgba:
+          - 0.15
+          - 0.3
+          - 0.9
+          - 1.0
+        - name: history_delivery_rim_1
+          category: tray
+          position:
+          - 1.4949110698699952
+          - 32.800001525878905
+          - 0.7600317320227623
+          dimensions_m:
+          - 0.01
+          - 0.4
+          - 0.06
+          rgba:
+          - 0.15
+          - 0.3
+          - 0.9
+          - 1.0
+        - name: history_delivery_rim_2
+          category: tray
+          position:
+          - 1.2499110698699951
+          - 32.605001525878905
+          - 0.7600317320227623
+          dimensions_m:
+          - 0.5
+          - 0.01
+          - 0.06
+          rgba:
+          - 0.15
+          - 0.3
+          - 0.9
+          - 1.0
+        - name: history_delivery_rim_3
+          category: tray
+          position:
+          - 1.2499110698699951
+          - 32.995001525878905
+          - 0.7600317320227623
+          dimensions_m:
+          - 0.5
+          - 0.01
+          - 0.06
+          rgba:
+          - 0.15
+          - 0.3
+          - 0.9
+          - 1.0
+        source_target_positions:
+          hidden_obj_0:
+          - 0.3499110698699951
+          - 33.900001525878906
+          - 0.8104195640683174
+          history_added_jam:
+          - 1.2499110698699951
+          - 33.900001525878906
+          - 0.7720159487128258
+          history_added_box:
+          - 2.149911069869995
+          - 33.900001525878906
+          - 0.7766346008777618
+        target_support_bindings:
+          hidden_obj_0: history_red_station
+          history_added_jam: history_green_station
+          history_added_box: history_blue_station
+        proposal_status: native_floor_support_collision_reach_and_route_pending
+        source_placement_changed: true
+        source_models_scales_and_inventory_preserved: true
+        floor_contact_names:
+        - history_red_station_leg_0
+        - history_red_station_leg_1
+        - history_red_station_leg_2
+        - history_red_station_leg_3
+        - history_green_station_leg_0
+        - history_green_station_leg_1
+        - history_green_station_leg_2
+        - history_green_station_leg_3
+        - history_blue_station_leg_0
+        - history_blue_station_leg_1
+        - history_blue_station_leg_2
+        - history_blue_station_leg_3
+        - history_delivery_table_leg_0
+        - history_delivery_table_leg_1
+        - history_delivery_table_leg_2
+        - history_delivery_table_leg_3
+        dataset_objects:
+        - type: DatasetObject
+          name: history_added_jam
+          category: jar_of_jam
+          model: vxjbjf
+          position:
+          - 1.2499110698699951
+          - 33.900001525878906
+          - 0.7720159487128258
+          orientation:
+          - -0.00013924689847044647
+          - -2.7775673515861854e-05
+          - -0.5649771690368652
+          - 0.8251066207885742
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          fixed_base: false
+          visual_only: false
+        - type: DatasetObject
+          name: history_added_box
+          category: box_of_sanitary_napkins
+          model: ykpeja
+          position:
+          - 2.149911069869995
+          - 33.900001525878906
+          - 0.7766346008777618
+          orientation:
+          - 5.768819164586603e-07
+          - 5.331571628630627e-08
+          - 0.0005801078514195979
+          - 0.9999998211860657
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          fixed_base: false
+          visual_only: false
+        original_source_inventory_preserved: true
+        explicit_approved_added_target_count: 2
+      source_objects:
+        hidden_obj_0:
+          _key: hidden_obj_0
+          aabb_centre:
+          - 1.2499109506607056
+          - 33.900001525878906
+          - 0.11188739538192749
+          aabb_max:
+          - 1.2845630645751953
+          - 33.93001174926758
+          - 0.22374305129051208
+          aabb_min:
+          - 1.2152588367462158
+          - 33.869991302490234
+          - 3.1732022762298584e-05
+          category: bottle_of_soda
+          dist_to_path: 0.6261960675523531
+          placed_on: floor
+          position:
+          - 1.2499110698699951
+          - 33.900001525878906
+          - 0.08841956406831741
+          quaternion_xyzw:
+          - 6.747479233126796e-07
+          - -7.54305347072659e-08
+          - 2.9804890999685085e-08
+          - 1.0
+          model: eqyqlx
+        history_added_jam:
+          _key: history_added_jam
+          category: jar_of_jam
+          model: vxjbjf
+          position:
+          - 1.2499110698699951
+          - 33.900001525878906
+          - 0.7720159487128258
+          quaternion_xyzw:
+          - -0.00013924689847044647
+          - -2.7775673515861854e-05
+          - -0.5649771690368652
+          - 0.8251066207885742
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          aabb_min:
+          - 1.207308292388916
+          - 33.85737991333008
+          - 0.7220317320227623
+          aabb_max:
+          - 1.2925348281860352
+          - 33.94259452819824
+          - 0.827318333953619
+          aabb_centre:
+          - 1.2499215602874756
+          - 33.89998722076416
+          - 0.7746750329881906
+          asset_provenance:
+            source_file: explore_to_achieve/category_reports/corev2/native_geometry_core_v3/initial_state.json
+            source_sha256: ed692967624c98153979087d5a5cfa578e4320007f61241672b3ba521b45145d
+            source_object_name: obj3
+            geometry_json_path: interaction_setup.original_geometry.obj3
+            native_identity_json_path: objects.obj3
+            native_category: jar_of_jam
+            native_scale:
+            - 1.0
+            - 1.0
+            - 1.0
+            root_offset_from_aabb_min_m:
+            - 0.0426027774810791
+            - 0.042621612548828125
+            - 0.04998421669006348
+            donor_geometry:
+              position_m:
+              - 3.842512369155884
+              - 19.995803833007812
+              - 0.04998062178492546
+              quaternion_xyzw:
+              - -0.00013924689847044647
+              - -2.7775673515861854e-05
+              - -0.5649771690368652
+              - 0.8251066207885742
+              aabb_min_m:
+              - 3.7999095916748047
+              - 19.953182220458984
+              - -3.594905138015747e-06
+              aabb_max_m:
+              - 3.885136127471924
+              - 20.03839683532715
+              - 0.10528300702571869
+            geometry_status: measured_native_donor_geometry_initialized_placement_proposal_only
+            proposal_translation_m:
+            - -2.5926012992858887
+            - 13.904197692871094
+            - 0.7220353269279003
+        history_added_box:
+          _key: history_added_box
+          category: box_of_sanitary_napkins
+          model: ykpeja
+          position:
+          - 2.149911069869995
+          - 33.900001525878906
+          - 0.7766346008777618
+          quaternion_xyzw:
+          - 5.768819164586603e-07
+          - 5.331571628630627e-08
+          - 0.0005801078514195979
+          - 0.9999998211860657
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          aabb_min:
+          - 2.1150905132293705
+          - 33.851240158081055
+          - 0.7220317320227623
+          aabb_max:
+          - 2.1847335338592533
+          - 33.94876289367676
+          - 0.8312356108129024
+          aabb_centre:
+          - 2.149912023544312
+          - 33.900001525878906
+          - 0.7766336714178323
+          asset_provenance:
+            source_file: explore_to_achieve/category_reports/corev2/native_deformable_v4/initial_state.json
+            source_sha256: 5ea8ba8b9cb2def5dc94589e85b27fbe02e633e4bf1df8bbaae994de4b41bdbe
+            source_object_name: cover_small_item_render_item_0788552322
+            geometry_json_path: interaction_setup.original_geometry.cover_small_item_render_item_0788552322
+            native_identity_json_path: objects.cover_small_item_render_item_0788552322
+            native_category: box_of_sanitary_napkins
+            native_scale:
+            - 1.0
+            - 1.0
+            - 1.0
+            root_offset_from_aabb_min_m:
+            - 0.034820556640625
+            - 0.04876136779785156
+            - 0.05460286885499954
+            donor_geometry:
+              position_m:
+              - 12.94979476928711
+              - -19.54995346069336
+              - 0.05460284277796745
+              quaternion_xyzw:
+              - 5.768819164586603e-07
+              - 5.331571628630627e-08
+              - 0.0005801078514195979
+              - 0.9999998211860657
+              aabb_min_m:
+              - 12.914974212646484
+              - -19.59871482849121
+              - -2.60770320892334e-08
+              aabb_max_m:
+              - 12.984617233276367
+              - -19.501192092895508
+              - 0.10920385271310806
+            geometry_status: measured_native_donor_geometry_initialized_placement_proposal_only
+            proposal_translation_m:
+            - -10.799883699417114
+            - 53.449954986572266
+            - 0.7220317580997944
+      source_identity: Temporal Understanding/Agent Observation/hall_conference_large/bathroom_0/hall_conference_large__bathroom_0__run_000.json
+      source_sha256: 7d8cbf20d619ff73c1338d9363af9903f8cfa10cb31e78f41d5da8b256a3c53c
+      release_stability_steps: 15
+      maximum_release_speed_m_s: 0.02
+      maximum_release_angular_speed_rad_s: 0.1
+      budget_status: pending_representative_native_route_and_retrieval
+      native_visual_adapter: task_visual_evidence
+      historical_count_answer_is_provenance_only: '1'
+      history_inventory_revision: task_edit2_core_history_three_targets_v1
+      original_target_keys:
+      - hidden_obj_0
+      added_target_keys:
+      - history_added_jam
+      - history_added_box
+      original_source_objects:
+      - _key: hidden_obj_0
+        aabb_centre:
+        - 1.2499109506607056
+        - 33.900001525878906
+        - 0.11188739538192749
+        aabb_max:
+        - 1.2845630645751953
+        - 33.93001174926758
+        - 0.22374305129051208
+        aabb_min:
+        - 1.2152588367462158
+        - 33.869991302490234
+        - 3.1732022762298584e-05
+        category: bottle_of_soda
+        dist_to_path: 0.6261960675523531
+        placed_on: floor
+        position:
+        - 1.2499110698699951
+        - 33.900001525878906
+        - 0.08841956406831741
+        quaternion_xyzw:
+        - 6.747479233126796e-07
+        - -7.54305347072659e-08
+        - 2.9804890999685085e-08
+        - 1.0
+        model: eqyqlx
+      original_source_target_count: 1
+      capability_redesign: One original source target plus two approved visually distinct
+        added assets; the three-target inventory is a new history-memory capability,
+        not the original source count.
+      source_core_candidate_id: category_79311465f45737f407973df2
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.temporal_understanding_agent_observation
+        parameters:
+          task_revision: task_edit2_temporal_20261018_v1
+          scene_model: hall_conference_large
+          apparatus:
+            primitives:
+            - name: history_red_station
+              position:
+              - 0.3499110698699951
+              - 33.900001525878906
+              - 0.6950317320227622
+              dimensions_m:
+              - 0.6
+              - 0.5
+              - 0.05
+              rgba:
+              - 0.85
+              - 0.18
+              - 0.12
+              - 1.0
+            - name: history_red_station_leg_0
+              position:
+              - 0.1099110698699951
+              - 33.71000152587891
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_red_station_leg_1
+              position:
+              - 0.1099110698699951
+              - 34.090001525878904
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_red_station_leg_2
+              position:
+              - 0.5899110698699951
+              - 33.71000152587891
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_red_station_leg_3
+              position:
+              - 0.5899110698699951
+              - 34.090001525878904
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_green_station
+              position:
+              - 1.2499110698699951
+              - 33.900001525878906
+              - 0.6950317320227622
+              dimensions_m:
+              - 0.6
+              - 0.5
+              - 0.05
+              rgba:
+              - 0.15
+              - 0.7
+              - 0.25
+              - 1.0
+            - name: history_green_station_leg_0
+              position:
+              - 1.0099110698699951
+              - 33.71000152587891
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_green_station_leg_1
+              position:
+              - 1.0099110698699951
+              - 34.090001525878904
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_green_station_leg_2
+              position:
+              - 1.489911069869995
+              - 33.71000152587891
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_green_station_leg_3
+              position:
+              - 1.489911069869995
+              - 34.090001525878904
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_blue_station
+              position:
+              - 2.149911069869995
+              - 33.900001525878906
+              - 0.6950317320227622
+              dimensions_m:
+              - 0.6
+              - 0.5
+              - 0.05
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.85
+              - 1.0
+            - name: history_blue_station_leg_0
+              position:
+              - 1.909911069869995
+              - 33.71000152587891
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_blue_station_leg_1
+              position:
+              - 1.909911069869995
+              - 34.090001525878904
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_blue_station_leg_2
+              position:
+              - 2.389911069869995
+              - 33.71000152587891
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_blue_station_leg_3
+              position:
+              - 2.389911069869995
+              - 34.090001525878904
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_delivery_table
+              position:
+              - 1.2499110698699951
+              - 32.800001525878905
+              - 0.6950317320227622
+              dimensions_m:
+              - 0.6
+              - 0.5
+              - 0.05
+              rgba:
+              - 0.35
+              - 0.28
+              - 0.18
+              - 1.0
+            - name: history_delivery_table_leg_0
+              position:
+              - 1.0099110698699951
+              - 32.61000152587891
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_delivery_table_leg_1
+              position:
+              - 1.0099110698699951
+              - 32.9900015258789
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_delivery_table_leg_2
+              position:
+              - 1.489911069869995
+              - 32.61000152587891
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_delivery_table_leg_3
+              position:
+              - 1.489911069869995
+              - 32.9900015258789
+              - 0.33503173202276226
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: history_delivery_tray
+              category: tray
+              position:
+              - 1.2499110698699951
+              - 32.800001525878905
+              - 0.7300317320227623
+              dimensions_m:
+              - 0.5
+              - 0.4
+              - 0.02
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: history_delivery_rim_0
+              category: tray
+              position:
+              - 1.004911069869995
+              - 32.800001525878905
+              - 0.7600317320227623
+              dimensions_m:
+              - 0.01
+              - 0.4
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: history_delivery_rim_1
+              category: tray
+              position:
+              - 1.4949110698699952
+              - 32.800001525878905
+              - 0.7600317320227623
+              dimensions_m:
+              - 0.01
+              - 0.4
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: history_delivery_rim_2
+              category: tray
+              position:
+              - 1.2499110698699951
+              - 32.605001525878905
+              - 0.7600317320227623
+              dimensions_m:
+              - 0.5
+              - 0.01
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: history_delivery_rim_3
+              category: tray
+              position:
+              - 1.2499110698699951
+              - 32.995001525878905
+              - 0.7600317320227623
+              dimensions_m:
+              - 0.5
+              - 0.01
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            source_target_positions:
+              hidden_obj_0:
+              - 0.3499110698699951
+              - 33.900001525878906
+              - 0.8104195640683174
+              history_added_jam:
+              - 1.2499110698699951
+              - 33.900001525878906
+              - 0.7720159487128258
+              history_added_box:
+              - 2.149911069869995
+              - 33.900001525878906
+              - 0.7766346008777618
+            target_support_bindings:
+              hidden_obj_0: history_red_station
+              history_added_jam: history_green_station
+              history_added_box: history_blue_station
+            proposal_status: native_floor_support_collision_reach_and_route_pending
+            source_placement_changed: true
+            source_models_scales_and_inventory_preserved: true
+            floor_contact_names:
+            - history_red_station_leg_0
+            - history_red_station_leg_1
+            - history_red_station_leg_2
+            - history_red_station_leg_3
+            - history_green_station_leg_0
+            - history_green_station_leg_1
+            - history_green_station_leg_2
+            - history_green_station_leg_3
+            - history_blue_station_leg_0
+            - history_blue_station_leg_1
+            - history_blue_station_leg_2
+            - history_blue_station_leg_3
+            - history_delivery_table_leg_0
+            - history_delivery_table_leg_1
+            - history_delivery_table_leg_2
+            - history_delivery_table_leg_3
+            dataset_objects:
+            - type: DatasetObject
+              name: history_added_jam
+              category: jar_of_jam
+              model: vxjbjf
+              position:
+              - 1.2499110698699951
+              - 33.900001525878906
+              - 0.7720159487128258
+              orientation:
+              - -0.00013924689847044647
+              - -2.7775673515861854e-05
+              - -0.5649771690368652
+              - 0.8251066207885742
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: history_added_box
+              category: box_of_sanitary_napkins
+              model: ykpeja
+              position:
+              - 2.149911069869995
+              - 33.900001525878906
+              - 0.7766346008777618
+              orientation:
+              - 5.768819164586603e-07
+              - 5.331571628630627e-08
+              - 0.0005801078514195979
+              - 0.9999998211860657
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            original_source_inventory_preserved: true
+            explicit_approved_added_target_count: 2
+          source_identity: Temporal Understanding/Agent Observation/hall_conference_large/bathroom_0/hall_conference_large__bathroom_0__run_000.json
+          source_sha256: 7d8cbf20d619ff73c1338d9363af9903f8cfa10cb31e78f41d5da8b256a3c53c
+          source_core_candidate_id: category_79311465f45737f407973df2
+      - operation: robot_pose
+        position: &id001
+        - 1.5
+        - 35.20000076293945
+        - 0.1
+        yaw_deg: -135.00004546586848
+        head_pitch_deg: 0.0
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.temporal_understanding_agent_observation
+        parameters:
+          restore: original_episode_start
+          scene: hall_conference_large
+          room: bathroom_0
+          position: *id001
+          quaternion_xyzw:
+          - 0.0012388397008180618
+          - 0.0007232667412608862
+          - -0.9238786101341248
+          - 0.3826829195022583
+          source_sha256: 7d8cbf20d619ff73c1338d9363af9903f8cfa10cb31e78f41d5da8b256a3c53c
+          provenance:
+            source_json: Temporal Understanding/Agent Observation/hall_conference_large/bathroom_0/hall_conference_large__bathroom_0__run_000.json
+            task_revision: task_edit2_temporal_20261018_v1
+          source_identity: Temporal Understanding/Agent Observation/hall_conference_large/bathroom_0/hall_conference_large__bathroom_0__run_000.json
+          source_core_candidate_id: category_79311465f45737f407973df2
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - hidden_obj_0
+        - history_added_jam
+        - history_added_box
+        manipulation_bindings:
+        - hidden_obj_0
+        - history_added_jam
+        - history_added_box
+        relocation_policy: independent_groups
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+        placement_groups:
+        - - hidden_obj_0
+        - - history_added_jam
+        - - history_added_box
+        support_bindings: []
+        support_preferences:
+          hidden_obj_0: history_red_station
+          history_added_jam: history_green_station
+          history_added_box: history_blue_station
+        support_search: measured_surfaces
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: bathroom_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 7

@@ -1,0 +1,2870 @@
+[
+  {
+    "stage": "before_controller",
+    "sample": 0,
+    "native_time_s": 2.075000108219683,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54999351501465,
+            -11.150022506713867,
+            0.003764927387237549
+          ],
+          [
+            0.004974025767296553,
+            0.000896095356438309,
+            -0.2992441654205322,
+            0.9541632533073425
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 1,
+    "native_time_s": 2.1083334432914853,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550031661987305,
+            -11.14999771118164,
+            0.005791112780570984
+          ],
+          [
+            0.003908457234501839,
+            -0.0025432880502194166,
+            -0.29924899339675903,
+            0.9541637301445007
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 2,
+    "native_time_s": 2.1416667783632874,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550064086914062,
+            -11.14997386932373,
+            0.0070457011461257935
+          ],
+          [
+            0.0032647792249917984,
+            -0.004677889868617058,
+            -0.2992451786994934,
+            0.9541593194007874
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 3,
+    "native_time_s": 2.1750001134350896,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550092697143555,
+            -11.14995288848877,
+            0.007531091570854187
+          ],
+          [
+            0.0030420604161918163,
+            -0.005510276183485985,
+            -0.2992416024208069,
+            0.9541566371917725
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 4,
+    "native_time_s": 2.2083334485068917,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550119400024414,
+            -11.149932861328125,
+            0.007245644927024841
+          ],
+          [
+            0.0032405899837613106,
+            -0.005041823722422123,
+            -0.29924362897872925,
+            0.9541580677032471
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 5,
+    "native_time_s": 2.241666783578694,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.55014419555664,
+            -11.14991283416748,
+            0.006192788481712341
+          ],
+          [
+            0.003859146498143673,
+            -0.003276713425293565,
+            -0.2992480993270874,
+            0.9541619420051575
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 6,
+    "native_time_s": 2.275000118650496,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550167083740234,
+            -11.149890899658203,
+            0.004377394914627075
+          ],
+          [
+            0.00489812670275569,
+            -0.00022039296163711697,
+            -0.2992469370365143,
+            0.9541630744934082
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 7,
+    "native_time_s": 2.308333453722298,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550168991088867,
+            -11.149896621704102,
+            0.004710480570793152
+          ],
+          [
+            0.005535611417144537,
+            0.002925450447946787,
+            -0.2992399036884308,
+            0.9541574120521545
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 8,
+    "native_time_s": 2.3416667887941003,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.55018424987793,
+            -11.14988899230957,
+            0.005732685327529907
+          ],
+          [
+            0.006223697680979967,
+            0.005170689430087805,
+            -0.29922422766685486,
+            0.954148530960083
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 9,
+    "native_time_s": 2.3750001238659024,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550195693969727,
+            -11.149894714355469,
+            0.006335735321044922
+          ],
+          [
+            0.006972079630941153,
+            0.006146963220089674,
+            -0.2992064952850342,
+            0.9541430473327637
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 10,
+    "native_time_s": 2.4083334589377046,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.55018424987793,
+            -11.149897575378418,
+            0.006274312734603882
+          ],
+          [
+            0.006604915019124746,
+            0.006376158446073532,
+            -0.2992227375507355,
+            0.9541391134262085
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 11,
+    "native_time_s": 2.4416667940095067,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550195693969727,
+            -11.149898529052734,
+            0.005862623453140259
+          ],
+          [
+            0.006553065963089466,
+            0.0053319078870117664,
+            -0.2992301881313324,
+            0.9541435837745667
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 12,
+    "native_time_s": 2.475000129081309,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550199508666992,
+            -11.14989185333252,
+            0.005043119192123413
+          ],
+          [
+            0.005446369294077158,
+            0.003443279070779681,
+            -0.29925239086151123,
+            0.9541522860527039
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 13,
+    "native_time_s": 2.508333464153111,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550216674804688,
+            -11.149872779846191,
+            0.003908440470695496
+          ],
+          [
+            0.005181706044822931,
+            0.0009270964656025171,
+            -0.29927965998649597,
+            0.9541509747505188
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 14,
+    "native_time_s": 2.541666799224913,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550247192382812,
+            -11.149847984313965,
+            0.004459023475646973
+          ],
+          [
+            0.004621954169124365,
+            -0.0002879753883462399,
+            -0.2992846965789795,
+            0.9541526436805725
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 15,
+    "native_time_s": 2.5750001342967153,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550277709960938,
+            -11.149821281433105,
+            0.004409968852996826
+          ],
+          [
+            0.004495148081332445,
+            -0.00015604381042066962,
+            -0.2992852032184601,
+            0.9541531205177307
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 16,
+    "native_time_s": 2.6083334693685174,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550294876098633,
+            -11.149816513061523,
+            0.0038496553897857666
+          ],
+          [
+            0.004753808490931988,
+            0.0009000358986668289,
+            -0.2992513179779053,
+            0.954162061214447
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 17,
+    "native_time_s": 2.6416668044403195,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.55032730102539,
+            -11.149795532226562,
+            0.004206180572509766
+          ],
+          [
+            0.005555237643420696,
+            0.001154651283286512,
+            -0.29926198720932007,
+            0.9541541337966919
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 18,
+    "native_time_s": 2.6750001395121217,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550344467163086,
+            -11.149785995483398,
+            0.003847092390060425
+          ],
+          [
+            0.005038831848651171,
+            0.0010800637537613511,
+            -0.2992613911628723,
+            0.954157292842865
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 19,
+    "native_time_s": 2.708333474583924,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.55035972595215,
+            -11.149771690368652,
+            0.0038319528102874756
+          ],
+          [
+            0.00512696523219347,
+            0.0007769884541630745,
+            -0.29928991198539734,
+            0.9541481733322144
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 20,
+    "native_time_s": 2.741666809655726,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.55037498474121,
+            -11.149764060974121,
+            0.003915920853614807
+          ],
+          [
+            0.004470949526876211,
+            0.0008190037333406508,
+            -0.2992561459541321,
+            0.9541621208190918
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 21,
+    "native_time_s": 2.775000144727528,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550405502319336,
+            -11.149742126464844,
+            0.003810882568359375
+          ],
+          [
+            0.004825458861887455,
+            0.0008581192814745009,
+            -0.2992578446865082,
+            0.9541597962379456
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 22,
+    "native_time_s": 2.8083334797993302,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550434112548828,
+            -11.149718284606934,
+            0.004041612148284912
+          ],
+          [
+            0.005212245509028435,
+            0.0014051094185560942,
+            -0.29926598072052,
+            0.9541546106338501
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 23,
+    "native_time_s": 2.8416668148711324,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550434112548828,
+            -11.149717330932617,
+            0.004127293825149536
+          ],
+          [
+            0.0044714221730828285,
+            0.001179295126348734,
+            -0.29926779866218567,
+            0.9541580677032471
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 24,
+    "native_time_s": 2.8750001499429345,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550439834594727,
+            -11.149706840515137,
+            0.003991961479187012
+          ],
+          [
+            0.005031911190599203,
+            0.0004549230798147619,
+            -0.29927366971969604,
+            0.9541540145874023
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 25,
+    "native_time_s": 2.9083334850147367,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550466537475586,
+            -11.14968204498291,
+            0.0041679441928863525
+          ],
+          [
+            0.005653600208461285,
+            0.0007069131243042648,
+            -0.2992904484272003,
+            0.9541451334953308
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 26,
+    "native_time_s": 2.941666820086539,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550460815429688,
+            -11.14968204498291,
+            0.0037677139043807983
+          ],
+          [
+            0.004982403013855219,
+            0.000923734565731138,
+            -0.29926636815071106,
+            0.9541561603546143
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 27,
+    "native_time_s": 2.975000155158341,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550479888916016,
+            -11.149656295776367,
+            0.003830358386039734
+          ],
+          [
+            0.005071653518825769,
+            0.0009127983939833939,
+            -0.29929354786872864,
+            0.9541471600532532
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 28,
+    "native_time_s": 3.008333490230143,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550504684448242,
+            -11.149646759033203,
+            0.004091128706932068
+          ],
+          [
+            0.004195492714643478,
+            0.000920631515327841,
+            -0.2992716133594513,
+            0.9541583061218262
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 29,
+    "native_time_s": 3.041666825301945,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550525665283203,
+            -11.149627685546875,
+            0.003991946578025818
+          ],
+          [
+            0.00451251957565546,
+            0.0006174709997139871,
+            -0.2992751896381378,
+            0.9541560411453247
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 30,
+    "native_time_s": 3.0750001603737473,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550561904907227,
+            -11.149599075317383,
+            0.003914102911949158
+          ],
+          [
+            0.005082396790385246,
+            0.0012357229134067893,
+            -0.2992786467075348,
+            0.9541515111923218
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 31,
+    "native_time_s": 3.1083334954455495,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550573348999023,
+            -11.149572372436523,
+            0.0038763731718063354
+          ],
+          [
+            0.005047216545790434,
+            0.0011709342943504453,
+            -0.29928311705589294,
+            0.954150378704071
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 32,
+    "native_time_s": 3.1416668305173516,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550575256347656,
+            -11.14957046508789,
+            0.0038367509841918945
+          ],
+          [
+            0.004761556629091501,
+            0.0008852983010001481,
+            -0.29925715923309326,
+            0.954160213470459
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 33,
+    "native_time_s": 3.1750001655891538,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.55059051513672,
+            -11.14956283569336,
+            0.003976702690124512
+          ],
+          [
+            0.005481559783220291,
+            0.00041017765761353076,
+            -0.29929858446121216,
+            0.954143762588501
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 34,
+    "native_time_s": 3.208333500660956,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550613403320312,
+            -11.14953899383545,
+            0.003966689109802246
+          ],
+          [
+            0.005159265361726284,
+            0.000463106989627704,
+            -0.2993016541004181,
+            0.9541445374488831
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 35,
+    "native_time_s": 3.241666835732758,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550647735595703,
+            -11.14951229095459,
+            0.003983095288276672
+          ],
+          [
+            0.005133374128490686,
+            0.0013833200791850686,
+            -0.2993082106113434,
+            0.9541417360305786
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 36,
+    "native_time_s": 3.27500017080456,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.55061149597168,
+            -11.149539947509766,
+            0.005639031529426575
+          ],
+          [
+            0.006307682488113642,
+            0.005061318166553974,
+            -0.2992984354496002,
+            0.9541253447532654
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 37,
+    "native_time_s": 3.3083335058763623,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550561904907227,
+            -11.149587631225586,
+            0.008512362837791443
+          ],
+          [
+            0.008340705186128616,
+            0.011428598314523697,
+            -0.29921209812164307,
+            0.9540817737579346
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 38,
+    "native_time_s": 3.3416668409481645,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550508499145508,
+            -11.149638175964355,
+            0.01077665388584137
+          ],
+          [
+            0.009936358779668808,
+            0.01642686128616333,
+            -0.29910674691200256,
+            0.9540265798568726
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 39,
+    "native_time_s": 3.3750001760199666,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550453186035156,
+            -11.149687767028809,
+            0.012420952320098877
+          ],
+          [
+            0.01109066978096962,
+            0.020046139135956764,
+            -0.29901260137557983,
+            0.953974187374115
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 40,
+    "native_time_s": 3.4083335110917687,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550405502319336,
+            -11.149730682373047,
+            0.013446390628814697
+          ],
+          [
+            0.011808219365775585,
+            0.022300025448203087,
+            -0.2989382743835449,
+            0.9539388418197632
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 41,
+    "native_time_s": 3.441666846163571,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550369262695312,
+            -11.149760246276855,
+            0.013857439160346985
+          ],
+          [
+            0.012095635756850243,
+            0.023202667012810707,
+            -0.29889652132987976,
+            0.9539267420768738
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 42,
+    "native_time_s": 3.475000181235373,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550331115722656,
+            -11.149779319763184,
+            0.013659760355949402
+          ],
+          [
+            0.011957470327615738,
+            0.022769004106521606,
+            -0.29889675974845886,
+            0.9539388418197632
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 43,
+    "native_time_s": 3.508333516307175,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550291061401367,
+            -11.149794578552246,
+            0.012859061360359192
+          ],
+          [
+            0.011397168040275574,
+            0.02101045474410057,
+            -0.2989390194416046,
+            0.9539728760719299
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 44,
+    "native_time_s": 3.5416668513789773,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.55025291442871,
+            -11.149807929992676,
+            0.011463373899459839
+          ],
+          [
+            0.010417576879262924,
+            0.01794104278087616,
+            -0.2990145683288574,
+            0.9540231227874756
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 45,
+    "native_time_s": 3.5750001864507794,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550214767456055,
+            -11.149818420410156,
+            0.009483888745307922
+          ],
+          [
+            0.009024827741086483,
+            0.013576456345617771,
+            -0.29910463094711304,
+            0.954081118106842
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 46,
+    "native_time_s": 3.6083335215225816,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.55017852783203,
+            -11.149828910827637,
+            0.00693085789680481
+          ],
+          [
+            0.007222129497677088,
+            0.007928137667477131,
+            -0.299188494682312,
+            0.9541337490081787
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 47,
+    "native_time_s": 3.6416668565943837,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.55014419555664,
+            -11.1498441696167,
+            0.003814786672592163
+          ],
+          [
+            0.005009242799133062,
+            0.0010072134900838137,
+            -0.2992387115955353,
+            0.9541646242141724
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 48,
+    "native_time_s": 3.675000191666186,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550199508666992,
+            -11.149816513061523,
+            0.005946531891822815
+          ],
+          [
+            0.003791939001530409,
+            -0.002797522349283099,
+            -0.2992396056652069,
+            0.9541664719581604
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 49,
+    "native_time_s": 3.708333526737988,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550195693969727,
+            -11.149825096130371,
+            0.007372677326202393
+          ],
+          [
+            0.0030172723345458508,
+            -0.005209130235016346,
+            -0.29923251271247864,
+            0.9541613459587097
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 50,
+    "native_time_s": 3.74166686180979,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550182342529297,
+            -11.149836540222168,
+            0.008000567555427551
+          ],
+          [
+            0.0026811971329152584,
+            -0.00627214414998889,
+            -0.29922744631767273,
+            0.9541574716567993
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 51,
+    "native_time_s": 3.7750001968815923,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.55016326904297,
+            -11.149850845336914,
+            0.007825464010238647
+          ],
+          [
+            0.002784871496260166,
+            -0.00598037987947464,
+            -0.2992289364337921,
+            0.9541586637496948
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 52,
+    "native_time_s": 3.8083335319533944,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550132751464844,
+            -11.149872779846191,
+            0.006845206022262573
+          ],
+          [
+            0.0033286884427070618,
+            -0.004329300485551357,
+            -0.29923510551452637,
+            0.9541638493537903
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 53,
+    "native_time_s": 3.8416668670251966,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.55009651184082,
+            -11.149897575378418,
+            0.005058795213699341
+          ],
+          [
+            0.004317861516028643,
+            -0.0013112775050103664,
+            -0.2992374897003174,
+            0.9541680216789246
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 54,
+    "native_time_s": 3.8750002020969987,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550100326538086,
+            -11.149888038635254,
+            0.004259213805198669
+          ],
+          [
+            0.00532567361369729,
+            0.0019960955251008272,
+            -0.2992227375507355,
+            0.9541664719581604
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 55,
+    "native_time_s": 3.908333537168801,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.55006217956543,
+            -11.149917602539062,
+            0.005112260580062866
+          ],
+          [
+            0.005931918974965811,
+            0.00389242940582335,
+            -0.29921290278434753,
+            0.9541599750518799
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 56,
+    "native_time_s": 3.941666872240603,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550029754638672,
+            -11.149941444396973,
+            0.005372434854507446
+          ],
+          [
+            0.006116397213190794,
+            0.004470835439860821,
+            -0.29920241236686707,
+            0.9541595578193665
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 57,
+    "native_time_s": 3.975000207312405,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.550003051757812,
+            -11.149956703186035,
+            0.0050530582666397095
+          ],
+          [
+            0.005889440421015024,
+            0.003762241918593645,
+            -0.2991960048675537,
+            0.9541661143302917
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 58,
+    "native_time_s": 4.008333542384207,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.549976348876953,
+            -11.149972915649414,
+            0.004155576229095459
+          ],
+          [
+            0.005251458380371332,
+            0.001765894703567028,
+            -0.2991987466812134,
+            0.954174816608429
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 59,
+    "native_time_s": 4.041666877456009,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.549957275390625,
+            -11.149995803833008,
+            0.004561260342597961
+          ],
+          [
+            0.004547636490315199,
+            -0.00045670298277400434,
+            -0.29920241236686707,
+            0.9541788101196289
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 60,
+    "native_time_s": 4.0750002125278115,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.549945831298828,
+            -11.150008201599121,
+            0.0048940181732177734
+          ],
+          [
+            0.004375576041638851,
+            -0.0010218622628599405,
+            -0.299201637506485,
+            0.9541794657707214
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 61,
+    "native_time_s": 4.108333547599614,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.549922943115234,
+            -11.15002727508545,
+            0.004391729831695557
+          ],
+          [
+            0.00466146832332015,
+            -0.00017720542382448912,
+            -0.29919856786727905,
+            0.954179584980011
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 62,
+    "native_time_s": 4.141666882671416,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.549922943115234,
+            -11.150023460388184,
+            0.003895491361618042
+          ],
+          [
+            0.0050666555762290955,
+            0.0011874479241669178,
+            -0.2991892397403717,
+            0.9541797041893005
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 63,
+    "native_time_s": 4.175000217743218,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54989242553711,
+            -11.150046348571777,
+            0.003907188773155212
+          ],
+          [
+            0.005075110122561455,
+            0.0012125634821131825,
+            -0.2991822063922882,
+            0.9541817307472229
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 64,
+    "native_time_s": 4.20833355281502,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.549861907958984,
+            -11.150067329406738,
+            0.004037007689476013
+          ],
+          [
+            0.0048282938078045845,
+            0.0004334139812272042,
+            -0.2991761565208435,
+            0.9541855454444885
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 65,
+    "native_time_s": 4.241666887886822,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54984474182129,
+            -11.150080680847168,
+            0.003931149840354919
+          ],
+          [
+            0.004883297253400087,
+            0.0006135664298199117,
+            -0.29916706681251526,
+            0.9541881084442139
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 66,
+    "native_time_s": 4.275000222958624,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54982566833496,
+            -11.150096893310547,
+            0.00383150577545166
+          ],
+          [
+            0.005021105520427227,
+            0.0010449709370732307,
+            -0.299166202545166,
+            0.9541872143745422
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 67,
+    "native_time_s": 4.3083335580304265,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.549795150756836,
+            -11.15011978149414,
+            0.003926962614059448
+          ],
+          [
+            0.004883329384028912,
+            0.0006194766610860825,
+            -0.2991617023944855,
+            0.9541897773742676
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 68,
+    "native_time_s": 4.341666893102229,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.549779891967773,
+            -11.150128364562988,
+            0.0037885308265686035
+          ],
+          [
+            0.004955597687512636,
+            0.0008465874125249684,
+            -0.29915696382522583,
+            0.9541906714439392
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 69,
+    "native_time_s": 4.375000228174031,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.549755096435547,
+            -11.150150299072266,
+            0.0039339810609817505
+          ],
+          [
+            0.005093694198876619,
+            0.001272776396945119,
+            -0.29914799332618713,
+            0.9541922807693481
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 70,
+    "native_time_s": 4.408333563245833,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.549720764160156,
+            -11.150177001953125,
+            0.0038383156061172485
+          ],
+          [
+            0.0049311877228319645,
+            0.0007693875813856721,
+            -0.2991451025009155,
+            0.9541946649551392
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 71,
+    "native_time_s": 4.441666898317635,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54970359802246,
+            -11.150190353393555,
+            0.003770008683204651
+          ],
+          [
+            0.004962555132806301,
+            0.0008595567778684199,
+            -0.29914459586143494,
+            0.9541945457458496
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 72,
+    "native_time_s": 4.475000233389437,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.5496768951416,
+            -11.150213241577148,
+            0.003843456506729126
+          ],
+          [
+            0.005029609426856041,
+            0.0010714482050389051,
+            -0.29913729429244995,
+            0.9541962742805481
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 73,
+    "native_time_s": 4.508333568461239,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.549644470214844,
+            -11.150235176086426,
+            0.003995150327682495
+          ],
+          [
+            0.004849676042795181,
+            0.0005045792204327881,
+            -0.2991326153278351,
+            0.9541991353034973
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 74,
+    "native_time_s": 4.5416669035330415,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54962921142578,
+            -11.150249481201172,
+            0.004050031304359436
+          ],
+          [
+            0.004821208771318197,
+            0.00041106835124082863,
+            -0.2991302013397217,
+            0.954200029373169
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 75,
+    "native_time_s": 4.575000238604844,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54963493347168,
+            -11.150248527526855,
+            0.004444330930709839
+          ],
+          [
+            0.0046326229348778725,
+            -0.00026264518965035677,
+            -0.29913073778152466,
+            0.954200804233551
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 76,
+    "native_time_s": 4.608333573676646,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54962730407715,
+            -11.150250434875488,
+            0.003948420286178589
+          ],
+          [
+            0.004934619180858135,
+            0.0005667558871209621,
+            -0.29913145303726196,
+            0.9541990160942078
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 77,
+    "native_time_s": 4.641666908748448,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54962158203125,
+            -11.150252342224121,
+            0.0038761645555496216
+          ],
+          [
+            0.005053107626736164,
+            0.0011440380476415157,
+            -0.2991319000720978,
+            0.9541977643966675
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 78,
+    "native_time_s": 4.67500024382025,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54962158203125,
+            -11.150252342224121,
+            0.0037642866373062134
+          ],
+          [
+            0.004973228555172682,
+            0.0008953954093158245,
+            -0.2991328239440918,
+            0.9541981816291809
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 79,
+    "native_time_s": 4.708333578892052,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54962158203125,
+            -11.150253295898438,
+            0.0037648677825927734
+          ],
+          [
+            0.004973907023668289,
+            0.0008969991467893124,
+            -0.2991316318511963,
+            0.95419842004776
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 80,
+    "native_time_s": 4.741666913963854,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54962158203125,
+            -11.150253295898438,
+            0.0037648379802703857
+          ],
+          [
+            0.004973968956619501,
+            0.0008969842456281185,
+            -0.29913148283958435,
+            0.9541984796524048
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 81,
+    "native_time_s": 4.7750002490356565,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54962158203125,
+            -11.150253295898438,
+            0.0037648677825927734
+          ],
+          [
+            0.004973944742232561,
+            0.0008970065973699093,
+            -0.2991315722465515,
+            0.9541985392570496
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 82,
+    "native_time_s": 4.808333584107459,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54962158203125,
+            -11.150253295898438,
+            0.0037648379802703857
+          ],
+          [
+            0.004973916336894035,
+            0.0008970103226602077,
+            -0.2991317808628082,
+            0.9541984796524048
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "controller_initialization",
+    "sample": 83,
+    "native_time_s": 4.841666919179261,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54962158203125,
+            -11.150253295898438,
+            0.0037649571895599365
+          ],
+          [
+            0.004974085837602615,
+            0.0008967401809059083,
+            -0.29913169145584106,
+            0.95419842004776
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "stage": "after_controller",
+    "sample": 84,
+    "native_time_s": 4.841666919179261,
+    "objects": {
+      "robot_xlbxia": {
+        "pose": [
+          [
+            -23.54962158203125,
+            -11.150253295898438,
+            0.0037649571895599365
+          ],
+          [
+            0.004974085837602615,
+            0.0008967401809059083,
+            -0.29913169145584106,
+            0.95419842004776
+          ]
+        ],
+        "contacts": [
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link1",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link2",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/controllable__r1__robot_xlbxia/wheel_link3",
+            "body1": "/World/scene_0/floors_mlogeo_0/base_link"
+          }
+        ]
+      }
+    }
+  }
+]

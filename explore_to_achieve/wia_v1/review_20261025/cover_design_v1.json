@@ -1,0 +1,48 @@
+{
+  "schema": "wia_cover_variant_design_v1",
+  "entries": [
+    {
+      "document_alias": "T49",
+      "variant_id": "t49_diverse_cover_v1",
+      "label": "T49 native dish towel cover",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical Structure/Deformable/hall_arch_wood/redesign_20261020/category_9fd3d70ee489c4228f5f44ec.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Structure/Deformable/hall_arch_wood/redesign_20261020/category_9fd3d70ee489c4228f5f44ec.yaml",
+      "cloth_asset": {
+        "category": "dishtowel",
+        "model": "dtfspn"
+      },
+      "cloth_scale_multiplier": 2.5,
+      "cloth_mass_kg": 1.0,
+      "public_cover_label": "dish towel"
+    },
+    {
+      "document_alias": "T50",
+      "variant_id": "t50_diverse_cover_v1",
+      "label": "T50 native hand towel cover",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical Structure/Deformable/hall_arch_wood/redesign_20261020/category_fb64ed932434e097adc84053.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Structure/Deformable/hall_arch_wood/redesign_20261020/category_fb64ed932434e097adc84053.yaml",
+      "cloth_asset": {
+        "category": "hand_towel",
+        "model": "klevhj"
+      },
+      "cloth_scale_multiplier": 2.5,
+      "cloth_mass_kg": 1.0,
+      "public_cover_label": "hand towel"
+    },
+    {
+      "document_alias": "T51",
+      "variant_id": "t51_diverse_cover_v1",
+      "label": "T51 native small tablecloth cover",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical Structure/Deformable/hall_arch_wood/redesign_20261020/category_e2b21727ae8a25c6b7b860d5.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Structure/Deformable/hall_arch_wood/redesign_20261020/category_e2b21727ae8a25c6b7b860d5.yaml",
+      "cloth_asset": {
+        "category": "tablecloth",
+        "model": "shgmwu"
+      },
+      "cloth_scale_multiplier": 0.65,
+      "cloth_mass_kg": 1.0,
+      "public_cover_label": "small tablecloth"
+    }
+  ],
+  "design_basis": "Installed default cloth configuration extents; native drape and occlusion remain pending. Asset/scale intervention preserves prior mass and other physics settings for the initial pilot."
+}

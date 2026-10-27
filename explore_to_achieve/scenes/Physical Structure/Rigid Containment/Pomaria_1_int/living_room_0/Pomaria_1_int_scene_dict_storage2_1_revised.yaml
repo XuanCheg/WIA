@@ -1,0 +1,264 @@
+kind: scene_patch
+id: tabletop_Pomaria_1_int_scene_dict_storage2_1_revised_support_000
+version: 1
+status: ready
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/Pomaria_1_int/living_room_0/Pomaria_1_int_scene_dict_storage2_1_revised.json
+target: target
+bindings:
+  target:
+    name: obj_containee
+    category: box_of_wagashi
+    model: mlmrwy
+  container_2:
+    name: obj_container_2
+    category: lunch_box
+    model: adxzhe
+  container_1:
+    name: obj_container_1
+    category: lunch_box
+    model: adxzhe
+  container_0:
+    name: obj_container_0
+    category: lunch_box
+    model: adxzhe
+  table:
+    name: support_table_top
+    category: object
+    model: null
+  pickup_support:
+    name: coffee_table_gpkbiw_0
+    category: coffee_table
+    model: null
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+      initial_visibility: null
+    tabletop:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - -12.056750478744506
+        - -0.03437436372041702
+        - 0.1
+        yaw_deg: 0.0
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_top
+        primitive_type: Cube
+        position:
+        - -11.241750478744507
+        - -0.03437436372041702
+        - 0.43
+        dimensions_m:
+        - 0.73
+        - 0.87
+        - 0.04
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.48
+        - 0.29
+        - 0.14
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_1
+        primitive_type: Cube
+        position:
+        - -11.566750478744506
+        - -0.42937436372041704
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_2
+        primitive_type: Cube
+        position:
+        - -11.566750478744506
+        - 0.360625636279583
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_3
+        primitive_type: Cube
+        position:
+        - -10.916750478744506
+        - -0.42937436372041704
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_4
+        primitive_type: Cube
+        position:
+        - -10.916750478744506
+        - 0.360625636279583
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_0
+        position:
+        - -11.464344453811645
+        - -0.23890403538942337
+        - 0.47316907930374147
+        candidates: []
+        quaternion_xyzw:
+        - 3.70200723409652e-08
+        - 2.8885551728308145e-08
+        - 4.4925627662450914e-08
+        - 0.999999999999998
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_2
+        position:
+        - -11.112253084182738
+        - 0.18543356537818909
+        - 0.5202533959150314
+        candidates: []
+        quaternion_xyzw:
+        - 0.024376302762470863
+        - -0.10411793604757151
+        - -0.020311189963491846
+        - 0.9940587039099317
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_1
+        position:
+        - -11.112253084182738
+        - -0.23890403538942337
+        - 0.482768418520689
+        candidates: []
+        quaternion_xyzw:
+        - 2.7474012934743615e-08
+        - -2.6077029226197328e-08
+        - -0.8514989871706107
+        - 0.5243562480293553
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: target
+        position:
+        - -9.496626853942871
+        - -0.3033486306667328
+        - 0.3783966898918152
+        candidates: []
+        quaternion_xyzw:
+        - -4.850799996347632e-06
+        - -1.5257712220773101e-05
+        - -6.751716136932373e-05
+        - 1.0000001192092896
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      initial_visibility: null
+qualification:
+  on_failure: skip
+  support: table
+  supported_objects:
+  - target
+  - container_2
+  - container_1
+  - container_0
+  object_supports:
+    target: pickup_support
+  support_surface_mode: local_raycast
+  support_tolerance_m: 0.015
+  maximum_linear_speed_m_s: 0.02
+  maximum_angular_speed_rad_s: 0.1
+  require_support_contact: true
+  reject_robot_contacts: true
+  screen_furniture_overlap: true
+  settle_steps: 30
+runtime:
+  trunk_config: configs/esi_trunk_low_grasp.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0
+seed: 0

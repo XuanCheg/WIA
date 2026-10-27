@@ -1,0 +1,63 @@
+{
+  "source_metadata": "ESI-Bench/dataset/json_clean/Perceptual Grounding/Material Transparency/Beechwood_0_garden/dining_room_0/Beechwood_0_garden__dining_room_0__no.json",
+  "scene": "Beechwood_0_garden",
+  "room": "dining_room_0",
+  "seed": 7,
+  "robot_initial_pose": {
+    "position": [
+      -4.71,
+      15.1,
+      0.1
+    ],
+    "yaw_deg": 90
+  },
+  "target_object": {
+    "name": "obj_small",
+    "category": "cherry_tomato",
+    "model": "dqjuub"
+  },
+  "support_object": "coffee_table_dnsjnv_0",
+  "target_jitter_xy_m": [
+    0.005,
+    0.005
+  ],
+  "occluder_jitter_x_m": 0.005,
+  "evaluation": {
+    "minimum_lift_m": 0.05,
+    "minimum_pixels": 64,
+    "minimum_extent_px": 8,
+    "support_tolerance_m": 0.005,
+    "approach_distance_m": 0.35
+  },
+  "episode_budget": {
+    "max_steps": 60,
+    "wall_timeout_s": 5400
+  },
+  "world_advances_during_inference": true,
+  "variant": "single_table_occlusion",
+  "target_placement_candidates": [
+    {
+      "region": "table_hidden",
+      "position": [
+        -5.05,
+        15.97,
+        0.762765
+      ]
+    }
+  ],
+  "occluders": [
+    {
+      "name": "explore_screen",
+      "position": [
+        -5.05,
+        15.89,
+        0.823912
+      ],
+      "dimensions_m": [
+        0.55,
+        0.02,
+        0.16
+      ]
+    }
+  ]
+}

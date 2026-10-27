@@ -1,0 +1,68 @@
+{
+  "schema": "wia_regional_neutral_labels_v1",
+  "document_alias": "T11",
+  "status": "pending-native-validation",
+  "visibility": "private",
+  "contract_revision": "wia_regional_neutral_labels_v1",
+  "validation_status": "pending-native-validation",
+  "parent_task_file": "explore_to_achieve/tasks/Cognitive Mapping/Regional Boundary/school_gym/full_scene/corev2__category_1a55282aea78514f749fe4e0.yaml",
+  "parent_task_sha256": "a200038914e54d57d75e979f16d07038b000a4659ed52c9a6232ead9372f5f06",
+  "parent_scene_file": "explore_to_achieve/scenes/Cognitive Mapping/Regional Boundary/school_gym/full_scene/corev2__category_1a55282aea78514f749fe4e0.yaml",
+  "parent_scene_sha256": "aabaa1d0359c865c6c3ecaac515eeba0a9b2024ea275ab01e026b577649df50b",
+  "source_file": "ESI-Bench/dataset/json_clean/Cognitive Mapping/Regional Boundary/school_gym/full_scene/q_008.json",
+  "source_sha256": "8b65f54f760090b1f2ddbcf976765deedbf0fafbb7982c6d7d822cf69a43aa81",
+  "original_source_qa": {
+    "question": "Which room does paper_towel_dispenser belong to among these options: gym 0, locker room 1 (with paper towel dispenser, pedestal sink, and square light), locker room 0 (with bench, pedestal sink, and square light), bathroom 0?",
+    "answer": "locker room 1 (with paper towel dispenser, pedestal sink, and square light)",
+    "options": [
+      "gym 0",
+      "locker room 1 (with paper towel dispenser, pedestal sink, and square light)",
+      "locker room 0 (with bench, pedestal sink, and square light)",
+      "bathroom 0"
+    ],
+    "scored": true
+  },
+  "original_to_neutral_option_labels": {
+    "gym 0": "gym 0",
+    "locker room 1 (with paper towel dispenser, pedestal sink, and square light)": "locker room 1",
+    "locker room 0 (with bench, pedestal sink, and square light)": "locker room 0",
+    "bathroom 0": "bathroom 0"
+  },
+  "neutral_to_original_option_labels": {
+    "gym 0": "gym 0",
+    "locker room 1": "locker room 1 (with paper towel dispenser, pedestal sink, and square light)",
+    "locker room 0": "locker room 0 (with bench, pedestal sink, and square light)",
+    "bathroom 0": "bathroom 0"
+  },
+  "answer_region": "locker_room_1",
+  "option_order_preserved": true,
+  "native_validation_run": false,
+  "reference_execution_verified": false,
+  "change": "Remove answer-bearing room descriptions from public choices and match the private answer aliases.",
+  "task_file": "explore_to_achieve/wia_v1/regional_t11_v1/task.yaml",
+  "task_sha256": "c5337655addac09731618c5e4f232c4d1f01d358ac34716714e091267bbf7941",
+  "scene_file": "explore_to_achieve/wia_v1/regional_t11_v1/scene.yaml",
+  "scene_sha256": "de699837588cf31c7dfd95a669f71524131cb1fd3249e2dacbe0136d87b1d67c",
+  "allowed_task_changes": [
+    "id",
+    "version",
+    "status",
+    "public.objective",
+    "public.success_criteria",
+    "private.evaluation.parameters.source_qa.question",
+    "private.evaluation.parameters.source_qa.options",
+    "private.evaluation.parameters.source_qa.answer",
+    "repair.regional_t11_neutral_labels"
+  ],
+  "scene_changes": [
+    "id",
+    "version",
+    "status"
+  ],
+  "source_json_modified": false,
+  "geometry_modified": false,
+  "scorer_modified": false,
+  "native_qualification": "PENDING",
+  "anchor_observation_validation": "PENDING",
+  "reference_execution": "PENDING"
+}

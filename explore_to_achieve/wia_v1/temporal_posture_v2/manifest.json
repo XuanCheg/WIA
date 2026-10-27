@@ -1,0 +1,183 @@
+{
+  "schema": "wia_tm2_posture_initialization_v2",
+  "status": "pending-native-validation",
+  "parent_manifest_file": "explore_to_achieve/wia_v1/temporal/manifest.json",
+  "parent_manifest_sha256": "31d26c5ebe19942044e760a5912e3d6359440101ddbb959e91723ac337c414de",
+  "posture_configuration": {
+    "file": "configs/esi_arm.json",
+    "sha256": "04f66fcc723fff2ee9b76d669822ddad2f7295de7483765276db528d603cb8f3",
+    "initial_trunk_joint_positions_rad": [
+      0.6981317007977318,
+      -1.3962634015954636,
+      -0.6981317007977318,
+      0.0
+    ]
+  },
+  "hypothesis": "Declaring the production arm controller trunk posture during supported native construction may avoid later posture movement and improve robot stability. The cause is unproven.",
+  "hypothesis_status": "UNPROVEN",
+  "scientific_change": "Only the adapted interaction patch construction posture changes from null to the current production arm posture.",
+  "allowed_definition_changes": [
+    "id",
+    "version",
+    "status",
+    "scene.variants.adapted.patches[prepare_category_interaction].controller_initial_trunk_joint_positions_rad"
+  ],
+  "v1_definitions_and_sources_modified": false,
+  "public_text_unchanged_from_v1": true,
+  "full_public_payload_equal_across_histories": true,
+  "common_public_payload": {
+    "task_id": "wia_tm2_matched_history_v2",
+    "task_version": 2,
+    "objective": "Comparing Phase 1 and Phase 2, did the contents of any comparison box change?\n\nPhase 1: freely inspect comparison locations in a read-only survey of at most 10 decisions. Use mounted cameras, base/torso motion and empty arms; preserve all objects and furniture. Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved in this same episode. Phase 2: compare with memory and submit ANSWER: <original option>. Then perform the applicable operation: if an object was added, put the actual added object on the collection and inspection tray; if replaced, put the current replacement on the collection and inspection tray; if moved, return the displaced object to its remembered original container/support; if removed, select the matching category and model by appearance from the public spare inventory and replenish the remembered original location; if unchanged, inspect all comparison locations with informative views and leave the contents in place. No grasp is required for no-change. If several locations changed, complete the applicable operation for each change. You may finish Phase 1 before visiting every location; the phase switches automatically after ten decisions. Survey coverage is recorded but is not a transition or full-success gate. The spare tray contains the complete candidate inventory from the beginning in every event variant. Public spare inventory: spare 1 on the stocked spare tray: shaker; spare 2 on the stocked spare tray: jar of cumin; spare 3 on the stocked spare tray: butter; spare 4 on the stocked spare tray: bottle of lavender oil. The spare table is visible and reachable during both phases. Original answer options: [\"yes\", \"no\"]",
+    "success_criteria": "Use informative observations in both phases, report the correct original comparison answer, and complete the applicable change-dependent operation. Manipulation requires real selection of the history-bound object and stable released placement with native destination support/contact. Preserve all other source contents, spare distractors, containers and furniture. Inspection-only no-change requires informative comparison-location views, never a fabricated pickup.",
+    "environment": "One native reset with the exact source event and same robot/cameras/history throughout. Declared collection/inspection tray and spare-table apparatus are initialized before the survey.",
+    "constraints": [
+      "Phase 1 is bounded to 10 decisions and strictly read-only, including the spare inventory.",
+      "The hidden event delivers no intermediate frames. Use only public guarded controls afterward.",
+      "There is no extra minimum travel distance, arbitrary any-container visit or return-to-start requirement.",
+      "Do not move any source object other than the comparison-selected target; preserve apparatus and distractors."
+    ]
+  },
+  "inherited_repair_metadata_retained": true,
+  "observation_contract": {
+    "frozen_initial_overview_retained": true,
+    "full_input_history_status": "history_available",
+    "memory_free_claim": false,
+    "inherited_render_metadata_is_new_agent_observation": false
+  },
+  "native_experiments_run": false,
+  "native_initialization": "PENDING",
+  "robot_stability": "PENDING",
+  "native_phase_2_equivalence": "PENDING",
+  "observation_shortcut_audit": "PENDING",
+  "reference_execution": "PENDING",
+  "hypothesis_retention_decision": "PENDING",
+  "instances": [
+    {
+      "history_variant": "a",
+      "parent_task_file": "explore_to_achieve/wia_v1/temporal/tasks/history_a_v1.yaml",
+      "parent_task_sha256": "ba076a8ae1257b24ac9257492637cf0b2e8927c6c742735b765d10a93bf40719",
+      "parent_scene_file": "explore_to_achieve/wia_v1/temporal/scenes/history_a_v1.yaml",
+      "parent_scene_sha256": "15761090114c43d8f2e866e39183463bb09e7793a0aae05be8d1989fa12bdae2",
+      "source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_a_v1.json",
+      "source_file": "explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_a_v1.json",
+      "source_sha256": "5cbe09a91dc1ca9824294125c465e650aa1a046b0cfce06101402101cae3edd5",
+      "task_file": "explore_to_achieve/wia_v1/temporal_posture_v2/tasks/history_a_v2.yaml",
+      "task_sha256": "9a65a2dac75ffbf68fac5bfe2957608d3a4bdc991308b403eb42e940ff79defa",
+      "scene_file": "explore_to_achieve/wia_v1/temporal_posture_v2/scenes/history_a_v2.yaml",
+      "scene_sha256": "2e3fca2ac211998735cf56665fad11999aca868d4226c49cab8245863bcc5a78",
+      "matched_changes": [
+        {
+          "definition": "task",
+          "field": "/scene/variants/adapted/patches/9/controller_initial_trunk_joint_positions_rad",
+          "before": null,
+          "after": [
+            0.6981317007977318,
+            -1.3962634015954636,
+            -0.6981317007977318,
+            0.0
+          ]
+        },
+        {
+          "definition": "scene",
+          "field": "/scene/variants/adapted/patches/9/controller_initial_trunk_joint_positions_rad",
+          "before": null,
+          "after": [
+            0.6981317007977318,
+            -1.3962634015954636,
+            -0.6981317007977318,
+            0.0
+          ]
+        }
+      ],
+      "native_initialization": "PENDING",
+      "robot_stability": "PENDING",
+      "native_phase_2_equivalence": "PENDING",
+      "reference_execution": "PENDING"
+    },
+    {
+      "history_variant": "b",
+      "parent_task_file": "explore_to_achieve/wia_v1/temporal/tasks/history_b_v1.yaml",
+      "parent_task_sha256": "65dab4197ec3805cbdb741127278ffb742ec0fb69255b2f35c14effdc8826d2c",
+      "parent_scene_file": "explore_to_achieve/wia_v1/temporal/scenes/history_b_v1.yaml",
+      "parent_scene_sha256": "b64b05ee694f7374a41dba50b068633595effb258b536a48a85247c67ae6d51d",
+      "source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json",
+      "source_file": "explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json",
+      "source_sha256": "d43c28f070ad1160669144b643bd04de9e33e960d6c1e75a918b29a116354f26",
+      "task_file": "explore_to_achieve/wia_v1/temporal_posture_v2/tasks/history_b_v2.yaml",
+      "task_sha256": "388b9d6f2d8b99681b1c79066ce2aec78cfdaa38b20c44d90fee557e7af0f885",
+      "scene_file": "explore_to_achieve/wia_v1/temporal_posture_v2/scenes/history_b_v2.yaml",
+      "scene_sha256": "3f4e99246c0c818004c54f05694b156bb43f99a36fe146602e8743f786482f60",
+      "matched_changes": [
+        {
+          "definition": "task",
+          "field": "/scene/variants/adapted/patches/9/controller_initial_trunk_joint_positions_rad",
+          "before": null,
+          "after": [
+            0.6981317007977318,
+            -1.3962634015954636,
+            -0.6981317007977318,
+            0.0
+          ]
+        },
+        {
+          "definition": "scene",
+          "field": "/scene/variants/adapted/patches/9/controller_initial_trunk_joint_positions_rad",
+          "before": null,
+          "after": [
+            0.6981317007977318,
+            -1.3962634015954636,
+            -0.6981317007977318,
+            0.0
+          ]
+        }
+      ],
+      "native_initialization": "PENDING",
+      "robot_stability": "PENDING",
+      "native_phase_2_equivalence": "PENDING",
+      "reference_execution": "PENDING"
+    },
+    {
+      "history_variant": "c",
+      "parent_task_file": "explore_to_achieve/wia_v1/temporal/tasks/history_c_v1.yaml",
+      "parent_task_sha256": "ad88785ed0401578069a290ddb4428039fb6f1490af3166cc9c8e7d0490a5a90",
+      "parent_scene_file": "explore_to_achieve/wia_v1/temporal/scenes/history_c_v1.yaml",
+      "parent_scene_sha256": "fec3d4270493b94d039188594f0087b60ea4e01b9a57cd8a766dfc9e9805b188",
+      "source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_c_v1.json",
+      "source_file": "explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_c_v1.json",
+      "source_sha256": "54bc54baede0a567450b012633b2d497eec3260c787dfc969046403b4bf640d3",
+      "task_file": "explore_to_achieve/wia_v1/temporal_posture_v2/tasks/history_c_v2.yaml",
+      "task_sha256": "58646b5a1be9e5ff97028d84e5cf084b2271981dc60d5b0a2dda59b580126dca",
+      "scene_file": "explore_to_achieve/wia_v1/temporal_posture_v2/scenes/history_c_v2.yaml",
+      "scene_sha256": "2f42ed0abccbe8f79493f9e6d323846df65a4c526a9bdadfddea05600ff37377",
+      "matched_changes": [
+        {
+          "definition": "task",
+          "field": "/scene/variants/adapted/patches/9/controller_initial_trunk_joint_positions_rad",
+          "before": null,
+          "after": [
+            0.6981317007977318,
+            -1.3962634015954636,
+            -0.6981317007977318,
+            0.0
+          ]
+        },
+        {
+          "definition": "scene",
+          "field": "/scene/variants/adapted/patches/9/controller_initial_trunk_joint_positions_rad",
+          "before": null,
+          "after": [
+            0.6981317007977318,
+            -1.3962634015954636,
+            -0.6981317007977318,
+            0.0
+          ]
+        }
+      ],
+      "native_initialization": "PENDING",
+      "robot_stability": "PENDING",
+      "native_phase_2_equivalence": "PENDING",
+      "reference_execution": "PENDING"
+    }
+  ]
+}

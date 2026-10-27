@@ -1,0 +1,49 @@
+{
+  "candidate_id": "local_partial_occlusion_merom_closet_original_v1",
+  "source_identity": "Perceptual Grounding/Partial Occlusion/Merom_0_int/closet_0/Merom_0_int__closet_0_4.json",
+  "source_record_id": "1167",
+  "source_question_id": "partial_occlusion/Merom_0_int/closet_0/4",
+  "source_sha256": "4eddbae5b8a15a2b49e3dc52f685e6979780864e9d2a866a256711fdd088a428",
+  "esi_commit": "9f6f15ed43e81654a97de9e4db2a1fedadca2bc1",
+  "scene_identity": "local_partial_occlusion_merom_closet_scene_v1",
+  "source_json": "ESI-Bench/dataset/json_clean/Perceptual Grounding/Partial Occlusion/Merom_0_int/closet_0/Merom_0_int__closet_0_4.json",
+  "scene_file": "explore_to_achieve/candidates/local_partial_occlusion_merom_closet/scene.yaml",
+  "task_file": null,
+  "category": "Perceptual Grounding",
+  "subcategory": "Partial Occlusion",
+  "scene_model": "Merom_0_int",
+  "room": "closet_0",
+  "variant": "original",
+  "seed": 0,
+  "reuse_level": "original",
+  "modified_files": [
+    "explore_to_achieve/candidates/local_partial_occlusion_merom_closet/plan.md",
+    "explore_to_achieve/candidates/local_partial_occlusion_merom_closet/scene.yaml",
+    "explore_to_achieve/candidates/local_partial_occlusion_merom_closet/validate.py",
+    "explore_to_achieve/candidates/local_partial_occlusion_merom_closet/handoff.json",
+    "research_log.md"
+  ],
+  "expected_views": [
+    "global_diagonal",
+    "global_overhead",
+    "global_front",
+    "global_back",
+    "global_left",
+    "global_right",
+    "head",
+    "wrist",
+    "scene"
+  ],
+  "known_limitations": [
+    "Diagnostic only; candidate remains pending with no physical task or evaluator.",
+    "Native initialization, robot clearance, framing, and mounted-camera visibility are unverified.",
+    "The original low floor layout and compact room may challenge existing R1 initialization.",
+    "Review camera views never become Agent observations.",
+    "QA and physical success are unverified; no simulation or Agent episode was run."
+  ],
+  "code_commit": "21975dce9baa67fb06fe3a05137dd49dd5e8ee9a",
+  "owner": "scene_builder_b",
+  "parent_candidate_id": null,
+  "physical_task_id": null,
+  "render_config": {}
+}

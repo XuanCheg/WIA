@@ -1,0 +1,3625 @@
+{
+  "schema": "scene_review_preview_v1",
+  "id": "category_28351286b6aab6b7903b9141",
+  "fingerprint": "c59f8e5cafdc4c8c60fd5332ea6070a54dbd9db51df2d4747aaa37553fbc5aae",
+  "capture_signature": "b6b2beaed7e044978e1c9a84d3ed1ee2349c3ca60e4c05549e4a36751dec051e",
+  "capture_protocol": "esi_parallel_capture_v1",
+  "variant": "adapted",
+  "seed": 0,
+  "images": {
+    "global_diagonal": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/global_diagonal.png",
+    "global_overhead": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/global_overhead.png",
+    "global_front": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/global_front.png",
+    "global_back": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/global_back.png",
+    "global_left": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/global_left.png",
+    "global_right": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/global_right.png",
+    "head": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/head.png",
+    "wrist": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/wrist.png",
+    "scene": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/scene.png",
+    "right_wrist": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/right_wrist.png",
+    "chassis_front_left": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/chassis_front_left.png",
+    "chassis_front_right": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/chassis_front_right.png",
+    "chassis_left": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/chassis_left.png",
+    "chassis_right": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/chassis_right.png",
+    "chassis_rear": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/chassis_rear.png",
+    "object_overview": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/object_overview.png",
+    "object_top": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/object_top.png",
+    "object_side": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/object_side.png",
+    "object_detail_00": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/object_detail_00.png",
+    "object_detail_01": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/object_detail_01.png",
+    "object_detail_02": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/object_detail_02.png",
+    "object_detail_03": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/object_detail_03.png",
+    "object_detail_04": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/object_detail_04.png",
+    "object_detail_05": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/attempts/01/object_detail_05.png"
+  },
+  "complete": true,
+  "code_commit": "working_da61aa7d20e948ccf6d59e61e74e51ce",
+  "esi_commit": "9f6f15ed43e81654a97de9e4db2a1fedadca2bc1",
+  "diagnostic_pending": true,
+  "native_qualification_run": false,
+  "eligible_final_layout": false,
+  "provenance": "Fresh native exact-snapshot initialization; diagnostic preview; qualification was not run. Native application retained; world rebuilt by the declared lifecycle adapter.",
+  "target_location": null,
+  "job_id": "capture_b6b2beaed7e044978e1c9a84d3ed1ee2",
+  "capture_job_id": "capture_b6b2beaed7e044978e1c9a84d3ed1ee2",
+  "execution_mode": "local",
+  "pbs_job_id": null,
+  "gpu": {
+    "physical_index": 2,
+    "uuid": "GPU-e5d75793-3628-3e54-fdef-ac7bd70be742",
+    "pci_bus_id": "00000000:41:00.0",
+    "renderer_index": 2,
+    "vulkan_enumeration_index": 1,
+    "renderer_order": "pci",
+    "slot": 0,
+    "execution_mode": "local",
+    "pbs_job_id": null,
+    "hostname": "deep59",
+    "allocation_gpu_count": 1,
+    "inherited_cuda_visible_devices": "GPU-e5d75793-3628-3e54-fdef-ac7bd70be742",
+    "wait_for_capture": false,
+    "retain_world": false,
+    "texture_cache_max_bytes": 0,
+    "automatic_disk_thresholds": false,
+    "appdata_path": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2",
+    "native_tmp_path": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/native_tmp",
+    "persistent_simulator": true,
+    "renderer_active_gpu": 2,
+    "renderer_multi_gpu": false,
+    "cuda_device_count": 1,
+    "cuda_device": "cuda:0",
+    "physics_device": "cpu",
+    "native_process_pid": 3485457,
+    "verified_process_gpu_uuids": [
+      "GPU-e5d75793-3628-3e54-fdef-ac7bd70be742"
+    ]
+  },
+  "model_calls": 0,
+  "robot_actions": 0,
+  "physical_grasp_verified": false,
+  "background_reused": false,
+  "human_camera_framing": {
+    "target_world_m": [
+      2.551076889038086,
+      1.9318780899047852,
+      0.6527648568153381
+    ],
+    "include_robot": true,
+    "task_object_count": 5
+  },
+  "human_review_cameras": {
+    "strategy": "category_bounds_and_native_visibility_v1",
+    "profile": {
+      "purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+      "detail_elevations": [
+        25.0,
+        50.0
+      ],
+      "overview_elevation": 60.0,
+      "known_profile": true
+    },
+    "views": {
+      "global_diagonal": {
+        "position_world_m": [
+          1.5871097663397955,
+          1.0848703602309395,
+          2.490017471198085
+        ],
+        "target_world_m": [
+          2.2570067048072815,
+          1.7547672986984253,
+          0.8491117917001247
+        ],
+        "clipping_range_m": [
+          0.5558187532202895,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            1.456790804862976,
+            1.0898973941802979,
+            -0.0064634159207344055
+          ],
+          [
+            3.057222604751587,
+            2.4196372032165527,
+            1.7046869993209839
+          ]
+        ],
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          1.5871098041534424,
+          1.0848703384399414,
+          2.4900174140930176
+        ],
+        "actual_quaternion_xyzw": [
+          0.2391175925731659,
+          -0.09904573112726212,
+          -0.3696437478065491,
+          0.8923991322517395
+        ],
+        "position_error_m": 7.187286139708868e-08,
+        "object_pixels": {
+          "render_count_target_club_sandwich_0": 312,
+          "render_count_target_club_sandwich_1": 9,
+          "render_count_target_club_sandwich_2": 733,
+          "render_count_target_club_sandwich_3": 343,
+          "render_count_target_club_sandwich_4": 456
+        },
+        "objects_below_64_pixels": [
+          "render_count_target_club_sandwich_1"
+        ],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "human_cutaway_before_framed_bounds": true,
+        "intended_objects": [
+          "render_count_target_club_sandwich_0",
+          "render_count_target_club_sandwich_1",
+          "render_count_target_club_sandwich_2",
+          "render_count_target_club_sandwich_3",
+          "render_count_target_club_sandwich_4"
+        ],
+        "view_purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+        "framing_scope": "full_task_context"
+      },
+      "global_overhead": {
+        "position_world_m": [
+          2.2570067048072815,
+          1.7547672986984253,
+          2.7566497502436107
+        ],
+        "target_world_m": [
+          2.2570067048072815,
+          1.7547672986984253,
+          0.8491117917001247
+        ],
+        "clipping_range_m": [
+          0.9719627509226269,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            1.456790804862976,
+            1.0898973941802979,
+            -0.0064634159207344055
+          ],
+          [
+            3.057222604751587,
+            2.4196372032165527,
+            1.7046869993209839
+          ]
+        ],
+        "human_cutaway_above_framed_bounds": true,
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          2.2570066452026367,
+          1.7547672986984253,
+          2.7566497325897217
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position_error_m": 6.216408509932419e-08,
+        "object_pixels": {
+          "render_count_target_club_sandwich_0": 432,
+          "render_count_target_club_sandwich_1": 7,
+          "render_count_target_club_sandwich_2": 971,
+          "render_count_target_club_sandwich_3": 587,
+          "render_count_target_club_sandwich_4": 497
+        },
+        "objects_below_64_pixels": [
+          "render_count_target_club_sandwich_1"
+        ],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "render_count_target_club_sandwich_0",
+          "render_count_target_club_sandwich_1",
+          "render_count_target_club_sandwich_2",
+          "render_count_target_club_sandwich_3",
+          "render_count_target_club_sandwich_4"
+        ],
+        "view_purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+        "framing_scope": "full_task_context"
+      },
+      "global_front": {
+        "position_world_m": [
+          3.164125400885082,
+          1.7547672986984253,
+          2.4202874618025056
+        ],
+        "target_world_m": [
+          2.2570067048072815,
+          1.7547672986984253,
+          0.8491117917001247
+        ],
+        "clipping_range_m": [
+          0.5931795775356384,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            1.456790804862976,
+            1.0898973941802979,
+            -0.0064634159207344055
+          ],
+          [
+            3.057222604751587,
+            2.4196372032165527,
+            1.7046869993209839
+          ]
+        ],
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          3.164125442504883,
+          1.7547672986984253,
+          2.4202873706817627
+        ],
+        "actual_quaternion_xyzw": [
+          0.1830126941204071,
+          0.1830127239227295,
+          0.6830127239227295,
+          0.6830126643180847
+        ],
+        "position_error_m": 1.0017583354356628e-07,
+        "object_pixels": {
+          "render_count_target_club_sandwich_0": 542,
+          "render_count_target_club_sandwich_1": 77,
+          "render_count_target_club_sandwich_2": 1670,
+          "render_count_target_club_sandwich_3": 1059,
+          "render_count_target_club_sandwich_4": 687
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "human_cutaway_before_framed_bounds": true,
+        "intended_objects": [
+          "render_count_target_club_sandwich_0",
+          "render_count_target_club_sandwich_1",
+          "render_count_target_club_sandwich_2",
+          "render_count_target_club_sandwich_3",
+          "render_count_target_club_sandwich_4"
+        ],
+        "view_purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+        "framing_scope": "full_task_context"
+      },
+      "global_back": {
+        "position_world_m": [
+          1.2494592542446399,
+          1.7547672986984255,
+          2.594235167111111
+        ],
+        "target_world_m": [
+          2.2570067048072815,
+          1.7547672986984253,
+          0.8491117917001247
+        ],
+        "clipping_range_m": [
+          0.7940370865053205,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            1.456790804862976,
+            1.0898973941802979,
+            -0.0064634159207344055
+          ],
+          [
+            3.057222604751587,
+            2.4196372032165527,
+            1.7046869993209839
+          ]
+        ],
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          1.2494592666625977,
+          1.7547672986984253,
+          2.5942351818084717
+        ],
+        "actual_quaternion_xyzw": [
+          -0.1830126941204071,
+          0.1830127239227295,
+          0.6830127239227295,
+          -0.6830126643180847
+        ],
+        "position_error_m": 1.9241052093915112e-08,
+        "object_pixels": {
+          "render_count_target_club_sandwich_0": 376,
+          "render_count_target_club_sandwich_1": 3,
+          "render_count_target_club_sandwich_2": 692,
+          "render_count_target_club_sandwich_3": 394,
+          "render_count_target_club_sandwich_4": 105
+        },
+        "objects_below_64_pixels": [
+          "render_count_target_club_sandwich_1"
+        ],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "human_cutaway_before_framed_bounds": true,
+        "intended_objects": [
+          "render_count_target_club_sandwich_0",
+          "render_count_target_club_sandwich_1",
+          "render_count_target_club_sandwich_2",
+          "render_count_target_club_sandwich_3",
+          "render_count_target_club_sandwich_4"
+        ],
+        "view_purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+        "framing_scope": "full_task_context"
+      },
+      "global_left": {
+        "position_world_m": [
+          2.2570067048072815,
+          2.7063598698541576,
+          2.497318473046955
+        ],
+        "target_world_m": [
+          2.2570067048072815,
+          1.7547672986984253,
+          0.8491117917001247
+        ],
+        "clipping_range_m": [
+          0.7498003254045911,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            1.456790804862976,
+            1.0898973941802979,
+            -0.0064634159207344055
+          ],
+          [
+            3.057222604751587,
+            2.4196372032165527,
+            1.7046869993209839
+          ]
+        ],
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          2.2570066452026367,
+          2.70635986328125,
+          2.4973185062408447
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.2588190734386444,
+          0.9659258127212524,
+          6.123234262925839e-17
+        ],
+        "position_error_m": 6.854014237258252e-08,
+        "object_pixels": {
+          "render_count_target_club_sandwich_0": 692,
+          "render_count_target_club_sandwich_1": 0,
+          "render_count_target_club_sandwich_2": 1301,
+          "render_count_target_club_sandwich_3": 968,
+          "render_count_target_club_sandwich_4": 524
+        },
+        "objects_below_64_pixels": [
+          "render_count_target_club_sandwich_1"
+        ],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "human_cutaway_before_framed_bounds": true,
+        "intended_objects": [
+          "render_count_target_club_sandwich_0",
+          "render_count_target_club_sandwich_1",
+          "render_count_target_club_sandwich_2",
+          "render_count_target_club_sandwich_3",
+          "render_count_target_club_sandwich_4"
+        ],
+        "view_purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+        "framing_scope": "full_task_context"
+      },
+      "global_right": {
+        "position_world_m": [
+          2.2570067048072815,
+          0.6920935147836749,
+          2.6897167773119426
+        ],
+        "target_world_m": [
+          2.2570067048072815,
+          1.7547672986984253,
+          0.8491117917001247
+        ],
+        "clipping_range_m": [
+          0.9719627509226273,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            1.456790804862976,
+            1.0898973941802979,
+            -0.0064634159207344055
+          ],
+          [
+            3.057222604751587,
+            2.4196372032165527,
+            1.7046869993209839
+          ]
+        ],
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          2.2570066452026367,
+          0.6920934915542603,
+          2.6897168159484863
+        ],
+        "actual_quaternion_xyzw": [
+          0.2588191032409668,
+          0.0,
+          0.0,
+          0.9659258127212524
+        ],
+        "position_error_m": 7.473353928760381e-08,
+        "object_pixels": {
+          "render_count_target_club_sandwich_0": 240,
+          "render_count_target_club_sandwich_1": 32,
+          "render_count_target_club_sandwich_2": 741,
+          "render_count_target_club_sandwich_3": 326,
+          "render_count_target_club_sandwich_4": 450
+        },
+        "objects_below_64_pixels": [
+          "render_count_target_club_sandwich_1"
+        ],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "human_cutaway_before_framed_bounds": true,
+        "intended_objects": [
+          "render_count_target_club_sandwich_0",
+          "render_count_target_club_sandwich_1",
+          "render_count_target_club_sandwich_2",
+          "render_count_target_club_sandwich_3",
+          "render_count_target_club_sandwich_4"
+        ],
+        "view_purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+        "framing_scope": "full_task_context"
+      },
+      "object_overview": {
+        "position_world_m": [
+          3.0925368363600034,
+          2.2133089303970337,
+          0.3701681294037978
+        ],
+        "target_world_m": [
+          2.9209415912628174,
+          2.2133089303970337,
+          0.07295644655823708
+        ],
+        "clipping_range_m": [
+          0.01,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            2.784660577774048,
+            2.0069806575775146,
+            -0.0064634159207344055
+          ],
+          [
+            3.057222604751587,
+            2.4196372032165527,
+            0.15237630903720856
+          ]
+        ],
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          3.0925369262695312,
+          2.213308811187744,
+          0.37016811966896057
+        ],
+        "actual_quaternion_xyzw": [
+          0.1830126941204071,
+          0.1830127239227295,
+          0.6830127239227295,
+          0.6830126643180847
+        ],
+        "position_error_m": 1.4963069526040898e-07,
+        "object_pixels": {
+          "render_count_target_club_sandwich_0": 10088,
+          "render_count_target_club_sandwich_1": 2863,
+          "render_count_target_club_sandwich_2": 81173,
+          "render_count_target_club_sandwich_3": 40669,
+          "render_count_target_club_sandwich_4": 344
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "render_count_target_club_sandwich_0",
+          "render_count_target_club_sandwich_1",
+          "render_count_target_club_sandwich_2",
+          "render_count_target_club_sandwich_3",
+          "render_count_target_club_sandwich_4"
+        ],
+        "view_purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+        "framing_scope": "full_task_context"
+      },
+      "object_top": {
+        "position_world_m": [
+          2.9209415912628174,
+          2.2133089303970337,
+          0.3578545942895205
+        ],
+        "target_world_m": [
+          2.9209415912628174,
+          2.2133089303970337,
+          0.07295644655823708
+        ],
+        "clipping_range_m": [
+          0.12547828525231192,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            2.784660577774048,
+            2.0069806575775146,
+            -0.0064634159207344055
+          ],
+          [
+            3.057222604751587,
+            2.4196372032165527,
+            0.15237630903720856
+          ]
+        ],
+        "human_cutaway_above_framed_bounds": true,
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          2.9209415912628174,
+          2.213308811187744,
+          0.35785460472106934
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position_error_m": 1.1966483161960413e-07,
+        "object_pixels": {
+          "render_count_target_club_sandwich_0": 27423,
+          "render_count_target_club_sandwich_1": 0,
+          "render_count_target_club_sandwich_2": 128355,
+          "render_count_target_club_sandwich_3": 48312,
+          "render_count_target_club_sandwich_4": 15751
+        },
+        "objects_below_64_pixels": [
+          "render_count_target_club_sandwich_1"
+        ],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "render_count_target_club_sandwich_0",
+          "render_count_target_club_sandwich_1",
+          "render_count_target_club_sandwich_2",
+          "render_count_target_club_sandwich_3",
+          "render_count_target_club_sandwich_4"
+        ],
+        "view_purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+        "framing_scope": "full_task_context"
+      },
+      "object_side": {
+        "position_world_m": [
+          3.153538010468398,
+          2.2133089303970337,
+          0.3501540647710365
+        ],
+        "target_world_m": [
+          2.9209415912628174,
+          2.2133089303970337,
+          0.07295644655823708
+        ],
+        "clipping_range_m": [
+          0.01,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            2.784660577774048,
+            2.0069806575775146,
+            -0.0064634159207344055
+          ],
+          [
+            3.057222604751587,
+            2.4196372032165527,
+            0.15237630903720856
+          ]
+        ],
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          3.1535379886627197,
+          2.213308811187744,
+          0.3501540720462799
+        ],
+        "actual_quaternion_xyzw": [
+          0.2418447732925415,
+          0.2418447732925415,
+          0.6644630432128906,
+          0.6644629836082458
+        ],
+        "position_error_m": 1.2140540136877336e-07,
+        "object_pixels": {
+          "render_count_target_club_sandwich_0": 7630,
+          "render_count_target_club_sandwich_1": 7886,
+          "render_count_target_club_sandwich_2": 68033,
+          "render_count_target_club_sandwich_3": 38520,
+          "render_count_target_club_sandwich_4": 5
+        },
+        "objects_below_64_pixels": [
+          "render_count_target_club_sandwich_4"
+        ],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "render_count_target_club_sandwich_0",
+          "render_count_target_club_sandwich_1",
+          "render_count_target_club_sandwich_2",
+          "render_count_target_club_sandwich_3",
+          "render_count_target_club_sandwich_4"
+        ],
+        "view_purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+        "framing_scope": "full_task_context"
+      },
+      "object_detail_00": {
+        "position_world_m": [
+          3.1137289561624852,
+          2.1075315475463867,
+          0.139986859995454
+        ],
+        "target_world_m": [
+          2.8906350135803223,
+          2.1075315475463867,
+          0.03595644608139992
+        ],
+        "clipping_range_m": [
+          0.01,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            2.784660577774048,
+            2.0069806575775146,
+            -0.0064634159207344055
+          ],
+          [
+            2.9966094493865967,
+            2.208082437515259,
+            0.07837630808353424
+          ]
+        ],
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          3.1137290000915527,
+          2.1075315475463867,
+          0.13998685777187347
+        ],
+        "actual_quaternion_xyzw": [
+          0.3799281716346741,
+          0.3799281716346741,
+          0.5963677763938904,
+          0.5963678359985352
+        ],
+        "position_error_m": 4.3985307561269913e-08,
+        "object_pixels": {
+          "render_count_target_club_sandwich_4": 14437
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "render_count_target_club_sandwich_4"
+        ],
+        "view_purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+        "framing_scope": "task_actor_detail"
+      },
+      "object_detail_01": {
+        "position_world_m": [
+          3.1743421115274755,
+          2.157554864883423,
+          0.139986859995454
+        ],
+        "target_world_m": [
+          2.9512481689453125,
+          2.157554864883423,
+          0.03595644608139992
+        ],
+        "clipping_range_m": [
+          0.01,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            2.845273733139038,
+            2.057003974914551,
+            -0.0064634159207344055
+          ],
+          [
+            3.057222604751587,
+            2.258105754852295,
+            0.07837630808353424
+          ]
+        ],
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          3.174342155456543,
+          2.157554864883423,
+          0.13998685777187347
+        ],
+        "actual_quaternion_xyzw": [
+          0.3799281716346741,
+          0.3799281716346741,
+          0.5963677763938904,
+          0.5963678359985352
+        ],
+        "position_error_m": 4.3985307561269913e-08,
+        "object_pixels": {
+          "render_count_target_club_sandwich_1": 59057
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "render_count_target_club_sandwich_1"
+        ],
+        "view_purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+        "framing_scope": "task_actor_detail"
+      },
+      "object_detail_02": {
+        "position_world_m": [
+          3.174342110100606,
+          2.157554864883423,
+          0.2139868640090587
+        ],
+        "target_world_m": [
+          2.9512481689453125,
+          2.157554864883423,
+          0.10995645076036453
+        ],
+        "clipping_range_m": [
+          0.01,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            2.845273733139038,
+            2.057003974914551,
+            0.06753659248352051
+          ],
+          [
+            3.057222604751587,
+            2.258105754852295,
+            0.15237630903720856
+          ]
+        ],
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          3.174342155456543,
+          2.157554864883423,
+          0.2139868587255478
+        ],
+        "actual_quaternion_xyzw": [
+          0.3799281716346741,
+          0.3799281716346741,
+          0.5963677763938904,
+          0.5963678359985352
+        ],
+        "position_error_m": 4.566263778040856e-08,
+        "object_pixels": {
+          "render_count_target_club_sandwich_2": 96904
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "render_count_target_club_sandwich_2"
+        ],
+        "view_purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+        "framing_scope": "task_actor_detail"
+      },
+      "object_detail_03": {
+        "position_world_m": [
+          3.1192466773386327,
+          2.2444100379943848,
+          0.139986859995454
+        ],
+        "target_world_m": [
+          2.8961527347564697,
+          2.2444100379943848,
+          0.03595644608139992
+        ],
+        "clipping_range_m": [
+          0.01,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            2.7901782989501953,
+            2.1438591480255127,
+            -0.0064634159207344055
+          ],
+          [
+            3.002127170562744,
+            2.344960927963257,
+            0.07837630808353424
+          ]
+        ],
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          3.1192467212677,
+          2.2444100379943848,
+          0.13998685777187347
+        ],
+        "actual_quaternion_xyzw": [
+          0.3799281716346741,
+          0.3799281716346741,
+          0.5963677763938904,
+          0.5963678359985352
+        ],
+        "position_error_m": 4.3985307561269913e-08,
+        "object_pixels": {
+          "render_count_target_club_sandwich_0": 9666
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "render_count_target_club_sandwich_0"
+        ],
+        "view_purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+        "framing_scope": "task_actor_detail"
+      },
+      "object_detail_04": {
+        "position_world_m": [
+          3.1725768603678075,
+          2.3190863132476807,
+          0.139986859995454
+        ],
+        "target_world_m": [
+          2.9494829177856445,
+          2.3190863132476807,
+          0.03595644608139992
+        ],
+        "clipping_range_m": [
+          0.01,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            2.84350848197937,
+            2.2185354232788086,
+            -0.0064634159207344055
+          ],
+          [
+            3.055457353591919,
+            2.4196372032165527,
+            0.07837630808353424
+          ]
+        ],
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          3.172576904296875,
+          2.3190863132476807,
+          0.13998685777187347
+        ],
+        "actual_quaternion_xyzw": [
+          0.3799281716346741,
+          0.3799281716346741,
+          0.5963677763938904,
+          0.5963678359985352
+        ],
+        "position_error_m": 4.3985307561269913e-08,
+        "object_pixels": {
+          "render_count_target_club_sandwich_3": 89477
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "render_count_target_club_sandwich_3"
+        ],
+        "view_purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+        "framing_scope": "task_actor_detail"
+      },
+      "object_detail_05": {
+        "position_world_m": [
+          3.1725768603678075,
+          2.3190863132476807,
+          0.139986859995454
+        ],
+        "target_world_m": [
+          2.9494829177856445,
+          2.3190863132476807,
+          0.03595644608139992
+        ],
+        "clipping_range_m": [
+          0.01,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            2.84350848197937,
+            2.2185354232788086,
+            -0.0064634159207344055
+          ],
+          [
+            3.055457353591919,
+            2.4196372032165527,
+            0.07837630808353424
+          ]
+        ],
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          3.172576904296875,
+          2.3190863132476807,
+          0.13998685777187347
+        ],
+        "actual_quaternion_xyzw": [
+          0.3799281716346741,
+          0.3799281716346741,
+          0.5963677763938904,
+          0.5963678359985352
+        ],
+        "position_error_m": 4.3985307561269913e-08,
+        "object_pixels": {
+          "render_count_target_club_sandwich_3": 89477
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "render_count_target_club_sandwich_3"
+        ],
+        "view_purpose": "Multiple oblique views of targets, occluders and confusable objects.",
+        "framing_scope": "task_actor_detail"
+      }
+    },
+    "native_objects": [
+      "render_count_target_club_sandwich_0",
+      "render_count_target_club_sandwich_1",
+      "render_count_target_club_sandwich_2",
+      "render_count_target_club_sandwich_3",
+      "render_count_target_club_sandwich_4"
+    ],
+    "object_issues": [],
+    "missing_task_objects": false,
+    "robot_sensors_modified": false,
+    "physics_steps": 0,
+    "actor_mutations": 0
+  },
+  "human_camera_capture_protocol": "native_human_render_products_drained_v2",
+  "human_floorplan": null,
+  "interaction_setup": {
+    "schema": "interaction_accessible_groups_v3",
+    "accepted": true,
+    "relocated": false,
+    "group_translation_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "object_names": [
+      "render_count_target_club_sandwich_0",
+      "render_count_target_club_sandwich_1",
+      "render_count_target_club_sandwich_2",
+      "render_count_target_club_sandwich_3",
+      "render_count_target_club_sandwich_4"
+    ],
+    "attempts": [
+      {
+        "support": null,
+        "translation_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "robot_position_m": [
+          1.8000291585922241,
+          1.3999989032745361,
+          0.002764880657196045
+        ],
+        "checks": {
+          "floor_supported": true,
+          "floor_contact_positions_m": [
+            [
+              1.8146908283233643,
+              1.752482533454895,
+              -0.0009994730353355408
+            ],
+            [
+              2.135420560836792,
+              1.2934046983718872,
+              -0.0009998604655265808
+            ],
+            [
+              1.571020483970642,
+              1.2373119592666626,
+              -0.0010001063346862793
+            ]
+          ],
+          "unexpected_contact_bodies": [],
+          "collision_free": true,
+          "original_scene_reference_unchanged": true,
+          "task_group_geometry_preserved": true,
+          "background_geometry_preserved": true,
+          "fixed_background_geometry_preserved": true,
+          "independent_groups_do_not_interpenetrate": true,
+          "independent_groups_horizontal_clearance": true
+        },
+        "robot_quaternion_xyzw": [
+          0.0035576701629906893,
+          0.0035895719192922115,
+          0.3028520345687866,
+          0.9530242681503296
+        ],
+        "height_screen": {}
+      }
+    ],
+    "physical_grasp_verified": false,
+    "ik_verified": false,
+    "task_process_checks": {
+      "route_to_target": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "base_turning_space": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "arm_approach": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "local_grasp": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "lift_clearance": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "transport_path": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "container_opening": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "door_sweep": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "release_and_retreat": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "required_return": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      }
+    },
+    "warning_codes": [
+      "native_grasp_execution_unverified"
+    ],
+    "original_geometry": {
+      "render_count_target_club_sandwich_0": {
+        "position_m": [
+          2.8949999809265137,
+          2.244999885559082,
+          0.034000005573034286
+        ],
+        "quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0000001192092896
+        ],
+        "aabb_min_m": [
+          2.7901782989501953,
+          2.1438591480255127,
+          -0.0064634159207344055
+        ],
+        "aabb_max_m": [
+          3.002127170562744,
+          2.344960927963257,
+          0.07837630808353424
+        ]
+      },
+      "render_count_target_club_sandwich_1": {
+        "position_m": [
+          2.9500954151153564,
+          2.15814471244812,
+          0.034000005573034286
+        ],
+        "quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0000001192092896
+        ],
+        "aabb_min_m": [
+          2.845273733139038,
+          2.057003974914551,
+          -0.0064634159207344055
+        ],
+        "aabb_max_m": [
+          3.057222604751587,
+          2.258105754852295,
+          0.07837630808353424
+        ]
+      },
+      "render_count_target_club_sandwich_2": {
+        "position_m": [
+          2.9500954151153564,
+          2.15814471244812,
+          0.1080000102519989
+        ],
+        "quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0000001192092896
+        ],
+        "aabb_min_m": [
+          2.845273733139038,
+          2.057003974914551,
+          0.06753659248352051
+        ],
+        "aabb_max_m": [
+          3.057222604751587,
+          2.258105754852295,
+          0.15237630903720856
+        ]
+      },
+      "render_count_target_club_sandwich_3": {
+        "position_m": [
+          2.9483301639556885,
+          2.319676160812378,
+          0.034000005573034286
+        ],
+        "quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0000001192092896
+        ],
+        "aabb_min_m": [
+          2.84350848197937,
+          2.2185354232788086,
+          -0.0064634159207344055
+        ],
+        "aabb_max_m": [
+          3.055457353591919,
+          2.4196372032165527,
+          0.07837630808353424
+        ]
+      },
+      "render_count_target_club_sandwich_4": {
+        "position_m": [
+          2.889482259750366,
+          2.108121395111084,
+          0.034000005573034286
+        ],
+        "quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0000001192092896
+        ],
+        "aabb_min_m": [
+          2.784660577774048,
+          2.0069806575775146,
+          -0.0064634159207344055
+        ],
+        "aabb_max_m": [
+          2.9966094493865967,
+          2.208082437515259,
+          0.07837630808353424
+        ]
+      }
+    },
+    "spawn_grid": {
+      "chassis_extent_m": [
+        0.6373322606086731,
+        0.6840206384658813,
+        0.37926429510116577
+      ],
+      "chassis_radius_m": 0.4974603343009949,
+      "floor_index": 0,
+      "floor_z_m": 0.0,
+      "requested_source_region": "living_room_0",
+      "candidate_cell_count": 408,
+      "route_and_arm_clearance_verified": false
+    },
+    "objects_outside_native_floor_bounds": [],
+    "target_physics": {},
+    "height_screen_before": {},
+    "aperture_screen": {
+      "native_finger_limit_openings_m": {
+        "left": 0.10000000149011612,
+        "right": 0.10000000149011612
+      },
+      "objects": {},
+      "physical_grasp_verified": false,
+      "scope": "Native finger limits and global AABB only; local grasp affordances require execution."
+    },
+    "robot_spawn": {
+      "support": null,
+      "translation_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "robot_position_m": [
+        1.8000291585922241,
+        1.3999989032745361,
+        0.002764880657196045
+      ],
+      "checks": {
+        "floor_supported": true,
+        "floor_contact_positions_m": [
+          [
+            1.8146908283233643,
+            1.752482533454895,
+            -0.0009994730353355408
+          ],
+          [
+            2.135420560836792,
+            1.2934046983718872,
+            -0.0009998604655265808
+          ],
+          [
+            1.571020483970642,
+            1.2373119592666626,
+            -0.0010001063346862793
+          ]
+        ],
+        "unexpected_contact_bodies": [],
+        "collision_free": true,
+        "original_scene_reference_unchanged": true,
+        "task_group_geometry_preserved": true,
+        "background_geometry_preserved": true,
+        "fixed_background_geometry_preserved": true,
+        "independent_groups_do_not_interpenetrate": true,
+        "independent_groups_horizontal_clearance": true
+      },
+      "robot_quaternion_xyzw": [
+        0.0035576701629906893,
+        0.0035895719192922115,
+        0.3028520345687866,
+        0.9530242681503296
+      ],
+      "height_screen": {}
+    },
+    "height_screen_after": {},
+    "adapted_geometry": {
+      "render_count_target_club_sandwich_0": {
+        "position_m": [
+          2.8949999809265137,
+          2.244999885559082,
+          0.03400000184774399
+        ],
+        "aabb_min_m": [
+          2.7901782989501953,
+          2.1438591480255127,
+          -0.0064634159207344055
+        ],
+        "aabb_max_m": [
+          3.002127170562744,
+          2.344960927963257,
+          0.07837630808353424
+        ]
+      },
+      "render_count_target_club_sandwich_1": {
+        "position_m": [
+          2.9500954151153564,
+          2.15814471244812,
+          0.03400000184774399
+        ],
+        "aabb_min_m": [
+          2.845273733139038,
+          2.057003974914551,
+          -0.0064634159207344055
+        ],
+        "aabb_max_m": [
+          3.057222604751587,
+          2.258105754852295,
+          0.07837630808353424
+        ]
+      },
+      "render_count_target_club_sandwich_2": {
+        "position_m": [
+          2.9500954151153564,
+          2.15814471244812,
+          0.1080000102519989
+        ],
+        "aabb_min_m": [
+          2.845273733139038,
+          2.057003974914551,
+          0.06753659248352051
+        ],
+        "aabb_max_m": [
+          3.057222604751587,
+          2.258105754852295,
+          0.15237630903720856
+        ]
+      },
+      "render_count_target_club_sandwich_3": {
+        "position_m": [
+          2.9483301639556885,
+          2.319676160812378,
+          0.03400000184774399
+        ],
+        "aabb_min_m": [
+          2.84350848197937,
+          2.2185354232788086,
+          -0.0064634159207344055
+        ],
+        "aabb_max_m": [
+          3.055457353591919,
+          2.4196372032165527,
+          0.07837630808353424
+        ]
+      },
+      "render_count_target_club_sandwich_4": {
+        "position_m": [
+          2.889482259750366,
+          2.108121395111084,
+          0.03400000184774399
+        ],
+        "aabb_min_m": [
+          2.784660577774048,
+          2.0069806575775146,
+          -0.0064634159207344055
+        ],
+        "aabb_max_m": [
+          2.9966094493865967,
+          2.208082437515259,
+          0.07837630808353424
+        ]
+      }
+    }
+  },
+  "reflection_qualification": null,
+  "temporal_episode_preview": null,
+  "view_provenance": {},
+  "duration_s": 291.83590228669345,
+  "timings": {
+    "cold_initialization_s": 160.06817922741175,
+    "initialization_wait_s": 0.0,
+    "screenshot_s": 96.20482188183814,
+    "warm_swap_s": 0.0,
+    "total_s": 291.83590228669345,
+    "scene_initialization_s": 160.06817922741175,
+    "scene_clear_s": 5.685691758058965
+  },
+  "persistent_runtime": {
+    "native_pid": 3485457,
+    "request_index": 0,
+    "engine_reused": false,
+    "world_rebuilt": true,
+    "application_identity": 140474683724256,
+    "lifecycle_file": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/resident_services/runtime/097100386b1975e92809f1991845b70055c86e278fa4cd5341284a61bea4a561.py",
+    "lifecycle_sha256": "097100386b1975e92809f1991845b70055c86e278fa4cd5341284a61bea4a561",
+    "runtime_key": "13838d36ad9db64e55680bdb0a9f0dcce4c58ac7384b4437cc92d889f5690fea",
+    "seed_reset": 0,
+    "frozen_code_root": "/tmp/show-harness-zhouxinyang/core_revision_20261018/category_code/working_da61aa7d20e948ccf6d59e61e74e51ce"
+  },
+  "native_asset_preparation": {
+    "cache_root": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa",
+    "enabled": true,
+    "helper_provenance": {
+      "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+      "native_consumer_path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/resident_services/runtime/asset_preparation/04b44cf9d61a9d72bb8c5dcf98caa347e6fbe1484cf64e6de2be6b4445e8aa44.py",
+      "native_consumer_sha256": "04b44cf9d61a9d72bb8c5dcf98caa347e6fbe1484cf64e6de2be6b4445e8aa44",
+      "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+      "validation_helper_path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/resident_services/runtime/asset_preparation/6802f05b078452fa1bef24d913881263fdc222999653882c6fc1ee5da67b90d1.py",
+      "validation_helper_sha256": "6802f05b078452fa1bef24d913881263fdc222999653882c6fc1ee5da67b90d1"
+    },
+    "native_construction_parallel": false,
+    "native_fallback_calls": 1,
+    "prepared_object_loads": 5,
+    "prepared_object_prebuilds": 28,
+    "prepared_unique_assets_used": 29,
+    "robot_task_qualification": false,
+    "schema": "native_asset_preparation_v1",
+    "scope": "Capture-only reuse of CPU decryption and unpacking; native MDL normalization, stage composition, scene construction and physics remain serial.",
+    "sdk_method_sha256": {
+      "_load": "6dd7b6e3a6b803bc2127635022d7979025886bef2ddcaf1423652cb5c1bceef9",
+      "prebuild": "5d559d3c79b565fc20d34e8ae380a6f0ca364866858cf451314e54a57120373c"
+    },
+    "sdk_source_path": "/local_home2/zhouxinyang/third_party/BEHAVIOR-1K/OmniGibson/omnigibson/objects/usd_object.py",
+    "sdk_source_sha256": "6d170dfca79336ccd3030d0456b9ce7645b7552234a4f95bb50373987fe47b10",
+    "warnings": [
+      "_load uses original native loading: Object uses the native unencrypted asset path."
+    ]
+  },
+  "asset_preparation_runtime": {
+    "schema": "native_asset_preparation_runtime_v1",
+    "modules": {
+      "core/scene_capture_assets.py": {
+        "path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/resident_services/runtime/asset_preparation/6802f05b078452fa1bef24d913881263fdc222999653882c6fc1ee5da67b90d1.py",
+        "sha256": "6802f05b078452fa1bef24d913881263fdc222999653882c6fc1ee5da67b90d1"
+      },
+      "core/sim/esi_prepared_assets.py": {
+        "path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/resident_services/runtime/asset_preparation/04b44cf9d61a9d72bb8c5dcf98caa347e6fbe1484cf64e6de2be6b4445e8aa44.py",
+        "sha256": "04b44cf9d61a9d72bb8c5dcf98caa347e6fbe1484cf64e6de2be6b4445e8aa44"
+      }
+    }
+  },
+  "exit_code": null,
+  "native_process_running": true,
+  "cpu_preload": {
+    "schema": "capture_cpu_preload_v1",
+    "ok": true,
+    "worker_pid": 3214572,
+    "monotonic_start_s": 5178065.651578411,
+    "monotonic_end_s": 5178079.94736967,
+    "wall_duration_s": 14.295791258104146,
+    "timings_s": {
+      "immutable_verification": 0.03037740010768175,
+      "asset_discovery_and_read": 0.3031355859711766,
+      "asset_decryption_and_unpack": 13.961971872486174
+    },
+    "manifest_path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/input/manifest.json",
+    "manifest_sha256": "a0f88c6043e749289ecd35e5417b39148fb497fefde6318e73a9642ccf5a3f97",
+    "scene_model": "Benevolence_1_int",
+    "room": "living_room_0",
+    "asset_root": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets",
+    "read_assets": true,
+    "input_hashes_verified": 3,
+    "files": [
+      {
+        "path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/accepted.json",
+        "sha256": "1d99c1d0ed1d459b28b2a7ea8eb952fda95c75157268a1d0e9449cffe4b8301b",
+        "bytes_read": 359,
+        "size_bytes": 359,
+        "roles": [
+          "accepted_manifest_seal"
+        ],
+        "read": true
+      },
+      {
+        "path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/input/data/Enumerative Perception/Merged Observation/Benevolence_1_int/living_room_0/q_001.json",
+        "sha256": "2fde6caf6b3efa6ba4d2c8af4225b716edf5633a41afaaa2dfabe819c68e9b41",
+        "bytes_read": 16680,
+        "size_bytes": 16680,
+        "roles": [
+          "immutable_input"
+        ],
+        "read": true
+      },
+      {
+        "path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/input/manifest.json",
+        "sha256": "a0f88c6043e749289ecd35e5417b39148fb497fefde6318e73a9642ccf5a3f97",
+        "bytes_read": 33226,
+        "size_bytes": 33226,
+        "roles": [
+          "capture_manifest"
+        ],
+        "read": true
+      },
+      {
+        "path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/input/scene.yaml",
+        "sha256": "23264c97aafd559e28ea8c630ac2b3318013dd568dfe548b6ed58565436653bd",
+        "bytes_read": 1745,
+        "size_bytes": 1745,
+        "roles": [
+          "immutable_input"
+        ],
+        "read": true
+      },
+      {
+        "path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/jobs/capture_b6b2beaed7e044978e1c9a84d3ed1ee2/input/task.yaml",
+        "sha256": "59173192ac80fb9be2fbbc9f1ba844c8d1c50f5abe0a7593a304d5bc36c26611",
+        "bytes_read": 11516,
+        "size_bytes": 11516,
+        "roles": [
+          "immutable_input"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/bookcase/njwsoa/usd/njwsoa.usdz.encrypted",
+        "sha256": "c1afc020facc7d7d62efbad96ceea6ddc9ea9ab68d1416d6923e0f8a6817ad7b",
+        "bytes_read": 2815052,
+        "size_bytes": 2815052,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/bookcase/owvfik/usd/owvfik.usdz.encrypted",
+        "sha256": "fff7d40ba917d8d2e9f5bc4b81b4a0b17f971f39c88b4808112b3559d8384245",
+        "bytes_read": 2282680,
+        "size_bytes": 2282680,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/carpet/ctclvd/usd/ctclvd.usdz.encrypted",
+        "sha256": "0a976e9e1e4850a5f2c9b69009e5ff340b6cb46f179239c374109daf58e9b1a1",
+        "bytes_read": 2453452,
+        "size_bytes": 2453452,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/cedar_chest/fwstpx/usd/fwstpx.usdz.encrypted",
+        "sha256": "daba92406f1a3b085bf0b549db5d96335146430b1029d73fffe1e9d38b58ae67",
+        "bytes_read": 5389540,
+        "size_bytes": 5389540,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/axfptw/usd/axfptw.usdz.encrypted",
+        "sha256": "8a3b94498bac732107c3b6b79c76fbdfc5b310aeb3ed5738aa92676a735f5030",
+        "bytes_read": 1155640,
+        "size_bytes": 1155640,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/dofmgw/usd/dofmgw.usdz.encrypted",
+        "sha256": "11960e358293c79292033ff21d591152799246cb1da287622564230ec981b531",
+        "bytes_read": 1336356,
+        "size_bytes": 1336356,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/dtjmrf/usd/dtjmrf.usdz.encrypted",
+        "sha256": "59760af0a05fcf249cf1f74c2ca1bf2d098d35a3502abc17a207a6c23391146b",
+        "bytes_read": 1107448,
+        "size_bytes": 1107448,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/gblyms/usd/gblyms.usdz.encrypted",
+        "sha256": "0929fc57ed6fa3afd1129b1581dd981c62ceba7bce3a07fcc85e43ce7c1f0908",
+        "bytes_read": 1105380,
+        "size_bytes": 1105380,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/wdxynv/usd/wdxynv.usdz.encrypted",
+        "sha256": "3cb492699576d796efa5c4c8125419f37146d111a4c14344405f4009867263b6",
+        "bytes_read": 885496,
+        "size_bytes": 885496,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/yrqbbo/usd/yrqbbo.usdz.encrypted",
+        "sha256": "44e98e23e70aaf3c0197e171870505528b36f45f5a680d7cda3b34e1eda6c195",
+        "bytes_read": 1096076,
+        "size_bytes": 1096076,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/club_sandwich/ablfyd/usd/ablfyd.usdz.encrypted",
+        "sha256": "73c0dd466d18930366a96f57073ecbfcf27728849a739bb9dcca26690144fbee",
+        "bytes_read": 4536996,
+        "size_bytes": 4536996,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/ktydvs/usd/ktydvs.usdz.encrypted",
+        "sha256": "451cc74d8f66d575043e0ca1af15ef79fda1ca88125754abd5d7ad1de9d04bd4",
+        "bytes_read": 4467212,
+        "size_bytes": 4467212,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/lvgliq/usd/lvgliq.usdz.encrypted",
+        "sha256": "e554c29713d6ae73e9e40312ad3943faaafb0c622b7fad0734787ae2fe9e8c13",
+        "bytes_read": 3708216,
+        "size_bytes": 3708216,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/ohagsq/usd/ohagsq.usdz.encrypted",
+        "sha256": "0c7a493e08ae3e87c8939c16706ae752f659e91f38e10a1d3a5771515480c4cf",
+        "bytes_read": 13187128,
+        "size_bytes": 13187128,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/electric_switch/wseglt/usd/wseglt.usdz.encrypted",
+        "sha256": "04cf6cd3574ee7e7293063acfdc8149cc16cfa3cdd348858742bca8025187a8d",
+        "bytes_read": 1547684,
+        "size_bytes": 1547684,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floor_lamp/vdxlda/usd/vdxlda.usdz.encrypted",
+        "sha256": "ef3102bfae20de8a1de7a86e27eaa25a4c2a634e76c75b234c34a2b2bba7c999",
+        "bytes_read": 4504184,
+        "size_bytes": 4504184,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/buiarh/usd/buiarh.usdz.encrypted",
+        "sha256": "f6836466a25a97df8aba5a5382d9d4e817c3595e30bbf359cb77e30a007156ba",
+        "bytes_read": 31149068,
+        "size_bytes": 31149068,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/cjvouw/usd/cjvouw.usdz.encrypted",
+        "sha256": "267615a34ca82d55e17a1f877619f9fa99b86f61206b4a3a9384b412be6d7aa4",
+        "bytes_read": 58225828,
+        "size_bytes": 58225828,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/dpjzuo/usd/dpjzuo.usdz.encrypted",
+        "sha256": "0d778c6a9220e8d446140b92587833258d656f7e7a1de97c791eb672b72805a5",
+        "bytes_read": 29287672,
+        "size_bytes": 29287672,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/gabzai/usd/gabzai.usdz.encrypted",
+        "sha256": "9ad43489260365d7e3ceecc11cb5887ff921ff341b3bb6919a2268ad7c89747a",
+        "bytes_read": 62596920,
+        "size_bytes": 62596920,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/vfhjsg/usd/vfhjsg.usdz.encrypted",
+        "sha256": "0ab3dd387b22ec384de2504ef53e27da4f7778b153d0fd5946a6d5bfe607c7da",
+        "bytes_read": 12247032,
+        "size_bytes": 12247032,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/ylloew/usd/ylloew.usdz.encrypted",
+        "sha256": "6603a799a48644947213608849570fd7a70f029395ebfbea77ec6c88ea453603",
+        "bytes_read": 71268728,
+        "size_bytes": 71268728,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/openable_window/ulnafj/usd/ulnafj.usdz.encrypted",
+        "sha256": "0ebfd2b2d3e98903905a2b48770e07b56e3428b62945122766add4d59012a0ba",
+        "bytes_read": 11035812,
+        "size_bytes": 11035812,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ottoman/miftfy/usd/miftfy.usdz.encrypted",
+        "sha256": "1e9c488d4d1676f632a840f42f50a0ef3072e9e7296f4d73a54cdb7ba76d1204",
+        "bytes_read": 4073272,
+        "size_bytes": 4073272,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/hhxttu/usd/hhxttu.usdz.encrypted",
+        "sha256": "5fdda84a7075bcd24c54d5929cebdfe4f50092379b13da2d2a138e9fde28b0c7",
+        "bytes_read": 1936568,
+        "size_bytes": 1936568,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/jpfyrq/usd/jpfyrq.usdz.encrypted",
+        "sha256": "c396833d0bcf44055a5c8f8b674fbbbdae4a126247dc91caa02c8a524da0952c",
+        "bytes_read": 1952376,
+        "size_bytes": 1952376,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/lucjyq/usd/lucjyq.usdz.encrypted",
+        "sha256": "794aad6dfa31d9295e8f0f8b57706272f68160466255887a3e6c206812815b65",
+        "bytes_read": 1237516,
+        "size_bytes": 1237516,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/tlwjpv/usd/tlwjpv.usdz.encrypted",
+        "sha256": "aeccd74f313643b95b1b419ef437fe7fddbf8eedcc1553879491dfcddde9d946",
+        "bytes_read": 2491468,
+        "size_bytes": 2491468,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/sofa/uixwiv/usd/uixwiv.usdz.encrypted",
+        "sha256": "478ae5a006654eae181b8d8e3b52cb97509db6d644272b87e1757f804d190c0d",
+        "bytes_read": 4584504,
+        "size_bytes": 4584504,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/straight_chair/eospnr/usd/eospnr.usdz.encrypted",
+        "sha256": "627b22995a3acb05c6f56ed090e1f7f25b016ffa8cd79cfd7e8614c9c7b86d7d",
+        "bytes_read": 2687756,
+        "size_bytes": 2687756,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/wall_mounted_tv/ylvjhb/usd/ylvjhb.usdz.encrypted",
+        "sha256": "64e5c0f7b5db4bc3e8ffbaf40fc39790e77c60d556b54a62e084d4a6864c88e0",
+        "bytes_read": 675960,
+        "size_bytes": 675960,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/beqqbw/usd/beqqbw.usdz.encrypted",
+        "sha256": "34d3d3d6df4ef03c170e22dbcbaaa970ed618790d937dc6ce2aa53bd92c8f30d",
+        "bytes_read": 2844152,
+        "size_bytes": 2844152,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/cufcke/usd/cufcke.usdz.encrypted",
+        "sha256": "d691c419525771dc014139fc82b3e79559e34ab93f6aad30fc00764bc0e995f3",
+        "bytes_read": 3049100,
+        "size_bytes": 3049100,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/cxcmht/usd/cxcmht.usdz.encrypted",
+        "sha256": "d2a3ce3fc70b050907c29c56412434d005c0395695ddee42a8c57bcf45bbab55",
+        "bytes_read": 3067832,
+        "size_bytes": 3067832,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/etttgp/usd/etttgp.usdz.encrypted",
+        "sha256": "2462739c40793744cd84eff70439b1094adfa5a1aae2a892689da1cecaea7883",
+        "bytes_read": 2816908,
+        "size_bytes": 2816908,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/ewecsu/usd/ewecsu.usdz.encrypted",
+        "sha256": "1b768745c6380ceb136b4d32c0cfa9d0fcb1ef6ae1f622b42c1267f6a1dcec47",
+        "bytes_read": 3520740,
+        "size_bytes": 3520740,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/gitxjr/usd/gitxjr.usdz.encrypted",
+        "sha256": "558367e751b606c752d85a497bbace258edb805ae42567d849fecbc35a1ec5cf",
+        "bytes_read": 3063948,
+        "size_bytes": 3063948,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/kgxnls/usd/kgxnls.usdz.encrypted",
+        "sha256": "df881a9792efc3ae0a3a1b9a8305e75e9a535672ef0071259b55bd94513269cc",
+        "bytes_read": 2710348,
+        "size_bytes": 2710348,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/nfprcv/usd/nfprcv.usdz.encrypted",
+        "sha256": "647bda59c0a332d230141ca6f2166ff66e32bcb125c9237ce4bb81f3993bd0ef",
+        "bytes_read": 2067148,
+        "size_bytes": 2067148,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/nsqgzs/usd/nsqgzs.usdz.encrypted",
+        "sha256": "46f9e2a21c0e5882cb2306f7e8bce0832ffb3f4f14556a0a4819938433ee93e3",
+        "bytes_read": 3063140,
+        "size_bytes": 3063140,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/qwfvng/usd/qwfvng.usdz.encrypted",
+        "sha256": "11db958b1f5b2d7d64d7f00c04fccb8a0d0441ae31f634064312a4aa2f3b75b6",
+        "bytes_read": 2829412,
+        "size_bytes": 2829412,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/qysmts/usd/qysmts.usdz.encrypted",
+        "sha256": "410abff813278b0d52c057e3e93be8753dfe9257ed5488719b2eee4ee6929dfc",
+        "bytes_read": 3605516,
+        "size_bytes": 3605516,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/smskuw/usd/smskuw.usdz.encrypted",
+        "sha256": "55529e7b2ccd1cd20d75e39e14b68a446441c5fc05b2946f7d169bca984245b6",
+        "bytes_read": 2948324,
+        "size_bytes": 2948324,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/vvlnbk/usd/vvlnbk.usdz.encrypted",
+        "sha256": "0e9e91107619eb9a1d9eddc4a42f65ffd970380ccfe947c1e7ab66e6c621092d",
+        "bytes_read": 3130828,
+        "size_bytes": 3130828,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/Benevolence_1_int/json/Benevolence_1_int_best.json",
+        "sha256": "0b152f03405a58d2b93c7b838fda49527f5bad356bacb9ba4ecbcd9ee9f0c46f",
+        "bytes_read": 163389,
+        "size_bytes": 163389,
+        "roles": [
+          "official_scene_json"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/Benevolence_1_int/layout/floor_insseg_0.png",
+        "sha256": "032bd7b6f3dbd144856502adb3f0db8ea2159d4586571e9285ca393e01738937",
+        "bytes_read": 5589,
+        "size_bytes": 5589,
+        "roles": [
+          "scene_layout_or_metadata"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/Benevolence_1_int/layout/floor_semseg_0.png",
+        "sha256": "7628a7832f828a5e45887470d928e06214d35f04a8f90f648cd9f27462636930",
+        "bytes_read": 5609,
+        "size_bytes": 5609,
+        "roles": [
+          "scene_layout_or_metadata"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/Benevolence_1_int/layout/floor_trav_0.png",
+        "sha256": "2ab00aa4b5657dc9fd4ee6dc64407e06eb68119d3cd487e654090492cf9998f1",
+        "bytes_read": 7117,
+        "size_bytes": 7117,
+        "roles": [
+          "scene_layout_or_metadata"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/Benevolence_1_int/layout/floor_trav_no_door_0.png",
+        "sha256": "2ab00aa4b5657dc9fd4ee6dc64407e06eb68119d3cd487e654090492cf9998f1",
+        "bytes_read": 7117,
+        "size_bytes": 7117,
+        "roles": [
+          "scene_layout_or_metadata"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/Benevolence_1_int/layout/floor_trav_no_obj_0.png",
+        "sha256": "5094443dbf8f5f95b9312303adef58ed58318105595d7c37820ec84dd8d7c2e7",
+        "bytes_read": 5641,
+        "size_bytes": 5641,
+        "roles": [
+          "scene_layout_or_metadata"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/Benevolence_1_int/layout/floor_trav_open_door_0.png",
+        "sha256": "86301a3f7e419f68aacc3dd4983b18eca45e00eeb34bb535f344a114ed308fb1",
+        "bytes_read": 7249,
+        "size_bytes": 7249,
+        "roles": [
+          "scene_layout_or_metadata"
+        ],
+        "read": true
+      }
+    ],
+    "resolved_file_count": 56,
+    "read_file_count": 56,
+    "bytes_read": 386011653,
+    "assets": [
+      {
+        "category": "bookcase",
+        "model": "njwsoa",
+        "origins": [
+          "official_scene.bookcase_njwsoa_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/bookcase/njwsoa/usd/njwsoa.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "bookcase",
+        "model": "owvfik",
+        "origins": [
+          "official_scene.bookcase_owvfik_0",
+          "official_scene.bookcase_owvfik_1",
+          "official_scene.bookcase_owvfik_2",
+          "official_scene.bookcase_owvfik_3"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/bookcase/owvfik/usd/owvfik.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "carpet",
+        "model": "ctclvd",
+        "origins": [
+          "official_scene.carpet_ctclvd_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/carpet/ctclvd/usd/ctclvd.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "cedar_chest",
+        "model": "fwstpx",
+        "origins": [
+          "official_scene.cedar_chest_fwstpx_0",
+          "official_scene.cedar_chest_fwstpx_1"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/cedar_chest/fwstpx/usd/fwstpx.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "ceilings",
+        "model": "axfptw",
+        "origins": [
+          "official_scene.ceilings_axfptw_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/axfptw/usd/axfptw.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "ceilings",
+        "model": "dofmgw",
+        "origins": [
+          "official_scene.ceilings_dofmgw_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/dofmgw/usd/dofmgw.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "ceilings",
+        "model": "dtjmrf",
+        "origins": [
+          "official_scene.ceilings_dtjmrf_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/dtjmrf/usd/dtjmrf.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "ceilings",
+        "model": "gblyms",
+        "origins": [
+          "official_scene.ceilings_gblyms_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/gblyms/usd/gblyms.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "ceilings",
+        "model": "wdxynv",
+        "origins": [
+          "official_scene.ceilings_wdxynv_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/wdxynv/usd/wdxynv.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "ceilings",
+        "model": "yrqbbo",
+        "origins": [
+          "official_scene.ceilings_yrqbbo_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/yrqbbo/usd/yrqbbo.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "club_sandwich",
+        "model": "ablfyd",
+        "origins": [
+          "source.metadata_json.question_data.render.resolved_objects.targets[0]",
+          "source.metadata_json.question_data.render.resolved_objects.targets[1]",
+          "source.metadata_json.question_data.render.resolved_objects.targets[2]",
+          "source.metadata_json.question_data.render.resolved_objects.targets[3]",
+          "source.metadata_json.question_data.render.resolved_objects.targets[4]"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/club_sandwich/ablfyd/usd/ablfyd.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "door",
+        "model": "ktydvs",
+        "origins": [
+          "official_scene.door_ktydvs_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/ktydvs/usd/ktydvs.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "door",
+        "model": "lvgliq",
+        "origins": [
+          "official_scene.door_lvgliq_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/lvgliq/usd/lvgliq.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "door",
+        "model": "ohagsq",
+        "origins": [
+          "official_scene.door_ohagsq_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/ohagsq/usd/ohagsq.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "electric_switch",
+        "model": "wseglt",
+        "origins": [
+          "official_scene.electric_switch_wseglt_4"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/electric_switch/wseglt/usd/wseglt.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "floor_lamp",
+        "model": "vdxlda",
+        "origins": [
+          "official_scene.floor_lamp_vdxlda_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floor_lamp/vdxlda/usd/vdxlda.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "floors",
+        "model": "buiarh",
+        "origins": [
+          "official_scene.floors_buiarh_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/buiarh/usd/buiarh.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "floors",
+        "model": "cjvouw",
+        "origins": [
+          "official_scene.floors_cjvouw_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/cjvouw/usd/cjvouw.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "floors",
+        "model": "dpjzuo",
+        "origins": [
+          "official_scene.floors_dpjzuo_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/dpjzuo/usd/dpjzuo.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "floors",
+        "model": "gabzai",
+        "origins": [
+          "official_scene.floors_gabzai_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/gabzai/usd/gabzai.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "floors",
+        "model": "vfhjsg",
+        "origins": [
+          "official_scene.floors_vfhjsg_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/vfhjsg/usd/vfhjsg.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "floors",
+        "model": "ylloew",
+        "origins": [
+          "official_scene.floors_ylloew_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/ylloew/usd/ylloew.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "openable_window",
+        "model": "ulnafj",
+        "origins": [
+          "official_scene.openable_window_ulnafj_1",
+          "official_scene.openable_window_ulnafj_2"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/openable_window/ulnafj/usd/ulnafj.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "ottoman",
+        "model": "miftfy",
+        "origins": [
+          "official_scene.ottoman_miftfy_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ottoman/miftfy/usd/miftfy.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "picture",
+        "model": "hhxttu",
+        "origins": [
+          "official_scene.picture_hhxttu_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/hhxttu/usd/hhxttu.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "picture",
+        "model": "jpfyrq",
+        "origins": [
+          "official_scene.picture_jpfyrq_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/jpfyrq/usd/jpfyrq.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "picture",
+        "model": "lucjyq",
+        "origins": [
+          "official_scene.picture_lucjyq_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/lucjyq/usd/lucjyq.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "picture",
+        "model": "tlwjpv",
+        "origins": [
+          "official_scene.picture_tlwjpv_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/tlwjpv/usd/tlwjpv.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "sofa",
+        "model": "uixwiv",
+        "origins": [
+          "official_scene.sofa_uixwiv_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/sofa/uixwiv/usd/uixwiv.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "straight_chair",
+        "model": "eospnr",
+        "origins": [
+          "official_scene.straight_chair_eospnr_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/straight_chair/eospnr/usd/eospnr.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "wall_mounted_tv",
+        "model": "ylvjhb",
+        "origins": [
+          "official_scene.wall_mounted_tv_ylvjhb_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/wall_mounted_tv/ylvjhb/usd/ylvjhb.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "beqqbw",
+        "origins": [
+          "official_scene.walls_beqqbw_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/beqqbw/usd/beqqbw.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "cufcke",
+        "origins": [
+          "official_scene.walls_cufcke_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/cufcke/usd/cufcke.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "cxcmht",
+        "origins": [
+          "official_scene.walls_cxcmht_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/cxcmht/usd/cxcmht.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "etttgp",
+        "origins": [
+          "official_scene.walls_etttgp_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/etttgp/usd/etttgp.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "ewecsu",
+        "origins": [
+          "official_scene.walls_ewecsu_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/ewecsu/usd/ewecsu.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "gitxjr",
+        "origins": [
+          "official_scene.walls_gitxjr_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/gitxjr/usd/gitxjr.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "kgxnls",
+        "origins": [
+          "official_scene.walls_kgxnls_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/kgxnls/usd/kgxnls.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "nfprcv",
+        "origins": [
+          "official_scene.walls_nfprcv_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/nfprcv/usd/nfprcv.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "nsqgzs",
+        "origins": [
+          "official_scene.walls_nsqgzs_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/nsqgzs/usd/nsqgzs.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "qwfvng",
+        "origins": [
+          "official_scene.walls_qwfvng_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/qwfvng/usd/qwfvng.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "qysmts",
+        "origins": [
+          "official_scene.walls_qysmts_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/qysmts/usd/qysmts.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "smskuw",
+        "origins": [
+          "official_scene.walls_smskuw_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/smskuw/usd/smskuw.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "vvlnbk",
+        "origins": [
+          "official_scene.walls_vvlnbk_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/vvlnbk/usd/vvlnbk.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      }
+    ],
+    "requested_asset_count": 44,
+    "available_asset_count": 44,
+    "native_furniture_filtered_by_room": 39,
+    "warnings": [],
+    "cpu_worker_gpu_hidden": true,
+    "numerical_threads_limited": true,
+    "native_ready": false,
+    "native_construction_run": false,
+    "decryption_run": true,
+    "scope": "CPU task verification and original asset decryption/unpacking. Kit retains native material processing, USD stage construction, physics and sensors. No robot operation, grasp or render readiness is established.",
+    "prepared_assets": {
+      "schema": "capture_prepared_assets_v1",
+      "cache_root": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa",
+      "sdk_asset_utils_path": "/local_home2/zhouxinyang/third_party/BEHAVIOR-1K/OmniGibson/omnigibson/utils/asset_utils.py",
+      "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+      "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+      "assets": [
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/bookcase/njwsoa/usd/njwsoa.usdz.encrypted",
+          "encrypted_sha256": "c1afc020facc7d7d62efbad96ceea6ddc9ea9ab68d1416d6923e0f8a6817ad7b",
+          "encrypted_md5": "0c18c9d6b726515104eb35a7eb9b6ab3",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/bookcase/njwsoa/usd/njwsoa.usdz.encrypted",
+            "device": 66309,
+            "inode": 392506401,
+            "size": 2815052,
+            "mtime_ns": 1791970403297473946,
+            "ctime_ns": 1791970403297473946
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2109521,
+          "file_count": 8,
+          "category": "bookcase",
+          "model": "njwsoa",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/c1afc020facc7d7d62efbad96ceea6ddc9ea9ab68d1416d6923e0f8a6817ad7b-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/c1afc020facc7d7d62efbad96ceea6ddc9ea9ab68d1416d6923e0f8a6817ad7b-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/njwsoa.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/c1afc020facc7d7d62efbad96ceea6ddc9ea9ab68d1416d6923e0f8a6817ad7b-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "21a1ca5b2531cc86d5cf19b8e91c2cc0fd7c3fec17ca032d5c9236283a7ad1f5",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/bookcase/owvfik/usd/owvfik.usdz.encrypted",
+          "encrypted_sha256": "fff7d40ba917d8d2e9f5bc4b81b4a0b17f971f39c88b4808112b3559d8384245",
+          "encrypted_md5": "3f5588bb898a7c503ece78840f8a134a",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/bookcase/owvfik/usd/owvfik.usdz.encrypted",
+            "device": 66309,
+            "inode": 392506410,
+            "size": 2282680,
+            "mtime_ns": 1791970403329473945,
+            "ctime_ns": 1791970403329473945
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 1710293,
+          "file_count": 8,
+          "category": "bookcase",
+          "model": "owvfik",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/fff7d40ba917d8d2e9f5bc4b81b4a0b17f971f39c88b4808112b3559d8384245-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/fff7d40ba917d8d2e9f5bc4b81b4a0b17f971f39c88b4808112b3559d8384245-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/owvfik.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/fff7d40ba917d8d2e9f5bc4b81b4a0b17f971f39c88b4808112b3559d8384245-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "9b75d0261a84cff97a063a3189a07e3a2868d90d23f960c07f1c00a749d02f93",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/carpet/ctclvd/usd/ctclvd.usdz.encrypted",
+          "encrypted_sha256": "0a976e9e1e4850a5f2c9b69009e5ff340b6cb46f179239c374109daf58e9b1a1",
+          "encrypted_md5": "f764ac8135ddaee24d6bd50f67f0d1ef",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/carpet/ctclvd/usd/ctclvd.usdz.encrypted",
+            "device": 66309,
+            "inode": 392561710,
+            "size": 2453452,
+            "mtime_ns": 1791970416933473372,
+            "ctime_ns": 1791970416933473372
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 1838320,
+          "file_count": 8,
+          "category": "carpet",
+          "model": "ctclvd",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0a976e9e1e4850a5f2c9b69009e5ff340b6cb46f179239c374109daf58e9b1a1-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0a976e9e1e4850a5f2c9b69009e5ff340b6cb46f179239c374109daf58e9b1a1-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/ctclvd.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0a976e9e1e4850a5f2c9b69009e5ff340b6cb46f179239c374109daf58e9b1a1-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "aaa250ee0cea67544adb703173dadc9d325a592689d178c9969b0bbdefe5420f",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/cedar_chest/fwstpx/usd/fwstpx.usdz.encrypted",
+          "encrypted_sha256": "daba92406f1a3b085bf0b549db5d96335146430b1029d73fffe1e9d38b58ae67",
+          "encrypted_md5": "7b35468a8162ab93ff2b7a5305500ab6",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/cedar_chest/fwstpx/usd/fwstpx.usdz.encrypted",
+            "device": 66309,
+            "inode": 392561920,
+            "size": 5389540,
+            "mtime_ns": 1791970417625473343,
+            "ctime_ns": 1791970417625473343
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 4038831,
+          "file_count": 15,
+          "category": "cedar_chest",
+          "model": "fwstpx",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/daba92406f1a3b085bf0b549db5d96335146430b1029d73fffe1e9d38b58ae67-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/daba92406f1a3b085bf0b549db5d96335146430b1029d73fffe1e9d38b58ae67-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/fwstpx.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/daba92406f1a3b085bf0b549db5d96335146430b1029d73fffe1e9d38b58ae67-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "0de114f15f0fc5731da9886c0f7ba8f724da4f5a32107a4bf1f23ef949570369",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/axfptw/usd/axfptw.usdz.encrypted",
+          "encrypted_sha256": "8a3b94498bac732107c3b6b79c76fbdfc5b310aeb3ed5738aa92676a735f5030",
+          "encrypted_md5": "3d96985bda43503789161bcabec37ce2",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/axfptw/usd/axfptw.usdz.encrypted",
+            "device": 66309,
+            "inode": 392562001,
+            "size": 1155640,
+            "mtime_ns": 1791970417893473332,
+            "ctime_ns": 1791970417893473332
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 865015,
+          "file_count": 8,
+          "category": "ceilings",
+          "model": "axfptw",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/8a3b94498bac732107c3b6b79c76fbdfc5b310aeb3ed5738aa92676a735f5030-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/8a3b94498bac732107c3b6b79c76fbdfc5b310aeb3ed5738aa92676a735f5030-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/axfptw.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/8a3b94498bac732107c3b6b79c76fbdfc5b310aeb3ed5738aa92676a735f5030-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "5dcf4cb91ca16c5a0e45bd5f49dc8bd02381932e1674b218d5cac7c544289083",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/dofmgw/usd/dofmgw.usdz.encrypted",
+          "encrypted_sha256": "11960e358293c79292033ff21d591152799246cb1da287622564230ec981b531",
+          "encrypted_md5": "fa3a24b7e9796c01408c3aa529bef7b1",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/dofmgw/usd/dofmgw.usdz.encrypted",
+            "device": 66309,
+            "inode": 392562088,
+            "size": 1336356,
+            "mtime_ns": 1791970418005473327,
+            "ctime_ns": 1791970418005473327
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 1000479,
+          "file_count": 8,
+          "category": "ceilings",
+          "model": "dofmgw",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/11960e358293c79292033ff21d591152799246cb1da287622564230ec981b531-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/11960e358293c79292033ff21d591152799246cb1da287622564230ec981b531-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/dofmgw.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/11960e358293c79292033ff21d591152799246cb1da287622564230ec981b531-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "2ca43db129f8d612671c66ed12c2d58bf82bb93011fbc9f3770c89f7d00df78c",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/dtjmrf/usd/dtjmrf.usdz.encrypted",
+          "encrypted_sha256": "59760af0a05fcf249cf1f74c2ca1bf2d098d35a3502abc17a207a6c23391146b",
+          "encrypted_md5": "6917b68c377d1a5e77142ffa04224f8d",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/dtjmrf/usd/dtjmrf.usdz.encrypted",
+            "device": 66309,
+            "inode": 392562100,
+            "size": 1107448,
+            "mtime_ns": 1791970418021473327,
+            "ctime_ns": 1791970418021473327
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 828712,
+          "file_count": 8,
+          "category": "ceilings",
+          "model": "dtjmrf",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/59760af0a05fcf249cf1f74c2ca1bf2d098d35a3502abc17a207a6c23391146b-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/59760af0a05fcf249cf1f74c2ca1bf2d098d35a3502abc17a207a6c23391146b-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/dtjmrf.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/59760af0a05fcf249cf1f74c2ca1bf2d098d35a3502abc17a207a6c23391146b-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "9b0a3fabae7a1f30eedfa37f33864f7e935041e5aebc0d7202a6a67bc9507ea4",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/gblyms/usd/gblyms.usdz.encrypted",
+          "encrypted_sha256": "0929fc57ed6fa3afd1129b1581dd981c62ceba7bce3a07fcc85e43ce7c1f0908",
+          "encrypted_md5": "99bdd0485a9c175b3ab2b25b80da4ebb",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/gblyms/usd/gblyms.usdz.encrypted",
+            "device": 66309,
+            "inode": 392562187,
+            "size": 1105380,
+            "mtime_ns": 1791970418797473294,
+            "ctime_ns": 1791970418797473294
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 827369,
+          "file_count": 8,
+          "category": "ceilings",
+          "model": "gblyms",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0929fc57ed6fa3afd1129b1581dd981c62ceba7bce3a07fcc85e43ce7c1f0908-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0929fc57ed6fa3afd1129b1581dd981c62ceba7bce3a07fcc85e43ce7c1f0908-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/gblyms.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0929fc57ed6fa3afd1129b1581dd981c62ceba7bce3a07fcc85e43ce7c1f0908-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "bf56974fc0aa21119e94f3739c31f7f6dc3fc52df4be214b6b0ceecaef99400b",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/wdxynv/usd/wdxynv.usdz.encrypted",
+          "encrypted_sha256": "3cb492699576d796efa5c4c8125419f37146d111a4c14344405f4009867263b6",
+          "encrypted_md5": "b08c3e73efa42352212337a0ac1c7534",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/wdxynv/usd/wdxynv.usdz.encrypted",
+            "device": 66309,
+            "inode": 392562847,
+            "size": 885496,
+            "mtime_ns": 1791970420317473230,
+            "ctime_ns": 1791970420317473230
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 662367,
+          "file_count": 8,
+          "category": "ceilings",
+          "model": "wdxynv",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/3cb492699576d796efa5c4c8125419f37146d111a4c14344405f4009867263b6-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/3cb492699576d796efa5c4c8125419f37146d111a4c14344405f4009867263b6-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/wdxynv.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/3cb492699576d796efa5c4c8125419f37146d111a4c14344405f4009867263b6-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "f5d342c3261a4f59f465724d517a29337e2918d8523b479bd41e96250453dfb7",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/yrqbbo/usd/yrqbbo.usdz.encrypted",
+          "encrypted_sha256": "44e98e23e70aaf3c0197e171870505528b36f45f5a680d7cda3b34e1eda6c195",
+          "encrypted_md5": "7ac420fccfd0abca0f33caf348ad1d31",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/yrqbbo/usd/yrqbbo.usdz.encrypted",
+            "device": 66309,
+            "inode": 392562982,
+            "size": 1096076,
+            "mtime_ns": 1791970420621473217,
+            "ctime_ns": 1791970420621473217
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 820103,
+          "file_count": 8,
+          "category": "ceilings",
+          "model": "yrqbbo",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/44e98e23e70aaf3c0197e171870505528b36f45f5a680d7cda3b34e1eda6c195-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/44e98e23e70aaf3c0197e171870505528b36f45f5a680d7cda3b34e1eda6c195-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/yrqbbo.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/44e98e23e70aaf3c0197e171870505528b36f45f5a680d7cda3b34e1eda6c195-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "2b4e3531d0974970d7e7e957f7415c7373af57cd101799a2d7752c9107c1b1d6",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/club_sandwich/ablfyd/usd/ablfyd.usdz.encrypted",
+          "encrypted_sha256": "73c0dd466d18930366a96f57073ecbfcf27728849a739bb9dcca26690144fbee",
+          "encrypted_md5": "a0c967685944a754b508af075b43b76a",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/club_sandwich/ablfyd/usd/ablfyd.usdz.encrypted",
+            "device": 66309,
+            "inode": 392563631,
+            "size": 4536996,
+            "mtime_ns": 1791970423441473098,
+            "ctime_ns": 1791970423441473098
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 3400986,
+          "file_count": 8,
+          "category": "club_sandwich",
+          "model": "ablfyd",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/73c0dd466d18930366a96f57073ecbfcf27728849a739bb9dcca26690144fbee-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/73c0dd466d18930366a96f57073ecbfcf27728849a739bb9dcca26690144fbee-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/ablfyd.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/73c0dd466d18930366a96f57073ecbfcf27728849a739bb9dcca26690144fbee-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "f654206d29eaa47fbf5aead08cbbea226d9d132cf96ba177bb4364035981bccf",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/ktydvs/usd/ktydvs.usdz.encrypted",
+          "encrypted_sha256": "451cc74d8f66d575043e0ca1af15ef79fda1ca88125754abd5d7ad1de9d04bd4",
+          "encrypted_md5": "57f73c1e2b7843db5c490347d54dfbf5",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/ktydvs/usd/ktydvs.usdz.encrypted",
+            "device": 66309,
+            "inode": 392564850,
+            "size": 4467212,
+            "mtime_ns": 1791970431225472771,
+            "ctime_ns": 1791970431225472771
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 3345379,
+          "file_count": 22,
+          "category": "door",
+          "model": "ktydvs",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/451cc74d8f66d575043e0ca1af15ef79fda1ca88125754abd5d7ad1de9d04bd4-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/451cc74d8f66d575043e0ca1af15ef79fda1ca88125754abd5d7ad1de9d04bd4-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/ktydvs.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/451cc74d8f66d575043e0ca1af15ef79fda1ca88125754abd5d7ad1de9d04bd4-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "d9e4ee6e1fe3a4c9525642d12c8948314e582fa7b4db624b5c60e65d905f8c48",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/lvgliq/usd/lvgliq.usdz.encrypted",
+          "encrypted_sha256": "e554c29713d6ae73e9e40312ad3943faaafb0c622b7fad0734787ae2fe9e8c13",
+          "encrypted_md5": "9338830aad6235c346a131acbc7bbc37",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/lvgliq/usd/lvgliq.usdz.encrypted",
+            "device": 66309,
+            "inode": 392564865,
+            "size": 3708216,
+            "mtime_ns": 1791970431349472766,
+            "ctime_ns": 1791970431349472766
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2776345,
+          "file_count": 22,
+          "category": "door",
+          "model": "lvgliq",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/e554c29713d6ae73e9e40312ad3943faaafb0c622b7fad0734787ae2fe9e8c13-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/e554c29713d6ae73e9e40312ad3943faaafb0c622b7fad0734787ae2fe9e8c13-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/lvgliq.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/e554c29713d6ae73e9e40312ad3943faaafb0c622b7fad0734787ae2fe9e8c13-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "ac16d5df5f2587cc0bbe1a7009bd44ae28927737b589c3f5534b8de4c1974500",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/ohagsq/usd/ohagsq.usdz.encrypted",
+          "encrypted_sha256": "0c7a493e08ae3e87c8939c16706ae752f659e91f38e10a1d3a5771515480c4cf",
+          "encrypted_md5": "4789d2c4bb7e48ebd4843797e292c023",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/ohagsq/usd/ohagsq.usdz.encrypted",
+            "device": 66309,
+            "inode": 392564910,
+            "size": 13187128,
+            "mtime_ns": 1791970431889472743,
+            "ctime_ns": 1791970431889472743
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 9882674,
+          "file_count": 36,
+          "category": "door",
+          "model": "ohagsq",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0c7a493e08ae3e87c8939c16706ae752f659e91f38e10a1d3a5771515480c4cf-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0c7a493e08ae3e87c8939c16706ae752f659e91f38e10a1d3a5771515480c4cf-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/ohagsq.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0c7a493e08ae3e87c8939c16706ae752f659e91f38e10a1d3a5771515480c4cf-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "e13fa83e49ec3b49b9df91c4489b274c492a5aa948cfc2049fc9b9ef2f5aff78",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/electric_switch/wseglt/usd/wseglt.usdz.encrypted",
+          "encrypted_sha256": "04cf6cd3574ee7e7293063acfdc8149cc16cfa3cdd348858742bca8025187a8d",
+          "encrypted_md5": "6dace31278032176c2e5170cc9b8310d",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/electric_switch/wseglt/usd/wseglt.usdz.encrypted",
+            "device": 66309,
+            "inode": 392565314,
+            "size": 1547684,
+            "mtime_ns": 1791970434569472630,
+            "ctime_ns": 1791970434569472630
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 1158995,
+          "file_count": 8,
+          "category": "electric_switch",
+          "model": "wseglt",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/04cf6cd3574ee7e7293063acfdc8149cc16cfa3cdd348858742bca8025187a8d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/04cf6cd3574ee7e7293063acfdc8149cc16cfa3cdd348858742bca8025187a8d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/wseglt.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/04cf6cd3574ee7e7293063acfdc8149cc16cfa3cdd348858742bca8025187a8d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "2b74f2ea94e736b93fc607986c9dc80261816ce1d69230029edf34eded9de511",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floor_lamp/vdxlda/usd/vdxlda.usdz.encrypted",
+          "encrypted_sha256": "ef3102bfae20de8a1de7a86e27eaa25a4c2a634e76c75b234c34a2b2bba7c999",
+          "encrypted_md5": "c869bebfbdd68a09b2fe20d9585a31f6",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floor_lamp/vdxlda/usd/vdxlda.usdz.encrypted",
+            "device": 66309,
+            "inode": 392565840,
+            "size": 4504184,
+            "mtime_ns": 1791970437309472515,
+            "ctime_ns": 1791970437309472515
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 3376450,
+          "file_count": 8,
+          "category": "floor_lamp",
+          "model": "vdxlda",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/ef3102bfae20de8a1de7a86e27eaa25a4c2a634e76c75b234c34a2b2bba7c999-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/ef3102bfae20de8a1de7a86e27eaa25a4c2a634e76c75b234c34a2b2bba7c999-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/vdxlda.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/ef3102bfae20de8a1de7a86e27eaa25a4c2a634e76c75b234c34a2b2bba7c999-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "aa7090997301d72b81862ff0261f2cd112298ccfd00dfedf1b3ca057df7a738b",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/buiarh/usd/buiarh.usdz.encrypted",
+          "encrypted_sha256": "f6836466a25a97df8aba5a5382d9d4e817c3595e30bbf359cb77e30a007156ba",
+          "encrypted_md5": "73390c0bcf13491e28a898df3aab143e",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/buiarh/usd/buiarh.usdz.encrypted",
+            "device": 66309,
+            "inode": 392565908,
+            "size": 31149068,
+            "mtime_ns": 1791970440997472360,
+            "ctime_ns": 1791970440997472360
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 23360224,
+          "file_count": 8,
+          "category": "floors",
+          "model": "buiarh",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/f6836466a25a97df8aba5a5382d9d4e817c3595e30bbf359cb77e30a007156ba-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/f6836466a25a97df8aba5a5382d9d4e817c3595e30bbf359cb77e30a007156ba-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/buiarh.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/f6836466a25a97df8aba5a5382d9d4e817c3595e30bbf359cb77e30a007156ba-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "c2c31d074e895bccf2382d09c4a1ffa31cb7cf08471b75d8291bf4845f10fc23",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/cjvouw/usd/cjvouw.usdz.encrypted",
+          "encrypted_sha256": "267615a34ca82d55e17a1f877619f9fa99b86f61206b4a3a9384b412be6d7aa4",
+          "encrypted_md5": "ae821ea1333cca77dbe948bdc240e3ec",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/cjvouw/usd/cjvouw.usdz.encrypted",
+            "device": 66309,
+            "inode": 392565932,
+            "size": 58225828,
+            "mtime_ns": 1791970442589472293,
+            "ctime_ns": 1791970442589472293
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 43667576,
+          "file_count": 8,
+          "category": "floors",
+          "model": "cjvouw",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/267615a34ca82d55e17a1f877619f9fa99b86f61206b4a3a9384b412be6d7aa4-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/267615a34ca82d55e17a1f877619f9fa99b86f61206b4a3a9384b412be6d7aa4-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/cjvouw.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/267615a34ca82d55e17a1f877619f9fa99b86f61206b4a3a9384b412be6d7aa4-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "8c13158658babe01fed74b4c59bfef8eb654a044637ed926dd9e94a93f9704b0",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/dpjzuo/usd/dpjzuo.usdz.encrypted",
+          "encrypted_sha256": "0d778c6a9220e8d446140b92587833258d656f7e7a1de97c791eb672b72805a5",
+          "encrypted_md5": "5fb985508090bc48abbb2631a8fbed24",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/dpjzuo/usd/dpjzuo.usdz.encrypted",
+            "device": 66309,
+            "inode": 392565971,
+            "size": 29287672,
+            "mtime_ns": 1791970444433472215,
+            "ctime_ns": 1791970444433472215
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 21963866,
+          "file_count": 8,
+          "category": "floors",
+          "model": "dpjzuo",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0d778c6a9220e8d446140b92587833258d656f7e7a1de97c791eb672b72805a5-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0d778c6a9220e8d446140b92587833258d656f7e7a1de97c791eb672b72805a5-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/dpjzuo.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0d778c6a9220e8d446140b92587833258d656f7e7a1de97c791eb672b72805a5-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "a03b348a68114765d2169f0057cd11ec10077e37ce24a5f5ae7869d0b14689e3",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/gabzai/usd/gabzai.usdz.encrypted",
+          "encrypted_sha256": "9ad43489260365d7e3ceecc11cb5887ff921ff341b3bb6919a2268ad7c89747a",
+          "encrypted_md5": "76c6c951e074b39ffd4e9e0c7ac842a4",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/gabzai/usd/gabzai.usdz.encrypted",
+            "device": 66309,
+            "inode": 392566040,
+            "size": 62596920,
+            "mtime_ns": 1791970447585472082,
+            "ctime_ns": 1791970447585472082
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 46945861,
+          "file_count": 8,
+          "category": "floors",
+          "model": "gabzai",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/9ad43489260365d7e3ceecc11cb5887ff921ff341b3bb6919a2268ad7c89747a-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/9ad43489260365d7e3ceecc11cb5887ff921ff341b3bb6919a2268ad7c89747a-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/gabzai.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/9ad43489260365d7e3ceecc11cb5887ff921ff341b3bb6919a2268ad7c89747a-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "5e71e94a8a485640c87514b268efc48450ec9993261b302dd106859a92f65969",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/vfhjsg/usd/vfhjsg.usdz.encrypted",
+          "encrypted_sha256": "0ab3dd387b22ec384de2504ef53e27da4f7778b153d0fd5946a6d5bfe607c7da",
+          "encrypted_md5": "95582c83b0758f9496aaabf077eb6a18",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/vfhjsg/usd/vfhjsg.usdz.encrypted",
+            "device": 66309,
+            "inode": 392626308,
+            "size": 12247032,
+            "mtime_ns": 1791970482105470629,
+            "ctime_ns": 1791970482105470629
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 9183562,
+          "file_count": 8,
+          "category": "floors",
+          "model": "vfhjsg",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0ab3dd387b22ec384de2504ef53e27da4f7778b153d0fd5946a6d5bfe607c7da-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0ab3dd387b22ec384de2504ef53e27da4f7778b153d0fd5946a6d5bfe607c7da-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/vfhjsg.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0ab3dd387b22ec384de2504ef53e27da4f7778b153d0fd5946a6d5bfe607c7da-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "312fe7c340e7b40dc02b54a6f12e0415b468144de104574dcc4ca8c2b49ec9cf",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/ylloew/usd/ylloew.usdz.encrypted",
+          "encrypted_sha256": "6603a799a48644947213608849570fd7a70f029395ebfbea77ec6c88ea453603",
+          "encrypted_md5": "2446a6f4cccd1056aa61dc0005e33efb",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/ylloew/usd/ylloew.usdz.encrypted",
+            "device": 66309,
+            "inode": 392626434,
+            "size": 71268728,
+            "mtime_ns": 1791970488561470358,
+            "ctime_ns": 1791970488561470358
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 53449833,
+          "file_count": 8,
+          "category": "floors",
+          "model": "ylloew",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/6603a799a48644947213608849570fd7a70f029395ebfbea77ec6c88ea453603-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/6603a799a48644947213608849570fd7a70f029395ebfbea77ec6c88ea453603-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/ylloew.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/6603a799a48644947213608849570fd7a70f029395ebfbea77ec6c88ea453603-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "98e56c49e7d54e6beb03740e9fcf1690dddf9ca0b7d66eea65195fede6c0e64d",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/openable_window/ulnafj/usd/ulnafj.usdz.encrypted",
+          "encrypted_sha256": "0ebfd2b2d3e98903905a2b48770e07b56e3428b62945122766add4d59012a0ba",
+          "encrypted_md5": "932d8e251e17b725bd943258278a09a3",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/openable_window/ulnafj/usd/ulnafj.usdz.encrypted",
+            "device": 66309,
+            "inode": 392691983,
+            "size": 11035812,
+            "mtime_ns": 1791970517849469125,
+            "ctime_ns": 1791970517849469125
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 8271838,
+          "file_count": 22,
+          "category": "openable_window",
+          "model": "ulnafj",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0ebfd2b2d3e98903905a2b48770e07b56e3428b62945122766add4d59012a0ba-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0ebfd2b2d3e98903905a2b48770e07b56e3428b62945122766add4d59012a0ba-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/ulnafj.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0ebfd2b2d3e98903905a2b48770e07b56e3428b62945122766add4d59012a0ba-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "7c8323ba843fcdd600891f810d0b134ebea2407e823114a89f1ad8ed2a649681",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ottoman/miftfy/usd/miftfy.usdz.encrypted",
+          "encrypted_sha256": "1e9c488d4d1676f632a840f42f50a0ef3072e9e7296f4d73a54cdb7ba76d1204",
+          "encrypted_md5": "73f2bbd44978f821488a07234f506d93",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ottoman/miftfy/usd/miftfy.usdz.encrypted",
+            "device": 66309,
+            "inode": 392692019,
+            "size": 4073272,
+            "mtime_ns": 1791970518093469115,
+            "ctime_ns": 1791970518093469115
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 3053207,
+          "file_count": 8,
+          "category": "ottoman",
+          "model": "miftfy",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/1e9c488d4d1676f632a840f42f50a0ef3072e9e7296f4d73a54cdb7ba76d1204-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/1e9c488d4d1676f632a840f42f50a0ef3072e9e7296f4d73a54cdb7ba76d1204-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/miftfy.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/1e9c488d4d1676f632a840f42f50a0ef3072e9e7296f4d73a54cdb7ba76d1204-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "9b0f30aafb57a942cbfd55cd718c30e4ab3ee408493c75f4b080813a1c52dac6",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/hhxttu/usd/hhxttu.usdz.encrypted",
+          "encrypted_sha256": "5fdda84a7075bcd24c54d5929cebdfe4f50092379b13da2d2a138e9fde28b0c7",
+          "encrypted_md5": "9026e4a7d52f45e4999ce5192ff09cd5",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/hhxttu/usd/hhxttu.usdz.encrypted",
+            "device": 66309,
+            "inode": 392693315,
+            "size": 1936568,
+            "mtime_ns": 1791970522881468913,
+            "ctime_ns": 1791970522881468913
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 1450598,
+          "file_count": 8,
+          "category": "picture",
+          "model": "hhxttu",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/5fdda84a7075bcd24c54d5929cebdfe4f50092379b13da2d2a138e9fde28b0c7-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/5fdda84a7075bcd24c54d5929cebdfe4f50092379b13da2d2a138e9fde28b0c7-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/hhxttu.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/5fdda84a7075bcd24c54d5929cebdfe4f50092379b13da2d2a138e9fde28b0c7-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "daa01e0a88dc488acdccae10ef275d4689822495416b02ff1a41477abb99b1e8",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/jpfyrq/usd/jpfyrq.usdz.encrypted",
+          "encrypted_sha256": "c396833d0bcf44055a5c8f8b674fbbbdae4a126247dc91caa02c8a524da0952c",
+          "encrypted_md5": "0298d04b4d35b86be7c790e0d3ef7deb",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/jpfyrq/usd/jpfyrq.usdz.encrypted",
+            "device": 66309,
+            "inode": 392693336,
+            "size": 1952376,
+            "mtime_ns": 1791970522957468910,
+            "ctime_ns": 1791970522957468910
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 1462645,
+          "file_count": 8,
+          "category": "picture",
+          "model": "jpfyrq",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/c396833d0bcf44055a5c8f8b674fbbbdae4a126247dc91caa02c8a524da0952c-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/c396833d0bcf44055a5c8f8b674fbbbdae4a126247dc91caa02c8a524da0952c-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/jpfyrq.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/c396833d0bcf44055a5c8f8b674fbbbdae4a126247dc91caa02c8a524da0952c-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "b08f32d00c1323e2b876d58254d4425bb77e7d8883feeab8c61b51c4dff633f8",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/lucjyq/usd/lucjyq.usdz.encrypted",
+          "encrypted_sha256": "794aad6dfa31d9295e8f0f8b57706272f68160466255887a3e6c206812815b65",
+          "encrypted_md5": "5a75879b7531f41cae6570bcb271eb22",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/lucjyq/usd/lucjyq.usdz.encrypted",
+            "device": 66309,
+            "inode": 392693348,
+            "size": 1237516,
+            "mtime_ns": 1791970522981468909,
+            "ctime_ns": 1791970522981468909
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 926356,
+          "file_count": 8,
+          "category": "picture",
+          "model": "lucjyq",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/794aad6dfa31d9295e8f0f8b57706272f68160466255887a3e6c206812815b65-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/794aad6dfa31d9295e8f0f8b57706272f68160466255887a3e6c206812815b65-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/lucjyq.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/794aad6dfa31d9295e8f0f8b57706272f68160466255887a3e6c206812815b65-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "e39611f368e85d9165d24f10afb2d452db691223f89df1bf0e0b66a57a3b2c93",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/tlwjpv/usd/tlwjpv.usdz.encrypted",
+          "encrypted_sha256": "aeccd74f313643b95b1b419ef437fe7fddbf8eedcc1553879491dfcddde9d946",
+          "encrypted_md5": "53609b03b9b56fac19b94615d4e7ca06",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/picture/tlwjpv/usd/tlwjpv.usdz.encrypted",
+            "device": 66309,
+            "inode": 392693429,
+            "size": 2491468,
+            "mtime_ns": 1791970523229468899,
+            "ctime_ns": 1791970523229468899
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 1866814,
+          "file_count": 8,
+          "category": "picture",
+          "model": "tlwjpv",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/aeccd74f313643b95b1b419ef437fe7fddbf8eedcc1553879491dfcddde9d946-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/aeccd74f313643b95b1b419ef437fe7fddbf8eedcc1553879491dfcddde9d946-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/tlwjpv.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/aeccd74f313643b95b1b419ef437fe7fddbf8eedcc1553879491dfcddde9d946-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "5bfe312edf92316023c164a8dd75cd8069bef75a7fa10ed34c52b72c96c10bce",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/sofa/uixwiv/usd/uixwiv.usdz.encrypted",
+          "encrypted_sha256": "478ae5a006654eae181b8d8e3b52cb97509db6d644272b87e1757f804d190c0d",
+          "encrypted_md5": "31d22b8b0cde13a63807b70248b6ece2",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/sofa/uixwiv/usd/uixwiv.usdz.encrypted",
+            "device": 66309,
+            "inode": 392696671,
+            "size": 4584504,
+            "mtime_ns": 1791970538569468253,
+            "ctime_ns": 1791970538569468253
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 3436687,
+          "file_count": 8,
+          "category": "sofa",
+          "model": "uixwiv",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/478ae5a006654eae181b8d8e3b52cb97509db6d644272b87e1757f804d190c0d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/478ae5a006654eae181b8d8e3b52cb97509db6d644272b87e1757f804d190c0d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/uixwiv.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/478ae5a006654eae181b8d8e3b52cb97509db6d644272b87e1757f804d190c0d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "a6da8f76d5b462e44997b504ae6a75a931722b5bfe848ba35ff37217905e002d",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/straight_chair/eospnr/usd/eospnr.usdz.encrypted",
+          "encrypted_sha256": "627b22995a3acb05c6f56ed090e1f7f25b016ffa8cd79cfd7e8614c9c7b86d7d",
+          "encrypted_md5": "78d48242fd09596dd87581fd569c0bef",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/straight_chair/eospnr/usd/eospnr.usdz.encrypted",
+            "device": 66309,
+            "inode": 392697292,
+            "size": 2687756,
+            "mtime_ns": 1791970541713468121,
+            "ctime_ns": 1791970541713468121
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2014063,
+          "file_count": 8,
+          "category": "straight_chair",
+          "model": "eospnr",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/627b22995a3acb05c6f56ed090e1f7f25b016ffa8cd79cfd7e8614c9c7b86d7d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/627b22995a3acb05c6f56ed090e1f7f25b016ffa8cd79cfd7e8614c9c7b86d7d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/eospnr.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/627b22995a3acb05c6f56ed090e1f7f25b016ffa8cd79cfd7e8614c9c7b86d7d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "dd8822980ddb3bb1e4b8092f9537ffe2c13b517c10de38237867b5e1a4497da5",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/wall_mounted_tv/ylvjhb/usd/ylvjhb.usdz.encrypted",
+          "encrypted_sha256": "64e5c0f7b5db4bc3e8ffbaf40fc39790e77c60d556b54a62e084d4a6864c88e0",
+          "encrypted_md5": "72de4cc02878f3f94090699e078d95be",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/wall_mounted_tv/ylvjhb/usd/ylvjhb.usdz.encrypted",
+            "device": 66309,
+            "inode": 392759118,
+            "size": 675960,
+            "mtime_ns": 1791970554681467575,
+            "ctime_ns": 1791970554681467575
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 505329,
+          "file_count": 8,
+          "category": "wall_mounted_tv",
+          "model": "ylvjhb",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/64e5c0f7b5db4bc3e8ffbaf40fc39790e77c60d556b54a62e084d4a6864c88e0-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/64e5c0f7b5db4bc3e8ffbaf40fc39790e77c60d556b54a62e084d4a6864c88e0-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/ylvjhb.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/64e5c0f7b5db4bc3e8ffbaf40fc39790e77c60d556b54a62e084d4a6864c88e0-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "e6cb4c3c1ae8b3cc37b38e346aea63d905e5b14c4c4c7f4a5d5ff3a2d50c4aae",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/beqqbw/usd/beqqbw.usdz.encrypted",
+          "encrypted_sha256": "34d3d3d6df4ef03c170e22dbcbaaa970ed618790d937dc6ce2aa53bd92c8f30d",
+          "encrypted_md5": "329e031f256c09c388ffedca6cff6c31",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/beqqbw/usd/beqqbw.usdz.encrypted",
+            "device": 66309,
+            "inode": 392759347,
+            "size": 2844152,
+            "mtime_ns": 1791970556205467511,
+            "ctime_ns": 1791970556205467511
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2131541,
+          "file_count": 8,
+          "category": "walls",
+          "model": "beqqbw",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/34d3d3d6df4ef03c170e22dbcbaaa970ed618790d937dc6ce2aa53bd92c8f30d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/34d3d3d6df4ef03c170e22dbcbaaa970ed618790d937dc6ce2aa53bd92c8f30d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/beqqbw.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/34d3d3d6df4ef03c170e22dbcbaaa970ed618790d937dc6ce2aa53bd92c8f30d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "e06712c4190105f686ad0b2c3e1a30851333de86c941382744c31791ae073664",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/cufcke/usd/cufcke.usdz.encrypted",
+          "encrypted_sha256": "d691c419525771dc014139fc82b3e79559e34ab93f6aad30fc00764bc0e995f3",
+          "encrypted_md5": "b6d793c2de1bbb8e335d85923389ee72",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/cufcke/usd/cufcke.usdz.encrypted",
+            "device": 66309,
+            "inode": 392759614,
+            "size": 3049100,
+            "mtime_ns": 1791970558569467411,
+            "ctime_ns": 1791970558569467411
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2285092,
+          "file_count": 8,
+          "category": "walls",
+          "model": "cufcke",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/d691c419525771dc014139fc82b3e79559e34ab93f6aad30fc00764bc0e995f3-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/d691c419525771dc014139fc82b3e79559e34ab93f6aad30fc00764bc0e995f3-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/cufcke.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/d691c419525771dc014139fc82b3e79559e34ab93f6aad30fc00764bc0e995f3-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "d7dfcca9bf5b06fafded28eda6aa1e94e71e03cb3c2a04efab4fd06a8e063458",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/cxcmht/usd/cxcmht.usdz.encrypted",
+          "encrypted_sha256": "d2a3ce3fc70b050907c29c56412434d005c0395695ddee42a8c57bcf45bbab55",
+          "encrypted_md5": "2efa73a5d95a752632716bb734f55aa4",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/cxcmht/usd/cxcmht.usdz.encrypted",
+            "device": 66309,
+            "inode": 392759629,
+            "size": 3067832,
+            "mtime_ns": 1791970558725467405,
+            "ctime_ns": 1791970558725467405
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2299208,
+          "file_count": 8,
+          "category": "walls",
+          "model": "cxcmht",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/d2a3ce3fc70b050907c29c56412434d005c0395695ddee42a8c57bcf45bbab55-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/d2a3ce3fc70b050907c29c56412434d005c0395695ddee42a8c57bcf45bbab55-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/cxcmht.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/d2a3ce3fc70b050907c29c56412434d005c0395695ddee42a8c57bcf45bbab55-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "043be0585d19470caff557eb31afac34896e101366441a2b57bb5ade85f3b636",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/etttgp/usd/etttgp.usdz.encrypted",
+          "encrypted_sha256": "2462739c40793744cd84eff70439b1094adfa5a1aae2a892689da1cecaea7883",
+          "encrypted_md5": "f8b0e5a5bfaf0fbb69d3c8ac8645f1ad",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/etttgp/usd/etttgp.usdz.encrypted",
+            "device": 66309,
+            "inode": 392759941,
+            "size": 2816908,
+            "mtime_ns": 1791970561357467294,
+            "ctime_ns": 1791970561357467294
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2110994,
+          "file_count": 8,
+          "category": "walls",
+          "model": "etttgp",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/2462739c40793744cd84eff70439b1094adfa5a1aae2a892689da1cecaea7883-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/2462739c40793744cd84eff70439b1094adfa5a1aae2a892689da1cecaea7883-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/etttgp.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/2462739c40793744cd84eff70439b1094adfa5a1aae2a892689da1cecaea7883-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "b6fe5559d3540959da862d7e48feee79cb874845c8a3a7c93a30f06964ddd930",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/ewecsu/usd/ewecsu.usdz.encrypted",
+          "encrypted_sha256": "1b768745c6380ceb136b4d32c0cfa9d0fcb1ef6ae1f622b42c1267f6a1dcec47",
+          "encrypted_md5": "c4ea3c517abdc6e7567254b541acd7c1",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/ewecsu/usd/ewecsu.usdz.encrypted",
+            "device": 66309,
+            "inode": 392759956,
+            "size": 3520740,
+            "mtime_ns": 1791970561397467292,
+            "ctime_ns": 1791970561397467292
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2638802,
+          "file_count": 8,
+          "category": "walls",
+          "model": "ewecsu",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/1b768745c6380ceb136b4d32c0cfa9d0fcb1ef6ae1f622b42c1267f6a1dcec47-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/1b768745c6380ceb136b4d32c0cfa9d0fcb1ef6ae1f622b42c1267f6a1dcec47-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/ewecsu.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/1b768745c6380ceb136b4d32c0cfa9d0fcb1ef6ae1f622b42c1267f6a1dcec47-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "3a7fe8a4162fc30d1c4f2b692083a62a72d415cd31ffdd18be8bca2758f3ebb0",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/gitxjr/usd/gitxjr.usdz.encrypted",
+          "encrypted_sha256": "558367e751b606c752d85a497bbace258edb805ae42567d849fecbc35a1ec5cf",
+          "encrypted_md5": "a299d0071ae63a527106104448fb980c",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/gitxjr/usd/gitxjr.usdz.encrypted",
+            "device": 66309,
+            "inode": 392760214,
+            "size": 3063948,
+            "mtime_ns": 1791970563469467205,
+            "ctime_ns": 1791970563469467205
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2296204,
+          "file_count": 8,
+          "category": "walls",
+          "model": "gitxjr",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/558367e751b606c752d85a497bbace258edb805ae42567d849fecbc35a1ec5cf-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/558367e751b606c752d85a497bbace258edb805ae42567d849fecbc35a1ec5cf-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/gitxjr.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/558367e751b606c752d85a497bbace258edb805ae42567d849fecbc35a1ec5cf-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "13493ebc324454eabd0950379410e928c31fe94d6ae439e223e077fd89ff267e",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/kgxnls/usd/kgxnls.usdz.encrypted",
+          "encrypted_sha256": "df881a9792efc3ae0a3a1b9a8305e75e9a535672ef0071259b55bd94513269cc",
+          "encrypted_md5": "f028c25110b081d24f37dc5e8133b9b6",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/kgxnls/usd/kgxnls.usdz.encrypted",
+            "device": 66309,
+            "inode": 392760868,
+            "size": 2710348,
+            "mtime_ns": 1791970568797466981,
+            "ctime_ns": 1791970568797466981
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2030988,
+          "file_count": 8,
+          "category": "walls",
+          "model": "kgxnls",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/df881a9792efc3ae0a3a1b9a8305e75e9a535672ef0071259b55bd94513269cc-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/df881a9792efc3ae0a3a1b9a8305e75e9a535672ef0071259b55bd94513269cc-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/kgxnls.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/df881a9792efc3ae0a3a1b9a8305e75e9a535672ef0071259b55bd94513269cc-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "d82a7fe774157f54586a3f680deaea9a511faebdd73ab12d6250b49ca36ebf3d",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/nfprcv/usd/nfprcv.usdz.encrypted",
+          "encrypted_sha256": "647bda59c0a332d230141ca6f2166ff66e32bcb125c9237ce4bb81f3993bd0ef",
+          "encrypted_md5": "bb6d7f52d33297b71ff72657717debfc",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/nfprcv/usd/nfprcv.usdz.encrypted",
+            "device": 66309,
+            "inode": 392761366,
+            "size": 2067148,
+            "mtime_ns": 1791970573545466781,
+            "ctime_ns": 1791970573545466781
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 1548507,
+          "file_count": 8,
+          "category": "walls",
+          "model": "nfprcv",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/647bda59c0a332d230141ca6f2166ff66e32bcb125c9237ce4bb81f3993bd0ef-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/647bda59c0a332d230141ca6f2166ff66e32bcb125c9237ce4bb81f3993bd0ef-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/nfprcv.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/647bda59c0a332d230141ca6f2166ff66e32bcb125c9237ce4bb81f3993bd0ef-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "b948dc500f1692129d3732ca3448e1ca1e36be59ec02a6c693164becf0a61955",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/nsqgzs/usd/nsqgzs.usdz.encrypted",
+          "encrypted_sha256": "46f9e2a21c0e5882cb2306f7e8bce0832ffb3f4f14556a0a4819938433ee93e3",
+          "encrypted_md5": "ebc90761b3fb72f2bfc63fa111f649be",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/nsqgzs/usd/nsqgzs.usdz.encrypted",
+            "device": 66309,
+            "inode": 392761453,
+            "size": 3063140,
+            "mtime_ns": 1791970574297466749,
+            "ctime_ns": 1791970574297466749
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2295614,
+          "file_count": 8,
+          "category": "walls",
+          "model": "nsqgzs",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/46f9e2a21c0e5882cb2306f7e8bce0832ffb3f4f14556a0a4819938433ee93e3-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/46f9e2a21c0e5882cb2306f7e8bce0832ffb3f4f14556a0a4819938433ee93e3-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/nsqgzs.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/46f9e2a21c0e5882cb2306f7e8bce0832ffb3f4f14556a0a4819938433ee93e3-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "897bc22ea94d27c09f78a40999a4c474f07fc8cedaea41b57ed59952ca26030d",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/qwfvng/usd/qwfvng.usdz.encrypted",
+          "encrypted_sha256": "11db958b1f5b2d7d64d7f00c04fccb8a0d0441ae31f634064312a4aa2f3b75b6",
+          "encrypted_md5": "6c5f25b5ebf8bd0f80e359dbaadeaad1",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/qwfvng/usd/qwfvng.usdz.encrypted",
+            "device": 66309,
+            "inode": 392761945,
+            "size": 2829412,
+            "mtime_ns": 1791970578365466578,
+            "ctime_ns": 1791970578365466578
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2120195,
+          "file_count": 8,
+          "category": "walls",
+          "model": "qwfvng",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/11db958b1f5b2d7d64d7f00c04fccb8a0d0441ae31f634064312a4aa2f3b75b6-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/11db958b1f5b2d7d64d7f00c04fccb8a0d0441ae31f634064312a4aa2f3b75b6-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/qwfvng.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/11db958b1f5b2d7d64d7f00c04fccb8a0d0441ae31f634064312a4aa2f3b75b6-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "d6e6767110088f425cf0c03e9e204186b484b7618e0a068bd9f05a2f5d4b5a12",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/qysmts/usd/qysmts.usdz.encrypted",
+          "encrypted_sha256": "410abff813278b0d52c057e3e93be8753dfe9257ed5488719b2eee4ee6929dfc",
+          "encrypted_md5": "4203460fafbf7a952c8b7f754883a14b",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/qysmts/usd/qysmts.usdz.encrypted",
+            "device": 66309,
+            "inode": 392761963,
+            "size": 3605516,
+            "mtime_ns": 1791970578609466568,
+            "ctime_ns": 1791970578609466568
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2702342,
+          "file_count": 8,
+          "category": "walls",
+          "model": "qysmts",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/410abff813278b0d52c057e3e93be8753dfe9257ed5488719b2eee4ee6929dfc-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/410abff813278b0d52c057e3e93be8753dfe9257ed5488719b2eee4ee6929dfc-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/qysmts.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/410abff813278b0d52c057e3e93be8753dfe9257ed5488719b2eee4ee6929dfc-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "aa302d98838a6bdef0874ac722c26d68e66744f27a09bf9824e097cfca8053f4",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/smskuw/usd/smskuw.usdz.encrypted",
+          "encrypted_sha256": "55529e7b2ccd1cd20d75e39e14b68a446441c5fc05b2946f7d169bca984245b6",
+          "encrypted_md5": "8097258008814db3eb9ba92fb44b4b85",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/smskuw/usd/smskuw.usdz.encrypted",
+            "device": 66309,
+            "inode": 392762173,
+            "size": 2948324,
+            "mtime_ns": 1791970580421466492,
+            "ctime_ns": 1791970580421466492
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2209526,
+          "file_count": 8,
+          "category": "walls",
+          "model": "smskuw",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/55529e7b2ccd1cd20d75e39e14b68a446441c5fc05b2946f7d169bca984245b6-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/55529e7b2ccd1cd20d75e39e14b68a446441c5fc05b2946f7d169bca984245b6-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/smskuw.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/55529e7b2ccd1cd20d75e39e14b68a446441c5fc05b2946f7d169bca984245b6-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "061cd5c2f479d86473040ea9ad19a53351c2dcc691b027091fa90896ac5b222e",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/vvlnbk/usd/vvlnbk.usdz.encrypted",
+          "encrypted_sha256": "0e9e91107619eb9a1d9eddc4a42f65ffd970380ccfe947c1e7ab66e6c621092d",
+          "encrypted_md5": "286adbf63134e586d9b8d1c979224743",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/vvlnbk/usd/vvlnbk.usdz.encrypted",
+            "device": 66309,
+            "inode": 392762749,
+            "size": 3130828,
+            "mtime_ns": 1791970585149466293,
+            "ctime_ns": 1791970585149466293
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2346422,
+          "file_count": 8,
+          "category": "walls",
+          "model": "vvlnbk",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0e9e91107619eb9a1d9eddc4a42f65ffd970380ccfe947c1e7ab66e6c621092d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0e9e91107619eb9a1d9eddc4a42f65ffd970380ccfe947c1e7ab66e6c621092d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/vvlnbk.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu2/cpu_prepared_assets/8f098b16182c4043abe023d69334b8aa/0e9e91107619eb9a1d9eddc4a42f65ffd970380ccfe947c1e7ab66e6c621092d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "918e5d7720eddf69082b1c01e6d0e5370af1b55646badf7397acb10ffbe5e1bb",
+          "cache_hit": false
+        }
+      ],
+      "prepared_asset_count": 44,
+      "cache_hit_count": 0,
+      "unavailable_asset_count": 0,
+      "total_prepared_bytes": 289215733,
+      "timings_s": {
+        "source_verification": 1.6654003420844674,
+        "lock_wait": 0.002456328831613064,
+        "decryption": 2.712603557854891,
+        "extraction": 8.964627883397043,
+        "cache_validation": 0.0,
+        "total": 13.961793041788042
+      },
+      "worker_pid": 3214572,
+      "max_encrypted_bytes": 2147483648,
+      "min_free_bytes": 0
+    },
+    "cpu_workers": 1,
+    "wait_before_native_s": 14.698406633920968,
+    "native_construction_parallel": false
+  }
+}

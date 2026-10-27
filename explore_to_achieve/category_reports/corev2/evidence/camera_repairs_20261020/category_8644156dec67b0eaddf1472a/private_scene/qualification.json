@@ -1,0 +1,713 @@
+{
+  "status": "accepted_minimal_patch",
+  "reason": null,
+  "checks": {
+    "target_movable_collidable": true,
+    "supports": {
+      "table": {
+        "name": "support_table_top",
+        "fixed_base": true,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "passed": true
+      },
+      "pickup_support": {
+        "name": "sofa_qnnwfx_0",
+        "fixed_base": true,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "passed": true
+      },
+      "multi_support_extra1": {
+        "name": "sofa_qnnwfx_0",
+        "fixed_base": true,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "passed": true
+      },
+      "multi_support_extra2": {
+        "name": "sofa_qnnwfx_0",
+        "fixed_base": true,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "passed": true
+      }
+    },
+    "supported_objects": {
+      "target": {
+        "name": "obj_containee",
+        "support_binding": "pickup_support",
+        "support_name": "sofa_qnnwfx_0",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          1.5812797546386719,
+          -3.501093626022339,
+          0.9016463756561279
+        ],
+        "aabb_min": [
+          1.4501423835754395,
+          -3.6395113468170166,
+          0.6480000019073486
+        ],
+        "aabb_max": [
+          1.5462453365325928,
+          -3.5540413856506348,
+          0.7786052227020264
+        ],
+        "support_surface_z_m": 0.650214433670044,
+        "bottom_minus_support_top_m": -0.0022144317626953125,
+        "linear_speed_m_s": 0.0002613879623822868,
+        "angular_speed_rad_s": 0.00509841600432992,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_containee/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_containee/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_containee/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "container_2": {
+        "name": "obj_container_2",
+        "support_binding": "table",
+        "support_name": "support_table_top",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          2.8568758964538574,
+          -4.132786750793457,
+          0.45000001788139343
+        ],
+        "aabb_min": [
+          2.5529301166534424,
+          -4.61206579208374,
+          0.44999998807907104
+        ],
+        "aabb_max": [
+          2.8074896335601807,
+          -4.4025163650512695,
+          0.7823556661605835
+        ],
+        "support_surface_z_m": 0.45000001788139343,
+        "bottom_minus_support_top_m": -2.9802322387695312e-08,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_container_2/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_2/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_2/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_2/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "container_1": {
+        "name": "obj_container_1",
+        "support_binding": "table",
+        "support_name": "support_table_top",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          2.8568758964538574,
+          -4.132786750793457,
+          0.45000001788139343
+        ],
+        "aabb_min": [
+          2.576852560043335,
+          -4.342319488525391,
+          0.44999977946281433
+        ],
+        "aabb_max": [
+          2.78100323677063,
+          -4.173363208770752,
+          0.7185660600662231
+        ],
+        "support_surface_z_m": 0.45000001788139343,
+        "bottom_minus_support_top_m": -2.384185791015625e-07,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "container_0": {
+        "name": "obj_container_0",
+        "support_binding": "table",
+        "support_name": "support_table_top",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          2.8568758964538574,
+          -4.132786750793457,
+          0.45000001788139343
+        ],
+        "aabb_min": [
+          2.3407721519470215,
+          -4.559065341949463,
+          0.4499996602535248
+        ],
+        "aabb_max": [
+          2.4889438152313232,
+          -4.436874866485596,
+          0.6454833149909973
+        ],
+        "support_surface_z_m": 0.45000001788139343,
+        "bottom_minus_support_top_m": -3.5762786865234375e-07,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "extra1": {
+        "name": "multi_extra1",
+        "support_binding": "multi_support_extra1",
+        "support_name": "sofa_qnnwfx_0",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          1.5812797546386719,
+          -3.501093626022339,
+          0.9016463756561279
+        ],
+        "aabb_min": [
+          1.236799716949463,
+          -3.693134069442749,
+          0.6511838436126709
+        ],
+        "aabb_max": [
+          1.331945776939392,
+          -3.5360422134399414,
+          0.7764183282852173
+        ],
+        "support_surface_z_m": 0.6512635350227356,
+        "bottom_minus_support_top_m": -7.969141006469727e-05,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/multi_extra1/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/multi_extra1/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/multi_extra1/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/multi_extra1/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "extra2": {
+        "name": "multi_extra2",
+        "support_binding": "multi_support_extra2",
+        "support_name": "sofa_qnnwfx_0",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          1.5812797546386719,
+          -3.501093626022339,
+          0.9016463756561279
+        ],
+        "aabb_min": [
+          1.4573395252227783,
+          -3.9107625484466553,
+          0.4982684552669525
+        ],
+        "aabb_max": [
+          1.5594900846481323,
+          -3.753735065460205,
+          0.6279924511909485
+        ],
+        "support_surface_z_m": 0.5010830760002136,
+        "bottom_minus_support_top_m": -0.0028146207332611084,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/multi_extra2/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/multi_extra2/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          },
+          {
+            "body0": "/World/scene_0/multi_extra2/base_link",
+            "body1": "/World/scene_0/sofa_qnnwfx_0/base_link"
+          }
+        ],
+        "passed": true
+      }
+    },
+    "floor_aabb_max_z_m": 0.002000182867050171,
+    "table_leg_floor_gaps_m": {
+      "support_table_leg_1": -0.002000182867050171,
+      "support_table_leg_2": -0.002000182867050171,
+      "support_table_leg_3": -0.002000182867050171,
+      "support_table_leg_4": -0.002000182867050171
+    },
+    "table_leg_local_floor_surfaces": {
+      "support_table_leg_1": {
+        "position": [
+          2.3368759155273438,
+          -4.612786293029785,
+          0.002000182867050171
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_esoefs_0/base_link"
+      },
+      "support_table_leg_2": {
+        "position": [
+          2.3368759155273438,
+          -4.172786712646484,
+          0.002000182867050171
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_esoefs_0/base_link"
+      },
+      "support_table_leg_3": {
+        "position": [
+          2.81687593460083,
+          -4.612786293029785,
+          0.002000182867050171
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_esoefs_0/base_link"
+      },
+      "support_table_leg_4": {
+        "position": [
+          2.81687593460083,
+          -4.172786712646484,
+          0.002000182867050171
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_esoefs_0/base_link"
+      }
+    },
+    "robot_nonfloor_contacts": [],
+    "furniture_aabb_overlap_candidates": []
+  },
+  "applied_scene_patches": [
+    {
+      "operation": "object_scale",
+      "phase": "before_construction",
+      "binding": "target",
+      "multiplier": 0.6156076189497709
+    },
+    {
+      "operation": "robot_pose",
+      "phase": "before_construction",
+      "position": [
+        1.846875925064087,
+        -4.392786502838135,
+        0.1
+      ],
+      "yaw_deg": 0.0,
+      "heading_offsets_deg": [
+        0.0
+      ],
+      "jitter_xy_m": [
+        0.0,
+        0.0
+      ],
+      "head_pitch_deg": 0.0
+    },
+    {
+      "operation": "add_primitive",
+      "phase": "before_construction",
+      "name": "support_table_top",
+      "primitive_type": "Cube",
+      "position": [
+        2.576875925064087,
+        -4.392786502838135,
+        0.43
+      ],
+      "dimensions_m": [
+        0.56,
+        0.52,
+        0.04
+      ],
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rgba": [
+        0.48,
+        0.29,
+        0.14,
+        1.0
+      ],
+      "shared_jitter_x_m": 0.0
+    },
+    {
+      "operation": "add_primitive",
+      "phase": "before_construction",
+      "name": "support_table_leg_1",
+      "primitive_type": "Cube",
+      "position": [
+        2.3368759250640867,
+        -4.6127865028381345,
+        0.20500000000000002
+      ],
+      "dimensions_m": [
+        0.035,
+        0.035,
+        0.41000000000000003
+      ],
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rgba": [
+        0.3,
+        0.2,
+        0.12,
+        1.0
+      ],
+      "shared_jitter_x_m": 0.0
+    },
+    {
+      "operation": "add_primitive",
+      "phase": "before_construction",
+      "name": "support_table_leg_2",
+      "primitive_type": "Cube",
+      "position": [
+        2.3368759250640867,
+        -4.172786502838135,
+        0.20500000000000002
+      ],
+      "dimensions_m": [
+        0.035,
+        0.035,
+        0.41000000000000003
+      ],
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rgba": [
+        0.3,
+        0.2,
+        0.12,
+        1.0
+      ],
+      "shared_jitter_x_m": 0.0
+    },
+    {
+      "operation": "add_primitive",
+      "phase": "before_construction",
+      "name": "support_table_leg_3",
+      "primitive_type": "Cube",
+      "position": [
+        2.816875925064087,
+        -4.6127865028381345,
+        0.20500000000000002
+      ],
+      "dimensions_m": [
+        0.035,
+        0.035,
+        0.41000000000000003
+      ],
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rgba": [
+        0.3,
+        0.2,
+        0.12,
+        1.0
+      ],
+      "shared_jitter_x_m": 0.0
+    },
+    {
+      "operation": "add_primitive",
+      "phase": "before_construction",
+      "name": "support_table_leg_4",
+      "primitive_type": "Cube",
+      "position": [
+        2.816875925064087,
+        -4.172786502838135,
+        0.20500000000000002
+      ],
+      "dimensions_m": [
+        0.035,
+        0.035,
+        0.41000000000000003
+      ],
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rgba": [
+        0.3,
+        0.2,
+        0.12,
+        1.0
+      ],
+      "shared_jitter_x_m": 0.0
+    },
+    {
+      "operation": "add_dataset_object",
+      "phase": "before_construction",
+      "name": "multi_extra1",
+      "category": "spray_can",
+      "model": "tehmzy",
+      "position": [
+        1.2841908931732178,
+        -3.61431884765625,
+        0.7129917740821838
+      ],
+      "scale": [
+        2.377927188609682,
+        3.9291335261541596,
+        0.8267473512744551
+      ],
+      "quaternion_xyzw": [
+        -0.00023748460807837546,
+        0.0002709553809836507,
+        -5.457750376081094e-07,
+        0.9999999403953552
+      ]
+    },
+    {
+      "operation": "add_dataset_object",
+      "phase": "before_construction",
+      "name": "multi_extra2",
+      "category": "colored_pencil",
+      "model": "zisrpq",
+      "position": [
+        1.509343147277832,
+        -3.8347322940826416,
+        0.5636064410209656
+      ],
+      "scale": [
+        0.6264114665310713,
+        20.477167312575247,
+        25.935455051409946
+      ],
+      "quaternion_xyzw": [
+        0.04827207326889038,
+        0.06616578996181488,
+        0.0006534624844789505,
+        0.9966400861740112
+      ]
+    },
+    {
+      "operation": "object_pose",
+      "phase": "after_postprocessing",
+      "binding": "container_0",
+      "position": [
+        2.4149296379089353,
+        -4.507264642715454,
+        0.5406445770263671
+      ],
+      "candidates": [],
+      "quaternion_xyzw": [
+        1.33170397020709e-06,
+        -2.8728391043805723e-07,
+        8.114438969631722e-07,
+        0.9999999999987428
+      ],
+      "jitter_xy_m": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "operation": "object_pose",
+      "phase": "after_postprocessing",
+      "binding": "container_1",
+      "position": [
+        2.6802631092071536,
+        -4.258011789321899,
+        0.5679883344769477
+      ],
+      "candidates": [],
+      "quaternion_xyzw": [
+        -0.0014184837707883842,
+        -0.00030071710328443416,
+        -1.4677642343535497e-06,
+        0.9999989487348782
+      ],
+      "jitter_xy_m": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "operation": "object_pose",
+      "phase": "after_postprocessing",
+      "binding": "container_2",
+      "position": [
+        2.6802631092071536,
+        -4.507264642715454,
+        0.6183138995170593
+      ],
+      "candidates": [],
+      "quaternion_xyzw": [
+        7.777997762351998e-08,
+        2.2648234363668084e-08,
+        -3.485174186781482e-07,
+        0.999999999999936
+      ],
+      "jitter_xy_m": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "operation": "object_pose",
+      "phase": "after_postprocessing",
+      "binding": "target",
+      "position": [
+        1.503667950630188,
+        -3.5965774059295654,
+        0.7052990794181824
+      ],
+      "candidates": [],
+      "quaternion_xyzw": [
+        -0.03154609352350235,
+        0.004090696107596159,
+        6.631857831962407e-05,
+        0.9994940757751465
+      ],
+      "jitter_xy_m": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "operation": "object_pose",
+      "phase": "after_postprocessing",
+      "binding": "extra1",
+      "position": [
+        1.2841908931732178,
+        -3.61431884765625,
+        0.7129917740821838
+      ],
+      "candidates": [],
+      "quaternion_xyzw": [
+        -0.00023748460807837546,
+        0.0002709553809836507,
+        -5.457750376081094e-07,
+        0.9999999403953552
+      ],
+      "jitter_xy_m": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "operation": "object_pose",
+      "phase": "after_postprocessing",
+      "binding": "extra2",
+      "position": [
+        1.509343147277832,
+        -3.8347322940826416,
+        0.5636064410209656
+      ],
+      "candidates": [],
+      "quaternion_xyzw": [
+        0.04827207326889038,
+        0.06616578996181488,
+        0.0006534624844789505,
+        0.9966400861740112
+      ],
+      "jitter_xy_m": [
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

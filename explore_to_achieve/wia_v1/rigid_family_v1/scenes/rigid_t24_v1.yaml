@@ -1,0 +1,264 @@
+kind: scene_patch
+id: wia_rigid_t24_family_v1_scene
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json
+target: target
+bindings:
+  target:
+    name: obj_containee
+    category: first_aid_kit
+    model: flctdz
+  container_2:
+    name: obj_container_2
+    category: tote
+    model: bnkjle
+  container_1:
+    name: obj_container_1
+    category: packing_box
+    model: cjhskr
+  container_0:
+    name: obj_container_0
+    category: mug
+    model: ycbmug
+  table:
+    name: support_table_top
+    category: object
+    model: null
+  pickup_support:
+    name: coffee_table_gcollb_0
+    category: coffee_table
+    model: null
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+      initial_visibility: null
+    tabletop:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - 1.2829767215251922
+        - 0.48491351678967476
+        - 0.1
+        yaw_deg: 0.0
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_top
+        primitive_type: Cube
+        position:
+        - 2.0279767215251923
+        - 0.48491351678967476
+        - 0.43
+        dimensions_m:
+        - 0.59
+        - 0.76
+        - 0.04
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.48
+        - 0.29
+        - 0.14
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_1
+        primitive_type: Cube
+        position:
+        - 1.7729767215251921
+        - 0.14491351678967473
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_2
+        primitive_type: Cube
+        position:
+        - 1.7729767215251921
+        - 0.8249135167896748
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_3
+        primitive_type: Cube
+        position:
+        - 2.282976721525192
+        - 0.14491351678967473
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_4
+        primitive_type: Cube
+        position:
+        - 2.282976721525192
+        - 0.8249135167896748
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_0
+        position:
+        - 1.8550237667560576
+        - 0.316533041447401
+        - 0.4834043143987656
+        candidates: []
+        quaternion_xyzw:
+        - 1.6880219652626534e-08
+        - -7.79982563259295e-09
+        - 4.8210489404441126e-08
+        - 0.9999999999999987
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_1
+        position:
+        - 2.1361502039432523
+        - 0.6850845094025135
+        - 0.48556291896104814
+        candidates: []
+        quaternion_xyzw:
+        - -2.5309982447464207e-06
+        - 2.9034865747019417e-06
+        - -1.2229206447409666e-07
+        - 0.9999999999925745
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_2
+        position:
+        - 2.1361502039432523
+        - 0.316533041447401
+        - 0.5037553108036518
+        candidates: []
+        quaternion_xyzw:
+        - -0.0007792637371605133
+        - 9.68331447058488e-05
+        - -1.0163118276019198e-06
+        - 0.999999691685121
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: target
+        position:
+        - 2.93255352973938
+        - 0.8115564584732056
+        - 0.5056697130203247
+        candidates: []
+        quaternion_xyzw:
+        - 7.610025932081044e-06
+        - -6.331742042675614e-06
+        - 1.1293078387097921e-05
+        - 1.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      initial_visibility: null
+qualification:
+  on_failure: skip
+  support: table
+  supported_objects:
+  - target
+  - container_2
+  - container_1
+  - container_0
+  object_supports:
+    target: pickup_support
+  support_surface_mode: local_raycast
+  support_tolerance_m: 0.015
+  maximum_linear_speed_m_s: 0.02
+  maximum_angular_speed_rad_s: 0.1
+  require_support_contact: true
+  reject_robot_contacts: true
+  screen_furniture_overlap: true
+  settle_steps: 30
+runtime:
+  trunk_config: configs/esi_trunk_low_grasp.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0
+seed: 0

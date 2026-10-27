@@ -1,0 +1,319 @@
+kind: scene_patch
+id: scene_hidden_collection_ff560c315a0a0407f6148a1b__t36_furnished_collection_v1
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/Ihlen_0_int/living_room_0/wia_furnished_background_v1.json
+target: null
+qualification: null
+bindings:
+  wia_t36_target_01:
+    name: wia_t36_target_01
+    category: bottle_of_orange_juice
+    model: edltwh
+  wia_t36_target_02:
+    name: wia_t36_target_02
+    category: bottle_of_orange_juice
+    model: edltwh
+  wia_t36_target_03:
+    name: wia_t36_target_03
+    category: bottle_of_orange_juice
+    model: edltwh
+  collection_plate:
+    name: collection_plate
+    category: tray
+    model: gsxbym
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_room_collection
+        parameters:
+          revision: wia_room_collection_v1
+          operation: search_and_collect_on_right_hand_tray
+          layout:
+            scene_model: Ihlen_0_int
+            native_inventory: []
+            added_inventory:
+            - name: wia_t36_target_01
+              category: bottle_of_orange_juice
+              model: edltwh
+              scale:
+              - 0.7
+              - 0.7
+              - 0.7
+              role: target
+              room: living_room_0
+              public_name: miniature orange juice bottle
+              support: coffee_table_fqluyq_0
+              position:
+              - 0.2
+              - 3.47
+              - 0.6533629040374368
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t36_target_02
+              category: bottle_of_orange_juice
+              model: edltwh
+              scale:
+              - 0.7
+              - 0.7
+              - 0.7
+              role: target
+              room: living_room_0
+              public_name: miniature orange juice bottle
+              support: coffee_table_qlmqyy_0
+              position:
+              - -1.26
+              - 0.05
+              - 0.6521160182381596
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t36_target_03
+              category: bottle_of_orange_juice
+              model: edltwh
+              scale:
+              - 0.7
+              - 0.7
+              - 0.7
+              role: target
+              room: garage_0
+              public_name: miniature orange juice bottle
+              support: bottom_cabinet_jrhgeu_0
+              position:
+              - 3.6
+              - 4.9
+              - 1.0546544109758171
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            support_objects: []
+            route: []
+            plate:
+              name: collection_plate
+              category: tray
+              model: gsxbym
+              right_eef_position_base_m:
+              - 0.4
+              - -0.25
+              - 0.8
+              rim_axis: y
+              rim_penetration_m: 0.025
+              usable_bounds_local_m:
+              - - -0.147
+                - -0.21
+                - -0.0049
+              - - 0.147
+                - 0.21
+                - 0.17
+            robot_start:
+              position:
+              - -0.2
+              - 2.3
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+            source_objects_policy: replace_authored_source_objects
+            scene_config:
+              load_room_instances: null
+              load_room_types: null
+              load_object_categories: null
+              not_load_object_categories: null
+            public_environment: Original furnished rooms and doors, with objects on openly exposed supporting
+              surfaces.
+          plate:
+            name: collection_plate
+            category: tray
+            model: gsxbym
+            right_eef_position_base_m:
+            - 0.4
+            - -0.25
+            - 0.8
+            rim_axis: y
+            rim_penetration_m: 0.025
+            usable_bounds_local_m:
+            - - -0.147
+              - -0.21
+              - -0.0049
+            - - 0.147
+              - 0.21
+              - 0.17
+          targets:
+          - wia_t36_target_01
+          - wia_t36_target_02
+          - wia_t36_target_03
+          distractors: []
+          terminal_dwell_s: 1.0
+          maximum_relative_speed_m_s: 0.03
+          maximum_plate_tilt_deg: 10.0
+          maximum_plate_speed_m_s: 0.03
+          maximum_plate_angular_speed_rad_s: 0.1
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Ihlen_0_int
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_room_collection
+        parameters:
+          revision: wia_room_collection_v1
+          operation: search_and_collect_on_right_hand_tray
+          layout:
+            scene_model: Ihlen_0_int
+            native_inventory: []
+            added_inventory:
+            - name: wia_t36_target_01
+              category: bottle_of_orange_juice
+              model: edltwh
+              scale:
+              - 0.7
+              - 0.7
+              - 0.7
+              role: target
+              room: living_room_0
+              public_name: miniature orange juice bottle
+              support: coffee_table_fqluyq_0
+              position:
+              - 0.2
+              - 3.47
+              - 0.6533629040374368
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t36_target_02
+              category: bottle_of_orange_juice
+              model: edltwh
+              scale:
+              - 0.7
+              - 0.7
+              - 0.7
+              role: target
+              room: living_room_0
+              public_name: miniature orange juice bottle
+              support: coffee_table_qlmqyy_0
+              position:
+              - -1.26
+              - 0.05
+              - 0.6521160182381596
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t36_target_03
+              category: bottle_of_orange_juice
+              model: edltwh
+              scale:
+              - 0.7
+              - 0.7
+              - 0.7
+              role: target
+              room: garage_0
+              public_name: miniature orange juice bottle
+              support: bottom_cabinet_jrhgeu_0
+              position:
+              - 3.6
+              - 4.9
+              - 1.0546544109758171
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            support_objects: []
+            route: []
+            plate:
+              name: collection_plate
+              category: tray
+              model: gsxbym
+              right_eef_position_base_m:
+              - 0.4
+              - -0.25
+              - 0.8
+              rim_axis: y
+              rim_penetration_m: 0.025
+              usable_bounds_local_m:
+              - - -0.147
+                - -0.21
+                - -0.0049
+              - - 0.147
+                - 0.21
+                - 0.17
+            robot_start:
+              position:
+              - -0.2
+              - 2.3
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+            source_objects_policy: replace_authored_source_objects
+            scene_config:
+              load_room_instances: null
+              load_room_types: null
+              load_object_categories: null
+              not_load_object_categories: null
+            public_environment: Original furnished rooms and doors, with objects on openly exposed supporting
+              surfaces.
+          plate:
+            name: collection_plate
+            category: tray
+            model: gsxbym
+            right_eef_position_base_m:
+            - 0.4
+            - -0.25
+            - 0.8
+            rim_axis: y
+            rim_penetration_m: 0.025
+            usable_bounds_local_m:
+            - - -0.147
+              - -0.21
+              - -0.0049
+            - - 0.147
+              - 0.21
+              - 0.17
+          targets:
+          - wia_t36_target_01
+          - wia_t36_target_02
+          - wia_t36_target_03
+          distractors: []
+          terminal_dwell_s: 1.0
+          maximum_relative_speed_m_s: 0.03
+          maximum_plate_tilt_deg: 10.0
+          maximum_plate_speed_m_s: 0.03
+          maximum_plate_angular_speed_rad_s: 0.1
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Ihlen_0_int
+          disable_grid: false
+seed: 0
+target_bindings: []

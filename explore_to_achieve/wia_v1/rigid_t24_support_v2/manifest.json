@@ -1,0 +1,15 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "entries": [
+    {
+      "document_alias": "T24",
+      "variant_id": "t24_supported_spawn_v2",
+      "label": "T24 measured supports and elevated pickup",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t24_support_v2/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t24_support_v2/scene.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/tasks/rigid_t24_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/scenes/rigid_t24_v1.yaml",
+      "variant": "tabletop"
+    }
+  ]
+}

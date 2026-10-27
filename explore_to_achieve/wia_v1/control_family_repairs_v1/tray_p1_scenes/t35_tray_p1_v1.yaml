@@ -1,0 +1,323 @@
+kind: scene_patch
+id: scene_hidden_collection_f7f89193432473c2bb37aeb5__t35_furnished_collection_v3__t35_tray_p1_v1
+version: 3
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/Merom_0_int/playroom_0/wia_furnished_background_v1.json
+target: null
+qualification: null
+bindings:
+  wia_t35_target_01:
+    name: wia_t35_target_01
+    category: banana
+    model: znakxm
+  wia_t35_target_02:
+    name: wia_t35_target_02
+    category: banana
+    model: znakxm
+  wia_t35_target_03:
+    name: wia_t35_target_03
+    category: banana
+    model: znakxm
+  collection_plate:
+    name: collection_plate
+    category: tray
+    model: gsxbym
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_room_collection
+        parameters:
+          revision: wia_room_collection_v1
+          operation: search_and_collect_on_right_hand_tray
+          layout:
+            scene_model: Merom_0_int
+            native_inventory: []
+            added_inventory:
+            - name: wia_t35_target_01
+              category: banana
+              model: znakxm
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: playroom_0
+              public_name: banana
+              support: countertop_tpuwys_0
+              position:
+              - -2.0
+              - 8.35
+              - 1.0696154355009126
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t35_target_02
+              category: banana
+              model: znakxm
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: playroom_0
+              public_name: banana
+              support: countertop_tpuwys_0
+              position:
+              - -0.6
+              - 8.35
+              - 1.0696154355009126
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t35_target_03
+              category: banana
+              model: znakxm
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: playroom_0
+              public_name: banana
+              support: bookcase_owvfik_0
+              position:
+              - -0.035
+              - 5.57
+              - 1.052252261996512
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            support_objects: []
+            route: []
+            plate:
+              name: collection_plate
+              category: tray
+              model: gsxbym
+              right_eef_position_base_m:
+              - 0.45
+              - -0.25
+              - 0.85
+              rim_axis: y
+              rim_penetration_m: 0.025
+              usable_bounds_local_m:
+              - - -0.147
+                - -0.21
+                - -0.0049
+              - - 0.147
+                - 0.21
+                - 0.17
+            robot_start:
+              position:
+              - -0.8
+              - 6.3
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+            source_objects_policy: replace_authored_source_objects
+            scene_config:
+              load_room_instances: null
+              load_room_types: null
+              load_object_categories: null
+              not_load_object_categories: null
+            public_environment: Original furnished rooms and doors, with objects on openly
+              exposed supporting surfaces.
+          plate:
+            name: collection_plate
+            category: tray
+            model: gsxbym
+            right_eef_position_base_m:
+            - 0.45
+            - -0.25
+            - 0.85
+            rim_axis: y
+            rim_penetration_m: 0.025
+            usable_bounds_local_m:
+            - - -0.147
+              - -0.21
+              - -0.0049
+            - - 0.147
+              - 0.21
+              - 0.17
+          targets:
+          - wia_t35_target_01
+          - wia_t35_target_02
+          - wia_t35_target_03
+          distractors: []
+          terminal_dwell_s: 1.0
+          maximum_relative_speed_m_s: 0.03
+          maximum_plate_tilt_deg: 10.0
+          maximum_plate_speed_m_s: 0.03
+          maximum_plate_angular_speed_rad_s: 0.1
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Merom_0_int
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_room_collection
+        parameters:
+          revision: wia_room_collection_v1
+          operation: search_and_collect_on_right_hand_tray
+          layout:
+            scene_model: Merom_0_int
+            native_inventory: []
+            added_inventory:
+            - name: wia_t35_target_01
+              category: banana
+              model: znakxm
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: playroom_0
+              public_name: banana
+              support: countertop_tpuwys_0
+              position:
+              - -2.0
+              - 8.35
+              - 1.0696154355009126
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t35_target_02
+              category: banana
+              model: znakxm
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: playroom_0
+              public_name: banana
+              support: countertop_tpuwys_0
+              position:
+              - -0.6
+              - 8.35
+              - 1.0696154355009126
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t35_target_03
+              category: banana
+              model: znakxm
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: playroom_0
+              public_name: banana
+              support: bookcase_owvfik_0
+              position:
+              - -0.035
+              - 5.57
+              - 1.052252261996512
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            support_objects: []
+            route: []
+            plate:
+              name: collection_plate
+              category: tray
+              model: gsxbym
+              right_eef_position_base_m:
+              - 0.45
+              - -0.25
+              - 0.85
+              rim_axis: y
+              rim_penetration_m: 0.025
+              usable_bounds_local_m:
+              - - -0.147
+                - -0.21
+                - -0.0049
+              - - 0.147
+                - 0.21
+                - 0.17
+            robot_start:
+              position:
+              - -0.8
+              - 6.3
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+            source_objects_policy: replace_authored_source_objects
+            scene_config:
+              load_room_instances: null
+              load_room_types: null
+              load_object_categories: null
+              not_load_object_categories: null
+            public_environment: Original furnished rooms and doors, with objects on openly
+              exposed supporting surfaces.
+          plate:
+            name: collection_plate
+            category: tray
+            model: gsxbym
+            right_eef_position_base_m:
+            - 0.45
+            - -0.25
+            - 0.85
+            rim_axis: y
+            rim_penetration_m: 0.025
+            usable_bounds_local_m:
+            - - -0.147
+              - -0.21
+              - -0.0049
+            - - 0.147
+              - 0.21
+              - 0.17
+          targets:
+          - wia_t35_target_01
+          - wia_t35_target_02
+          - wia_t35_target_03
+          distractors: []
+          terminal_dwell_s: 1.0
+          maximum_relative_speed_m_s: 0.03
+          maximum_plate_tilt_deg: 10.0
+          maximum_plate_speed_m_s: 0.03
+          maximum_plate_angular_speed_rad_s: 0.1
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Merom_0_int
+          disable_grid: false
+seed: 0
+target_bindings: []

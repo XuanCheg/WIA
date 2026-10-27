@@ -1,0 +1,465 @@
+kind: category_robot_task
+id: wia_rigid_t24_family_v1__t24_furnished_native_support_v1
+version: 7
+status: pending
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/house_single_floor/utility_room_0/t24_furnished_native_support_v1.json
+public:
+  objective: 'Find the target on the exposed furniture surface and inspect the containers
+    distributed along the other counter. Which container does the first aid kit best
+    fit inside: the packing box or the mug or the tote? For every named object, perform
+    a real robot grasp, lift it at least 5 cm, and partially insert it into the container
+    selected for that object. Release it and withdraw the robot hands at least 2 cm
+    clear.'
+  success_criteria: 'Answer the original containment question for every named object.
+    For each object, complete an actual grasp and a lift of at least 5 cm, then release
+    it partially inside its selected container while touching that container. With
+    no robot contact or support, and the robot hands at least 2 cm clear, maintain
+    this state for at least 0.5 seconds with linear speed at most 0.02 m/s and angular
+    speed at most 0.1 rad/s. An object resting entirely on top does not count as inside.
+    Finish with empty hands and the working gripper open. Submit ANSWER: <container
+    label> and declare DONE.'
+  environment: A furnished utility room. The target and containers occupy separate
+    native furniture surfaces; none is deliberately hidden.
+  constraints:
+  - Complete every target subtask before declaring DONE. An object resting entirely
+    on top does not count as inside.
+  - Use the existing guarded public robot controls and visible object/container labels.
+  - Preserve all asset scales and keep every container within 2 cm and 0.05 radians
+    of its starting pose.
+  - Targets may be verified sequentially. An object may be removed after its released,
+    stable partial insertion has been completely verified, to free a shared container.
+    Simultaneous packing is not required.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    target:
+      name: obj_containee
+      category: first_aid_kit
+      model: flctdz
+    container_2:
+      name: obj_container_2
+      category: tote
+      model: bnkjle
+    container_1:
+      name: obj_container_1
+      category: packing_box
+      model: cjhskr
+    container_0:
+      name: obj_container_0
+      category: mug
+      model: ycbmug
+    table:
+      name: countertop_ikwqer_0
+      category: countertop
+      model: ikwqer
+    pickup_support:
+      name: countertop_fjkase_0
+      category: countertop
+      model: fjkase
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.rigid_partial_insertion
+    operation: pick_release_partial_insert
+    binding_keys:
+    - target
+    - container_2
+    - container_1
+    - container_0
+    - table
+    - pickup_support
+    parameters:
+      scorer_version: wia_rigid_partial_insertion_v1
+      targets:
+      - target
+      containers:
+      - container_0
+      - container_1
+      - container_2
+      expected_containers:
+        target: container_1
+      target_labels:
+        target: first aid kit
+      expected_answers:
+        target: packing box
+      minimum_lift_m: 0.05
+      stability_duration_s: 0.5
+      maximum_linear_speed_m_s: 0.02
+      maximum_angular_speed_rad_s: 0.1
+      max_sample_gap_s: 0.1
+      interior_margin_m: 0.002
+      penetration_tolerance_m: 0.001
+      withdrawal_clearance_m: 0.02
+      container_pose_tolerance_m: 0.02
+      maximum_container_rotation_rad: 0.05
+      scale_relative_tolerance: 0.0001
+      allow_remove_after_verification: true
+      initial_supports:
+        target: pickup_support
+        container_0: table
+        container_1: table
+        container_2: table
+      initial_support_tolerance_m: 0.015
+      maximum_initial_linear_speed_m_s: 0.02
+      maximum_initial_angular_speed_rad_s: 0.1
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    tabletop:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: wia_furnished_rigid_layout_v1
+          layout:
+            shared_layout_id: t24_furnished_native_support_v1
+            scene_model: house_single_floor
+            rooms:
+            - utility_room_0
+            floor_name: floors_glwobe_0
+            objects:
+            - type: DatasetObject
+              name: obj_containee
+              category: first_aid_kit
+              model: flctdz
+              position:
+              - 21.94
+              - 0.8
+              - 1.215742944328716
+              orientation:
+              - 7.610025932081044e-06
+              - -6.331742042675614e-06
+              - 1.1293078387097921e-05
+              - 1.0
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_0
+              category: mug
+              model: ycbmug
+              position:
+              - 24.51
+              - -0.9
+              - 1.2275437389647408
+              orientation:
+              - 1.6880219652626534e-08
+              - -7.79982563259295e-09
+              - 4.8210489404441126e-08
+              - 0.9999999999999987
+              scale:
+              - 1.5675586174806306
+              - 1.540657814790909
+              - 0.8232834353809855
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_1
+              category: packing_box
+              model: cjhskr
+              position:
+              - 24.51
+              - 0.1
+              - 1.2275437389647408
+              orientation:
+              - -2.5309982447464207e-06
+              - 2.9034865747019417e-06
+              - -1.2229206447409666e-07
+              - 0.9999999999925745
+              scale:
+              - 0.5770021821353934
+              - 0.5793293758735365
+              - 0.44997830507824754
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_2
+              category: tote
+              model: bnkjle
+              position:
+              - 24.51
+              - 1.1
+              - 1.2275437389647408
+              orientation:
+              - -0.0007792637371605133
+              - 9.68331447058488e-05
+              - -1.0163118276019198e-06
+              - 0.999999691685121
+              scale:
+              - 0.8090281963621989
+              - 1.3745362674476342
+              - 0.26327469882706944
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: obj_containee
+              support: countertop_fjkase_0
+            - name: obj_container_0
+              support: countertop_ikwqer_0
+            - name: obj_container_1
+              support: countertop_ikwqer_0
+            - name: obj_container_2
+              support: countertop_ikwqer_0
+            robot_start:
+              position:
+              - 23.25
+              - 0.15
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: house_single_floor
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: wia_furnished_rigid_layout_v1
+          layout:
+            shared_layout_id: t24_furnished_native_support_v1
+            scene_model: house_single_floor
+            rooms:
+            - utility_room_0
+            floor_name: floors_glwobe_0
+            objects:
+            - type: DatasetObject
+              name: obj_containee
+              category: first_aid_kit
+              model: flctdz
+              position:
+              - 21.94
+              - 0.8
+              - 1.215742944328716
+              orientation:
+              - 7.610025932081044e-06
+              - -6.331742042675614e-06
+              - 1.1293078387097921e-05
+              - 1.0
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_0
+              category: mug
+              model: ycbmug
+              position:
+              - 24.51
+              - -0.9
+              - 1.2275437389647408
+              orientation:
+              - 1.6880219652626534e-08
+              - -7.79982563259295e-09
+              - 4.8210489404441126e-08
+              - 0.9999999999999987
+              scale:
+              - 1.5675586174806306
+              - 1.540657814790909
+              - 0.8232834353809855
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_1
+              category: packing_box
+              model: cjhskr
+              position:
+              - 24.51
+              - 0.1
+              - 1.2275437389647408
+              orientation:
+              - -2.5309982447464207e-06
+              - 2.9034865747019417e-06
+              - -1.2229206447409666e-07
+              - 0.9999999999925745
+              scale:
+              - 0.5770021821353934
+              - 0.5793293758735365
+              - 0.44997830507824754
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_2
+              category: tote
+              model: bnkjle
+              position:
+              - 24.51
+              - 1.1
+              - 1.2275437389647408
+              orientation:
+              - -0.0007792637371605133
+              - 9.68331447058488e-05
+              - -1.0163118276019198e-06
+              - 0.999999691685121
+              scale:
+              - 0.8090281963621989
+              - 1.3745362674476342
+              - 0.26327469882706944
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: obj_containee
+              support: countertop_fjkase_0
+            - name: obj_container_0
+              support: countertop_ikwqer_0
+            - name: obj_container_1
+              support: countertop_ikwqer_0
+            - name: obj_container_2
+              support: countertop_ikwqer_0
+            robot_start:
+              position:
+              - 23.25
+              - 0.15
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: house_single_floor
+          disable_grid: false
+qualification:
+  on_failure: skip
+  support: null
+  initial_visibility: none
+defaults:
+  seed: 0
+  max_steps: 60
+  wall_timeout_s: 5400.0
+  world_advances_during_inference: true
+  observation_condition: current
+  action_mode: parameterized
+repair:
+  family_revision: wia_rigid_family_v1
+  contract_revision: wia_furnished_rigid_layout_v1
+  document_alias: T24
+  validation_status: pending-native-calibration-and-scene-review
+  parent_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t24_support_v6/task.yaml
+  parent_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t24_support_v6/scene.yaml
+  scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t24_support_v6/scene.yaml
+  original_scene_qualification:
+    on_failure: skip
+    support: table
+    supported_objects:
+    - target
+    - container_2
+    - container_1
+    - container_0
+    object_supports:
+      target: pickup_support
+    support_surface_mode: local_raycast
+    support_tolerance_m: 0.015
+    maximum_linear_speed_m_s: 0.02
+    maximum_angular_speed_rad_s: 0.1
+    require_support_contact: true
+    reject_robot_contacts: true
+    screen_furniture_overlap: true
+    settle_steps: 30
+  original_qa_provenance:
+    question_source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
+      Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json
+    question_source_identity: Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json
+    question_source_sha256: 1a9bddbf21c57eb6dc37022c21727a45b45f0efde31bdb75df008238d1757035
+    scene_source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
+      Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json
+    scene_source_identity: Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json
+    scene_source_sha256: 1a9bddbf21c57eb6dc37022c21727a45b45f0efde31bdb75df008238d1757035
+    original_qa_id: '2089'
+    original_question: 'Which container does the first aid kit best fit inside: the
+      packing box or the mug or the tote?'
+    original_answer: '[{"_key":"first aid kit","value":"packing box"}]'
+    answer_type: sequence
+    original_options:
+    - packing box
+    - mug
+    - tote
+    verified_answer_by_public_label:
+      first aid kit: packing box
+    verification_basis: Original QA answer and named source target_container/idx metadata;
+      no AABB inference.
+  parameters_provisional: true
+  parameters_calibrated: false
+  threshold_basis: Explicit common provisional Rigid family criteria; native calibration
+    is pending.
+  native_validation_run: false
+  physically_qualified: false
+  legal_robot_reference_verified: false
+  reference_execution_status: Deferred until user scene review.
+  support_revision: wia_rigid_support_v6
+  physical_success_verified: false
+  runtime:
+    reflection_sensor_profile: {}
+    requires_native_visual_discovery: false
+    post_controller_settle_steps: 0
+    trunk_config: configs/esi_trunk_low_grasp.json
+    robot_camera_config: configs/esi_robot_cameras.json
+    viewer_config: configs/esi_viewer.json
+    camera_size:
+    - 512
+    - 512
+    viewer_main_view: global_diagonal
+    debug_cameras: true
+    human_depth_visualizations: true
+    preview_fps: 2.0
+  repair_reason: 'V3 restores the existing native coffee_table_gcollb_0 as the pickup
+    support. The v2 target settled on that native table above the invented pickup
+    tabletop. Remove the five invented pickup-support primitives and align the target
+    bottom to the measured native table top during initialization only. Retain measured
+    container bottom alignment, all container transforms, original asset scales, public
+    criteria, QA and insertion scorer. Scene review is pending; actual operability
+    and public-control references are deferred until user review. V4 opts only the
+    target supported item into bound local upward-surface ray measurement during initialization
+    alignment and support receipt. The native table global AABB maximum is retained
+    as diagnostic evidence; the local measured support height determines its bottom
+    gap. Original touching, footprint, speed, gap thresholds, all object transforms,
+    insertion scoring and runtime are unchanged. Actual operability remains deferred
+    until user review. V5 explicitly separates target alignment from support measurement:
+    restore the V3 AABB-top initial placement, retain the existing 90 settling steps,
+    and measure the final target support gap with a bound local upward-surface ray.
+    The V4 initial local-ray failure remains preserved; its cause is unverified. No
+    missing-hit fallback is allowed. Geometry, original thresholds, insertion scoring
+    and runtime remain unchanged; actual operability remains deferred until user review.
+    V6 keeps V5 geometry, AABB-top initial alignment and all 90 initialization settling
+    steps unchanged. Final support measurement now casts from above the bound support
+    AABB high Z plus 0.10 m to below its low Z minus 0.10 m; nonfinite or at-most-1e-6
+    m hit distances cannot provide surface evidence. The actual selected positive
+    distance, endpoints and hit position are retained privately. This excludes zero-distance
+    inside-origin hits from support validation without fallback or threshold changes.
+    V5 nominal acceptance remains historical; native support validation and actual
+    operability are not claimed.'
+  parent_task_sha256: 04d321e8f8dc27c861ad0992dccb8771db7860ffcb127e2185b0b59e8abd4704
+  parent_scene_sha256: 0b4dd55b7c277a8826925dca71c65040e8b2234ba4103353ec5eee9e94227873
+  original_qa_source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
+    Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json
+  original_qa_source_sha256: 1a9bddbf21c57eb6dc37022c21727a45b45f0efde31bdb75df008238d1757035
+  full_reference_execution: deferred_until_user_review
+  original_support_v6_hold_preserved: true

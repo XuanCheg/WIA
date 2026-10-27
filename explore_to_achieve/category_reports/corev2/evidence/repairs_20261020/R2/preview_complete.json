@@ -1,0 +1,1050 @@
+{
+  "schema": "scene_review_preview_v1",
+  "id": "category_b3c938a7ccbf37c138c331e2",
+  "fingerprint": "352f23a3a5edc2e9048a905b5f1400cbad9469b9b42f3488b7134a6dd4de29f2",
+  "capture_signature": "6b57dbb036342e5ab62e274ff055a37463baacd3a482be77bab188875b33c5a5",
+  "capture_protocol": "esi_parallel_capture_v1",
+  "variant": "tabletop",
+  "seed": 0,
+  "images": {
+    "global_diagonal": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/global_diagonal.png",
+    "global_overhead": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/global_overhead.png",
+    "global_front": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/global_front.png",
+    "global_back": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/global_back.png",
+    "global_left": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/global_left.png",
+    "global_right": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/global_right.png",
+    "head": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/head.png",
+    "wrist": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/wrist.png",
+    "scene": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/scene.png",
+    "right_wrist": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/right_wrist.png",
+    "chassis_front_left": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/chassis_front_left.png",
+    "chassis_front_right": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/chassis_front_right.png",
+    "chassis_left": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/chassis_left.png",
+    "chassis_right": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/chassis_right.png",
+    "chassis_rear": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/chassis_rear.png",
+    "initial_overview_rgb": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/initial_overview_rgb.png",
+    "object_overview": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/object_overview.png",
+    "object_top": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/object_top.png",
+    "object_side": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/object_side.png",
+    "object_detail_00": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/object_detail_00.png",
+    "object_detail_01": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/object_detail_01.png",
+    "object_detail_02": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/object_detail_02.png",
+    "object_detail_03": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/object_detail_03.png",
+    "object_detail_04": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/object_detail_04.png",
+    "object_detail_05": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/queue/jobs/capture_6b57dbb036342e5ab62e274ff055a374/attempts/01/object_detail_05.png"
+  },
+  "complete": true,
+  "code_commit": "working_f7ae18e731a0b36e6062035ed4e72435",
+  "esi_commit": "9f6f15ed43e81654a97de9e4db2a1fedadca2bc1",
+  "diagnostic_pending": false,
+  "native_qualification_run": true,
+  "eligible_final_layout": true,
+  "provenance": "Fresh native exact-snapshot initialization; existing qualification gate passed.",
+  "target_location": null,
+  "job_id": "capture_6b57dbb036342e5ab62e274ff055a374",
+  "capture_job_id": "capture_6b57dbb036342e5ab62e274ff055a374",
+  "execution_mode": "local",
+  "pbs_job_id": null,
+  "gpu": {
+    "physical_index": 6,
+    "uuid": "GPU-bcb75ec0-721b-ab41-7c7f-649b231cd6d7",
+    "pci_bus_id": "00000000:C1:00.0",
+    "renderer_index": 6,
+    "vulkan_enumeration_index": 5,
+    "renderer_order": "pci",
+    "slot": 0,
+    "execution_mode": "local",
+    "pbs_job_id": null,
+    "hostname": "deep59",
+    "allocation_gpu_count": 1,
+    "inherited_cuda_visible_devices": "GPU-bcb75ec0-721b-ab41-7c7f-649b231cd6d7",
+    "wait_for_capture": false,
+    "retain_world": false,
+    "texture_cache_max_bytes": 0,
+    "automatic_disk_thresholds": false,
+    "appdata_path": "/tmp/show-harness-zhouxinyang/task_edit2_capture/worker_caches/task_edit2_gpu6",
+    "native_tmp_path": "/tmp/show-harness-zhouxinyang/task_edit2_capture/worker_caches/task_edit2_gpu6/native_tmp",
+    "renderer_active_gpu": 6,
+    "renderer_multi_gpu": false,
+    "cuda_device_count": 1,
+    "cuda_device": "cuda:0",
+    "physics_device": "cpu",
+    "native_process_pid": 3974948,
+    "verified_process_gpu_uuids": [
+      "GPU-bcb75ec0-721b-ab41-7c7f-649b231cd6d7"
+    ]
+  },
+  "model_calls": 0,
+  "robot_actions": 0,
+  "physical_grasp_verified": false,
+  "background_reused": false,
+  "human_camera_framing": {
+    "target_world_m": [
+      1.9375754594802856,
+      0.51658695936203,
+      0.6537650227546692
+    ],
+    "include_robot": true,
+    "task_object_count": 4
+  },
+  "human_review_cameras": {
+    "strategy": "category_bounds_and_native_visibility_v1",
+    "profile": {
+      "purpose": "Container or enclosure interiors and their support surfaces.",
+      "detail_elevations": [
+        90.0,
+        45.0
+      ],
+      "overview_elevation": 60.0,
+      "known_profile": true
+    },
+    "views": {
+      "global_diagonal": {
+        "position_world_m": [
+          1.2627414017981184,
+          -0.34228942170084575,
+          2.8736099674200557
+        ],
+        "target_world_m": [
+          2.1212016940116882,
+          0.5161708705127239,
+          0.7708202870562673
+        ],
+        "clipping_range_m": [
+          1.0857523471237456,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            0.932158350944519,
+            0.022893689572811127,
+            5.4016709327697754e-08
+          ],
+          [
+            3.3102450370788574,
+            1.0094480514526367,
+            1.5416405200958252
+          ]
+        ],
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          1.2627414464950562,
+          -0.34228941798210144,
+          2.873610019683838
+        ],
+        "actual_quaternion_xyzw": [
+          0.2391175925731659,
+          -0.09904573112726212,
+          -0.3696437478065491,
+          0.8923991322517395
+        ],
+        "position_error_m": 6.887051784695931e-08,
+        "object_pixels": {
+          "obj_containee": 610,
+          "obj_container_0": 113,
+          "obj_container_1": 1432,
+          "obj_container_2": 2370,
+          "support_table_top": 5561,
+          "coffee_table_gcollb_0": 8393
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "human_cutaway_before_framed_bounds": true,
+        "intended_objects": [
+          "obj_containee",
+          "obj_container_0",
+          "obj_container_1",
+          "obj_container_2",
+          "support_table_top",
+          "coffee_table_gcollb_0"
+        ],
+        "view_purpose": "Container or enclosure interiors and their support surfaces.",
+        "framing_scope": "full_task_context"
+      },
+      "global_overhead": {
+        "position_world_m": [
+          2.1212016940116882,
+          0.5161708705127239,
+          3.1047553072754264
+        ],
+        "target_world_m": [
+          2.1212016940116882,
+          0.5161708705127239,
+          0.7708202870562673
+        ],
+        "clipping_range_m": [
+          1.483114787179601,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            0.932158350944519,
+            0.022893689572811127,
+            5.4016709327697754e-08
+          ],
+          [
+            3.3102450370788574,
+            1.0094480514526367,
+            1.5416405200958252
+          ]
+        ],
+        "human_cutaway_above_framed_bounds": true,
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          2.121201753616333,
+          0.516170859336853,
+          3.104755401611328
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position_error_m": 1.1214667239538082e-07,
+        "object_pixels": {
+          "obj_containee": 856,
+          "obj_container_0": 492,
+          "obj_container_1": 1702,
+          "obj_container_2": 2431,
+          "support_table_top": 7597,
+          "coffee_table_gcollb_0": 11894
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "obj_containee",
+          "obj_container_0",
+          "obj_container_1",
+          "obj_container_2",
+          "support_table_top",
+          "coffee_table_gcollb_0"
+        ],
+        "view_purpose": "Container or enclosure interiors and their support surfaces.",
+        "framing_scope": "full_task_context"
+      },
+      "global_front": {
+        "position_world_m": [
+          3.087894179030309,
+          0.5161708705127239,
+          2.445180786403534
+        ],
+        "target_world_m": [
+          2.1212016940116882,
+          0.5161708705127239,
+          0.7708202870562673
+        ],
+        "clipping_range_m": [
+          0.5913133949403586,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            0.932158350944519,
+            0.022893689572811127,
+            5.4016709327697754e-08
+          ],
+          [
+            3.3102450370788574,
+            1.0094480514526367,
+            1.5416405200958252
+          ]
+        ],
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          3.0878942012786865,
+          0.516170859336853,
+          2.445180892944336
+        ],
+        "actual_quaternion_xyzw": [
+          0.1830126941204071,
+          0.1830127239227295,
+          0.6830127239227295,
+          0.6830126643180847
+        ],
+        "position_error_m": 1.0941130137009918e-07,
+        "object_pixels": {
+          "obj_containee": 1827,
+          "obj_container_0": 649,
+          "obj_container_1": 2814,
+          "obj_container_2": 3576,
+          "support_table_top": 8569,
+          "coffee_table_gcollb_0": 27679
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "human_cutaway_before_framed_bounds": true,
+        "intended_objects": [
+          "obj_containee",
+          "obj_container_0",
+          "obj_container_1",
+          "obj_container_2",
+          "support_table_top",
+          "coffee_table_gcollb_0"
+        ],
+        "view_purpose": "Container or enclosure interiors and their support surfaces.",
+        "framing_scope": "full_task_context"
+      },
+      "global_back": {
+        "position_world_m": [
+          1.0666471607383692,
+          0.516170870512724,
+          2.5973623180377396
+        ],
+        "target_world_m": [
+          2.1212016940116882,
+          0.5161708705127239,
+          0.7708202870562673
+        ],
+        "clipping_range_m": [
+          0.767037491449755,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            0.932158350944519,
+            0.022893689572811127,
+            5.4016709327697754e-08
+          ],
+          [
+            3.3102450370788574,
+            1.0094480514526367,
+            1.5416405200958252
+          ]
+        ],
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          1.0666471719741821,
+          0.516170859336853,
+          2.5973622798919678
+        ],
+        "actual_quaternion_xyzw": [
+          -0.1830126941204071,
+          0.1830127239227295,
+          0.6830127239227295,
+          -0.6830126643180847
+        ],
+        "position_error_m": 4.1306700391471375e-08,
+        "object_pixels": {
+          "obj_containee": 752,
+          "obj_container_0": 705,
+          "obj_container_1": 1517,
+          "obj_container_2": 2501,
+          "support_table_top": 8483,
+          "coffee_table_gcollb_0": 9314
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "human_cutaway_before_framed_bounds": true,
+        "intended_objects": [
+          "obj_containee",
+          "obj_container_0",
+          "obj_container_1",
+          "obj_container_2",
+          "support_table_top",
+          "coffee_table_gcollb_0"
+        ],
+        "view_purpose": "Container or enclosure interiors and their support surfaces.",
+        "framing_scope": "full_task_context"
+      },
+      "global_left": {
+        "position_world_m": [
+          2.1212016940116882,
+          1.7334388679688226,
+          2.8791903050778527
+        ],
+        "target_world_m": [
+          2.1212016940116882,
+          0.5161708705127239,
+          0.7708202870562673
+        ],
+        "clipping_range_m": [
+          1.4403475008789424,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            0.932158350944519,
+            0.022893689572811127,
+            5.4016709327697754e-08
+          ],
+          [
+            3.3102450370788574,
+            1.0094480514526367,
+            1.5416405200958252
+          ]
+        ],
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          2.121201753616333,
+          1.7334388494491577,
+          2.87919020652771
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.2588190734386444,
+          0.9659258127212524,
+          6.123234262925839e-17
+        ],
+        "position_error_m": 1.1665257089345073e-07,
+        "object_pixels": {
+          "obj_containee": 921,
+          "obj_container_0": 427,
+          "obj_container_1": 1900,
+          "obj_container_2": 2115,
+          "support_table_top": 6196,
+          "coffee_table_gcollb_0": 12333
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "human_cutaway_before_framed_bounds": true,
+        "intended_objects": [
+          "obj_containee",
+          "obj_container_0",
+          "obj_container_1",
+          "obj_container_2",
+          "support_table_top",
+          "coffee_table_gcollb_0"
+        ],
+        "view_purpose": "Container or enclosure interiors and their support surfaces.",
+        "framing_scope": "full_task_context"
+      },
+      "global_right": {
+        "position_world_m": [
+          2.121201694011688,
+          -0.7224807700937044,
+          2.9162278614651456
+        ],
+        "target_world_m": [
+          2.1212016940116882,
+          0.5161708705127239,
+          0.7708202870562673
+        ],
+        "clipping_range_m": [
+          1.483114787179601,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            0.932158350944519,
+            0.022893689572811127,
+            5.4016709327697754e-08
+          ],
+          [
+            3.3102450370788574,
+            1.0094480514526367,
+            1.5416405200958252
+          ]
+        ],
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          2.121201753616333,
+          -0.7224807739257812,
+          2.9162278175354004
+        ],
+        "actual_quaternion_xyzw": [
+          0.2588191032409668,
+          -4.6396735920389184e-17,
+          -1.7315494847047676e-16,
+          0.9659258127212524
+        ],
+        "position_error_m": 7.414324686758596e-08,
+        "object_pixels": {
+          "obj_containee": 687,
+          "obj_container_0": 487,
+          "obj_container_1": 1572,
+          "obj_container_2": 2435,
+          "support_table_top": 6261,
+          "coffee_table_gcollb_0": 10271
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "human_cutaway_before_framed_bounds": true,
+        "intended_objects": [
+          "obj_containee",
+          "obj_container_0",
+          "obj_container_1",
+          "obj_container_2",
+          "support_table_top",
+          "coffee_table_gcollb_0"
+        ],
+        "view_purpose": "Container or enclosure interiors and their support surfaces.",
+        "framing_scope": "full_task_context"
+      },
+      "object_overview": {
+        "position_world_m": [
+          1.8586323868267063,
+          0.5571807920932771,
+          1.4363820694990599
+        ],
+        "target_world_m": [
+          2.521610915660858,
+          0.557180792093277,
+          0.28806957323104143
+        ],
+        "clipping_range_m": [
+          0.01,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            1.7329767942428589,
+            0.10491353273391724,
+            5.4016709327697754e-08
+          ],
+          [
+            3.3102450370788574,
+            1.0094480514526367,
+            0.5761390924453735
+          ]
+        ],
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          1.8586324453353882,
+          0.5571808218955994,
+          1.4363820552825928
+        ],
+        "actual_quaternion_xyzw": [
+          -0.1830126941204071,
+          0.1830127239227295,
+          0.6830127239227295,
+          -0.6830126643180847
+        ],
+        "position_error_m": 6.71829755809267e-08,
+        "object_pixels": {
+          "obj_containee": 3161,
+          "obj_container_0": 6068,
+          "obj_container_1": 15104,
+          "obj_container_2": 19852,
+          "support_table_top": 65250,
+          "coffee_table_gcollb_0": 39028
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "obj_containee",
+          "obj_container_0",
+          "obj_container_1",
+          "obj_container_2",
+          "support_table_top",
+          "coffee_table_gcollb_0"
+        ],
+        "view_purpose": "Container or enclosure interiors and their support surfaces.",
+        "framing_scope": "full_task_context"
+      },
+      "object_top": {
+        "position_world_m": [
+          2.521610915660858,
+          0.557180792093277,
+          1.5000098127293853
+        ],
+        "target_world_m": [
+          2.521610915660858,
+          0.557180792093277,
+          0.28806957323104143
+        ],
+        "clipping_range_m": [
+          0.8438707202840118,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            1.7329767942428589,
+            0.10491353273391724,
+            5.4016709327697754e-08
+          ],
+          [
+            3.3102450370788574,
+            1.0094480514526367,
+            0.5761390924453735
+          ]
+        ],
+        "human_cutaway_above_framed_bounds": true,
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          2.521610975265503,
+          0.5571807622909546,
+          1.5000097751617432
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position_error_m": 7.649980282377076e-08,
+        "object_pixels": {
+          "obj_containee": 6183,
+          "obj_container_0": 4107,
+          "obj_container_1": 14287,
+          "obj_container_2": 18518,
+          "support_table_top": 42570,
+          "coffee_table_gcollb_0": 75732
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "obj_containee",
+          "obj_container_0",
+          "obj_container_1",
+          "obj_container_2",
+          "support_table_top",
+          "coffee_table_gcollb_0"
+        ],
+        "view_purpose": "Container or enclosure interiors and their support surfaces.",
+        "framing_scope": "full_task_context"
+      },
+      "object_side": {
+        "position_world_m": [
+          1.803520988525623,
+          1.2752707192285122,
+          1.3036020871891985
+        ],
+        "target_world_m": [
+          2.521610915660858,
+          0.557180792093277,
+          0.28806957323104143
+        ],
+        "clipping_range_m": [
+          0.01,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            1.7329767942428589,
+            0.10491353273391724,
+            5.4016709327697754e-08
+          ],
+          [
+            3.3102450370788574,
+            1.0094480514526367,
+            0.5761390924453735
+          ]
+        ],
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          1.8035210371017456,
+          1.275270700454712,
+          1.3036020994186401
+        ],
+        "actual_quaternion_xyzw": [
+          -0.14644664525985718,
+          0.3535533845424652,
+          0.8535534143447876,
+          -0.3535533845424652
+        ],
+        "position_error_m": 5.349443443815278e-08,
+        "object_pixels": {
+          "obj_containee": 2973,
+          "obj_container_0": 3012,
+          "obj_container_1": 12439,
+          "obj_container_2": 10084,
+          "support_table_top": 37874,
+          "coffee_table_gcollb_0": 34783
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "obj_containee",
+          "obj_container_0",
+          "obj_container_1",
+          "obj_container_2",
+          "support_table_top",
+          "coffee_table_gcollb_0"
+        ],
+        "view_purpose": "Container or enclosure interiors and their support surfaces.",
+        "framing_scope": "full_task_context"
+      },
+      "object_detail_00": {
+        "position_world_m": [
+          1.8549525737762451,
+          0.3303378075361252,
+          0.6839070737361908
+        ],
+        "target_world_m": [
+          1.8549525737762451,
+          0.3303378075361252,
+          0.4839070737361908
+        ],
+        "clipping_range_m": [
+          0.0860929143428802,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            1.7813538312911987,
+            0.2396010160446167,
+            0.44999998807907104
+          ],
+          [
+            1.9285513162612915,
+            0.42107459902763367,
+            0.5178141593933105
+          ]
+        ],
+        "human_cutaway_above_framed_bounds": true,
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          1.8549525737762451,
+          0.3303378224372864,
+          0.6839070916175842
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position_error_m": 2.327635791109217e-08,
+        "object_pixels": {
+          "obj_container_0": 114006
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "obj_container_0"
+        ],
+        "view_purpose": "Container or enclosure interiors and their support surfaces.",
+        "framing_scope": "task_actor_detail"
+      },
+      "object_detail_01": {
+        "position_world_m": [
+          2.0279768109321594,
+          0.48491352796554565,
+          0.9495475029566975
+        ],
+        "target_world_m": [
+          2.0279768109321594,
+          0.48491352796554565,
+          0.4300000071525574
+        ],
+        "clipping_range_m": [
+          0.4195474850753041,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            1.7329767942428589,
+            0.10491353273391724,
+            0.4099999964237213
+          ],
+          [
+            2.32297682762146,
+            0.8649135231971741,
+            0.45000001788139343
+          ]
+        ],
+        "human_cutaway_above_framed_bounds": true,
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          2.0279767513275146,
+          0.48491352796554565,
+          0.949547529220581
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position_error_m": 6.513451662487694e-08,
+        "object_pixels": {
+          "support_table_top": 178382
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "support_table_top"
+        ],
+        "view_purpose": "Container or enclosure interiors and their support surfaces.",
+        "framing_scope": "task_actor_detail"
+      },
+      "object_detail_02": {
+        "position_world_m": [
+          2.1361485719680786,
+          0.6850841343402863,
+          0.73706556768593
+        ],
+        "target_world_m": [
+          2.1361485719680786,
+          0.6850841343402863,
+          0.5025750994682312
+        ],
+        "clipping_range_m": [
+          0.10191458196815657,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            2.0235719680786133,
+            0.5467038154602051,
+            0.44999921321868896
+          ],
+          [
+            2.248725175857544,
+            0.8234644532203674,
+            0.5551509857177734
+          ]
+        ],
+        "human_cutaway_above_framed_bounds": true,
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          2.136148452758789,
+          0.6850841045379639,
+          0.7370655536651611
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position_error_m": 1.236754425699267e-07,
+        "object_pixels": {
+          "obj_container_1": 338504
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "obj_container_1"
+        ],
+        "view_purpose": "Container or enclosure interiors and their support surfaces.",
+        "framing_scope": "task_actor_detail"
+      },
+      "object_detail_03": {
+        "position_world_m": [
+          2.1365297436714172,
+          0.3159952387213707,
+          0.7998460923021521
+        ],
+        "target_world_m": [
+          2.1365297436714172,
+          0.3159952387213707,
+          0.513069212436676
+        ],
+        "clipping_range_m": [
+          0.14370699985677854,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            1.9974497556686401,
+            0.1458239108324051,
+            0.4499993324279785
+          ],
+          [
+            2.2756097316741943,
+            0.4861665666103363,
+            0.5761390924453735
+          ]
+        ],
+        "human_cutaway_above_framed_bounds": true,
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          2.1365296840667725,
+          0.3159952461719513,
+          0.7998461127281189
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position_error_m": 6.344639430279855e-08,
+        "object_pixels": {
+          "obj_container_2": 229615
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "obj_container_2"
+        ],
+        "view_purpose": "Container or enclosure interiors and their support surfaces.",
+        "framing_scope": "task_actor_detail"
+      },
+      "object_detail_04": {
+        "position_world_m": [
+          2.9195636510849,
+          0.8116462826728821,
+          0.7015873163938522
+        ],
+        "target_world_m": [
+          2.9195636510849,
+          0.8116462826728821,
+          0.5015873163938522
+        ],
+        "clipping_range_m": [
+          0.08168492734432216,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            2.837517023086548,
+            0.7104708552360535,
+            0.46327224373817444
+          ],
+          [
+            3.001610279083252,
+            0.9128217101097107,
+            0.53990238904953
+          ]
+        ],
+        "human_cutaway_above_framed_bounds": true,
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          2.9195637702941895,
+          0.8116462826728821,
+          0.7015873193740845
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position_error_m": 1.1924653663592793e-07,
+        "object_pixels": {
+          "obj_containee": 164924
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "obj_containee"
+        ],
+        "view_purpose": "Container or enclosure interiors and their support surfaces.",
+        "framing_scope": "task_actor_detail"
+      },
+      "object_detail_05": {
+        "position_world_m": [
+          2.9195636510849,
+          0.8116462826728821,
+          0.7015873163938522
+        ],
+        "target_world_m": [
+          2.9195636510849,
+          0.8116462826728821,
+          0.5015873163938522
+        ],
+        "clipping_range_m": [
+          0.08168492734432216,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            2.837517023086548,
+            0.7104708552360535,
+            0.46327224373817444
+          ],
+          [
+            3.001610279083252,
+            0.9128217101097107,
+            0.53990238904953
+          ]
+        ],
+        "human_cutaway_above_framed_bounds": true,
+        "clear_ray_fraction": 1.0,
+        "actual_position_world_m": [
+          2.9195637702941895,
+          0.8116462826728821,
+          0.7015873193740845
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position_error_m": 1.1924653663592793e-07,
+        "object_pixels": {
+          "obj_containee": 164924
+        },
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [
+          "obj_containee"
+        ],
+        "view_purpose": "Container or enclosure interiors and their support surfaces.",
+        "framing_scope": "task_actor_detail"
+      }
+    },
+    "native_objects": [
+      "obj_containee",
+      "obj_container_0",
+      "obj_container_1",
+      "obj_container_2",
+      "support_table_top",
+      "coffee_table_gcollb_0"
+    ],
+    "object_issues": [],
+    "missing_task_objects": false,
+    "robot_sensors_modified": false,
+    "physics_steps": 0,
+    "actor_mutations": 0
+  },
+  "human_camera_capture_protocol": "native_human_render_products_drained_v2",
+  "human_floorplan": null,
+  "interaction_setup": null,
+  "reflection_qualification": null,
+  "temporal_episode_preview": null,
+  "initial_agent_bundle": {
+    "available": true,
+    "kind": "frozen_initial_native_agent_input_bundle",
+    "robot_actions": 0,
+    "model_calls": 0,
+    "snapshot_id": 2,
+    "action_step": 0,
+    "captured_at": "2026-10-20T08:28:19.854826+00:00",
+    "reset_identity": {
+      "episode_id": "reset_17e9079d236e4f6ca33106892d264c15",
+      "reset_id": "17e9079d236e4f6ca33106892d264c15",
+      "seed": 0
+    },
+    "native_time_s": 6.841667023487389,
+    "native_time_after_s": 6.841667023487389,
+    "physics_steps": 0,
+    "views": [
+      "chassis_front_left",
+      "chassis_front_right",
+      "chassis_left",
+      "chassis_rear",
+      "chassis_right",
+      "head",
+      "initial_overview_rgb",
+      "right_wrist",
+      "wrist"
+    ],
+    "capture_input_identity": {
+      "job_id": "capture_6b57dbb036342e5ab62e274ff055a374",
+      "capture_signature": "6b57dbb036342e5ab62e274ff055a37463baacd3a482be77bab188875b33c5a5",
+      "task_sha256": "a1f2b8deef71ab55ee434aad5f98b6a3cd95ee44d772783b081bae85b22a229e",
+      "seed": 0,
+      "variant": "tabletop"
+    }
+  },
+  "view_provenance": {},
+  "duration_s": 520.5900686560199,
+  "timings": {
+    "cold_initialization_s": 290.93193345796317,
+    "initialization_wait_s": 0.0,
+    "screenshot_s": 222.6144185019657,
+    "warm_swap_s": 0.0,
+    "total_s": 520.5900686560199
+  },
+  "exit_code": 0
+}

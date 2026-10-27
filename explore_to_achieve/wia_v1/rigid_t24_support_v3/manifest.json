@@ -1,0 +1,20 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "revision": "wia_rigid_support_v3",
+  "entries": [
+    {
+      "document_alias": "T24",
+      "variant_id": "t24_supported_spawn_v3",
+      "label": "T24 measured container supports and existing native pickup support",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t24_support_v3/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t24_support_v3/scene.yaml",
+      "task_sha256": "a2be87deb03ecc598d87ac31aae50e142fe42b8083e63e92122481b981e3120c",
+      "scene_sha256": "dd531de5c1fa9a39e96bc71080dda73631578caf936c8b671b23beeb01a1ade8",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/tasks/rigid_t24_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/scenes/rigid_t24_v1.yaml",
+      "parent_task_sha256": "06ace66bd8b4796022c39c7600ad5fb7afeb8259aab3339320b262b237568e24",
+      "parent_scene_sha256": "8974223a50da7e4305affa06afa7cd3ce5f838f33e3b59e19c2b52edefa1783d",
+      "variant": "tabletop"
+    }
+  ]
+}

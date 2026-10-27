@@ -1,0 +1,18 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "entries": [
+    {
+      "document_alias": "T07",
+      "variant_id": "t07_native_velocity_v2",
+      "label": "T07 native background velocity reset / strict tray initialization",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/t07_native_velocity_v2/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/t07_native_velocity_v2/scene.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/t07_corridor_reset_v1/task.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/t07_corridor_reset_v1/scene.yaml",
+      "variant": "adapted",
+      "seed": 0,
+      "native_validation_run": false,
+      "physical_success_verified": false
+    }
+  ]
+}

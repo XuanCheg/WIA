@@ -1,0 +1,1548 @@
+kind: category_robot_task
+id: task_af670ef477045df65772cc7b
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+public:
+  objective: 'Explore the complete preserved building once in one continuous episode.
+
+    goal_1: Are bathroom_0 and dining_room_0 adjacent, with a direct connection between
+    them?
+
+    goal_2: Are dining_room_0 and lobby_0 adjacent, with a direct connection between
+    them?
+
+    goal_3: Are corridor 0 (near dining room 0) and corridor 1 (near kitchen 0) adjacent,
+    with a direct connection between them?
+
+    goal_4: Are corridor 0 (near dining room 0) and lobby_0 adjacent, with a direct
+    connection between them?
+
+    goal_5: Are corridor 1 (near kitchen 0) and dining_room_0 adjacent, with a direct
+    connection between them?'
+  success_criteria: 'Inspect the queried anchors and report each distinct required
+    room arrival while stably inside it. Shared unordered visits can satisfy multiple
+    questions. Submit one final JSON answer sheet in one world_observation line: ANSWER:
+    {"goal_1":"<answer>","goal_2":"<answer>","goal_3":"<answer>","goal_4":"<answer>","goal_5":"<answer>"}.
+    Use each question''s source options shown below. Legacy ANSWER: goal_N=<answer>
+    is accepted. No action or observation is required solely to answer another question.
+
+    goal_1: Report a standalone ANSWER: <option> line in world_observation, choosing
+    from: Yes, No. Answer direct adjacency: a No answer does not mean the rooms are
+    globally unreachable. Each distinct required room is counted once; no return tour
+    is required.
+
+    goal_2: Report a standalone ANSWER: <option> line in world_observation, choosing
+    from: Yes, No. Answer direct adjacency: a No answer does not mean the rooms are
+    globally unreachable. Each distinct required room is counted once; no return tour
+    is required.
+
+    goal_3: Report a standalone ANSWER: <option> line in world_observation, choosing
+    from: Yes, No. Answer direct adjacency: a No answer does not mean the rooms are
+    globally unreachable. Each distinct required room is counted once; no return tour
+    is required.
+
+    goal_4: Report a standalone ANSWER: <option> line in world_observation, choosing
+    from: Yes, No. Answer direct adjacency: a No answer does not mean the rooms are
+    globally unreachable. Each distinct required room is counted once; no return tour
+    is required.
+
+    goal_5: Report a standalone ANSWER: <option> line in world_observation, choosing
+    from: Yes, No. Answer direct adjacency: a No answer does not mean the rooms are
+    globally unreachable. Each distinct required room is counted once; no return tour
+    is required.'
+  environment: The complete original building, furniture and native doors are retained.
+    Use all eight mounted cameras and the initial Global overview.
+  constraints:
+  - Preserve original room boundaries, queried anchors and doorway geometry.
+  - Use legal robot controls; door opening requires actual physical interaction.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+private:
+  bindings: {}
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.task_edit2_mapping_world
+    operation: canonical_mapping_joint_world
+    binding_keys: []
+    parameters:
+      task_revision: task_edit2_mapping_world_20261018_v1
+      members:
+      - id: native_3bb0a8d7bfbb4960191f
+        public_id: goal_1
+        source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+        source_sha256: 9a5030cda763d9e758fc87594b87df625790567b12f98454ff2d18bc5d39bd01
+        small_task: Connectivity
+        public:
+          objective: 'Are bathroom_0 and dining_room_0 adjacent, with a direct connection
+            between them? Explore the two named regions and report each arrival. While
+            physically and stably inside each required room, output a standalone line
+            ''ARRIVED: <room_instance>'' in your world_observation text, replacing
+            <room_instance> with the room instance you identify from your observations.
+            Report each required room; a declaration alone does not establish a visit.
+            For an ordered route, report each step after completing its predecessor,
+            including repeated room names. Out-of-order visits do not erase completed
+            steps; revisit and report the pending step to continue.'
+          success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+            choosing from: Yes, No. Answer direct adjacency: a No answer does not
+            mean the rooms are globally unreachable. Each distinct required room is
+            counted once; no return tour is required.'
+          environment: Explore the preserved original building using the robot-mounted
+            observations.
+          constraints:
+          - Preserve original room boundaries, queried anchors and doorway geometry.
+          - Use legal robot controls; door opening requires actual physical interaction.
+        evaluation:
+          type: category_operation
+          module: core.esi_converters.cognitive_mapping_connectivity
+          operation: answer_direct_adjacency_with_exploration
+          binding_keys: []
+          parameters:
+            source_region: bathroom_0
+            target_region: dining_room_0
+            stability_steps: 3
+            floor_idx: 0
+            floor_contact_height_tolerance_m: 0.005
+            minimum_floor_contact_vertical_normal: 0.5
+            required_regions:
+            - bathroom_0
+            - dining_room_0
+            scoring_version: task_completion_v2
+            required_order: []
+            arrival_report_required: true
+            public_route_required: false
+            public_route_evidence: []
+            source_public_question: null
+            task_revision: task_edit_20261018_v1
+            source_path: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+            mapping_composition_contract: null
+            legacy_operation: region_exploration_arrivals
+            source_qa:
+              question: Are bathroom_0 and dining_room_0 adjacent, with a direct connection
+                between them?
+              answer: 'Yes'
+              options:
+              - 'Yes'
+              - 'No'
+              scored: true
+            source_door_policy:
+              version: mapping_source_runtime_doors_v1
+              generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+              source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+              source_trav_map_basename: floor_trav_no_door
+              runtime_policy: retain_native_doors
+              reconciled: null
+              physical_opening_and_crossing_verified: null
+            mechanism_contract:
+              invariants:
+              - original_building_and_region_boundaries
+              - original_task_anchors_and_reference
+              - source_order_and_intentional_revisits
+              required_native_evidence:
+              - source_runtime_door_policy_reconciled
+              - task_relevant_door_qualification
+              unavailable_is_not_agent_failure: true
+            actual_capability: direct_adjacency_and_region_exploration
+            relation_semantics: direct_connection_not_global_reachability
+            source_graph_reachable: true
+        bindings: {}
+        qa:
+          question: Are bathroom_0 and dining_room_0 adjacent, with a direct connection
+            between them?
+          answer: 'Yes'
+          answer_type: choice
+          options_json: '["Yes","No"]'
+        source_task_definition:
+          kind: category_robot_task
+          id: task_3bb0a8d7bfbb4960191f2363
+          version: 1
+          status: pending
+          source:
+            provider: esi
+            json: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+          public:
+            objective: 'Are bathroom_0 and dining_room_0 adjacent, with a direct connection
+              between them? Explore the two named regions and report each arrival.
+              While physically and stably inside each required room, output a standalone
+              line ''ARRIVED: <room_instance>'' in your world_observation text, replacing
+              <room_instance> with the room instance you identify from your observations.
+              Report each required room; a declaration alone does not establish a
+              visit. For an ordered route, report each step after completing its predecessor,
+              including repeated room names. Out-of-order visits do not erase completed
+              steps; revisit and report the pending step to continue.'
+            success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+              choosing from: Yes, No. Answer direct adjacency: a No answer does not
+              mean the rooms are globally unreachable. Each distinct required room
+              is counted once; no return tour is required.'
+            environment: Explore the preserved original building using the robot-mounted
+              observations.
+            constraints:
+            - Preserve original room boundaries, queried anchors and doorway geometry.
+            - Use legal robot controls; door opening requires actual physical interaction.
+          requirements:
+            capabilities:
+            - base_translation
+            - base_rotation
+          private:
+            bindings: {}
+            evaluation:
+              type: category_operation
+              module: core.esi_converters.cognitive_mapping_connectivity
+              operation: answer_direct_adjacency_with_exploration
+              binding_keys: []
+              parameters:
+                source_region: bathroom_0
+                target_region: dining_room_0
+                stability_steps: 3
+                floor_idx: 0
+                floor_contact_height_tolerance_m: 0.005
+                minimum_floor_contact_vertical_normal: 0.5
+                required_regions:
+                - bathroom_0
+                - dining_room_0
+                scoring_version: task_completion_v2
+                required_order: []
+                arrival_report_required: true
+                public_route_required: false
+                public_route_evidence: []
+                source_public_question: null
+                task_revision: task_edit_20261018_v1
+                source_path: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+                mapping_composition_contract: null
+                legacy_operation: region_exploration_arrivals
+                source_qa:
+                  question: Are bathroom_0 and dining_room_0 adjacent, with a direct
+                    connection between them?
+                  answer: 'Yes'
+                  options:
+                  - 'Yes'
+                  - 'No'
+                  scored: true
+                source_door_policy:
+                  version: mapping_source_runtime_doors_v1
+                  generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+                  source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+                  source_trav_map_basename: floor_trav_no_door
+                  runtime_policy: retain_native_doors
+                  reconciled: null
+                  physical_opening_and_crossing_verified: null
+                mechanism_contract:
+                  invariants:
+                  - original_building_and_region_boundaries
+                  - original_task_anchors_and_reference
+                  - source_order_and_intentional_revisits
+                  required_native_evidence:
+                  - source_runtime_door_policy_reconciled
+                  - task_relevant_door_qualification
+                  unavailable_is_not_agent_failure: true
+                actual_capability: direct_adjacency_and_region_exploration
+                relation_semantics: direct_connection_not_global_reachability
+                source_graph_reachable: true
+          scene:
+            policy: native_then_minimal_patch_else_skip
+            variants:
+              original:
+                patches: []
+              adapted:
+                patches:
+                - operation: robot_pose
+                  phase: before_construction
+                  position:
+                  - 6.200000286102295
+                  - -19.399999618530273
+                  - 0.1
+                  yaw_deg: 177.08916969878248
+                  head_pitch_deg: 0.0
+                - operation: prepare_category_interaction
+                  phase: after_postprocessing
+                  mode: navigation
+                  group_bindings: []
+                  manipulation_bindings: []
+                  relocation_policy: preserve
+                  layout_parameters: {}
+                  controller_initial_trunk_joint_positions_rad: null
+                  placement_groups: []
+                  support_bindings: []
+                  support_preferences: {}
+                  support_search: bounded_group
+                  allow_fallback_table: false
+                  anchor_policy: none
+                  source_camera_policy: translate_with_group
+                  fixed_reference_evidence: {}
+                  source_region: bathroom_0
+                  minimum_grasp_height_m: 0.35
+                  maximum_grasp_height_m: 1.1
+                  maximum_stance_distance_m: 0.85
+                  warning_codes: []
+          qualification:
+            on_failure: skip
+            initial_visibility: none
+            target_movable_collidable: false
+          defaults:
+            seed: 0
+            max_steps: 600
+      - id: native_ab833925e1375919aa9e
+        public_id: goal_2
+        source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_003.json
+        source_sha256: 81bf3cbe581f78e8c15e913f4c4acb15d8222977996cae785a075190dee19f73
+        small_task: Connectivity
+        public:
+          objective: 'Are dining_room_0 and lobby_0 adjacent, with a direct connection
+            between them? Explore the two named regions and report each arrival. While
+            physically and stably inside each required room, output a standalone line
+            ''ARRIVED: <room_instance>'' in your world_observation text, replacing
+            <room_instance> with the room instance you identify from your observations.
+            Report each required room; a declaration alone does not establish a visit.
+            For an ordered route, report each step after completing its predecessor,
+            including repeated room names. Out-of-order visits do not erase completed
+            steps; revisit and report the pending step to continue.'
+          success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+            choosing from: Yes, No. Answer direct adjacency: a No answer does not
+            mean the rooms are globally unreachable. Each distinct required room is
+            counted once; no return tour is required.'
+          environment: Explore the preserved original building using the robot-mounted
+            observations.
+          constraints:
+          - Preserve original room boundaries, queried anchors and doorway geometry.
+          - Use legal robot controls; door opening requires actual physical interaction.
+        evaluation:
+          type: category_operation
+          module: core.esi_converters.cognitive_mapping_connectivity
+          operation: answer_direct_adjacency_with_exploration
+          binding_keys: []
+          parameters:
+            source_region: dining_room_0
+            target_region: lobby_0
+            stability_steps: 3
+            floor_idx: 0
+            floor_contact_height_tolerance_m: 0.005
+            minimum_floor_contact_vertical_normal: 0.5
+            required_regions:
+            - dining_room_0
+            - lobby_0
+            scoring_version: task_completion_v2
+            required_order: []
+            arrival_report_required: true
+            public_route_required: false
+            public_route_evidence: []
+            source_public_question: null
+            task_revision: task_edit_20261018_v1
+            source_path: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_003.json
+            mapping_composition_contract: null
+            legacy_operation: region_exploration_arrivals
+            source_qa:
+              question: Are dining_room_0 and lobby_0 adjacent, with a direct connection
+                between them?
+              answer: 'Yes'
+              options:
+              - 'Yes'
+              - 'No'
+              scored: true
+            source_door_policy:
+              version: mapping_source_runtime_doors_v1
+              generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+              source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+              source_trav_map_basename: floor_trav_no_door
+              runtime_policy: retain_native_doors
+              reconciled: null
+              physical_opening_and_crossing_verified: null
+            mechanism_contract:
+              invariants:
+              - original_building_and_region_boundaries
+              - original_task_anchors_and_reference
+              - source_order_and_intentional_revisits
+              required_native_evidence:
+              - source_runtime_door_policy_reconciled
+              - task_relevant_door_qualification
+              unavailable_is_not_agent_failure: true
+            actual_capability: direct_adjacency_and_region_exploration
+            relation_semantics: direct_connection_not_global_reachability
+            source_graph_reachable: true
+        bindings: {}
+        qa:
+          question: Are dining_room_0 and lobby_0 adjacent, with a direct connection
+            between them?
+          answer: 'Yes'
+          answer_type: choice
+          options_json: '["Yes","No"]'
+        source_task_definition:
+          kind: category_robot_task
+          id: task_ab833925e1375919aa9e1a38
+          version: 1
+          status: pending
+          source:
+            provider: esi
+            json: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_003.json
+          public:
+            objective: 'Are dining_room_0 and lobby_0 adjacent, with a direct connection
+              between them? Explore the two named regions and report each arrival.
+              While physically and stably inside each required room, output a standalone
+              line ''ARRIVED: <room_instance>'' in your world_observation text, replacing
+              <room_instance> with the room instance you identify from your observations.
+              Report each required room; a declaration alone does not establish a
+              visit. For an ordered route, report each step after completing its predecessor,
+              including repeated room names. Out-of-order visits do not erase completed
+              steps; revisit and report the pending step to continue.'
+            success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+              choosing from: Yes, No. Answer direct adjacency: a No answer does not
+              mean the rooms are globally unreachable. Each distinct required room
+              is counted once; no return tour is required.'
+            environment: Explore the preserved original building using the robot-mounted
+              observations.
+            constraints:
+            - Preserve original room boundaries, queried anchors and doorway geometry.
+            - Use legal robot controls; door opening requires actual physical interaction.
+          requirements:
+            capabilities:
+            - base_translation
+            - base_rotation
+          private:
+            bindings: {}
+            evaluation:
+              type: category_operation
+              module: core.esi_converters.cognitive_mapping_connectivity
+              operation: answer_direct_adjacency_with_exploration
+              binding_keys: []
+              parameters:
+                source_region: dining_room_0
+                target_region: lobby_0
+                stability_steps: 3
+                floor_idx: 0
+                floor_contact_height_tolerance_m: 0.005
+                minimum_floor_contact_vertical_normal: 0.5
+                required_regions:
+                - dining_room_0
+                - lobby_0
+                scoring_version: task_completion_v2
+                required_order: []
+                arrival_report_required: true
+                public_route_required: false
+                public_route_evidence: []
+                source_public_question: null
+                task_revision: task_edit_20261018_v1
+                source_path: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_003.json
+                mapping_composition_contract: null
+                legacy_operation: region_exploration_arrivals
+                source_qa:
+                  question: Are dining_room_0 and lobby_0 adjacent, with a direct
+                    connection between them?
+                  answer: 'Yes'
+                  options:
+                  - 'Yes'
+                  - 'No'
+                  scored: true
+                source_door_policy:
+                  version: mapping_source_runtime_doors_v1
+                  generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+                  source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+                  source_trav_map_basename: floor_trav_no_door
+                  runtime_policy: retain_native_doors
+                  reconciled: null
+                  physical_opening_and_crossing_verified: null
+                mechanism_contract:
+                  invariants:
+                  - original_building_and_region_boundaries
+                  - original_task_anchors_and_reference
+                  - source_order_and_intentional_revisits
+                  required_native_evidence:
+                  - source_runtime_door_policy_reconciled
+                  - task_relevant_door_qualification
+                  unavailable_is_not_agent_failure: true
+                actual_capability: direct_adjacency_and_region_exploration
+                relation_semantics: direct_connection_not_global_reachability
+                source_graph_reachable: true
+          scene:
+            policy: native_then_minimal_patch_else_skip
+            variants:
+              original:
+                patches: []
+              adapted:
+                patches:
+                - operation: robot_pose
+                  phase: before_construction
+                  position:
+                  - -1.0
+                  - -10.300000190734863
+                  - 0.1
+                  yaw_deg: 178.8542364335627
+                  head_pitch_deg: 0.0
+                - operation: prepare_category_interaction
+                  phase: after_postprocessing
+                  mode: navigation
+                  group_bindings: []
+                  manipulation_bindings: []
+                  relocation_policy: preserve
+                  layout_parameters: {}
+                  controller_initial_trunk_joint_positions_rad: null
+                  placement_groups: []
+                  support_bindings: []
+                  support_preferences: {}
+                  support_search: bounded_group
+                  allow_fallback_table: false
+                  anchor_policy: none
+                  source_camera_policy: translate_with_group
+                  fixed_reference_evidence: {}
+                  source_region: dining_room_0
+                  minimum_grasp_height_m: 0.35
+                  maximum_grasp_height_m: 1.1
+                  maximum_stance_distance_m: 0.85
+                  warning_codes: []
+          qualification:
+            on_failure: skip
+            initial_visibility: none
+            target_movable_collidable: false
+          defaults:
+            seed: 0
+            max_steps: 600
+      - id: native_00cbb4d7355e9af0f7c6
+        public_id: goal_3
+        source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_005.json
+        source_sha256: 0030942866160481a1ce3ded32d487560ce8de27e4398f9f978ac08c6180d393
+        small_task: Connectivity
+        public:
+          objective: 'Are corridor 0 (near dining room 0) and corridor 1 (near kitchen
+            0) adjacent, with a direct connection between them? Explore the two named
+            regions and report each arrival. While physically and stably inside each
+            required room, output a standalone line ''ARRIVED: <room_instance>'' in
+            your world_observation text, replacing <room_instance> with the room instance
+            you identify from your observations. Report each required room; a declaration
+            alone does not establish a visit. For an ordered route, report each step
+            after completing its predecessor, including repeated room names. Out-of-order
+            visits do not erase completed steps; revisit and report the pending step
+            to continue.'
+          success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+            choosing from: Yes, No. Answer direct adjacency: a No answer does not
+            mean the rooms are globally unreachable. Each distinct required room is
+            counted once; no return tour is required.'
+          environment: Explore the preserved original building using the robot-mounted
+            observations.
+          constraints:
+          - Preserve original room boundaries, queried anchors and doorway geometry.
+          - Use legal robot controls; door opening requires actual physical interaction.
+        evaluation:
+          type: category_operation
+          module: core.esi_converters.cognitive_mapping_connectivity
+          operation: answer_direct_adjacency_with_exploration
+          binding_keys: []
+          parameters:
+            source_region: corridor_0
+            target_region: corridor_1
+            stability_steps: 3
+            floor_idx: 0
+            floor_contact_height_tolerance_m: 0.005
+            minimum_floor_contact_vertical_normal: 0.5
+            required_regions:
+            - corridor_0
+            - corridor_1
+            scoring_version: task_completion_v2
+            required_order: []
+            arrival_report_required: true
+            public_route_required: false
+            public_route_evidence: []
+            source_public_question: null
+            task_revision: task_edit_20261018_v1
+            source_path: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_005.json
+            mapping_composition_contract: null
+            legacy_operation: region_exploration_arrivals
+            source_qa:
+              question: Are corridor 0 (near dining room 0) and corridor 1 (near kitchen
+                0) adjacent, with a direct connection between them?
+              answer: 'No'
+              options:
+              - 'Yes'
+              - 'No'
+              scored: true
+            source_door_policy:
+              version: mapping_source_runtime_doors_v1
+              generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+              source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+              source_trav_map_basename: floor_trav_no_door
+              runtime_policy: retain_native_doors
+              reconciled: null
+              physical_opening_and_crossing_verified: null
+            mechanism_contract:
+              invariants:
+              - original_building_and_region_boundaries
+              - original_task_anchors_and_reference
+              - source_order_and_intentional_revisits
+              required_native_evidence:
+              - source_runtime_door_policy_reconciled
+              - task_relevant_door_qualification
+              unavailable_is_not_agent_failure: true
+            actual_capability: direct_adjacency_and_region_exploration
+            relation_semantics: direct_connection_not_global_reachability
+            source_graph_reachable: true
+        bindings: {}
+        qa:
+          question: Are corridor 0 (near dining room 0) and corridor 1 (near kitchen
+            0) adjacent, with a direct connection between them?
+          answer: 'No'
+          answer_type: choice
+          options_json: '["Yes","No"]'
+        source_task_definition:
+          kind: category_robot_task
+          id: task_00cbb4d7355e9af0f7c647de
+          version: 1
+          status: pending
+          source:
+            provider: esi
+            json: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_005.json
+          public:
+            objective: 'Are corridor 0 (near dining room 0) and corridor 1 (near kitchen
+              0) adjacent, with a direct connection between them? Explore the two
+              named regions and report each arrival. While physically and stably inside
+              each required room, output a standalone line ''ARRIVED: <room_instance>''
+              in your world_observation text, replacing <room_instance> with the room
+              instance you identify from your observations. Report each required room;
+              a declaration alone does not establish a visit. For an ordered route,
+              report each step after completing its predecessor, including repeated
+              room names. Out-of-order visits do not erase completed steps; revisit
+              and report the pending step to continue.'
+            success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+              choosing from: Yes, No. Answer direct adjacency: a No answer does not
+              mean the rooms are globally unreachable. Each distinct required room
+              is counted once; no return tour is required.'
+            environment: Explore the preserved original building using the robot-mounted
+              observations.
+            constraints:
+            - Preserve original room boundaries, queried anchors and doorway geometry.
+            - Use legal robot controls; door opening requires actual physical interaction.
+          requirements:
+            capabilities:
+            - base_translation
+            - base_rotation
+          private:
+            bindings: {}
+            evaluation:
+              type: category_operation
+              module: core.esi_converters.cognitive_mapping_connectivity
+              operation: answer_direct_adjacency_with_exploration
+              binding_keys: []
+              parameters:
+                source_region: corridor_0
+                target_region: corridor_1
+                stability_steps: 3
+                floor_idx: 0
+                floor_contact_height_tolerance_m: 0.005
+                minimum_floor_contact_vertical_normal: 0.5
+                required_regions:
+                - corridor_0
+                - corridor_1
+                scoring_version: task_completion_v2
+                required_order: []
+                arrival_report_required: true
+                public_route_required: false
+                public_route_evidence: []
+                source_public_question: null
+                task_revision: task_edit_20261018_v1
+                source_path: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_005.json
+                mapping_composition_contract: null
+                legacy_operation: region_exploration_arrivals
+                source_qa:
+                  question: Are corridor 0 (near dining room 0) and corridor 1 (near
+                    kitchen 0) adjacent, with a direct connection between them?
+                  answer: 'No'
+                  options:
+                  - 'Yes'
+                  - 'No'
+                  scored: true
+                source_door_policy:
+                  version: mapping_source_runtime_doors_v1
+                  generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+                  source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+                  source_trav_map_basename: floor_trav_no_door
+                  runtime_policy: retain_native_doors
+                  reconciled: null
+                  physical_opening_and_crossing_verified: null
+                mechanism_contract:
+                  invariants:
+                  - original_building_and_region_boundaries
+                  - original_task_anchors_and_reference
+                  - source_order_and_intentional_revisits
+                  required_native_evidence:
+                  - source_runtime_door_policy_reconciled
+                  - task_relevant_door_qualification
+                  unavailable_is_not_agent_failure: true
+                actual_capability: direct_adjacency_and_region_exploration
+                relation_semantics: direct_connection_not_global_reachability
+                source_graph_reachable: true
+          scene:
+            policy: native_then_minimal_patch_else_skip
+            variants:
+              original:
+                patches: []
+              adapted:
+                patches:
+                - operation: robot_pose
+                  phase: before_construction
+                  position:
+                  - 4.800000190734863
+                  - -17.0
+                  - 0.1
+                  yaw_deg: -10.304846468766033
+                  head_pitch_deg: 0.0
+                - operation: prepare_category_interaction
+                  phase: after_postprocessing
+                  mode: navigation
+                  group_bindings: []
+                  manipulation_bindings: []
+                  relocation_policy: preserve
+                  layout_parameters: {}
+                  controller_initial_trunk_joint_positions_rad: null
+                  placement_groups: []
+                  support_bindings: []
+                  support_preferences: {}
+                  support_search: bounded_group
+                  allow_fallback_table: false
+                  anchor_policy: none
+                  source_camera_policy: translate_with_group
+                  fixed_reference_evidence: {}
+                  source_region: corridor_0
+                  minimum_grasp_height_m: 0.35
+                  maximum_grasp_height_m: 1.1
+                  maximum_stance_distance_m: 0.85
+                  warning_codes: []
+          qualification:
+            on_failure: skip
+            initial_visibility: none
+            target_movable_collidable: false
+          defaults:
+            seed: 0
+            max_steps: 600
+      - id: native_470848a409e6a86638bf
+        public_id: goal_4
+        source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_006.json
+        source_sha256: 5ed4202d7f63652db8408ee9f8dce7fe56b1b3d025077cb0fd86e8829ba0d43f
+        small_task: Connectivity
+        public:
+          objective: 'Are corridor 0 (near dining room 0) and lobby_0 adjacent, with
+            a direct connection between them? Explore the two named regions and report
+            each arrival. While physically and stably inside each required room, output
+            a standalone line ''ARRIVED: <room_instance>'' in your world_observation
+            text, replacing <room_instance> with the room instance you identify from
+            your observations. Report each required room; a declaration alone does
+            not establish a visit. For an ordered route, report each step after completing
+            its predecessor, including repeated room names. Out-of-order visits do
+            not erase completed steps; revisit and report the pending step to continue.'
+          success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+            choosing from: Yes, No. Answer direct adjacency: a No answer does not
+            mean the rooms are globally unreachable. Each distinct required room is
+            counted once; no return tour is required.'
+          environment: Explore the preserved original building using the robot-mounted
+            observations.
+          constraints:
+          - Preserve original room boundaries, queried anchors and doorway geometry.
+          - Use legal robot controls; door opening requires actual physical interaction.
+        evaluation:
+          type: category_operation
+          module: core.esi_converters.cognitive_mapping_connectivity
+          operation: answer_direct_adjacency_with_exploration
+          binding_keys: []
+          parameters:
+            source_region: corridor_0
+            target_region: lobby_0
+            stability_steps: 3
+            floor_idx: 0
+            floor_contact_height_tolerance_m: 0.005
+            minimum_floor_contact_vertical_normal: 0.5
+            required_regions:
+            - corridor_0
+            - lobby_0
+            scoring_version: task_completion_v2
+            required_order: []
+            arrival_report_required: true
+            public_route_required: false
+            public_route_evidence: []
+            source_public_question: null
+            task_revision: task_edit_20261018_v1
+            source_path: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_006.json
+            mapping_composition_contract: null
+            legacy_operation: region_exploration_arrivals
+            source_qa:
+              question: Are corridor 0 (near dining room 0) and lobby_0 adjacent,
+                with a direct connection between them?
+              answer: 'No'
+              options:
+              - 'Yes'
+              - 'No'
+              scored: true
+            source_door_policy:
+              version: mapping_source_runtime_doors_v1
+              generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+              source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+              source_trav_map_basename: floor_trav_no_door
+              runtime_policy: retain_native_doors
+              reconciled: null
+              physical_opening_and_crossing_verified: null
+            mechanism_contract:
+              invariants:
+              - original_building_and_region_boundaries
+              - original_task_anchors_and_reference
+              - source_order_and_intentional_revisits
+              required_native_evidence:
+              - source_runtime_door_policy_reconciled
+              - task_relevant_door_qualification
+              unavailable_is_not_agent_failure: true
+            actual_capability: direct_adjacency_and_region_exploration
+            relation_semantics: direct_connection_not_global_reachability
+            source_graph_reachable: true
+        bindings: {}
+        qa:
+          question: Are corridor 0 (near dining room 0) and lobby_0 adjacent, with
+            a direct connection between them?
+          answer: 'No'
+          answer_type: choice
+          options_json: '["Yes","No"]'
+        source_task_definition:
+          kind: category_robot_task
+          id: task_470848a409e6a86638bf15bc
+          version: 1
+          status: pending
+          source:
+            provider: esi
+            json: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_006.json
+          public:
+            objective: 'Are corridor 0 (near dining room 0) and lobby_0 adjacent,
+              with a direct connection between them? Explore the two named regions
+              and report each arrival. While physically and stably inside each required
+              room, output a standalone line ''ARRIVED: <room_instance>'' in your
+              world_observation text, replacing <room_instance> with the room instance
+              you identify from your observations. Report each required room; a declaration
+              alone does not establish a visit. For an ordered route, report each
+              step after completing its predecessor, including repeated room names.
+              Out-of-order visits do not erase completed steps; revisit and report
+              the pending step to continue.'
+            success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+              choosing from: Yes, No. Answer direct adjacency: a No answer does not
+              mean the rooms are globally unreachable. Each distinct required room
+              is counted once; no return tour is required.'
+            environment: Explore the preserved original building using the robot-mounted
+              observations.
+            constraints:
+            - Preserve original room boundaries, queried anchors and doorway geometry.
+            - Use legal robot controls; door opening requires actual physical interaction.
+          requirements:
+            capabilities:
+            - base_translation
+            - base_rotation
+          private:
+            bindings: {}
+            evaluation:
+              type: category_operation
+              module: core.esi_converters.cognitive_mapping_connectivity
+              operation: answer_direct_adjacency_with_exploration
+              binding_keys: []
+              parameters:
+                source_region: corridor_0
+                target_region: lobby_0
+                stability_steps: 3
+                floor_idx: 0
+                floor_contact_height_tolerance_m: 0.005
+                minimum_floor_contact_vertical_normal: 0.5
+                required_regions:
+                - corridor_0
+                - lobby_0
+                scoring_version: task_completion_v2
+                required_order: []
+                arrival_report_required: true
+                public_route_required: false
+                public_route_evidence: []
+                source_public_question: null
+                task_revision: task_edit_20261018_v1
+                source_path: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_006.json
+                mapping_composition_contract: null
+                legacy_operation: region_exploration_arrivals
+                source_qa:
+                  question: Are corridor 0 (near dining room 0) and lobby_0 adjacent,
+                    with a direct connection between them?
+                  answer: 'No'
+                  options:
+                  - 'Yes'
+                  - 'No'
+                  scored: true
+                source_door_policy:
+                  version: mapping_source_runtime_doors_v1
+                  generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+                  source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+                  source_trav_map_basename: floor_trav_no_door
+                  runtime_policy: retain_native_doors
+                  reconciled: null
+                  physical_opening_and_crossing_verified: null
+                mechanism_contract:
+                  invariants:
+                  - original_building_and_region_boundaries
+                  - original_task_anchors_and_reference
+                  - source_order_and_intentional_revisits
+                  required_native_evidence:
+                  - source_runtime_door_policy_reconciled
+                  - task_relevant_door_qualification
+                  unavailable_is_not_agent_failure: true
+                actual_capability: direct_adjacency_and_region_exploration
+                relation_semantics: direct_connection_not_global_reachability
+                source_graph_reachable: true
+          scene:
+            policy: native_then_minimal_patch_else_skip
+            variants:
+              original:
+                patches: []
+              adapted:
+                patches:
+                - operation: robot_pose
+                  phase: before_construction
+                  position:
+                  - 4.800000190734863
+                  - -17.0
+                  - 0.1
+                  yaw_deg: -10.304846468766033
+                  head_pitch_deg: 0.0
+                - operation: prepare_category_interaction
+                  phase: after_postprocessing
+                  mode: navigation
+                  group_bindings: []
+                  manipulation_bindings: []
+                  relocation_policy: preserve
+                  layout_parameters: {}
+                  controller_initial_trunk_joint_positions_rad: null
+                  placement_groups: []
+                  support_bindings: []
+                  support_preferences: {}
+                  support_search: bounded_group
+                  allow_fallback_table: false
+                  anchor_policy: none
+                  source_camera_policy: translate_with_group
+                  fixed_reference_evidence: {}
+                  source_region: corridor_0
+                  minimum_grasp_height_m: 0.35
+                  maximum_grasp_height_m: 1.1
+                  maximum_stance_distance_m: 0.85
+                  warning_codes: []
+          qualification:
+            on_failure: skip
+            initial_visibility: none
+            target_movable_collidable: false
+          defaults:
+            seed: 0
+            max_steps: 600
+      - id: native_ed0af24e7c278f5443ee
+        public_id: goal_5
+        source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_007.json
+        source_sha256: eebd47567bfdcdf22d0b5f88ca4aef5591d3295a0a7349fe2e76bdd8963e34c6
+        small_task: Connectivity
+        public:
+          objective: 'Are corridor 1 (near kitchen 0) and dining_room_0 adjacent,
+            with a direct connection between them? Explore the two named regions and
+            report each arrival. While physically and stably inside each required
+            room, output a standalone line ''ARRIVED: <room_instance>'' in your world_observation
+            text, replacing <room_instance> with the room instance you identify from
+            your observations. Report each required room; a declaration alone does
+            not establish a visit. For an ordered route, report each step after completing
+            its predecessor, including repeated room names. Out-of-order visits do
+            not erase completed steps; revisit and report the pending step to continue.'
+          success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+            choosing from: Yes, No. Answer direct adjacency: a No answer does not
+            mean the rooms are globally unreachable. Each distinct required room is
+            counted once; no return tour is required.'
+          environment: Explore the preserved original building using the robot-mounted
+            observations.
+          constraints:
+          - Preserve original room boundaries, queried anchors and doorway geometry.
+          - Use legal robot controls; door opening requires actual physical interaction.
+        evaluation:
+          type: category_operation
+          module: core.esi_converters.cognitive_mapping_connectivity
+          operation: answer_direct_adjacency_with_exploration
+          binding_keys: []
+          parameters:
+            source_region: corridor_1
+            target_region: dining_room_0
+            stability_steps: 3
+            floor_idx: 0
+            floor_contact_height_tolerance_m: 0.005
+            minimum_floor_contact_vertical_normal: 0.5
+            required_regions:
+            - corridor_1
+            - dining_room_0
+            scoring_version: task_completion_v2
+            required_order: []
+            arrival_report_required: true
+            public_route_required: false
+            public_route_evidence: []
+            source_public_question: null
+            task_revision: task_edit_20261018_v1
+            source_path: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_007.json
+            mapping_composition_contract: null
+            legacy_operation: region_exploration_arrivals
+            source_qa:
+              question: Are corridor 1 (near kitchen 0) and dining_room_0 adjacent,
+                with a direct connection between them?
+              answer: 'Yes'
+              options:
+              - 'Yes'
+              - 'No'
+              scored: true
+            source_door_policy:
+              version: mapping_source_runtime_doors_v1
+              generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+              source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+              source_trav_map_basename: floor_trav_no_door
+              runtime_policy: retain_native_doors
+              reconciled: null
+              physical_opening_and_crossing_verified: null
+            mechanism_contract:
+              invariants:
+              - original_building_and_region_boundaries
+              - original_task_anchors_and_reference
+              - source_order_and_intentional_revisits
+              required_native_evidence:
+              - source_runtime_door_policy_reconciled
+              - task_relevant_door_qualification
+              unavailable_is_not_agent_failure: true
+            actual_capability: direct_adjacency_and_region_exploration
+            relation_semantics: direct_connection_not_global_reachability
+            source_graph_reachable: true
+        bindings: {}
+        qa:
+          question: Are corridor 1 (near kitchen 0) and dining_room_0 adjacent, with
+            a direct connection between them?
+          answer: 'Yes'
+          answer_type: choice
+          options_json: '["Yes","No"]'
+        source_task_definition:
+          kind: category_robot_task
+          id: task_ed0af24e7c278f5443ee5421
+          version: 1
+          status: pending
+          source:
+            provider: esi
+            json: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_007.json
+          public:
+            objective: 'Are corridor 1 (near kitchen 0) and dining_room_0 adjacent,
+              with a direct connection between them? Explore the two named regions
+              and report each arrival. While physically and stably inside each required
+              room, output a standalone line ''ARRIVED: <room_instance>'' in your
+              world_observation text, replacing <room_instance> with the room instance
+              you identify from your observations. Report each required room; a declaration
+              alone does not establish a visit. For an ordered route, report each
+              step after completing its predecessor, including repeated room names.
+              Out-of-order visits do not erase completed steps; revisit and report
+              the pending step to continue.'
+            success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+              choosing from: Yes, No. Answer direct adjacency: a No answer does not
+              mean the rooms are globally unreachable. Each distinct required room
+              is counted once; no return tour is required.'
+            environment: Explore the preserved original building using the robot-mounted
+              observations.
+            constraints:
+            - Preserve original room boundaries, queried anchors and doorway geometry.
+            - Use legal robot controls; door opening requires actual physical interaction.
+          requirements:
+            capabilities:
+            - base_translation
+            - base_rotation
+          private:
+            bindings: {}
+            evaluation:
+              type: category_operation
+              module: core.esi_converters.cognitive_mapping_connectivity
+              operation: answer_direct_adjacency_with_exploration
+              binding_keys: []
+              parameters:
+                source_region: corridor_1
+                target_region: dining_room_0
+                stability_steps: 3
+                floor_idx: 0
+                floor_contact_height_tolerance_m: 0.005
+                minimum_floor_contact_vertical_normal: 0.5
+                required_regions:
+                - corridor_1
+                - dining_room_0
+                scoring_version: task_completion_v2
+                required_order: []
+                arrival_report_required: true
+                public_route_required: false
+                public_route_evidence: []
+                source_public_question: null
+                task_revision: task_edit_20261018_v1
+                source_path: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_007.json
+                mapping_composition_contract: null
+                legacy_operation: region_exploration_arrivals
+                source_qa:
+                  question: Are corridor 1 (near kitchen 0) and dining_room_0 adjacent,
+                    with a direct connection between them?
+                  answer: 'Yes'
+                  options:
+                  - 'Yes'
+                  - 'No'
+                  scored: true
+                source_door_policy:
+                  version: mapping_source_runtime_doors_v1
+                  generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+                  source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+                  source_trav_map_basename: floor_trav_no_door
+                  runtime_policy: retain_native_doors
+                  reconciled: null
+                  physical_opening_and_crossing_verified: null
+                mechanism_contract:
+                  invariants:
+                  - original_building_and_region_boundaries
+                  - original_task_anchors_and_reference
+                  - source_order_and_intentional_revisits
+                  required_native_evidence:
+                  - source_runtime_door_policy_reconciled
+                  - task_relevant_door_qualification
+                  unavailable_is_not_agent_failure: true
+                actual_capability: direct_adjacency_and_region_exploration
+                relation_semantics: direct_connection_not_global_reachability
+                source_graph_reachable: true
+          scene:
+            policy: native_then_minimal_patch_else_skip
+            variants:
+              original:
+                patches: []
+              adapted:
+                patches:
+                - operation: robot_pose
+                  phase: before_construction
+                  position:
+                  - 3.5
+                  - -4.0
+                  - 0.1
+                  yaw_deg: -87.95459197515956
+                  head_pitch_deg: 0.0
+                - operation: prepare_category_interaction
+                  phase: after_postprocessing
+                  mode: navigation
+                  group_bindings: []
+                  manipulation_bindings: []
+                  relocation_policy: preserve
+                  layout_parameters: {}
+                  controller_initial_trunk_joint_positions_rad: null
+                  placement_groups: []
+                  support_bindings: []
+                  support_preferences: {}
+                  support_search: bounded_group
+                  allow_fallback_table: false
+                  anchor_policy: none
+                  source_camera_policy: translate_with_group
+                  fixed_reference_evidence: {}
+                  source_region: corridor_1
+                  minimum_grasp_height_m: 0.35
+                  maximum_grasp_height_m: 1.1
+                  maximum_stance_distance_m: 0.85
+                  warning_codes: []
+          qualification:
+            on_failure: skip
+            initial_visibility: none
+            target_movable_collidable: false
+          defaults:
+            seed: 0
+            max_steps: 600
+      answer_sheet: true
+      semantic_questions:
+      - id: question_1
+        subclass: Connectivity
+        sources:
+        - member_id: native_3bb0a8d7bfbb4960191f
+          source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+          native_item_id: source_relation_answer
+          public_id: goal_1
+        equivalence: exact_native_semantic_contract
+      - id: question_2
+        subclass: Connectivity
+        sources:
+        - member_id: native_ab833925e1375919aa9e
+          source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_003.json
+          native_item_id: source_relation_answer
+          public_id: goal_2
+        equivalence: exact_native_semantic_contract
+      - id: question_3
+        subclass: Connectivity
+        sources:
+        - member_id: native_00cbb4d7355e9af0f7c6
+          source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_005.json
+          native_item_id: source_relation_answer
+          public_id: goal_3
+        equivalence: exact_native_semantic_contract
+      - id: question_4
+        subclass: Connectivity
+        sources:
+        - member_id: native_470848a409e6a86638bf
+          source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_006.json
+          native_item_id: source_relation_answer
+          public_id: goal_4
+        equivalence: exact_native_semantic_contract
+      - id: question_5
+        subclass: Connectivity
+        sources:
+        - member_id: native_ed0af24e7c278f5443ee
+          source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_007.json
+          native_item_id: source_relation_answer
+          public_id: goal_5
+        equivalence: exact_native_semantic_contract
+      mapping_joint_world_contract:
+        revision: task_edit2_mapping_world_20261018_v1
+        group_key: connectivity_restaurant_hotel
+        scene: restaurant_hotel
+        room: full_scene
+        source_members:
+        - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+          source_sha256: 9a5030cda763d9e758fc87594b87df625790567b12f98454ff2d18bc5d39bd01
+          task_sha256: fc759351a269566cc6f95d90871e740c116c7f6599eac7308005f229ac60a35b
+          scene_sha256: 4c019b8fef0679516ad296fad1c62f17470afdd5c685fe2525cb2c79556c146c
+        - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_003.json
+          source_sha256: 81bf3cbe581f78e8c15e913f4c4acb15d8222977996cae785a075190dee19f73
+          task_sha256: 1850bac527aade63a55b4223165f605c5773e99af2ba5edd8ea88a79b1700736
+          scene_sha256: b25a6152d2bf3a948fd810db7e10938ab95181102618391b963fd647d8a9121a
+        - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_005.json
+          source_sha256: 0030942866160481a1ce3ded32d487560ce8de27e4398f9f978ac08c6180d393
+          task_sha256: c62eaffc23398514365a8e70480361be4537986d74f55df2b9cdbbe83b212457
+          scene_sha256: d7624f96ffd6fdc9f4c0c1d257d8f98a1e67d4f614c2536698023ea11cdfc66b
+        - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_006.json
+          source_sha256: 5ed4202d7f63652db8408ee9f8dce7fe56b1b3d025077cb0fd86e8829ba0d43f
+          task_sha256: 40cf348eb838ace4bcac7da23e16b1ac47a6e372c30ea6b6ac1170200ce7f022
+          scene_sha256: 0e21d500af56b235cc2c6648e9a2df409c275445e0d047f20332ffefbfbd2209
+        - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_007.json
+          source_sha256: eebd47567bfdcdf22d0b5f88ca4aef5591d3295a0a7349fe2e76bdd8963e34c6
+          task_sha256: 619a143582b5e266a2ff51fe2a17f16d047f4cc4f85dfe7e0171f1b00a5c26e4
+          scene_sha256: 58393617a20ee3e9c42bfc5d2f938e03ee6dcf9898cb6b89b9433bed1a253d19
+        representative_source: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+        common_start_proposal:
+          operation: robot_pose
+          phase: before_construction
+          position:
+          - 6.200000286102295
+          - -19.399999618530273
+          - 0.1
+          yaw_deg: 177.08916969878248
+          head_pitch_deg: 0.0
+        seed: 0
+        episode_budget:
+          origin: new_uncalibrated_geometric_pilot
+          calibrated: false
+          max_steps: 948
+          wall_timeout_s: 2844.0
+          derivation: ceil(2 * Manhattan_MST(all unique saved camera/path XY) / 0.25m)
+            + 12 * distinct required rooms + 4 * unique semantic questions
+          evidence:
+            manhattan_mst_m: 108.41418285965389
+            translation_increment_m: 0.25
+            geometric_traversals: 2
+            translation_actions: 868
+            inspection_turn_actions: 60
+            answer_actions: 20
+            wall_seconds_per_action: 3.0
+            wall_bound_calibrated: false
+            point_set: all_saved_source_camera_and_path_XY_superset
+            unique_xy_count: 400
+          limitation: Geometry ignores walls, door operation and controller timing;
+            native route and budget calibration remain mandatory.
+        full_building_required: true
+        retain_native_furniture_and_doors: true
+        source_world_equivalence: unverified_pending_all_source_relations_in_this_actual_reset
+        qualification_api: session.mapping_joint_world_identity(contract) and session.mapping_joint_world_qualification(contract)
+        pending_gates:
+        - full_building_inventory_geometry
+        - all_original_source_relations
+        - source_runtime_door_reconciliation_and_public_crossings
+        - common_start_support_and_clearance
+        - controller_and_eight_plus_initial_global
+        - shared_budget_native_calibration
+        common_start_policy:
+          operation: prepare_category_interaction
+          phase: after_postprocessing
+          mode: navigation
+          group_bindings: []
+          manipulation_bindings: []
+          relocation_policy: preserve
+          layout_parameters: {}
+          controller_initial_trunk_joint_positions_rad: null
+          placement_groups: []
+          support_bindings: []
+          support_preferences: {}
+          support_search: bounded_group
+          allow_fallback_table: false
+          anchor_policy: none
+          source_camera_policy: translate_with_group
+          fixed_reference_evidence: {}
+          source_region: bathroom_0
+          minimum_grasp_height_m: 0.35
+          maximum_grasp_height_m: 1.1
+          maximum_stance_distance_m: 0.85
+          warning_codes: []
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.task_edit2_mapping_world
+        parameters:
+          mapping_joint_world_contract:
+            revision: task_edit2_mapping_world_20261018_v1
+            group_key: connectivity_restaurant_hotel
+            scene: restaurant_hotel
+            room: full_scene
+            source_members:
+            - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+              source_sha256: 9a5030cda763d9e758fc87594b87df625790567b12f98454ff2d18bc5d39bd01
+              task_sha256: fc759351a269566cc6f95d90871e740c116c7f6599eac7308005f229ac60a35b
+              scene_sha256: 4c019b8fef0679516ad296fad1c62f17470afdd5c685fe2525cb2c79556c146c
+            - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_003.json
+              source_sha256: 81bf3cbe581f78e8c15e913f4c4acb15d8222977996cae785a075190dee19f73
+              task_sha256: 1850bac527aade63a55b4223165f605c5773e99af2ba5edd8ea88a79b1700736
+              scene_sha256: b25a6152d2bf3a948fd810db7e10938ab95181102618391b963fd647d8a9121a
+            - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_005.json
+              source_sha256: 0030942866160481a1ce3ded32d487560ce8de27e4398f9f978ac08c6180d393
+              task_sha256: c62eaffc23398514365a8e70480361be4537986d74f55df2b9cdbbe83b212457
+              scene_sha256: d7624f96ffd6fdc9f4c0c1d257d8f98a1e67d4f614c2536698023ea11cdfc66b
+            - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_006.json
+              source_sha256: 5ed4202d7f63652db8408ee9f8dce7fe56b1b3d025077cb0fd86e8829ba0d43f
+              task_sha256: 40cf348eb838ace4bcac7da23e16b1ac47a6e372c30ea6b6ac1170200ce7f022
+              scene_sha256: 0e21d500af56b235cc2c6648e9a2df409c275445e0d047f20332ffefbfbd2209
+            - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_007.json
+              source_sha256: eebd47567bfdcdf22d0b5f88ca4aef5591d3295a0a7349fe2e76bdd8963e34c6
+              task_sha256: 619a143582b5e266a2ff51fe2a17f16d047f4cc4f85dfe7e0171f1b00a5c26e4
+              scene_sha256: 58393617a20ee3e9c42bfc5d2f938e03ee6dcf9898cb6b89b9433bed1a253d19
+            representative_source: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+            common_start_proposal:
+              operation: robot_pose
+              phase: before_construction
+              position:
+              - 6.200000286102295
+              - -19.399999618530273
+              - 0.1
+              yaw_deg: 177.08916969878248
+              head_pitch_deg: 0.0
+            seed: 0
+            episode_budget:
+              origin: new_uncalibrated_geometric_pilot
+              calibrated: false
+              max_steps: 948
+              wall_timeout_s: 2844.0
+              derivation: ceil(2 * Manhattan_MST(all unique saved camera/path XY)
+                / 0.25m) + 12 * distinct required rooms + 4 * unique semantic questions
+              evidence:
+                manhattan_mst_m: 108.41418285965389
+                translation_increment_m: 0.25
+                geometric_traversals: 2
+                translation_actions: 868
+                inspection_turn_actions: 60
+                answer_actions: 20
+                wall_seconds_per_action: 3.0
+                wall_bound_calibrated: false
+                point_set: all_saved_source_camera_and_path_XY_superset
+                unique_xy_count: 400
+              limitation: Geometry ignores walls, door operation and controller timing;
+                native route and budget calibration remain mandatory.
+            full_building_required: true
+            retain_native_furniture_and_doors: true
+            source_world_equivalence: unverified_pending_all_source_relations_in_this_actual_reset
+            qualification_api: session.mapping_joint_world_identity(contract) and
+              session.mapping_joint_world_qualification(contract)
+            pending_gates:
+            - full_building_inventory_geometry
+            - all_original_source_relations
+            - source_runtime_door_reconciliation_and_public_crossings
+            - common_start_support_and_clearance
+            - controller_and_eight_plus_initial_global
+            - shared_budget_native_calibration
+            common_start_policy:
+              operation: prepare_category_interaction
+              phase: after_postprocessing
+              mode: navigation
+              group_bindings: []
+              manipulation_bindings: []
+              relocation_policy: preserve
+              layout_parameters: {}
+              controller_initial_trunk_joint_positions_rad: null
+              placement_groups: []
+              support_bindings: []
+              support_preferences: {}
+              support_search: bounded_group
+              allow_fallback_table: false
+              anchor_policy: none
+              source_camera_policy: translate_with_group
+              fixed_reference_evidence: {}
+              source_region: bathroom_0
+              minimum_grasp_height_m: 0.35
+              maximum_grasp_height_m: 1.1
+              maximum_stance_distance_m: 0.85
+              warning_codes: []
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - 6.200000286102295
+        - -19.399999618530273
+        - 0.1
+        yaw_deg: 177.08916969878248
+        head_pitch_deg: 0.0
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: navigation
+        group_bindings: []
+        manipulation_bindings: []
+        relocation_policy: preserve
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad: null
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: bounded_group
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: bathroom_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+qualification:
+  on_failure: skip
+  initial_visibility: none
+  target_movable_collidable: false
+defaults:
+  seed: 0
+  max_steps: 948
+  wall_timeout_s: 2844.0
+repair:
+  definition_revision: task_edit2_mapping_world_20261018_v1
+  diagnostic_only: true
+  mapping_joint_world_contract:
+    revision: task_edit2_mapping_world_20261018_v1
+    group_key: connectivity_restaurant_hotel
+    scene: restaurant_hotel
+    room: full_scene
+    source_members:
+    - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+      source_sha256: 9a5030cda763d9e758fc87594b87df625790567b12f98454ff2d18bc5d39bd01
+      task_sha256: fc759351a269566cc6f95d90871e740c116c7f6599eac7308005f229ac60a35b
+      scene_sha256: 4c019b8fef0679516ad296fad1c62f17470afdd5c685fe2525cb2c79556c146c
+    - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_003.json
+      source_sha256: 81bf3cbe581f78e8c15e913f4c4acb15d8222977996cae785a075190dee19f73
+      task_sha256: 1850bac527aade63a55b4223165f605c5773e99af2ba5edd8ea88a79b1700736
+      scene_sha256: b25a6152d2bf3a948fd810db7e10938ab95181102618391b963fd647d8a9121a
+    - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_005.json
+      source_sha256: 0030942866160481a1ce3ded32d487560ce8de27e4398f9f978ac08c6180d393
+      task_sha256: c62eaffc23398514365a8e70480361be4537986d74f55df2b9cdbbe83b212457
+      scene_sha256: d7624f96ffd6fdc9f4c0c1d257d8f98a1e67d4f614c2536698023ea11cdfc66b
+    - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_006.json
+      source_sha256: 5ed4202d7f63652db8408ee9f8dce7fe56b1b3d025077cb0fd86e8829ba0d43f
+      task_sha256: 40cf348eb838ace4bcac7da23e16b1ac47a6e372c30ea6b6ac1170200ce7f022
+      scene_sha256: 0e21d500af56b235cc2c6648e9a2df409c275445e0d047f20332ffefbfbd2209
+    - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_007.json
+      source_sha256: eebd47567bfdcdf22d0b5f88ca4aef5591d3295a0a7349fe2e76bdd8963e34c6
+      task_sha256: 619a143582b5e266a2ff51fe2a17f16d047f4cc4f85dfe7e0171f1b00a5c26e4
+      scene_sha256: 58393617a20ee3e9c42bfc5d2f938e03ee6dcf9898cb6b89b9433bed1a253d19
+    representative_source: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+    common_start_proposal:
+      operation: robot_pose
+      phase: before_construction
+      position:
+      - 6.200000286102295
+      - -19.399999618530273
+      - 0.1
+      yaw_deg: 177.08916969878248
+      head_pitch_deg: 0.0
+    seed: 0
+    episode_budget:
+      origin: new_uncalibrated_geometric_pilot
+      calibrated: false
+      max_steps: 948
+      wall_timeout_s: 2844.0
+      derivation: ceil(2 * Manhattan_MST(all unique saved camera/path XY) / 0.25m)
+        + 12 * distinct required rooms + 4 * unique semantic questions
+      evidence:
+        manhattan_mst_m: 108.41418285965389
+        translation_increment_m: 0.25
+        geometric_traversals: 2
+        translation_actions: 868
+        inspection_turn_actions: 60
+        answer_actions: 20
+        wall_seconds_per_action: 3.0
+        wall_bound_calibrated: false
+        point_set: all_saved_source_camera_and_path_XY_superset
+        unique_xy_count: 400
+      limitation: Geometry ignores walls, door operation and controller timing; native
+        route and budget calibration remain mandatory.
+    full_building_required: true
+    retain_native_furniture_and_doors: true
+    source_world_equivalence: unverified_pending_all_source_relations_in_this_actual_reset
+    qualification_api: session.mapping_joint_world_identity(contract) and session.mapping_joint_world_qualification(contract)
+    pending_gates:
+    - full_building_inventory_geometry
+    - all_original_source_relations
+    - source_runtime_door_reconciliation_and_public_crossings
+    - common_start_support_and_clearance
+    - controller_and_eight_plus_initial_global
+    - shared_budget_native_calibration
+    common_start_policy:
+      operation: prepare_category_interaction
+      phase: after_postprocessing
+      mode: navigation
+      group_bindings: []
+      manipulation_bindings: []
+      relocation_policy: preserve
+      layout_parameters: {}
+      controller_initial_trunk_joint_positions_rad: null
+      placement_groups: []
+      support_bindings: []
+      support_preferences: {}
+      support_search: bounded_group
+      allow_fallback_table: false
+      anchor_policy: none
+      source_camera_policy: translate_with_group
+      fixed_reference_evidence: {}
+      source_region: bathroom_0
+      minimum_grasp_height_m: 0.35
+      maximum_grasp_height_m: 1.1
+      maximum_stance_distance_m: 0.85
+      warning_codes: []
+  source_provenance:
+  - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+    source_sha256: 9a5030cda763d9e758fc87594b87df625790567b12f98454ff2d18bc5d39bd01
+    task_sha256: fc759351a269566cc6f95d90871e740c116c7f6599eac7308005f229ac60a35b
+    scene_sha256: 4c019b8fef0679516ad296fad1c62f17470afdd5c685fe2525cb2c79556c146c
+    source_core_candidate_id: category_fc80757a618e5987d84e9d85
+    source_file: ESI-Bench/dataset/json_clean/Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json
+    task_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_fc80757a618e5987d84e9d85/task.yaml
+    scene_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_fc80757a618e5987d84e9d85/scene.yaml
+  - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_003.json
+    source_sha256: 81bf3cbe581f78e8c15e913f4c4acb15d8222977996cae785a075190dee19f73
+    task_sha256: 1850bac527aade63a55b4223165f605c5773e99af2ba5edd8ea88a79b1700736
+    scene_sha256: b25a6152d2bf3a948fd810db7e10938ab95181102618391b963fd647d8a9121a
+    source_core_candidate_id: category_e04e26697d091d7e70fd3f16
+    source_file: ESI-Bench/dataset/json_clean/Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_003.json
+    task_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_e04e26697d091d7e70fd3f16/task.yaml
+    scene_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_e04e26697d091d7e70fd3f16/scene.yaml
+  - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_005.json
+    source_sha256: 0030942866160481a1ce3ded32d487560ce8de27e4398f9f978ac08c6180d393
+    task_sha256: c62eaffc23398514365a8e70480361be4537986d74f55df2b9cdbbe83b212457
+    scene_sha256: d7624f96ffd6fdc9f4c0c1d257d8f98a1e67d4f614c2536698023ea11cdfc66b
+    source_core_candidate_id: category_73bf39a3004c75fdb8bea09d
+    source_file: ESI-Bench/dataset/json_clean/Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_005.json
+    task_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_73bf39a3004c75fdb8bea09d/task.yaml
+    scene_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_73bf39a3004c75fdb8bea09d/scene.yaml
+  - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_006.json
+    source_sha256: 5ed4202d7f63652db8408ee9f8dce7fe56b1b3d025077cb0fd86e8829ba0d43f
+    task_sha256: 40cf348eb838ace4bcac7da23e16b1ac47a6e372c30ea6b6ac1170200ce7f022
+    scene_sha256: 0e21d500af56b235cc2c6648e9a2df409c275445e0d047f20332ffefbfbd2209
+    source_core_candidate_id: category_a4f26b7d320e6bff6cf91884
+    source_file: ESI-Bench/dataset/json_clean/Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_006.json
+    task_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_a4f26b7d320e6bff6cf91884/task.yaml
+    scene_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_a4f26b7d320e6bff6cf91884/scene.yaml
+  - source_identity: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_007.json
+    source_sha256: eebd47567bfdcdf22d0b5f88ca4aef5591d3295a0a7349fe2e76bdd8963e34c6
+    task_sha256: 619a143582b5e266a2ff51fe2a17f16d047f4cc4f85dfe7e0171f1b00a5c26e4
+    scene_sha256: 58393617a20ee3e9c42bfc5d2f938e03ee6dcf9898cb6b89b9433bed1a253d19
+    source_core_candidate_id: category_cd34c9cf754ab530c2de593a
+    source_file: ESI-Bench/dataset/json_clean/Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_007.json
+    task_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_cd34c9cf754ab530c2de593a/task.yaml
+    scene_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_cd34c9cf754ab530c2de593a/scene.yaml

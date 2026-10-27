@@ -1,0 +1,308 @@
+{
+  "schema": "wia_room_collection_design_v1",
+  "main_authored": true,
+  "native_validation_run": false,
+  "physical_success_verified": false,
+  "entries": [
+    {
+      "document_alias": "T07",
+      "variant_id": "t07_furnished_collection_v5",
+      "label": "T07 preserved-route collection v5 (initial orientation toward first-room target)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/corev2__category_bb85ad2d7d19a7fdde23a2a0.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/corev2__category_bb85ad2d7d19a7fdde23a2a0.yaml",
+      "scene_inventory_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261024_furnished/asset_inventory/Beechwood_0_int.json",
+      "room": "full_scene",
+      "layout": {
+        "scene_model": "Beechwood_0_int",
+        "native_inventory": [],
+        "added_inventory": [
+          {
+            "name": "wia_t07_target_01",
+            "category": "banana",
+            "model": "znakxm",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "role": "target",
+            "room": "living_room_0",
+            "public_name": "banana",
+            "support": "breakfast_table_skczfi_0",
+            "position": [
+              2.68,
+              -7.44,
+              0.9582406443334046
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "name": "wia_t07_target_02",
+            "category": "marjoram_shaker",
+            "model": "xlspnl",
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ],
+            "role": "target",
+            "room": "kitchen_0",
+            "public_name": "small marjoram shaker",
+            "support": "countertop_tpuwys_0",
+            "position": [
+              0.35,
+              -5.4,
+              1.12
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "name": "wia_t07_target_03",
+            "category": "cola_bottle",
+            "model": "oyqdtz",
+            "scale": [
+              0.65,
+              0.65,
+              0.65
+            ],
+            "role": "target",
+            "room": "corridor_0",
+            "public_name": "miniature cola bottle",
+            "support": "wia_t07_corridor_open_shelf",
+            "position": [
+              1.88,
+              -4.3,
+              1.01
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "name": "wia_t07_target_04",
+            "category": "box_of_oatmeal",
+            "model": "jtqeef",
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "role": "target",
+            "room": "private_office_0",
+            "public_name": "miniature oatmeal box",
+            "support": "bottom_cabinet_immwzb_0",
+            "position": [
+              4.85,
+              -4.74,
+              0.9487548705641979
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "name": "wia_t07_target_05",
+            "category": "pepper_grinder",
+            "model": "tfoogy",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "role": "target",
+            "room": "utility_room_0",
+            "public_name": "pepper grinder",
+            "support": "bottom_cabinet_slgzfc_0",
+            "position": [
+              4.35,
+              0.4,
+              1.1441997753784308
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "name": "wia_t07_target_06",
+            "category": "bottle_of_orange_juice",
+            "model": "edltwh",
+            "scale": [
+              0.7,
+              0.7,
+              0.7
+            ],
+            "role": "target",
+            "room": "storage_room_1",
+            "public_name": "miniature orange juice bottle",
+            "support": "wia_t07_storage_open_shelf",
+            "position": [
+              2.65,
+              -4.8,
+              1.01
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "support_objects": [
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_t07_corridor_open_shelf",
+            "category": "shelf",
+            "position": [
+              1.88,
+              -4.3,
+              0.74
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              0.45,
+              0.28,
+              0.04
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.48,
+              0.32,
+              0.18,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_t07_storage_open_shelf",
+            "category": "shelf",
+            "position": [
+              2.65,
+              -4.8,
+              0.74
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              0.45,
+              0.28,
+              0.04
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.48,
+              0.32,
+              0.18,
+              1.0
+            ]
+          }
+        ],
+        "route": [
+          "living_room_0",
+          "kitchen_0",
+          "corridor_0",
+          "private_office_0",
+          "utility_room_0",
+          "storage_room_1"
+        ],
+        "plate": {
+          "name": "collection_plate",
+          "category": "tray",
+          "model": "gsxbym",
+          "right_eef_position_base_m": [
+            0.4,
+            -0.25,
+            0.8
+          ],
+          "rim_axis": "y",
+          "rim_penetration_m": 0.025,
+          "usable_bounds_local_m": [
+            [
+              -0.147,
+              -0.21,
+              -0.0049
+            ],
+            [
+              0.147,
+              0.21,
+              0.17
+            ]
+          ]
+        },
+        "robot_start": {
+          "position": [
+            4.5,
+            -7.0,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        "source_objects_policy": "replace_authored_source_objects",
+        "scene_config": {
+          "load_room_instances": null,
+          "load_room_types": null,
+          "load_object_categories": null,
+          "not_load_object_categories": null
+        },
+        "public_environment": "Original furnished rooms and doors, with objects on openly exposed supporting surfaces.",
+        "allow_authored_navigation_inventory": true
+      },
+      "main_authored_layout": true,
+      "static_target_room_segmentation_checked": true,
+      "native_validation_run": false,
+      "native_support_verified": false,
+      "native_robot_feasibility_verified": false,
+      "physical_success_verified": false,
+      "original_source_qa_unused": true,
+      "operation": "visit_rooms_and_collect_on_right_hand_tray",
+      "source_identity": "Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/q_000.json",
+      "version": 6,
+      "review_notes": [
+        "Adds native robot floor/upright/obstacle initialization evidence; task actions remain untested.",
+        "Use the existing structured PhysX contact-vector decoder; thresholds and layout are unchanged from V3. Tray setup failure diagnostics are retained without automatic retries.",
+        "V4 confirms floor support/upright posture and both right fingers touch the tray, but native assisted grasp does not establish. Preserve start XY and route; use cardinal west-facing initial orientation toward the first-room banana. Grip settings and qualification stay unchanged; no actual task pickup trial."
+      ]
+    }
+  ],
+  "revision_evidence": {
+    "observed": "T07 V3/V4 fail contact-qualified tray initialization at135degrees despite both-finger contacts and approximately1e-6m EEF residual. PriorV1/V2 grip setup passed, so this is not a proven root cause.",
+    "change": "Change only robot initial yaw from135degrees to180degrees, facing the first-room target; preserve all positions, route, inventory, grip settings and thresholds."
+  }
+}

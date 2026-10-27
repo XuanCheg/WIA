@@ -1,0 +1,1491 @@
+{
+  "schema": "wia_review_evidence_v1",
+  "title": "World-Interactive Agency · WIA V1",
+  "row_updates": {
+    "wia_v1_t28": {
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t28_furnished_tray_v3. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available.",
+      "variants": [
+        {
+          "id": "geometric_reference",
+          "label": "Geometric configuration · native reference",
+          "task_file": "explore_to_achieve/tasks/Spatial Relations/Geometric Configuration/Beechwood_0_garden/kitchen_0/corev2__category_1bb95023d01fbe5c29601ab3.yaml",
+          "scene_file": "explore_to_achieve/scenes/Spatial Relations/Geometric Configuration/Beechwood_0_garden/kitchen_0/corev2__category_1bb95023d01fbe5c29601ab3.yaml",
+          "status": "reference_verified",
+          "evidence_summary": "Two independent native successes; all nine constraints pass. Repeat: 22 stable samples, equal legs 0.49656 / 0.49893 m, third side 0.88542 m. Human feedback remains separate from execution evidence.",
+          "evidence": [
+            {
+              "label": "First reviewed reference",
+              "path": "outputs/wia_v1_20261023/t28_reference_r3/main_review.json"
+            },
+            {
+              "label": "Clean repeat review",
+              "path": "outputs/wia_v1_20261023/t28_reference_repeat/main_review.json"
+            },
+            {
+              "label": "Clean command trace",
+              "path": "outputs/wia_v1_20261023/t28_reference_repeat_client/result.json"
+            }
+          ],
+          "captures": [
+            {
+              "directory": "outputs/wia_v1_20261023/t28_reference_repeat/initial",
+              "label": "Initial world",
+              "role": "initial"
+            },
+            {
+              "directory": "outputs/wia_v1_20261023/t28_reference_repeat/999_close",
+              "label": "Released goal state",
+              "role": "final",
+              "views": [
+                "agentview_rgb",
+                "wrist_rgb",
+                "right_wrist_rgb",
+                "chassis_front_left_rgb",
+                "chassis_front_right_rgb",
+                "chassis_left_rgb",
+                "chassis_right_rgb",
+                "chassis_rear_rgb"
+              ]
+            }
+          ]
+        }
+      ],
+      "previous_milestone_summary": "Two independent supervised native references completed. The clean repeat completed all 18 public commands. No autonomous model evaluation.",
+      "preferred_variant_id": "t28_furnished_tray_v3"
+    },
+    "wia_v1_t25": {
+      "status": "native_images_ready",
+      "summary": "October 25 blocker revision: explicit initialization-only awake-target protocol restores actual native PhysX contact separation measurements. Fresh authored public-control reference satisfies native physical and answer success in 42 physical commands within the unchanged 60-step budget, including one guarded arm-limit stop followed by legal base withdrawal. Main inspected exact native initial images. Zero model calls; this is feasibility evidence, not autonomous-agent performance or broad scorer qualification.",
+      "variants": [
+        {
+          "id": "rigid_t25_v1",
+          "label": "Rigid partial insertion · WIA V1",
+          "task_file": "explore_to_achieve/wia_v1/tasks/rigid_t25_v1.yaml",
+          "scene_file": "explore_to_achieve/wia_v1/scenes/rigid_t25_v1.yaml",
+          "status": "physical_partial",
+          "evidence_summary": "Original QA answered correctly. Target is released in tupperware and both hands are empty; held lift and stable interior evidence exist. Native penetration-free dwell remains unavailable after bodies sleep. task_success is false; no complete success claim.",
+          "evidence": [
+            {
+              "label": "Main native review",
+              "path": "outputs/wia_v1_20261023/rigid_t25_v1_r2/main_review.json"
+            },
+            {
+              "label": "Native evaluator",
+              "path": "outputs/wia_v1_20261023/rigid_t25_v1_r2/private_evaluation/state.json"
+            }
+          ],
+          "captures": [
+            {
+              "directory": "outputs/wia_v1_20261023/rigid_t25_v1_r2/initial",
+              "label": "Initial world",
+              "role": "initial"
+            },
+            {
+              "directory": "outputs/wia_v1_20261023/rigid_t25_v1_r2/qa_and_final_capture",
+              "label": "Released insertion",
+              "role": "final",
+              "views": [
+                "agentview_rgb",
+                "wrist_rgb",
+                "right_wrist_rgb",
+                "chassis_front_left_rgb",
+                "chassis_front_right_rgb",
+                "chassis_left_rgb",
+                "chassis_right_rgb",
+                "chassis_rear_rgb"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "rigid_t25_v1_initial_r3",
+          "label": "Rigid contact correction · initialization only",
+          "task_file": "explore_to_achieve/wia_v1/tasks/rigid_t25_v1.yaml",
+          "scene_file": "explore_to_achieve/wia_v1/scenes/rigid_t25_v1.yaml",
+          "status": "initialization_verified",
+          "evidence_summary": "Native initial support, empty working hand and scorer wiring pass. No grasp/transport/placement was executed. The sleeping-pair contact retention correction has CPU validation but no completed fresh native insertion reference.",
+          "evidence": [
+            {
+              "label": "Main initialization review",
+              "path": "outputs/wia_v1_20261023/rigid_t25_v1_r3/main_review.json"
+            }
+          ],
+          "captures": [
+            {
+              "directory": "outputs/wia_v1_20261023/rigid_t25_v1_r3/initial",
+              "label": "New adapter · initial world",
+              "role": "initial_only"
+            }
+          ]
+        }
+      ],
+      "previous_milestone_summary": "Earlier native grasp, transport and released insertion remain incomplete r2 evidence. The contact-retention correction passes CPU checks and r3 initialization; complete native insertion validation is deferred until user review.",
+      "preferred_variant_id": "t25_awake_contact_v2"
+    },
+    "wia_v1_t40": {
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t40_history_a_h_furnished_v1. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available.",
+      "variants": [
+        {
+          "id": "temporal_a_v3",
+          "label": "History A · shaker removed",
+          "task_file": "explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_a_v3.yaml",
+          "scene_file": "explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_a_v3.yaml",
+          "status": "mechanism_pending",
+          "evidence_summary": "Native Phase 2 is valid. A/B active geometry and camera calibration pass the predefined audit tolerances; public payload matches. All eight RGB views differ (mean absolute RGB error 0.047–0.211 out of 255). Rendering variability and possible residual history cues need controlled follow-up; no memory-only claim or robot restoration success.",
+          "evidence": [
+            {
+              "label": "Matched-history specification",
+              "path": "explore_to_achieve/wia_v1/temporal_start_v3/manifest.json"
+            },
+            {
+              "label": "Native qualification",
+              "path": "outputs/wia_v1_20261023/temporal_a_v3_r2/private_scene/qualification.json"
+            },
+            {
+              "label": "Native A/B state and image audit",
+              "path": "outputs/wia_v1_20261023/temporal_ab_v3_main_audit.json"
+            },
+            {
+              "label": "Within-history B/B rendering comparison",
+              "path": "outputs/wia_v1_20261023/temporal_bb_v3_null_audit.json"
+            },
+            {
+              "label": "A/B repeat state and image comparison",
+              "path": "outputs/wia_v1_20261023/temporal_ab_v3_repeat_audit.json"
+            }
+          ],
+          "captures": [
+            {
+              "directory": "outputs/wia_v1_20261023/temporal_a_v3_r2/initial",
+              "label": "Phase 1 · A",
+              "role": "phase_1"
+            },
+            {
+              "directory": "outputs/wia_v1_20261023/temporal_a_v3_r2/phase2_after_public_yaw",
+              "label": "Phase 2 · A",
+              "role": "phase_2",
+              "views": [
+                "agentview_rgb",
+                "wrist_rgb",
+                "right_wrist_rgb",
+                "chassis_front_left_rgb",
+                "chassis_front_right_rgb",
+                "chassis_left_rgb",
+                "chassis_right_rgb",
+                "chassis_rear_rgb"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "temporal_b_v3",
+          "label": "History B · butter removed",
+          "task_file": "explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_b_v3.yaml",
+          "scene_file": "explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_b_v3.yaml",
+          "status": "mechanism_pending",
+          "evidence_summary": "Native Phase 2 is valid. A/B active geometry and camera calibration pass the predefined audit tolerances; public payload matches. All eight RGB views differ (mean absolute RGB error 0.047–0.211 out of 255). Rendering variability and possible residual history cues need controlled follow-up; no memory-only claim or robot restoration success.",
+          "evidence": [
+            {
+              "label": "Matched-history specification",
+              "path": "explore_to_achieve/wia_v1/temporal_start_v3/manifest.json"
+            },
+            {
+              "label": "Native qualification",
+              "path": "outputs/wia_v1_20261023/temporal_b_v3_r1/private_scene/qualification.json"
+            },
+            {
+              "label": "Native A/B state and image audit",
+              "path": "outputs/wia_v1_20261023/temporal_ab_v3_main_audit.json"
+            },
+            {
+              "label": "Within-history B/B rendering comparison",
+              "path": "outputs/wia_v1_20261023/temporal_bb_v3_null_audit.json"
+            },
+            {
+              "label": "A/B repeat state and image comparison",
+              "path": "outputs/wia_v1_20261023/temporal_ab_v3_repeat_audit.json"
+            }
+          ],
+          "captures": [
+            {
+              "directory": "outputs/wia_v1_20261023/temporal_b_v3_r1/initial",
+              "label": "Phase 1 · B",
+              "role": "phase_1"
+            },
+            {
+              "directory": "outputs/wia_v1_20261023/temporal_b_v3_r1/phase2_after_public_yaw",
+              "label": "Phase 2 · B",
+              "role": "phase_2",
+              "views": [
+                "agentview_rgb",
+                "wrist_rgb",
+                "right_wrist_rgb",
+                "chassis_front_left_rgb",
+                "chassis_front_right_rgb",
+                "chassis_left_rgb",
+                "chassis_right_rgb",
+                "chassis_rear_rgb"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "temporal_c_v3",
+          "label": "History C · no change",
+          "task_file": "explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_c_v3.yaml",
+          "scene_file": "explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_c_v3.yaml",
+          "status": "mechanism_pending",
+          "evidence_summary": "No-change C reaches valid Phase 2. B/C geometry and public payload match, while RGB MAE is 0.243–1.779 out of 255, larger than the B/B null comparison (0.047–0.217). No full no-op success or matched-observation certificate.",
+          "evidence": [
+            {
+              "label": "Matched-history specification",
+              "path": "explore_to_achieve/wia_v1/temporal_start_v3/manifest.json"
+            },
+            {
+              "label": "Native initialization",
+              "path": "outputs/wia_v1_20261023/temporal_c_v3_r1/private_scene/qualification.json"
+            },
+            {
+              "label": "B/C native state and image audit",
+              "path": "outputs/wia_v1_20261023/temporal_bc_v3_main_audit.json"
+            }
+          ],
+          "captures": [
+            {
+              "directory": "outputs/wia_v1_20261023/temporal_c_v3_r1/initial",
+              "label": "Phase 1 · no-change control",
+              "role": "phase_1"
+            },
+            {
+              "directory": "outputs/wia_v1_20261023/temporal_c_v3_r1/phase2_after_public_yaw",
+              "label": "Phase 2 · no-change control",
+              "role": "phase_2"
+            }
+          ]
+        }
+      ],
+      "preferred_variant_id": "t40_history_a_h_furnished_v1",
+      "previous_milestone_summary": "October 24 review includes complete-ground house variants and clear-floor hall_arch_wood variants with native initialization/phase-preview images. Initialization passes; current-observation equivalence, causal history controls and actual manipulation/no-op references remain pending after user review. Matched A/B/C histories are present in both backgrounds. Nonzero RGB differences remain; the new hall image comparison has no matched renderer-noise baseline."
+    },
+    "wia_v1_t46": {
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t46_w_furnished_v2. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available.",
+      "variants": [],
+      "preferred_variant_id": "t46_w_furnished_v2",
+      "previous_milestone_summary": "October 24 review includes complete-ground house variants and clear-floor hall_arch_wood variants with native initialization/phase-preview images. Initialization passes; current-observation equivalence, causal history controls and actual manipulation/no-op references remain pending after user review."
+    },
+    "wia_v1_t42": {
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: t42_red_release_marker_v1. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved.",
+      "variants": [
+        {
+          "id": "material_000",
+          "label": "Ramp friction multiplier 0",
+          "task_file": "explore_to_achieve/wia_v1/ramp_calibration/material_000/task.yaml",
+          "scene_file": "explore_to_achieve/wia_v1/ramp_calibration/material_000/scene.yaml",
+          "status": "mechanism_pending",
+          "evidence_summary": "Three repetitions per candidate pass passive release checks; ball is the only finisher. Endpoint trajectories exactly match despite different ramp attributes; effective friction intervention remains unverified.",
+          "evidence": [
+            {
+              "label": "Endpoint comparison",
+              "path": "outputs/wia_v1_20261023/ramp_endpoint_main_review.json"
+            },
+            {
+              "label": "Passive result",
+              "path": "outputs/wia_v1_20261023/ramp_material_000_zero_release_r1/result.json"
+            }
+          ],
+          "captures": [
+            {
+              "directory": "outputs/wia_v1_20261023/ramp_review_000/initial",
+              "label": "Material 0 · initialized apparatus",
+              "role": "initial"
+            }
+          ]
+        },
+        {
+          "id": "material_001",
+          "label": "Ramp friction multiplier 0.1",
+          "task_file": "explore_to_achieve/wia_v1/ramp_calibration/material_001/task.yaml",
+          "scene_file": "explore_to_achieve/wia_v1/ramp_calibration/material_001/scene.yaml",
+          "status": "mechanism_pending",
+          "evidence_summary": "Authored single-factor condition. Current-protocol run deferred until the endpoint material-effect anomaly is resolved.",
+          "evidence": [
+            {
+              "label": "Endpoint comparison",
+              "path": "outputs/wia_v1_20261023/ramp_endpoint_main_review.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "material_002",
+          "label": "Ramp friction multiplier 0.35",
+          "task_file": "explore_to_achieve/wia_v1/ramp_calibration/material_002/task.yaml",
+          "scene_file": "explore_to_achieve/wia_v1/ramp_calibration/material_002/scene.yaml",
+          "status": "mechanism_pending",
+          "evidence_summary": "Authored single-factor condition. Current-protocol run deferred until the endpoint material-effect anomaly is resolved.",
+          "evidence": [
+            {
+              "label": "Endpoint comparison",
+              "path": "outputs/wia_v1_20261023/ramp_endpoint_main_review.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "material_003",
+          "label": "Ramp friction multiplier 1",
+          "task_file": "explore_to_achieve/wia_v1/ramp_calibration/material_003/task.yaml",
+          "scene_file": "explore_to_achieve/wia_v1/ramp_calibration/material_003/scene.yaml",
+          "status": "mechanism_pending",
+          "evidence_summary": "Three repetitions per candidate pass passive release checks; ball is the only finisher. Endpoint trajectories exactly match despite different ramp attributes; effective friction intervention remains unverified.",
+          "evidence": [
+            {
+              "label": "Endpoint comparison",
+              "path": "outputs/wia_v1_20261023/ramp_endpoint_main_review.json"
+            },
+            {
+              "label": "Passive result",
+              "path": "outputs/wia_v1_20261023/ramp_material_003_zero_release_r1/result.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "t42_red_release_marker_v1"
+    },
+    "wia_v1_t11": {
+      "status": "definition_only",
+      "summary": "Native images and full execution pending. Public room options are neutral; original geometry, anchor visibility gates and QA provenance are retained.",
+      "variants": [
+        {
+          "id": "wia_regional_t11_v1",
+          "label": "WIA T11 · Neutral room labels v1",
+          "task_file": "explore_to_achieve/wia_v1/regional_t11_v1/task.yaml",
+          "scene_file": "explore_to_achieve/wia_v1/regional_t11_v1/scene.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Native images and full execution pending. Public room options are neutral; original geometry, anchor visibility gates and QA provenance are retained.",
+          "evidence": [
+            {
+              "label": "Versioned definition and source provenance",
+              "path": "explore_to_achieve/wia_v1/regional_t11_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        }
+      ]
+    },
+    "wia_v1_t22": {
+      "status": "native_images_ready",
+      "summary": "October 25 user-requested revision: the gift box is on the left upholstered armchair (sofa seat); the three packing boxes stay on the native white table. Exact V3 native support and robot initialization pass, and main inspected the new image. Full physical execution remains unqualified. The prior raw user review is preserved.",
+      "variants": [
+        {
+          "id": "wia_rigid_t22_family_v1",
+          "label": "WIA T22 · Scored Rigid containment v1",
+          "task_file": "explore_to_achieve/wia_v1/rigid_family_v1/tasks/rigid_t22_v1.yaml",
+          "scene_file": "explore_to_achieve/wia_v1/rigid_family_v1/scenes/rigid_t22_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Native images and full execution pending. Original partial-insertion and sequential verification semantics are preserved; physical scorer parameters await native calibration.",
+          "evidence": [
+            {
+              "label": "Versioned definition and source provenance",
+              "path": "explore_to_achieve/wia_v1/rigid_family_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "t22_left_sofa_v3"
+    },
+    "wia_v1_t23": {
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: t23_native_cabinet_support_v2. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved.",
+      "variants": [
+        {
+          "id": "wia_rigid_t23_family_v1",
+          "label": "WIA T23 · Scored Rigid containment v1",
+          "task_file": "explore_to_achieve/wia_v1/rigid_family_v1/tasks/rigid_t23_v1.yaml",
+          "scene_file": "explore_to_achieve/wia_v1/rigid_family_v1/scenes/rigid_t23_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Native images and full execution pending. Original partial-insertion and sequential verification semantics are preserved; physical scorer parameters await native calibration.",
+          "evidence": [
+            {
+              "label": "Versioned definition and source provenance",
+              "path": "explore_to_achieve/wia_v1/rigid_family_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "t23_native_cabinet_support_v2"
+    },
+    "wia_v1_t24": {
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t24_furnished_native_support_v1. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available.",
+      "variants": [
+        {
+          "id": "wia_rigid_t24_family_v1",
+          "label": "WIA T24 · Scored Rigid containment v1",
+          "task_file": "explore_to_achieve/wia_v1/rigid_family_v1/tasks/rigid_t24_v1.yaml",
+          "scene_file": "explore_to_achieve/wia_v1/rigid_family_v1/scenes/rigid_t24_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Native images and full execution pending. Original partial-insertion and sequential verification semantics are preserved; physical scorer parameters await native calibration.",
+          "evidence": [
+            {
+              "label": "Versioned definition and source provenance",
+              "path": "explore_to_achieve/wia_v1/rigid_family_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "t24_furnished_native_support_v1",
+      "previous_milestone_summary": "Current review version: T24 support V6. The target is on the native coffee table and containers are on their support table. Initialization remains unaccepted: target collision-point AABB bottom is 3.23 cm below a positive-distance tabletop ray hit (1.5 cm tolerance unchanged). Contact, footprint and speed pass. User image review and later collision/scorer/operability qualification are pending; no physical success is claimed."
+    },
+    "wia_v1_d1_1": {
+      "status": "initial_layout_review",
+      "summary": "October 24 portfolio: original hall_glass_ceiling controls plus selected hall_arch_wood or hall_train_station variants, preserving both seeds and task geometry/scoring. All ten selected new dimensional instances pass initialization and their candidates are visible in main-inspected initial head images. User review, physical passage/sorting and scorer qualification remain pending.",
+      "variants": [
+        {
+          "id": "d1_1_seed101_v1",
+          "label": "D1-1 · seed 101 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/tasks/d1_1_seed101_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/scenes/d1_1_seed101_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "d1_1_seed202_v1",
+          "label": "D1-1 · seed 202 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/tasks/d1_1_seed202_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/scenes/d1_1_seed202_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "d1_1_seed101_v2",
+          "label": "D1-1 · seed 101 · authored v2",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d1_1_seed101_v2.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d1_1_seed101_v2.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Both permuted candidate blocks are completely visible between the robot hands in the initial head image. The native image includes a background floor-grid artifact outside the tabletop; candidate silhouettes and apparatus remain visible. No physical passage, manipulation or scoring qualification was executed.",
+          "evidence": [
+            {
+              "label": "V2 design and visibility requirement",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/design.json"
+            },
+            {
+              "label": "V2 exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/manifest.json"
+            },
+            {
+              "label": "Main initial-image review",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/workstation_initial_reviews/d1_1_seed101_v2.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "d1_1_seed202_v2",
+          "label": "D1-1 · seed 202 · authored v2",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d1_1_seed202_v2.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d1_1_seed202_v2.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Both candidate blocks have distinct visible silhouettes in the central initial head image, outside the robot hands. The opening and blue destination are visible. Human front view confirms apparatus placement; no path feasibility or grasp success is certified.",
+          "evidence": [
+            {
+              "label": "V2 design and visibility requirement",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/design.json"
+            },
+            {
+              "label": "V2 exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/manifest.json"
+            },
+            {
+              "label": "Main initial-image review",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/workstation_initial_reviews/d1_1_seed202_v2.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "d1_1_seed101_v2_hall_train_v1"
+    },
+    "wia_v1_d1_2": {
+      "status": "initial_layout_review",
+      "summary": "October 24 portfolio: original hall_glass_ceiling controls plus selected hall_arch_wood or hall_train_station variants, preserving both seeds and task geometry/scoring. All ten selected new dimensional instances pass initialization and their candidates are visible in main-inspected initial head images. User review, physical passage/sorting and scorer qualification remain pending.",
+      "variants": [
+        {
+          "id": "d1_2_seed101_v1",
+          "label": "D1-2 · seed 101 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/tasks/d1_2_seed101_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/scenes/d1_2_seed101_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "d1_2_seed202_v1",
+          "label": "D1-2 · seed 202 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/tasks/d1_2_seed202_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/scenes/d1_2_seed202_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Native initial support is reported accepted. The initial head and both inspected wrist views have substantial hand occlusion; active perception and manipulation remain unverified. See the native-capture version for actual images.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/manifest.json"
+            },
+            {
+              "label": "Main initial-image review",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/workstation_initial_reviews/d1_2_seed202_v1.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "d1_2_seed101_v2",
+          "label": "D1-2 · seed 101 · authored v2",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d1_2_seed101_v2.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d1_2_seed101_v2.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Both V2 seeds now have directly inspected native initial head images with both candidates visible. Complete reference execution remains deferred.",
+          "evidence": [
+            {
+              "label": "V2 design and visibility requirement",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/design.json"
+            },
+            {
+              "label": "V2 exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/manifest.json"
+            },
+            {
+              "label": "Main initial-image review",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/workstation_initial_reviews/d1_2_seed101_v2.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "d1_2_seed202_v2",
+          "label": "D1-2 · seed 202 · authored v2",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d1_2_seed202_v2.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d1_2_seed202_v2.yaml",
+          "status": "definition_only",
+          "evidence_summary": "The tall narrow block and cube decoy are both visible in the central initial head image outside hand occlusion. The aperture and blue destination remain visible; this image does not verify a grasp or collision-free passage. A native floor-grid artifact appears in the background outside the tabletop.",
+          "evidence": [
+            {
+              "label": "V2 design and visibility requirement",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/design.json"
+            },
+            {
+              "label": "V2 exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/manifest.json"
+            },
+            {
+              "label": "Main initial-image review",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/workstation_initial_reviews/d1_2_seed202_v2.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "d1_2_seed101_v2_hall_arch_v1"
+    },
+    "wia_v1_d1_3": {
+      "status": "initial_layout_review",
+      "summary": "October 24 portfolio: original hall_glass_ceiling controls plus selected hall_arch_wood or hall_train_station variants, preserving both seeds and task geometry/scoring. All ten selected new dimensional instances pass initialization and their candidates are visible in main-inspected initial head images. User review, physical passage/sorting and scorer qualification remain pending.",
+      "variants": [
+        {
+          "id": "d1_3_seed101_v1",
+          "label": "D1-3 · seed 101 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/tasks/d1_3_seed101_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/scenes/d1_3_seed101_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "d1_3_seed202_v1",
+          "label": "D1-3 · seed 202 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/tasks/d1_3_seed202_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/scenes/d1_3_seed202_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "d1_3_seed101_v2",
+          "label": "D1-3 · seed 101 · authored v2",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d1_3_seed101_v2.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d1_3_seed101_v2.yaml",
+          "status": "definition_only",
+          "evidence_summary": "The long horizontal block and cube decoy are both visible in the central initial head image outside hand occlusion. The aperture and blue destination remain visible; this image does not verify a grasp or collision-free passage. A native floor-grid artifact appears in the background outside the tabletop.",
+          "evidence": [
+            {
+              "label": "V2 design and visibility requirement",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/design.json"
+            },
+            {
+              "label": "V2 exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/manifest.json"
+            },
+            {
+              "label": "Main initial-image review",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/workstation_initial_reviews/d1_3_seed101_v2.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "d1_3_seed202_v2",
+          "label": "D1-3 · seed 202 · authored v2",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d1_3_seed202_v2.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d1_3_seed202_v2.yaml",
+          "status": "definition_only",
+          "evidence_summary": "The long horizontal target and cube decoy are individually visible in the initial head image, outside the robot hands. The deep aperture roof, near opening and blue destination are visible. Clearance for the object and robot remains unverified.",
+          "evidence": [
+            {
+              "label": "V2 design and visibility requirement",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/design.json"
+            },
+            {
+              "label": "V2 exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/manifest.json"
+            },
+            {
+              "label": "Main initial-image review",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/workstation_initial_reviews/d1_3_seed202_v2.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "d1_3_seed101_v2_hall_train_v1"
+    },
+    "wia_v1_d2_1": {
+      "status": "initial_layout_review",
+      "summary": "October 24 portfolio: original hall_glass_ceiling controls plus selected hall_arch_wood or hall_train_station variants, preserving both seeds and task geometry/scoring. All ten selected new dimensional instances pass initialization and their candidates are visible in main-inspected initial head images. User review, physical passage/sorting and scorer qualification remain pending.",
+      "variants": [
+        {
+          "id": "d2_1_seed101_v1",
+          "label": "D2-1 · seed 101 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/tasks/d2_1_seed101_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/scenes/d2_1_seed101_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "d2_1_seed202_v1",
+          "label": "D2-1 · seed 202 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/tasks/d2_1_seed202_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/scenes/d2_1_seed202_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "d2_1_seed101_v2",
+          "label": "D2-1 · seed 101 · authored v2",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d2_1_seed101_v2.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d2_1_seed101_v2.yaml",
+          "status": "definition_only",
+          "evidence_summary": "All 3 candidate blocks are individually visible between the robot hands in the central initial head image, with separated outer silhouettes against the dark table. Physical execution remains unverified.",
+          "evidence": [
+            {
+              "label": "V2 design and visibility requirement",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/design.json"
+            },
+            {
+              "label": "V2 exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/manifest.json"
+            },
+            {
+              "label": "Main initial-image review",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/workstation_initial_reviews/d2_1_seed101_v2.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "d2_1_seed202_v2",
+          "label": "D2-1 · seed 202 · authored v2",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d2_1_seed202_v2.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d2_1_seed202_v2.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Main inspected native head and human overhead images: all three candidates are initially visible. Native support accepted; no manipulation or scorer qualification claimed.",
+          "evidence": [
+            {
+              "label": "V2 design and visibility requirement",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/design.json"
+            },
+            {
+              "label": "V2 exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/manifest.json"
+            },
+            {
+              "label": "Main initial-image review",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/workstation_initial_reviews/d2_1_seed202_v2.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "d2_1_seed101_v2_hall_arch_v1"
+    },
+    "wia_v1_d2_2": {
+      "status": "initial_layout_review",
+      "summary": "October 24 portfolio: original hall_glass_ceiling controls plus selected hall_arch_wood or hall_train_station variants, preserving both seeds and task geometry/scoring. All ten selected new dimensional instances pass initialization and their candidates are visible in main-inspected initial head images. User review, physical passage/sorting and scorer qualification remain pending.",
+      "variants": [
+        {
+          "id": "d2_2_seed101_v1",
+          "label": "D2-2 · seed 101 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/tasks/d2_2_seed101_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/scenes/d2_2_seed101_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "d2_2_seed202_v1",
+          "label": "D2-2 · seed 202 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/tasks/d2_2_seed202_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/scenes/d2_2_seed202_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "d2_2_seed101_v2",
+          "label": "D2-2 · seed 101 · authored v2",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d2_2_seed101_v2.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d2_2_seed101_v2.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Both V2 seeds now have directly inspected initial head images with all four candidates visible.",
+          "evidence": [
+            {
+              "label": "V2 design and visibility requirement",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/design.json"
+            },
+            {
+              "label": "V2 exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/manifest.json"
+            },
+            {
+              "label": "Main initial-image review",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/workstation_initial_reviews/d2_2_seed101_v2.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "d2_2_seed202_v2",
+          "label": "D2-2 · seed 202 · authored v2",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d2_2_seed202_v2.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d2_2_seed202_v2.yaml",
+          "status": "definition_only",
+          "evidence_summary": "All 4 candidate blocks are individually visible between the robot hands in the central initial head image, with separated outer silhouettes against the dark table. Physical execution remains unverified.",
+          "evidence": [
+            {
+              "label": "V2 design and visibility requirement",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/design.json"
+            },
+            {
+              "label": "V2 exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/manifest.json"
+            },
+            {
+              "label": "Main initial-image review",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/workstation_initial_reviews/d2_2_seed202_v2.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "d2_2_seed101_v2_hall_train_v1"
+    },
+    "wia_v1_r_c1": {
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: r_c1_seed101_produce_v2, r_c1_seed202_produce_v3. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved.",
+      "variants": [
+        {
+          "id": "r_c1_seed101_v1",
+          "label": "R-C1 · seed 101 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c1_seed101_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c1_seed101_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "r_c1_seed202_v1",
+          "label": "R-C1 · seed 202 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c1_seed202_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c1_seed202_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "r_c1_seed101_produce_v2",
+      "previous_milestone_summary": "October 24 mirror portfolio: selected new scene variants pass initialization and all sixteen new instances have one geometric cue candidate. This does not establish pixel readability, mirror information necessity or successful manipulation. Original hall_glass_ceiling controls and old failed versions remain available; actual operability awaits user review."
+    },
+    "wia_v1_r_c2": {
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: r_c2_seed101_produce_v2, r_c2_seed202_produce_v3. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved.",
+      "variants": [
+        {
+          "id": "r_c2_seed101_v1",
+          "label": "R-C2 · seed 101 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c2_seed101_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c2_seed101_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "r_c2_seed202_v1",
+          "label": "R-C2 · seed 202 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c2_seed202_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c2_seed202_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Native initial geometry is measurable, but R-C2 seed 202 has zero candidates inside the measured inset cue opening. A versioned cue/layout correction is required; preserve this failed optical identity evidence. Full execution remains deferred.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            },
+            {
+              "label": "Main native initial geometry review",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/workstation_initial_reviews/mirror_geometry_main_review.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "r_c2_seed101_produce_v2",
+      "previous_milestone_summary": "October 24 mirror portfolio: selected new scene variants pass initialization and all sixteen new instances have one geometric cue candidate. This does not establish pixel readability, mirror information necessity or successful manipulation. Original hall_glass_ceiling controls and old failed versions remain available; actual operability awaits user review. Seed-specific cue repairs now give unique selection in both the original and train backgrounds; the earlier zero-candidate results are superseded diagnostic evidence."
+    },
+    "wia_v1_r_c3": {
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: r_c3_seed101_produce_v2, r_c3_seed202_produce_v3. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved.",
+      "variants": [
+        {
+          "id": "r_c3_seed101_v1",
+          "label": "R-C3 · seed 101 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c3_seed101_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c3_seed101_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "r_c3_seed202_v1",
+          "label": "R-C3 · seed 202 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c3_seed202_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c3_seed202_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "The real panel reflects the room, pads, table and robot in the native head image. The central differently oriented block is visible; side blocks are partly hand-occluded. Reflected block shapes are small and low contrast. The red frame is visible, but these images do not establish unique reflected correspondence or manipulation success. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            },
+            {
+              "label": "Main initial-image review",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/workstation_initial_reviews/r_c3_seed202_v1.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "r_c3_seed101_produce_v2",
+      "previous_milestone_summary": "October 24 mirror portfolio: selected new scene variants pass initialization and all sixteen new instances have one geometric cue candidate. This does not establish pixel readability, mirror information necessity or successful manipulation. Original hall_glass_ceiling controls and old failed versions remain available; actual operability awaits user review."
+    },
+    "wia_v1_r_a1": {
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: r_a1_seed101_produce_v4, r_a1_seed202_produce_v4. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved.",
+      "variants": [
+        {
+          "id": "r_a1_seed101_v1",
+          "label": "R-A1 · seed 101 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_a1_seed101_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_a1_seed101_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "r_a1_seed202_v1",
+          "label": "R-A1 · seed 202 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_a1_seed202_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_a1_seed202_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "The real panel reflects the room, pads, table and robot in the native head image. The reflected candidate appearances are small and low contrast against the grey reflected tabletop; the red frame is fully visible. The two outer real candidates are partly covered by the robot hands. Unique geometric selection and optical visibility remain unqualified. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            },
+            {
+              "label": "Main initial-image review",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/workstation_initial_reviews/r_a1_seed202_v1.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "r_a1_seed101_produce_v4",
+      "previous_milestone_summary": "October 24 mirror portfolio: selected new scene variants pass initialization and all sixteen new instances have one geometric cue candidate. This does not establish pixel readability, mirror information necessity or successful manipulation. Original hall_glass_ceiling controls and old failed versions remain available; actual operability awaits user review."
+    },
+    "wia_v1_r_a2": {
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: r_a2_seed101_produce_v4, r_a2_seed202_produce_v4. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved.",
+      "variants": [
+        {
+          "id": "r_a2_seed101_v1",
+          "label": "R-A2 · seed 101 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_a2_seed101_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_a2_seed101_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "r_a2_seed202_v1",
+          "label": "R-A2 · seed 202 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_a2_seed202_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_a2_seed202_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "The real panel reflects the room, pads, table and robot in the native head image. The direct red frame extends beyond the left edge of the head image. Side candidates are partly occluded by robot hands. The human overhead/front views show the table, panel, frame and three real blocks, but are not the robot initial observation. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            },
+            {
+              "label": "Main initial-image review",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/workstation_initial_reviews/r_a2_seed202_v1.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "r_a2_seed101_produce_v4",
+      "previous_milestone_summary": "October 24 mirror portfolio: selected new scene variants pass initialization and all sixteen new instances have one geometric cue candidate. This does not establish pixel readability, mirror information necessity or successful manipulation. Original hall_glass_ceiling controls and old failed versions remain available; actual operability awaits user review. The direct-cue frame is partly cropped at the initial head-view edges; review readability explicitly."
+    },
+    "wia_v1_r_s1": {
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: r_s1_seed101_produce_v2, r_s1_seed202_produce_v2. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved.",
+      "variants": [
+        {
+          "id": "r_s1_seed101_v1",
+          "label": "R-S1 · seed 101 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_s1_seed101_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_s1_seed101_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "r_s1_seed202_v1",
+          "label": "R-S1 · seed 202 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_s1_seed202_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_s1_seed202_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "r_s1_seed101_produce_v2",
+      "previous_milestone_summary": "October 24 mirror portfolio: selected new scene variants pass initialization and all sixteen new instances have one geometric cue candidate. This does not establish pixel readability, mirror information necessity or successful manipulation. Original hall_glass_ceiling controls and old failed versions remain available; actual operability awaits user review."
+    },
+    "wia_v1_r_s2": {
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: r_s2_seed101_produce_v2, r_s2_seed202_produce_v2. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved.",
+      "variants": [
+        {
+          "id": "r_s2_seed101_v1",
+          "label": "R-S2 · seed 101 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_s2_seed101_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_s2_seed101_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "r_s2_seed202_v1",
+          "label": "R-S2 · seed 202 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_s2_seed202_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_s2_seed202_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "r_s2_seed101_produce_v2",
+      "previous_milestone_summary": "October 24 mirror portfolio: selected new scene variants pass initialization and all sixteen new instances have one geometric cue candidate. This does not establish pixel readability, mirror information necessity or successful manipulation. Original hall_glass_ceiling controls and old failed versions remain available; actual operability awaits user review."
+    },
+    "wia_v1_r_s3": {
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: r_s3_seed101_produce_v3, r_s3_seed202_produce_v3. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved.",
+      "variants": [
+        {
+          "id": "r_s3_seed101_v1",
+          "label": "R-S3 · seed 101 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_s3_seed101_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_s3_seed101_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        },
+        {
+          "id": "r_s3_seed202_v1",
+          "label": "R-S3 · seed 202 · authored v1",
+          "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_s3_seed202_v1.yaml",
+          "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_s3_seed202_v1.yaml",
+          "status": "definition_only",
+          "evidence_summary": "Two explicit starting layouts share one hall workstation. Definition loading and CPU scoring checks are separate from native support, optics, reach and complete execution. Full reference execution awaits user review.",
+          "evidence": [
+            {
+              "label": "Authored design",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/design.json"
+            },
+            {
+              "label": "Exact definition manifest",
+              "path": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json"
+            }
+          ],
+          "captures": []
+        }
+      ],
+      "preferred_variant_id": "r_s3_seed101_produce_v3",
+      "previous_milestone_summary": "October 24 mirror portfolio: selected new scene variants pass initialization and all sixteen new instances have one geometric cue candidate. This does not establish pixel readability, mirror information necessity or successful manipulation. Original hall_glass_ceiling controls and old failed versions remain available; actual operability awaits user review."
+    },
+    "wia_v1_t35": {
+      "preferred_variant_id": "t35_furnished_collection_v4",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t35_furnished_collection_v4. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available.",
+      "previous_milestone_summary": "October 24 complete-ground revision restores native house ground objects while retaining other-room furniture filtering and the original task/scorer. Current initialization and screenshots are complete. User review and any required navigation/manipulation qualification remain pending."
+    },
+    "wia_v1_t02": {
+      "preferred_variant_id": "t02_complete_ground_v2",
+      "status": "native_images_ready",
+      "summary": "October 24 support_transfer_v1 removes the user-rejected fixed 5 cm lift gate. Real acquisition, held separation from external support, ordered placement, release and stable support remain required. Current native initialization images are ready; full manipulation/scorer validation awaits user review. This selected version also restores all native house ground objects."
+    },
+    "wia_v1_t19": {
+      "preferred_variant_id": "t19_furnished_existing_v1",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t19_furnished_existing_v1. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available.",
+      "previous_milestone_summary": "October 24 complete-ground revision restores native house ground objects while retaining other-room furniture filtering and the original task/scorer. Current initialization and screenshots are complete. User review and any required navigation/manipulation qualification remain pending."
+    },
+    "wia_v1_t32": {
+      "preferred_variant_id": "t32_furnished_tray_v3",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t32_furnished_tray_v3. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available.",
+      "previous_milestone_summary": "October 24 complete-ground revision restores native house ground objects while retaining other-room furniture filtering and the original task/scorer. Current initialization and screenshots are complete. User review and any required navigation/manipulation qualification remain pending."
+    },
+    "wia_v1_t33": {
+      "preferred_variant_id": "t33_furnished_tray_v2",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t33_furnished_tray_v2. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available.",
+      "previous_milestone_summary": "October 24 complete-ground revision restores native house ground objects while retaining other-room furniture filtering and the original task/scorer. Current initialization and screenshots are complete. User review and any required navigation/manipulation qualification remain pending."
+    },
+    "wia_v1_t36": {
+      "preferred_variant_id": "t36_furnished_collection_v4",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t36_furnished_collection_v4. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available.",
+      "previous_milestone_summary": "October 24 complete-ground revision restores native house ground objects while retaining other-room furniture filtering and the original task/scorer. Current initialization and screenshots are complete. User review and any required navigation/manipulation qualification remain pending."
+    },
+    "wia_v1_t38": {
+      "preferred_variant_id": "t38_historical_multi_collection_v3",
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: t38_historical_multi_collection_v3. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved."
+    },
+    "wia_v1_t43": {
+      "preferred_variant_id": "t43_red_release_marker_v1",
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: t43_red_release_marker_v1. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved."
+    },
+    "wia_v1_t44": {
+      "preferred_variant_id": "t44_red_release_marker_v1",
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: t44_red_release_marker_v1. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved."
+    },
+    "wia_v1_t01": {
+      "preferred_variant_id": "t01_furnished_existing_v1",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t01_furnished_existing_v1. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available.",
+      "previous_milestone_summary": "October 24 support_transfer_v1 removes the user-rejected fixed 5 cm lift gate. Real acquisition, held separation from external support, ordered placement, release and stable support remain required. Current native initialization images are ready; full manipulation/scorer validation awaits user review."
+    },
+    "wia_v1_t41": {
+      "preferred_variant_id": "t41_b_furnished_v2",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t41_b_furnished_v2. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available.",
+      "previous_milestone_summary": "October 24 review includes complete-ground house variants and clear-floor hall_arch_wood variants with native initialization/phase-preview images. Initialization passes; current-observation equivalence, causal history controls and actual manipulation/no-op references remain pending after user review."
+    },
+    "wia_v1_t45": {
+      "preferred_variant_id": "t45_b_furnished_v2",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t45_b_furnished_v2. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available.",
+      "previous_milestone_summary": "October 24 review includes complete-ground house variants and clear-floor hall_arch_wood variants with native initialization/phase-preview images. Initialization passes; current-observation equivalence, causal history controls and actual manipulation/no-op references remain pending after user review."
+    },
+    "wia_v1_t47": {
+      "preferred_variant_id": "t47_o_furnished_v4",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t47_o_furnished_v4. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available.",
+      "previous_milestone_summary": "October 24 review includes complete-ground house variants and clear-floor hall_arch_wood variants with native initialization/phase-preview images. Initialization passes; current-observation equivalence, causal history controls and actual manipulation/no-op references remain pending after user review."
+    },
+    "wia_v1_t48": {
+      "preferred_variant_id": "t48_o_furnished_v4",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t48_o_furnished_v4. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available.",
+      "previous_milestone_summary": "October 24 review includes complete-ground house variants and clear-floor hall_arch_wood variants with native initialization/phase-preview images. Initialization passes; current-observation equivalence, causal history controls and actual manipulation/no-op references remain pending after user review. Restored adjacent-room native flooring is visible in the reviewed house overview."
+    },
+    "wia_v1_t03": {
+      "preferred_variant_id": "t03_furnished_existing_v1",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t03_furnished_existing_v1. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available."
+    },
+    "wia_v1_t20": {
+      "preferred_variant_id": "t20_furnished_existing_v1",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t20_furnished_existing_v1. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available."
+    },
+    "wia_v1_t21": {
+      "preferred_variant_id": "t21_furnished_existing_v1",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t21_furnished_existing_v1. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available."
+    },
+    "wia_v1_t27": {
+      "preferred_variant_id": "t27_furnished_tray_v2",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t27_furnished_tray_v2. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available."
+    },
+    "wia_v1_t29": {
+      "preferred_variant_id": "t29_furnished_tray_v2",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t29_furnished_tray_v2. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available."
+    },
+    "wia_v1_t34": {
+      "preferred_variant_id": "t34_furnished_tray_v3",
+      "status": "native_images_ready",
+      "summary": "Original assets retained by explicit user decision on October 25. Violin/backpack/shoebox grasp, transport and release remain pending focused physical validation. Bounded probe failures do not establish asset infeasibility. No further grasp probes are included in this revision round; historical images and raw feedback are preserved.",
+      "physical_validation_status": "pending_focused_validation",
+      "asset_retention_user_confirmed": true
+    },
+    "wia_v1_t07": {
+      "preferred_variant_id": "t07_native_velocity_v2",
+      "status": "native_images_ready",
+      "summary": "October 25 blocker revision: t07_native_velocity_v2. Reset only the named unstable background cabinet saved joint velocities before construction; original source remains unchanged. Fresh strict native initialization accepts the actual right-hand tray hold, all six inventory supports and robot setup, with no invalid PhysX transform warnings. Main image inspection completed. Complete route execution remains unqualified; historical versions and raw human feedback are preserved."
+    },
+    "wia_v1_t08": {
+      "preferred_variant_id": "t08_furnished_collection_v6",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t08_furnished_collection_v6. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available."
+    },
+    "wia_v1_t37": {
+      "preferred_variant_id": "t37_furnished_collection_v4",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t37_furnished_collection_v4. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available."
+    },
+    "wia_v1_t26": {
+      "preferred_variant_id": "t26_furnished_tray_v3",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t26_furnished_tray_v3. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available."
+    },
+    "wia_v1_t31": {
+      "preferred_variant_id": "t31_furnished_tray_v4",
+      "status": "native_images_ready",
+      "summary": "Original assets retained by explicit user decision on October 25. Violin/backpack/shoebox grasp, transport and release remain pending focused physical validation. Bounded probe failures do not establish asset infeasibility. No further grasp probes are included in this revision round; historical images and raw feedback are preserved.",
+      "physical_validation_status": "pending_focused_validation",
+      "asset_retention_user_confirmed": true
+    },
+    "wia_v1_t30": {
+      "preferred_variant_id": "t30_furnished_tray_v1",
+      "status": "native_images_ready",
+      "summary": "Current furnished selection: t30_furnished_tray_v1. Native initialization images and main layout review are ready for user review. This does not establish task execution or scientific qualification. Historical versions and user feedback remain available."
+    },
+    "wia_v1_t51": {
+      "preferred_variant_id": "t51_diverse_cover_v1",
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: t51_diverse_cover_v1. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved."
+    },
+    "wia_v1_t39": {
+      "preferred_variant_id": "t39_historical_multi_collection_v3",
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: t39_historical_multi_collection_v3. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved."
+    },
+    "wia_v1_t49": {
+      "preferred_variant_id": "t49_diverse_cover_v1",
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: t49_diverse_cover_v1. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved."
+    },
+    "wia_v1_t50": {
+      "preferred_variant_id": "t50_light_hand_towel_v2",
+      "status": "native_images_ready",
+      "summary": "October 25 revised selection: t50_light_hand_towel_v2. Native initialization and main design-image inspection pass. Exact-version human review, complete physical execution and scientific qualification remain pending. Historical versions and raw user feedback are preserved."
+    }
+  },
+  "extra_rows": [
+    {
+      "id": "wia_v1_ap4_proposal",
+      "document_alias": "AP4",
+      "primary_family": "AP",
+      "primary_subclass": "AP-4",
+      "title": "Recovery after an unexpected outcome",
+      "implementation_state": "proposal",
+      "status": "proposal",
+      "summary": "Additional mechanism proposed outside the 61-row inventory; not implemented.",
+      "variants": [
+        {
+          "id": "proposal",
+          "label": "Approved research-plan proposal",
+          "task_file": null,
+          "scene_file": null,
+          "objective": "Recover a physically reachable goal after a reversible disturbance.",
+          "success_criteria": "Compare matched disturbed states with and without usable feedback, retaining an independently verified reachable parent task.",
+          "constraints": [
+            "The disturbance must be reversible and independently measured.",
+            "Do not infer recovery ability from an unchanged repeat."
+          ],
+          "status": "proposal",
+          "evidence_summary": "Design feedback only. No authored scene, native execution or model evaluation yet.",
+          "evidence": [
+            {
+              "label": "Research plan",
+              "path": "docs/research/world_interactive_agency_v1/plan_20261023.md"
+            }
+          ],
+          "captures": []
+        }
+      ]
+    }
+  ]
+}

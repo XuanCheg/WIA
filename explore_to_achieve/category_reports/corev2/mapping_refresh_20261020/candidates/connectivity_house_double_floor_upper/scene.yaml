@@ -1,0 +1,97 @@
+kind: scene_patch
+id: scene_256a666b8924a75e18b7c16e
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Cognitive Mapping/Connectivity/house_double_floor_upper/full_scene/q_000.json
+bindings: {}
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.task_edit2_mapping_world
+        parameters:
+          mapping_joint_world_contract:
+            revision: task_edit2_mapping_world_20261018_v1
+            group_key: connectivity_house_double_floor_upper
+            scene: house_double_floor_upper
+            room: full_scene
+            source_members:
+            - source_identity: Cognitive Mapping/Connectivity/house_double_floor_upper/full_scene/q_000.json
+              source_sha256: fe4fa9b0b5584c95f6c26842fefc59970ef8d98744dcd5c748828f483f52d371
+              task_sha256: 5dcf398b2fd59c551bcf792d53a6d0bead92b985e7b7e432174d6460a526b165
+              scene_sha256: cf51ab3194b7ea1ecbb720164a113d5ac99beaf487195d0bb4d57e0e4a3ec69e
+            - source_identity: Cognitive Mapping/Connectivity/house_double_floor_upper/full_scene/q_001.json
+              source_sha256: 159bac25ab0b57c97354a644b6a41d174c1dd89f7e434fae105f35688bdd2649
+              task_sha256: beaa6549f776f24db2d6761255c0335d946b8485d7f7f0e93c1c14480b1fb739
+              scene_sha256: 3acf757c6ab94ad7ecd17f569d4f23baf7e54de21a38fa8d3f86d8426e9f7942
+            - source_identity: Cognitive Mapping/Connectivity/house_double_floor_upper/full_scene/q_003.json
+              source_sha256: d0a507262e2e75919917ce2173974dc9005bbef669d82327462f10b5d632fd2a
+              task_sha256: e5c06478148838532f4a64a276f1b85494a589add6c76ca6111afdf28b12632b
+              scene_sha256: 7c27b76ced8837a8c2ff24ee923d8a0a574402908fca6b1d580700e93fa351b7
+            - source_identity: Cognitive Mapping/Connectivity/house_double_floor_upper/full_scene/q_005.json
+              source_sha256: 5c48cc05b6b41a27addc3794cdde4a3304544ff8a528251c68dd4e2727613adb
+              task_sha256: 89a1061c9ad3ed362a44ca8081e36b332bb8f79efeecc6ac8931bd608fe32fb6
+              scene_sha256: b98b1957cc362474a25cc7a7ed01dac018bf4d09bfc2ec713d700887f9bbecd7
+            - source_identity: Cognitive Mapping/Connectivity/house_double_floor_upper/full_scene/q_006.json
+              source_sha256: 846ac037b96db7ab871aa7b3f17086f4ecd8a8eb731f2288950c49ddaf128c21
+              task_sha256: 6878c736c7c8c499363345f881964f12e30165e9cfade3fe96a12ccbaf2b806f
+              scene_sha256: eae01caa395e646ec9b59e4dd21fb1675ce621c79c0578fe5a9432f0751e8226
+            representative_source: Cognitive Mapping/Connectivity/house_double_floor_upper/full_scene/q_000.json
+            common_start_proposal:
+              operation: robot_pose
+              phase: before_construction
+              position:
+              - -4.099999904632568
+              - 1.3000000715255737
+              - 0.1
+              yaw_deg: -25.0674639920566
+              head_pitch_deg: 0.0
+            seed: 0
+            episode_budget:
+              origin: new_uncalibrated_geometric_pilot
+              calibrated: false
+              max_steps: 553
+              wall_timeout_s: 1659.0
+              derivation: ceil(2 * Manhattan_MST(all unique saved camera/path XY)
+                / 0.25m) + 12 * distinct required rooms + 4 * unique semantic questions
+              evidence:
+                manhattan_mst_m: 59.11611357991602
+                translation_increment_m: 0.25
+                geometric_traversals: 2
+                translation_actions: 473
+                inspection_turn_actions: 60
+                answer_actions: 20
+                wall_seconds_per_action: 3.0
+                wall_bound_calibrated: false
+                point_set: all_saved_source_camera_and_path_XY_superset
+                unique_xy_count: 171
+              limitation: Geometry ignores walls, door operation and controller timing;
+                native route and budget calibration remain mandatory.
+            full_building_required: true
+            retain_native_furniture_and_doors: true
+            source_world_equivalence: unverified_pending_all_source_relations_in_this_actual_reset
+            qualification_api: session.mapping_joint_world_identity(contract) and
+              session.mapping_joint_world_qualification(contract)
+            pending_gates:
+            - full_building_inventory_geometry
+            - all_original_source_relations
+            - source_runtime_door_reconciliation_and_public_crossings
+            - common_start_support_and_clearance
+            - controller_and_eight_plus_initial_global
+            - shared_budget_native_calibration
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - -4.099999904632568
+        - 1.3000000715255737
+        - 0.1
+        yaw_deg: -25.0674639920566
+        head_pitch_deg: 0.0
+seed: 0

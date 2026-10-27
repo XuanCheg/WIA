@@ -1,0 +1,614 @@
+kind: category_robot_task
+id: task_hidden_collection_d1156faa040aacc20c70b3ce__t37_furnished_collection_v4
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/office_cubicles_left/shared_office_0/wia_furnished_background_v1.json
+public:
+  objective: Search the shared office and collect every miniature cola bottle you find there. Use your
+    left hand to place them on the tray held in your right hand.
+  success_criteria: Finish with every target physically resting on the tray, your left hand released,
+    and the tray held steadily in your right hand.
+  environment: Original furnished rooms and doors, with objects on openly exposed supporting surfaces.
+  constraints:
+  - Keep the tray in your right hand. Use your left hand to pick and place.
+  - Collect every target category object you find in the declared search rooms.
+  - The target count is unknown. Repeated views of one physical object count only once.
+  - Orange juice bottles are distractors. Do not leave them on the tray.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - gripper
+private:
+  bindings:
+    wia_t37_target_01:
+      name: wia_t37_target_01
+      category: cola_bottle
+      model: oyqdtz
+    wia_t37_target_02:
+      name: wia_t37_target_02
+      category: cola_bottle
+      model: oyqdtz
+    wia_t37_target_03:
+      name: wia_t37_target_03
+      category: cola_bottle
+      model: oyqdtz
+    wia_t37_distractor_01:
+      name: wia_t37_distractor_01
+      category: bottle_of_orange_juice
+      model: edltwh
+    collection_plate:
+      name: collection_plate
+      category: tray
+      model: gsxbym
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.wia_room_collection
+    operation: search_and_collect_on_right_hand_tray
+    binding_keys:
+    - wia_t37_target_01
+    - wia_t37_target_02
+    - wia_t37_target_03
+    - wia_t37_distractor_01
+    - collection_plate
+    parameters:
+      revision: wia_room_collection_v1
+      operation: search_and_collect_on_right_hand_tray
+      layout:
+        scene_model: office_cubicles_left
+        native_inventory: []
+        added_inventory:
+        - name: wia_t37_target_01
+          category: cola_bottle
+          model: oyqdtz
+          scale:
+          - 0.65
+          - 0.65
+          - 0.65
+          role: target
+          room: shared_office_0
+          public_name: miniature cola bottle
+          support: cubicle_hzalfx_12
+          position:
+          - -18.4
+          - -10.15
+          - 0.9617605547287191
+          orientation:
+          - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+          support_surface_mode: local_raycast
+          support_alignment_mode: local_raycast
+        - name: wia_t37_target_02
+          category: cola_bottle
+          model: oyqdtz
+          scale:
+          - 0.65
+          - 0.65
+          - 0.65
+          role: target
+          room: shared_office_0
+          public_name: miniature cola bottle
+          support: cubicle_hzalfx_11
+          position:
+          - -15.52
+          - -10.15
+          - 0.9617672767938202
+          orientation:
+          - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+          support_surface_mode: local_raycast
+          support_alignment_mode: local_raycast
+        - name: wia_t37_target_03
+          category: cola_bottle
+          model: oyqdtz
+          scale:
+          - 0.65
+          - 0.65
+          - 0.65
+          role: target
+          room: shared_office_0
+          public_name: miniature cola bottle
+          support: cubicle_deceti_12
+          position:
+          - -16.83
+          - -6.9
+          - 0.9625558633708473
+          orientation:
+          - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+          support_surface_mode: local_raycast
+          support_alignment_mode: local_raycast
+        - name: wia_t37_distractor_01
+          category: bottle_of_orange_juice
+          model: edltwh
+          scale:
+          - 0.7
+          - 0.7
+          - 0.7
+          role: distractor
+          room: shared_office_0
+          public_name: miniature orange juice bottle
+          support: cubicle_deceti_0
+          position:
+          - -15.39
+          - -6.9
+          - 0.9608489692380844
+          orientation:
+          - 0.0
+          - 0.0
+          - 0.0
+          - 1.0
+          support_surface_mode: local_raycast
+          support_alignment_mode: local_raycast
+        support_objects: []
+        route: []
+        plate:
+          name: collection_plate
+          category: tray
+          model: gsxbym
+          right_eef_position_base_m:
+          - 0.4
+          - -0.25
+          - 0.8
+          rim_axis: y
+          rim_penetration_m: 0.025
+          usable_bounds_local_m:
+          - - -0.147
+            - -0.21
+            - -0.0049
+          - - 0.147
+            - 0.21
+            - 0.17
+        robot_start:
+          position:
+          - -17.5
+          - -11.5
+          - 0.02
+          orientation:
+          - 0.0
+          - 0.0
+          - 0.7071067811865475
+          - 0.7071067811865476
+        source_objects_policy: replace_authored_source_objects
+        scene_config:
+          load_room_instances: null
+          load_room_types: null
+          load_object_categories: null
+          not_load_object_categories: null
+        public_environment: Original furnished rooms and doors, with objects on openly exposed supporting
+          surfaces.
+      plate:
+        name: collection_plate
+        category: tray
+        model: gsxbym
+        right_eef_position_base_m:
+        - 0.4
+        - -0.25
+        - 0.8
+        rim_axis: y
+        rim_penetration_m: 0.025
+        usable_bounds_local_m:
+        - - -0.147
+          - -0.21
+          - -0.0049
+        - - 0.147
+          - 0.21
+          - 0.17
+      targets:
+      - wia_t37_target_01
+      - wia_t37_target_02
+      - wia_t37_target_03
+      distractors:
+      - wia_t37_distractor_01
+      terminal_dwell_s: 1.0
+      maximum_relative_speed_m_s: 0.03
+      maximum_plate_tilt_deg: 10.0
+      maximum_plate_speed_m_s: 0.03
+      maximum_plate_angular_speed_rad_s: 0.1
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_room_collection
+        parameters:
+          revision: wia_room_collection_v1
+          operation: search_and_collect_on_right_hand_tray
+          layout:
+            scene_model: office_cubicles_left
+            native_inventory: []
+            added_inventory:
+            - name: wia_t37_target_01
+              category: cola_bottle
+              model: oyqdtz
+              scale:
+              - 0.65
+              - 0.65
+              - 0.65
+              role: target
+              room: shared_office_0
+              public_name: miniature cola bottle
+              support: cubicle_hzalfx_12
+              position:
+              - -18.4
+              - -10.15
+              - 0.9617605547287191
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: wia_t37_target_02
+              category: cola_bottle
+              model: oyqdtz
+              scale:
+              - 0.65
+              - 0.65
+              - 0.65
+              role: target
+              room: shared_office_0
+              public_name: miniature cola bottle
+              support: cubicle_hzalfx_11
+              position:
+              - -15.52
+              - -10.15
+              - 0.9617672767938202
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: wia_t37_target_03
+              category: cola_bottle
+              model: oyqdtz
+              scale:
+              - 0.65
+              - 0.65
+              - 0.65
+              role: target
+              room: shared_office_0
+              public_name: miniature cola bottle
+              support: cubicle_deceti_12
+              position:
+              - -16.83
+              - -6.9
+              - 0.9625558633708473
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: wia_t37_distractor_01
+              category: bottle_of_orange_juice
+              model: edltwh
+              scale:
+              - 0.7
+              - 0.7
+              - 0.7
+              role: distractor
+              room: shared_office_0
+              public_name: miniature orange juice bottle
+              support: cubicle_deceti_0
+              position:
+              - -15.39
+              - -6.9
+              - 0.9608489692380844
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            support_objects: []
+            route: []
+            plate:
+              name: collection_plate
+              category: tray
+              model: gsxbym
+              right_eef_position_base_m:
+              - 0.4
+              - -0.25
+              - 0.8
+              rim_axis: y
+              rim_penetration_m: 0.025
+              usable_bounds_local_m:
+              - - -0.147
+                - -0.21
+                - -0.0049
+              - - 0.147
+                - 0.21
+                - 0.17
+            robot_start:
+              position:
+              - -17.5
+              - -11.5
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+            source_objects_policy: replace_authored_source_objects
+            scene_config:
+              load_room_instances: null
+              load_room_types: null
+              load_object_categories: null
+              not_load_object_categories: null
+            public_environment: Original furnished rooms and doors, with objects on openly exposed supporting
+              surfaces.
+          plate:
+            name: collection_plate
+            category: tray
+            model: gsxbym
+            right_eef_position_base_m:
+            - 0.4
+            - -0.25
+            - 0.8
+            rim_axis: y
+            rim_penetration_m: 0.025
+            usable_bounds_local_m:
+            - - -0.147
+              - -0.21
+              - -0.0049
+            - - 0.147
+              - 0.21
+              - 0.17
+          targets:
+          - wia_t37_target_01
+          - wia_t37_target_02
+          - wia_t37_target_03
+          distractors:
+          - wia_t37_distractor_01
+          terminal_dwell_s: 1.0
+          maximum_relative_speed_m_s: 0.03
+          maximum_plate_tilt_deg: 10.0
+          maximum_plate_speed_m_s: 0.03
+          maximum_plate_angular_speed_rad_s: 0.1
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: office_cubicles_left
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_room_collection
+        parameters:
+          revision: wia_room_collection_v1
+          operation: search_and_collect_on_right_hand_tray
+          layout:
+            scene_model: office_cubicles_left
+            native_inventory: []
+            added_inventory:
+            - name: wia_t37_target_01
+              category: cola_bottle
+              model: oyqdtz
+              scale:
+              - 0.65
+              - 0.65
+              - 0.65
+              role: target
+              room: shared_office_0
+              public_name: miniature cola bottle
+              support: cubicle_hzalfx_12
+              position:
+              - -18.4
+              - -10.15
+              - 0.9617605547287191
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: wia_t37_target_02
+              category: cola_bottle
+              model: oyqdtz
+              scale:
+              - 0.65
+              - 0.65
+              - 0.65
+              role: target
+              room: shared_office_0
+              public_name: miniature cola bottle
+              support: cubicle_hzalfx_11
+              position:
+              - -15.52
+              - -10.15
+              - 0.9617672767938202
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: wia_t37_target_03
+              category: cola_bottle
+              model: oyqdtz
+              scale:
+              - 0.65
+              - 0.65
+              - 0.65
+              role: target
+              room: shared_office_0
+              public_name: miniature cola bottle
+              support: cubicle_deceti_12
+              position:
+              - -16.83
+              - -6.9
+              - 0.9625558633708473
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: wia_t37_distractor_01
+              category: bottle_of_orange_juice
+              model: edltwh
+              scale:
+              - 0.7
+              - 0.7
+              - 0.7
+              role: distractor
+              room: shared_office_0
+              public_name: miniature orange juice bottle
+              support: cubicle_deceti_0
+              position:
+              - -15.39
+              - -6.9
+              - 0.9608489692380844
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            support_objects: []
+            route: []
+            plate:
+              name: collection_plate
+              category: tray
+              model: gsxbym
+              right_eef_position_base_m:
+              - 0.4
+              - -0.25
+              - 0.8
+              rim_axis: y
+              rim_penetration_m: 0.025
+              usable_bounds_local_m:
+              - - -0.147
+                - -0.21
+                - -0.0049
+              - - 0.147
+                - 0.21
+                - 0.17
+            robot_start:
+              position:
+              - -17.5
+              - -11.5
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+            source_objects_policy: replace_authored_source_objects
+            scene_config:
+              load_room_instances: null
+              load_room_types: null
+              load_object_categories: null
+              not_load_object_categories: null
+            public_environment: Original furnished rooms and doors, with objects on openly exposed supporting
+              surfaces.
+          plate:
+            name: collection_plate
+            category: tray
+            model: gsxbym
+            right_eef_position_base_m:
+            - 0.4
+            - -0.25
+            - 0.8
+            rim_axis: y
+            rim_penetration_m: 0.025
+            usable_bounds_local_m:
+            - - -0.147
+              - -0.21
+              - -0.0049
+            - - 0.147
+              - 0.21
+              - 0.17
+          targets:
+          - wia_t37_target_01
+          - wia_t37_target_02
+          - wia_t37_target_03
+          distractors:
+          - wia_t37_distractor_01
+          terminal_dwell_s: 1.0
+          maximum_relative_speed_m_s: 0.03
+          maximum_plate_tilt_deg: 10.0
+          maximum_plate_speed_m_s: 0.03
+          maximum_plate_angular_speed_rad_s: 0.1
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: office_cubicles_left
+          disable_grid: false
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  design_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/collection_design_v4.json
+  design_sha256: 496e2cf128a8f486a7042fdc568e2afb7df27937c5afa1c41dcdbd27a0c8633d
+  parent_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Enumerative
+    Perception/Hidden Object Search/Beechwood_0_int/similar_repeated_views/corev2__category_d1156faa040aacc20c70b3ce.yaml
+  parent_task_sha256: 435922bbc449b74b8acaac10f4a0ff0774c7107c1f0aed8fa9c70a9936c8bdcc
+  parent_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Enumerative
+    Perception/Hidden Object Search/Beechwood_0_int/similar_repeated_views/corev2__category_d1156faa040aacc20c70b3ce.yaml
+  parent_scene_sha256: 5264b56994ebd45eeec49ad928af6476a2c81b9751debc27f79623013188c39b
+  source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Specular
+    Reflection/Correspondence/office_cubicles_left/shared_office_0/wia_furnished_background_v1.json
+  source_sha256: dd83e0ca09b164b00d1ac3afd6ec786fd12841e46f7c4c7b2ef5dd9c6325b098
+  source_identity: Specular Reflection/Correspondence/office_cubicles_left/shared_office_0/wia_furnished_background_v1.json
+  scene_model: office_cubicles_left
+  room: shared_office_0
+  document_alias: T37
+  variant_id: t37_furnished_collection_v4
+  label: T37 furnished room collection v4 (native contact vector compatibility)
+  contract_revision: wia_room_collection_v1
+  runtime:
+    reflection_sensor_profile: {}
+    requires_native_visual_discovery: false
+    post_controller_settle_steps: 0
+    trunk_config: configs/esi_trunk.json
+    robot_camera_config: configs/esi_robot_cameras.json
+    viewer_config: configs/esi_viewer.json
+    camera_size:
+    - 512
+    - 512
+    viewer_main_view: global_diagonal
+    debug_cameras: true
+    human_depth_visualizations: true
+    preview_fps: 2.0
+  native_validation_run: false
+  physical_success_verified: false
+  native_inventory_spawned: false
+  added_inventory_explicit: true
+  original_source_qa_unused: true
+  full_reference_execution: pending
+  recommended_primitive_profile: fine
+  controller_profile_file: configs/esi_primitives_fine.json
+  parent_task_defaults:
+    seed: 0
+  declared_task_default_overrides: {}

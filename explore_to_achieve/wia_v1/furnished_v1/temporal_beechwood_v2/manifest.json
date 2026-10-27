@@ -1,0 +1,854 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "artifact_path_base": "absolute",
+  "status": "pending_native_review",
+  "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_design_v2.json",
+  "design_sha256": "9088f220352b303e928a4a1199f08ddf98d13b82d5d570bee15ff930cac8337f",
+  "full_reference_execution": "pending",
+  "native_validation_run": false,
+  "native_geometry_verified": false,
+  "native_visibility_verified": false,
+  "native_shape_verified": false,
+  "native_hand_path_verified": false,
+  "native_gripper_path_verified": false,
+  "native_optics_verified": false,
+  "native_selected_identity_verified": false,
+  "native_non_goal_initialization_verified": false,
+  "physical_success_verified": false,
+  "scientific_controls_verified": false,
+  "continuous_path_certified": false,
+  "entries": [
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_history_a_b_furnished_v2",
+      "label": "T40 history A furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_a_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_a_v3.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t40_history_a_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t40_history_a_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t40_history_a_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": "a",
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ],
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_design_v2.json",
+      "design_sha256": "9088f220352b303e928a4a1199f08ddf98d13b82d5d570bee15ff930cac8337f",
+      "parent_task_sha256": "f293c0d06c976cdef58991b1cb5b00317a3611c10db0b670adf61f58d37bf6f6",
+      "parent_scene_sha256": "25b975cf3c5cea3cc533611f0f1767ecccca41cbf50e380ffbb2637e78a9cc0b",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_a_v1.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_a_v1.json",
+      "parent_source_sha256": "5cbe09a91dc1ca9824294125c465e650aa1a046b0cfce06101402101cae3edd5",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t40_history_a_b_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t40_history_a_b_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t40_history_a_b_furnished_v2.json",
+      "source_sha256": "1dc210e430de1692963a83fc7176547736c9111c28bfb0276cf77c87c9430790",
+      "task_sha256": "085666cf2a963af6d7191b8d027a7afd6f2c5dba67f378300b5a7b63868e4d78",
+      "scene_sha256": "3400a2b420c1b25dffa1582e05248a793f38007cafc776ac72531d4863dbc5fb",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "wia_tm2_matched_history_v3",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_history_b_b_furnished_v2",
+      "label": "T40 history B furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_b_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_b_v3.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t40_history_b_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t40_history_b_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t40_history_b_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": "b",
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ],
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_design_v2.json",
+      "design_sha256": "9088f220352b303e928a4a1199f08ddf98d13b82d5d570bee15ff930cac8337f",
+      "parent_task_sha256": "d81a57085094f4460887dcc6d0d19f53d91d06c72a5b9caccc4bca2a45bd1798",
+      "parent_scene_sha256": "1048bad99736e7843c47101eeb2dbe84aa7b56af34006dbe8a7a3c3bec15551f",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json",
+      "parent_source_sha256": "d43c28f070ad1160669144b643bd04de9e33e960d6c1e75a918b29a116354f26",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t40_history_b_b_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t40_history_b_b_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t40_history_b_b_furnished_v2.json",
+      "source_sha256": "fe10c8cb43005e44b3dcfd46d5b5619b0d00326881e8fee8801f9ef377cac7b5",
+      "task_sha256": "03fc6fdbdd82ecbf03056f8d7b1d05303bc8c773e8656b7e2551d195e8843ca1",
+      "scene_sha256": "d6062d5dd6bc33f50efc7cc885fa1dbfe5f5cec11fe4d49456376ae6fdd50c4c",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "wia_tm2_matched_history_v3",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_history_c_b_furnished_v2",
+      "label": "T40 history C furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_c_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_c_v3.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t40_history_c_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t40_history_c_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t40_history_c_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": "c",
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ],
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_design_v2.json",
+      "design_sha256": "9088f220352b303e928a4a1199f08ddf98d13b82d5d570bee15ff930cac8337f",
+      "parent_task_sha256": "703eca900ddf4f9c9bb5df5efdc3441e1a28496c92ed2f2521b4976b5de0edd1",
+      "parent_scene_sha256": "e06aed2faf0b53aa567eb72b8d9446e3b194a70dbb54a70f4af53b8a9417a2a7",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_c_v1.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_c_v1.json",
+      "parent_source_sha256": "54bc54baede0a567450b012633b2d497eec3260c787dfc969046403b4bf640d3",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t40_history_c_b_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t40_history_c_b_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t40_history_c_b_furnished_v2.json",
+      "source_sha256": "3a39b04258ae23fce09dff2af32523e05388dc996ee7953ea824acd2bbd3108d",
+      "task_sha256": "f33a9867a1e8beaa54b1a532e7bc3f3b9b063d0878525ecd2381bf55a4016c02",
+      "scene_sha256": "82ec64df37925387ac45abc9adb43b976c3bbce54c7f0a292c2c041314419c90",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "wia_tm2_matched_history_v3",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T41",
+      "variant_id": "t41_b_furnished_v2",
+      "label": "T41 furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t41_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t41_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t41_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": null,
+      "review_role": "primary",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ],
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_design_v2.json",
+      "design_sha256": "9088f220352b303e928a4a1199f08ddf98d13b82d5d570bee15ff930cac8337f",
+      "parent_task_sha256": "3131cab9a3b32a1a583adb842d70625af58469f057ba2e856bf2bcf5232cded2",
+      "parent_scene_sha256": "72f9af84b357126f5c80166bdc05be091ce4667ab96d028fd5aa3ebd51472e72",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_04.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_04.json",
+      "parent_source_sha256": "8cfc13cd0974fd04c29d94313285c74368da80eabde56bd8c26e48b92991ed2e",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t41_b_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t41_b_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t41_b_furnished_v2.json",
+      "source_sha256": "88b3dedccab64a246d612dadaed1e5d0e5e77b6dfb7c2b35c1cdcae3483c63cd",
+      "task_sha256": "06cbc6aa65d379a4b0ae9eac28c207a9bd2e475b04838557becfe4fea21ff87a",
+      "scene_sha256": "43fb37fdf88de28bf7260c0d7f20ddedd0d06186f809100f0f80ab74caa5c334",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_bd0c096bec07a9036cd4bb66",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T45",
+      "variant_id": "t45_b_furnished_v2",
+      "label": "T45 furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t45_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t45_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t45_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": null,
+      "review_role": "primary",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ],
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_design_v2.json",
+      "design_sha256": "9088f220352b303e928a4a1199f08ddf98d13b82d5d570bee15ff930cac8337f",
+      "parent_task_sha256": "1dfb5254d06aab219c89b85e2a7b9451b08b8585133ef5c2df66186a22eb794d",
+      "parent_scene_sha256": "7bd46bd06eb9ff62c99370b5110cfd797172b3795c6236025fac2de89f2e1f3d",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_00.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_00.json",
+      "parent_source_sha256": "7da052c10560bcb33637509e3097effb9195f1f7d65de326fad46f69b65a96a5",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t45_b_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t45_b_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t45_b_furnished_v2.json",
+      "source_sha256": "1be1035d998e9fa084d584b093cb150a326e83ecf3171a7178f375b82b65d715",
+      "task_sha256": "e15575f35e0106b68093b02281625c648c67b35760c048472d57c7d61febdf07",
+      "scene_sha256": "e3c31d253abce85ce5738b303d5963c1198c52d778499e8c039a29f3f2834bc7",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_939a8fa9a40b1fc7e04a5db0",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T46",
+      "variant_id": "t46_b_furnished_v2",
+      "label": "T46 furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_0498b76051279b8acd7e914e.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_0498b76051279b8acd7e914e.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t46_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t46_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t46_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": null,
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ],
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_design_v2.json",
+      "design_sha256": "9088f220352b303e928a4a1199f08ddf98d13b82d5d570bee15ff930cac8337f",
+      "parent_task_sha256": "b4e8b9fee4ff00141e878c6b3157e3e88757d1b67c872e8bf7da5eb42ff9cf2a",
+      "parent_scene_sha256": "2326e1a299a949ee1e712d6451d94f206edaa3b7b4b4194f3e24131e573c62b4",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_02.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_02.json",
+      "parent_source_sha256": "b9f1ad4b77cc2b812250156f6e6489018e2515b6bd08ac754f00ee7f6a10e746",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t46_b_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t46_b_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t46_b_furnished_v2.json",
+      "source_sha256": "de3b2ed3ee4fd67a6d449e673c2a9e93c65011d3a9efb89c8627be1d9e001eb7",
+      "task_sha256": "13e88bbfcfde9c30fc4022093848e9a25ad0c007eabdd82c1e1f15277e976b92",
+      "scene_sha256": "4fd3ada2cbaa3d50c13f139137a8fb430d1809405f335fcf88a2c3e22115fb35",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_0498b76051279b8acd7e914e",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T47",
+      "variant_id": "t47_b_furnished_v2",
+      "label": "T47 furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_b892978c0400005618c6589c.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_b892978c0400005618c6589c.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t47_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t47_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t47_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": null,
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ],
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_design_v2.json",
+      "design_sha256": "9088f220352b303e928a4a1199f08ddf98d13b82d5d570bee15ff930cac8337f",
+      "parent_task_sha256": "79f8ea2fc71fff1e4fd27bc8060330d7924de14f0547b27e91c364be3e114b13",
+      "parent_scene_sha256": "0c21ae1771404e53c38ee57ee105fa1dd111930036d3aae962613b00bd283910",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_03.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_03.json",
+      "parent_source_sha256": "3e1bd904feb74ef859a8e34c2b0fe2325d5fa47d7a04f8bcae90b1fb507f5106",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t47_b_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t47_b_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t47_b_furnished_v2.json",
+      "source_sha256": "c0dd5bf0a8200d95cf90363defa520430c96c12746468c3978c8361c93a9ad95",
+      "task_sha256": "d0a08da91eccb01e4729b9147ec09d14176d1dcd9ca4331e89d7a8ca42172513",
+      "scene_sha256": "4e5e2da5ac91319e1b293c7f833fc9bd800cfbe4f7f64634b7b4c8d3970a572f",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_b892978c0400005618c6589c",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T48",
+      "variant_id": "t48_b_furnished_v2",
+      "label": "T48 furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_7fd79b0d5819ace319f077c7.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_7fd79b0d5819ace319f077c7.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t48_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t48_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t48_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": null,
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ],
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_design_v2.json",
+      "design_sha256": "9088f220352b303e928a4a1199f08ddf98d13b82d5d570bee15ff930cac8337f",
+      "parent_task_sha256": "9f50ff5cc566daaf6377e56984d80a8c4fdd5d69af4e0e829afb242512be9bb0",
+      "parent_scene_sha256": "c0c31854dfe3ff072e900d8d7b845ed41731f86d5579682217e631a5d84dc021",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_05.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_05.json",
+      "parent_source_sha256": "95bf2c4fb0186ae076c70d64315dc2b240ece466fcb832616010aa46d91bd2b9",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t48_b_furnished_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t48_b_furnished_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t48_b_furnished_v2.json",
+      "source_sha256": "27cc625bcc9df49f9a1c3a6aeb0d1e10deeabd592aa7b32016973d6495901151",
+      "task_sha256": "e886f19ea33862518482cf1900ad8e74ac8db0f051b2a0377ab10379643a2c72",
+      "scene_sha256": "223a0d6f781dd39e515af298329c5617d8cfa74997af3ed490f4c8ba3b1f1174",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_7fd79b0d5819ace319f077c7",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    }
+  ]
+}

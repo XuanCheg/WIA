@@ -1,0 +1,83 @@
+kind: scene_patch
+id: category_b9b33309ee8820cb6df867d8
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Enumerative Perception/Spatial Segmentation/house_single_floor/dining_room_0/q_002.json
+target: null
+qualification: null
+bindings:
+  anchor_0:
+    name: straight_chair_jgoolz_4
+    category: straight_chair
+  target_0:
+    name: render_count_target_club_sandwich_0
+    category: club_sandwich
+    model: ablfyd
+  anchor_1:
+    name: straight_chair_jgoolz_3
+    category: straight_chair
+  target_1:
+    name: render_count_target_club_sandwich_1
+    category: club_sandwich
+    model: ablfyd
+  anchor_2:
+    name: straight_chair_jgoolz_5
+    category: straight_chair
+  target_2:
+    name: render_count_target_club_sandwich_2
+    category: club_sandwich
+    model: ablfyd
+  anchor_3:
+    name: straight_chair_jgoolz_0
+    category: straight_chair
+  target_3:
+    name: render_count_target_club_sandwich_3
+    category: club_sandwich
+    model: ablfyd
+  floor:
+    name: floors_qgmjvd_0
+    category: floors
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        position:
+        - 5.550000000000001
+        - 3.3500000000000005
+        - -2.0831823348999023e-05
+        yaw_deg: -20.224859431168124
+        head_pitch_deg: 45.0
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: navigation
+        group_bindings:
+        - target_0
+        - target_1
+        - target_2
+        - target_3
+        manipulation_bindings: []
+        relocation_policy: preserve
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad: null
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: bounded_group
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: dining_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+seed: 0
+runtime:
+  requires_native_visual_discovery: true

@@ -1,0 +1,192 @@
+kind: category_robot_task
+id: task_58660289a0ea0751ff5b903d
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/q_000.json
+public:
+  objective: 'Follow this supplied room route in order: living_room_0 -> kitchen_0
+    -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1. While physically
+    and stably inside each required room, output a standalone line ''ARRIVED: <room_instance>''
+    in your world_observation text, replacing <room_instance> with the room instance
+    you identify from your observations. Report each required room; a declaration
+    alone does not establish a visit. For an ordered route, report each step after
+    completing its predecessor, including repeated room names. Out-of-order visits
+    do not erase completed steps; revisit and report the pending step to continue.'
+  success_criteria: Complete every route step in order, including intentional returns
+    to earlier rooms. The first room and heading remain the original start reference.
+    Completed prefixes survive later detours; a repeated declaration at an unchanged
+    occupancy cannot replace a new required arrival.
+  environment: Explore the preserved original building using the robot-mounted observations.
+  constraints:
+  - Preserve original room boundaries, queried anchors and doorway geometry.
+  - Use legal robot controls; door opening requires actual physical interaction.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+private:
+  bindings: {}
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.cognitive_mapping_long_term_navigation
+    operation: execute_supplied_ordered_route
+    binding_keys: []
+    parameters:
+      start_region: living_room_0
+      target_region: storage_room_1
+      start_xy:
+      - 4.5
+      - -7.0
+      goal_xy:
+      - 6.0
+      - 0.0
+      floor_idx: 0
+      floor_z: 0.0
+      initial_yaw_rad: 2.356194490192345
+      start_position_tolerance_m: 0.05
+      start_heading_tolerance_deg: 2.0
+      stability_steps: 3
+      required_regions:
+      - living_room_0
+      - kitchen_0
+      - corridor_0
+      - private_office_0
+      - utility_room_0
+      - storage_room_1
+      scoring_version: task_completion_v2
+      required_order:
+      - living_room_0
+      - kitchen_0
+      - corridor_0
+      - private_office_0
+      - utility_room_0
+      - storage_room_1
+      arrival_report_required: true
+      public_route_required: true
+      public_route_evidence:
+      - region: living_room_0
+        source_phrase: 'Follow this supplied room route in order: living_room_0 ->
+          kitchen_0 -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1.'
+      - region: kitchen_0
+        source_phrase: 'Follow this supplied room route in order: living_room_0 ->
+          kitchen_0 -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1.'
+      - region: corridor_0
+        source_phrase: 'Follow this supplied room route in order: living_room_0 ->
+          kitchen_0 -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1.'
+      - region: private_office_0
+        source_phrase: 'Follow this supplied room route in order: living_room_0 ->
+          kitchen_0 -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1.'
+      - region: utility_room_0
+        source_phrase: 'Follow this supplied room route in order: living_room_0 ->
+          kitchen_0 -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1.'
+      - region: storage_room_1
+        source_phrase: 'Follow this supplied room route in order: living_room_0 ->
+          kitchen_0 -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1.'
+      source_public_question: 'Follow this supplied room route in order: living_room_0
+        -> kitchen_0 -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1.'
+      task_revision: task_edit_20261018_v1
+      source_path: Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/q_000.json
+      mapping_composition_contract: null
+      legacy_operation: navigation_exploration_arrivals
+      source_qa:
+        question: You are beginning in the living room 0 standing at the point shown
+          in the image. You want to navigate to the storage room 1. You will perform
+          the following actions. For each blank, choose either 'turn back,' 'turn
+          left,' or 'turn right.' 1. Go to the kitchen 0. 2. [please fill in] Choose
+          the next turn direction. 3. Go to the corridor 0. 4. [please fill in] Choose
+          the next turn direction. 5. Go to the private office 0. 6. [please fill
+          in] Choose the next turn direction. 7. Go to the utility room 0. 8. turn
+          back. Choose the next turn direction. 9. Go to the storage room 1. You have
+          reached the final destination.
+        answer: turn back | turn back | turn left
+        options:
+        - - turn back
+          - turn left
+          - turn right
+        - - turn back
+          - turn left
+          - turn right
+        - - turn back
+          - turn left
+          - turn right
+        scored: false
+      source_door_policy:
+        version: mapping_source_runtime_doors_v1
+        generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_plan.py
+        source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+        source_trav_map_basename: floor_trav_no_door
+        runtime_policy: retain_native_doors
+        reconciled: null
+        physical_opening_and_crossing_verified: null
+      mechanism_contract:
+        invariants:
+        - original_building_and_region_boundaries
+        - original_task_anchors_and_reference
+        - source_order_and_intentional_revisits
+        required_native_evidence:
+        - source_runtime_door_policy_reconciled
+        - task_relevant_door_qualification
+        unavailable_is_not_agent_failure: true
+      actual_capability: supplied_order_route_execution
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - 4.5
+        - -7.0
+        - 0.1
+        yaw_deg: 135.0
+        head_pitch_deg: 0.0
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: navigation
+        group_bindings: []
+        manipulation_bindings: []
+        relocation_policy: preserve
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad: null
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: bounded_group
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: living_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0
+  max_steps: 187
+  wall_timeout_s: 561.0
+repair:
+  definition_revision: corev2_mapping_refresh_20261020
+  diagnostic_only: true
+  episode_budget:
+    origin: new_uncalibrated_route_pilot
+    calibrated: false
+    max_steps: 187
+    wall_timeout_s: 561.0
+    derivation: ceil(2 * source_path_distance_m / 0.25) + 12 * distinct rooms + 4
+      * ordered arrivals
+    evidence:
+      source_identity: Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/q_000.json
+      source_path_distance_m: 11.361019134521484
+      translation_increment_m: 0.25
+      wall_seconds_per_action: 3.0
+    limitation: Source geometry does not certify R1 clearance, door operation, or
+      model latency.

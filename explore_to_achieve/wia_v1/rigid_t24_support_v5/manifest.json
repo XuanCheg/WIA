@@ -1,0 +1,32 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "revision": "wia_rigid_support_v5",
+  "entries": [
+    {
+      "document_alias": "T24",
+      "variant_id": "t24_supported_spawn_v5",
+      "label": "T24 legacy AABB pickup alignment and final bound local support measurement",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t24_support_v5/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t24_support_v5/scene.yaml",
+      "task_sha256": "17d5f16aa9c95da5e9eed0866c55adf03a4bd849a3da694e0018577dc5a1bb47",
+      "scene_sha256": "7aa681d61e055e35193f0578ea2db774da1375a13fce003db14531cd44506dae",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/tasks/rigid_t24_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/scenes/rigid_t24_v1.yaml",
+      "parent_task_sha256": "06ace66bd8b4796022c39c7600ad5fb7afeb8259aab3339320b262b237568e24",
+      "parent_scene_sha256": "8974223a50da7e4305affa06afa7cd3ce5f838f33e3b59e19c2b52edefa1783d",
+      "variant": "tabletop",
+      "immediate_parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t24_support_v4/task.yaml",
+      "immediate_parent_task_sha256": "8052907c2ef79258a5eab5c8ec43d3ce2f59cfe3985415bdd4fd58e4609be888",
+      "immediate_parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t24_support_v4/scene.yaml",
+      "immediate_parent_scene_sha256": "d218b344c01c1a3de7a8ee2ae57f6eb3e2e9024a99021cd6619800a8d800720f",
+      "native_validation_run": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "reference_execution_status": "deferred_until_user_review"
+    }
+  ],
+  "native_validation_run": false,
+  "physical_success_verified": false,
+  "scientific_controls_verified": false,
+  "reference_execution_status": "deferred_until_user_review"
+}

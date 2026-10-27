@@ -1,0 +1,60 @@
+{
+  "schema": "wia_workstation_transfer_design_v1",
+  "hypothesis": "Retain all ramp conditions and local mechanics across a second native background. Translate safety bounds together with apparatus. This is scene diversity, not evidence that material interventions influence the native solver.",
+  "entries": [
+    {
+      "document_alias": "T42",
+      "variant_id": "t42_hall_arch_v1",
+      "label": "T42 hall_arch native scene pilot",
+      "parent_task_file": "explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_88ce9d62d891ae0ba628a6e9.yaml",
+      "parent_scene_file": "explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_88ce9d62d891ae0ba628a6e9.yaml",
+      "output_task_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/t42_hall_arch_v1.yaml",
+      "output_scene_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/t42_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -48,
+        8,
+        0
+      ]
+    },
+    {
+      "document_alias": "T43",
+      "variant_id": "t43_hall_arch_v1",
+      "label": "T43 hall_arch native scene pilot",
+      "parent_task_file": "explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_75bff6e58684ce3d067bfee5.yaml",
+      "parent_scene_file": "explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_75bff6e58684ce3d067bfee5.yaml",
+      "output_task_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/t43_hall_arch_v1.yaml",
+      "output_scene_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/t43_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -48,
+        8,
+        0
+      ]
+    },
+    {
+      "document_alias": "T44",
+      "variant_id": "t44_hall_arch_v1",
+      "label": "T44 hall_arch native scene pilot",
+      "parent_task_file": "explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_c8b7b9e832f5ee2958b6efe0.yaml",
+      "parent_scene_file": "explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_c8b7b9e832f5ee2958b6efe0.yaml",
+      "output_task_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/t44_hall_arch_v1.yaml",
+      "output_scene_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/t44_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -48,
+        8,
+        0
+      ]
+    }
+  ]
+}

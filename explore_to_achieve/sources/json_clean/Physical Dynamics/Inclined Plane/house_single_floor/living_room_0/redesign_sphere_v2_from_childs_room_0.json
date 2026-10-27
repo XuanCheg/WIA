@@ -1,0 +1,128 @@
+{
+  "id": "authored_ramp_comparison_childs_room_0",
+  "big_task": "Physical Dynamics",
+  "small_task": "Inclined Plane",
+  "runner_task": "slope",
+  "scene": "house_single_floor",
+  "room": "living_room_0",
+  "question": "Compare how a bowl, an avocado and a spherical ball travel down the ramp. The candidate table contains one trial item and one unused matching spare of each type. Use the items on the yellow mat for trials and preserve those on the green mat as spares. Test each trial item separately: grasp it, place it over the yellow release mark on the ramp in its initial resting orientation, release without a push and observe three seconds. Recover trial items to the candidate table after observing them so the runway is clear. Then select the unused spare matching the fastest successful trial and deliver it through the ramp into the blue receiving tray.",
+  "answer": "Determined by native trial outcomes",
+  "answer_type": "native_physical_outcome",
+  "options_json": "[]",
+  "image_paths_json": "[]",
+  "metadata_json": {
+    "camera_poses": [
+      {
+        "view_idx": 0,
+        "position": [
+          14.4,
+          1.6,
+          1.5
+        ],
+        "target": [
+          14.4,
+          3.1,
+          0.7511106159579185
+        ],
+        "quaternion_xyzw": [
+          0.5259830960142676,
+          0.0,
+          0.0,
+          0.8504950221531257
+        ]
+      }
+    ],
+    "dynamic_friction": 1.7137,
+    "floor_name": "floors_vcsslq_0",
+    "obj_category": "bowl",
+    "obj_model": "wryghu",
+    "objects": [
+      {
+        "_key": "task_obj",
+        "aabb_max_final": [
+          21.607799530029297,
+          17.582500457763672,
+          0.1404000073671341
+        ],
+        "aabb_max_init": [
+          21.616300582885742,
+          17.57900047302246,
+          0.15230000019073486
+        ],
+        "aabb_min_final": [
+          21.477699279785156,
+          17.45170021057129,
+          0.05609999969601631
+        ],
+        "aabb_min_init": [
+          21.490999221801758,
+          17.448299407958984,
+          0.055399999022483826
+        ],
+        "category": "bowl",
+        "model": "wryghu",
+        "pos_final": [
+          21.537900924682617,
+          17.51689910888672,
+          0.09619999676942825
+        ],
+        "pos_init": [
+          21.54439926147461,
+          17.51460075378418,
+          0.09920000284910202
+        ],
+        "pos_on_floor": [
+          21.534799575805664,
+          17.720300674438477,
+          0.049300000071525574
+        ]
+      }
+    ],
+    "run_idx": 0,
+    "seed": 847919122,
+    "slope": {
+      "aabb_max": [
+        21.7637996673584,
+        17.665599822998047,
+        0.10220000147819519
+      ],
+      "aabb_min": [
+        21.29789924621582,
+        17.3656005859375,
+        -0.0
+      ],
+      "centre": [
+        21.5309,
+        17.5156,
+        0.0511
+      ],
+      "position": [
+        21.5309,
+        17.5156,
+        0.0511
+      ]
+    },
+    "slope_angle_deg": 10.12,
+    "slope_quaternion": [
+      0.0,
+      0.0882,
+      0.0,
+      0.9961
+    ],
+    "slope_scale": [
+      0.4697,
+      0.3,
+      0.02
+    ],
+    "static_friction": 2.744,
+    "scene": "house_single_floor",
+    "room": "living_room_0",
+    "authored_revision": {
+      "parent_source": "Physical Dynamics/Inclined Plane/house_single_floor/childs_room_0/house_single_floor__childs_room_0__run_000.json",
+      "original_source_qa_scored": false,
+      "native_trial_outcomes_required": true,
+      "source_ramp_physics_preserved": true
+    }
+  },
+  "gt_camera_poses": []
+}

@@ -1,0 +1,669 @@
+kind: scene_patch
+id: wia_dimensional_d1_1_seed202_v1_scene
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/hall_glass_ceiling/empty_room_0/q_007.json
+target: null
+qualification: null
+bindings:
+  table:
+    name: wia_dim_table
+    category: table
+  leg_0:
+    name: wia_dim_leg_0
+    category: object
+  leg_1:
+    name: wia_dim_leg_1
+    category: object
+  leg_2:
+    name: wia_dim_leg_2
+    category: object
+  leg_3:
+    name: wia_dim_leg_3
+    category: object
+  pad_0:
+    name: wia_dim_pad_0
+    category: table
+  aperture_low:
+    name: wia_dim_aperture_low
+    category: object
+  aperture_high:
+    name: wia_dim_aperture_high
+    category: object
+  aperture_roof:
+    name: wia_dim_aperture_roof
+    category: object
+  candidate_0:
+    name: wia_dim_candidate_0
+    category: object
+  candidate_1:
+    name: wia_dim_candidate_1
+    category: object
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: wia_dimensional_v1
+          layout:
+            shared_layout_id: wia_hall_dimensional_workstation_v1
+            scene_model: hall_glass_ceiling
+            rooms:
+            - empty_room_0
+            floor_name: floors_nbzwbf_0
+            objects:
+            - type: PrimitiveObject
+              name: wia_dim_table
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.2
+              - 2.4
+              - 0.1
+              position:
+              - 8.0
+              - -1.0
+              - 0.61
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_0
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - 7.48
+              - -2.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_1
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - 7.48
+              - 0.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_2
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - 8.52
+              - -2.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_3
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - 8.52
+              - 0.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_pad_0
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.3
+              - 0.32
+              - 0.012
+              position:
+              - 8.36
+              - -1.0
+              - 0.666
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.1
+              - 0.3
+              - 0.95
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_aperture_low
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.04
+              - 0.26
+              position:
+              - 8.0
+              - -1.07
+              - 0.79
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_aperture_high
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.04
+              - 0.26
+              position:
+              - 8.0
+              - -0.9299999999999999
+              - 0.79
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_aperture_roof
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.5
+              - 0.04
+              position:
+              - 8.0
+              - -1.0
+              - 0.9
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_candidate_0
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.09
+              - 0.06
+              - 0.06
+              position:
+              - 7.6
+              - -1.45
+              - 0.6930000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_candidate_1
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.14
+              - 0.14
+              - 0.14
+              position:
+              - 7.6
+              - -0.55
+              - 0.733
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            supported_items:
+            - name: wia_dim_candidate_0
+              support: wia_dim_table
+            - name: wia_dim_candidate_1
+              support: wia_dim_table
+            robot_start:
+              position:
+              - 6.7
+              - -1.0
+              - 0.11
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: wia_dimensional_v1
+          layout:
+            shared_layout_id: wia_hall_dimensional_workstation_v1
+            scene_model: hall_glass_ceiling
+            rooms:
+            - empty_room_0
+            floor_name: floors_nbzwbf_0
+            objects:
+            - type: PrimitiveObject
+              name: wia_dim_table
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.2
+              - 2.4
+              - 0.1
+              position:
+              - 8.0
+              - -1.0
+              - 0.61
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_0
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - 7.48
+              - -2.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_1
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - 7.48
+              - 0.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_2
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - 8.52
+              - -2.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_3
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - 8.52
+              - 0.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_pad_0
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.3
+              - 0.32
+              - 0.012
+              position:
+              - 8.36
+              - -1.0
+              - 0.666
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.1
+              - 0.3
+              - 0.95
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_aperture_low
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.04
+              - 0.26
+              position:
+              - 8.0
+              - -1.07
+              - 0.79
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_aperture_high
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.04
+              - 0.26
+              position:
+              - 8.0
+              - -0.9299999999999999
+              - 0.79
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_aperture_roof
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.5
+              - 0.04
+              position:
+              - 8.0
+              - -1.0
+              - 0.9
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_candidate_0
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.09
+              - 0.06
+              - 0.06
+              position:
+              - 7.6
+              - -1.45
+              - 0.6930000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_candidate_1
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.14
+              - 0.14
+              - 0.14
+              position:
+              - 7.6
+              - -0.55
+              - 0.733
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            supported_items:
+            - name: wia_dim_candidate_0
+              support: wia_dim_table
+            - name: wia_dim_candidate_1
+              support: wia_dim_table
+            robot_start:
+              position:
+              - 6.7
+              - -1.0
+              - 0.11
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+runtime:
+  reflection_sensor_profile: {}
+  requires_native_visual_discovery: false
+  post_controller_settle_steps: 0
+  trunk_config: configs/esi_trunk.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0
+seed: 202

@@ -1,0 +1,102 @@
+{
+  "schema": "wia_workstation_transfer_design_v1",
+  "hypothesis": "Native seed101 candidate_1 cue ray is Y=-0.450894 in train coordinates, below the existing aperture. Shift all four cue rods -0.03m Y from the original seed101 layout; retain aperture size and margin, target positions, optics and scorer. Seed202 retains its separate measured +0.015m correction.",
+  "entries": [
+    {
+      "document_alias": "R-C2",
+      "variant_id": "r_c2_seed101_v1_hall_train_v2",
+      "label": "R-C2 seed101 native cue correction in hall_train_station",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c2_seed101_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c2_seed101_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c2_seed101_v1_hall_train_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c2_seed101_v1_hall_train_v2.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_train_station/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_train_station",
+      "room": "empty_room_0",
+      "floor_name": "floors_rfqpbd_0",
+      "translation_m": [
+        -8,
+        1,
+        0
+      ],
+      "object_overrides": {
+        "wia_mirror_cue_low": {
+          "position": [
+            0.7955000000000005,
+            -0.4760000000000002,
+            0.95
+          ]
+        },
+        "wia_mirror_cue_high": {
+          "position": [
+            0.7955000000000005,
+            -0.22399999999999995,
+            0.95
+          ]
+        },
+        "wia_mirror_cue_bottom": {
+          "position": [
+            0.7955000000000005,
+            -0.3500000000000001,
+            0.694
+          ]
+        },
+        "wia_mirror_cue_top": {
+          "position": [
+            0.7955000000000005,
+            -0.3500000000000001,
+            1.206
+          ]
+        }
+      }
+    },
+    {
+      "document_alias": "R-C2",
+      "variant_id": "r_c2_seed101_v1_hall_glass_repair_v2",
+      "label": "R-C2 seed101 native cue correction in hall_glass_ceiling",
+      "parent_task_file": "explore_to_achieve/wia_v1/mirror_v1/tasks/r_c2_seed101_v1.yaml",
+      "parent_scene_file": "explore_to_achieve/wia_v1/mirror_v1/scenes/r_c2_seed101_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c2_seed101_v1_hall_glass_repair_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c2_seed101_v1_hall_glass_repair_v2.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_glass_ceiling/empty_room_0/q_007.json",
+      "scene_model": "hall_glass_ceiling",
+      "room": "empty_room_0",
+      "floor_name": "floors_nbzwbf_0",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "object_overrides": {
+        "wia_mirror_cue_low": {
+          "position": [
+            8.7955,
+            -1.4760000000000002,
+            0.95
+          ]
+        },
+        "wia_mirror_cue_high": {
+          "position": [
+            8.7955,
+            -1.224,
+            0.95
+          ]
+        },
+        "wia_mirror_cue_bottom": {
+          "position": [
+            8.7955,
+            -1.35,
+            0.694
+          ]
+        },
+        "wia_mirror_cue_top": {
+          "position": [
+            8.7955,
+            -1.35,
+            1.206
+          ]
+        }
+      }
+    }
+  ]
+}

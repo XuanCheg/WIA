@@ -1,0 +1,50 @@
+{
+  "candidate_id": "local_partial_occlusion_rs_entryway_original_v1",
+  "source_identity": "Perceptual Grounding/Partial Occlusion/Rs_int/entryway_0/Rs_int__entryway_0_0.json",
+  "source_record_id": "1179",
+  "source_question_id": "partial_occlusion/Rs_int/entryway_0/0",
+  "source_sha256": "e5001997aa260d5807e6220f737163654d0f5fde9c06218b5d99d2d73969de9b",
+  "esi_commit": "9f6f15ed43e81654a97de9e4db2a1fedadca2bc1",
+  "scene_identity": "local_partial_occlusion_rs_entryway_scene_v1",
+  "source_json": "ESI-Bench/dataset/json_clean/Perceptual Grounding/Partial Occlusion/Rs_int/entryway_0/Rs_int__entryway_0_0.json",
+  "scene_file": "explore_to_achieve/candidates/local_partial_occlusion_rs_entryway/scene.yaml",
+  "task_file": null,
+  "category": "Perceptual Grounding",
+  "subcategory": "Partial Occlusion",
+  "scene_model": "Rs_int",
+  "room": "entryway_0",
+  "variant": "original",
+  "seed": 0,
+  "reuse_level": "original",
+  "modified_files": [
+    "explore_to_achieve/candidates/local_partial_occlusion_rs_entryway/plan.md",
+    "explore_to_achieve/candidates/local_partial_occlusion_rs_entryway/scene.yaml",
+    "explore_to_achieve/candidates/local_partial_occlusion_rs_entryway/validate.py",
+    "explore_to_achieve/candidates/local_partial_occlusion_rs_entryway/handoff.json",
+    "research_log.md"
+  ],
+  "expected_views": [
+    "global_diagonal",
+    "global_overhead",
+    "global_front",
+    "global_back",
+    "global_left",
+    "global_right",
+    "head",
+    "wrist",
+    "scene"
+  ],
+  "known_limitations": [
+    "Diagnostic only; candidate remains pending with no physical task or evaluator.",
+    "Native initialization, robot clearance, framing, and mounted-camera visibility are unverified.",
+    "The original low floor layout and compact room may challenge existing R1 initialization.",
+    "Historical source metadata records both task objects as invisible in its first reference view; current native visibility is unverified.",
+    "Review camera views never become Agent observations.",
+    "QA and physical success are unverified; no simulation or Agent episode was run."
+  ],
+  "code_commit": "21975dce9baa67fb06fe3a05137dd49dd5e8ee9a",
+  "owner": "scene_builder_b",
+  "parent_candidate_id": null,
+  "physical_task_id": null,
+  "render_config": {}
+}

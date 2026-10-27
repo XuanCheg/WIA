@@ -1,0 +1,411 @@
+{
+  "campaign": "corev2_missing_images_20261020",
+  "count": 16,
+  "code_commit": "working_149d382cbcd4b4cd5d58d9e1727ddc78",
+  "status": "submitted",
+  "jobs": [
+    {
+      "candidate_id": "category_2f46a8c2898ca9d05d6ac045",
+      "job_id": "capture_194701c67e76836f4261738f7fba6975"
+    },
+    {
+      "candidate_id": "category_3bfe289bfb40728ef004725a",
+      "job_id": "capture_e3d577e0ba86b43464d9a232511a34eb"
+    },
+    {
+      "candidate_id": "category_28351286b6aab6b7903b9141",
+      "job_id": "capture_67eab9a941d40519bbdb2c7146861662"
+    },
+    {
+      "candidate_id": "category_3f1d88eeea4f845e0ac756a3",
+      "job_id": "capture_5e50335c5b22b46dc33ba62a22c17e6e"
+    },
+    {
+      "candidate_id": "category_1d497c942c21724d36621fd0",
+      "job_id": "capture_9e161512fcdc8094eb067f32db464883"
+    },
+    {
+      "candidate_id": "category_309ff5d1a6ed664bd8726e4b",
+      "job_id": "capture_0fcdc0e33371b23c9ca5b6834e893d3a"
+    },
+    {
+      "candidate_id": "category_3a319828abcb43542f397e84",
+      "job_id": "capture_f12ac3212253f80bf139b28909888403"
+    },
+    {
+      "candidate_id": "category_53f113c7995ababbabdd5559",
+      "job_id": "capture_6a55383306a5c9c0d644fd2f924c6d86"
+    },
+    {
+      "candidate_id": "category_93025169f0b17c9183a2fdd9",
+      "job_id": "capture_b6dcfa308e59cace32adfcd75cccbe38"
+    },
+    {
+      "candidate_id": "category_95d214aac10eb07a73ba0a99",
+      "job_id": "capture_2eb21a4c7ee802d61dafc5a3f3976131"
+    },
+    {
+      "candidate_id": "category_e58c1c507e7cc7a429b80bd9",
+      "job_id": "capture_c4a9caf0bfbbb75148d2aaba2ed39db7"
+    },
+    {
+      "candidate_id": "category_b1fffff9aef66e7517638538",
+      "job_id": "capture_0ddbccc066d68decdf5c706636c644ce"
+    },
+    {
+      "candidate_id": "category_82e78e6b5059c2f0f88cfce9",
+      "job_id": "capture_df600fdf59ae5ecc5592c4f38b742892"
+    },
+    {
+      "candidate_id": "category_654f8bfa37612193a879dd59",
+      "job_id": "capture_eeec37b00f5723ad10d08158148e08e4"
+    },
+    {
+      "candidate_id": "category_2ffe98c5d556f073969e1d5b",
+      "job_id": "capture_2e09c28f563e4f20ae448b646400f306"
+    },
+    {
+      "candidate_id": "category_8644156dec67b0eaddf1472a",
+      "job_id": "capture_aed0a341d423364109e21339884e25cf"
+    }
+  ],
+  "repair_campaigns": [
+    {
+      "campaign": "corev2_r2_r5_repair_20261020_v1",
+      "code_commit": "working_f7ae18e731a0b36e6062035ed4e72435",
+      "jobs": [
+        {
+          "candidate_id": "category_b3c938a7ccbf37c138c331e2",
+          "corev2_candidate_id": "category_b1fffff9aef66e7517638538",
+          "job_id": "capture_6b57dbb036342e5ab62e274ff055a374",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_6b57dbb036342e5ab62e274ff055a374/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_24e5c82acd0949da5b3d6ce0",
+          "corev2_candidate_id": "category_2ffe98c5d556f073969e1d5b",
+          "job_id": "capture_67e33cadbbbc55ba40df4511f102696c",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_67e33cadbbbc55ba40df4511f102696c/input/manifest.json",
+          "capture_submission_error": null
+        }
+      ],
+      "status": "completed_awaiting_human_review",
+      "result_file": "explore_to_achieve/lists/corev2_repairs.json"
+    },
+    {
+      "campaign": "remaining_capture_repairs_20261020",
+      "code_commit": "working_d7203bcb5ab4e36a8ab514f07c388e83",
+      "jobs": [
+        {
+          "candidate_id": "category_ce847e8805952027224310f8",
+          "corev2_candidate_id": "category_28351286b6aab6b7903b9141",
+          "job_id": "capture_9b5ebf450ed8d350339420cbc4c0304d",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_9b5ebf450ed8d350339420cbc4c0304d/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_2d9e2dc3b7ee570a164a9433",
+          "corev2_candidate_id": "category_e58c1c507e7cc7a429b80bd9",
+          "job_id": "capture_e66f85d9a0b38297997f42d52e559272",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_e66f85d9a0b38297997f42d52e559272/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_54647fb3add91acd39cf94e4",
+          "corev2_candidate_id": "category_82e78e6b5059c2f0f88cfce9",
+          "job_id": "capture_6d58db4bb2b8bb51eb7ab8c249c9763c",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_6d58db4bb2b8bb51eb7ab8c249c9763c/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_8e62ad0242218f39c5c42277",
+          "corev2_candidate_id": "category_654f8bfa37612193a879dd59",
+          "job_id": "capture_dcfe606f0bc40d678cc81e0c36d088f6",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_dcfe606f0bc40d678cc81e0c36d088f6/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_92863a3d7d4cdd5d7f9ed5d4",
+          "corev2_candidate_id": "category_8644156dec67b0eaddf1472a",
+          "job_id": "capture_7af8547f5f79effa6d5d732484270bf3",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_7af8547f5f79effa6d5d732484270bf3/input/manifest.json",
+          "capture_submission_error": null
+        }
+      ],
+      "status": "submitted"
+    },
+    {
+      "campaign": "mapping_and_current_previews_20261020",
+      "code_commit": "working_87e3a3fb08450a3970a6034186faa5db",
+      "jobs": [
+        {
+          "candidate_id": "category_eda850e84cd18f4b59b9ac6d",
+          "corev2_candidate_id": "category_17d798839775b73b4f9f8d26",
+          "job_id": "capture_d44854eeb7b1d25aee7d84ebcdad966f",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_d44854eeb7b1d25aee7d84ebcdad966f/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_c53df865b71d34498f037e25",
+          "corev2_candidate_id": "category_11e210b18d60f8824aa6f88e",
+          "job_id": "capture_fe5b3620a3aa48ec961217b37c273425",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_fe5b3620a3aa48ec961217b37c273425/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_fe1bdcb568fcb23d1cbb7382",
+          "corev2_candidate_id": "category_47e03b7b97473aacca3cfd04",
+          "job_id": "capture_cd0de3e38d0577f3f30b7ecc525b4ca9",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_cd0de3e38d0577f3f30b7ecc525b4ca9/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_c5c3a165a1fca4193b6a3606",
+          "corev2_candidate_id": "category_a8f49ca31bf5f14acf8ab31a",
+          "job_id": "capture_91a098ea3061f746fb28d16eb8957038",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_91a098ea3061f746fb28d16eb8957038/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_e5a5dcfeb46cbacb04b93559",
+          "corev2_candidate_id": "category_cf3697aa6546a5518f3e5735",
+          "job_id": "capture_8fe38d73053e340e399e703e5a769ff8",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_8fe38d73053e340e399e703e5a769ff8/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_5ccc6d745fa2888d837b319f",
+          "corev2_candidate_id": "category_92281e30d33e0845517b17cb",
+          "job_id": "capture_9134da229844da6ae32ed7d21079101c",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_9134da229844da6ae32ed7d21079101c/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_acc78ff5cc05d2e5d5103f2a",
+          "corev2_candidate_id": "category_bb85ad2d7d19a7fdde23a2a0",
+          "job_id": "capture_ba1530f6bf57a7e7c740cffbd9491be8",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_ba1530f6bf57a7e7c740cffbd9491be8/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_5a43f023175f2b8462cf9fa5",
+          "corev2_candidate_id": "category_063f98af506a148c7e542ad0",
+          "job_id": "capture_8261f07bc9f3ec2aef034b4e29fb4fa7",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_8261f07bc9f3ec2aef034b4e29fb4fa7/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_804b3c6aa181a8e4542a7480",
+          "corev2_candidate_id": "category_6f23dae3a5a0c6b26db61a50",
+          "job_id": "capture_8bcaecf004445e2f26fd0d7d940814a0",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_8bcaecf004445e2f26fd0d7d940814a0/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_e9f6e5160fad7e18790aefd9",
+          "corev2_candidate_id": "category_1a55282aea78514f749fe4e0",
+          "job_id": "capture_d9d99346082379f7f4cebe5048981b19",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_d9d99346082379f7f4cebe5048981b19/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_2bb538406f64a03c6ff0a71e",
+          "corev2_candidate_id": "category_28351286b6aab6b7903b9141",
+          "job_id": "capture_add4fcce3a9d6c23e30ba83ccdedb098",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_add4fcce3a9d6c23e30ba83ccdedb098/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_4fe95cecf347975628fd2f72",
+          "corev2_candidate_id": "category_a819197786bd511068cee095",
+          "job_id": "capture_a429a22940fb545ada45fcae44a9396e",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_a429a22940fb545ada45fcae44a9396e/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_6b31ce72fa1ccebec4f865a3",
+          "corev2_candidate_id": "category_54f951b6a29855a51844da54",
+          "job_id": "capture_23ea9a6b3092b2c775bdf4d359f21169",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_23ea9a6b3092b2c775bdf4d359f21169/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_17b9c4155ca9ce12697f100a",
+          "corev2_candidate_id": "category_6101117684a66f96ee6f4bef",
+          "job_id": "capture_3f1fa6a4f3bb41522bfe1f62f576421f",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_3f1fa6a4f3bb41522bfe1f62f576421f/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_28211d957d96c9b7fe2f8929",
+          "corev2_candidate_id": "category_4c36dd4dc5bbbe9bc7e787d1",
+          "job_id": "capture_c5783016709b4819b5567821286abdc7",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_c5783016709b4819b5567821286abdc7/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_cd1e9f68c7d7d0d3b691788a",
+          "corev2_candidate_id": "category_32485510e87a6ad8f32178d7",
+          "job_id": "capture_ba228f45601b33d248b30f998059cb12",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_ba228f45601b33d248b30f998059cb12/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_50f2b4ee8fe68aab27f3c5cb",
+          "corev2_candidate_id": "category_ff15948e066184024f87df96",
+          "job_id": "capture_2ba75b6818f203b49efdb70dfb1a0ae5",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_2ba75b6818f203b49efdb70dfb1a0ae5/input/manifest.json",
+          "capture_submission_error": null
+        }
+      ],
+      "status": "submitted"
+    },
+    {
+      "campaign": "corev2_mapping_alternative_20261020",
+      "code_commit": "working_87e3a3fb08450a3970a6034186faa5db",
+      "jobs": [
+        {
+          "candidate_id": "category_1738ff7b82a68a5b8d424adc",
+          "corev2_candidate_id": "category_062d036de1fac0297a84732f",
+          "job_id": "capture_2455945e7e2c4d2ba8d6442657ccd6fb",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_2455945e7e2c4d2ba8d6442657ccd6fb/input/manifest.json",
+          "capture_submission_error": null
+        }
+      ],
+      "status": "submitted_outside_corev2_pending_native_validation"
+    },
+    {
+      "campaign": "corev2_connectivity_alternative_20261020",
+      "code_commit": "working_87e3a3fb08450a3970a6034186faa5db",
+      "jobs": [
+        {
+          "candidate_id": "category_0bb5dae83c04832cacbb1971",
+          "corev2_candidate_id": "category_8fa71fa2728f035a84e759d3",
+          "job_id": "capture_9c1ca1c6bf9040e9c67a55c2f8b4583d",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_9c1ca1c6bf9040e9c67a55c2f8b4583d/input/manifest.json",
+          "capture_submission_error": null
+        }
+      ],
+      "status": "submitted_outside_corev2_pending_native_validation"
+    },
+    {
+      "campaign": "corev2_connectivity_school_alternatives_20261020",
+      "code_commit": "working_87e3a3fb08450a3970a6034186faa5db",
+      "jobs": [
+        {
+          "candidate_id": "category_b11765b0d1fd82d6d844b3f2",
+          "corev2_candidate_id": "category_b3541411a825a5539fc5fc9f",
+          "job_id": "capture_a8251f8f628f55b31efcdeef08a8edc9",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_a8251f8f628f55b31efcdeef08a8edc9/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_aafa1ef4321fcc70fce2f196",
+          "corev2_candidate_id": "category_5296997426a116135b7c80aa",
+          "job_id": "capture_f9f9b2cb7e259b9a11bb150e9ad6a74d",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_f9f9b2cb7e259b9a11bb150e9ad6a74d/input/manifest.json",
+          "capture_submission_error": null
+        }
+      ],
+      "status": "geography_selected_chemistry_validation_pending"
+    },
+    {
+      "campaign": "human_camera_bearings_and_gpu_crash_repair_20261020",
+      "code_commit": "working_e51baf8304a21fb99aeb0a2bbca4e794",
+      "jobs": [
+        {
+          "candidate_id": "category_7838193dc7d8b48e82c8dc8c",
+          "corev2_candidate_id": "category_359f0a936262ec496271264f",
+          "job_id": "capture_80b72c41524588578f3d9e87df35a9c8",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_80b72c41524588578f3d9e87df35a9c8/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_a6cbec9ebc5984c35405b62c",
+          "corev2_candidate_id": "category_ac7e0a10580cf5bcf1c6c894",
+          "job_id": "capture_8a169cc3e2622161dc1af46d6b596d1c",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_8a169cc3e2622161dc1af46d6b596d1c/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_8a6eadfa8734017e5cf3b2c1",
+          "corev2_candidate_id": "category_6b899eec6ad148ab6135693f",
+          "job_id": "capture_9d3ae65673bc7a11cc510d33e76ad318",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_9d3ae65673bc7a11cc510d33e76ad318/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_09aaba866372e851b7b63c13",
+          "corev2_candidate_id": "category_6101117684a66f96ee6f4bef",
+          "job_id": "capture_4f7cc929b1ace94127d11985681688ab",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_4f7cc929b1ace94127d11985681688ab/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_3976721167f2d0aea24d0a19",
+          "corev2_candidate_id": "category_32485510e87a6ad8f32178d7",
+          "job_id": "capture_ae8873558be5d3af54709c5deeedd286",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_ae8873558be5d3af54709c5deeedd286/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_61f61214f58f822c41ee39be",
+          "corev2_candidate_id": "category_e58c1c507e7cc7a429b80bd9",
+          "job_id": "capture_154e399bc523f75c6d91aeb6a1c6041e",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_154e399bc523f75c6d91aeb6a1c6041e/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_03dc2c3a7be854afad40cfd4",
+          "corev2_candidate_id": "category_8644156dec67b0eaddf1472a",
+          "job_id": "capture_3dfbbe081460568de2c0b62a6fe556d0",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_3dfbbe081460568de2c0b62a6fe556d0/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_5cc0fc8a76f28baadcab173a",
+          "corev2_candidate_id": "category_82e78e6b5059c2f0f88cfce9",
+          "job_id": "capture_981834e47b588f426999e9631c0a9c14",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_981834e47b588f426999e9631c0a9c14/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_69748c2608735bad7b89d364",
+          "corev2_candidate_id": "category_2ffe98c5d556f073969e1d5b",
+          "job_id": "capture_e4dd998db72dfd772fc66bb9c73e4bd5",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_e4dd998db72dfd772fc66bb9c73e4bd5/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_6552640199b59ef5fd4d723e",
+          "corev2_candidate_id": "category_b1fffff9aef66e7517638538",
+          "job_id": "capture_5f8d6b4b78a62fde8c6a1926ce7332c6",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_5f8d6b4b78a62fde8c6a1926ce7332c6/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_954f5ef8396298caceb2781b",
+          "corev2_candidate_id": "category_654f8bfa37612193a879dd59",
+          "job_id": "capture_d2f85f0a53425057b35cc33640fd8372",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_d2f85f0a53425057b35cc33640fd8372/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_0f5b1ae218b7920696bb5c51",
+          "corev2_candidate_id": "category_4a5ba221f9e00dd17c77c541",
+          "job_id": "capture_7f39d0faf43e93b052ae9e3f7fb9816c",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_7f39d0faf43e93b052ae9e3f7fb9816c/input/manifest.json",
+          "capture_submission_error": null
+        },
+        {
+          "candidate_id": "category_e0cbd6c9011dfb9724101f07",
+          "corev2_candidate_id": "category_6c580ba77019bc8a51e330a5",
+          "job_id": "capture_76c4a33cb127150da0013ebab6209dbd",
+          "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_76c4a33cb127150da0013ebab6209dbd/input/manifest.json",
+          "capture_submission_error": null
+        }
+      ],
+      "status": "submitted_preserve_previous_previews_until_native_pass"
+    }
+  ]
+}

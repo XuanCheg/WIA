@@ -1,0 +1,47 @@
+kind: scene_patch
+id: category_00cbb4d7355e9af0f7c647de
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_005.json
+target: null
+qualification: null
+bindings: {}
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - 4.800000190734863
+        - -17.0
+        - 0.1
+        yaw_deg: -10.304846468766033
+        head_pitch_deg: 0.0
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: navigation
+        group_bindings: []
+        manipulation_bindings: []
+        relocation_policy: preserve
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad: null
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: bounded_group
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: corridor_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+seed: 0

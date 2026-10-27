@@ -1,0 +1,719 @@
+{
+  "schema": "wia_spatial_tray_design_v1",
+  "entries": [
+    {
+      "document_alias": "T32",
+      "variant_id": "t32_furnished_tray_v3",
+      "label": "T32 open-surface retrieval and tray arrangement v3 (native support review revision)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Spatial Relations/Physical Contact/house_single_floor/living_room_0/corev2__category_3a319828abcb43542f397e84.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Physical Contact/house_single_floor/living_room_0/corev2__category_3a319828abcb43542f397e84.yaml",
+      "source_identity": "Specular Reflection/Correspondence/Merom_0_garden/playroom_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_T32_support_v3",
+        "scene_model": "Merom_0_garden",
+        "rooms": [
+          "playroom_0"
+        ],
+        "floor_name": "floors_jrdgxz_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "obj1",
+            "category": "vase",
+            "model": "saenda",
+            "position": [
+              -3.08,
+              -10.61,
+              1.1024741013978911
+            ],
+            "orientation": [
+              0.4788272919373164,
+              0.5094495457484611,
+              0.6183579624675472,
+              0.3589136596531907
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj2",
+            "category": "trophy",
+            "model": "ayuubt",
+            "position": [
+              -5.82,
+              -12.72,
+              1.1191993950803805
+            ],
+            "orientation": [
+              3.712080797413364e-06,
+              -5.020261824029149e-07,
+              9.003560990095139e-07,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_deck",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.45,
+              1.3,
+              0.02
+            ],
+            "position": [
+              -5.82,
+              -11.45,
+              0.8291993950803804
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_w",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.3,
+              0.036
+            ],
+            "position": [
+              -6.037,
+              -11.45,
+              0.8571993950803805
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_e",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.3,
+              0.036
+            ],
+            "position": [
+              -5.603000000000001,
+              -11.45,
+              0.8571993950803805
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_s",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.45,
+              0.016,
+              0.036
+            ],
+            "position": [
+              -5.82,
+              -12.092,
+              0.8571993950803805
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_n",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.45,
+              0.016,
+              0.036
+            ],
+            "position": [
+              -5.82,
+              -10.807999999999998,
+              0.8571993950803805
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "obj1",
+            "support": "bookcase_owvfik_0",
+            "support_surface_mode": "local_raycast",
+            "support_alignment_mode": "local_raycast"
+          },
+          {
+            "name": "obj2",
+            "support": "countertop_tpuwys_0"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            -4.8,
+            -11.45,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            1.0,
+            6.123233995736766e-17
+          ]
+        }
+      },
+      "bindings": {
+        "obj1": {
+          "name": "obj1",
+          "category": "vase",
+          "model": "saenda"
+        },
+        "initial_support_0": {
+          "name": "bookcase_owvfik_0"
+        },
+        "obj2": {
+          "name": "obj2",
+          "category": "trophy",
+          "model": "ayuubt"
+        },
+        "initial_support_1": {
+          "name": "countertop_tpuwys_0"
+        },
+        "deck": {
+          "name": "wia_tray_deck"
+        },
+        "rim_w": {
+          "name": "wia_tray_rim_w"
+        },
+        "rim_e": {
+          "name": "wia_tray_rim_e"
+        },
+        "rim_s": {
+          "name": "wia_tray_rim_s"
+        },
+        "rim_n": {
+          "name": "wia_tray_rim_n"
+        },
+        "tray_table": {
+          "name": "countertop_tpuwys_0"
+        }
+      },
+      "parameters": {
+        "revision": "wia_spatial_tray_v1",
+        "scene_contract": {
+          "scene_model": "Merom_0_garden",
+          "room": "playroom_0"
+        },
+        "targets": {
+          "obj1": "obj1",
+          "obj2": "obj2"
+        },
+        "initial_supports": {
+          "obj1": "initial_support_0",
+          "obj2": "initial_support_1"
+        },
+        "tray": {
+          "deck_key": "deck",
+          "table_support_key": "tray_table",
+          "rim_keys": [
+            "rim_w",
+            "rim_e",
+            "rim_s",
+            "rim_n"
+          ],
+          "mounting_mode": "fixed_fixture_on_native_table",
+          "usable_world_xy_m": [
+            [
+              -6.025,
+              -12.08
+            ],
+            [
+              -5.615,
+              -10.819999999999999
+            ]
+          ],
+          "deck_top_world_z_m": 0.8391993950803804
+        },
+        "goal_relation": {
+          "kind": "contact",
+          "pair": [
+            "obj1",
+            "obj2"
+          ],
+          "relation": "separated"
+        },
+        "scoring": {
+          "minimum_lift_m": 0.05,
+          "minimum_displacement_m": 0.05,
+          "stability_duration_s": 0.5,
+          "maximum_linear_speed_m_s": 0.02,
+          "maximum_angular_speed_rad_s": 0.1,
+          "max_sample_gap_s": 0.1,
+          "fixture_position_tolerance_m": 0.002,
+          "fixture_angle_tolerance_rad": 0.01,
+          "deck_height_tolerance_m": 0.015,
+          "maximum_bottom_gap_m": 0.015,
+          "penetration_tolerance_m": 0.001,
+          "minimum_separation_m": 0.05
+        }
+      },
+      "public": {
+        "objective": "Find the vase, trophy on open furniture surfaces. Bring them to the blue-grey tray on the counter. Leave the two objects separated by at least 5 cm.",
+        "environment": "A furnished playroom. Target objects are on exposed surfaces and are not deliberately hidden.",
+        "success_criteria": "Retrieve each target with a genuine grasp and at least 5 cm lift, then release all targets entirely on the tray deck in the requested relation. Leave hands clear and objects stable for at least 0.5 seconds.",
+        "constraints": [
+          "Use lawful robot controls and mounted observations.",
+          "Keep the tray and its supporting furniture fixed.",
+          "The tray is a fixed destination on furniture, not a hand-held collection tray."
+        ]
+      },
+      "version": 3
+    },
+    {
+      "document_alias": "T34",
+      "variant_id": "t34_furnished_tray_v3",
+      "label": "T34 open-surface retrieval and tray arrangement v3 (native support review revision)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Spatial Relations/Physical Contact/office_cubicles_left/corridor_0/corev2__category_95d214aac10eb07a73ba0a99.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Physical Contact/office_cubicles_left/corridor_0/corev2__category_95d214aac10eb07a73ba0a99.yaml",
+      "source_identity": "Specular Reflection/Correspondence/house_single_floor/utility_room_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_T34_support_v3",
+        "scene_model": "house_single_floor",
+        "rooms": [
+          "utility_room_0"
+        ],
+        "floor_name": "floors_glwobe_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "obj1",
+            "category": "backpack",
+            "model": "gvbiwl",
+            "position": [
+              21.85,
+              0.85,
+              1.215742944328716
+            ],
+            "orientation": [
+              9.004538878798485e-05,
+              -0.003198815742507577,
+              0.010471688583493233,
+              0.9999400973320007
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj2",
+            "category": "shoe_box",
+            "model": "towipq",
+            "position": [
+              23.65,
+              -2.05,
+              1.2275426642390619
+            ],
+            "orientation": [
+              -0.00046294633648358285,
+              -0.0004054156015627086,
+              0.0010120427468791604,
+              0.9999993443489075
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_deck",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.5,
+              1.4,
+              0.02
+            ],
+            "position": [
+              24.51,
+              0.15,
+              0.9375437389647407
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_w",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.4,
+              0.036
+            ],
+            "position": [
+              24.268,
+              0.15,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_e",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.4,
+              0.036
+            ],
+            "position": [
+              24.752000000000002,
+              0.15,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_s",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.5,
+              0.016,
+              0.036
+            ],
+            "position": [
+              24.51,
+              -0.5419999999999999,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_n",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.5,
+              0.016,
+              0.036
+            ],
+            "position": [
+              24.51,
+              0.842,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "obj1",
+            "support": "countertop_fjkase_0"
+          },
+          {
+            "name": "obj2",
+            "support": "countertop_sjxber_0"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            23.25,
+            0.15,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      },
+      "bindings": {
+        "obj1": {
+          "name": "obj1",
+          "category": "backpack",
+          "model": "gvbiwl"
+        },
+        "initial_support_0": {
+          "name": "countertop_fjkase_0"
+        },
+        "obj2": {
+          "name": "obj2",
+          "category": "shoe_box",
+          "model": "towipq"
+        },
+        "initial_support_1": {
+          "name": "countertop_sjxber_0"
+        },
+        "deck": {
+          "name": "wia_tray_deck"
+        },
+        "rim_w": {
+          "name": "wia_tray_rim_w"
+        },
+        "rim_e": {
+          "name": "wia_tray_rim_e"
+        },
+        "rim_s": {
+          "name": "wia_tray_rim_s"
+        },
+        "rim_n": {
+          "name": "wia_tray_rim_n"
+        },
+        "tray_table": {
+          "name": "countertop_ikwqer_0"
+        }
+      },
+      "parameters": {
+        "revision": "wia_spatial_tray_v1",
+        "scene_contract": {
+          "scene_model": "house_single_floor",
+          "room": "utility_room_0"
+        },
+        "targets": {
+          "obj1": "obj1",
+          "obj2": "obj2"
+        },
+        "initial_supports": {
+          "obj1": "initial_support_0",
+          "obj2": "initial_support_1"
+        },
+        "tray": {
+          "deck_key": "deck",
+          "table_support_key": "tray_table",
+          "rim_keys": [
+            "rim_w",
+            "rim_e",
+            "rim_s",
+            "rim_n"
+          ],
+          "mounting_mode": "fixed_fixture_on_native_table",
+          "usable_world_xy_m": [
+            [
+              24.28,
+              -0.5299999999999999
+            ],
+            [
+              24.740000000000002,
+              0.83
+            ]
+          ],
+          "deck_top_world_z_m": 0.9475437389647408
+        },
+        "goal_relation": {
+          "kind": "contact",
+          "pair": [
+            "obj1",
+            "obj2"
+          ],
+          "relation": "separated"
+        },
+        "scoring": {
+          "minimum_lift_m": 0.05,
+          "minimum_displacement_m": 0.05,
+          "stability_duration_s": 0.5,
+          "maximum_linear_speed_m_s": 0.02,
+          "maximum_angular_speed_rad_s": 0.1,
+          "max_sample_gap_s": 0.1,
+          "fixture_position_tolerance_m": 0.002,
+          "fixture_angle_tolerance_rad": 0.01,
+          "deck_height_tolerance_m": 0.015,
+          "maximum_bottom_gap_m": 0.015,
+          "penetration_tolerance_m": 0.001,
+          "minimum_separation_m": 0.05
+        }
+      },
+      "public": {
+        "objective": "Find the backpack, shoe box on open furniture surfaces. Bring them to the blue-grey tray on the counter. Leave the two objects separated by at least 5 cm.",
+        "environment": "A furnished utility room. Target objects are on exposed surfaces and are not deliberately hidden.",
+        "success_criteria": "Retrieve each target with a genuine grasp and at least 5 cm lift, then release all targets entirely on the tray deck in the requested relation. Leave hands clear and objects stable for at least 0.5 seconds.",
+        "constraints": [
+          "Use lawful robot controls and mounted observations.",
+          "Keep the tray and its supporting furniture fixed.",
+          "The tray is a fixed destination on furniture, not a hand-held collection tray."
+        ]
+      },
+      "version": 3
+    }
+  ],
+  "parent_design": {
+    "file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/spatial_design_v2.json",
+    "sha256": "e76ed06487afdc3364f0feacd1b3f2dfe24fd6d9abaab60254b3ba85fbdd20d1"
+  },
+  "revision_evidence": {
+    "source": "Main-agent diagnosis from native initialization review; this script ran no native experiment.",
+    "T32": "The vase world Y extent was 0.423 m while bookcase depth was 0.289 m. Set root XY to [-3.08, -10.61] and left-multiply the original quaternion by a 90-degree world-Z rotation, preserving its original tilt and root Z. This places the original 0.214 m X extent along shelf Y. Retain local-raycast alignment and support.",
+    "T34": "The backpack maximum world X was 22.267 m while counter maximum X was 22.2567 m. Move root X from 21.94 m to 21.85 m only.",
+    "controls": "All other object poses, goals, scoring thresholds, scales, native supports and public goals are copied unchanged from the V2 design. Existing versions remain immutable.",
+    "native_validation_run": false,
+    "status": "Pending native initialization image review; no manipulation or reference execution."
+  }
+}

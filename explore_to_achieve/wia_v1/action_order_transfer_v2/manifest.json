@@ -1,0 +1,25 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "entries": [
+    {
+      "document_alias": "T01",
+      "variant_id": "t01_support_transfer_v1",
+      "label": "T01 native support transfer without fixed lift height",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/action_order_transfer_v2/t01_task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/action_order_transfer_v2/t01_scene.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Action Sequencing/Action Order Inference/Merom_0_garden/utility_room_0/corev2__category_17d798839775b73b4f9f8d26.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Action Sequencing/Action Order Inference/Merom_0_garden/utility_room_0/corev2__category_17d798839775b73b4f9f8d26.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T02",
+      "variant_id": "t02_support_transfer_v1",
+      "label": "T02 native support transfer without fixed lift height",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/action_order_transfer_v2/t02_task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/action_order_transfer_v2/t02_scene.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Action Sequencing/Action Order Inference/house_single_floor/dining_room_0/corev2__category_11e210b18d60f8824aa6f88e.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Action Sequencing/Action Order Inference/house_single_floor/dining_room_0/corev2__category_11e210b18d60f8824aa6f88e.yaml",
+      "variant": "adapted"
+    }
+  ]
+}

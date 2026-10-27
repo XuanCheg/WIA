@@ -1,0 +1,102 @@
+kind: scene_patch
+id: category_3c0c7a96f845e249e88a5045__t32_complete_ground_v2
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Spatial Relations/Physical Contact/house_single_floor/living_room_0/house_single_floor__living_room_0.json
+target: null
+qualification: null
+bindings:
+  obj1:
+    name: obj1
+    category: vase
+    model: saenda
+  obj2:
+    name: obj2
+    category: trophy
+    model: ayuubt
+  source_floor:
+    name: floors_uzsntg_0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        position:
+        - 11.82
+        - -0.18
+        - 0.0
+        yaw_deg: -106.79525778686288
+        head_pitch_deg: 45.0
+      - operation: object_physics
+        binding: obj1
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: obj1
+        visual_only: false
+      - operation: object_physics
+        binding: obj2
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: obj2
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - obj1
+        - obj2
+        manipulation_bindings:
+        - obj2
+        relocation_policy: rigid_group
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: living_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - native_grasp_ik_and_aperture_pending
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: house_single_floor
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: house_single_floor
+          disable_grid: false
+seed: 0
+runtime:
+  reflection_sensor_profile: {}
+  requires_native_visual_discovery: false
+  post_controller_settle_steps: 30
+  trunk_config: configs/esi_trunk.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0

@@ -1,0 +1,88 @@
+kind: scene_patch
+id: category_d9ce770786d0ead8ab45c0b9
+version: 3
+status: pending
+source:
+  provider: esi
+  json: Perceptual Grounding/Partial Occlusion/house_single_floor/kitchen_0/house_single_floor__kitchen_0_3.json
+target: null
+qualification: null
+bindings:
+  target:
+    name: target_obj
+    category: beer_bottle
+    model: nigfha
+  occluder:
+    name: occluder_obj
+    category: barbecue_sauce_bottle
+    model: gfxrnj
+  support:
+    name: floors_kxcpgy_0
+    category: floors
+  destination:
+    name: countertop_kelzer_0
+    category: countertop
+    model: kelzer
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - 5.8525449258385525
+        - 0.15240462991164927
+        - 0.0050153183937072755
+        yaw_deg: -35.5888987704515
+        head_pitch_deg: 45.0
+      - operation: object_physics
+        phase: before_construction
+        binding: target
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: target
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: occluder
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: occluder
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - target
+        - occluder
+        manipulation_bindings:
+        - target
+        relocation_policy: rigid_group
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: kitchen_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - grounding_initial_all_inputs_and_native_diagnostic_features_pending
+seed: 0
+runtime:
+  requires_native_visual_discovery: true

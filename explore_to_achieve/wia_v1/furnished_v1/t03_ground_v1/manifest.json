@@ -1,0 +1,15 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "entries": [
+    {
+      "document_alias": "T03",
+      "variant_id": "t03_complete_ground_v1",
+      "label": "T03 office complete native floors",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/t03_ground_v1/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/t03_ground_v1/scene.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Action Sequencing/Action Order Inference/office_cubicles_left/lobby_0/corev2__category_47e03b7b97473aacca3cfd04.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Action Sequencing/Action Order Inference/office_cubicles_left/lobby_0/corev2__category_47e03b7b97473aacca3cfd04.yaml",
+      "variant": "adapted"
+    }
+  ]
+}

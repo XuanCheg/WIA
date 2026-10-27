@@ -1,0 +1,21 @@
+..............................................................F......F.. [ 82%]
+...............                                                          [100%]
+=================================== FAILURES ===================================
+__ test_generation_and_check_are_deterministic_and_leave_all_inputs_unchanged __
+tests/test_wia_temporal_posture_v2.py:116: in test_generation_and_check_are_deterministic_and_leave_all_inputs_unchanged
+    assert main(['--check']) == 0
+E   AssertionError: assert 1 == 0
+E    +  where 1 = main(['--check'])
+----------------------------- Captured stderr call -----------------------------
+WIA temporal posture v2 differs or is missing: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_posture_v2/manifest.json
+_ test_rebuild_and_check_are_deterministic_without_changing_historical_inputs __
+tests/test_wia_temporal_pairs.py:169: in test_rebuild_and_check_are_deterministic_without_changing_historical_inputs
+    assert main(['--check']) == 0
+E   AssertionError: assert 1 == 0
+E    +  where 1 = main(['--check'])
+----------------------------- Captured stderr call -----------------------------
+WIA temporal definition differs or is missing: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal/manifest.json
+=========================== short test summary info ============================
+FAILED tests/test_wia_temporal_posture_v2.py::test_generation_and_check_are_deterministic_and_leave_all_inputs_unchanged
+FAILED tests/test_wia_temporal_pairs.py::test_rebuild_and_check_are_deterministic_without_changing_historical_inputs
+2 failed, 85 passed in 104.62s (0:01:44)

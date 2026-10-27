@@ -1,0 +1,43 @@
+{
+  "candidate_id": "pilot_action_order_original_v1",
+  "source_json": "ESI-Bench/dataset/json_clean/Action Sequencing/Action Order Inference/Beechwood_0_garden/dining_room_0/Beechwood_0_garden__dining_room_0.json",
+  "scene_file": "explore_to_achieve/candidates/pilot_action_order/scene.yaml",
+  "task_file": null,
+  "category": "Action Sequencing",
+  "subcategory": "Action Order Inference",
+  "scene_model": "Beechwood_0_garden",
+  "room": "dining_room_0",
+  "variant": "original",
+  "seed": 0,
+  "reuse_level": "original",
+  "modified_files": [
+    "explore_to_achieve/candidates/pilot_action_order/plan.md",
+    "explore_to_achieve/candidates/pilot_action_order/scene.yaml",
+    "explore_to_achieve/candidates/pilot_action_order/validate.py",
+    "explore_to_achieve/candidates/pilot_action_order/handoff.json",
+    "research_log.md"
+  ],
+  "expected_views": [
+    "global_diagonal",
+    "global_overhead",
+    "global_front",
+    "global_back",
+    "global_left",
+    "global_right",
+    "head",
+    "wrist",
+    "scene"
+  ],
+  "known_limitations": [
+    "Native initialization has not been run by this builder.",
+    "Physical reach, grasping, and stacking remain unverified.",
+    "Pending diagnostic capture only; no physical task, evaluator, or success claim is supplied.",
+    "Preserve original source semantics, question, and information gap through the unpatched original variant.",
+    "Full nullable SceneDefinition validation requires Main's schema integration."
+  ],
+  "code_commit": "e2f3a2c6d4e5d9521f84c2b9829f7c57a3a9e7c1",
+  "owner": "scene_builder_a",
+  "parent_candidate_id": null,
+  "physical_task_id": null,
+  "render_config": {}
+}

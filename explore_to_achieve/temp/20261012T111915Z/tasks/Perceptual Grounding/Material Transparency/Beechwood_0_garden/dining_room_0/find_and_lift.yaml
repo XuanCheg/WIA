@@ -1,0 +1,293 @@
+id: find_and_lift
+version: 1
+source:
+  provider: esi
+  json: Perceptual Grounding/Material Transparency/Beechwood_0_garden/dining_room_0/Beechwood_0_garden__dining_room_0__no.json
+public:
+  objective: Find a red tomato in the room and grasp it with the left gripper. After
+    grasping it, move upward by 6 cm (0.06 m) and keep holding it.
+  success_criteria: The specified tomato must remain held and rise at least 5 cm (0.05
+    m) above its height at the start of the task.
+  environment: You are operating an R1 robot in a furnished dining room.
+  constraints: []
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - gripper
+private:
+  bindings:
+    target:
+      name: obj_small
+      category: cherry_tomato
+      model: dqjuub
+    support:
+      name: coffee_table_dnsjnv_0
+    container:
+      name: obj_container
+      category: cleansing_bottle
+      model: ovjhuf
+  evaluation:
+    type: grasp_lift
+    target: target
+    minimum_lift_m: 0.05
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    visible_target_control:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - -4.71
+        - 15.4
+        - 0.1
+        yaw_deg: 90
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 45.0
+      - operation: object_pose
+        phase: before_construction
+        binding: target
+        candidates:
+        - region: table_control
+          position:
+          - -5.05
+          - 15.97
+          - 0.762765
+        jitter_xy_m:
+        - 0.005
+        - 0.005
+      initial_visibility: visible
+    single_table_occlusion:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - -4.71
+        - 15.1
+        - 0.1
+        yaw_deg: 90
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 45.0
+      - operation: object_pose
+        phase: before_construction
+        binding: target
+        candidates:
+        - region: table_hidden
+          position:
+          - -5.05
+          - 15.97
+          - 0.762765
+        jitter_xy_m:
+        - 0.005
+        - 0.005
+      - operation: add_primitive
+        phase: before_construction
+        name: explore_screen
+        position:
+        - -5.05
+        - 15.89
+        - 0.823912
+        dimensions_m:
+        - 0.55
+        - 0.02
+        - 0.16
+        shared_jitter_x_m: 0.005
+      initial_visibility: hidden_zero
+    multi_region_search:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - -4.71
+        - 15.1
+        - 0.1
+        yaw_deg: 115
+        heading_offsets_deg:
+        - -5
+        - 0
+        - 5
+        jitter_xy_m:
+        - 0.002
+        - 0.002
+        head_pitch_deg: 40
+      - operation: object_pose
+        phase: before_construction
+        binding: target
+        candidates:
+        - region: table_right_patch
+          position:
+          - -5.02
+          - 15.97
+          - 0.762765
+        - region: table_left_patch
+          position:
+          - -5.42
+          - 15.97
+          - 0.762765
+        jitter_xy_m:
+        - 0.005
+        - 0.005
+      - operation: object_perturbation
+        phase: before_construction
+        bindings:
+        - container
+        jitter_xy_m:
+        - 0.002
+        - 0.002
+      - operation: add_primitive
+        phase: before_construction
+        name: explore_screen_right
+        position:
+        - -5.02
+        - 15.89
+        - 0.823912
+        dimensions_m:
+        - 0.32
+        - 0.02
+        - 0.16
+        shared_jitter_x_m: 0.005
+      - operation: add_primitive
+        phase: before_construction
+        name: explore_screen_left
+        position:
+        - -5.32
+        - 15.92
+        - 0.833912
+        dimensions_m:
+        - 0.02
+        - 0.3
+        - 0.16
+        shared_jitter_x_m: 0.005
+      initial_visibility: hidden_zero
+    single_table_occlusion_near:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - -4.71
+        - 15.1
+        - 0.1
+        yaw_deg: 90
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 45.0
+      - operation: object_pose
+        phase: before_construction
+        binding: target
+        candidates:
+        - region: table_hidden
+          position:
+          - -5.0
+          - 15.870000000000001
+          - 0.762765
+        jitter_xy_m:
+        - 0.005
+        - 0.005
+      - operation: add_primitive
+        phase: before_construction
+        name: explore_screen
+        position:
+        - -5.0
+        - 15.790000000000001
+        - 0.823912
+        dimensions_m:
+        - 0.55
+        - 0.02
+        - 0.16
+        shared_jitter_x_m: 0.005
+      initial_visibility: hidden_zero
+    multi_region_search_near:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - -4.71
+        - 15.1
+        - 0.1
+        yaw_deg: 115
+        heading_offsets_deg:
+        - -5
+        - 0
+        - 5
+        jitter_xy_m:
+        - 0.002
+        - 0.002
+        head_pitch_deg: 40
+      - operation: object_pose
+        phase: before_construction
+        binding: target
+        candidates:
+        - region: table_right_patch
+          position:
+          - -4.92
+          - 15.92
+          - 0.762765
+        - region: table_left_patch
+          position:
+          - -5.32
+          - 15.92
+          - 0.762765
+        jitter_xy_m:
+        - 0.005
+        - 0.005
+      - operation: object_perturbation
+        phase: before_construction
+        bindings:
+        - container
+        jitter_xy_m:
+        - 0.002
+        - 0.002
+      - operation: add_primitive
+        phase: before_construction
+        name: explore_screen_right
+        position:
+        - -4.92
+        - 15.84
+        - 0.823912
+        dimensions_m:
+        - 0.32
+        - 0.02
+        - 0.16
+        shared_jitter_x_m: 0.005
+      - operation: add_primitive
+        phase: before_construction
+        name: explore_screen_left
+        position:
+        - -5.220000000000001
+        - 15.87
+        - 0.833912
+        dimensions_m:
+        - 0.02
+        - 0.3
+        - 0.16
+        shared_jitter_x_m: 0.005
+      initial_visibility: hidden_zero
+qualification:
+  on_failure: skip
+  support: support
+  support_tolerance_m: 0.005
+  initial_visibility: none
+  minimum_pixels: 64
+  minimum_extent_px: 8
+defaults:
+  seed: 7
+  max_steps: 60
+  wall_timeout_s: 5400.0
+  world_advances_during_inference: true
+  observation_condition: current
+  action_mode: parameterized

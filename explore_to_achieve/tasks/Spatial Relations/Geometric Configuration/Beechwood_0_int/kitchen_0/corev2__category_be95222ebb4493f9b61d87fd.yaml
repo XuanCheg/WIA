@@ -1,0 +1,204 @@
+kind: category_robot_task
+id: task_0fad358cbbe7a47ff184f3bc
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Spatial Relations/Geometric Configuration/Beechwood_0_int/kitchen_0/Beechwood_0_int__kitchen_0_0.json
+public:
+  objective: Arrange the salt shaker, bottle of lemon juice, erlenmeyer flask into
+    a equilateral arrangement on their starting support. Use their horizontal bounding-box
+    centers and physically rearrange the objects with the robot.
+  success_criteria: Compare side lengths using 5% of the longest side. Equilateral
+    requires all equal; isosceles requires an equal pair and a distinct third side;
+    random triangle means all sides distinct. Twice the horizontal area divided by
+    longest side squared must be at least 0.05. Every center pair must be farther
+    apart than max(3 cm, 5% of the longest span). Object bounding boxes must have
+    at least 5 mm horizontal clearance. Preserve asset scales, release every object,
+    open the gripper, and keep supported objects below 0.02 m/s and 0.1 rad/s for
+    15 consecutive native samples. Recorded native robot control and grasp/contact
+    must cause object displacement exceeding the 3.5 cm initialization pose tolerance.
+    Simulator state setters and initialization placement do not count as rearrangement.
+  environment: The original objects, orientations, scales and room are retained. Their
+    seeded initial arrangement deliberately fails the requested shape. Objects share
+    a qualified support with space for grasping.
+  constraints:
+  - Use mounted observations and guarded robot controls.
+  - Preserve the starting support and task objects; no resizing or collapsed overlapping
+    formation.
+  - The original initial-state question and answer remain historical evidence.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    vertex_1:
+      name: obj1
+      category: salt_shaker
+      model: fonexa
+    vertex_2:
+      name: obj2
+      category: bottle_of_lemon_juice
+      model: vsjter
+    vertex_3:
+      name: obj3
+      category: erlenmeyer_flask
+      model: bpwjxr
+    source_floor:
+      name: floors_sktjer_0
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.spatial_relations_geometric_configuration
+    operation: arrange_released_source_shape
+    binding_keys:
+    - vertex_1
+    - vertex_2
+    - vertex_3
+    - source_floor
+    parameters:
+      task_revision: task_edit2_20261018_v1
+      mechanism_contract: &id001
+        preserve:
+        - participating_object_identities
+        - asset_scales
+        - asset_orientations
+        - source_reference_camera
+        goal: stable_released_arrangement
+        shape: equilateral
+        plane: world_xy
+        initial_layout_policy: seeded_aabb_centers_v1
+        source_qa_role: historical_initial_state
+        already_satisfied_no_op_allowed: false
+      object_keys:
+      - vertex_1
+      - vertex_2
+      - vertex_3
+      target_shape: equilateral
+      source_positions:
+      - - 1.320676565170288
+        - -8.01424789428711
+        - 0.07027304917573929
+      - - 1.7726982831954956
+        - -8.014249801635742
+        - 0.08151979744434357
+      - - 1.5466868877410889
+        - -7.622786045074463
+        - 0.05571550503373146
+      source_quaternions:
+      - - 6.479407602455467e-06
+        - -2.095298987114802e-05
+        - -0.05827397108078003
+        - 0.9983006715774536
+      - - 0.019388826563954353
+        - 0.004282738082110882
+        - -0.3213925361633301
+        - 0.9467378854751587
+      - - 0.0071294596418738365
+        - -0.000547843286767602
+        - 0.9448279738426208
+        - 0.32748889923095703
+      source_scales:
+      - 1.0
+      - 1.0
+      - 1.0
+      release_stability_steps: 15
+      completion_items:
+      - id: requested_shape
+      - id: robot_caused_rearrangement
+      - id: stable_released_support
+      initial_layout:
+        version: seeded_aabb_centers_v1
+        seed: 0
+        source_identity: Spatial Relations/Geometric Configuration/Beechwood_0_int/kitchen_0/Beechwood_0_int__kitchen_0_0.json
+        reference_points: horizontal_aabb_centers
+        initial_false_margin: 0.025
+      minimum_rearrangement_m: 0.035
+      source_assets:
+      - category: salt_shaker
+        model: fonexa
+      - category: bottle_of_lemon_juice
+        model: vsjter
+      - category: erlenmeyer_flask
+        model: bpwjxr
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: object_physics
+        phase: before_construction
+        binding: vertex_1
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: vertex_1
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: vertex_2
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: vertex_2
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: vertex_3
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: vertex_3
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - vertex_1
+        - vertex_2
+        - vertex_3
+        manipulation_bindings:
+        - vertex_1
+        - vertex_2
+        - vertex_3
+        relocation_policy: seeded_geometry
+        layout_parameters:
+          object_keys:
+          - vertex_1
+          - vertex_2
+          - vertex_3
+          target_shape: equilateral
+          seed: 0
+          source_identity: Spatial Relations/Geometric Configuration/Beechwood_0_int/kitchen_0/Beechwood_0_int__kitchen_0_0.json
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: kitchen_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  task_revision: task_edit2_20261018_v1
+  mechanism_contract: *id001

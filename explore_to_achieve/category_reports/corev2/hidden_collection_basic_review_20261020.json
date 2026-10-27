@@ -1,0 +1,214 @@
+{
+  "schema": "hidden_collection_basic_review_v1",
+  "date": "2026-10-20",
+  "validation_scope": "Basic native reset and support validation with visual spot checks; initial visibility allowed.",
+  "full_execution_verified": false,
+  "active_corev2_count": 48,
+  "removed_entries": 9,
+  "new_entries": 3,
+  "tasks": [
+    {
+      "candidate_id": "category_f7f89193432473c2bb37aeb5",
+      "variant": "single_room",
+      "target_count": 3,
+      "job_id": "capture_02f1dae89b239bb69b1528023db79157",
+      "gpu": 7,
+      "duration_s": 558.0329308006912,
+      "image_count": 23,
+      "basic_initialization_accepted": true,
+      "inventory_supports": {
+        "collection_item_1": {
+          "support": "collection_shelf_1_deck",
+          "contact": true,
+          "bottom_height_m": 0.7999415397644043,
+          "surface_height_m": 0.800000011920929,
+          "speed_m_s": 0.0,
+          "movable_collidable": true,
+          "stable_support": true
+        },
+        "collection_item_2": {
+          "support": "collection_shelf_2_deck",
+          "contact": true,
+          "bottom_height_m": 0.7999416589736938,
+          "surface_height_m": 0.800000011920929,
+          "speed_m_s": 0.0,
+          "movable_collidable": true,
+          "stable_support": true
+        },
+        "collection_item_3": {
+          "support": "collection_shelf_3_deck",
+          "contact": true,
+          "bottom_height_m": 0.7999415993690491,
+          "surface_height_m": 0.800000011920929,
+          "speed_m_s": 0.0,
+          "movable_collidable": true,
+          "stable_support": true
+        }
+      },
+      "right_hand_tray_retained": true,
+      "plate_up_dot": 0.9997721686161104,
+      "initial_agent_bundle_available": true,
+      "visual_review_note": "Head and target closeups are readable. Some human overview views are partly blocked by the ceiling; use mounted and detail views for initial layout review.",
+      "full_collection_verified": false,
+      "human_review": "unreviewed",
+      "portable_receipts": [
+        {
+          "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_f7f89193432473c2bb37aeb5/preview_complete.json",
+          "sha256": "fca41b6ed83589bf642ea1185e545151f5960cbb1279d61c23f44b03aed36bf6"
+        }
+      ]
+    },
+    {
+      "candidate_id": "category_ff560c315a0a0407f6148a1b",
+      "variant": "multi_room",
+      "target_count": 4,
+      "job_id": "capture_3a0c541542b9f9a0962a031ed09cfc87",
+      "gpu": 1,
+      "duration_s": 812.5741493869573,
+      "image_count": 24,
+      "basic_initialization_accepted": true,
+      "inventory_supports": {
+        "collection_item_1": {
+          "support": "collection_shelf_1_deck",
+          "contact": true,
+          "bottom_height_m": 0.7999415397644043,
+          "surface_height_m": 0.800000011920929,
+          "speed_m_s": 0.0,
+          "movable_collidable": true,
+          "stable_support": true
+        },
+        "collection_item_2": {
+          "support": "collection_shelf_2_deck",
+          "contact": true,
+          "bottom_height_m": 0.7999416589736938,
+          "surface_height_m": 0.800000011920929,
+          "speed_m_s": 0.0,
+          "movable_collidable": true,
+          "stable_support": true
+        },
+        "collection_item_3": {
+          "support": "collection_shelf_3_deck",
+          "contact": true,
+          "bottom_height_m": 0.7999415397644043,
+          "surface_height_m": 0.800000011920929,
+          "speed_m_s": 0.0,
+          "movable_collidable": true,
+          "stable_support": true
+        },
+        "collection_item_4": {
+          "support": "collection_shelf_4_deck",
+          "contact": true,
+          "bottom_height_m": 0.7999416589736938,
+          "surface_height_m": 0.800000011920929,
+          "speed_m_s": 0.0,
+          "movable_collidable": true,
+          "stable_support": true
+        }
+      },
+      "right_hand_tray_retained": true,
+      "plate_up_dot": 0.9993920032514569,
+      "initial_agent_bundle_available": true,
+      "visual_review_note": "Head view shows the connected furnished living/kitchen/dining areas and target closeups are readable. Object overview is partly blocked by the roof. Route and grasp execution remain unverified.",
+      "full_collection_verified": false,
+      "human_review": "unreviewed",
+      "portable_receipts": [
+        {
+          "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_ff560c315a0a0407f6148a1b/preview_complete.json",
+          "sha256": "d36e5d8ef2c7ed09986ef8ba24e1dd14b801c78896eb3bc53ed3efbcc11a8f5f"
+        }
+      ]
+    },
+    {
+      "candidate_id": "category_d1156faa040aacc20c70b3ce",
+      "variant": "similar_repeated_views",
+      "target_count": 5,
+      "job_id": "capture_11c86dae494bf7e0162be9ac5a8524ea",
+      "gpu": 4,
+      "duration_s": 486.268746573478,
+      "image_count": 27,
+      "basic_initialization_accepted": true,
+      "inventory_supports": {
+        "collection_item_1": {
+          "support": "collection_shelf_1_deck",
+          "contact": true,
+          "bottom_height_m": 0.7999414801597595,
+          "surface_height_m": 0.800000011920929,
+          "speed_m_s": 0.0,
+          "movable_collidable": true,
+          "stable_support": true
+        },
+        "collection_item_2": {
+          "support": "collection_shelf_1_deck",
+          "contact": true,
+          "bottom_height_m": 0.7999415993690491,
+          "surface_height_m": 0.800000011920929,
+          "speed_m_s": 0.0,
+          "movable_collidable": true,
+          "stable_support": true
+        },
+        "collection_item_3": {
+          "support": "collection_shelf_2_deck",
+          "contact": true,
+          "bottom_height_m": 0.7999415993690491,
+          "surface_height_m": 0.800000011920929,
+          "speed_m_s": 0.0,
+          "movable_collidable": true,
+          "stable_support": true
+        },
+        "collection_item_4": {
+          "support": "collection_shelf_2_deck",
+          "contact": true,
+          "bottom_height_m": 0.7999415397644043,
+          "surface_height_m": 0.800000011920929,
+          "speed_m_s": 0.0,
+          "movable_collidable": true,
+          "stable_support": true
+        },
+        "collection_item_5": {
+          "support": "collection_shelf_3_deck",
+          "contact": true,
+          "bottom_height_m": 0.7999415993690491,
+          "surface_height_m": 0.800000011920929,
+          "speed_m_s": 0.0,
+          "movable_collidable": true,
+          "stable_support": true
+        },
+        "collection_item_6": {
+          "support": "collection_shelf_3_deck",
+          "contact": true,
+          "bottom_height_m": 0.800000011920929,
+          "surface_height_m": 0.800000011920929,
+          "speed_m_s": 0.0,
+          "movable_collidable": true,
+          "stable_support": true
+        },
+        "collection_item_7": {
+          "support": "collection_shelf_3_deck",
+          "contact": true,
+          "bottom_height_m": 0.7998612523078918,
+          "surface_height_m": 0.800000011920929,
+          "speed_m_s": 0.0,
+          "movable_collidable": true,
+          "stable_support": true
+        }
+      },
+      "right_hand_tray_retained": true,
+      "plate_up_dot": 0.9997930883690271,
+      "initial_agent_bundle_available": true,
+      "visual_review_note": "Head, tray and food closeups are readable; hamburger, plain bun and sandwich appearances are distinct. Global diagonal is wall-occluded and some overview views are roof-occluded. Initial visibility is not an acceptance gate.",
+      "full_collection_verified": false,
+      "human_review": "unreviewed",
+      "portable_receipts": [
+        {
+          "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_d1156faa040aacc20c70b3ce/preview_complete.json",
+          "sha256": "959c4f4a8f37a474c993bcb4c5e485d4b6c5748711f59abe832e30528fb9893f"
+        }
+      ]
+    }
+  ],
+  "cpu_tests": {
+    "passed": 15,
+    "duration_s": 3.02
+  },
+  "paused_workers_restored": true
+}

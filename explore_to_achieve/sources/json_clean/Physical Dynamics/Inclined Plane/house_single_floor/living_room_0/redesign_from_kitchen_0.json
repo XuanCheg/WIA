@@ -1,0 +1,128 @@
+{
+  "id": "authored_ramp_comparison_kitchen_0",
+  "big_task": "Physical Dynamics",
+  "small_task": "Inclined Plane",
+  "runner_task": "slope",
+  "scene": "house_single_floor",
+  "room": "living_room_0",
+  "question": "Compare how a bowl, an avocado and a baseball travel down the ramp. The candidate table contains one trial item and one unused matching spare of each type. Use the items on the yellow mat for trials and preserve those on the green mat as spares. Test each trial item separately: grasp it, place it over the yellow release mark on the ramp in its initial resting orientation, release without a push and observe three seconds. Recover trial items to the candidate table after observing them so the runway is clear. Then select the unused spare matching the fastest successful trial and deliver it through the ramp into the blue receiving tray.",
+  "answer": "Determined by native trial outcomes",
+  "answer_type": "native_physical_outcome",
+  "options_json": "[]",
+  "image_paths_json": "[]",
+  "metadata_json": {
+    "camera_poses": [
+      {
+        "view_idx": 0,
+        "position": [
+          14.4,
+          1.6,
+          1.5
+        ],
+        "target": [
+          14.4,
+          3.1,
+          0.8596988055202839
+        ],
+        "quaternion_xyzw": [
+          0.5510921371835963,
+          0.0,
+          0.0,
+          0.834444399786119
+        ]
+      }
+    ],
+    "dynamic_friction": 1.4513,
+    "floor_name": "floors_kxcpgy_0",
+    "obj_category": "avocado",
+    "obj_model": "arswzs",
+    "objects": [
+      {
+        "_key": "task_obj",
+        "aabb_max_final": [
+          8.112899780273438,
+          -0.7644000053405762,
+          0.07559999823570251
+        ],
+        "aabb_max_init": [
+          7.8403000831604,
+          -0.8399999737739563,
+          0.21649999916553497
+        ],
+        "aabb_min_final": [
+          7.9928998947143555,
+          -0.8417999744415283,
+          0.0
+        ],
+        "aabb_min_init": [
+          7.739699840545654,
+          -0.9150000214576721,
+          0.11630000174045563
+        ],
+        "category": "avocado",
+        "model": "arswzs",
+        "pos_final": [
+          8.05739974975586,
+          -0.803600013256073,
+          0.03539999946951866
+        ],
+        "pos_init": [
+          7.790299892425537,
+          -0.8773999810218811,
+          0.16429999470710754
+        ],
+        "pos_on_floor": [
+          7.743000030517578,
+          -0.45100000500679016,
+          0.03889999911189079
+        ]
+      }
+    ],
+    "run_idx": 0,
+    "seed": 1997611139,
+    "slope": {
+      "aabb_max": [
+        7.940999984741211,
+        -0.7221999764442444,
+        0.31940001249313354
+      ],
+      "aabb_min": [
+        7.469600200653076,
+        -1.0221999883651733,
+        0.0
+      ],
+      "centre": [
+        7.7053,
+        -0.8722,
+        0.1597
+      ],
+      "position": [
+        7.7053,
+        -0.8722,
+        0.1597
+      ]
+    },
+    "slope_angle_deg": 33.32,
+    "slope_quaternion": [
+      0.0,
+      0.2867,
+      0.0,
+      0.958
+    ],
+    "slope_scale": [
+      0.551,
+      0.3,
+      0.02
+    ],
+    "static_friction": 2.7567,
+    "scene": "house_single_floor",
+    "room": "living_room_0",
+    "authored_revision": {
+      "parent_source": "Physical Dynamics/Inclined Plane/house_single_floor/kitchen_0/house_single_floor__kitchen_0__run_000.json",
+      "original_source_qa_scored": false,
+      "native_trial_outcomes_required": true,
+      "source_ramp_physics_preserved": true
+    }
+  },
+  "gt_camera_poses": []
+}

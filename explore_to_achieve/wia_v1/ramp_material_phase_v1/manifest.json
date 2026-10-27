@@ -1,0 +1,41 @@
+{
+  "schema": "wia_ramp_material_phase_v1",
+  "intervention": "2 x 2 coefficient condition versus binding phase; all other scientific settings unchanged.",
+  "release_protocol": "contact_then_zero_velocity",
+  "repetitions_initial_probe": 1,
+  "native_run_complete": false,
+  "entries": [
+    {
+      "condition": "000",
+      "phase": "legacy",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/ramp_material_phase_v1/material_000_legacy/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/ramp_material_phase_v1/material_000_legacy/scene.yaml",
+      "task_sha256": "f738c56598854f6eb272a833cdd748a61e317a247f87e2554e306837c22674f2",
+      "scene_sha256": "2e9e8d507ac1e183ee9a854cbcdd8d7866de267a5f255682eaeea8b2d7cae483"
+    },
+    {
+      "condition": "000",
+      "phase": "construction",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/ramp_material_phase_v1/material_000_construction/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/ramp_material_phase_v1/material_000_construction/scene.yaml",
+      "task_sha256": "2a754160817f164a315951d89230c9dca3f27b8b13c98dec033388a92c99e6b1",
+      "scene_sha256": "56a53a315720c48e4d054767902a8a16cb78abd25341a202234557801ff3deea"
+    },
+    {
+      "condition": "003",
+      "phase": "legacy",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/ramp_material_phase_v1/material_003_legacy/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/ramp_material_phase_v1/material_003_legacy/scene.yaml",
+      "task_sha256": "496e227f85ba254cdce501b5a66c9c31ed1c9917dd005b64b1b25a7ac9b3df43",
+      "scene_sha256": "e34e454d4d9389ccd73895bbd2517de8d74e4a8ab47df45225d97b1e6e2af7bc"
+    },
+    {
+      "condition": "003",
+      "phase": "construction",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/ramp_material_phase_v1/material_003_construction/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/ramp_material_phase_v1/material_003_construction/scene.yaml",
+      "task_sha256": "04a02a13aace1a3e37b62cef35a2897dc9ecefb845b91be2f20548562ccd3761",
+      "scene_sha256": "f23afae40c8fc9ec07f46728c805cb158d325e898d73932b928fd432859d386e"
+    }
+  ]
+}

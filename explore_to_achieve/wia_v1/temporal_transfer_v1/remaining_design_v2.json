@@ -1,0 +1,242 @@
+{
+  "schema": "wia_temporal_transfer_design_v1",
+  "hypothesis": "Add the second real background to every remaining Unobserved Change recipe. Keep all original public instructions, temporal events, within-scene phase contrasts and scoring. Source scene identity must not predict the recipe.",
+  "support_provenance": "Installed house_single_floor_best.json breakfast_table_rhjoby_0 init config and root pose; original table geometry/material and movable status preserved, initial velocities zero by normal constructor.",
+  "entries": [
+    {
+      "document_alias": "T41",
+      "variant_id": "t41_hall_arch_v2",
+      "label": "T41 hall_arch temporal scene v2",
+      "parent_task_file": "explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+      "parent_scene_file": "explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/tasks/t41_hall_arch_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/scenes/t41_hall_arch_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/hall_arch_wood/empty_room_0/t41_hall_arch_v2.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -47.2954,
+        13.5,
+        0
+      ],
+      "background_support_objects": [
+        {
+          "name": "breakfast_table_rhjoby_0",
+          "category": "breakfast_table",
+          "model": "rhjoby",
+          "scale": [
+            0.9999933242797852,
+            0.9999943971633911,
+            0.9999465942382812
+          ],
+          "fixed_base": false,
+          "visual_only": false,
+          "type": "DatasetObject",
+          "position": [
+            -40.00058159866333,
+            17.00055503845215,
+            0.7648534774780273
+          ],
+          "orientation": [
+            -1.9856030121445656e-05,
+            9.313507325714454e-05,
+            0.7062044739723206,
+            0.7080081105232239
+          ],
+          "in_rooms": [
+            "empty_room_0"
+          ]
+        }
+      ]
+    },
+    {
+      "document_alias": "T45",
+      "variant_id": "t45_hall_arch_v2",
+      "label": "T45 hall_arch temporal scene v2",
+      "parent_task_file": "explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0.yaml",
+      "parent_scene_file": "explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/tasks/t45_hall_arch_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/scenes/t45_hall_arch_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/hall_arch_wood/empty_room_0/t45_hall_arch_v2.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -47.2954,
+        13.5,
+        0
+      ],
+      "background_support_objects": [
+        {
+          "name": "breakfast_table_rhjoby_0",
+          "category": "breakfast_table",
+          "model": "rhjoby",
+          "scale": [
+            0.9999933242797852,
+            0.9999943971633911,
+            0.9999465942382812
+          ],
+          "fixed_base": false,
+          "visual_only": false,
+          "type": "DatasetObject",
+          "position": [
+            -40.00058159866333,
+            17.00055503845215,
+            0.7648534774780273
+          ],
+          "orientation": [
+            -1.9856030121445656e-05,
+            9.313507325714454e-05,
+            0.7062044739723206,
+            0.7080081105232239
+          ],
+          "in_rooms": [
+            "empty_room_0"
+          ]
+        }
+      ]
+    },
+    {
+      "document_alias": "T46",
+      "variant_id": "t46_hall_arch_v2",
+      "label": "T46 hall_arch temporal scene v2",
+      "parent_task_file": "explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_0498b76051279b8acd7e914e.yaml",
+      "parent_scene_file": "explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_0498b76051279b8acd7e914e.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/tasks/t46_hall_arch_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/scenes/t46_hall_arch_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/hall_arch_wood/empty_room_0/t46_hall_arch_v2.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -47.2954,
+        13.5,
+        0
+      ],
+      "background_support_objects": [
+        {
+          "name": "breakfast_table_rhjoby_0",
+          "category": "breakfast_table",
+          "model": "rhjoby",
+          "scale": [
+            0.9999933242797852,
+            0.9999943971633911,
+            0.9999465942382812
+          ],
+          "fixed_base": false,
+          "visual_only": false,
+          "type": "DatasetObject",
+          "position": [
+            -40.00058159866333,
+            17.00055503845215,
+            0.7648534774780273
+          ],
+          "orientation": [
+            -1.9856030121445656e-05,
+            9.313507325714454e-05,
+            0.7062044739723206,
+            0.7080081105232239
+          ],
+          "in_rooms": [
+            "empty_room_0"
+          ]
+        }
+      ]
+    },
+    {
+      "document_alias": "T47",
+      "variant_id": "t47_hall_arch_v2",
+      "label": "T47 hall_arch temporal scene v2",
+      "parent_task_file": "explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_b892978c0400005618c6589c.yaml",
+      "parent_scene_file": "explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_b892978c0400005618c6589c.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/tasks/t47_hall_arch_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/scenes/t47_hall_arch_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/hall_arch_wood/empty_room_0/t47_hall_arch_v2.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -47.2954,
+        13.5,
+        0
+      ],
+      "background_support_objects": [
+        {
+          "name": "breakfast_table_rhjoby_0",
+          "category": "breakfast_table",
+          "model": "rhjoby",
+          "scale": [
+            0.9999933242797852,
+            0.9999943971633911,
+            0.9999465942382812
+          ],
+          "fixed_base": false,
+          "visual_only": false,
+          "type": "DatasetObject",
+          "position": [
+            -40.00058159866333,
+            17.00055503845215,
+            0.7648534774780273
+          ],
+          "orientation": [
+            -1.9856030121445656e-05,
+            9.313507325714454e-05,
+            0.7062044739723206,
+            0.7080081105232239
+          ],
+          "in_rooms": [
+            "empty_room_0"
+          ]
+        }
+      ]
+    },
+    {
+      "document_alias": "T48",
+      "variant_id": "t48_hall_arch_v2",
+      "label": "T48 hall_arch temporal scene v2",
+      "parent_task_file": "explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_7fd79b0d5819ace319f077c7.yaml",
+      "parent_scene_file": "explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_7fd79b0d5819ace319f077c7.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/tasks/t48_hall_arch_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/scenes/t48_hall_arch_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/hall_arch_wood/empty_room_0/t48_hall_arch_v2.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -47.2954,
+        13.5,
+        0
+      ],
+      "background_support_objects": [
+        {
+          "name": "breakfast_table_rhjoby_0",
+          "category": "breakfast_table",
+          "model": "rhjoby",
+          "scale": [
+            0.9999933242797852,
+            0.9999943971633911,
+            0.9999465942382812
+          ],
+          "fixed_base": false,
+          "visual_only": false,
+          "type": "DatasetObject",
+          "position": [
+            -40.00058159866333,
+            17.00055503845215,
+            0.7648534774780273
+          ],
+          "orientation": [
+            -1.9856030121445656e-05,
+            9.313507325714454e-05,
+            0.7062044739723206,
+            0.7080081105232239
+          ],
+          "in_rooms": [
+            "empty_room_0"
+          ]
+        }
+      ]
+    }
+  ]
+}

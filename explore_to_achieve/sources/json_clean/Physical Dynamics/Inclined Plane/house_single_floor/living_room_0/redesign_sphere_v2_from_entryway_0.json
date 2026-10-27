@@ -1,0 +1,128 @@
+{
+  "id": "authored_ramp_comparison_entryway_0",
+  "big_task": "Physical Dynamics",
+  "small_task": "Inclined Plane",
+  "runner_task": "slope",
+  "scene": "house_single_floor",
+  "room": "living_room_0",
+  "question": "Compare how a bowl, an avocado and a spherical ball travel down the ramp. The candidate table contains one trial item and one unused matching spare of each type. Use the items on the yellow mat for trials and preserve those on the green mat as spares. Test each trial item separately: grasp it, place it over the yellow release mark on the ramp in its initial resting orientation, release without a push and observe three seconds. Recover trial items to the candidate table after observing them so the runway is clear. Then select the unused spare matching the fastest successful trial and deliver it through the ramp into the blue receiving tray.",
+  "answer": "Determined by native trial outcomes",
+  "answer_type": "native_physical_outcome",
+  "options_json": "[]",
+  "image_paths_json": "[]",
+  "metadata_json": {
+    "camera_poses": [
+      {
+        "view_idx": 0,
+        "position": [
+          14.4,
+          1.6,
+          1.5
+        ],
+        "target": [
+          14.4,
+          3.1,
+          0.8059895680424842
+        ],
+        "quaternion_xyzw": [
+          0.538559509894637,
+          0.0,
+          0.0,
+          0.8425874757567005
+        ]
+      }
+    ],
+    "dynamic_friction": 0.9499,
+    "floor_name": "floors_uftgek_0",
+    "obj_category": "vase",
+    "obj_model": "rusmlm",
+    "objects": [
+      {
+        "_key": "task_obj",
+        "aabb_max_final": [
+          3.643899917602539,
+          0.6399000287055969,
+          0.08919999748468399
+        ],
+        "aabb_max_init": [
+          2.9735000133514404,
+          0.6822999715805054,
+          0.19290000200271606
+        ],
+        "aabb_min_final": [
+          3.5495998859405518,
+          0.49630001187324524,
+          -0.004600000102072954
+        ],
+        "aabb_min_init": [
+          2.862499952316284,
+          0.5871000289916992,
+          0.03929999843239784
+        ],
+        "category": "vase",
+        "model": "rusmlm",
+        "pos_final": [
+          3.591900110244751,
+          0.5723000168800354,
+          0.04050000011920929
+        ],
+        "pos_init": [
+          2.92330002784729,
+          0.6388999819755554,
+          0.120899997651577
+        ],
+        "pos_on_floor": [
+          2.737600088119507,
+          0.8683000206947327,
+          0.05260000005364418
+        ]
+      }
+    ],
+    "run_idx": 0,
+    "seed": 29038605,
+    "slope": {
+      "aabb_max": [
+        2.875699996948242,
+        0.774399995803833,
+        0.21199999749660492
+      ],
+      "aabb_min": [
+        2.509700059890747,
+        0.47440001368522644,
+        -0.0
+      ],
+      "centre": [
+        2.6927,
+        0.6244,
+        0.106
+      ],
+      "position": [
+        2.6927,
+        0.6244,
+        0.106
+      ]
+    },
+    "slope_angle_deg": 28.62,
+    "slope_quaternion": [
+      0.0,
+      0.2471,
+      0.0,
+      0.969
+    ],
+    "slope_scale": [
+      0.406,
+      0.3,
+      0.02
+    ],
+    "static_friction": 2.8359,
+    "scene": "house_single_floor",
+    "room": "living_room_0",
+    "authored_revision": {
+      "parent_source": "Physical Dynamics/Inclined Plane/house_single_floor/entryway_0/house_single_floor__entryway_0__run_000.json",
+      "original_source_qa_scored": false,
+      "native_trial_outcomes_required": true,
+      "source_ramp_physics_preserved": true
+    }
+  },
+  "gt_camera_poses": []
+}

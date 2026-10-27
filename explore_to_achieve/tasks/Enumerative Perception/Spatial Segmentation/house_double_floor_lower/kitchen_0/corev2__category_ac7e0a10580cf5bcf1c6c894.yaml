@@ -1,0 +1,401 @@
+kind: category_robot_task
+id: task_cba74b64eff1ad69a8ab6501
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Enumerative Perception/Spatial Segmentation/house_double_floor_lower/kitchen_0/q_002.json
+public:
+  objective: 'Use the initial global image with +X pointing right and +Y pointing
+    up to identify the chair boundaries. Find all 4 distinct club sandwich objects
+    in the separated regions: the region beneath the top chair in the rightmost chair
+    group; the region beneath the bottom chair in the rightmost chair group; the region
+    beneath the chair numbered 2 from the left; the region beneath the leftmost chair.
+    For each fully inspected region report world_observation as ANSWER: <region label>.'
+  success_criteria: Visually discover every distinct target in its original region
+    and report each named region. Facing an anchor or approaching a region does not
+    establish discovery.
+  environment: Original chairs define the same region boundaries and target membership
+    as the source.
+  constraints:
+  - Keep targets and chair boundaries in place. Region labels use the initial global
+    world frame (+X right, +Y up), independently of the robot heading or historical
+    source observer.
+  - No prescribed travel distance or return trip is required.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+private:
+  bindings:
+    anchor_0: &id004
+      name: straight_chair_hgunnf_0
+      category: straight_chair
+    target_0: &id005
+      name: render_count_target_club_sandwich_0
+      category: club_sandwich
+      model: ablfyd
+    anchor_1: &id003
+      name: straight_chair_zdhnyg_0
+      category: straight_chair
+    target_1: &id006
+      name: render_count_target_club_sandwich_1
+      category: club_sandwich
+      model: ablfyd
+    anchor_2: &id002
+      name: straight_chair_uofiqj_1
+      category: straight_chair
+    target_2: &id007
+      name: render_count_target_club_sandwich_2
+      category: club_sandwich
+      model: ablfyd
+    anchor_3: &id001
+      name: straight_chair_uofiqj_0
+      category: straight_chair
+    target_3: &id008
+      name: render_count_target_club_sandwich_3
+      category: club_sandwich
+      model: ablfyd
+    floor:
+      name: floors_zqjkvm_0
+      category: floors
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.partial_occlusion
+    operation: distinct_visual_inventory
+    binding_keys:
+    - anchor_0
+    - target_0
+    - anchor_1
+    - target_1
+    - anchor_2
+    - target_2
+    - anchor_3
+    - target_3
+    - floor
+    parameters:
+      task_revision: task_edit2_20261018_v1
+      target_keys:
+      - target_0
+      - target_1
+      - target_2
+      - target_3
+      requires_native_visual_discovery: true
+      disclosed_target_count: 4
+      mechanism_contract:
+        preserved_relations:
+        - original chair-defined boundaries
+        - target membership
+        initialization_relocation_policy: preserve
+        required_native_evidence:
+        - source support and no fallen targets
+        - source mechanism geometry
+        - all mounted initial camera views
+        - synchronized delivered RGB and private instance identity
+        - legal informative access
+        native_operation_verified: false
+      regions:
+        anchor_0:
+          public_label: the region beneath the top chair in the rightmost chair group
+          targets:
+          - target_0
+        anchor_1:
+          public_label: the region beneath the bottom chair in the rightmost chair
+            group
+          targets:
+          - target_1
+        anchor_2:
+          public_label: the region beneath the chair numbered 2 from the left
+          targets:
+          - target_2
+        anchor_3:
+          public_label: the region beneath the leftmost chair
+          targets:
+          - target_3
+      source_evidence:
+        pairs: &id009
+        - target: target_0
+          anchor: anchor_0
+        - target: target_1
+          anchor: anchor_1
+        - target: target_2
+          anchor: anchor_2
+        - target: target_3
+          anchor: anchor_3
+        expected: &id010
+          anchor_0:
+            bbox:
+            - - 4.5626630783081055
+              - 1.5291378498077393
+              - -0.003103911876678467
+            - - 5.127139568328857
+              - 2.056800603866577
+              - 0.8292138576507568
+          target_0:
+            position:
+            - 4.844901084899902
+            - 1.7929692268371582
+            - 0.03499994054436684
+            quaternion_xyzw:
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            bbox:
+            - - 4.740079402923584
+              - 1.6918286085128784
+              - -0.0054634809494018555
+            - - 4.952028274536133
+              - 1.8929301500320435
+              - 0.07937624305486679
+          anchor_1:
+            bbox:
+            - - 4.564483642578125
+              - 0.8452723026275635
+              - -2.086162567138672e-07
+            - - 5.127451419830322
+              - 1.3768011331558228
+              - 0.8301199674606323
+          target_1:
+            position:
+            - 4.8459672927856445
+            - 1.111036777496338
+            - 0.03499994054436684
+            quaternion_xyzw:
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            bbox:
+            - - 4.741145610809326
+              - 1.009896159172058
+              - -0.0054634809494018555
+            - - 4.953094482421875
+              - 1.2109977006912231
+              - 0.07937624305486679
+          anchor_2:
+            bbox:
+            - - 3.443007707595825
+              - 1.523711085319519
+              - 1.4901161193847656e-07
+            - - 4.017587661743164
+              - 2.0561907291412354
+              - 0.8296017050743103
+          target_2:
+            position:
+            - 3.730297565460205
+            - 1.7899508476257324
+            - 0.03499994054436684
+            quaternion_xyzw:
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            bbox:
+            - - 3.6254758834838867
+              - 1.6888102293014526
+              - -0.0054634809494018555
+            - - 3.8374247550964355
+              - 1.8899117708206177
+              - 0.07937624305486679
+          anchor_3:
+            bbox:
+            - - 3.1807589530944824
+              - 0.7075227499008179
+              - -1.1920928955078125e-07
+            - - 3.9059956073760986
+              - 1.409536600112915
+              - 0.8296012878417969
+          target_3:
+            position:
+            - 3.54337739944458
+            - 1.0585296154022217
+            - 0.03499994054436684
+            quaternion_xyzw:
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            bbox:
+            - - 3.4385557174682617
+              - 0.9573889374732971
+              - -0.0054634809494018555
+            - - 3.6505045890808105
+              - 1.158490538597107
+              - 0.07937624305486679
+        source_camera:
+          _key: q_002.png
+          look_target:
+          - 5.0
+          - 1.5
+          - 0.8999999403953552
+          pitch_deg: 6.324532510084339
+          position:
+          - 7.850000000000005
+          - 2.86
+          - 1.2499999403953552
+          quaternion_xyzw:
+          - 0.3558833411129786
+          - 0.564151666973927
+          - 0.6301336210349959
+          - 0.3975066839816995
+          view_name: room_center_single_view
+      completion_item_ids:
+      - discovery:target_0
+      - discovery:target_1
+      - discovery:target_2
+      - discovery:target_3
+      - region_report:anchor_0
+      - region_report:anchor_1
+      - region_report:anchor_2
+      - region_report:anchor_3
+      source_task_revision: task_edit_20261018_v1
+      region_label_contract: &id011
+        version: task_edit2_20261018_v1
+        source_identity: Enumerative Perception/Spatial Segmentation/house_double_floor_lower/kitchen_0/q_002.json
+        scene: house_double_floor_lower
+        room: kitchen_0
+        selection_seed: 0
+        anchor_public_labels:
+          anchor_3: the region beneath the leftmost chair
+          anchor_2: the region beneath the chair numbered 2 from the left
+          anchor_1: the region beneath the bottom chair in the rightmost chair group
+          anchor_0: the region beneath the top chair in the rightmost chair group
+        axis_evidence:
+          frame: initial_global_world_xy
+          image_right_world_axis: +X
+          image_up_world_axis: +Y
+          band_tolerance_m: 0.1
+          minimum_separation_m: 0.1
+          x_bands:
+          - - anchor_3
+          - - anchor_2
+          - - anchor_0
+            - anchor_1
+          source_anchor_centres_xy_m:
+            anchor_0:
+            - 4.8449013233184814
+            - 1.7929692268371582
+            anchor_1:
+            - 4.845967531204224
+            - 1.1110367178916931
+            anchor_2:
+            - 3.7302976846694946
+            - 1.7899509072303772
+            anchor_3:
+            - 3.5433772802352905
+            - 1.0585296750068665
+          between_band_separations_x_m:
+          - 0.1869204044342041
+          - 1.1146036386489868
+          within_band_separations_y_m:
+            '0': []
+            '1': []
+            '2':
+            - 0.6819325089454651
+          ordering_uses_targets_or_answers: false
+        anchor_bindings:
+          anchor_3: *id001
+          anchor_2: *id002
+          anchor_1: *id003
+          anchor_0: *id004
+        target_bindings:
+          target_0: *id005
+          target_1: *id006
+          target_2: *id007
+          target_3: *id008
+        source_pairs: *id009
+        source_expected: *id010
+        source_anchor_states:
+          straight_chair_uofiqj_0:
+            pos:
+            - 3.4944396018981934
+            - 1.0171157121658325
+            - 0.473347008228302
+            ori:
+            - -5.431473255157471e-06
+            - -9.377952665090561e-06
+            - 0.25881996750831604
+            - 0.9659255146980286
+          straight_chair_uofiqj_1:
+            pos:
+            - 3.6854286193847656
+            - 1.7886805534362793
+            - 0.47334641218185425
+            ori:
+            - -4.785135388374329e-06
+            - -6.7766522988677025e-06
+            - -1.1189840734004974e-06
+            - 1.0000001192092896
+          straight_chair_zdhnyg_0:
+            pos:
+            - 4.886417865753174
+            - 1.111148476600647
+            - 0.4733421206474304
+            ori:
+            - 0.0002982616424560547
+            - -0.0003766748122870922
+            - 0.9999998807907104
+            - 3.49339097738266e-06
+          straight_chair_hgunnf_0:
+            pos:
+            - 4.887104511260986
+            - 1.7930247783660889
+            - 0.4730652868747711
+            ori:
+            - 0.0017788708209991455
+            - -2.297293394804001e-05
+            - 0.9999985694885254
+            - 1.3745389878749847e-05
+        preservation_tolerance_m: 0.02
+        native_boundary_mapping_verified: false
+        initial_global_visual_label_association_verified: false
+        capability_change: Global-frame chair descriptions replace the historical
+          source-observer convention.
+      definition_revision: task_edit2_20261018_v1
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        position:
+        - 7.850000000000005
+        - 2.86
+        - -5.960464477539063e-08
+        yaw_deg: -154.48985104423983
+        head_pitch_deg: 45.0
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: navigation
+        group_bindings:
+        - target_0
+        - target_1
+        - target_2
+        - target_3
+        manipulation_bindings: []
+        relocation_policy: preserve
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad: null
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: bounded_group
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: kitchen_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  region_label_contract: *id011

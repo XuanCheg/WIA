@@ -1,0 +1,260 @@
+kind: scene_patch
+id: tabletop_grocery_store_half_stocked_scene_dict_storage2_2_revised
+version: 1
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_2_revised.json
+target: target
+bindings:
+  target:
+    name: obj_containee
+    category: soccer_ball
+    model: ikagkc
+  container_0:
+    name: obj_container_0
+    category: trash_can
+    model: jlawet
+  container_1:
+    name: obj_container_1
+    category: wicker_basket
+    model: jqfftz
+  container_2:
+    name: obj_container_2
+    category: petri_dish
+    model: vbiqcq
+  table:
+    name: support_table_top
+    category: object
+    model: null
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+      initial_visibility: null
+    tabletop:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - 4.024942878862275
+        - -2.7041442070603594
+        - 0.1
+        yaw_deg: 135.0
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 55.0
+      - operation: object_scale
+        phase: before_construction
+        binding: target
+        multiplier: 0.35
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_top
+        primitive_type: Cube
+        position:
+        - 3.4345087165715076
+        - -2.1137100447695922
+        - 0.43
+        dimensions_m:
+        - 0.77
+        - 0.87
+        - 0.04
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.9238795325112867
+        - 0.38268343236508984
+        rgba:
+        - 0.48
+        - 0.29
+        - 0.14
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_1
+        primitive_type: Cube
+        position:
+        - 3.957767734649553
+        - -2.078354705710265
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.9238795325112867
+        - 0.38268343236508984
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_2
+        primitive_type: Cube
+        position:
+        - 3.3991533775121803
+        - -2.6369690628476374
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.9238795325112867
+        - 0.38268343236508984
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_3
+        primitive_type: Cube
+        position:
+        - 3.4698640556308353
+        - -1.590451026691547
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.9238795325112867
+        - 0.38268343236508984
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_4
+        primitive_type: Cube
+        position:
+        - 2.9112496984934624
+        - -2.1490653838289195
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.9238795325112867
+        - 0.38268343236508984
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: target
+        position:
+        - 3.486420190778128
+        - -2.4896959268953953
+        - 0.4962203285396099
+        candidates: []
+        quaternion_xyzw:
+        - -0.6185160204089338
+        - 0.04894726446892675
+        - 0.5205012219270208
+        - 0.5866179129305401
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_2
+        position:
+        - 3.734620746189938
+        - -2.1418211093284136
+        - 0.5039506613016128
+        candidates: []
+        quaternion_xyzw:
+        - -1.2993344845721239e-05
+        - -9.38943757426228e-05
+        - 0.9238794462992599
+        - 0.38268362875983125
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_1
+        position:
+        - 3.1734954787514114
+        - -2.1767712148686784
+        - 0.5884769766330719
+        candidates: []
+        quaternion_xyzw:
+        - 0.00018890387598228538
+        - -0.0002595205125706746
+        - 0.9238795116451833
+        - 0.38268334811784893
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_0
+        position:
+        - 3.471533165240807
+        - -1.8787335283792825
+        - 0.6421730725765228
+        candidates: []
+        quaternion_xyzw:
+        - 2.2759449803213383e-06
+        - 4.48464714411027e-06
+        - 0.9238794298113369
+        - 0.38268368027156185
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      initial_visibility: null
+qualification:
+  on_failure: skip
+  support: table
+  supported_objects:
+  - target
+  - container_0
+  - container_1
+  - container_2
+  support_tolerance_m: 0.015
+  maximum_linear_speed_m_s: 0.02
+  maximum_angular_speed_rad_s: 0.1
+  require_support_contact: true
+  reject_robot_contacts: true
+  screen_furniture_overlap: true
+  settle_steps: 30
+runtime:
+  trunk_config: configs/esi_trunk_low_grasp.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0
+seed: 0

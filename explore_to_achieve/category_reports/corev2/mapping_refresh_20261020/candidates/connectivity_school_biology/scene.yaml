@@ -1,0 +1,97 @@
+kind: scene_patch
+id: scene_63511affcbd2be8a74701f11
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+bindings: {}
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.task_edit2_mapping_world
+        parameters:
+          mapping_joint_world_contract:
+            revision: task_edit2_mapping_world_20261018_v1
+            group_key: connectivity_school_biology
+            scene: school_biology
+            room: full_scene
+            source_members:
+            - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+              source_sha256: 0b19d3a4ef1e8d584d8f591055378bae98fcad39d1c5dc078ca4cfd400bb3d64
+              task_sha256: 7518a4e858e91825e0bc2682e01bb3d9ab3540c21c0cc25d78942a1c84070602
+              scene_sha256: 2a33d9b7c7363ec5edf69b23e13feae9790d85052e944136037cf3fed7d25917
+            - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_001.json
+              source_sha256: 6df8f3c24c7117c9e9f9dc75895c3467cf26cf58299b3802bb78f5753374b95b
+              task_sha256: aa7e53874e8d930c361babb55d0fa3fe64c188b4ad5463217b7d24ba14c577ad
+              scene_sha256: d5066f8a7dfaada8ab22cd474a87972f8cef7c78f4fc76c9845cc14d0eedf2ba
+            - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_002.json
+              source_sha256: 4a6bcae68012607f7f5d29bb4bfc57a5820b69d771ca1771f0cbb0a0c4c4f4ff
+              task_sha256: d59e143e2e62a3e0528395ee84edf21109b1b969e7498d151d0a843e34602af1
+              scene_sha256: f6fe4d50056b1e4f9836513bb575b5e52e0f5aba4bc05125a267f581001123d5
+            - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_004.json
+              source_sha256: 2ac3cf688fcb474b81c6e3b59c2bee559a0ad03ef5b5d8f5e1013d6b0c7fe515
+              task_sha256: f80f56016cd8d1f23331c9f9d9c0560c156c5416df601fc4f200f588bb163028
+              scene_sha256: b9760a2a6a53a7a4e48b53343fb412484803504e193a2dbd00dbcd1c3db7333c
+            - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_005.json
+              source_sha256: db3fdf4af38929a35ad08564f3caf8f877515512ff1a711cea2b6443ca77e37e
+              task_sha256: 2340d3a3c0efd65aa093ab5f9fb1107f3ade740b02b6dc1ca7572c33e72dfc32
+              scene_sha256: 2f0c5245d79fb6e44a75c6698f5c88c053df32d58ac7347e1543bb65d8138adf
+            representative_source: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+            common_start_proposal:
+              operation: robot_pose
+              phase: before_construction
+              position:
+              - -5.950000286102295
+              - -2.25
+              - 0.1
+              yaw_deg: 77.34743949124234
+              head_pitch_deg: 0.0
+            seed: 0
+            episode_budget:
+              origin: new_uncalibrated_geometric_pilot
+              calibrated: false
+              max_steps: 1543
+              wall_timeout_s: 4629.0
+              derivation: ceil(2 * Manhattan_MST(all unique saved camera/path XY)
+                / 0.25m) + 12 * distinct required rooms + 4 * unique semantic questions
+              evidence:
+                manhattan_mst_m: 184.3041111016139
+                translation_increment_m: 0.25
+                geometric_traversals: 2
+                translation_actions: 1475
+                inspection_turn_actions: 48
+                answer_actions: 20
+                wall_seconds_per_action: 3.0
+                wall_bound_calibrated: false
+                point_set: all_saved_source_camera_and_path_XY_superset
+                unique_xy_count: 692
+              limitation: Geometry ignores walls, door operation and controller timing;
+                native route and budget calibration remain mandatory.
+            full_building_required: true
+            retain_native_furniture_and_doors: true
+            source_world_equivalence: unverified_pending_all_source_relations_in_this_actual_reset
+            qualification_api: session.mapping_joint_world_identity(contract) and
+              session.mapping_joint_world_qualification(contract)
+            pending_gates:
+            - full_building_inventory_geometry
+            - all_original_source_relations
+            - source_runtime_door_reconciliation_and_public_crossings
+            - common_start_support_and_clearance
+            - controller_and_eight_plus_initial_global
+            - shared_budget_native_calibration
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - -5.950000286102295
+        - -2.25
+        - 0.1
+        yaw_deg: 77.34743949124234
+        head_pitch_deg: 0.0
+seed: 0

@@ -1,0 +1,239 @@
+schema: world_interactive_agency_taxonomy_v1
+version: 1.0.0-proposal
+design_rule: One stable primary subcategory per task; any number of capability tags; task counts are not
+  frozen.
+source_snapshot: 33bada4bb278471b7a925cd8ddfa3d46a19f52fb
+families:
+- id: AP
+  name: Action Planning & Physical Experimentation
+  zh: 行动规划与物理实验
+  research_question: 规划/实验所得知识能否指导可验证的物理任务
+  subcategories:
+  - id: AP-1
+    name: Prescribed-order Physical Execution
+    zh: 给定顺序的物理执行
+    scientific_requirement: 已给出顺序，按次序执行真实抓放/构造，不冒充自主发现顺序
+    physical_success_requirement: 构造中间态及最终承托关系且顺序正确
+    current_candidate_task_ids:
+    - T01
+    - T02
+    - T03
+    design_gap: false
+  - id: AP-2
+    name: Stability-Constrained Construction
+    zh: 稳定性约束下构造
+    scientific_requirement: 稳定性来自真实支撑/接触，而非表面视觉重叠
+    physical_success_requirement: 真实释放后满足相互支持与稳定时长
+    current_candidate_task_ids:
+    - T18
+    - T19
+    - T20
+    - T21
+    design_gap: false
+  - id: AP-3
+    name: Experiment-to-Action Dynamics
+    zh: 从物理实验到决策
+    scientific_requirement: 物理试验必须改变正确选择，排除固定赢家捷径
+    physical_success_requirement: 完成受控试验、基于不同条件选对物体、实际交付
+    current_candidate_task_ids:
+    - T42
+    - T43
+    - T44
+    design_gap: false
+  - id: AP-4
+    name: Closed-loop Recovery & Adaptation
+    zh: 闭环恢复与自适应
+    scientific_requirement: 事态偏离预期后诊断、重规划并恢复目标状态
+    physical_success_requirement: 真实可逆扰动后，在受控预算内恢复目标终态
+    current_candidate_task_ids: []
+    design_gap: true
+- id: NT
+  name: Situated Navigation & Topology
+  zh: 情境导航与拓扑
+  research_question: 空间拓扑、语义地点是否决定真实导航
+  subcategories:
+  - id: NT-1
+    name: Connectivity & Topology Verification
+    zh: 可达性与拓扑核验
+    scientific_requirement: 必须用可行机器人路径或可验证的物理证据判定连通
+    physical_success_requirement: 真实跨区域检查或充分的本体观测及正确关系判定
+    current_candidate_task_ids:
+    - T04
+    - T05
+    - T06
+    design_gap: false
+  - id: NT-2
+    name: Ordered Multi-region Navigation
+    zh: 多区域有序导航
+    scientific_requirement: 按目标顺序抵达，不把要求访问房间数当实际难度
+    physical_success_requirement: 物理到达/稳定且遵守先后关系
+    current_candidate_task_ids:
+    - T07
+    - T08
+    design_gap: false
+  - id: NT-3
+    name: Semantic Region Grounding
+    zh: 语义区域定位
+    scientific_requirement: 不同房间与锚点关系需从传感器证据确定，文本不泄露答案
+    physical_success_requirement: 正确观察锚点、到达/报告目标区域（QA作为辅助指标）
+    current_candidate_task_ids:
+    - T09
+    - T10
+    - T11
+    design_gap: false
+- id: GF
+  name: Geometric Feasibility & Affordance
+  zh: 几何可行性与操作供能
+  research_question: 已知几何约束如何影响实际抓取、放置、穿越与排序
+  subcategories:
+  - id: GF-1
+    name: Containment & Affordance Selection
+    zh: 容纳与可操作性选择
+    scientific_requirement: 真实考虑夹爪、物体、开口及可行摆放姿态
+    physical_success_requirement: 真实拾取、插入/释放、合法撤手和稳定状态
+    current_candidate_task_ids:
+    - T22
+    - T23
+    - T24
+    - T25
+    design_gap: false
+  - id: GF-2
+    name: Dimension-constrained Insertion
+    zh: 尺寸约束插入
+    scientific_requirement: 有唯一可行尺寸/朝向选择，不靠默认姿态的 AABB 比较
+    physical_success_requirement: 物体和夹爪完整经过限口并满足合法终态
+    current_candidate_task_ids:
+    - D1-1
+    - D1-2
+    - D1-3
+    design_gap: false
+  - id: GF-3
+    name: Metric Sorting & Assignment
+    zh: 度量排序与匹配
+    scientific_requirement: 尺寸属性影响多物体到槽位的物理分配
+    physical_success_requirement: 所有目标按规定属性正确放入不同位置
+    current_candidate_task_ids:
+    - D2-1
+    - D2-2
+    design_gap: false
+- id: SR
+  name: Spatial Reasoning-to-Action
+  zh: 空间推理到行动
+  research_question: 空间关系推理是否转化为正确稳定的物理关系
+  subcategories:
+  - id: SR-1
+    name: Geometric Arrangement & Alignment
+    zh: 几何布局与对齐
+    scientific_requirement: 三角形/共线几何关系满足物理可达性及稳定释放
+    physical_success_requirement: 实际摆放后满足指定几何关系，排除初态已成的捷径
+    current_candidate_task_ids:
+    - T26
+    - T27
+    - T28
+    - T29
+    - T30
+    design_gap: false
+  - id: SR-2
+    name: Contact & Separation Regulation
+    zh: 接触与分离调控
+    scientific_requirement: 对象接触和间隙需基于原生碰撞/几何关系
+    physical_success_requirement: 物体被调整至指定接触或分离状态且稳定
+    current_candidate_task_ids:
+    - T31
+    - T32
+    - T33
+    - T34
+    design_gap: false
+  - id: SR-3
+    name: Reflection-grounded Reconfiguration
+    zh: 镜像条件下空间关系重构
+    scientific_requirement: 固定参考点，不让机器人移动改变题意
+    physical_success_requirement: 镜像判断影响真物体操作后，空间距离/次序正确反转
+    current_candidate_task_ids:
+    - R-S1
+    - R-S2
+    - R-S3
+    design_gap: false
+- id: GG
+  name: Goal Grounding & Active Perception
+  zh: 目标定位与主动感知
+  research_question: 消除视觉/身份歧义后能否操作真实对象
+  subcategories:
+  - id: GG-1
+    name: Active Search & Physical Collection
+    zh: 主动搜索与物理收集
+    scientific_requirement: 身份、重复计数、跨区域访问须与实体抓取关联
+    physical_success_requirement: 正确目标全部真实收集，干扰物未进入终态
+    current_candidate_task_ids:
+    - T35
+    - T36
+    - T37
+    design_gap: false
+  - id: GG-2
+    name: Occlusion Removal & Retrieval
+    zh: 消除遮挡并取回
+    scientific_requirement: 遮挡必须真实限制初始信息，扫布/揭露后抓取
+    physical_success_requirement: 经真实布料接触揭露目标并完成抓取/取回
+    current_candidate_task_ids:
+    - T49
+    - T50
+    - T51
+    design_gap: false
+  - id: GG-3
+    name: Mirror-grounded Target Selection
+    zh: 镜像定位与目标选择
+    scientific_requirement: 先证明真实镜像信息，再对正确物体执行操作
+    physical_success_requirement: 依据镜像对应/直视分支执行正确交付；正反样本配对
+    current_candidate_task_ids:
+    - R-C1
+    - R-C2
+    - R-C3
+    - R-A1
+    - R-A2
+    design_gap: false
+  - id: GG-4
+    name: Appearance-conditioned Object Handling
+    zh: 视觉属性条件下物体处理
+    scientific_requirement: 透明容器任务必须依赖对物体/内容状态的实际识别
+    physical_success_requirement: 观察真实内容状态后执行插入或合法不操作，保证开口可达
+    current_candidate_task_ids:
+    - T15
+    - T16
+    - T17
+    design_gap: false
+- id: TM
+  name: Temporal Memory & World-State Revision
+  zh: 时序记忆与世界状态修订
+  research_question: 历史与当前观测如何决定应做何种物理操作
+  subcategories:
+  - id: TM-1
+    name: Episodic Observation-to-Action
+    zh: 基于历史观察的行动
+    scientific_requirement: 仅从先前真实Agent观察中检索目标/轨迹信息
+    physical_success_requirement: 根据自身真实观察历史执行正确目标操作
+    current_candidate_task_ids:
+    - T38
+    - T39
+    design_gap: false
+  - id: TM-2
+    name: Unobserved Change & Contingent Action
+    zh: 未观测变化与条件行动
+    scientific_requirement: 当前相似状态下不同先前历史需要不同动作
+    physical_success_requirement: 两阶段比较后按增/删/移/换/不变执行正确操作
+    current_candidate_task_ids:
+    - T40
+    - T41
+    - T45
+    - T46
+    - T47
+    - T48
+    design_gap: false
+evidence_policy:
+  native_episode_executed_by_this_review: false
+  known_geometry: Static metadata only; A_nav/background_counts/grasp_success unknown
+  publication_gate:
+  - no_shortcut
+  - native_scene_valid
+  - legal_robot_motion_and_complete_goal
+  - true_agent_sensors
+  - native_scoring

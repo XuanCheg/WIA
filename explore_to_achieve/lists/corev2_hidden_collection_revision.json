@@ -1,0 +1,1205 @@
+{
+  "schema": "corev2_hidden_collection_revision_v1",
+  "date": "2026-10-20",
+  "removed": [
+    {
+      "candidate_id": "category_3bfe289bfb40728ef004725a",
+      "source_subclasses": [
+        "Enumerative Perception/Counting w Occlusion"
+      ],
+      "source_identities": [
+        "Enumerative Perception/Counting w Occlusion/house_single_floor/living_room_0/q_003.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Enumerative Perception",
+      "subcategory": "Counting w Occlusion",
+      "scene": "house_single_floor",
+      "room": "living_room_0",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": null,
+      "warning_codes": [
+        "interaction_layout_native_review_pending",
+        "native_fallen_target_check_required",
+        "native_grasp_execution_unverified",
+        "native_visual_discovery_pending",
+        "source_mechanism_native_review_pending"
+      ],
+      "setup_warning_codes": [
+        "native_grasp_execution_unverified"
+      ],
+      "task_file": "explore_to_achieve/tasks/Enumerative Perception/Counting w Occlusion/house_single_floor/living_room_0/corev2__category_3bfe289bfb40728ef004725a.yaml",
+      "scene_file": "explore_to_achieve/scenes/Enumerative Perception/Counting w Occlusion/house_single_floor/living_room_0/corev2__category_3bfe289bfb40728ef004725a.yaml",
+      "objective": "Find all 3 distinct club sandwich objects hidden around the original furniture. Use multiple robot observations as needed and track each distinct object across views.",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Fresh exact-definition capture verified; initialization evidence is separate from execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "execution_not_qualified",
+        "interaction_layout_native_review_pending",
+        "native_fallen_target_check_required",
+        "native_grasp_execution_unverified",
+        "native_visual_discovery_pending",
+        "source_mechanism_native_review_pending"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_3bfe289bfb40728ef004725a.json",
+      "evidence_sha256": "ca2ddc49019ce47ee20739d883bab505af954041a18b7be6b19f8550c20f0524",
+      "camera_audit": {
+        "status": "missing_images",
+        "evidence_scope": "missing",
+        "finding": "No available Review image; enqueue the exact selected definition before camera assessment.",
+        "mount_calibration_verified": false
+      },
+      "latest_capture_status": {
+        "candidate_id": "category_3bfe289bfb40728ef004725a",
+        "job_id": "capture_e3d577e0ba86b43464d9a232511a34eb",
+        "state": "QUEUED",
+        "failure_cause": null,
+        "partial_image_count": 0,
+        "gpu": null,
+        "observed_at_unix": 1792484023.797754
+      },
+      "capture_candidate_id": "category_3bfe289bfb40728ef004725a",
+      "current_capture_job_id": "capture_e3d577e0ba86b43464d9a232511a34eb",
+      "current_capture": {
+        "candidate_id": "category_3bfe289bfb40728ef004725a",
+        "capture_candidate_id": "category_3bfe289bfb40728ef004725a",
+        "job_id": "capture_e3d577e0ba86b43464d9a232511a34eb",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 25,
+        "error": null,
+        "attempts": 1,
+        "duration_s": 765.5126753030345,
+        "gpu": 1,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "initialization_reason": null,
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T08:31:01.400009+00:00",
+          "reset_identity": {
+            "episode_id": "reset_36abad6b812942edab5effdd7ca4504a",
+            "reset_id": "36abad6b812942edab5effdd7ca4504a",
+            "seed": 0
+          },
+          "native_time_s": 3.0750001603737473,
+          "native_time_after_s": 3.0750001603737473,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_e3d577e0ba86b43464d9a232511a34eb",
+            "capture_signature": "e3d577e0ba86b43464d9a232511a34eb4d171e34b7946f560fd8ca3daa939f88",
+            "task_sha256": "c35f7519c9bedf249956596d5a73f1cc0adcc0b2ae52de588fe9a517efd2cdee",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "setup_warning_codes": [
+          "native_grasp_execution_unverified"
+        ],
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_3bfe289bfb40728ef004725a/preview_complete.json",
+            "sha256": "6e85efbaf9f3f4ff4ae4ffdba3a73b0efd7cbf5a5edbab73c9206462640dc2ac"
+          }
+        ]
+      }
+    },
+    {
+      "candidate_id": "category_28351286b6aab6b7903b9141",
+      "source_subclasses": [
+        "Enumerative Perception/Merged Observation"
+      ],
+      "source_identities": [
+        "Enumerative Perception/Merged Observation/Benevolence_1_int/living_room_0/q_001.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Enumerative Perception",
+      "subcategory": "Merged Observation",
+      "scene": "Benevolence_1_int",
+      "room": "living_room_0",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": null,
+      "warning_codes": [
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_visual_discovery_pending",
+        "source_mechanism_native_review_pending"
+      ],
+      "setup_warning_codes": [
+        "native_grasp_execution_unverified"
+      ],
+      "task_file": "explore_to_achieve/tasks/Enumerative Perception/Merged Observation/Benevolence_1_int/living_room_0/corev2__category_28351286b6aab6b7903b9141.yaml",
+      "scene_file": "explore_to_achieve/scenes/Enumerative Perception/Merged Observation/Benevolence_1_int/living_room_0/corev2__category_28351286b6aab6b7903b9141.yaml",
+      "objective": "Find all 5 distinct club sandwich objects in the overlapping original cluster. Combine mounted-camera views to distinguish individual objects and avoid counting repeated sightings.",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Fresh exact-definition capture verified; initialization evidence is separate from execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "execution_not_qualified",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_visual_discovery_pending",
+        "source_mechanism_native_review_pending"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_28351286b6aab6b7903b9141.json",
+      "evidence_sha256": "6c32c5d6574259a545d82c4136f888cab07559d1c0d8ce196235da50976dc6af",
+      "camera_audit": {
+        "status": "missing_images",
+        "evidence_scope": "missing",
+        "finding": "No available Review image; enqueue the exact selected definition before camera assessment.",
+        "mount_calibration_verified": false
+      },
+      "latest_capture_status": {
+        "candidate_id": "category_28351286b6aab6b7903b9141",
+        "job_id": "capture_67eab9a941d40519bbdb2c7146861662",
+        "state": "RUNNING",
+        "failure_cause": null,
+        "partial_image_count": 0,
+        "gpu": 2,
+        "observed_at_unix": 1792484023.7977555
+      },
+      "capture_candidate_id": "category_2bb538406f64a03c6ff0a71e",
+      "current_capture_job_id": "capture_add4fcce3a9d6c23e30ba83ccdedb098",
+      "current_capture": {
+        "candidate_id": "category_28351286b6aab6b7903b9141",
+        "capture_candidate_id": "category_2bb538406f64a03c6ff0a71e",
+        "job_id": "capture_add4fcce3a9d6c23e30ba83ccdedb098",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 25,
+        "error": null,
+        "attempts": 1,
+        "duration_s": 492.22691518627107,
+        "gpu": 7,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "initialization_reason": null,
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T10:02:01.513374+00:00",
+          "reset_identity": {
+            "episode_id": "reset_259f1105a6f34f61b22a9e9687d7ad05",
+            "reset_id": "259f1105a6f34f61b22a9e9687d7ad05",
+            "seed": 0
+          },
+          "native_time_s": 3.0750001603737473,
+          "native_time_after_s": 3.0750001603737473,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_add4fcce3a9d6c23e30ba83ccdedb098",
+            "capture_signature": "add4fcce3a9d6c23e30ba83ccdedb09837ab0c594765106fe0571a0a1eddcc13",
+            "task_sha256": "59173192ac80fb9be2fbbc9f1ba844c8d1c50f5abe0a7593a304d5bc36c26611",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "setup_warning_codes": [
+          "native_grasp_execution_unverified"
+        ],
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_28351286b6aab6b7903b9141/preview_complete.json",
+            "sha256": "6f3687814a20812f3a9085f1c5e8a29be7a84c21a7983ed1224e6472712d6d30"
+          }
+        ]
+      }
+    },
+    {
+      "candidate_id": "category_3f1d88eeea4f845e0ac756a3",
+      "source_subclasses": [
+        "Enumerative Perception/Merged Observation"
+      ],
+      "source_identities": [
+        "Enumerative Perception/Merged Observation/house_single_floor/bedroom_0/q_000.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Enumerative Perception",
+      "subcategory": "Merged Observation",
+      "scene": "house_single_floor",
+      "room": "bedroom_0",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": null,
+      "warning_codes": [
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_visual_discovery_pending",
+        "source_mechanism_native_review_pending"
+      ],
+      "setup_warning_codes": [
+        "native_grasp_execution_unverified"
+      ],
+      "task_file": "explore_to_achieve/tasks/Enumerative Perception/Merged Observation/house_single_floor/bedroom_0/corev2__category_3f1d88eeea4f845e0ac756a3.yaml",
+      "scene_file": "explore_to_achieve/scenes/Enumerative Perception/Merged Observation/house_single_floor/bedroom_0/corev2__category_3f1d88eeea4f845e0ac756a3.yaml",
+      "objective": "Find all 4 distinct club sandwich objects in the overlapping original cluster. Combine mounted-camera views to distinguish individual objects and avoid counting repeated sightings.",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Fresh exact-definition capture verified; initialization evidence is separate from execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "execution_not_qualified",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_visual_discovery_pending",
+        "source_mechanism_native_review_pending"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_3f1d88eeea4f845e0ac756a3.json",
+      "evidence_sha256": "cbdeb4ad610f6c8e8d04bedcbf30a5c439c3f5948924663eb495a8635e8ed08f",
+      "camera_audit": {
+        "status": "missing_images",
+        "evidence_scope": "missing",
+        "finding": "No available Review image; enqueue the exact selected definition before camera assessment.",
+        "mount_calibration_verified": false
+      },
+      "latest_capture_status": {
+        "candidate_id": "category_3f1d88eeea4f845e0ac756a3",
+        "job_id": "capture_5e50335c5b22b46dc33ba62a22c17e6e",
+        "state": "RUNNING",
+        "failure_cause": null,
+        "partial_image_count": 0,
+        "gpu": 6,
+        "observed_at_unix": 1792484023.797756
+      },
+      "capture_candidate_id": "category_3f1d88eeea4f845e0ac756a3",
+      "current_capture_job_id": "capture_5e50335c5b22b46dc33ba62a22c17e6e",
+      "current_capture": {
+        "candidate_id": "category_3f1d88eeea4f845e0ac756a3",
+        "capture_candidate_id": "category_3f1d88eeea4f845e0ac756a3",
+        "job_id": "capture_5e50335c5b22b46dc33ba62a22c17e6e",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 24,
+        "error": null,
+        "attempts": 1,
+        "duration_s": 758.8001726837829,
+        "gpu": 6,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "initialization_reason": null,
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T08:15:37.298544+00:00",
+          "reset_identity": {
+            "episode_id": "reset_e5e5ff6a53e34b09b5042b86fbd89fa9",
+            "reset_id": "e5e5ff6a53e34b09b5042b86fbd89fa9",
+            "seed": 0
+          },
+          "native_time_s": 3.0750001603737473,
+          "native_time_after_s": 3.0750001603737473,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_5e50335c5b22b46dc33ba62a22c17e6e",
+            "capture_signature": "5e50335c5b22b46dc33ba62a22c17e6e30757b4b1fe73fb918e50767e2614afa",
+            "task_sha256": "a3472d1a76e3d718c499c4b4e9d6c9ac6c8e6e8aeffabc879112f54e8af5629f",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "setup_warning_codes": [
+          "native_grasp_execution_unverified"
+        ],
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_3f1d88eeea4f845e0ac756a3/preview_complete.json",
+            "sha256": "d7375efef32b6e297a0ca1c7bc7046d502c45ae07d8fb2a1f737da6b5da4153a"
+          }
+        ]
+      }
+    },
+    {
+      "candidate_id": "category_359f0a936262ec496271264f",
+      "source_subclasses": [
+        "Enumerative Perception/Spatial Segmentation"
+      ],
+      "source_identities": [
+        "Enumerative Perception/Spatial Segmentation/Merom_0_garden/childs_room_0/q_000.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Enumerative Perception",
+      "subcategory": "Spatial Segmentation",
+      "scene": "Merom_0_garden",
+      "room": "childs_room_0",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": "",
+      "warning_codes": [
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_visual_discovery_pending",
+        "source_mechanism_native_review_pending"
+      ],
+      "setup_warning_codes": [
+        "native_grasp_execution_unverified"
+      ],
+      "task_file": "explore_to_achieve/tasks/Enumerative Perception/Spatial Segmentation/Merom_0_garden/childs_room_0/corev2__category_359f0a936262ec496271264f.yaml",
+      "scene_file": "explore_to_achieve/scenes/Enumerative Perception/Spatial Segmentation/Merom_0_garden/childs_room_0/corev2__category_359f0a936262ec496271264f.yaml",
+      "objective": "Use the initial global image with +X pointing right and +Y pointing up to identify the chair boundaries. Find all 2 distinct club sandwich objects in the separated regions: the region beneath the leftmost chair; the region beneath the rightmost chair. For each fully inspected region report world_observation as ANSWER: <region label>.",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Fresh exact-definition capture verified; initialization evidence is separate from execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "camera_review_framing_requires_repair",
+        "execution_not_qualified",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_visual_discovery_pending",
+        "source_mechanism_native_review_pending"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_359f0a936262ec496271264f.json",
+      "evidence_sha256": "3846b3eb9a819471a60948d53fb4dbfa2498a3fa962d575fbbed5bc294bd07ae",
+      "camera_audit": {
+        "status": "repair_required",
+        "finding": "Global bearings are distinct. Overhead and front show the room, but diagonal/back remain almost black; left/right are partly blocked. Object detail 01-03 remain dark. Initial overview spans disconnected loaded geometry and the head sees nearby floor. Object top/side and chassis front views are usable.",
+        "evidence_scope": "current",
+        "image_count": 23,
+        "mounted_calibration": "unverified",
+        "capture_job_id": "capture_80b72c41524588578f3d9e87df35a9c8",
+        "inspected_at": "2026-10-20T11:05:14.429419+00:00",
+        "visual_inspection": "All exposed views inspected in labeled contact sheets; no human approval granted."
+      },
+      "pending_capture": {
+        "capture_candidate_id": "category_7838193dc7d8b48e82c8dc8c",
+        "job_id": "capture_80b72c41524588578f3d9e87df35a9c8",
+        "reason": "Human camera bearing repair; fresh native initialization and visual review required.",
+        "state": "REVIEW_PENDING",
+        "resolution": "promoted",
+        "initialization_accepted": true
+      },
+      "capture_candidate_id": "category_7838193dc7d8b48e82c8dc8c",
+      "current_capture_job_id": "capture_80b72c41524588578f3d9e87df35a9c8",
+      "current_capture": {
+        "candidate_id": "category_359f0a936262ec496271264f",
+        "capture_candidate_id": "category_7838193dc7d8b48e82c8dc8c",
+        "job_id": "capture_80b72c41524588578f3d9e87df35a9c8",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 23,
+        "error": null,
+        "attempts": 1,
+        "duration_s": 378.35846510063857,
+        "gpu": 5,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "initialization_reason": null,
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T10:44:05.060337+00:00",
+          "reset_identity": {
+            "episode_id": "reset_5d2793acb9334ad4ac7016362fbc9d8e",
+            "reset_id": "5d2793acb9334ad4ac7016362fbc9d8e",
+            "seed": 0
+          },
+          "native_time_s": 3.0750001603737473,
+          "native_time_after_s": 3.0750001603737473,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_80b72c41524588578f3d9e87df35a9c8",
+            "capture_signature": "80b72c41524588578f3d9e87df35a9c8187b68f868862bcff377c63ad8127907",
+            "task_sha256": "14c1ab7380db663234626be65b2406e5da2afdbcb5c4162748b715413401b8fd",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "setup_warning_codes": [
+          "native_grasp_execution_unverified"
+        ],
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_359f0a936262ec496271264f/preview_complete.json",
+            "sha256": "d0da953f5fe251333dc0b3946bb25674d3e3ea6e668d2deb1a5cf3c35ec58c4f"
+          }
+        ]
+      },
+      "camera_refresh_note": "New native camera revision completed; earlier visual findings need rechecking against these images.",
+      "camera_audit_history": [
+        {
+          "status": "repair_required",
+          "evidence_scope": "current",
+          "finding": "Global diagonal/back and three detail views are dark or blocked. Head sees nearby floor; scene view is partly obstructed. Other object views locate the chairs.",
+          "mount_calibration_verified": false
+        }
+      ]
+    },
+    {
+      "candidate_id": "category_ac7e0a10580cf5bcf1c6c894",
+      "source_subclasses": [
+        "Enumerative Perception/Spatial Segmentation"
+      ],
+      "source_identities": [
+        "Enumerative Perception/Spatial Segmentation/house_double_floor_lower/kitchen_0/q_002.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Enumerative Perception",
+      "subcategory": "Spatial Segmentation",
+      "scene": "house_double_floor_lower",
+      "room": "kitchen_0",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": "",
+      "warning_codes": [
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_visual_discovery_pending",
+        "source_mechanism_native_review_pending"
+      ],
+      "setup_warning_codes": [
+        "native_grasp_execution_unverified"
+      ],
+      "task_file": "explore_to_achieve/tasks/Enumerative Perception/Spatial Segmentation/house_double_floor_lower/kitchen_0/corev2__category_ac7e0a10580cf5bcf1c6c894.yaml",
+      "scene_file": "explore_to_achieve/scenes/Enumerative Perception/Spatial Segmentation/house_double_floor_lower/kitchen_0/corev2__category_ac7e0a10580cf5bcf1c6c894.yaml",
+      "objective": "Use the initial global image with +X pointing right and +Y pointing up to identify the chair boundaries. Find all 4 distinct club sandwich objects in the separated regions: the region beneath the top chair in the rightmost chair group; the region beneath the bottom chair in the rightmost chair group; the region beneath the chair numbered 2 from the left; the region beneath the leftmost chair. For each fully inspected region report world_observation as ANSWER: <region label>.",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "camera_review_framing_requires_repair",
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_visual_discovery_pending",
+        "source_mechanism_native_review_pending"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_ac7e0a10580cf5bcf1c6c894.json",
+      "evidence_sha256": "d3e30fefdb9e887fd4e9415ba1189af3cc75125c6fd31303ac3685db3850ed63",
+      "camera_audit": {
+        "status": "repair_required",
+        "evidence_scope": "current",
+        "finding": "Global front is blank and several oblique views are wall-occluded. Head looks down at nearby floor; object views show the chair group.",
+        "mount_calibration_verified": false
+      },
+      "pending_capture": {
+        "capture_candidate_id": "category_a6cbec9ebc5984c35405b62c",
+        "job_id": "capture_8a169cc3e2622161dc1af46d6b596d1c",
+        "reason": "Human camera bearing repair; fresh native initialization and visual review required.",
+        "state": "REVIEW_PENDING",
+        "resolution": "promoted",
+        "initialization_accepted": true
+      },
+      "capture_candidate_id": "category_a6cbec9ebc5984c35405b62c",
+      "current_capture_job_id": "capture_8a169cc3e2622161dc1af46d6b596d1c",
+      "current_capture": {
+        "candidate_id": "category_ac7e0a10580cf5bcf1c6c894",
+        "capture_candidate_id": "category_a6cbec9ebc5984c35405b62c",
+        "job_id": "capture_8a169cc3e2622161dc1af46d6b596d1c",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 27,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 547.4373639551923,
+        "gpu": 7,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_ac7e0a10580cf5bcf1c6c894/preview_complete.json",
+            "sha256": "7bce65529fc8b2f3cd4b8b846560d2ea1eae769793238e31a32125d087a9c32a"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T11:10:19.491946+00:00",
+          "reset_identity": {
+            "episode_id": "reset_bda4d65b524a445d9afcc879772d53b0",
+            "reset_id": "bda4d65b524a445d9afcc879772d53b0",
+            "seed": 0
+          },
+          "native_time_s": 3.0750001603737473,
+          "native_time_after_s": 3.0750001603737473,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_8a169cc3e2622161dc1af46d6b596d1c",
+            "capture_signature": "8a169cc3e2622161dc1af46d6b596d1cfad6d82456d5447bec98e6d88baf266e",
+            "task_sha256": "a058c4f1814cb25dda38bae3de124d4e8f088748a2ab995d22a641fa57eba064",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      },
+      "camera_refresh_note": "New native camera revision completed; earlier visual findings need rechecking against these images."
+    },
+    {
+      "candidate_id": "category_2cabd39af31d96fe524b641b",
+      "source_subclasses": [
+        "Enumerative Perception/Spatial Segmentation"
+      ],
+      "source_identities": [
+        "Enumerative Perception/Spatial Segmentation/house_single_floor/dining_room_0/q_002.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Enumerative Perception",
+      "subcategory": "Spatial Segmentation",
+      "scene": "house_single_floor",
+      "room": "dining_room_0",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": "",
+      "warning_codes": [
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_visual_discovery_pending",
+        "source_mechanism_native_review_pending"
+      ],
+      "setup_warning_codes": [
+        "native_grasp_execution_unverified"
+      ],
+      "task_file": "explore_to_achieve/tasks/Enumerative Perception/Spatial Segmentation/house_single_floor/dining_room_0/corev2__category_2cabd39af31d96fe524b641b.yaml",
+      "scene_file": "explore_to_achieve/scenes/Enumerative Perception/Spatial Segmentation/house_single_floor/dining_room_0/corev2__category_2cabd39af31d96fe524b641b.yaml",
+      "objective": "Use the initial global image with +X pointing right and +Y pointing up to identify the chair boundaries. Find all 4 distinct club sandwich objects in the separated regions: the region beneath the bottom chair in the leftmost chair group; the region beneath the top chair in the leftmost chair group; the region beneath the chair numbered 2 from the left; the region beneath the rightmost chair. For each fully inspected region report world_observation as ANSWER: <region label>.",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "camera_visual_review_notes",
+        "execution_not_qualified",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_visual_discovery_pending",
+        "source_mechanism_native_review_pending"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_2cabd39af31d96fe524b641b.json",
+      "evidence_sha256": "fc40b7642c9f425c5fbc59c4b11dc2661b4f5c1629fb124d7d5870a560996772",
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current",
+        "finding": "Human views show the chair layout; initial overview frames the whole building and makes task regions small. Target visibility in head may weaken the intended search challenge.",
+        "mount_calibration_verified": false
+      }
+    },
+    {
+      "candidate_id": "category_db5f240532a591a61c8670a6",
+      "source_subclasses": [
+        "Perceptual Grounding/Partial Occlusion"
+      ],
+      "source_identities": [
+        "Perceptual Grounding/Partial Occlusion/house_single_floor/kitchen_0/house_single_floor__kitchen_0_3.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Perceptual Grounding",
+      "subcategory": "Partial Occlusion",
+      "scene": "house_single_floor",
+      "room": "kitchen_0",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": "",
+      "warning_codes": [
+        "conservative_stance_radius_exceeded",
+        "grounding_all_inputs_difficulty_audit_pending",
+        "grounding_initial_all_inputs_and_native_diagnostic_features_pending",
+        "informative_viewpoint_pending",
+        "initial_all_camera_ambiguity_pending",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_destination_fit_access_pending",
+        "native_grasp_execution_unverified",
+        "native_reach_and_route_unverified",
+        "native_same_object_retrieval_pending",
+        "physical_qualification_pending",
+        "task_edit2_destination_native_qualification_pending"
+      ],
+      "setup_warning_codes": [
+        "grounding_initial_all_inputs_and_native_diagnostic_features_pending",
+        "native_grasp_execution_unverified",
+        "initial_base_approach_required",
+        "conservative_stance_radius_exceeded",
+        "native_reach_and_route_unverified"
+      ],
+      "task_file": "explore_to_achieve/tasks/Perceptual Grounding/Partial Occlusion/house_single_floor/kitchen_0/corev2__category_db5f240532a591a61c8670a6.yaml",
+      "scene_file": "explore_to_achieve/scenes/Perceptual Grounding/Partial Occlusion/house_single_floor/kitchen_0/corev2__category_db5f240532a591a61c8670a6.yaml",
+      "objective": "Inspect the candidate behind the foreground blocker. Change viewpoint using a public base translation or torso-height change until you see a new diagnostic feature; keep the blocker fixed. Determine whether the candidate is beer bottle or wine bottle body. Report its category as ANSWER: <category> before grasping it. Then grasp that same original candidate and release it on the countertop nearest the bar in this room.",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "camera_visual_review_notes",
+        "conservative_stance_radius_exceeded",
+        "execution_not_qualified",
+        "grounding_all_inputs_difficulty_audit_pending",
+        "grounding_initial_all_inputs_and_native_diagnostic_features_pending",
+        "informative_viewpoint_pending",
+        "initial_all_camera_ambiguity_pending",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_destination_fit_access_pending",
+        "native_grasp_execution_unverified",
+        "native_reach_and_route_unverified",
+        "native_same_object_retrieval_pending",
+        "physical_qualification_pending",
+        "task_edit2_destination_native_qualification_pending"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_db5f240532a591a61c8670a6.json",
+      "evidence_sha256": "6fca864218e55e137ca87b76729b32132a918438cfdb346511059b06df625f89",
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current",
+        "finding": "Source Scene is blocked by robot/nearby geometry; details have dark occlusion. Head sees the support but does not establish candidate identity or legal revealing motion.",
+        "mount_calibration_verified": false
+      }
+    },
+    {
+      "candidate_id": "category_b605f4e1a6fed76603ad1988",
+      "source_subclasses": [
+        "Perceptual Grounding/Partial Occlusion"
+      ],
+      "source_identities": [
+        "Perceptual Grounding/Partial Occlusion/house_single_floor/childs_room_0/house_single_floor__childs_room_0_0.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Perceptual Grounding",
+      "subcategory": "Partial Occlusion",
+      "scene": "house_single_floor",
+      "room": "childs_room_0",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": "",
+      "warning_codes": [
+        "conservative_stance_radius_exceeded",
+        "grounding_all_inputs_difficulty_audit_pending",
+        "grounding_initial_all_inputs_and_native_diagnostic_features_pending",
+        "informative_viewpoint_pending",
+        "initial_all_camera_ambiguity_pending",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_destination_fit_access_pending",
+        "native_grasp_execution_unverified",
+        "native_reach_and_route_unverified",
+        "native_same_object_retrieval_pending",
+        "physical_qualification_pending",
+        "task_edit2_destination_native_qualification_pending",
+        "user_authorized_simple_support_added"
+      ],
+      "setup_warning_codes": [
+        "grounding_initial_all_inputs_and_native_diagnostic_features_pending",
+        "native_grasp_execution_unverified",
+        "user_authorized_simple_support_added",
+        "initial_base_approach_required",
+        "conservative_stance_radius_exceeded",
+        "native_reach_and_route_unverified"
+      ],
+      "task_file": "explore_to_achieve/tasks/Perceptual Grounding/Partial Occlusion/house_single_floor/childs_room_0/corev2__category_b605f4e1a6fed76603ad1988.yaml",
+      "scene_file": "explore_to_achieve/scenes/Perceptual Grounding/Partial Occlusion/house_single_floor/childs_room_0/corev2__category_b605f4e1a6fed76603ad1988.yaml",
+      "objective": "Inspect the candidate behind the foreground blocker. Change viewpoint using a public base translation or torso-height change until you see a new diagnostic feature; keep the blocker fixed. Determine whether the candidate is colander or salad bowl. Report its category as ANSWER: <category> before grasping it. Then grasp that same original candidate and release it on the desk in this room.",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "camera_visual_review_notes",
+        "conservative_stance_radius_exceeded",
+        "execution_not_qualified",
+        "grounding_all_inputs_difficulty_audit_pending",
+        "grounding_initial_all_inputs_and_native_diagnostic_features_pending",
+        "informative_viewpoint_pending",
+        "initial_all_camera_ambiguity_pending",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_destination_fit_access_pending",
+        "native_grasp_execution_unverified",
+        "native_reach_and_route_unverified",
+        "native_same_object_retrieval_pending",
+        "physical_qualification_pending",
+        "task_edit2_destination_native_qualification_pending",
+        "user_authorized_simple_support_added"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_b605f4e1a6fed76603ad1988.json",
+      "evidence_sha256": "56b45bb285c3c3f99bc1af693cca16d2a210ba06acbdf75221017c7c7352955f",
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current",
+        "finding": "Source Scene is blank; head looks mostly at floor. Object views show blocker and candidate; repeated Globals do not provide independent viewpoints.",
+        "mount_calibration_verified": false
+      }
+    },
+    {
+      "candidate_id": "category_345df681fea14d6e99569b3b",
+      "source_subclasses": [
+        "Perceptual Grounding/View Hallucination"
+      ],
+      "source_identities": [
+        "Perceptual Grounding/View Hallucination/house_single_floor/childs_room_1/house_single_floor__childs_room_1_3.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Perceptual Grounding",
+      "subcategory": "View Hallucination",
+      "scene": "house_single_floor",
+      "room": "childs_room_1",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": "",
+      "warning_codes": [
+        "assumption_review_required",
+        "grounding_all_inputs_difficulty_audit_pending",
+        "grounding_initial_all_inputs_and_native_diagnostic_features_pending",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_same_object_retrieval_pending",
+        "original_support_unverified",
+        "physical_qualification_pending",
+        "reach_and_grasp_unverified",
+        "source_support_aabb_gap_requires_review",
+        "task_edit2_destination_native_qualification_pending",
+        "unusual_source_support_category"
+      ],
+      "setup_warning_codes": [
+        "grounding_initial_all_inputs_and_native_diagnostic_features_pending",
+        "native_grasp_execution_unverified",
+        "initial_base_approach_required"
+      ],
+      "task_file": "explore_to_achieve/tasks/Perceptual Grounding/View Hallucination/house_single_floor/childs_room_1/corev2__category_345df681fea14d6e99569b3b.yaml",
+      "scene_file": "explore_to_achieve/scenes/Perceptual Grounding/View Hallucination/house_single_floor/childs_room_1/corev2__category_345df681fea14d6e99569b3b.yaml",
+      "objective": "Inspect the candidate at its original support whose shape may look different across views. Change viewpoint using a public base translation or torso-height change until you see a new diagnostic feature; preserve the candidate pose and appearance. Determine whether the candidate is hair tie or bracelet. Report its category as ANSWER: <category> before grasping it. Then grasp that same original candidate and release it on the desk in this room.",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "assumption_review_required",
+        "camera_visual_review_notes",
+        "execution_not_qualified",
+        "grounding_all_inputs_difficulty_audit_pending",
+        "grounding_initial_all_inputs_and_native_diagnostic_features_pending",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_same_object_retrieval_pending",
+        "original_support_unverified",
+        "physical_qualification_pending",
+        "reach_and_grasp_unverified",
+        "source_support_aabb_gap_requires_review",
+        "task_edit2_destination_native_qualification_pending",
+        "unusual_source_support_category"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_345df681fea14d6e99569b3b.json",
+      "evidence_sha256": "55ccd3e3e6022e44ff5ec2c3fde3158266ed1223e59bf2a4554aa11e79b7a886",
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current",
+        "finding": "Scene shows the lamp base; candidate identity is not resolvable from these views alone. Head also includes lamp/support. Active ambiguity remains unverified.",
+        "mount_calibration_verified": false
+      }
+    }
+  ],
+  "replacement_candidates": [
+    {
+      "candidate_id": "category_f7f89193432473c2bb37aeb5",
+      "category": "Enumerative Perception",
+      "subcategory": "Hidden Object Search",
+      "scene": "house_single_floor",
+      "room": "living_room_0",
+      "collection_variant": "single_room",
+      "target_count": 3,
+      "source_subclasses": [
+        "Enumerative Perception/Counting w Occlusion"
+      ],
+      "source_identities": [
+        "Enumerative Perception/Counting w Occlusion/house_single_floor/living_room_0/q_003.json"
+      ],
+      "source_entry_count": 1,
+      "objective": "Find all 3 hamburgers in this living room. Use your left hand to collect them on the tray held in your right hand.",
+      "setup_status": "basic_native_reset_passed_execution_unverified",
+      "recommendation": "human_review_pending",
+      "final_release_qualified": false,
+      "historical_evidence_only": false,
+      "issues": [
+        "all_target_grasp_access_unverified",
+        "camera_visual_review_pending",
+        "episode_budget_uncalibrated",
+        "execution_not_qualified",
+        "human_overview_partial_occlusion"
+      ],
+      "evidence_note": "Initial visibility is allowed. Basic reset review only; complete collection remains unverified.",
+      "task_file": "explore_to_achieve/tasks/Enumerative Perception/Hidden Object Search/house_single_floor/single_room/corev2__category_f7f89193432473c2bb37aeb5.yaml",
+      "scene_file": "explore_to_achieve/scenes/Enumerative Perception/Hidden Object Search/house_single_floor/single_room/corev2__category_f7f89193432473c2bb37aeb5.yaml",
+      "capture_candidate_id": "category_f7f89193432473c2bb37aeb5",
+      "current_capture_job_id": "capture_02f1dae89b239bb69b1528023db79157",
+      "pending_capture": {
+        "capture_candidate_id": "category_f7f89193432473c2bb37aeb5",
+        "job_id": "capture_02f1dae89b239bb69b1528023db79157",
+        "state": "REVIEW_PENDING",
+        "resolution": "promoted",
+        "initialization_accepted": true
+      },
+      "current_capture": {
+        "candidate_id": "category_f7f89193432473c2bb37aeb5",
+        "capture_candidate_id": "category_f7f89193432473c2bb37aeb5",
+        "job_id": "capture_02f1dae89b239bb69b1528023db79157",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 23,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 558.0329308006912,
+        "gpu": 7,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_f7f89193432473c2bb37aeb5/preview_complete.json",
+            "sha256": "fca41b6ed83589bf642ea1185e545151f5960cbb1279d61c23f44b03aed36bf6"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T12:46:43.196477+00:00",
+          "reset_identity": {
+            "episode_id": "reset_632530ce10d24920961800e5785b69c9",
+            "reset_id": "632530ce10d24920961800e5785b69c9",
+            "seed": 0
+          },
+          "native_time_s": 12.916667340323329,
+          "native_time_after_s": 12.916667340323329,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_02f1dae89b239bb69b1528023db79157",
+            "capture_signature": "02f1dae89b239bb69b1528023db7915799cb9036046f797fb337c0a0e8e94d5d",
+            "task_sha256": "edb3ab9b10eae2e99d2ec179f34b1cb052a4d3f4ba0f27fa5a2ccf067bfbbeff",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      },
+      "camera_refresh_note": "Fresh collection layout captured for human review; initial visibility is permitted.",
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current_exact_capture",
+        "finding": "Head and target closeups are readable. Some human overview views are partly blocked by the ceiling; use mounted and detail views for initial layout review.",
+        "mount_calibration_verified": false
+      }
+    },
+    {
+      "candidate_id": "category_ff560c315a0a0407f6148a1b",
+      "category": "Enumerative Perception",
+      "subcategory": "Hidden Object Search",
+      "scene": "house_single_floor",
+      "room": "living_room_0/kitchen_0/dining_room_0",
+      "collection_variant": "multi_room",
+      "target_count": 4,
+      "source_subclasses": [
+        "Enumerative Perception/Counting w Occlusion"
+      ],
+      "source_identities": [
+        "Enumerative Perception/Counting w Occlusion/house_single_floor/living_room_0/q_003.json"
+      ],
+      "source_entry_count": 1,
+      "objective": "Find all 4 hamburgers in the main living room, kitchen and dining room. Use your left hand to collect them on the tray held in your right hand.",
+      "setup_status": "basic_native_reset_passed_execution_unverified",
+      "recommendation": "human_review_pending",
+      "final_release_qualified": false,
+      "historical_evidence_only": false,
+      "issues": [
+        "all_target_grasp_access_unverified",
+        "camera_visual_review_pending",
+        "episode_budget_uncalibrated",
+        "execution_not_qualified",
+        "human_overview_partial_occlusion"
+      ],
+      "evidence_note": "Initial visibility is allowed. Basic reset review only; complete collection remains unverified.",
+      "task_file": "explore_to_achieve/tasks/Enumerative Perception/Hidden Object Search/house_single_floor/multi_room/corev2__category_ff560c315a0a0407f6148a1b.yaml",
+      "scene_file": "explore_to_achieve/scenes/Enumerative Perception/Hidden Object Search/house_single_floor/multi_room/corev2__category_ff560c315a0a0407f6148a1b.yaml",
+      "capture_candidate_id": "category_dc0fcb64b449219703cea834",
+      "current_capture_job_id": "capture_3a0c541542b9f9a0962a031ed09cfc87",
+      "pending_capture": {
+        "capture_candidate_id": "category_dc0fcb64b449219703cea834",
+        "job_id": "capture_3a0c541542b9f9a0962a031ed09cfc87",
+        "state": "REVIEW_PENDING",
+        "resolution": "promoted",
+        "initialization_accepted": true
+      },
+      "capture_history": [
+        {
+          "capture_candidate_id": "category_ff560c315a0a0407f6148a1b",
+          "job_id": "capture_1b63a6b169af81b2598c3fd70c59fed1",
+          "reason": "Resident process shutdown delay before scene loading; retained failed attempt."
+        }
+      ],
+      "current_capture": {
+        "candidate_id": "category_ff560c315a0a0407f6148a1b",
+        "capture_candidate_id": "category_dc0fcb64b449219703cea834",
+        "job_id": "capture_3a0c541542b9f9a0962a031ed09cfc87",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 24,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 812.5741493869573,
+        "gpu": 1,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_ff560c315a0a0407f6148a1b/preview_complete.json",
+            "sha256": "d36e5d8ef2c7ed09986ef8ba24e1dd14b801c78896eb3bc53ed3efbcc11a8f5f"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T12:49:37.679136+00:00",
+          "reset_identity": {
+            "episode_id": "reset_6a3689f24f274495885c3597b5b2fd1d",
+            "reset_id": "6a3689f24f274495885c3597b5b2fd1d",
+            "seed": 0
+          },
+          "native_time_s": 13.050000680610538,
+          "native_time_after_s": 13.050000680610538,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_3a0c541542b9f9a0962a031ed09cfc87",
+            "capture_signature": "3a0c541542b9f9a0962a031ed09cfc872940faf944ba2a78ae8ca8d962a412c6",
+            "task_sha256": "6847578408da7412700c785292a0978ad02578f24a49ec3944a75f1139ba88b1",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      },
+      "camera_refresh_note": "Fresh collection layout captured for human review; initial visibility is permitted.",
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current_exact_capture",
+        "finding": "Head view shows the connected furnished living/kitchen/dining areas and target closeups are readable. Object overview is partly blocked by the roof. Route and grasp execution remain unverified.",
+        "mount_calibration_verified": false
+      }
+    },
+    {
+      "candidate_id": "category_d1156faa040aacc20c70b3ce",
+      "category": "Enumerative Perception",
+      "subcategory": "Hidden Object Search",
+      "scene": "Beechwood_0_int",
+      "room": "living_room_1",
+      "collection_variant": "similar_repeated_views",
+      "target_count": 5,
+      "source_subclasses": [
+        "Enumerative Perception/Spatial Segmentation"
+      ],
+      "source_identities": [
+        "Enumerative Perception/Spatial Segmentation/Beechwood_0_int/living_room_1/q_001.json"
+      ],
+      "source_entry_count": 1,
+      "objective": "Find all 5 hamburgers in this living room. Use your left hand to collect them on the tray held in your right hand.",
+      "setup_status": "basic_native_reset_passed_execution_unverified",
+      "recommendation": "human_review_pending",
+      "final_release_qualified": false,
+      "historical_evidence_only": false,
+      "issues": [
+        "all_target_grasp_access_unverified",
+        "camera_visual_review_pending",
+        "episode_budget_uncalibrated",
+        "execution_not_qualified",
+        "human_overview_partial_occlusion"
+      ],
+      "evidence_note": "Initial visibility is allowed. Basic reset review only; complete collection remains unverified.",
+      "task_file": "explore_to_achieve/tasks/Enumerative Perception/Hidden Object Search/Beechwood_0_int/similar_repeated_views/corev2__category_d1156faa040aacc20c70b3ce.yaml",
+      "scene_file": "explore_to_achieve/scenes/Enumerative Perception/Hidden Object Search/Beechwood_0_int/similar_repeated_views/corev2__category_d1156faa040aacc20c70b3ce.yaml",
+      "capture_candidate_id": "category_d1156faa040aacc20c70b3ce",
+      "current_capture_job_id": "capture_11c86dae494bf7e0162be9ac5a8524ea",
+      "pending_capture": {
+        "capture_candidate_id": "category_d1156faa040aacc20c70b3ce",
+        "job_id": "capture_11c86dae494bf7e0162be9ac5a8524ea",
+        "state": "REVIEW_PENDING",
+        "resolution": "promoted",
+        "initialization_accepted": true
+      },
+      "current_capture": {
+        "candidate_id": "category_d1156faa040aacc20c70b3ce",
+        "capture_candidate_id": "category_d1156faa040aacc20c70b3ce",
+        "job_id": "capture_11c86dae494bf7e0162be9ac5a8524ea",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 27,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 486.268746573478,
+        "gpu": 4,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_d1156faa040aacc20c70b3ce/preview_complete.json",
+            "sha256": "959c4f4a8f37a474c993bcb4c5e485d4b6c5748711f59abe832e30528fb9893f"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T12:44:28.723190+00:00",
+          "reset_identity": {
+            "episode_id": "reset_e35745d58b8647fc8e55d417ea2f2dd6",
+            "reset_id": "e35745d58b8647fc8e55d417ea2f2dd6",
+            "seed": 0
+          },
+          "native_time_s": 13.283334026113153,
+          "native_time_after_s": 13.283334026113153,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_11c86dae494bf7e0162be9ac5a8524ea",
+            "capture_signature": "11c86dae494bf7e0162be9ac5a8524ea814fceb5b406f2550fcfcec424aa502e",
+            "task_sha256": "435922bbc449b74b8acaac10f4a0ff0774c7107c1f0aed8fa9c70a9936c8bdcc",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      },
+      "camera_refresh_note": "Fresh collection layout captured for human review; initial visibility is permitted.",
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current_exact_capture",
+        "finding": "Head, tray and food closeups are readable; hamburger, plain bun and sandwich appearances are distinct. Global diagonal is wall-occluded and some overview views are roof-occluded. Initial visibility is not an acceptance gate.",
+        "mount_calibration_verified": false
+      }
+    }
+  ],
+  "reason": "User-requested category retirement and reachable hidden-object collection redesign.",
+  "historical_sources_and_receipts_preserved": true,
+  "retained_count_after_retirement": 45,
+  "final_active_count": 48
+}

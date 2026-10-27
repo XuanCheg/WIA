@@ -1,0 +1,156 @@
+{
+  "schema": "wia_workstation_transfer_design_v1",
+  "hypothesis": "Native background diversity can be introduced by rigid apparatus translation while retaining public tasks and scoring. R-C2 seed202 cue aperture is translated +0.015 m in local Y in both source and destination backgrounds; no optical tolerance is changed.",
+  "entries": [
+    {
+      "document_alias": "D1-1",
+      "variant_id": "d1_1_seed101_v2_hall_arch_v1",
+      "label": "D1-1 hall_arch native scene pilot",
+      "parent_task_file": "explore_to_achieve/wia_v1/dimensional_v2/tasks/d1_1_seed101_v2.yaml",
+      "parent_scene_file": "explore_to_achieve/wia_v1/dimensional_v2/scenes/d1_1_seed101_v2.yaml",
+      "output_task_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_1_seed101_v2_hall_arch_v1.yaml",
+      "output_scene_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_1_seed101_v2_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "D2-1",
+      "variant_id": "d2_1_seed101_v2_hall_arch_v1",
+      "label": "D2-1 hall_arch native scene pilot",
+      "parent_task_file": "explore_to_achieve/wia_v1/dimensional_v2/tasks/d2_1_seed101_v2.yaml",
+      "parent_scene_file": "explore_to_achieve/wia_v1/dimensional_v2/scenes/d2_1_seed101_v2.yaml",
+      "output_task_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d2_1_seed101_v2_hall_arch_v1.yaml",
+      "output_scene_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d2_1_seed101_v2_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "R-C2",
+      "variant_id": "r_c2_seed202_v1_hall_arch_v1",
+      "label": "R-C2 hall_arch native scene pilot",
+      "parent_task_file": "explore_to_achieve/wia_v1/mirror_v1/tasks/r_c2_seed202_v1.yaml",
+      "parent_scene_file": "explore_to_achieve/wia_v1/mirror_v1/scenes/r_c2_seed202_v1.yaml",
+      "output_task_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c2_seed202_v1_hall_arch_v1.yaml",
+      "output_scene_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c2_seed202_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ],
+      "object_overrides": {
+        "wia_mirror_cue_low": {
+          "position": [
+            -33.204499999999996,
+            12.209,
+            0.94
+          ]
+        },
+        "wia_mirror_cue_high": {
+          "position": [
+            -33.204499999999996,
+            12.461,
+            0.94
+          ]
+        },
+        "wia_mirror_cue_bottom": {
+          "position": [
+            -33.204499999999996,
+            12.335,
+            0.6839999999999999
+          ]
+        },
+        "wia_mirror_cue_top": {
+          "position": [
+            -33.204499999999996,
+            12.335,
+            1.196
+          ]
+        }
+      }
+    },
+    {
+      "document_alias": "R-C2",
+      "variant_id": "r_c2_seed202_v1_hall_glass_repair_v1",
+      "label": "R-C2 hall_glass_repair native scene pilot",
+      "parent_task_file": "explore_to_achieve/wia_v1/mirror_v1/tasks/r_c2_seed202_v1.yaml",
+      "parent_scene_file": "explore_to_achieve/wia_v1/mirror_v1/scenes/r_c2_seed202_v1.yaml",
+      "output_task_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c2_seed202_v1_hall_glass_repair_v1.yaml",
+      "output_scene_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c2_seed202_v1_hall_glass_repair_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_glass_ceiling/empty_room_0/q_007.json",
+      "scene_model": "hall_glass_ceiling",
+      "room": "empty_room_0",
+      "floor_name": "floors_nbzwbf_0",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "object_overrides": {
+        "wia_mirror_cue_low": {
+          "position": [
+            8.7955,
+            -0.791,
+            0.95
+          ]
+        },
+        "wia_mirror_cue_high": {
+          "position": [
+            8.7955,
+            -0.539,
+            0.95
+          ]
+        },
+        "wia_mirror_cue_bottom": {
+          "position": [
+            8.7955,
+            -0.665,
+            0.694
+          ]
+        },
+        "wia_mirror_cue_top": {
+          "position": [
+            8.7955,
+            -0.665,
+            1.206
+          ]
+        }
+      }
+    },
+    {
+      "document_alias": "R-S1",
+      "variant_id": "r_s1_seed101_v1_hall_arch_v1",
+      "label": "R-S1 hall_arch native scene pilot",
+      "parent_task_file": "explore_to_achieve/wia_v1/mirror_v1/tasks/r_s1_seed101_v1.yaml",
+      "parent_scene_file": "explore_to_achieve/wia_v1/mirror_v1/scenes/r_s1_seed101_v1.yaml",
+      "output_task_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_s1_seed101_v1_hall_arch_v1.yaml",
+      "output_scene_file": "explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_s1_seed101_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    }
+  ]
+}

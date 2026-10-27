@@ -1,0 +1,235 @@
+{
+  "complete": false,
+  "model_calls": 0,
+  "public_controls_only": true,
+  "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/corev2__category_bb85ad2d7d19a7fdde23a2a0.yaml",
+  "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/corev2__category_bb85ad2d7d19a7fdde23a2a0.yaml",
+  "pid": 6205,
+  "task_sha256": "1a7fcebc982ce10c95445d75d9aa12ba681ce62d597423e56cbb55a6ecd81e46",
+  "scene_sha256": "fb5e226301b6785aede6f5bc7f18f16a8a0b1099fbd84132f9b7ee7acf535066",
+  "gpu": {
+    "physical_index": 2,
+    "uuid": "GPU-e5d75793-3628-3e54-fdef-ac7bd70be742",
+    "pci_bus_id": "00000000:41:00.0",
+    "renderer_index": 2,
+    "vulkan_enumeration_index": 1,
+    "renderer_order": "pci",
+    "slot": 0,
+    "execution_mode": "local",
+    "pbs_job_id": null,
+    "hostname": "deep59",
+    "allocation_gpu_count": 1,
+    "inherited_cuda_visible_devices": "GPU-e5d75793-3628-3e54-fdef-ac7bd70be742",
+    "renderer_active_gpu": 2,
+    "renderer_multi_gpu": false,
+    "cuda_device_count": 1,
+    "cuda_device": "cuda:0",
+    "physics_device": "cpu",
+    "native_process_pid": 6205,
+    "verified_process_gpu_uuids": [
+      "GPU-e5d75793-3628-3e54-fdef-ac7bd70be742"
+    ]
+  },
+  "source_identity": "Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/q_000.json",
+  "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/q_000.json",
+  "source_sha256": "e4bdfc349cee2f68a4d87e13dbf097118327730e2994c6f8a065416e836b055b",
+  "diagnostic_overrides": {
+    "interaction_attempt_limit": null,
+    "native_stance_proposal_fallback": false,
+    "diagnose_objects": [],
+    "stop_after_native_stage": null
+  },
+  "autonomous_agent_performance": false,
+  "commands": [],
+  "error": "RuntimeError: Initial trunk posture changes EE orientation; inspect the R1 joint directions.",
+  "traceback": "Traceback (most recent call last):\n  File \"/local_home2/zhouxinyang/models/Show-Harness-Explore/scripts/check_esi_core_native.py\", line 294, in main\n    controller = R1ManipulationController(session, BaseControlConfig.load(),\n  File \"/local_home2/zhouxinyang/models/Show-Harness-Explore/core/sim/esi_gripper.py\", line 59, in __init__\n    super().__init__(session, config, **kwargs)\n  File \"/local_home2/zhouxinyang/models/Show-Harness-Explore/core/sim/esi_arm.py\", line 195, in __init__\n    self.initial_trunk_state = _initialize_trunk(session, config, self.arm_config)\n  File \"/local_home2/zhouxinyang/models/Show-Harness-Explore/core/sim/esi_arm.py\", line 144, in _initialize_trunk\n    raise RuntimeError(\"Initial trunk posture changes EE orientation; inspect the R1 joint directions.\")\nRuntimeError: Initial trunk posture changes EE orientation; inspect the R1 joint directions.\n",
+  "elapsed_s": 1226.6893996754661,
+  "initialization_diagnostics": {
+    "interaction_setup": {
+      "schema": "interaction_accessible_groups_v3",
+      "accepted": true,
+      "relocated": false,
+      "group_translation_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "object_names": [],
+      "attempts": [
+        {
+          "support": null,
+          "translation_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "robot_position_m": [
+            4.550025463104248,
+            -7.049993991851807,
+            0.003764420747756958
+          ],
+          "checks": {
+            "floor_supported": true,
+            "floor_contact_positions_m": [
+              [
+                4.521939754486084,
+                -6.698325157165527,
+                -5.885958671569824e-07
+              ],
+              [
+                4.895848274230957,
+                -7.115233898162842,
+                -1.564621925354004e-07
+              ],
+              [
+                4.34237813949585,
+                -7.2391886711120605,
+                -7.078051567077637e-07
+              ]
+            ],
+            "unexpected_contact_bodies": [],
+            "collision_free": true,
+            "original_scene_reference_unchanged": true,
+            "task_group_geometry_preserved": true,
+            "background_geometry_preserved": true,
+            "fixed_background_geometry_preserved": true,
+            "independent_groups_do_not_interpenetrate": true,
+            "independent_groups_horizontal_clearance": true
+          },
+          "robot_quaternion_xyzw": [
+            0.003334132954478264,
+            0.0037983551155775785,
+            0.3600442409515381,
+            0.9329216480255127
+          ],
+          "height_screen": {}
+        }
+      ],
+      "physical_grasp_verified": false,
+      "ik_verified": false,
+      "task_process_checks": {
+        "route_to_target": {
+          "status": "unverified",
+          "evidence_kind": "not_executed"
+        },
+        "base_turning_space": {
+          "status": "unverified",
+          "evidence_kind": "not_executed"
+        },
+        "arm_approach": {
+          "status": "unverified",
+          "evidence_kind": "not_executed"
+        },
+        "local_grasp": {
+          "status": "unverified",
+          "evidence_kind": "not_executed"
+        },
+        "lift_clearance": {
+          "status": "unverified",
+          "evidence_kind": "not_executed"
+        },
+        "transport_path": {
+          "status": "unverified",
+          "evidence_kind": "not_executed"
+        },
+        "container_opening": {
+          "status": "unverified",
+          "evidence_kind": "not_executed"
+        },
+        "door_sweep": {
+          "status": "unverified",
+          "evidence_kind": "not_executed"
+        },
+        "release_and_retreat": {
+          "status": "unverified",
+          "evidence_kind": "not_executed"
+        },
+        "required_return": {
+          "status": "unverified",
+          "evidence_kind": "not_executed"
+        }
+      },
+      "warning_codes": [
+        "native_grasp_execution_unverified"
+      ],
+      "original_geometry": {},
+      "spawn_grid": {
+        "chassis_extent_m": [
+          0.7414746284484863,
+          0.744502067565918,
+          0.38162761926651
+        ],
+        "chassis_radius_m": 0.5553731608390808,
+        "floor_index": 0,
+        "floor_z_m": 0.0,
+        "requested_source_region": "living_room_0",
+        "candidate_cell_count": 191,
+        "route_and_arm_clearance_verified": false
+      },
+      "objects_outside_native_floor_bounds": [],
+      "target_physics": {},
+      "height_screen_before": {},
+      "aperture_screen": {
+        "native_finger_limit_openings_m": {
+          "left": 0.10000000149011612,
+          "right": 0.10000000149011612
+        },
+        "objects": {},
+        "physical_grasp_verified": false,
+        "scope": "Native finger limits and global AABB only; local grasp affordances require execution."
+      },
+      "robot_spawn": {
+        "support": null,
+        "translation_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "robot_position_m": [
+          4.550025463104248,
+          -7.049993991851807,
+          0.003764420747756958
+        ],
+        "checks": {
+          "floor_supported": true,
+          "floor_contact_positions_m": [
+            [
+              4.521939754486084,
+              -6.698325157165527,
+              -5.885958671569824e-07
+            ],
+            [
+              4.895848274230957,
+              -7.115233898162842,
+              -1.564621925354004e-07
+            ],
+            [
+              4.34237813949585,
+              -7.2391886711120605,
+              -7.078051567077637e-07
+            ]
+          ],
+          "unexpected_contact_bodies": [],
+          "collision_free": true,
+          "original_scene_reference_unchanged": true,
+          "task_group_geometry_preserved": true,
+          "background_geometry_preserved": true,
+          "fixed_background_geometry_preserved": true,
+          "independent_groups_do_not_interpenetrate": true,
+          "independent_groups_horizontal_clearance": true
+        },
+        "robot_quaternion_xyzw": [
+          0.003334132954478264,
+          0.0037983551155775785,
+          0.3600442409515381,
+          0.9329216480255127
+        ],
+        "height_screen": {}
+      },
+      "height_screen_after": {},
+      "adapted_geometry": {}
+    },
+    "delivery_support": null,
+    "camera_recovery": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "working_arm": "left",
+  "translation_m": 0.02,
+  "translation_tolerance_m": 0.003,
+  "orientation_tolerance_deg": 2.0,
+  "max_translation_speed_m_s": 0.04,
+  "timeout_sim_s": 5.0,
+  "timeout_wall_s": 30.0,
+  "settle_steps": 6,
+  "max_joint_speed_rad_s": 0.6,
+  "max_ik_joint_step_rad": 0.08,
+  "joint_limit_margin_rad": 0.02,
+  "max_step_translation_m": 0.006,
+  "progress_timeout_sim_s": 0.5,
+  "initial_trunk_joint_positions_rad": [
+    0.6981317007977318,
+    -1.3962634015954636,
+    -0.6981317007977318,
+    0.0
+  ]
+}

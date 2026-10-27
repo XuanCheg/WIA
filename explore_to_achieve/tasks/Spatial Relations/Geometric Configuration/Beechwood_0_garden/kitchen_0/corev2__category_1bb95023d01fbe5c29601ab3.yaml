@@ -1,0 +1,204 @@
+kind: category_robot_task
+id: task_417c33b7f9da9058fd795848
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Spatial Relations/Geometric Configuration/Beechwood_0_garden/kitchen_0/Beechwood_0_garden__kitchen_0_5.json
+public:
+  objective: Arrange the jar of sugar, thyme shaker, vinegar bottle into a isosceles
+    arrangement on their starting support. Use their horizontal bounding-box centers
+    and physically rearrange the objects with the robot.
+  success_criteria: Compare side lengths using 5% of the longest side. Equilateral
+    requires all equal; isosceles requires an equal pair and a distinct third side;
+    random triangle means all sides distinct. Twice the horizontal area divided by
+    longest side squared must be at least 0.05. Every center pair must be farther
+    apart than max(3 cm, 5% of the longest span). Object bounding boxes must have
+    at least 5 mm horizontal clearance. Preserve asset scales, release every object,
+    open the gripper, and keep supported objects below 0.02 m/s and 0.1 rad/s for
+    15 consecutive native samples. Recorded native robot control and grasp/contact
+    must cause object displacement exceeding the 3.5 cm initialization pose tolerance.
+    Simulator state setters and initialization placement do not count as rearrangement.
+  environment: The original objects, orientations, scales and room are retained. Their
+    seeded initial arrangement deliberately fails the requested shape. Objects share
+    a qualified support with space for grasping.
+  constraints:
+  - Use mounted observations and guarded robot controls.
+  - Preserve the starting support and task objects; no resizing or collapsed overlapping
+    formation.
+  - The original initial-state question and answer remain historical evidence.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    vertex_1:
+      name: obj1
+      category: jar_of_sugar
+      model: vrmrci
+    vertex_2:
+      name: obj2
+      category: thyme_shaker
+      model: kuuwti
+    vertex_3:
+      name: obj3
+      category: vinegar_bottle
+      model: ykysuc
+    source_floor:
+      name: floors_yrwwan_0
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.spatial_relations_geometric_configuration
+    operation: arrange_released_source_shape
+    binding_keys:
+    - vertex_1
+    - vertex_2
+    - vertex_3
+    - source_floor
+    parameters:
+      task_revision: task_edit2_20261018_v1
+      mechanism_contract: &id001
+        preserve:
+        - participating_object_identities
+        - asset_scales
+        - asset_orientations
+        - source_reference_camera
+        goal: stable_released_arrangement
+        shape: isosceles
+        plane: world_xy
+        initial_layout_policy: seeded_aabb_centers_v1
+        source_qa_role: historical_initial_state
+        already_satisfied_no_op_allowed: false
+      object_keys:
+      - vertex_1
+      - vertex_2
+      - vertex_3
+      target_shape: isosceles
+      source_positions:
+      - - -0.5002217888832092
+        - 14.986087799072266
+        - 0.0480053536593914
+      - - 0.035423360764980316
+        - 14.986089706420898
+        - 0.10741760581731796
+      - - -0.23239807784557343
+        - 15.303372383117676
+        - 0.1327309012413025
+      source_quaternions:
+      - - -7.206806913018227e-06
+        - -0.0003121694317087531
+        - 0.6686335206031799
+        - 0.7435922026634216
+      - - -0.0009973074775189161
+        - -0.00036772838211618364
+        - -0.7033123970031738
+        - 0.7108803391456604
+      - - -9.745126590132713e-07
+        - -7.552007446065545e-07
+        - 0.9295969605445862
+        - 0.3685777485370636
+      source_scales:
+      - 1.0
+      - 1.0
+      - 1.0
+      release_stability_steps: 15
+      completion_items:
+      - id: requested_shape
+      - id: robot_caused_rearrangement
+      - id: stable_released_support
+      initial_layout:
+        version: seeded_aabb_centers_v1
+        seed: 0
+        source_identity: Spatial Relations/Geometric Configuration/Beechwood_0_garden/kitchen_0/Beechwood_0_garden__kitchen_0_5.json
+        reference_points: horizontal_aabb_centers
+        initial_false_margin: 0.025
+      minimum_rearrangement_m: 0.035
+      source_assets:
+      - category: jar_of_sugar
+        model: vrmrci
+      - category: thyme_shaker
+        model: kuuwti
+      - category: vinegar_bottle
+        model: ykysuc
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: object_physics
+        phase: before_construction
+        binding: vertex_1
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: vertex_1
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: vertex_2
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: vertex_2
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: vertex_3
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: vertex_3
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - vertex_1
+        - vertex_2
+        - vertex_3
+        manipulation_bindings:
+        - vertex_1
+        - vertex_2
+        - vertex_3
+        relocation_policy: seeded_geometry
+        layout_parameters:
+          object_keys:
+          - vertex_1
+          - vertex_2
+          - vertex_3
+          target_shape: isosceles
+          seed: 0
+          source_identity: Spatial Relations/Geometric Configuration/Beechwood_0_garden/kitchen_0/Beechwood_0_garden__kitchen_0_5.json
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: kitchen_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  task_revision: task_edit2_20261018_v1
+  mechanism_contract: *id001

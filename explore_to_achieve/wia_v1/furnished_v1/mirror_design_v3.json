@@ -1,0 +1,3719 @@
+{
+  "schema": "wia_household_mirror_design_v1",
+  "author": "main_agent",
+  "entries": [
+    {
+      "document_alias": "R-C2",
+      "variant_id": "r_c2_seed101_furnished_v3",
+      "label": "R-C2 household mirror seed 101 v3 (screened rigid household asset)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c2_seed101_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c2_seed101_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/office_cubicles_left/meeting_room_0/wia_furnished_background_v1.json",
+      "scene_model": "office_cubicles_left",
+      "room": "meeting_room_0",
+      "layout": {
+        "shared_layout_id": "wia_furnished_mirror_r_c2_seed101_v3",
+        "scene_model": "office_cubicles_left",
+        "rooms": [
+          "meeting_room_0"
+        ],
+        "floor_name": "floors_oxwqrw_0",
+        "objects": [
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_table",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              1.2,
+              2.4,
+              0.014
+            ],
+            "position": [
+              -7.0,
+              13.4,
+              0.6996497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.42,
+              0.38,
+              0.32,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_panel",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.025,
+              2.52,
+              1.25
+            ],
+            "position": [
+              -6.327500000000001,
+              13.4,
+              1.3126497794688734
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.95,
+              0.95,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_pad_blue",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.28,
+              0.28,
+              0.012
+            ],
+            "position": [
+              -6.6000000000000005,
+              12.776,
+              0.7126497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.1,
+              0.3,
+              0.95,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_pad_yellow",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.28,
+              0.28,
+              0.012
+            ],
+            "position": [
+              -6.6000000000000005,
+              14.024000000000001,
+              0.7126497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.8,
+              0.1,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_reference_beacon",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.06,
+              0.06,
+              0.28
+            ],
+            "position": [
+              -7.26,
+              14.52,
+              0.8326497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.8,
+              0.1,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_low",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.012,
+              0.404
+            ],
+            "position": [
+              -6.352,
+              12.757241083989676,
+              1.0048177726860015
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_high",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.012,
+              0.404
+            ],
+            "position": [
+              -6.352,
+              12.965075763240392,
+              1.0048177726860015
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_bottom",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.21983467925071742,
+              0.012
+            ],
+            "position": [
+              -6.352,
+              12.861158423615034,
+              0.8088177726860015
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_top",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.21983467925071742,
+              0.012
+            ],
+            "position": [
+              -6.352,
+              12.861158423615034,
+              1.2008177726860014
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_0",
+            "category": "apple",
+            "model": "agveuv",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              12.56,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_1",
+            "category": "apple",
+            "model": "agveuv",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              14.24,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_2",
+            "category": "apple",
+            "model": "agveuv",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              13.68,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_3",
+            "category": "apple",
+            "model": "agveuv",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              13.120000000000001,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "wia_mirror_candidate_0",
+            "support": "wia_mirror_table"
+          },
+          {
+            "name": "wia_mirror_candidate_1",
+            "support": "wia_mirror_table"
+          },
+          {
+            "name": "wia_mirror_candidate_2",
+            "support": "wia_mirror_table"
+          },
+          {
+            "name": "wia_mirror_candidate_3",
+            "support": "wia_mirror_table"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            -8.299999999999999,
+            13.4,
+            0.11
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "native_object_poses": [
+          {
+            "name": "swivel_chair_ucawqa_5",
+            "category": "swivel_chair",
+            "model": "ucawqa",
+            "position": [
+              -8.1,
+              16.3,
+              0.47985392808914185
+            ],
+            "orientation": [
+              0.00017823651432991028,
+              -6.855603714939207e-05,
+              -3.653811290860176e-06,
+              1.0000001192092896
+            ]
+          },
+          {
+            "name": "swivel_chair_ucawqa_7",
+            "category": "swivel_chair",
+            "model": "ucawqa",
+            "position": [
+              -5.6,
+              16.3,
+              0.47985389828681946
+            ],
+            "orientation": [
+              0.00017826911062002182,
+              -6.852998922113329e-05,
+              -3.4547410905361176e-06,
+              1.0000001192092896
+            ]
+          }
+        ]
+      },
+      "bindings": {
+        "table": {
+          "name": "wia_mirror_table",
+          "category": "table"
+        },
+        "mirror": {
+          "name": "wia_mirror_panel",
+          "category": "object"
+        },
+        "pad_blue": {
+          "name": "wia_mirror_pad_blue",
+          "category": "table"
+        },
+        "pad_yellow": {
+          "name": "wia_mirror_pad_yellow",
+          "category": "table"
+        },
+        "anchor": {
+          "name": "wia_reference_beacon",
+          "category": "object"
+        },
+        "cue_low": {
+          "name": "wia_mirror_cue_low",
+          "category": "object"
+        },
+        "cue_high": {
+          "name": "wia_mirror_cue_high",
+          "category": "object"
+        },
+        "cue_bottom": {
+          "name": "wia_mirror_cue_bottom",
+          "category": "object"
+        },
+        "cue_top": {
+          "name": "wia_mirror_cue_top",
+          "category": "object"
+        },
+        "candidate_0": {
+          "name": "wia_mirror_candidate_0",
+          "category": "apple",
+          "model": "agveuv"
+        },
+        "candidate_1": {
+          "name": "wia_mirror_candidate_1",
+          "category": "apple",
+          "model": "agveuv"
+        },
+        "candidate_2": {
+          "name": "wia_mirror_candidate_2",
+          "category": "apple",
+          "model": "agveuv"
+        },
+        "candidate_3": {
+          "name": "wia_mirror_candidate_3",
+          "category": "apple",
+          "model": "agveuv"
+        }
+      },
+      "candidate_assets": {
+        "candidate_0": {
+          "category": "apple",
+          "model": "agveuv",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "candidate_1": {
+          "category": "apple",
+          "model": "agveuv",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "candidate_2": {
+          "category": "apple",
+          "model": "agveuv",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "candidate_3": {
+          "category": "apple",
+          "model": "agveuv",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "public_goal": "Match the reflection in the red outline in the initial head-camera view to its real apple among the widely spaced candidates. Grasp, lift and deliver that apple to the blue pad.",
+      "public": {
+        "objective": "Match the reflection in the red outline in the initial head-camera view to its real apple among the widely spaced candidates. Grasp, lift and deliver that apple to the blue pad.",
+        "success_criteria": "Use a genuine robot grasp to lift each required apple at least 5 cm. Leave all required apples supported and released without robot contact for at least 0.5 seconds, with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. Leave the working hand empty and open, withdraw the robot hands from the apples, and declare DONE.",
+        "environment": "A furnished meeting room with apples on a fixed deck over an existing native table, a physical mirror, a red rectangular outline, blue and yellow delivery pads, and a fixed yellow reference pillar.",
+        "constraints": [
+          "Keep the table, pads, mirror, red outline and yellow reference pillar fixed; preserve all object dimensions.",
+          "Use the existing guarded public controls and robot-mounted observations.",
+          "Interpret the requested appearance using the initial head-camera view. Later robot movement does not redefine the requested real apple.",
+          "The first candidate grasp commits the real-object selection. Do not grasp a different candidate.",
+          "Keep each unselected apple within 2 cm of its starting position."
+        ]
+      },
+      "task_id": "wia_household_r_c2_seed101_v3",
+      "scene_id": "wia_r_c2_seed101_furnished_v3_scene",
+      "geometry_proposal": {
+        "status": "pending_native_initialization_review",
+        "native_measurement": false,
+        "support_name": "conference_table_fpkmyw_0",
+        "static_tabletop_world_z_m": 0.6926497794688733,
+        "static_asset_collision_bounds_root_link_m": [
+          [
+            -0.041791054936762606,
+            -0.03693334055226227,
+            -0.03762713125823325
+          ],
+          [
+            0.046253710298564954,
+            0.037528611299582515,
+            0.037292926992194
+          ]
+        ],
+        "candidate_slot_permutation": [
+          0,
+          3,
+          2,
+          1
+        ],
+        "candidate_center_proposals_m": {
+          "candidate_0": [
+            -7.38,
+            12.56,
+            0.7441098085940869
+          ],
+          "candidate_1": [
+            -7.38,
+            14.24,
+            0.7441098085940869
+          ],
+          "candidate_2": [
+            -7.38,
+            13.68,
+            0.7441098085940869
+          ],
+          "candidate_3": [
+            -7.38,
+            13.120000000000001,
+            0.7441098085940869
+          ]
+        },
+        "selected_outer_slot_proposal": "candidate_0",
+        "approximate_initial_head_eye_proposal_m": [
+          -8.188735999999999,
+          13.386965,
+          1.4600000000000002
+        ],
+        "cue_ray_intersections_proposal_m": {
+          "candidate_0": [
+            -6.352,
+            12.861158423615034,
+            1.0048177726860015
+          ],
+          "candidate_1": [
+            -6.352,
+            13.929347583164402,
+            1.0048177726860015
+          ],
+          "candidate_2": [
+            -6.352,
+            13.57328452998128,
+            1.0048177726860015
+          ],
+          "candidate_3": [
+            -6.352,
+            13.217221476798157,
+            1.0048177726860015
+          ]
+        },
+        "cue_center_proposal_m": [
+          -6.352,
+          12.861158423615034,
+          1.0048177726860015
+        ],
+        "cue_inner_width_proposal_m": 0.19583467925071743,
+        "scope": "Saved static collision bounds, bounding-center height and approximate head eye; actual native collision centroid, projection, support and optics must qualify."
+      },
+      "version": 4
+    },
+    {
+      "document_alias": "R-C2",
+      "variant_id": "r_c2_seed202_furnished_v3",
+      "label": "R-C2 household mirror seed 202 v3 (screened rigid household asset)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c2_seed202_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c2_seed202_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/office_cubicles_left/meeting_room_0/wia_furnished_background_v1.json",
+      "scene_model": "office_cubicles_left",
+      "room": "meeting_room_0",
+      "layout": {
+        "shared_layout_id": "wia_furnished_mirror_r_c2_seed202_v3",
+        "scene_model": "office_cubicles_left",
+        "rooms": [
+          "meeting_room_0"
+        ],
+        "floor_name": "floors_oxwqrw_0",
+        "objects": [
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_table",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              1.2,
+              2.4,
+              0.014
+            ],
+            "position": [
+              -7.0,
+              13.4,
+              0.6996497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.42,
+              0.38,
+              0.32,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_panel",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.025,
+              2.52,
+              1.25
+            ],
+            "position": [
+              -6.327500000000001,
+              13.4,
+              1.3126497794688734
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.95,
+              0.95,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_pad_blue",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.28,
+              0.28,
+              0.012
+            ],
+            "position": [
+              -6.6000000000000005,
+              12.776,
+              0.7126497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.1,
+              0.3,
+              0.95,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_pad_yellow",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.28,
+              0.28,
+              0.012
+            ],
+            "position": [
+              -6.6000000000000005,
+              14.024000000000001,
+              0.7126497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.8,
+              0.1,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_reference_beacon",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.06,
+              0.06,
+              0.28
+            ],
+            "position": [
+              -7.26,
+              14.52,
+              0.8326497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.8,
+              0.1,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_low",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.012,
+              0.404
+            ],
+            "position": [
+              -6.352,
+              13.825430243539044,
+              1.0048177726860015
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_high",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.012,
+              0.404
+            ],
+            "position": [
+              -6.352,
+              14.03326492278976,
+              1.0048177726860015
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_bottom",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.21983467925071742,
+              0.012
+            ],
+            "position": [
+              -6.352,
+              13.929347583164402,
+              0.8088177726860015
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_top",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.21983467925071742,
+              0.012
+            ],
+            "position": [
+              -6.352,
+              13.929347583164402,
+              1.2008177726860014
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_0",
+            "category": "apple",
+            "model": "agveuv",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              12.56,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_1",
+            "category": "apple",
+            "model": "agveuv",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              13.120000000000001,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_2",
+            "category": "apple",
+            "model": "agveuv",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              13.68,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_3",
+            "category": "apple",
+            "model": "agveuv",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              14.24,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "wia_mirror_candidate_0",
+            "support": "wia_mirror_table"
+          },
+          {
+            "name": "wia_mirror_candidate_1",
+            "support": "wia_mirror_table"
+          },
+          {
+            "name": "wia_mirror_candidate_2",
+            "support": "wia_mirror_table"
+          },
+          {
+            "name": "wia_mirror_candidate_3",
+            "support": "wia_mirror_table"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            -8.299999999999999,
+            13.4,
+            0.11
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "native_object_poses": [
+          {
+            "name": "swivel_chair_ucawqa_5",
+            "category": "swivel_chair",
+            "model": "ucawqa",
+            "position": [
+              -8.1,
+              16.3,
+              0.47985392808914185
+            ],
+            "orientation": [
+              0.00017823651432991028,
+              -6.855603714939207e-05,
+              -3.653811290860176e-06,
+              1.0000001192092896
+            ]
+          },
+          {
+            "name": "swivel_chair_ucawqa_7",
+            "category": "swivel_chair",
+            "model": "ucawqa",
+            "position": [
+              -5.6,
+              16.3,
+              0.47985389828681946
+            ],
+            "orientation": [
+              0.00017826911062002182,
+              -6.852998922113329e-05,
+              -3.4547410905361176e-06,
+              1.0000001192092896
+            ]
+          }
+        ]
+      },
+      "bindings": {
+        "table": {
+          "name": "wia_mirror_table",
+          "category": "table"
+        },
+        "mirror": {
+          "name": "wia_mirror_panel",
+          "category": "object"
+        },
+        "pad_blue": {
+          "name": "wia_mirror_pad_blue",
+          "category": "table"
+        },
+        "pad_yellow": {
+          "name": "wia_mirror_pad_yellow",
+          "category": "table"
+        },
+        "anchor": {
+          "name": "wia_reference_beacon",
+          "category": "object"
+        },
+        "cue_low": {
+          "name": "wia_mirror_cue_low",
+          "category": "object"
+        },
+        "cue_high": {
+          "name": "wia_mirror_cue_high",
+          "category": "object"
+        },
+        "cue_bottom": {
+          "name": "wia_mirror_cue_bottom",
+          "category": "object"
+        },
+        "cue_top": {
+          "name": "wia_mirror_cue_top",
+          "category": "object"
+        },
+        "candidate_0": {
+          "name": "wia_mirror_candidate_0",
+          "category": "apple",
+          "model": "agveuv"
+        },
+        "candidate_1": {
+          "name": "wia_mirror_candidate_1",
+          "category": "apple",
+          "model": "agveuv"
+        },
+        "candidate_2": {
+          "name": "wia_mirror_candidate_2",
+          "category": "apple",
+          "model": "agveuv"
+        },
+        "candidate_3": {
+          "name": "wia_mirror_candidate_3",
+          "category": "apple",
+          "model": "agveuv"
+        }
+      },
+      "candidate_assets": {
+        "candidate_0": {
+          "category": "apple",
+          "model": "agveuv",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "candidate_1": {
+          "category": "apple",
+          "model": "agveuv",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "candidate_2": {
+          "category": "apple",
+          "model": "agveuv",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "candidate_3": {
+          "category": "apple",
+          "model": "agveuv",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "public_goal": "Match the reflection in the red outline in the initial head-camera view to its real apple among the widely spaced candidates. Grasp, lift and deliver that apple to the blue pad.",
+      "public": {
+        "objective": "Match the reflection in the red outline in the initial head-camera view to its real apple among the widely spaced candidates. Grasp, lift and deliver that apple to the blue pad.",
+        "success_criteria": "Use a genuine robot grasp to lift each required apple at least 5 cm. Leave all required apples supported and released without robot contact for at least 0.5 seconds, with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. Leave the working hand empty and open, withdraw the robot hands from the apples, and declare DONE.",
+        "environment": "A furnished meeting room with apples on a fixed deck over an existing native table, a physical mirror, a red rectangular outline, blue and yellow delivery pads, and a fixed yellow reference pillar.",
+        "constraints": [
+          "Keep the table, pads, mirror, red outline and yellow reference pillar fixed; preserve all object dimensions.",
+          "Use the existing guarded public controls and robot-mounted observations.",
+          "Interpret the requested appearance using the initial head-camera view. Later robot movement does not redefine the requested real apple.",
+          "The first candidate grasp commits the real-object selection. Do not grasp a different candidate.",
+          "Keep each unselected apple within 2 cm of its starting position."
+        ]
+      },
+      "task_id": "wia_household_r_c2_seed202_v3",
+      "scene_id": "wia_r_c2_seed202_furnished_v3_scene",
+      "geometry_proposal": {
+        "status": "pending_native_initialization_review",
+        "native_measurement": false,
+        "support_name": "conference_table_fpkmyw_0",
+        "static_tabletop_world_z_m": 0.6926497794688733,
+        "static_asset_collision_bounds_root_link_m": [
+          [
+            -0.041791054936762606,
+            -0.03693334055226227,
+            -0.03762713125823325
+          ],
+          [
+            0.046253710298564954,
+            0.037528611299582515,
+            0.037292926992194
+          ]
+        ],
+        "candidate_slot_permutation": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "candidate_center_proposals_m": {
+          "candidate_0": [
+            -7.38,
+            12.56,
+            0.7441098085940869
+          ],
+          "candidate_1": [
+            -7.38,
+            13.120000000000001,
+            0.7441098085940869
+          ],
+          "candidate_2": [
+            -7.38,
+            13.68,
+            0.7441098085940869
+          ],
+          "candidate_3": [
+            -7.38,
+            14.24,
+            0.7441098085940869
+          ]
+        },
+        "selected_outer_slot_proposal": "candidate_3",
+        "approximate_initial_head_eye_proposal_m": [
+          -8.188735999999999,
+          13.386965,
+          1.4600000000000002
+        ],
+        "cue_ray_intersections_proposal_m": {
+          "candidate_0": [
+            -6.352,
+            12.861158423615034,
+            1.0048177726860015
+          ],
+          "candidate_1": [
+            -6.352,
+            13.217221476798157,
+            1.0048177726860015
+          ],
+          "candidate_2": [
+            -6.352,
+            13.57328452998128,
+            1.0048177726860015
+          ],
+          "candidate_3": [
+            -6.352,
+            13.929347583164402,
+            1.0048177726860015
+          ]
+        },
+        "cue_center_proposal_m": [
+          -6.352,
+          13.929347583164402,
+          1.0048177726860015
+        ],
+        "cue_inner_width_proposal_m": 0.19583467925071743,
+        "scope": "Saved static collision bounds, bounding-center height and approximate head eye; actual native collision centroid, projection, support and optics must qualify."
+      },
+      "version": 4
+    },
+    {
+      "document_alias": "R-A1",
+      "variant_id": "r_a1_seed101_furnished_v3",
+      "label": "R-A1 household mirror seed 101 v3 (screened rigid household asset)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_a1_seed101_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_a1_seed101_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/office_cubicles_left/meeting_room_0/wia_furnished_background_v1.json",
+      "scene_model": "office_cubicles_left",
+      "room": "meeting_room_0",
+      "layout": {
+        "shared_layout_id": "wia_furnished_mirror_appearance_seed101_v3",
+        "scene_model": "office_cubicles_left",
+        "rooms": [
+          "meeting_room_0"
+        ],
+        "floor_name": "floors_oxwqrw_0",
+        "objects": [
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_table",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              1.2,
+              2.4,
+              0.014
+            ],
+            "position": [
+              -7.0,
+              13.4,
+              0.6996497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.42,
+              0.38,
+              0.32,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_panel",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.025,
+              2.52,
+              1.25
+            ],
+            "position": [
+              -6.327500000000001,
+              13.4,
+              1.3126497794688734
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.95,
+              0.95,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_pad_blue",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.28,
+              0.28,
+              0.012
+            ],
+            "position": [
+              -6.6000000000000005,
+              12.776,
+              0.7126497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.1,
+              0.3,
+              0.95,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_pad_yellow",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.28,
+              0.28,
+              0.012
+            ],
+            "position": [
+              -6.6000000000000005,
+              14.024000000000001,
+              0.7126497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.8,
+              0.1,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_reference_beacon",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.06,
+              0.06,
+              0.28
+            ],
+            "position": [
+              -7.26,
+              14.52,
+              0.8326497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.8,
+              0.1,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_low",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.012,
+              0.404
+            ],
+            "position": [
+              -6.352,
+              12.90775687497923,
+              1.0306409412902233
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_high",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.012,
+              0.404
+            ],
+            "position": [
+              -6.352,
+              13.11975687497923,
+              1.0306409412902233
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_bottom",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.224,
+              0.012
+            ],
+            "position": [
+              -6.352,
+              13.01375687497923,
+              0.8346409412902234
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_top",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.224,
+              0.012
+            ],
+            "position": [
+              -6.352,
+              13.01375687497923,
+              1.2266409412902233
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_0",
+            "category": "salt_shaker",
+            "model": "fonexa",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              13.4,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_1",
+            "category": "salt_shaker",
+            "model": "fonexa",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              12.8,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_2",
+            "category": "salt_shaker",
+            "model": "fonexa",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              14.0,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "wia_mirror_candidate_0",
+            "support": "wia_mirror_table"
+          },
+          {
+            "name": "wia_mirror_candidate_1",
+            "support": "wia_mirror_table"
+          },
+          {
+            "name": "wia_mirror_candidate_2",
+            "support": "wia_mirror_table"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            -8.299999999999999,
+            13.4,
+            0.11
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "native_object_poses": [
+          {
+            "name": "swivel_chair_ucawqa_5",
+            "category": "swivel_chair",
+            "model": "ucawqa",
+            "position": [
+              -8.1,
+              16.3,
+              0.47985392808914185
+            ],
+            "orientation": [
+              0.00017823651432991028,
+              -6.855603714939207e-05,
+              -3.653811290860176e-06,
+              1.0000001192092896
+            ]
+          },
+          {
+            "name": "swivel_chair_ucawqa_7",
+            "category": "swivel_chair",
+            "model": "ucawqa",
+            "position": [
+              -5.6,
+              16.3,
+              0.47985389828681946
+            ],
+            "orientation": [
+              0.00017826911062002182,
+              -6.852998922113329e-05,
+              -3.4547410905361176e-06,
+              1.0000001192092896
+            ]
+          }
+        ]
+      },
+      "bindings": {
+        "table": {
+          "name": "wia_mirror_table",
+          "category": "table"
+        },
+        "mirror": {
+          "name": "wia_mirror_panel",
+          "category": "object"
+        },
+        "pad_blue": {
+          "name": "wia_mirror_pad_blue",
+          "category": "table"
+        },
+        "pad_yellow": {
+          "name": "wia_mirror_pad_yellow",
+          "category": "table"
+        },
+        "anchor": {
+          "name": "wia_reference_beacon",
+          "category": "object"
+        },
+        "cue_low": {
+          "name": "wia_mirror_cue_low",
+          "category": "object"
+        },
+        "cue_high": {
+          "name": "wia_mirror_cue_high",
+          "category": "object"
+        },
+        "cue_bottom": {
+          "name": "wia_mirror_cue_bottom",
+          "category": "object"
+        },
+        "cue_top": {
+          "name": "wia_mirror_cue_top",
+          "category": "object"
+        },
+        "candidate_0": {
+          "name": "wia_mirror_candidate_0",
+          "category": "salt_shaker",
+          "model": "fonexa"
+        },
+        "candidate_1": {
+          "name": "wia_mirror_candidate_1",
+          "category": "salt_shaker",
+          "model": "fonexa"
+        },
+        "candidate_2": {
+          "name": "wia_mirror_candidate_2",
+          "category": "salt_shaker",
+          "model": "fonexa"
+        }
+      },
+      "candidate_assets": {
+        "candidate_0": {
+          "category": "salt_shaker",
+          "model": "fonexa",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "candidate_1": {
+          "category": "salt_shaker",
+          "model": "fonexa",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "candidate_2": {
+          "category": "salt_shaker",
+          "model": "fonexa",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "public_goal": "Inspect the salt shaker appearance inside the red outline in the initial head-camera view. Report ANSWER: reflected or ANSWER: direct before grasping a candidate. Deliver the corresponding real salt shaker to blue if the appearance is reflected, or to yellow if it is direct.",
+      "public": {
+        "objective": "Inspect the salt shaker appearance inside the red outline in the initial head-camera view. Report ANSWER: reflected or ANSWER: direct before grasping a candidate. Deliver the corresponding real salt shaker to blue if the appearance is reflected, or to yellow if it is direct.",
+        "success_criteria": "Report whether the initial framed appearance is reflected or direct before the first candidate grasp, and deliver the corresponding real salt shaker to the declared color. Use a genuine robot grasp to lift each required salt shaker at least 5 cm. Leave all required salt shakers supported and released without robot contact for at least 0.5 seconds, with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. Leave the working hand empty and open, withdraw the robot hands from the salt shakers, and declare DONE.",
+        "environment": "A furnished meeting room with salt shakers on a fixed deck over an existing native table, a physical mirror, a red rectangular outline, blue and yellow delivery pads, and a fixed yellow reference pillar.",
+        "constraints": [
+          "Keep the table, pads, mirror, red outline and yellow reference pillar fixed; preserve all object dimensions.",
+          "Use the existing guarded public controls and robot-mounted observations.",
+          "Interpret the requested appearance using the initial head-camera view. Later robot movement does not redefine the requested real salt shaker.",
+          "The first candidate grasp commits the real-object selection. Do not grasp a different candidate.",
+          "Keep each unselected salt shaker within 2 cm of its starting position."
+        ]
+      },
+      "task_id": "wia_household_appearance_delivery_seed101_v3",
+      "scene_id": "wia_r_a1_seed101_furnished_v3_scene",
+      "geometry_proposal": {
+        "status": "pending_native_initialization_review",
+        "native_measurement": false,
+        "support_name": "conference_table_fpkmyw_0",
+        "static_tabletop_world_z_m": 0.6926497794688733,
+        "static_asset_collision_bounds_root_link_m": [
+          [
+            -0.025977866336115096,
+            -0.02601462034097113,
+            -0.0702748307135419
+          ],
+          [
+            0.026468665095365163,
+            0.02636344337883978,
+            0.0858722702703929
+          ]
+        ],
+        "candidate_slot_permutation": [
+          1,
+          0,
+          2
+        ],
+        "candidate_center_proposals_m": {
+          "candidate_0": [
+            -7.38,
+            13.4,
+            0.7847233299608407
+          ],
+          "candidate_1": [
+            -7.38,
+            12.8,
+            0.7847233299608407
+          ],
+          "candidate_2": [
+            -7.38,
+            14.0,
+            0.7847233299608407
+          ]
+        },
+        "selected_outer_slot_proposal": "candidate_1",
+        "approximate_initial_head_eye_proposal_m": [
+          -8.188735999999999,
+          13.386965,
+          1.4600000000000002
+        ],
+        "cue_ray_intersections_proposal_m": {
+          "candidate_0": [
+            -6.352,
+            13.395253003389717,
+            1.0306409412902233
+          ],
+          "candidate_1": [
+            -6.352,
+            13.01375687497923,
+            1.0306409412902233
+          ],
+          "candidate_2": [
+            -6.352,
+            13.776749131800207,
+            1.0306409412902233
+          ]
+        },
+        "cue_center_proposal_m": [
+          -6.352,
+          13.01375687497923,
+          1.0306409412902233
+        ],
+        "cue_inner_width_proposal_m": 0.2,
+        "scope": "Saved static collision bounds, bounding-center height and approximate head eye; actual native collision centroid, projection, support and optics must qualify."
+      },
+      "version": 4
+    },
+    {
+      "document_alias": "R-A1",
+      "variant_id": "r_a1_seed202_furnished_v3",
+      "label": "R-A1 household mirror seed 202 v3 (screened rigid household asset)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_a1_seed202_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_a1_seed202_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/office_cubicles_left/meeting_room_0/wia_furnished_background_v1.json",
+      "scene_model": "office_cubicles_left",
+      "room": "meeting_room_0",
+      "layout": {
+        "shared_layout_id": "wia_furnished_mirror_appearance_seed202_v3",
+        "scene_model": "office_cubicles_left",
+        "rooms": [
+          "meeting_room_0"
+        ],
+        "floor_name": "floors_oxwqrw_0",
+        "objects": [
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_table",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              1.2,
+              2.4,
+              0.014
+            ],
+            "position": [
+              -7.0,
+              13.4,
+              0.6996497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.42,
+              0.38,
+              0.32,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_panel",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.025,
+              2.52,
+              1.25
+            ],
+            "position": [
+              -6.327500000000001,
+              13.4,
+              1.3126497794688734
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.95,
+              0.95,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_pad_blue",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.28,
+              0.28,
+              0.012
+            ],
+            "position": [
+              -6.6000000000000005,
+              12.776,
+              0.7126497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.1,
+              0.3,
+              0.95,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_pad_yellow",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.28,
+              0.28,
+              0.012
+            ],
+            "position": [
+              -6.6000000000000005,
+              14.024000000000001,
+              0.7126497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.8,
+              0.1,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_reference_beacon",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.06,
+              0.06,
+              0.28
+            ],
+            "position": [
+              -7.26,
+              14.52,
+              0.8326497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.8,
+              0.1,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_low",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.012,
+              0.404
+            ],
+            "position": [
+              -6.352,
+              13.670749131800207,
+              1.0306409412902233
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_high",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.012,
+              0.404
+            ],
+            "position": [
+              -6.352,
+              13.882749131800207,
+              1.0306409412902233
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_bottom",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.224,
+              0.012
+            ],
+            "position": [
+              -6.352,
+              13.776749131800207,
+              0.8346409412902234
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_top",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.224,
+              0.012
+            ],
+            "position": [
+              -6.352,
+              13.776749131800207,
+              1.2266409412902233
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_0",
+            "category": "salt_shaker",
+            "model": "fonexa",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              12.8,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_1",
+            "category": "salt_shaker",
+            "model": "fonexa",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              14.0,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_2",
+            "category": "salt_shaker",
+            "model": "fonexa",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              13.4,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "wia_mirror_candidate_0",
+            "support": "wia_mirror_table"
+          },
+          {
+            "name": "wia_mirror_candidate_1",
+            "support": "wia_mirror_table"
+          },
+          {
+            "name": "wia_mirror_candidate_2",
+            "support": "wia_mirror_table"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            -8.299999999999999,
+            13.4,
+            0.11
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "native_object_poses": [
+          {
+            "name": "swivel_chair_ucawqa_5",
+            "category": "swivel_chair",
+            "model": "ucawqa",
+            "position": [
+              -8.1,
+              16.3,
+              0.47985392808914185
+            ],
+            "orientation": [
+              0.00017823651432991028,
+              -6.855603714939207e-05,
+              -3.653811290860176e-06,
+              1.0000001192092896
+            ]
+          },
+          {
+            "name": "swivel_chair_ucawqa_7",
+            "category": "swivel_chair",
+            "model": "ucawqa",
+            "position": [
+              -5.6,
+              16.3,
+              0.47985389828681946
+            ],
+            "orientation": [
+              0.00017826911062002182,
+              -6.852998922113329e-05,
+              -3.4547410905361176e-06,
+              1.0000001192092896
+            ]
+          }
+        ]
+      },
+      "bindings": {
+        "table": {
+          "name": "wia_mirror_table",
+          "category": "table"
+        },
+        "mirror": {
+          "name": "wia_mirror_panel",
+          "category": "object"
+        },
+        "pad_blue": {
+          "name": "wia_mirror_pad_blue",
+          "category": "table"
+        },
+        "pad_yellow": {
+          "name": "wia_mirror_pad_yellow",
+          "category": "table"
+        },
+        "anchor": {
+          "name": "wia_reference_beacon",
+          "category": "object"
+        },
+        "cue_low": {
+          "name": "wia_mirror_cue_low",
+          "category": "object"
+        },
+        "cue_high": {
+          "name": "wia_mirror_cue_high",
+          "category": "object"
+        },
+        "cue_bottom": {
+          "name": "wia_mirror_cue_bottom",
+          "category": "object"
+        },
+        "cue_top": {
+          "name": "wia_mirror_cue_top",
+          "category": "object"
+        },
+        "candidate_0": {
+          "name": "wia_mirror_candidate_0",
+          "category": "salt_shaker",
+          "model": "fonexa"
+        },
+        "candidate_1": {
+          "name": "wia_mirror_candidate_1",
+          "category": "salt_shaker",
+          "model": "fonexa"
+        },
+        "candidate_2": {
+          "name": "wia_mirror_candidate_2",
+          "category": "salt_shaker",
+          "model": "fonexa"
+        }
+      },
+      "candidate_assets": {
+        "candidate_0": {
+          "category": "salt_shaker",
+          "model": "fonexa",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "candidate_1": {
+          "category": "salt_shaker",
+          "model": "fonexa",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "candidate_2": {
+          "category": "salt_shaker",
+          "model": "fonexa",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "public_goal": "Inspect the salt shaker appearance inside the red outline in the initial head-camera view. Report ANSWER: reflected or ANSWER: direct before grasping a candidate. Deliver the corresponding real salt shaker to blue if the appearance is reflected, or to yellow if it is direct.",
+      "public": {
+        "objective": "Inspect the salt shaker appearance inside the red outline in the initial head-camera view. Report ANSWER: reflected or ANSWER: direct before grasping a candidate. Deliver the corresponding real salt shaker to blue if the appearance is reflected, or to yellow if it is direct.",
+        "success_criteria": "Report whether the initial framed appearance is reflected or direct before the first candidate grasp, and deliver the corresponding real salt shaker to the declared color. Use a genuine robot grasp to lift each required salt shaker at least 5 cm. Leave all required salt shakers supported and released without robot contact for at least 0.5 seconds, with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. Leave the working hand empty and open, withdraw the robot hands from the salt shakers, and declare DONE.",
+        "environment": "A furnished meeting room with salt shakers on a fixed deck over an existing native table, a physical mirror, a red rectangular outline, blue and yellow delivery pads, and a fixed yellow reference pillar.",
+        "constraints": [
+          "Keep the table, pads, mirror, red outline and yellow reference pillar fixed; preserve all object dimensions.",
+          "Use the existing guarded public controls and robot-mounted observations.",
+          "Interpret the requested appearance using the initial head-camera view. Later robot movement does not redefine the requested real salt shaker.",
+          "The first candidate grasp commits the real-object selection. Do not grasp a different candidate.",
+          "Keep each unselected salt shaker within 2 cm of its starting position."
+        ]
+      },
+      "task_id": "wia_household_appearance_delivery_seed202_v3",
+      "scene_id": "wia_r_a1_seed202_furnished_v3_scene",
+      "geometry_proposal": {
+        "status": "pending_native_initialization_review",
+        "native_measurement": false,
+        "support_name": "conference_table_fpkmyw_0",
+        "static_tabletop_world_z_m": 0.6926497794688733,
+        "static_asset_collision_bounds_root_link_m": [
+          [
+            -0.025977866336115096,
+            -0.02601462034097113,
+            -0.0702748307135419
+          ],
+          [
+            0.026468665095365163,
+            0.02636344337883978,
+            0.0858722702703929
+          ]
+        ],
+        "candidate_slot_permutation": [
+          0,
+          2,
+          1
+        ],
+        "candidate_center_proposals_m": {
+          "candidate_0": [
+            -7.38,
+            12.8,
+            0.7847233299608407
+          ],
+          "candidate_1": [
+            -7.38,
+            14.0,
+            0.7847233299608407
+          ],
+          "candidate_2": [
+            -7.38,
+            13.4,
+            0.7847233299608407
+          ]
+        },
+        "selected_outer_slot_proposal": "candidate_1",
+        "approximate_initial_head_eye_proposal_m": [
+          -8.188735999999999,
+          13.386965,
+          1.4600000000000002
+        ],
+        "cue_ray_intersections_proposal_m": {
+          "candidate_0": [
+            -6.352,
+            13.01375687497923,
+            1.0306409412902233
+          ],
+          "candidate_1": [
+            -6.352,
+            13.776749131800207,
+            1.0306409412902233
+          ],
+          "candidate_2": [
+            -6.352,
+            13.395253003389717,
+            1.0306409412902233
+          ]
+        },
+        "cue_center_proposal_m": [
+          -6.352,
+          13.776749131800207,
+          1.0306409412902233
+        ],
+        "cue_inner_width_proposal_m": 0.2,
+        "scope": "Saved static collision bounds, bounding-center height and approximate head eye; actual native collision centroid, projection, support and optics must qualify."
+      },
+      "version": 4
+    },
+    {
+      "document_alias": "R-A2",
+      "variant_id": "r_a2_seed101_furnished_v3",
+      "label": "R-A2 household mirror seed 101 v3 (screened rigid household asset)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_a2_seed101_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_a2_seed101_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/office_cubicles_left/meeting_room_0/wia_furnished_background_v1.json",
+      "scene_model": "office_cubicles_left",
+      "room": "meeting_room_0",
+      "layout": {
+        "shared_layout_id": "wia_furnished_mirror_appearance_seed101_v3",
+        "scene_model": "office_cubicles_left",
+        "rooms": [
+          "meeting_room_0"
+        ],
+        "floor_name": "floors_oxwqrw_0",
+        "objects": [
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_table",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              1.2,
+              2.4,
+              0.014
+            ],
+            "position": [
+              -7.0,
+              13.4,
+              0.6996497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.42,
+              0.38,
+              0.32,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_panel",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.025,
+              2.52,
+              1.25
+            ],
+            "position": [
+              -6.327500000000001,
+              13.4,
+              1.3126497794688734
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.95,
+              0.95,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_pad_blue",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.28,
+              0.28,
+              0.012
+            ],
+            "position": [
+              -6.6000000000000005,
+              12.776,
+              0.7126497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.1,
+              0.3,
+              0.95,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_pad_yellow",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.28,
+              0.28,
+              0.012
+            ],
+            "position": [
+              -6.6000000000000005,
+              14.024000000000001,
+              0.7126497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.8,
+              0.1,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_reference_beacon",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.06,
+              0.06,
+              0.28
+            ],
+            "position": [
+              -7.26,
+              14.52,
+              0.8326497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.8,
+              0.1,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_low",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.012,
+              0.404
+            ],
+            "position": [
+              -7.46,
+              12.752062457959088,
+              0.8515215602895672
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_high",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.012,
+              0.404
+            ],
+            "position": [
+              -7.46,
+              12.964062457959088,
+              0.8515215602895672
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_bottom",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.224,
+              0.012
+            ],
+            "position": [
+              -7.46,
+              12.858062457959088,
+              0.6555215602895672
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_top",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.224,
+              0.012
+            ],
+            "position": [
+              -7.46,
+              12.858062457959088,
+              1.047521560289567
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_0",
+            "category": "salt_shaker",
+            "model": "fonexa",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              13.4,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_1",
+            "category": "salt_shaker",
+            "model": "fonexa",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              12.8,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_2",
+            "category": "salt_shaker",
+            "model": "fonexa",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              14.0,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "wia_mirror_candidate_0",
+            "support": "wia_mirror_table"
+          },
+          {
+            "name": "wia_mirror_candidate_1",
+            "support": "wia_mirror_table"
+          },
+          {
+            "name": "wia_mirror_candidate_2",
+            "support": "wia_mirror_table"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            -8.299999999999999,
+            13.4,
+            0.11
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "native_object_poses": [
+          {
+            "name": "swivel_chair_ucawqa_5",
+            "category": "swivel_chair",
+            "model": "ucawqa",
+            "position": [
+              -8.1,
+              16.3,
+              0.47985392808914185
+            ],
+            "orientation": [
+              0.00017823651432991028,
+              -6.855603714939207e-05,
+              -3.653811290860176e-06,
+              1.0000001192092896
+            ]
+          },
+          {
+            "name": "swivel_chair_ucawqa_7",
+            "category": "swivel_chair",
+            "model": "ucawqa",
+            "position": [
+              -5.6,
+              16.3,
+              0.47985389828681946
+            ],
+            "orientation": [
+              0.00017826911062002182,
+              -6.852998922113329e-05,
+              -3.4547410905361176e-06,
+              1.0000001192092896
+            ]
+          }
+        ]
+      },
+      "bindings": {
+        "table": {
+          "name": "wia_mirror_table",
+          "category": "table"
+        },
+        "mirror": {
+          "name": "wia_mirror_panel",
+          "category": "object"
+        },
+        "pad_blue": {
+          "name": "wia_mirror_pad_blue",
+          "category": "table"
+        },
+        "pad_yellow": {
+          "name": "wia_mirror_pad_yellow",
+          "category": "table"
+        },
+        "anchor": {
+          "name": "wia_reference_beacon",
+          "category": "object"
+        },
+        "cue_low": {
+          "name": "wia_mirror_cue_low",
+          "category": "object"
+        },
+        "cue_high": {
+          "name": "wia_mirror_cue_high",
+          "category": "object"
+        },
+        "cue_bottom": {
+          "name": "wia_mirror_cue_bottom",
+          "category": "object"
+        },
+        "cue_top": {
+          "name": "wia_mirror_cue_top",
+          "category": "object"
+        },
+        "candidate_0": {
+          "name": "wia_mirror_candidate_0",
+          "category": "salt_shaker",
+          "model": "fonexa"
+        },
+        "candidate_1": {
+          "name": "wia_mirror_candidate_1",
+          "category": "salt_shaker",
+          "model": "fonexa"
+        },
+        "candidate_2": {
+          "name": "wia_mirror_candidate_2",
+          "category": "salt_shaker",
+          "model": "fonexa"
+        }
+      },
+      "candidate_assets": {
+        "candidate_0": {
+          "category": "salt_shaker",
+          "model": "fonexa",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "candidate_1": {
+          "category": "salt_shaker",
+          "model": "fonexa",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "candidate_2": {
+          "category": "salt_shaker",
+          "model": "fonexa",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "public_goal": "Inspect the salt shaker appearance inside the red outline in the initial head-camera view. Report ANSWER: reflected or ANSWER: direct before grasping a candidate. Deliver the corresponding real salt shaker to blue if the appearance is reflected, or to yellow if it is direct.",
+      "public": {
+        "objective": "Inspect the salt shaker appearance inside the red outline in the initial head-camera view. Report ANSWER: reflected or ANSWER: direct before grasping a candidate. Deliver the corresponding real salt shaker to blue if the appearance is reflected, or to yellow if it is direct.",
+        "success_criteria": "Report whether the initial framed appearance is reflected or direct before the first candidate grasp, and deliver the corresponding real salt shaker to the declared color. Use a genuine robot grasp to lift each required salt shaker at least 5 cm. Leave all required salt shakers supported and released without robot contact for at least 0.5 seconds, with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. Leave the working hand empty and open, withdraw the robot hands from the salt shakers, and declare DONE.",
+        "environment": "A furnished meeting room with salt shakers on a fixed deck over an existing native table, a physical mirror, a red rectangular outline, blue and yellow delivery pads, and a fixed yellow reference pillar.",
+        "constraints": [
+          "Keep the table, pads, mirror, red outline and yellow reference pillar fixed; preserve all object dimensions.",
+          "Use the existing guarded public controls and robot-mounted observations.",
+          "Interpret the requested appearance using the initial head-camera view. Later robot movement does not redefine the requested real salt shaker.",
+          "The first candidate grasp commits the real-object selection. Do not grasp a different candidate.",
+          "Keep each unselected salt shaker within 2 cm of its starting position."
+        ]
+      },
+      "task_id": "wia_household_appearance_delivery_seed101_v3",
+      "scene_id": "wia_r_a2_seed101_furnished_v3_scene",
+      "geometry_proposal": {
+        "status": "pending_native_initialization_review",
+        "native_measurement": false,
+        "support_name": "conference_table_fpkmyw_0",
+        "static_tabletop_world_z_m": 0.6926497794688733,
+        "static_asset_collision_bounds_root_link_m": [
+          [
+            -0.025977866336115096,
+            -0.02601462034097113,
+            -0.0702748307135419
+          ],
+          [
+            0.026468665095365163,
+            0.02636344337883978,
+            0.0858722702703929
+          ]
+        ],
+        "candidate_slot_permutation": [
+          1,
+          0,
+          2
+        ],
+        "candidate_center_proposals_m": {
+          "candidate_0": [
+            -7.38,
+            13.4,
+            0.7847233299608407
+          ],
+          "candidate_1": [
+            -7.38,
+            12.8,
+            0.7847233299608407
+          ],
+          "candidate_2": [
+            -7.38,
+            14.0,
+            0.7847233299608407
+          ]
+        },
+        "selected_outer_slot_proposal": "candidate_1",
+        "approximate_initial_head_eye_proposal_m": [
+          -8.188735999999999,
+          13.386965,
+          1.4600000000000002
+        ],
+        "cue_ray_intersections_proposal_m": {
+          "candidate_0": [
+            -7.46,
+            13.398710580461362,
+            0.8515215602895672
+          ],
+          "candidate_1": [
+            -7.46,
+            12.858062457959088,
+            0.8515215602895672
+          ],
+          "candidate_2": [
+            -7.46,
+            13.939358702963636,
+            0.8515215602895672
+          ]
+        },
+        "cue_center_proposal_m": [
+          -7.46,
+          12.858062457959088,
+          0.8515215602895672
+        ],
+        "cue_inner_width_proposal_m": 0.2,
+        "scope": "Saved static collision bounds, bounding-center height and approximate head eye; actual native collision centroid, projection, support and optics must qualify."
+      },
+      "version": 4
+    },
+    {
+      "document_alias": "R-A2",
+      "variant_id": "r_a2_seed202_furnished_v3",
+      "label": "R-A2 household mirror seed 202 v3 (screened rigid household asset)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_a2_seed202_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_a2_seed202_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/office_cubicles_left/meeting_room_0/wia_furnished_background_v1.json",
+      "scene_model": "office_cubicles_left",
+      "room": "meeting_room_0",
+      "layout": {
+        "shared_layout_id": "wia_furnished_mirror_appearance_seed202_v3",
+        "scene_model": "office_cubicles_left",
+        "rooms": [
+          "meeting_room_0"
+        ],
+        "floor_name": "floors_oxwqrw_0",
+        "objects": [
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_table",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              1.2,
+              2.4,
+              0.014
+            ],
+            "position": [
+              -7.0,
+              13.4,
+              0.6996497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.42,
+              0.38,
+              0.32,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_panel",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.025,
+              2.52,
+              1.25
+            ],
+            "position": [
+              -6.327500000000001,
+              13.4,
+              1.3126497794688734
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.95,
+              0.95,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_pad_blue",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.28,
+              0.28,
+              0.012
+            ],
+            "position": [
+              -6.6000000000000005,
+              12.776,
+              0.7126497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.1,
+              0.3,
+              0.95,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_pad_yellow",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.28,
+              0.28,
+              0.012
+            ],
+            "position": [
+              -6.6000000000000005,
+              14.024000000000001,
+              0.7126497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.8,
+              0.1,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_reference_beacon",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.06,
+              0.06,
+              0.28
+            ],
+            "position": [
+              -7.26,
+              14.52,
+              0.8326497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.8,
+              0.1,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_low",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.012,
+              0.404
+            ],
+            "position": [
+              -7.46,
+              13.833358702963636,
+              0.8515215602895672
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_high",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.012,
+              0.404
+            ],
+            "position": [
+              -7.46,
+              14.045358702963636,
+              0.8515215602895672
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_bottom",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.224,
+              0.012
+            ],
+            "position": [
+              -7.46,
+              13.939358702963636,
+              0.6555215602895672
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_mirror_cue_top",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.008,
+              0.224,
+              0.012
+            ],
+            "position": [
+              -7.46,
+              13.939358702963636,
+              1.047521560289567
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.04,
+              0.03,
+              1.0
+            ]
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_0",
+            "category": "salt_shaker",
+            "model": "fonexa",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              12.8,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_1",
+            "category": "salt_shaker",
+            "model": "fonexa",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              14.0,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "wia_mirror_candidate_2",
+            "category": "salt_shaker",
+            "model": "fonexa",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              -7.38,
+              13.4,
+              0.9926497794688733
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "wia_mirror_candidate_0",
+            "support": "wia_mirror_table"
+          },
+          {
+            "name": "wia_mirror_candidate_1",
+            "support": "wia_mirror_table"
+          },
+          {
+            "name": "wia_mirror_candidate_2",
+            "support": "wia_mirror_table"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            -8.299999999999999,
+            13.4,
+            0.11
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "native_object_poses": [
+          {
+            "name": "swivel_chair_ucawqa_5",
+            "category": "swivel_chair",
+            "model": "ucawqa",
+            "position": [
+              -8.1,
+              16.3,
+              0.47985392808914185
+            ],
+            "orientation": [
+              0.00017823651432991028,
+              -6.855603714939207e-05,
+              -3.653811290860176e-06,
+              1.0000001192092896
+            ]
+          },
+          {
+            "name": "swivel_chair_ucawqa_7",
+            "category": "swivel_chair",
+            "model": "ucawqa",
+            "position": [
+              -5.6,
+              16.3,
+              0.47985389828681946
+            ],
+            "orientation": [
+              0.00017826911062002182,
+              -6.852998922113329e-05,
+              -3.4547410905361176e-06,
+              1.0000001192092896
+            ]
+          }
+        ]
+      },
+      "bindings": {
+        "table": {
+          "name": "wia_mirror_table",
+          "category": "table"
+        },
+        "mirror": {
+          "name": "wia_mirror_panel",
+          "category": "object"
+        },
+        "pad_blue": {
+          "name": "wia_mirror_pad_blue",
+          "category": "table"
+        },
+        "pad_yellow": {
+          "name": "wia_mirror_pad_yellow",
+          "category": "table"
+        },
+        "anchor": {
+          "name": "wia_reference_beacon",
+          "category": "object"
+        },
+        "cue_low": {
+          "name": "wia_mirror_cue_low",
+          "category": "object"
+        },
+        "cue_high": {
+          "name": "wia_mirror_cue_high",
+          "category": "object"
+        },
+        "cue_bottom": {
+          "name": "wia_mirror_cue_bottom",
+          "category": "object"
+        },
+        "cue_top": {
+          "name": "wia_mirror_cue_top",
+          "category": "object"
+        },
+        "candidate_0": {
+          "name": "wia_mirror_candidate_0",
+          "category": "salt_shaker",
+          "model": "fonexa"
+        },
+        "candidate_1": {
+          "name": "wia_mirror_candidate_1",
+          "category": "salt_shaker",
+          "model": "fonexa"
+        },
+        "candidate_2": {
+          "name": "wia_mirror_candidate_2",
+          "category": "salt_shaker",
+          "model": "fonexa"
+        }
+      },
+      "candidate_assets": {
+        "candidate_0": {
+          "category": "salt_shaker",
+          "model": "fonexa",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "candidate_1": {
+          "category": "salt_shaker",
+          "model": "fonexa",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "candidate_2": {
+          "category": "salt_shaker",
+          "model": "fonexa",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "public_goal": "Inspect the salt shaker appearance inside the red outline in the initial head-camera view. Report ANSWER: reflected or ANSWER: direct before grasping a candidate. Deliver the corresponding real salt shaker to blue if the appearance is reflected, or to yellow if it is direct.",
+      "public": {
+        "objective": "Inspect the salt shaker appearance inside the red outline in the initial head-camera view. Report ANSWER: reflected or ANSWER: direct before grasping a candidate. Deliver the corresponding real salt shaker to blue if the appearance is reflected, or to yellow if it is direct.",
+        "success_criteria": "Report whether the initial framed appearance is reflected or direct before the first candidate grasp, and deliver the corresponding real salt shaker to the declared color. Use a genuine robot grasp to lift each required salt shaker at least 5 cm. Leave all required salt shakers supported and released without robot contact for at least 0.5 seconds, with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. Leave the working hand empty and open, withdraw the robot hands from the salt shakers, and declare DONE.",
+        "environment": "A furnished meeting room with salt shakers on a fixed deck over an existing native table, a physical mirror, a red rectangular outline, blue and yellow delivery pads, and a fixed yellow reference pillar.",
+        "constraints": [
+          "Keep the table, pads, mirror, red outline and yellow reference pillar fixed; preserve all object dimensions.",
+          "Use the existing guarded public controls and robot-mounted observations.",
+          "Interpret the requested appearance using the initial head-camera view. Later robot movement does not redefine the requested real salt shaker.",
+          "The first candidate grasp commits the real-object selection. Do not grasp a different candidate.",
+          "Keep each unselected salt shaker within 2 cm of its starting position."
+        ]
+      },
+      "task_id": "wia_household_appearance_delivery_seed202_v3",
+      "scene_id": "wia_r_a2_seed202_furnished_v3_scene",
+      "geometry_proposal": {
+        "status": "pending_native_initialization_review",
+        "native_measurement": false,
+        "support_name": "conference_table_fpkmyw_0",
+        "static_tabletop_world_z_m": 0.6926497794688733,
+        "static_asset_collision_bounds_root_link_m": [
+          [
+            -0.025977866336115096,
+            -0.02601462034097113,
+            -0.0702748307135419
+          ],
+          [
+            0.026468665095365163,
+            0.02636344337883978,
+            0.0858722702703929
+          ]
+        ],
+        "candidate_slot_permutation": [
+          0,
+          2,
+          1
+        ],
+        "candidate_center_proposals_m": {
+          "candidate_0": [
+            -7.38,
+            12.8,
+            0.7847233299608407
+          ],
+          "candidate_1": [
+            -7.38,
+            14.0,
+            0.7847233299608407
+          ],
+          "candidate_2": [
+            -7.38,
+            13.4,
+            0.7847233299608407
+          ]
+        },
+        "selected_outer_slot_proposal": "candidate_1",
+        "approximate_initial_head_eye_proposal_m": [
+          -8.188735999999999,
+          13.386965,
+          1.4600000000000002
+        ],
+        "cue_ray_intersections_proposal_m": {
+          "candidate_0": [
+            -7.46,
+            12.858062457959088,
+            0.8515215602895672
+          ],
+          "candidate_1": [
+            -7.46,
+            13.939358702963636,
+            0.8515215602895672
+          ],
+          "candidate_2": [
+            -7.46,
+            13.398710580461362,
+            0.8515215602895672
+          ]
+        },
+        "cue_center_proposal_m": [
+          -7.46,
+          13.939358702963636,
+          0.8515215602895672
+        ],
+        "cue_inner_width_proposal_m": 0.2,
+        "scope": "Saved static collision bounds, bounding-center height and approximate head eye; actual native collision centroid, projection, support and optics must qualify."
+      },
+      "version": 4
+    }
+  ],
+  "status": "pending_native_initialization_review",
+  "revision_evidence": {
+    "assets": "Static USD inspection finds cola_bottle/oyqdtz and marjoram_shaker/xlspnl have multiple enabled collision links (labels/glass). The current rigid household measurement intentionally supports one collision body. Use apple/agveuv and salt_shaker/fonexa, whose enabled geometry belongs to base_link.",
+    "geometry": "Recompute cue placement from the explicit replacement asset bounds; native measured collision centroids and optics must still qualify.",
+    "invariants": "Keep scenes, native furniture, object counts, slot permutations, seeds, operation rules and scoring. R-A1/R-A2 remain matched apart from their direct/reflected cue placement. No mesh or physical rule is removed.",
+    "scope": "Static asset screening is not native visibility or physical success evidence."
+  }
+}

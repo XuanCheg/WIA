@@ -1,0 +1,620 @@
+{
+  "schema": "wia_mirror_manifest_v1",
+  "revision": "wia_mirror_v1",
+  "status": "pending_native_review",
+  "artifact_path_base": "manifest_directory",
+  "proposal_count": 8,
+  "authored_seed_version_count": 16,
+  "source": {
+    "identity": "Specular Reflection/Correspondence/hall_glass_ceiling/empty_room_0/q_007.json",
+    "sha256": "8db1dff0211f9d4530e974c9995ff61f8bac64170c2534bce8040d8a5a59b2eb",
+    "file": "ESI-Bench/dataset/json_clean/Specular Reflection/Correspondence/hall_glass_ceiling/empty_room_0/q_007.json",
+    "role": "background_loader_only; original optical inventory and QA are replaced explicitly by active_layout; no original optical answer is reused",
+    "original_optical_inventory_replaced": true,
+    "original_source_qa_reused": false
+  },
+  "design_file": "explore_to_achieve/wia_v1/mirror_v1/design.json",
+  "design_sha256": "3f6c5b30a25ae11b318dc59e3ef58d63d8e3ac681ce1e4539598f9aac0d43481",
+  "shared_layout_id": "wia_hall_mirror_workstation_v1",
+  "seeds": [
+    101,
+    202
+  ],
+  "seed_role": "Deterministic candidate position permutations and explicitly authored cue/anchor proposals; not additional proposal aliases.",
+  "matched_appearance_control": {
+    "aliases": [
+      "R-A1",
+      "R-A2"
+    ],
+    "shared_public_task_id": "wia_appearance_delivery_v1",
+    "same_public_payload": true,
+    "only_layout_difference": "The four cue rods change pose; all other objects and robot start remain identical per seed."
+  },
+  "mirror_material": {
+    "binding": "mirror",
+    "metallic_constant": 1.0,
+    "reflection_roughness_constant": 0.0,
+    "diffuse_color_constant": [
+      0.95,
+      0.95,
+      0.95
+    ]
+  },
+  "mirror_material_application": "Initialization-only native PBR setters; no rendered texture or fake reflection. Native readback and actual mounted-image review remain required.",
+  "initial_head_reference": "Actual initial mounted head eye must be frozen by the native adapter; later robot movement cannot redefine correspondence.",
+  "observation_contract": "Retain the existing eight mounted RGB observations and frozen initial overview; optical visibility and necessity remain unverified.",
+  "provisional_budget_max_steps": 240,
+  "native_optics_verified": false,
+  "native_visibility_verified": false,
+  "native_shape_verified": false,
+  "native_hand_path_verified": false,
+  "physical_success_verified": false,
+  "scientific_controls_verified": false,
+  "continuous_path_certified": false,
+  "native_non_goal_initialization_verified": false,
+  "full_reference_execution": "deferred_until_user_review",
+  "entries": [
+    {
+      "proposal_alias": "R-C1",
+      "wia_id": "wia_v1_r_c1",
+      "title": "Match a framed reflection to a real block",
+      "seed": 101,
+      "variant": "adapted",
+      "public_task_id": "wia_mirror_r_c1_v1",
+      "task_file": "tasks/r_c1_seed101_v1.yaml",
+      "task_sha256": "8a7ca8eb5a5d70437cfde6929b22ca1857ed7139dc2fb9387962f79055f21275",
+      "scene_file": "scenes/r_c1_seed101_v1.yaml",
+      "scene_sha256": "e1e37db323a30ea833325bf5eb771fa36b6f77d0e33d127e1f26aab883ce9b30",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          1,
+          0,
+          2
+        ],
+        "cue_center_proposal_m": [
+          8.7955,
+          -1.22,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          -2.04,
+          0.81
+        ]
+      },
+      "appearance_mode_proposal": "reflected",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    },
+    {
+      "proposal_alias": "R-C1",
+      "wia_id": "wia_v1_r_c1",
+      "title": "Match a framed reflection to a real block",
+      "seed": 202,
+      "variant": "adapted",
+      "public_task_id": "wia_mirror_r_c1_v1",
+      "task_file": "tasks/r_c1_seed202_v1.yaml",
+      "task_sha256": "6ba47bc4a604bccb646ad36ac8a004d5ca65bbf2bfa28ba95b5871d80c31bf44",
+      "scene_file": "scenes/r_c1_seed202_v1.yaml",
+      "scene_sha256": "8bf4a77a749c23cb77410dd5cf870e064b2c6ceb2ae54eab6293a9c406b79441",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          0,
+          2,
+          1
+        ],
+        "cue_center_proposal_m": [
+          8.7955,
+          -0.78,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          -2.04,
+          0.81
+        ]
+      },
+      "appearance_mode_proposal": "reflected",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    },
+    {
+      "proposal_alias": "R-C2",
+      "wia_id": "wia_v1_r_c2",
+      "title": "Match a reflection across a wider candidate array",
+      "seed": 101,
+      "variant": "adapted",
+      "public_task_id": "wia_mirror_r_c2_v1",
+      "task_file": "tasks/r_c2_seed101_v1.yaml",
+      "task_sha256": "ea178ac89ba37eafdd991ba2ee0ee984b32fd47c7555f32293c76537a336b079",
+      "scene_file": "scenes/r_c2_seed101_v1.yaml",
+      "scene_sha256": "28dab9fd4aec7d10b41a5207db8aa45993d00496eb1e81d5b9491205cd8805d6",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          1,
+          0,
+          2
+        ],
+        "cue_center_proposal_m": [
+          8.7955,
+          -1.32,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          -2.04,
+          0.81
+        ]
+      },
+      "appearance_mode_proposal": "reflected",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    },
+    {
+      "proposal_alias": "R-C2",
+      "wia_id": "wia_v1_r_c2",
+      "title": "Match a reflection across a wider candidate array",
+      "seed": 202,
+      "variant": "adapted",
+      "public_task_id": "wia_mirror_r_c2_v1",
+      "task_file": "tasks/r_c2_seed202_v1.yaml",
+      "task_sha256": "39c7e74f6ee9fff4c53433242f635ef5cf066e4d2f387e9cffdf045122bfc3a6",
+      "scene_file": "scenes/r_c2_seed202_v1.yaml",
+      "scene_sha256": "d8d4dba129e734a8377a6a2714e0f2cb3acb55f73114746fd69bb00dd0c8db73",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          0,
+          2,
+          1
+        ],
+        "cue_center_proposal_m": [
+          8.7955,
+          -0.68,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          -2.04,
+          0.81
+        ]
+      },
+      "appearance_mode_proposal": "reflected",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    },
+    {
+      "proposal_alias": "R-C3",
+      "wia_id": "wia_v1_r_c3",
+      "title": "Match a reflection with rotated identical candidates",
+      "seed": 101,
+      "variant": "adapted",
+      "public_task_id": "wia_mirror_r_c3_v1",
+      "task_file": "tasks/r_c3_seed101_v1.yaml",
+      "task_sha256": "54758865d39394d37bf96835f3510294ffc3e3fa744f46474dfde6f148d3abd0",
+      "scene_file": "scenes/r_c3_seed101_v1.yaml",
+      "scene_sha256": "5e2127b4d84c939b3afa9d67510351790050e065216b3cbfce021093754244ab",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          1,
+          0,
+          2
+        ],
+        "cue_center_proposal_m": [
+          8.7955,
+          -1.22,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          -2.04,
+          0.81
+        ]
+      },
+      "appearance_mode_proposal": "reflected",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    },
+    {
+      "proposal_alias": "R-C3",
+      "wia_id": "wia_v1_r_c3",
+      "title": "Match a reflection with rotated identical candidates",
+      "seed": 202,
+      "variant": "adapted",
+      "public_task_id": "wia_mirror_r_c3_v1",
+      "task_file": "tasks/r_c3_seed202_v1.yaml",
+      "task_sha256": "d900af854dc2d48241fd2d6827792d8e4b108e2ac1944bfa978b2d8b15025f4f",
+      "scene_file": "scenes/r_c3_seed202_v1.yaml",
+      "scene_sha256": "d350df0aabfce3c886b29a109e3fa676d889b0f2b85671ed2dee208d382edbba",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          0,
+          2,
+          1
+        ],
+        "cue_center_proposal_m": [
+          8.7955,
+          -0.78,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          -2.04,
+          0.81
+        ]
+      },
+      "appearance_mode_proposal": "reflected",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    },
+    {
+      "proposal_alias": "R-A1",
+      "wia_id": "wia_v1_r_a1",
+      "title": "Classify a framed reflected appearance before delivery",
+      "seed": 101,
+      "variant": "adapted",
+      "public_task_id": "wia_appearance_delivery_v1",
+      "task_file": "tasks/r_a1_seed101_v1.yaml",
+      "task_sha256": "668f251fe804a891297d8bedb82a67438258b4ece7e72b70926e3ea431aed4f3",
+      "scene_file": "scenes/r_a1_seed101_v1.yaml",
+      "scene_sha256": "ba1c5b1de9d66fb3f81cddbe04dce893af61f670eb26c1072f0f975b4353508b",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          1,
+          0,
+          2
+        ],
+        "cue_center_proposal_m": [
+          8.7955,
+          -1.22,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          -2.04,
+          0.81
+        ]
+      },
+      "appearance_mode_proposal": "reflected",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    },
+    {
+      "proposal_alias": "R-A1",
+      "wia_id": "wia_v1_r_a1",
+      "title": "Classify a framed reflected appearance before delivery",
+      "seed": 202,
+      "variant": "adapted",
+      "public_task_id": "wia_appearance_delivery_v1",
+      "task_file": "tasks/r_a1_seed202_v1.yaml",
+      "task_sha256": "64227cc9a0d0600f368b6198c9be4f355a7d1019b446f94eddece323c569f7e0",
+      "scene_file": "scenes/r_a1_seed202_v1.yaml",
+      "scene_sha256": "0ab505818387101341de60c0ff220000d57b68df87f1fe9ff488acc94a948aa7",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          0,
+          2,
+          1
+        ],
+        "cue_center_proposal_m": [
+          8.7955,
+          -0.78,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          -2.04,
+          0.81
+        ]
+      },
+      "appearance_mode_proposal": "reflected",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    },
+    {
+      "proposal_alias": "R-A2",
+      "wia_id": "wia_v1_r_a2",
+      "title": "Classify a framed direct appearance in the same workstation",
+      "seed": 101,
+      "variant": "adapted",
+      "public_task_id": "wia_appearance_delivery_v1",
+      "task_file": "tasks/r_a2_seed101_v1.yaml",
+      "task_sha256": "1f03184bc19c780bc7d9c99d808182a12dbd7d1e570269d145e64e3ee739814c",
+      "scene_file": "scenes/r_a2_seed101_v1.yaml",
+      "scene_sha256": "8a8d817cc9a7b9fb9e16e5e20646862964d8de5c50db2543b52eaad797a5e6a0",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          1,
+          0,
+          2
+        ],
+        "cue_center_proposal_m": [
+          7.45,
+          -1.5,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          -2.04,
+          0.81
+        ]
+      },
+      "appearance_mode_proposal": "direct",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    },
+    {
+      "proposal_alias": "R-A2",
+      "wia_id": "wia_v1_r_a2",
+      "title": "Classify a framed direct appearance in the same workstation",
+      "seed": 202,
+      "variant": "adapted",
+      "public_task_id": "wia_appearance_delivery_v1",
+      "task_file": "tasks/r_a2_seed202_v1.yaml",
+      "task_sha256": "01c5bb2caa311020e688eaa43a42baa61a040694f01061610650b38543cb612b",
+      "scene_file": "scenes/r_a2_seed202_v1.yaml",
+      "scene_sha256": "a5ddc35ff6df0112a25490a2cbfeb012f4e39d0db99c3ba2a204650d1815a242",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          0,
+          2,
+          1
+        ],
+        "cue_center_proposal_m": [
+          7.45,
+          -0.5,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          -2.04,
+          0.81
+        ]
+      },
+      "appearance_mode_proposal": "direct",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    },
+    {
+      "proposal_alias": "R-S1",
+      "wia_id": "wia_v1_r_s1",
+      "title": "Move the reflected target farther from a fixed reference",
+      "seed": 101,
+      "variant": "adapted",
+      "public_task_id": "wia_mirror_r_s1_v1",
+      "task_file": "tasks/r_s1_seed101_v1.yaml",
+      "task_sha256": "7b92372f09bfde22e6ea31b464dcce5ff8ca842115e9dd3fc1049bb09375c422",
+      "scene_file": "scenes/r_s1_seed101_v1.yaml",
+      "scene_sha256": "08f0e68b2adb98e29996de7a056c9d29067d401de12dfa1e6750a5a7e92ea7ee",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          1,
+          0
+        ],
+        "cue_center_proposal_m": [
+          8.7955,
+          -1.22,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          -2.04,
+          0.81
+        ],
+        "intended_cue_side_proposal": "negative_y",
+        "native_selected_identity_verified": false,
+        "non_goal_initialization_required": true,
+        "native_non_goal_initialization_verified": false
+      },
+      "appearance_mode_proposal": "reflected",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    },
+    {
+      "proposal_alias": "R-S1",
+      "wia_id": "wia_v1_r_s1",
+      "title": "Move the reflected target farther from a fixed reference",
+      "seed": 202,
+      "variant": "adapted",
+      "public_task_id": "wia_mirror_r_s1_v1",
+      "task_file": "tasks/r_s1_seed202_v1.yaml",
+      "task_sha256": "24d3ac921f83e54f2d6bccf6a1e80ce50f39b86d579e80172f21b136b2b4507b",
+      "scene_file": "scenes/r_s1_seed202_v1.yaml",
+      "scene_sha256": "0c76c3810f01a345ab7192512c1da59eb6ff35c297de1383924f20983db400c0",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          0,
+          1
+        ],
+        "cue_center_proposal_m": [
+          8.7955,
+          -0.78,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          0.04,
+          0.81
+        ],
+        "intended_cue_side_proposal": "positive_y",
+        "native_selected_identity_verified": false,
+        "non_goal_initialization_required": true,
+        "native_non_goal_initialization_verified": false
+      },
+      "appearance_mode_proposal": "reflected",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    },
+    {
+      "proposal_alias": "R-S2",
+      "wia_id": "wia_v1_r_s2",
+      "title": "Establish a tighter fixed-reference distance order",
+      "seed": 101,
+      "variant": "adapted",
+      "public_task_id": "wia_mirror_r_s2_v1",
+      "task_file": "tasks/r_s2_seed101_v1.yaml",
+      "task_sha256": "03565490843ec24987972eb3ac3cc7fdea3890d0cf2dd5ccaf4b234a17841b56",
+      "scene_file": "scenes/r_s2_seed101_v1.yaml",
+      "scene_sha256": "51bc64bb2ab404c0aed065508c86097856444bd57d808e46c7ef144cf69e2b46",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          1,
+          0
+        ],
+        "cue_center_proposal_m": [
+          8.7955,
+          -1.22,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          0.04,
+          0.81
+        ],
+        "intended_cue_side_proposal": "negative_y",
+        "native_selected_identity_verified": false,
+        "non_goal_initialization_required": true,
+        "native_non_goal_initialization_verified": false
+      },
+      "appearance_mode_proposal": "reflected",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    },
+    {
+      "proposal_alias": "R-S2",
+      "wia_id": "wia_v1_r_s2",
+      "title": "Establish a tighter fixed-reference distance order",
+      "seed": 202,
+      "variant": "adapted",
+      "public_task_id": "wia_mirror_r_s2_v1",
+      "task_file": "tasks/r_s2_seed202_v1.yaml",
+      "task_sha256": "b5c8653cbef9ec6429840f1e311aaab3a72a11d476239ab3cc98c9fdf84d8bcd",
+      "scene_file": "scenes/r_s2_seed202_v1.yaml",
+      "scene_sha256": "361a2eecaf64c055b6f24c797c1455cf016ace3d4c6a1c2de2a498c59276453f",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          0,
+          1
+        ],
+        "cue_center_proposal_m": [
+          8.7955,
+          -0.78,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          -2.04,
+          0.81
+        ],
+        "intended_cue_side_proposal": "positive_y",
+        "native_selected_identity_verified": false,
+        "non_goal_initialization_required": true,
+        "native_non_goal_initialization_verified": false
+      },
+      "appearance_mode_proposal": "reflected",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    },
+    {
+      "proposal_alias": "R-S3",
+      "wia_id": "wia_v1_r_s3",
+      "title": "Swap distance order relative to the fixed reference",
+      "seed": 101,
+      "variant": "adapted",
+      "public_task_id": "wia_mirror_r_s3_v1",
+      "task_file": "tasks/r_s3_seed101_v1.yaml",
+      "task_sha256": "968ef22065f0c59988282d0da5e32877528402d7a7452442272a31f918108754",
+      "scene_file": "scenes/r_s3_seed101_v1.yaml",
+      "scene_sha256": "fbf5be905bb06e34284c98496b0b484fe3060cd619a05b34f0bce15c5f85b731",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          1,
+          0
+        ],
+        "cue_center_proposal_m": [
+          8.7955,
+          -1.22,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          -2.04,
+          0.81
+        ],
+        "intended_cue_side_proposal": "negative_y",
+        "native_selected_identity_verified": false,
+        "non_goal_initialization_required": true,
+        "native_non_goal_initialization_verified": false
+      },
+      "appearance_mode_proposal": "reflected",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    },
+    {
+      "proposal_alias": "R-S3",
+      "wia_id": "wia_v1_r_s3",
+      "title": "Swap distance order relative to the fixed reference",
+      "seed": 202,
+      "variant": "adapted",
+      "public_task_id": "wia_mirror_r_s3_v1",
+      "task_file": "tasks/r_s3_seed202_v1.yaml",
+      "task_sha256": "0f8d4d52dda10e203597df6925790adb268cbeb7b5af502a35782b33857af5a0",
+      "scene_file": "scenes/r_s3_seed202_v1.yaml",
+      "scene_sha256": "12bd85e08d60c810697b15a51dd97c17d0f39666c6b65a70730ceb44b4537c92",
+      "layout_proposal": {
+        "candidate_slot_permutation": [
+          0,
+          1
+        ],
+        "cue_center_proposal_m": [
+          8.7955,
+          -0.78,
+          0.95
+        ],
+        "anchor_position_proposal_m": [
+          8.13,
+          -2.04,
+          0.81
+        ],
+        "intended_cue_side_proposal": "positive_y",
+        "native_selected_identity_verified": false,
+        "non_goal_initialization_required": true,
+        "native_non_goal_initialization_verified": false
+      },
+      "appearance_mode_proposal": "reflected",
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false
+    }
+  ]
+}

@@ -1,0 +1,385 @@
+{
+  "schema": "wia_dimensional_design_v1",
+  "revision": "wia_dimensional_v2",
+  "author": "main_agent",
+  "status": "initial_visibility_revision_pending_native_review",
+  "source": {
+    "identity": "Specular Reflection/Correspondence/hall_glass_ceiling/empty_room_0/q_007.json",
+    "sha256": "8db1dff0211f9d4530e974c9995ff61f8bac64170c2534bce8040d8a5a59b2eb",
+    "role": "background_loader_only; original optical inventory and QA are replaced explicitly by active_layout; no original optical answer is reused"
+  },
+  "scene_model": "hall_glass_ceiling",
+  "room": "empty_room_0",
+  "floor_name": "floors_nbzwbf_0",
+  "module": "core.esi_converters.wia_dimensional",
+  "initializer_module": "core.esi_converters.active_layout",
+  "seeds": [
+    101,
+    202
+  ],
+  "seed_role": "Two explicit counterbalanced layout proposals; not an evaluation sample-size claim.",
+  "layout": {
+    "shared_layout_id": "wia_hall_dimensional_workstation_v2",
+    "floor_z_proposal_m": 0.01,
+    "table_center_m": [
+      8.0,
+      -1.0,
+      0.61
+    ],
+    "table_dimensions_m": [
+      1.2,
+      2.4,
+      0.1
+    ],
+    "tabletop_z_proposal_m": 0.66,
+    "leg_centers_xy_m": [
+      [
+        7.48,
+        -2.08
+      ],
+      [
+        7.48,
+        0.08
+      ],
+      [
+        8.52,
+        -2.08
+      ],
+      [
+        8.52,
+        0.08
+      ]
+    ],
+    "leg_dimensions_m": [
+      0.06,
+      0.06,
+      0.55
+    ],
+    "leg_center_z_m": 0.285,
+    "robot_position_m": [
+      6.7,
+      -1.0,
+      0.11
+    ],
+    "robot_yaw_deg": 0.0,
+    "candidate_x_m": 7.72,
+    "candidate_y_slots_m": [
+      -1.78,
+      -1.26,
+      -0.74,
+      -0.22
+    ],
+    "sorting_pad_x_m": 8.32,
+    "sorting_pad_y_slots_m": [
+      -1.78,
+      -1.26,
+      -0.74,
+      -0.22
+    ],
+    "sorting_pad_dimensions_m": [
+      0.3,
+      0.32,
+      0.012
+    ],
+    "pad_z_m": 0.666,
+    "candidate_rgba": [
+      0.65,
+      0.65,
+      0.65,
+      1.0
+    ],
+    "pad_rgba": [
+      [
+        0.1,
+        0.3,
+        0.95,
+        1.0
+      ],
+      [
+        0.95,
+        0.8,
+        0.1,
+        1.0
+      ],
+      [
+        0.75,
+        0.15,
+        0.85,
+        1.0
+      ],
+      [
+        0.1,
+        0.85,
+        0.85,
+        1.0
+      ]
+    ],
+    "pad_labels": [
+      "blue",
+      "yellow",
+      "purple",
+      "cyan"
+    ],
+    "candidate_xy_slots_m": [
+      [
+        7.68,
+        -1.13
+      ],
+      [
+        7.68,
+        -0.87
+      ],
+      [
+        7.93,
+        -1.13
+      ],
+      [
+        7.93,
+        -0.87
+      ]
+    ],
+    "table_rgba": [
+      0.22,
+      0.22,
+      0.22,
+      1.0
+    ],
+    "fixture_rgba": [
+      0.4,
+      0.4,
+      0.4,
+      1.0
+    ]
+  },
+  "scoring": {
+    "minimum_lift_m": 0.05,
+    "stability_duration_s": 0.5,
+    "maximum_linear_speed_m_s": 0.02,
+    "maximum_angular_speed_rad_s": 0.1,
+    "max_sample_gap_s": 0.1,
+    "fixture_position_tolerance_m": 0.002,
+    "fixture_angle_tolerance_rad": 0.01,
+    "dimension_relative_tolerance": 1e-05,
+    "aperture_clearance_margin_m": 0.001,
+    "minimum_assignment_gap_m": 0.015,
+    "threshold_status": "Explicit provisional development contract; native calibration and legal reference execution deferred until user review."
+  },
+  "aperture": {
+    "axis": "world_x",
+    "center_y_m": -1.0,
+    "bottom_z_m": 0.66,
+    "center_x_m": 8.0,
+    "side_thickness_m": 0.04,
+    "frame_outer_width_m": 0.5,
+    "top_thickness_m": 0.04,
+    "delivery_pad_center_m": [
+      8.36,
+      -1.0,
+      0.666
+    ],
+    "delivery_pad_dimensions_m": [
+      0.3,
+      0.32,
+      0.012
+    ],
+    "start_candidate_y_slots_m": [
+      -1.15,
+      -0.85
+    ],
+    "allowed_orientation": "All rotations allowed; use native oriented collision vertices, never only initial world AABB.",
+    "impossibility_basis": "The decoy is a cube with minimum caliper exceeding an aperture dimension, under every rotation. This is an object-only bound; no hand-path feasibility is inferred."
+  },
+  "tasks": [
+    {
+      "alias": "D1-1",
+      "operation": "select_pass_aperture",
+      "title": "Choose a block that fits a narrow opening",
+      "opening_width_m": 0.1,
+      "opening_height_m": 0.22,
+      "tunnel_depth_m": 0.06,
+      "candidate_dimensions_m": [
+        [
+          0.09,
+          0.06,
+          0.06
+        ],
+        [
+          0.14,
+          0.14,
+          0.14
+        ]
+      ],
+      "initial_yaw_deg": [
+        0,
+        0
+      ],
+      "candidate_labels": [
+        "small rectangular block",
+        "large cube"
+      ],
+      "goal": "Choose the block that can pass through the narrow framed opening. Grasp and lift it, move it from the near side through the opening, then release it on the blue pad beyond the frame."
+    },
+    {
+      "alias": "D1-2",
+      "operation": "select_pass_aperture",
+      "title": "Orient a tall block for a low opening",
+      "opening_width_m": 0.24,
+      "opening_height_m": 0.11,
+      "tunnel_depth_m": 0.06,
+      "candidate_dimensions_m": [
+        [
+          0.06,
+          0.06,
+          0.2
+        ],
+        [
+          0.14,
+          0.14,
+          0.14
+        ]
+      ],
+      "initial_yaw_deg": [
+        0,
+        0
+      ],
+      "candidate_labels": [
+        "tall rectangular block",
+        "large cube"
+      ],
+      "goal": "Choose a block and an orientation that fit the low framed opening. Grasp and lift it, pass it from the near side through the opening, then release it on the blue pad beyond the frame. Rotation is allowed."
+    },
+    {
+      "alias": "D1-3",
+      "operation": "select_pass_aperture",
+      "title": "Align a long block with a narrow tunnel",
+      "opening_width_m": 0.11,
+      "opening_height_m": 0.09,
+      "tunnel_depth_m": 0.3,
+      "candidate_dimensions_m": [
+        [
+          0.26,
+          0.06,
+          0.05
+        ],
+        [
+          0.14,
+          0.14,
+          0.14
+        ]
+      ],
+      "initial_yaw_deg": [
+        90,
+        0
+      ],
+      "candidate_labels": [
+        "long rectangular block",
+        "large cube"
+      ],
+      "goal": "Choose a block and orient it to pass through the entire narrow tunnel. Grasp and lift it, enter through the near opening, exit beyond the far opening, and release it on the blue pad."
+    },
+    {
+      "alias": "D2-1",
+      "operation": "sort_intrinsic_dimension",
+      "title": "Sort three blocks by their longest edge",
+      "candidate_dimensions_m": [
+        [
+          0.09,
+          0.05,
+          0.05
+        ],
+        [
+          0.13,
+          0.05,
+          0.05
+        ],
+        [
+          0.17,
+          0.05,
+          0.05
+        ]
+      ],
+      "initial_yaw_deg": [
+        90,
+        0,
+        45
+      ],
+      "candidate_labels": [
+        "block A",
+        "block B",
+        "block C"
+      ],
+      "goal": "Sort all three grey blocks by their longest physical edge, irrespective of their current orientation. Place the shortest on blue, the middle one on yellow, and the longest on purple. Grasp, lift, release and withdraw for every block."
+    },
+    {
+      "alias": "D2-2",
+      "operation": "sort_intrinsic_dimension",
+      "title": "Sort four blocks on the same workstation",
+      "candidate_dimensions_m": [
+        [
+          0.09,
+          0.05,
+          0.05
+        ],
+        [
+          0.13,
+          0.05,
+          0.05
+        ],
+        [
+          0.17,
+          0.05,
+          0.05
+        ],
+        [
+          0.21,
+          0.05,
+          0.05
+        ]
+      ],
+      "initial_yaw_deg": [
+        90,
+        0,
+        45,
+        90
+      ],
+      "candidate_labels": [
+        "block A",
+        "block B",
+        "block C",
+        "block D"
+      ],
+      "goal": "Sort all four grey blocks by their longest physical edge, irrespective of their current orientation. In ascending order place them on blue, yellow, purple and cyan. Grasp, lift, release and withdraw for every block."
+    }
+  ],
+  "invariants": [
+    "All 5 proposal aliases remain distinct; 10 authored seed versions do not count as 10 proposals.",
+    "Use genuine fixed collidable frames, supports and pads and dynamic collidable native Cube primitives for blocks.",
+    "The same 3 blocks and their initial slot assignments are retained when adding the fourth in D2-2, for each seed.",
+    "No object coordinates, root names, expected answer, source QA or private geometry enters public prompts.",
+    "Keep existing eight mounted observations and frozen overview; visibility and necessity are pending native review.",
+    "No scene construction, state setters, extra physics steps, or answers are allowed in the scorer.",
+    "Do not modify existing ESI sources, CoreV2 selection, native controller, capture worker or global schema."
+  ],
+  "qualification": {
+    "native_initial_support_required": true,
+    "native_robot_floor_and_collision_required": true,
+    "native_object_dimensions_required": true,
+    "full_reference_execution": "deferred_until_user_review",
+    "native_gripper_path_verified": false,
+    "continuous_path_certified": false,
+    "scientific_controls_verified": false
+  },
+  "parent_design": {
+    "file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v1/design.json",
+    "sha256": "382ca063d292c68327b0f8846961eaf6ae1d1cfbf81158a35e9f60923f8ef0da"
+  },
+  "iteration_reason": "User requires every dimensional candidate to be clearly visible at the initial observation. V1 D1-2 seed202 native images show both candidate blocks obscured by robot hands. Preserve V1 as reviewed history; revise only candidate starting positions and apparatus colors, keeping tasks, dimensions, thresholds, destinations and controls unchanged.",
+  "initial_visibility_contract": {
+    "required": true,
+    "scope": "All candidate block shapes must be clearly distinguishable in the initial mounted head image; verify actual pixels before acceptance. Human-only cameras do not satisfy this requirement.",
+    "position_proposal_basis": "D1 moves the two candidates inward and slightly farther from the hands. D2 uses a central two-by-two grid. The 3/4-object comparison retains the first three object positions and identities for each paired seed.",
+    "layout_coordinates_are_visibility_certificate": false,
+    "native_visibility_verified": false,
+    "candidate_color_invariant": "All candidates retain the identical V1 grey; fixture/table contrast supplies no candidate-specific identity cue."
+  }
+}

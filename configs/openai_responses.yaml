@@ -1,0 +1,12 @@
+tasks:
+  - path: ../explore_to_achieve/wia_v1/temporal/tasks/history_a_v1.yaml
+policy:
+  type: show_harness
+  backend: openai_responses
+  model: YOUR_EXPLICIT_MODEL_NAME
+  api_key_env: OPENAI_API_KEY
+environment:
+  mode: launch
+evaluation:
+  run_mode: diagnostic
+output_dir: ../results/openai_responses

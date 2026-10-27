@@ -1,0 +1,69 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "artifact_path_base": "absolute",
+  "status": "pending_native_review",
+  "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/cover_design_v2.json",
+  "design_sha256": "773fe1db26ea6da298b8a49593dd4b3e0ba20762b920c8913621591f6bf6783f",
+  "full_reference_execution": "pending",
+  "native_validation_run": false,
+  "physical_success_verified": false,
+  "entries": [
+    {
+      "document_alias": "T50",
+      "variant_id": "t50_light_hand_towel_v2",
+      "label": "T50 native hand towel, reduced declared mass",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/covers/tasks/t50_diverse_cover_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/covers/scenes/t50_diverse_cover_v1.yaml",
+      "cloth_asset": {
+        "category": "hand_towel",
+        "model": "klevhj"
+      },
+      "cloth_scale_multiplier": 2.5,
+      "cloth_mass_kg": 0.15,
+      "public_cover_label": "hand towel",
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/cover_design_v2.json",
+      "design_sha256": "773fe1db26ea6da298b8a49593dd4b3e0ba20762b920c8913621591f6bf6783f",
+      "parent_task_sha256": "8ec7e1d7cecfc011cdcd90f9ea2c50aecfe15bc9a45fddbbb4fc89b8072b60c8",
+      "parent_scene_sha256": "949dd8a0cfcf93440434b187831833c1fbf9003d23ba385f4861b95b4fb931dc",
+      "source_identity": "Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json",
+      "source_sha256": "d7bfd45c7ecc136f920b85f68e4d235195e8d554cb52ff533c7df0942029dfb5",
+      "source_builder_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/src/active_explore/tasks/physical_structure/deformable.py",
+      "source_builder_sha256": "946dd2f1901561497c89f44dcb9deee623351ff709fd022e9a9f7f907327556b",
+      "source_bootstrap_object_inventory": "empty",
+      "source_postprocess_owner": "core.esi_converters.deformable_redrape",
+      "source_postprocess_policy": "existing_joint_world_override",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/covers_v2/tasks/t50_light_hand_towel_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/covers_v2/scenes/t50_light_hand_towel_v2.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/covers_v2/tasks/t50_light_hand_towel_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/covers_v2/scenes/t50_light_hand_towel_v2.yaml",
+      "task_sha256": "899c998aed85e322c9a56f055bea82254e780b21c6e9f3b1f0b4115e168a1f6b",
+      "scene_sha256": "ea69ebdc121147a4efa72938488ce02848a0649aa155685c2b1931dbd7cda65b",
+      "task_source_identity": "Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json",
+      "scene_source_identity": "Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json",
+      "task_source_sha256": "d7bfd45c7ecc136f920b85f68e4d235195e8d554cb52ff533c7df0942029dfb5",
+      "scene_source_sha256": "d7bfd45c7ecc136f920b85f68e4d235195e8d554cb52ff533c7df0942029dfb5",
+      "initialized_cloth_asset_override": {
+        "name": "cover_small_item_render_cloth_0834926443",
+        "category": "hand_towel",
+        "model": "klevhj"
+      },
+      "source_roles": {
+        "task": "immutable_parent_source",
+        "scene": "immutable_parent_source",
+        "cloth": "explicit_deformable_redrape_initialization_override"
+      },
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_fb64ed932434e097adc84053",
+      "task_version": 4,
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "module": "core.esi_converters.deformable_redrape",
+      "operation": "uncover_select_and_deliver",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "physical_success_verified": false
+    }
+  ]
+}

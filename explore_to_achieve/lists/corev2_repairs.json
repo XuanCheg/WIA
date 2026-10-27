@@ -1,0 +1,160 @@
+{
+  "campaign": "corev2_r2_r5_repair_20261020_v1",
+  "code_commit": "working_f7ae18e731a0b36e6062035ed4e72435",
+  "status": "native_preflight_and_capture_passed",
+  "execution_qualified": false,
+  "cpu_checks_passed": {
+    "capture_support_rigid_lists": 41,
+    "review": 28
+  },
+  "tasks": [
+    {
+      "short_id": "R2",
+      "candidate_id": "category_b1fffff9aef66e7517638538",
+      "capture_candidate_id": "category_b3c938a7ccbf37c138c331e2",
+      "job_id": "capture_6b57dbb036342e5ab62e274ff055a374",
+      "state": "REVIEW_PENDING",
+      "failure_cause": null,
+      "image_count": 25,
+      "gpu": 6,
+      "observed_at_unix": 1792485279.393007,
+      "qualification_status": "accepted_minimal_patch",
+      "duration_s": 520.5900686560199,
+      "qualification_receipt": "explore_to_achieve/category_reports/corev2/evidence/repairs_20261020/R2/scene_status.json",
+      "capture_receipt": "explore_to_achieve/category_reports/corev2/evidence/repairs_20261020/R2/preview_complete.json",
+      "initial_agent_bundle": {
+        "available": true,
+        "kind": "frozen_initial_native_agent_input_bundle",
+        "robot_actions": 0,
+        "model_calls": 0,
+        "snapshot_id": 2,
+        "action_step": 0,
+        "captured_at": "2026-10-20T08:28:19.854826+00:00",
+        "reset_identity": {
+          "episode_id": "reset_17e9079d236e4f6ca33106892d264c15",
+          "reset_id": "17e9079d236e4f6ca33106892d264c15",
+          "seed": 0
+        },
+        "native_time_s": 6.841667023487389,
+        "native_time_after_s": 6.841667023487389,
+        "physics_steps": 0,
+        "views": [
+          "chassis_front_left",
+          "chassis_front_right",
+          "chassis_left",
+          "chassis_rear",
+          "chassis_right",
+          "head",
+          "initial_overview_rgb",
+          "right_wrist",
+          "wrist"
+        ],
+        "capture_input_identity": {
+          "job_id": "capture_6b57dbb036342e5ab62e274ff055a374",
+          "capture_signature": "6b57dbb036342e5ab62e274ff055a37463baacd3a482be77bab188875b33c5a5",
+          "task_sha256": "a1f2b8deef71ab55ee434aad5f98b6a3cd95ee44d772783b081bae85b22a229e",
+          "seed": 0,
+          "variant": "tabletop"
+        }
+      },
+      "camera_review_note": "Fresh native initial overview and all eight mounted cameras are available. Human Global directions and object views show the layout and target. Two first-aid-kit detail views repeat; the head frame includes the raised gripper and front chassis views see the table underside. No camera-mount calibration or grasp qualification is inferred."
+    },
+    {
+      "short_id": "R5",
+      "candidate_id": "category_2ffe98c5d556f073969e1d5b",
+      "capture_candidate_id": "category_24e5c82acd0949da5b3d6ce0",
+      "job_id": "capture_67e33cadbbbc55ba40df4511f102696c",
+      "state": "REVIEW_PENDING",
+      "failure_cause": null,
+      "image_count": 26,
+      "gpu": 7,
+      "observed_at_unix": 1792485279.417409,
+      "qualification_status": "accepted_minimal_patch",
+      "duration_s": 331.7417373787612,
+      "qualification_receipt": "explore_to_achieve/category_reports/corev2/evidence/repairs_20261020/R5/scene_status.json",
+      "capture_receipt": "explore_to_achieve/category_reports/corev2/evidence/repairs_20261020/R5/preview_complete.json",
+      "initial_agent_bundle": {
+        "available": true,
+        "kind": "frozen_initial_native_agent_input_bundle",
+        "robot_actions": 0,
+        "model_calls": 0,
+        "snapshot_id": 2,
+        "action_step": 0,
+        "captured_at": "2026-10-20T08:27:42.098436+00:00",
+        "reset_identity": {
+          "episode_id": "reset_0f51366861d44510a64b3da825c43028",
+          "reset_id": "0f51366861d44510a64b3da825c43028",
+          "seed": 0
+        },
+        "native_time_s": 6.841667023487389,
+        "native_time_after_s": 6.841667023487389,
+        "physics_steps": 0,
+        "views": [
+          "chassis_front_left",
+          "chassis_front_right",
+          "chassis_left",
+          "chassis_rear",
+          "chassis_right",
+          "head",
+          "initial_overview_rgb",
+          "right_wrist",
+          "wrist"
+        ],
+        "capture_input_identity": {
+          "job_id": "capture_67e33cadbbbc55ba40df4511f102696c",
+          "capture_signature": "67e33cadbbbc55ba40df4511f102696c95ebd743c2efc3abc097ce5816e0d6e6",
+          "task_sha256": "721e65d24dda5aabd57d3f3fca0459ae99c3fd5b09014f164335fa9ed18b6372",
+          "seed": 0,
+          "variant": "tabletop"
+        }
+      },
+      "camera_review_note": "Fresh native initial overview and all eight mounted cameras are available. The racket is visible on the chair seat and task-object views cover both targets and containers. Several oblique human Globals repeat, the pastry appears dark, and the rear chassis view is obstructed by the sofa. Camera-mount calibration and grasp difficulty remain unverified.",
+      "racket_support_check": {
+        "name": "multi_extra1",
+        "support_binding": "multi_support_extra1",
+        "support_name": "straight_chair_eospnr_0",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          -0.2843141555786133,
+          4.9816508293151855,
+          1.1836001873016357
+        ],
+        "aabb_min": [
+          -0.45016810297966003,
+          4.6196370124816895,
+          0.5284590721130371
+        ],
+        "aabb_max": [
+          -0.319124311208725,
+          4.87548828125,
+          0.6089615821838379
+        ],
+        "support_surface_z_m": 0.5293026566505432,
+        "bottom_minus_support_top_m": -0.0008435845375061035,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/straight_chair_eospnr_0/base_link",
+            "body1": "/World/scene_0/multi_extra1/base_link"
+          },
+          {
+            "body0": "/World/scene_0/straight_chair_eospnr_0/base_link",
+            "body1": "/World/scene_0/multi_extra1/base_link"
+          },
+          {
+            "body0": "/World/scene_0/straight_chair_eospnr_0/base_link",
+            "body1": "/World/scene_0/multi_extra1/base_link"
+          },
+          {
+            "body0": "/World/scene_0/straight_chair_eospnr_0/base_link",
+            "body1": "/World/scene_0/multi_extra1/base_link"
+          }
+        ],
+        "passed": true
+      }
+    }
+  ]
+}

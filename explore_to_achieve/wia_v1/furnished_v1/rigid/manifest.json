@@ -1,0 +1,54 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "entries": [
+    {
+      "document_alias": "T24",
+      "variant_id": "t24_furnished_native_support_v1",
+      "label": "T24 exposed native furniture retrieval and containment",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t24_support_v6/task.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t24_support_v6/scene.yaml",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/rigid/t24_furnished_native_support_v1/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/rigid/t24_furnished_native_support_v1/scene.yaml",
+      "variant": "tabletop",
+      "seed": 0,
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Physical Structure/Rigid Containment/house_single_floor/utility_room_0/t24_furnished_native_support_v1.json",
+      "source_identity": "Physical Structure/Rigid Containment/house_single_floor/utility_room_0/t24_furnished_native_support_v1.json",
+      "source_sha256": "294f59a95f5a9459369f5897e10b1325d5fe1d8bc1f0803f40fdbe593eccc079",
+      "task_sha256": "5a627213d0fede031d45c5655624e08cb25f14a66f0e9cedeca86cdb3bb8e045",
+      "scene_sha256": "4ae7bb8f0b5c7099ecdda7263511c43a9be2f8e3b538125348df8625bd217200",
+      "native_validation_run": false,
+      "physical_success_verified": false,
+      "retained_native_supports": [
+        "countertop_ikwqer_0",
+        "countertop_fjkase_0"
+      ]
+    },
+    {
+      "document_alias": "T25",
+      "variant_id": "t25_furnished_native_support_v1",
+      "label": "T25 exposed native furniture retrieval and containment",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/tasks/rigid_t25_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/scenes/rigid_t25_v1.yaml",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/rigid/t25_furnished_native_support_v1/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/rigid/t25_furnished_native_support_v1/scene.yaml",
+      "variant": "tabletop",
+      "seed": 0,
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Physical Structure/Rigid Containment/Merom_0_garden/playroom_0/t25_furnished_native_support_v1.json",
+      "source_identity": "Physical Structure/Rigid Containment/Merom_0_garden/playroom_0/t25_furnished_native_support_v1.json",
+      "source_sha256": "bdb59c247708bcbf3e3f90c3003fff055ea0696f9bb3113e7df858ededf453e2",
+      "task_sha256": "bfe5baed4894c772b4d8b2354b06fe7d0cbaa97391e699dbd2837613c10881f5",
+      "scene_sha256": "1e80366e5f100a97f275cc1dd69f0caaeac6225f57791eff799ab1aa886e9685",
+      "native_validation_run": false,
+      "physical_success_verified": false,
+      "retained_native_supports": [
+        "countertop_tpuwys_0",
+        "bookcase_owvfik_0"
+      ]
+    }
+  ],
+  "retained_without_revision": [
+    "T22 furnished separated native pickup",
+    "T23 supported-spawn V5"
+  ],
+  "reference_execution_status": "deferred_until_user_review"
+}

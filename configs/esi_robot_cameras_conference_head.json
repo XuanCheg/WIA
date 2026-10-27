@@ -1,0 +1,71 @@
+{
+  "render_size": 1024,
+  "antialiasing": "TAA",
+  "mount_source": "Galaxea R1 hardware guide layout; approximate base_link extrinsics, not calibrated hardware values",
+  "chassis_cameras": [
+    {
+      "name": "chassis_front_left_rgb",
+      "position_m": [
+        0.36,
+        0.15,
+        0.24
+      ],
+      "yaw_deg": 15.0,
+      "focal_length": 6.3
+    },
+    {
+      "name": "chassis_front_right_rgb",
+      "position_m": [
+        0.36,
+        -0.15,
+        0.24
+      ],
+      "yaw_deg": -15.0,
+      "focal_length": 6.3
+    },
+    {
+      "name": "chassis_left_rgb",
+      "position_m": [
+        -0.02,
+        0.36,
+        0.24
+      ],
+      "yaw_deg": 90.0,
+      "focal_length": 6.3
+    },
+    {
+      "name": "chassis_right_rgb",
+      "position_m": [
+        -0.02,
+        -0.36,
+        0.24
+      ],
+      "yaw_deg": -90.0,
+      "focal_length": 6.3
+    },
+    {
+      "name": "chassis_rear_rgb",
+      "position_m": [
+        -0.36,
+        0.0,
+        0.24
+      ],
+      "yaw_deg": 180.0,
+      "focal_length": 6.3
+    }
+  ],
+  "head_camera": {
+    "position_m": [
+      -0.047,
+      0.0,
+      -0.08
+    ],
+    "quaternion_xyzw": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "source": "Explicit eye-link mount for conference head-camera visibility."
+  }
+}

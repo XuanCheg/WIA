@@ -1,0 +1,74 @@
+kind: scene_patch
+id: category_56e6670ea7ed5120ffbf7899
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Spatial Relations/Physical Contact/office_cubicles_left/corridor_0/office_cubicles_left__corridor_0.json
+target: null
+qualification: null
+bindings:
+  obj1:
+    name: obj1
+    category: backpack
+    model: gvbiwl
+  obj2:
+    name: obj2
+    category: shoe_box
+    model: towipq
+  source_floor:
+    name: floors_xmgdee_0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        position:
+        - -6.24
+        - 3.0500000000000003
+        - 0.0
+        yaw_deg: -177.28524086163605
+        head_pitch_deg: 45.0
+      - operation: object_physics
+        binding: obj1
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: obj1
+        visual_only: false
+      - operation: object_physics
+        binding: obj2
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: obj2
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - obj1
+        - obj2
+        manipulation_bindings:
+        - obj2
+        relocation_policy: rigid_group
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: corridor_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - native_grasp_ik_and_aperture_pending
+seed: 0
+runtime:
+  post_controller_settle_steps: 30

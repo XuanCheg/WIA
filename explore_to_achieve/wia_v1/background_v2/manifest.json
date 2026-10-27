@@ -1,0 +1,25 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "entries": [
+    {
+      "document_alias": "T35",
+      "variant_id": "t35_complete_ground_v2",
+      "label": "T35 complete native floors with selected-room furniture",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_v2/t35_task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_v2/t35_scene.yaml",
+      "variant": "adapted",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_v1/t35_task.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_v1/t35_scene.yaml"
+    },
+    {
+      "document_alias": "T48",
+      "variant_id": "t48_complete_ground_v2",
+      "label": "T48 complete native floors with selected-room furniture",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_v2/t48_task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_v2/t48_scene.yaml",
+      "variant": "adapted",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_v1/t48_task.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_v1/t48_scene.yaml"
+    }
+  ]
+}

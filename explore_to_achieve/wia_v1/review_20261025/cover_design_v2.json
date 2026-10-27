@@ -1,0 +1,20 @@
+{
+  "schema": "wia_cover_variant_design_v1",
+  "entries": [
+    {
+      "document_alias": "T50",
+      "variant_id": "t50_light_hand_towel_v2",
+      "label": "T50 native hand towel, reduced declared mass",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/covers/tasks/t50_diverse_cover_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/covers/scenes/t50_diverse_cover_v1.yaml",
+      "cloth_asset": {
+        "category": "hand_towel",
+        "model": "klevhj"
+      },
+      "cloth_scale_multiplier": 2.5,
+      "cloth_mass_kg": 0.15,
+      "public_cover_label": "hand towel"
+    }
+  ],
+  "design_basis": "V1 preserved 1 kg mass but moved the tomato by approximately 0.105 rad during support translation. V2 changes only declared cloth mass to 0.15 kg; mesh, scale, targets and acceptance thresholds are preserved. Native validation pending."
+}

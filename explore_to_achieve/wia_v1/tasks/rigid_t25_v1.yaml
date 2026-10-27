@@ -1,0 +1,456 @@
+kind: category_robot_task
+id: wia_rigid_t25_v1
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/hall_arch_wood/empty_room_0/hall_arch_wood_scene_dict_storage2_1_revised.json
+public:
+  objective: 'Which container does the banana best fit inside: the wicker basket or the bowl
+    or the tupperware? Grasp the banana with the robot, lift it at least 5 cm, and partially
+    insert it into your chosen container. Release it and withdraw the gripper at least 2 cm
+    clear of the banana.'
+  success_criteria: 'Answer the original containment question and complete a real grasp, a
+    lift of at least 5 cm, and stable partial insertion into the chosen container. After release,
+    keep the banana partially inside with the gripper at least 2 cm clear for at least 0.5
+    seconds, with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. An object
+    resting entirely on top does not count as inside. Submit ANSWER: <container label> and
+    declare DONE.'
+  environment: Retrieve the target objects using the real R1 robot.
+  constraints:
+  - Complete every target subtask before declaring DONE. An object resting entirely on top
+    does not count as inside.
+  - Use the existing guarded robot controls and visible container labels.
+  - Preserve all asset scales and keep every container within 2 cm and 0.05 radians of its
+    starting pose.
+  - The banana may be removed after its released, stable partial insertion has been verified.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    target:
+      name: obj_containee
+      category: banana
+      model: znakxm
+    container_2:
+      name: obj_container_2
+      category: wicker_basket
+      model: jqfftz
+    container_1:
+      name: obj_container_1
+      category: tupperware
+      model: mkstwr
+    container_0:
+      name: obj_container_0
+      category: bowl
+      model: byzaxy
+    table:
+      name: support_table_top
+      category: object
+      model: null
+    pickup_support:
+      name: pickup_surface_000_top
+      category: object
+      model: null
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.rigid_partial_insertion
+    operation: pick_release_partial_insert
+    binding_keys:
+    - target
+    - container_2
+    - container_1
+    - container_0
+    - table
+    - pickup_support
+    parameters:
+      scorer_version: wia_rigid_partial_insertion_v1
+      targets:
+      - target
+      containers:
+      - container_0
+      - container_1
+      - container_2
+      expected_containers:
+        target: container_1
+      target_labels:
+        target: banana
+      expected_answers:
+        target: tupperware
+      minimum_lift_m: 0.05
+      stability_duration_s: 0.5
+      maximum_linear_speed_m_s: 0.02
+      maximum_angular_speed_rad_s: 0.1
+      max_sample_gap_s: 0.1
+      interior_margin_m: 0.002
+      penetration_tolerance_m: 0.001
+      withdrawal_clearance_m: 0.02
+      container_pose_tolerance_m: 0.02
+      maximum_container_rotation_rad: 0.05
+      scale_relative_tolerance: 0.0001
+      allow_remove_after_verification: true
+      initial_supports:
+        target: pickup_support
+        container_0: table
+        container_1: table
+        container_2: table
+      initial_support_tolerance_m: 0.015
+      maximum_initial_linear_speed_m_s: 0.02
+      maximum_initial_angular_speed_rad_s: 0.2
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+      initial_visibility: null
+    tabletop:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - -34.5
+        - 11.5
+        - 0.0999997764825821
+        yaw_deg: 0.0
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_top
+        primitive_type: Cube
+        position:
+        - -33.73
+        - 11.5
+        - 0.4299997764825821
+        dimensions_m:
+        - 0.64
+        - 0.5
+        - 0.04
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.48
+        - 0.29
+        - 0.14
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_1
+        primitive_type: Cube
+        position:
+        - -34.01
+        - 11.29
+        - 0.2049997764825821
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_2
+        primitive_type: Cube
+        position:
+        - -34.01
+        - 11.71
+        - 0.2049997764825821
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_3
+        primitive_type: Cube
+        position:
+        - -33.45
+        - 11.29
+        - 0.2049997764825821
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_4
+        primitive_type: Cube
+        position:
+        - -33.45
+        - 11.71
+        - 0.2049997764825821
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_0
+        position:
+        - -33.92086959838867
+        - 11.382719249725342
+        - 0.47119436065852643
+        candidates: []
+        quaternion_xyzw:
+        - 0.0003229005402968168
+        - 0.003126484598275809
+        - 1.1255167094640558e-05
+        - 0.9999950603391095
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_1
+        position:
+        - -33.61219329833985
+        - 11.620162277221679
+        - 0.5045459291636943
+        candidates: []
+        quaternion_xyzw:
+        - 0.07903956640824547
+        - -0.19056954719292873
+        - -0.24059849257284885
+        - 0.948445232997853
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_2
+        position:
+        - -33.61219329833985
+        - 11.382719249725342
+        - 0.5141905306577682
+        candidates: []
+        quaternion_xyzw:
+        - -0.16187102170775114
+        - 0.029060768171091475
+        - -0.005212663375990422
+        - 0.9863701497030025
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: pickup_surface_000_top
+        primitive_type: Cube
+        position:
+        - -31.25
+        - 9.43
+        - 0.5299997764825821
+        dimensions_m:
+        - 0.3
+        - 0.3
+        - 0.04
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.42
+        - 0.32
+        - 0.2
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: pickup_surface_000_leg_0
+        primitive_type: Cube
+        position:
+        - -31.375
+        - 9.305
+        - 0.2549997764825821
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.51
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.42
+        - 0.32
+        - 0.2
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: pickup_surface_000_leg_1
+        primitive_type: Cube
+        position:
+        - -31.375
+        - 9.555
+        - 0.2549997764825821
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.51
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.42
+        - 0.32
+        - 0.2
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: pickup_surface_000_leg_2
+        primitive_type: Cube
+        position:
+        - -31.125
+        - 9.305
+        - 0.2549997764825821
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.51
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.42
+        - 0.32
+        - 0.2
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: pickup_surface_000_leg_3
+        primitive_type: Cube
+        position:
+        - -31.125
+        - 9.555
+        - 0.2549997764825821
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.51
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.42
+        - 0.32
+        - 0.2
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: target
+        position:
+        - -31.25
+        - 9.43
+        - 0.5701333402395249
+        candidates: []
+        quaternion_xyzw:
+        - 6.494810804724693e-07
+        - 1.2593809515237808e-06
+        - -0.05854220688343048
+        - 0.998285174369812
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      initial_visibility: null
+qualification:
+  on_failure: skip
+  support: null
+  initial_visibility: none
+defaults:
+  seed: 0
+  max_steps: 60
+  action_mode: parameterized
+repair:
+  contract_revision: wia_rigid_partial_insertion_v1
+  validation_status: pending-native-validation
+  parent_task_file: explore_to_achieve/tasks/Physical Structure/Rigid Containment/hall_arch_wood/empty_room_0/corev2__category_654f8bfa37612193a879dd59__pillar_repair.yaml
+  parent_scene_file: explore_to_achieve/scenes/Physical Structure/Rigid Containment/hall_arch_wood/empty_room_0/corev2__category_654f8bfa37612193a879dd59__pillar_repair.yaml
+  scene_file: explore_to_achieve/wia_v1/scenes/rigid_t25_v1.yaml
+  original_scene_qualification:
+    on_failure: skip
+    support: table
+    supported_objects:
+    - target
+    - container_2
+    - container_1
+    - container_0
+    object_supports:
+      target: pickup_support
+    support_surface_mode: local_raycast
+    support_tolerance_m: 0.015
+    maximum_linear_speed_m_s: 0.02
+    maximum_angular_speed_rad_s: 0.2
+    require_support_contact: true
+    reject_robot_contacts: true
+    screen_furniture_overlap: true
+    settle_steps: 30
+  native_validation_run: false
+  physically_qualified: false
+  threshold_basis: Explicit pilot thresholds; native calibration is pending.

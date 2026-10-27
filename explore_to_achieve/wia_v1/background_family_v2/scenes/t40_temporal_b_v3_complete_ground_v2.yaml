@@ -1,0 +1,1449 @@
+kind: scene_patch
+id: wia_tm2_history_b_v3_scene__t40_temporal_b_v3_complete_ground_v2
+version: 4
+status: pending
+source:
+  provider: esi
+  json: Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json
+target: null
+qualification: null
+bindings:
+  container_00:
+    name: render_unobserved_box_0_carton
+    category: carton
+    model: cdmmwy
+  image1_content_00:
+    name: render_unobserved_content_phase1_content_butter_0
+    category: butter
+    model: ovirmc
+  container_01:
+    name: render_unobserved_box_1_carton
+    category: carton
+    model: cdmmwy
+  image1_content_01:
+    name: render_unobserved_content_phase1_content_jar_of_cumin_1
+    category: jar_of_cumin
+    model: tsktnz
+  image2_content_01:
+    name: render_unobserved_content_phase2_content_jar_of_cumin_1
+    category: jar_of_cumin
+    model: tsktnz
+  container_02:
+    name: render_unobserved_box_2_carton
+    category: carton
+    model: cdmmwy
+  floor:
+    name: floors_qgmjvd_0
+    category: floors
+  change_collection_table:
+    name: change_collection_table
+    category: breakfast_table
+  change_collection_table_leg_0:
+    name: change_collection_table_leg_0
+    category: breakfast_table
+  change_collection_table_leg_1:
+    name: change_collection_table_leg_1
+    category: breakfast_table
+  change_collection_table_leg_2:
+    name: change_collection_table_leg_2
+    category: breakfast_table
+  change_collection_table_leg_3:
+    name: change_collection_table_leg_3
+    category: breakfast_table
+  change_collection_tray:
+    name: change_collection_tray
+    category: tray
+  change_collection_rim_0:
+    name: change_collection_rim_0
+    category: tray
+  change_collection_rim_1:
+    name: change_collection_rim_1
+    category: tray
+  change_collection_rim_2:
+    name: change_collection_rim_2
+    category: tray
+  change_collection_rim_3:
+    name: change_collection_rim_3
+    category: tray
+  change_spare_table:
+    name: change_spare_table
+    category: breakfast_table
+  change_spare_table_leg_0:
+    name: change_spare_table_leg_0
+    category: breakfast_table
+  change_spare_table_leg_1:
+    name: change_spare_table_leg_1
+    category: breakfast_table
+  change_spare_table_leg_2:
+    name: change_spare_table_leg_2
+    category: breakfast_table
+  change_spare_table_leg_3:
+    name: change_spare_table_leg_3
+    category: breakfast_table
+  change_spare_tray:
+    name: change_spare_tray
+    category: tray
+  change_spare_rim_0:
+    name: change_spare_rim_0
+    category: tray
+  change_spare_rim_1:
+    name: change_spare_rim_1
+    category: tray
+  change_spare_rim_2:
+    name: change_spare_rim_2
+    category: tray
+  change_spare_rim_3:
+    name: change_spare_rim_3
+    category: tray
+  public_spare_1:
+    name: public_spare_1
+    category: shaker
+    model: hbheag
+  public_spare_2:
+    name: public_spare_2
+    category: jar_of_cumin
+    model: tsktnz
+  public_spare_3:
+    name: public_spare_3
+    category: butter
+    model: ovirmc
+  public_spare_4:
+    name: public_spare_4
+    category: bottle_of_lavender_oil
+    model: csalbx
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.temporal_understanding_two_phase
+        parameters: &id001
+          replay_payload:
+            scene: house_single_floor
+            room: dining_room_0
+            seed: 0
+            question_index: 1
+            task_type: change_detection
+            question_data:
+              boxes:
+              - box_index: 0
+                change_type: remove
+                container:
+                  bbox:
+                  - - 6.529161071777343
+                    - 3.345233201980591
+                    - 0.8126344680786133
+                  - - 6.7596512794494625
+                    - 3.6596856117248535
+                    - 0.9994605779647827
+                  category: carton
+                  model: cdmmwy
+                  name: render_unobserved_box_0_carton
+                  placement:
+                    placement_type: on_top
+                    position:
+                    - 6.6453999999999995
+                    - 3.5004
+                    - 0.9212516951560974
+                    support_category: breakfast_table
+                    support_name: breakfast_table_rhjoby_0
+                position_label: left box
+                phase1_content:
+                  bbox_size_m:
+                  - 0.028295040130615234
+                  - 0.05
+                  - 0.015579403877258301
+                  category: butter
+                  display_name: butter
+                  model: ovirmc
+                  sampling_source: keys_json_filtered_by_local_model_bbox_edges
+                phase2_content: null
+              - box_index: 1
+                change_type: no_change
+                container:
+                  bbox:
+                  - - 7.179161071777344
+                    - 3.345233201980591
+                    - 0.8126344680786133
+                  - - 7.409651279449463
+                    - 3.6596856117248535
+                    - 0.9994605779647827
+                  category: carton
+                  model: cdmmwy
+                  name: render_unobserved_box_1_carton
+                  placement:
+                    placement_type: on_top
+                    position:
+                    - 7.2954
+                    - 3.5004
+                    - 0.9212516951560974
+                    support_category: breakfast_table
+                    support_name: breakfast_table_rhjoby_0
+                position_label: middle box
+                phase1_content:
+                  bbox_size_m:
+                  - 0.06
+                  - 0.06000002098083496
+                  - 0.07185805511474609
+                  category: jar_of_cumin
+                  display_name: jar of cumin
+                  model: tsktnz
+                  sampling_source: keys_json_filtered_by_local_model_bbox_edges
+                phase2_content:
+                  bbox_size_m:
+                  - 0.06
+                  - 0.06000002098083496
+                  - 0.07185805511474609
+                  category: jar_of_cumin
+                  display_name: jar of cumin
+                  model: tsktnz
+                  sampling_source: keys_json_filtered_by_local_model_bbox_edges
+              - box_index: 2
+                change_type: no_change
+                container:
+                  bbox:
+                  - - 7.829161071777344
+                    - 3.345233201980591
+                    - 0.8126344680786133
+                  - - 8.059651279449463
+                    - 3.6596856117248535
+                    - 0.9994605779647827
+                  category: carton
+                  model: cdmmwy
+                  name: render_unobserved_box_2_carton
+                  placement:
+                    placement_type: on_top
+                    position:
+                    - 7.9454
+                    - 3.5004
+                    - 0.9212516951560974
+                    support_category: breakfast_table
+                    support_name: breakfast_table_rhjoby_0
+                position_label: right box
+                phase1_content: null
+                phase2_content: null
+              task_type: change_detection
+              candidate_index: 0
+              render:
+                gt_view:
+                  dir: gt_view
+                  image1:
+                    fov_deg: 55.0
+                    images:
+                    - box_index: 0
+                      camera_pose:
+                        position:
+                        - 7.9096514906739905
+                        - 3.448997084572201
+                        - 1.4962887056099525
+                        quaternion_xyzw:
+                        - 0.2820644341555037
+                        - 0.25862378929878393
+                        - 0.6243730596774459
+                        - 0.6809637824013097
+                      container_name: render_unobserved_box_0_carton
+                      fov_deg: 55.0
+                      image_path: image1_box_00.png
+                      look_target:
+                      - 7.294359445571899
+                      - 3.502447485923767
+                      - 0.8786794066429138
+                      pitch_deg: 45.0
+                      position_label: the box
+                      requested_clearance_m: 0.5
+                      view_direction: front
+                    output_dir: gt_view
+                    success: true
+                  image2:
+                    fov_deg: 55.0
+                    images:
+                    - box_index: 0
+                      camera_pose:
+                        position:
+                        - 7.909652809139296
+                        - 3.502460189007919
+                        - 1.5212933220963591
+                        quaternion_xyzw:
+                        - 0.27059714403703966
+                        - 0.2705989561061236
+                        - 0.6532836697954055
+                        - 0.6532792950736471
+                      container_name: render_unobserved_box_0_carton
+                      fov_deg: 55.0
+                      image_path: image2_box_00.png
+                      look_target:
+                      - 7.294406890869141
+                      - 3.5024560689926147
+                      - 0.9060474038124084
+                      pitch_deg: 45.0
+                      position_label: the box
+                      requested_clearance_m: 0.5
+                      view_direction: front
+                    output_dir: gt_view
+                    success: true
+          bindings:
+            container_00:
+              name: render_unobserved_box_0_carton
+              category: carton
+              model: cdmmwy
+            image1_content_00:
+              name: render_unobserved_content_phase1_content_butter_0
+              category: butter
+              model: ovirmc
+            container_01:
+              name: render_unobserved_box_1_carton
+              category: carton
+              model: cdmmwy
+            image1_content_01:
+              name: render_unobserved_content_phase1_content_jar_of_cumin_1
+              category: jar_of_cumin
+              model: tsktnz
+            image2_content_01:
+              name: render_unobserved_content_phase2_content_jar_of_cumin_1
+              category: jar_of_cumin
+              model: tsktnz
+            container_02:
+              name: render_unobserved_box_2_carton
+              category: carton
+              model: cdmmwy
+            floor:
+              name: floors_qgmjvd_0
+              category: floors
+            change_collection_table:
+              name: change_collection_table
+              category: breakfast_table
+            change_collection_table_leg_0:
+              name: change_collection_table_leg_0
+              category: breakfast_table
+            change_collection_table_leg_1:
+              name: change_collection_table_leg_1
+              category: breakfast_table
+            change_collection_table_leg_2:
+              name: change_collection_table_leg_2
+              category: breakfast_table
+            change_collection_table_leg_3:
+              name: change_collection_table_leg_3
+              category: breakfast_table
+            change_collection_tray:
+              name: change_collection_tray
+              category: tray
+            change_collection_rim_0:
+              name: change_collection_rim_0
+              category: tray
+            change_collection_rim_1:
+              name: change_collection_rim_1
+              category: tray
+            change_collection_rim_2:
+              name: change_collection_rim_2
+              category: tray
+            change_collection_rim_3:
+              name: change_collection_rim_3
+              category: tray
+            change_spare_table:
+              name: change_spare_table
+              category: breakfast_table
+            change_spare_table_leg_0:
+              name: change_spare_table_leg_0
+              category: breakfast_table
+            change_spare_table_leg_1:
+              name: change_spare_table_leg_1
+              category: breakfast_table
+            change_spare_table_leg_2:
+              name: change_spare_table_leg_2
+              category: breakfast_table
+            change_spare_table_leg_3:
+              name: change_spare_table_leg_3
+              category: breakfast_table
+            change_spare_tray:
+              name: change_spare_tray
+              category: tray
+            change_spare_rim_0:
+              name: change_spare_rim_0
+              category: tray
+            change_spare_rim_1:
+              name: change_spare_rim_1
+              category: tray
+            change_spare_rim_2:
+              name: change_spare_rim_2
+              category: tray
+            change_spare_rim_3:
+              name: change_spare_rim_3
+              category: tray
+            public_spare_1:
+              name: public_spare_1
+              category: shaker
+              model: hbheag
+            public_spare_2:
+              name: public_spare_2
+              category: jar_of_cumin
+              model: tsktnz
+            public_spare_3:
+              name: public_spare_3
+              category: butter
+              model: ovirmc
+            public_spare_4:
+              name: public_spare_4
+              category: bottle_of_lavender_oil
+              model: csalbx
+          container_keys:
+          - container_00
+          - container_01
+          - container_02
+          phase_keys:
+            image1:
+            - image1_content_00
+            - image1_content_01
+            image2:
+            - image2_content_01
+          relations:
+            image1_content_00: container_00
+            image1_content_01: container_01
+            image2_content_01: container_01
+          source_objects:
+            container_00:
+              position:
+              - 6.6453999999999995
+              - 3.5004
+              - 0.9212516951560974
+              quaternion_xyzw:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              bbox:
+              - - 6.529161071777343
+                - 3.345233201980591
+                - 0.8126344680786133
+              - - 6.7596512794494625
+                - 3.6596856117248535
+                - 0.9994605779647827
+            image1_content_00:
+              position:
+              - 6.644406175613403
+              - 3.502459406852722
+              - 0.906047523021698
+              quaternion_xyzw:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              bbox_size_m:
+              - 0.028295040130615234
+              - 0.05
+              - 0.015579403877258301
+            container_01:
+              position:
+              - 7.2954
+              - 3.5004
+              - 0.9212516951560974
+              quaternion_xyzw:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              bbox:
+              - - 7.179161071777344
+                - 3.345233201980591
+                - 0.8126344680786133
+              - - 7.409651279449463
+                - 3.6596856117248535
+                - 0.9994605779647827
+            image1_content_01:
+              position:
+              - 7.294406175613403
+              - 3.502459406852722
+              - 0.906047523021698
+              quaternion_xyzw:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              bbox_size_m:
+              - 0.06
+              - 0.06000002098083496
+              - 0.07185805511474609
+            image2_content_01:
+              position:
+              - 7.294406175613403
+              - 3.502459406852722
+              - 0.906047523021698
+              quaternion_xyzw:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              bbox_size_m:
+              - 0.06
+              - 0.06000002098083496
+              - 0.07185805511474609
+            container_02:
+              position:
+              - 7.9454
+              - 3.5004
+              - 0.9212516951560974
+              quaternion_xyzw:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              bbox:
+              - - 7.829161071777344
+                - 3.345233201980591
+                - 0.8126344680786133
+              - - 8.059651279449463
+                - 3.6596856117248535
+                - 0.9994605779647827
+          scene_model: house_single_floor
+          room: dining_room_0
+          source_identity: Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json
+          phase: image1
+          builder_sha256: 6fe04f703d0a43121fa0a446005b0351ad52dbddb0a375c90517c0ba14c707ab
+          generator_sha256: ef40b0c0bf7a17563ba09f2dc25f2741e90ac3686aec1a9f692794df41a1b584
+          replay_sha256: d20f0eb7958f25f4b4650a98b4754cd09eaf7063c92a1fb79f48de25897be337
+          provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration
+            build_unobserved_replay_plan and _preloaded_object_configs; saved AABB-center
+            placement from _place_preloaded_phase_content and producer _try_place_inside_container.
+          source_task_type: change_detection
+          public_options:
+          - 'yes'
+          - 'no'
+          original_answer: 'yes'
+          box_labels:
+            container_00: left box
+            container_01: middle box
+            container_02: right box
+          target_box_index: null
+          temporal_episode: true
+          accessible_support_rebase_required: true
+          task_revision: task_edit2_temporal_20261018_v1
+          requires_native_visual_discovery: true
+          task_edit2_physical: true
+          physical_branch: removed
+          source_event_recipe:
+            branch: removed
+            changed_containers:
+            - container_00
+            source_container: container_00
+            original_key: image1_content_00
+            current_key: null
+            phase_1_slots:
+              container_00: image1_content_00
+              container_01: image1_content_01
+              container_02: null
+            phase_2_slots:
+              container_00: null
+              container_01: image2_content_01
+              container_02: null
+          physical_target_key: public_spare_3
+          physical_destination_key: container_00
+          placement_relation: inside
+          apparatus:
+            primitives:
+            - name: change_collection_table
+              position:
+              - 5.2
+              - 3.3
+              - 0.695
+              dimensions_m:
+              - 0.6
+              - 0.5
+              - 0.05
+              rgba:
+              - 0.35
+              - 0.28
+              - 0.18
+              - 1.0
+            - name: change_collection_table_leg_0
+              position:
+              - 4.96
+              - 3.11
+              - 0.33499999999999996
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: change_collection_table_leg_1
+              position:
+              - 4.96
+              - 3.4899999999999998
+              - 0.33499999999999996
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: change_collection_table_leg_2
+              position:
+              - 5.44
+              - 3.11
+              - 0.33499999999999996
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: change_collection_table_leg_3
+              position:
+              - 5.44
+              - 3.4899999999999998
+              - 0.33499999999999996
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: change_collection_tray
+              category: tray
+              position:
+              - 5.2
+              - 3.3
+              - 0.73
+              dimensions_m:
+              - 0.5
+              - 0.4
+              - 0.02
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: change_collection_rim_0
+              category: tray
+              position:
+              - 4.955
+              - 3.3
+              - 0.76
+              dimensions_m:
+              - 0.01
+              - 0.4
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: change_collection_rim_1
+              category: tray
+              position:
+              - 5.445
+              - 3.3
+              - 0.76
+              dimensions_m:
+              - 0.01
+              - 0.4
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: change_collection_rim_2
+              category: tray
+              position:
+              - 5.2
+              - 3.105
+              - 0.76
+              dimensions_m:
+              - 0.5
+              - 0.01
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: change_collection_rim_3
+              category: tray
+              position:
+              - 5.2
+              - 3.4949999999999997
+              - 0.76
+              dimensions_m:
+              - 0.5
+              - 0.01
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: change_spare_table
+              position:
+              - 6.15
+              - 2.45
+              - 0.695
+              dimensions_m:
+              - 0.6
+              - 0.5
+              - 0.05
+              rgba:
+              - 0.35
+              - 0.28
+              - 0.18
+              - 1.0
+            - name: change_spare_table_leg_0
+              position:
+              - 5.91
+              - 2.2600000000000002
+              - 0.33499999999999996
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: change_spare_table_leg_1
+              position:
+              - 5.91
+              - 2.64
+              - 0.33499999999999996
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: change_spare_table_leg_2
+              position:
+              - 6.390000000000001
+              - 2.2600000000000002
+              - 0.33499999999999996
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: change_spare_table_leg_3
+              position:
+              - 6.390000000000001
+              - 2.64
+              - 0.33499999999999996
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: change_spare_tray
+              category: tray
+              position:
+              - 6.15
+              - 2.45
+              - 0.73
+              dimensions_m:
+              - 0.5
+              - 0.4
+              - 0.02
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: change_spare_rim_0
+              category: tray
+              position:
+              - 5.905
+              - 2.45
+              - 0.76
+              dimensions_m:
+              - 0.01
+              - 0.4
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: change_spare_rim_1
+              category: tray
+              position:
+              - 6.3950000000000005
+              - 2.45
+              - 0.76
+              dimensions_m:
+              - 0.01
+              - 0.4
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: change_spare_rim_2
+              category: tray
+              position:
+              - 6.15
+              - 2.2550000000000003
+              - 0.76
+              dimensions_m:
+              - 0.5
+              - 0.01
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: change_spare_rim_3
+              category: tray
+              position:
+              - 6.15
+              - 2.645
+              - 0.76
+              dimensions_m:
+              - 0.5
+              - 0.01
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            dataset_objects:
+            - type: DatasetObject
+              name: public_spare_1
+              category: shaker
+              model: hbheag
+              position:
+              - 6.0200000000000005
+              - 2.35
+              - 0.788977990812315
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: public_spare_2
+              category: jar_of_cumin
+              model: tsktnz
+              position:
+              - 6.28
+              - 2.35
+              - 0.778929027557373
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: public_spare_3
+              category: butter
+              model: ovirmc
+              position:
+              - 6.0200000000000005
+              - 2.5500000000000003
+              - 0.7507897019386292
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: public_spare_4
+              category: bottle_of_lavender_oil
+              model: csalbx
+              position:
+              - 6.28
+              - 2.5500000000000003
+              - 0.7812698484659195
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            floor_contact_names:
+            - change_collection_table_leg_0
+            - change_collection_table_leg_1
+            - change_collection_table_leg_2
+            - change_collection_table_leg_3
+            - change_spare_table_leg_0
+            - change_spare_table_leg_1
+            - change_spare_table_leg_2
+            - change_spare_table_leg_3
+          public_spare_inventory:
+          - binding_key: public_spare_1
+            binding:
+              name: public_spare_1
+              category: shaker
+              model: hbheag
+            public_label: spare 1 on the stocked spare tray
+            public_category: shaker
+            support_binding: change_spare_tray
+          - binding_key: public_spare_2
+            binding:
+              name: public_spare_2
+              category: jar_of_cumin
+              model: tsktnz
+            public_label: spare 2 on the stocked spare tray
+            public_category: jar_of_cumin
+            support_binding: change_spare_tray
+          - binding_key: public_spare_3
+            binding:
+              name: public_spare_3
+              category: butter
+              model: ovirmc
+            public_label: spare 3 on the stocked spare tray
+            public_category: butter
+            support_binding: change_spare_tray
+          - binding_key: public_spare_4
+            binding:
+              name: public_spare_4
+              category: bottle_of_lavender_oil
+              model: csalbx
+            public_label: spare 4 on the stocked spare tray
+            public_category: bottle_of_lavender_oil
+            support_binding: change_spare_tray
+          phase_2_navigation_required: false
+          release_stability_steps: 15
+          maximum_release_speed_m_s: 0.02
+          maximum_release_angular_speed_rad_s: 0.1
+          budget_status: pending_representative_comparison_and_branch_execution
+          native_visual_adapter: task_visual_evidence
+          phase_1_max_decisions: 10
+          phase_1_allow_early_transition: true
+          phase_1_auto_transition: true
+          require_complete_phase_1_coverage: false
+          survey_revision: free_survey_10_v1
+      - operation: robot_pose
+        position:
+        - 9.4
+        - 2.7
+        - -2.0831823348999023e-05
+        yaw_deg: 160.0
+        head_pitch_deg: 35.0
+      - operation: object_physics
+        phase: before_construction
+        binding: container_00
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: container_01
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: container_02
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: container_00
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: container_01
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: container_02
+        visual_only: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.temporal_understanding_two_phase
+        parameters: *id001
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: inspection
+        group_bindings:
+        - container_00
+        - image1_content_00
+        - container_01
+        - image1_content_01
+        - container_02
+        manipulation_bindings:
+        - container_00
+        - container_01
+        - container_02
+        relocation_policy: independent_groups
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+        placement_groups:
+        - - container_00
+          - image1_content_00
+        - - container_01
+          - image1_content_01
+        - - container_02
+        support_bindings:
+        - container_00
+        - container_01
+        - container_02
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: dining_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - accessible_temporal_container_placement
+        - native_temporal_support_unverified
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: house_single_floor
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: house_single_floor
+          disable_grid: false
+    saved_image1:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.temporal_understanding_unobserved_change
+        parameters: &id002
+          replay_payload: &id003
+            scene: house_single_floor
+            room: dining_room_0
+            seed: 0
+            question_index: 1
+            task_type: change_detection
+            question_data:
+              boxes:
+              - box_index: 0
+                change_type: remove
+                container:
+                  bbox:
+                  - - 6.529161071777343
+                    - 3.345233201980591
+                    - 0.8126344680786133
+                  - - 6.7596512794494625
+                    - 3.6596856117248535
+                    - 0.9994605779647827
+                  category: carton
+                  model: cdmmwy
+                  name: render_unobserved_box_0_carton
+                  placement:
+                    placement_type: on_top
+                    position:
+                    - 6.6453999999999995
+                    - 3.5004
+                    - 0.9212516951560974
+                    support_category: breakfast_table
+                    support_name: breakfast_table_rhjoby_0
+                position_label: left box
+                phase1_content:
+                  bbox_size_m:
+                  - 0.028295040130615234
+                  - 0.05
+                  - 0.015579403877258301
+                  category: butter
+                  display_name: butter
+                  model: ovirmc
+                  sampling_source: keys_json_filtered_by_local_model_bbox_edges
+                phase2_content: null
+              - box_index: 1
+                change_type: no_change
+                container:
+                  bbox:
+                  - - 7.179161071777344
+                    - 3.345233201980591
+                    - 0.8126344680786133
+                  - - 7.409651279449463
+                    - 3.6596856117248535
+                    - 0.9994605779647827
+                  category: carton
+                  model: cdmmwy
+                  name: render_unobserved_box_1_carton
+                  placement:
+                    placement_type: on_top
+                    position:
+                    - 7.2954
+                    - 3.5004
+                    - 0.9212516951560974
+                    support_category: breakfast_table
+                    support_name: breakfast_table_rhjoby_0
+                position_label: middle box
+                phase1_content:
+                  bbox_size_m:
+                  - 0.06
+                  - 0.06000002098083496
+                  - 0.07185805511474609
+                  category: jar_of_cumin
+                  display_name: jar of cumin
+                  model: tsktnz
+                  sampling_source: keys_json_filtered_by_local_model_bbox_edges
+                phase2_content:
+                  bbox_size_m:
+                  - 0.06
+                  - 0.06000002098083496
+                  - 0.07185805511474609
+                  category: jar_of_cumin
+                  display_name: jar of cumin
+                  model: tsktnz
+                  sampling_source: keys_json_filtered_by_local_model_bbox_edges
+              - box_index: 2
+                change_type: no_change
+                container:
+                  bbox:
+                  - - 7.829161071777344
+                    - 3.345233201980591
+                    - 0.8126344680786133
+                  - - 8.059651279449463
+                    - 3.6596856117248535
+                    - 0.9994605779647827
+                  category: carton
+                  model: cdmmwy
+                  name: render_unobserved_box_2_carton
+                  placement:
+                    placement_type: on_top
+                    position:
+                    - 7.9454
+                    - 3.5004
+                    - 0.9212516951560974
+                    support_category: breakfast_table
+                    support_name: breakfast_table_rhjoby_0
+                position_label: right box
+                phase1_content: null
+                phase2_content: null
+              task_type: change_detection
+              candidate_index: 0
+              render:
+                gt_view:
+                  dir: gt_view
+                  image1:
+                    fov_deg: 55.0
+                    images:
+                    - box_index: 0
+                      camera_pose:
+                        position:
+                        - 7.9096514906739905
+                        - 3.448997084572201
+                        - 1.4962887056099525
+                        quaternion_xyzw:
+                        - 0.2820644341555037
+                        - 0.25862378929878393
+                        - 0.6243730596774459
+                        - 0.6809637824013097
+                      container_name: render_unobserved_box_0_carton
+                      fov_deg: 55.0
+                      image_path: image1_box_00.png
+                      look_target:
+                      - 7.294359445571899
+                      - 3.502447485923767
+                      - 0.8786794066429138
+                      pitch_deg: 45.0
+                      position_label: the box
+                      requested_clearance_m: 0.5
+                      view_direction: front
+                    output_dir: gt_view
+                    success: true
+                  image2:
+                    fov_deg: 55.0
+                    images:
+                    - box_index: 0
+                      camera_pose:
+                        position:
+                        - 7.909652809139296
+                        - 3.502460189007919
+                        - 1.5212933220963591
+                        quaternion_xyzw:
+                        - 0.27059714403703966
+                        - 0.2705989561061236
+                        - 0.6532836697954055
+                        - 0.6532792950736471
+                      container_name: render_unobserved_box_0_carton
+                      fov_deg: 55.0
+                      image_path: image2_box_00.png
+                      look_target:
+                      - 7.294406890869141
+                      - 3.5024560689926147
+                      - 0.9060474038124084
+                      pitch_deg: 45.0
+                      position_label: the box
+                      requested_clearance_m: 0.5
+                      view_direction: front
+                    output_dir: gt_view
+                    success: true
+          bindings: &id004
+            container_00:
+              name: render_unobserved_box_0_carton
+              category: carton
+              model: cdmmwy
+            image1_content_00:
+              name: render_unobserved_content_phase1_content_butter_0
+              category: butter
+              model: ovirmc
+            container_01:
+              name: render_unobserved_box_1_carton
+              category: carton
+              model: cdmmwy
+            image1_content_01:
+              name: render_unobserved_content_phase1_content_jar_of_cumin_1
+              category: jar_of_cumin
+              model: tsktnz
+            image2_content_01:
+              name: render_unobserved_content_phase2_content_jar_of_cumin_1
+              category: jar_of_cumin
+              model: tsktnz
+            container_02:
+              name: render_unobserved_box_2_carton
+              category: carton
+              model: cdmmwy
+            floor:
+              name: floors_qgmjvd_0
+              category: floors
+          container_keys: &id005
+          - container_00
+          - container_01
+          - container_02
+          phase_keys: &id006
+            image1:
+            - image1_content_00
+            - image1_content_01
+            image2:
+            - image2_content_01
+          relations: &id007
+            image1_content_00: container_00
+            image1_content_01: container_01
+            image2_content_01: container_01
+          source_objects: &id008
+            container_00:
+              position:
+              - 6.6453999999999995
+              - 3.5004
+              - 0.9212516951560974
+              quaternion_xyzw:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              bbox:
+              - - 6.529161071777343
+                - 3.345233201980591
+                - 0.8126344680786133
+              - - 6.7596512794494625
+                - 3.6596856117248535
+                - 0.9994605779647827
+            image1_content_00:
+              position:
+              - 6.644406175613403
+              - 3.502459406852722
+              - 0.906047523021698
+              quaternion_xyzw:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              bbox_size_m:
+              - 0.028295040130615234
+              - 0.05
+              - 0.015579403877258301
+            container_01:
+              position:
+              - 7.2954
+              - 3.5004
+              - 0.9212516951560974
+              quaternion_xyzw:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              bbox:
+              - - 7.179161071777344
+                - 3.345233201980591
+                - 0.8126344680786133
+              - - 7.409651279449463
+                - 3.6596856117248535
+                - 0.9994605779647827
+            image1_content_01:
+              position:
+              - 7.294406175613403
+              - 3.502459406852722
+              - 0.906047523021698
+              quaternion_xyzw:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              bbox_size_m:
+              - 0.06
+              - 0.06000002098083496
+              - 0.07185805511474609
+            image2_content_01:
+              position:
+              - 7.294406175613403
+              - 3.502459406852722
+              - 0.906047523021698
+              quaternion_xyzw:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              bbox_size_m:
+              - 0.06
+              - 0.06000002098083496
+              - 0.07185805511474609
+            container_02:
+              position:
+              - 7.9454
+              - 3.5004
+              - 0.9212516951560974
+              quaternion_xyzw:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              bbox:
+              - - 7.829161071777344
+                - 3.345233201980591
+                - 0.8126344680786133
+              - - 8.059651279449463
+                - 3.6596856117248535
+                - 0.9994605779647827
+          scene_model: house_single_floor
+          room: dining_room_0
+          source_identity: Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json
+          phase: image1
+          builder_sha256: 6fe04f703d0a43121fa0a446005b0351ad52dbddb0a375c90517c0ba14c707ab
+          generator_sha256: ef40b0c0bf7a17563ba09f2dc25f2741e90ac3686aec1a9f692794df41a1b584
+          replay_sha256: d20f0eb7958f25f4b4650a98b4754cd09eaf7063c92a1fb79f48de25897be337
+          provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration
+            build_unobserved_replay_plan and _preloaded_object_configs; saved AABB-center
+            placement from _place_preloaded_phase_content and producer _try_place_inside_container.
+      - operation: robot_pose
+        position: &id009
+        - 5.800000000000003
+        - 2.45
+        - -2.0831823348999023e-05
+        yaw_deg: 35.15573310432805
+        head_pitch_deg: 35.0
+      - operation: object_physics
+        phase: before_construction
+        binding: container_00
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: container_01
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: container_02
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: image1_content_00
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: before_construction
+        binding: image1_content_01
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: container_00
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: container_01
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: container_02
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: image1_content_00
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: image1_content_01
+        visual_only: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.temporal_understanding_unobserved_change
+        parameters: *id002
+    saved_image2:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.temporal_understanding_unobserved_change
+        parameters: &id010
+          replay_payload: *id003
+          bindings: *id004
+          container_keys: *id005
+          phase_keys: *id006
+          relations: *id007
+          source_objects: *id008
+          scene_model: house_single_floor
+          room: dining_room_0
+          source_identity: Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json
+          phase: image2
+          builder_sha256: 6fe04f703d0a43121fa0a446005b0351ad52dbddb0a375c90517c0ba14c707ab
+          generator_sha256: ef40b0c0bf7a17563ba09f2dc25f2741e90ac3686aec1a9f692794df41a1b584
+          replay_sha256: d20f0eb7958f25f4b4650a98b4754cd09eaf7063c92a1fb79f48de25897be337
+          provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration
+            build_unobserved_replay_plan and _preloaded_object_configs; saved AABB-center
+            placement from _place_preloaded_phase_content and producer _try_place_inside_container.
+      - operation: robot_pose
+        position: *id009
+        yaw_deg: 35.15573310432805
+        head_pitch_deg: 35.0
+      - operation: object_physics
+        phase: before_construction
+        binding: container_00
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: container_01
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: container_02
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: image2_content_01
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: container_00
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: container_01
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: container_02
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: image2_content_01
+        visual_only: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.temporal_understanding_unobserved_change
+        parameters: *id010
+seed: 0
+runtime:
+  reflection_sensor_profile: {}
+  requires_native_visual_discovery: true
+  post_controller_settle_steps: 0
+  trunk_config: configs/esi_trunk.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0

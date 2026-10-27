@@ -1,0 +1,537 @@
+{
+  "schema": "wia_room_collection_design_v1",
+  "main_authored": true,
+  "native_validation_run": false,
+  "physical_success_verified": false,
+  "entries": [
+    {
+      "document_alias": "T08",
+      "variant_id": "t08_furnished_collection_v5",
+      "label": "T08 furnished room collection V5 (room boundary repair)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Cognitive Mapping/Long-Term Navigation/office_cubicles_left/full_scene/corev2__category_062d036de1fac0297a84732f.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Cognitive Mapping/Long-Term Navigation/office_cubicles_left/full_scene/corev2__category_062d036de1fac0297a84732f.yaml",
+      "scene_inventory_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261024_furnished/asset_inventory/office_cubicles_left.json",
+      "room": "full_scene",
+      "layout": {
+        "scene_model": "office_cubicles_left",
+        "native_inventory": [],
+        "added_inventory": [
+          {
+            "name": "wia_t08_target_01",
+            "category": "bottle_of_lavender_oil",
+            "model": "csalbx",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "role": "target",
+            "room": "bathroom_0",
+            "public_name": "lavender oil bottle",
+            "support": "countertop_zkhelh_0",
+            "position": [
+              -23.0,
+              -13.3,
+              1.0328941429786838
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "name": "wia_t08_target_02",
+            "category": "bottle_of_orange_juice",
+            "model": "edltwh",
+            "scale": [
+              0.7,
+              0.7,
+              0.7
+            ],
+            "role": "target",
+            "room": "shared_office_0",
+            "public_name": "miniature orange juice bottle",
+            "support": "cubicle_hzalfx_12",
+            "position": [
+              -18.4,
+              -10.15,
+              0.9617605547287191
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "support_surface_mode": "local_raycast",
+            "support_alignment_mode": "local_raycast"
+          },
+          {
+            "name": "wia_t08_target_03",
+            "category": "cola_bottle",
+            "model": "oyqdtz",
+            "scale": [
+              0.65,
+              0.65,
+              0.65
+            ],
+            "role": "target",
+            "room": "corridor_0",
+            "public_name": "miniature cola bottle",
+            "support": "wia_t08_corridor_open_shelf",
+            "position": [
+              -9.8,
+              8.7,
+              1.01
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "name": "wia_t08_target_04",
+            "category": "banana",
+            "model": "znakxm",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "role": "target",
+            "room": "conference_hall_0",
+            "public_name": "banana",
+            "support": "wia_t08_conference_side_table",
+            "position": [
+              -1.0,
+              12.0,
+              1.01
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "support_objects": [
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_t08_corridor_open_shelf",
+            "category": "shelf",
+            "position": [
+              -9.8,
+              8.7,
+              0.74
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              0.45,
+              0.28,
+              0.04
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.48,
+              0.32,
+              0.18,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_t08_conference_side_table",
+            "category": "coffee_table",
+            "position": [
+              -1.0,
+              12.0,
+              0.74
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              0.7,
+              0.5,
+              0.04
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.48,
+              0.32,
+              0.18,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_t08_side_table_leg_0",
+            "category": "coffee_table",
+            "position": [
+              -1.31,
+              11.79,
+              0.36
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              0.04,
+              0.04,
+              0.72
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.48,
+              0.32,
+              0.18,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_t08_side_table_leg_1",
+            "category": "coffee_table",
+            "position": [
+              -1.31,
+              12.21,
+              0.36
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              0.04,
+              0.04,
+              0.72
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.48,
+              0.32,
+              0.18,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_t08_side_table_leg_2",
+            "category": "coffee_table",
+            "position": [
+              -0.69,
+              11.79,
+              0.36
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              0.04,
+              0.04,
+              0.72
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.48,
+              0.32,
+              0.18,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_t08_side_table_leg_3",
+            "category": "coffee_table",
+            "position": [
+              -0.69,
+              12.21,
+              0.36
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              0.04,
+              0.04,
+              0.72
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.48,
+              0.32,
+              0.18,
+              1.0
+            ]
+          }
+        ],
+        "route": [
+          "bathroom_0",
+          "shared_office_0",
+          "corridor_0",
+          "conference_hall_0"
+        ],
+        "plate": {
+          "name": "collection_plate",
+          "category": "tray",
+          "model": "gsxbym",
+          "right_eef_position_base_m": [
+            0.4,
+            -0.25,
+            0.8
+          ],
+          "rim_axis": "y",
+          "rim_penetration_m": 0.025,
+          "usable_bounds_local_m": [
+            [
+              -0.147,
+              -0.21,
+              -0.0049
+            ],
+            [
+              0.147,
+              0.21,
+              0.17
+            ]
+          ]
+        },
+        "robot_start": {
+          "position": [
+            -23.5,
+            -11.0,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "source_objects_policy": "replace_authored_source_objects",
+        "scene_config": {
+          "load_room_instances": null,
+          "load_room_types": null,
+          "load_object_categories": null,
+          "not_load_object_categories": null
+        },
+        "public_environment": "Original furnished rooms and doors, with objects on openly exposed supporting surfaces.",
+        "allow_authored_navigation_inventory": true
+      },
+      "main_authored_layout": true,
+      "static_target_room_segmentation_checked": true,
+      "native_validation_run": false,
+      "native_support_verified": false,
+      "native_robot_feasibility_verified": false,
+      "physical_success_verified": false,
+      "original_source_qa_unused": true,
+      "operation": "visit_rooms_and_collect_on_right_hand_tray",
+      "source_identity": "Cognitive Mapping/Long-Term Navigation/office_cubicles_left/full_scene/q_000.json",
+      "version": 5,
+      "review_notes": [
+        "Adds native robot floor/upright/obstacle initialization evidence; task actions remain untested.",
+        "Use measured local cubicle desktop surfaces rather than the separate lower cabinet bodies; native capture confirms desk contact is above cabinet AABB.",
+        "Use the existing structured PhysX contact-vector decoder; thresholds and layout are unchanged from V3. Tray setup failure diagnostics are retained without automatic retries.",
+        "Repair target room boundaries after the previous settled bathroom and corridor targets fell outside their required rooms. Move only the lavender oil bottle XY and the corridor bottle plus its existing shelf XY. The original route, start, identities, scales, Z values, tray and support geometry are preserved. CPU static segmentation passes all nine offsets in {-0.12, 0, +0.12} metres at each revised center; this is not native settled-room, support, reachability or task-success confirmation."
+      ],
+      "boundary_repair_provenance": {
+        "source_design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/collection_design_v4.json",
+        "source_design_sha256": "496e2cf128a8f486a7042fdc568e2afb7df27937c5afa1c41dcdbd27a0c8633d",
+        "reason": "Repair target room boundaries after the previous settled bathroom and corridor targets fell outside their required rooms. Move only the lavender oil bottle XY and the corridor bottle plus its existing shelf XY. The original route, start, identities, scales, Z values, tray and support geometry are preserved. CPU static segmentation passes all nine offsets in {-0.12, 0, +0.12} metres at each revised center; this is not native settled-room, support, reachability or task-success confirmation.",
+        "static_neighborhood_checks": [
+          {
+            "target": "wia_t08_target_01",
+            "offset_xy_m": [
+              -0.12,
+              -0.12
+            ],
+            "native_static_room": "bathroom_0"
+          },
+          {
+            "target": "wia_t08_target_01",
+            "offset_xy_m": [
+              -0.12,
+              0.0
+            ],
+            "native_static_room": "bathroom_0"
+          },
+          {
+            "target": "wia_t08_target_01",
+            "offset_xy_m": [
+              -0.12,
+              0.12
+            ],
+            "native_static_room": "bathroom_0"
+          },
+          {
+            "target": "wia_t08_target_01",
+            "offset_xy_m": [
+              0.0,
+              -0.12
+            ],
+            "native_static_room": "bathroom_0"
+          },
+          {
+            "target": "wia_t08_target_01",
+            "offset_xy_m": [
+              0.0,
+              0.0
+            ],
+            "native_static_room": "bathroom_0"
+          },
+          {
+            "target": "wia_t08_target_01",
+            "offset_xy_m": [
+              0.0,
+              0.12
+            ],
+            "native_static_room": "bathroom_0"
+          },
+          {
+            "target": "wia_t08_target_01",
+            "offset_xy_m": [
+              0.12,
+              -0.12
+            ],
+            "native_static_room": "bathroom_0"
+          },
+          {
+            "target": "wia_t08_target_01",
+            "offset_xy_m": [
+              0.12,
+              0.0
+            ],
+            "native_static_room": "bathroom_0"
+          },
+          {
+            "target": "wia_t08_target_01",
+            "offset_xy_m": [
+              0.12,
+              0.12
+            ],
+            "native_static_room": "bathroom_0"
+          },
+          {
+            "target": "wia_t08_target_03",
+            "offset_xy_m": [
+              -0.12,
+              -0.12
+            ],
+            "native_static_room": "corridor_0"
+          },
+          {
+            "target": "wia_t08_target_03",
+            "offset_xy_m": [
+              -0.12,
+              0.0
+            ],
+            "native_static_room": "corridor_0"
+          },
+          {
+            "target": "wia_t08_target_03",
+            "offset_xy_m": [
+              -0.12,
+              0.12
+            ],
+            "native_static_room": "corridor_0"
+          },
+          {
+            "target": "wia_t08_target_03",
+            "offset_xy_m": [
+              0.0,
+              -0.12
+            ],
+            "native_static_room": "corridor_0"
+          },
+          {
+            "target": "wia_t08_target_03",
+            "offset_xy_m": [
+              0.0,
+              0.0
+            ],
+            "native_static_room": "corridor_0"
+          },
+          {
+            "target": "wia_t08_target_03",
+            "offset_xy_m": [
+              0.0,
+              0.12
+            ],
+            "native_static_room": "corridor_0"
+          },
+          {
+            "target": "wia_t08_target_03",
+            "offset_xy_m": [
+              0.12,
+              -0.12
+            ],
+            "native_static_room": "corridor_0"
+          },
+          {
+            "target": "wia_t08_target_03",
+            "offset_xy_m": [
+              0.12,
+              0.0
+            ],
+            "native_static_room": "corridor_0"
+          },
+          {
+            "target": "wia_t08_target_03",
+            "offset_xy_m": [
+              0.12,
+              0.12
+            ],
+            "native_static_room": "corridor_0"
+          }
+        ],
+        "native_validation_run": false,
+        "native_settled_room_confirmation": false,
+        "physical_success_verified": false
+      }
+    }
+  ],
+  "revision_evidence": {
+    "T07": "Native V2 detail image exposes a stove grate under the kitchen shaker. Move only this target to countertop_tpuwys_0 at [0.35,-5.4].",
+    "T36": "Native V2 overhead shows the robot squeezed between armchairs. Move only its initial position to [-0.3,1.0,0.02].",
+    "T08_T37": "Bind the actual cubicle desk bodies using local upward ray support, preserving target XY and original rooms.",
+    "all": "Require measured native robot floor support, upright posture and obstacle-free contact after tray initialization.",
+    "contact_adapter": "T35 V3 native floor vectors use structured x/y/z records; the original numeric-only decoder rejected measurement availability. Reuse interaction_setup.array without altering criteria.",
+    "T08_V5_boundary_repair": "Repair target room boundaries after the previous settled bathroom and corridor targets fell outside their required rooms. Move only the lavender oil bottle XY and the corridor bottle plus its existing shelf XY. The original route, start, identities, scales, Z values, tray and support geometry are preserved. CPU static segmentation passes all nine offsets in {-0.12, 0, +0.12} metres at each revised center; this is not native settled-room, support, reachability or task-success confirmation."
+  }
+}

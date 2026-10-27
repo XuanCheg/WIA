@@ -1,0 +1,215 @@
+{
+  "scene_id": "tabletop_Benevolence_0_int_scene_dict_storage2_2_revised",
+  "qualification_status": "accepted_minimal_patch",
+  "reason": null,
+  "source_question_unchanged": true,
+  "new_evaluator": false,
+  "run_mode": "benchmark",
+  "review_status": "ready",
+  "native_environment": {
+    "available": true
+  },
+  "initialization_checks": {
+    "target_movable_collidable": true,
+    "supports": {
+      "table": {
+        "name": "support_table_top",
+        "fixed_base": true,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "passed": true
+      }
+    },
+    "supported_objects": {
+      "target": {
+        "name": "obj_containee",
+        "support_binding": "table",
+        "support_name": "support_table_top",
+        "support_surface_mode": "aabb_top",
+        "support_aabb_max": [
+          -0.15337443351745605,
+          1.2856614589691162,
+          0.45000001788139343
+        ],
+        "aabb_min": [
+          -0.8791882991790771,
+          0.9249874949455261,
+          0.450000524520874
+        ],
+        "aabb_max": [
+          -0.6185293793678284,
+          1.2070386409759521,
+          0.6332607269287109
+        ],
+        "support_surface_z_m": 0.45000001788139343,
+        "bottom_minus_support_top_m": 5.066394805908203e-07,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_containee/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "container_0": {
+        "name": "obj_container_0",
+        "support_binding": "table",
+        "support_name": "support_table_top",
+        "support_surface_mode": "aabb_top",
+        "support_aabb_max": [
+          -0.15337443351745605,
+          1.2856614589691162,
+          0.45000001788139343
+        ],
+        "aabb_min": [
+          -0.5428389310836792,
+          0.8874179124832153,
+          0.44995254278182983
+        ],
+        "aabb_max": [
+          -0.2025100737810135,
+          1.2479788064956665,
+          0.7083960771560669
+        ],
+        "support_surface_z_m": 0.45000001788139343,
+        "bottom_minus_support_top_m": -4.747509956359863e-05,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "container_1": {
+        "name": "obj_container_1",
+        "support_binding": "table",
+        "support_name": "support_table_top",
+        "support_surface_mode": "aabb_top",
+        "support_aabb_max": [
+          -0.15337443351745605,
+          1.2856614589691162,
+          0.45000001788139343
+        ],
+        "aabb_min": [
+          -0.8505123853683472,
+          0.5704498291015625,
+          0.44999992847442627
+        ],
+        "aabb_max": [
+          -0.6156409382820129,
+          0.820238471031189,
+          0.6238799095153809
+        ],
+        "support_surface_z_m": 0.45000001788139343,
+        "bottom_minus_support_top_m": -8.940696716308594e-08,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          }
+        ],
+        "passed": true
+      }
+    },
+    "floor_aabb_max_z_m": 0.0,
+    "table_leg_floor_gaps_m": {
+      "support_table_leg_1": 0.0,
+      "support_table_leg_2": 0.0,
+      "support_table_leg_3": 0.0,
+      "support_table_leg_4": 0.0
+    },
+    "table_leg_local_floor_surfaces": {
+      "support_table_leg_1": {
+        "position": [
+          -0.8633744716644287,
+          0.5656614303588867,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_yvuaqk_0/base_link"
+      },
+      "support_table_leg_2": {
+        "position": [
+          -0.8633744716644287,
+          1.2456613779067993,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_yvuaqk_0/base_link"
+      },
+      "support_table_leg_3": {
+        "position": [
+          -0.19337445497512817,
+          0.5656614303588867,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_yvuaqk_0/base_link"
+      },
+      "support_table_leg_4": {
+        "position": [
+          -0.19337445497512817,
+          1.2456613779067993,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_yvuaqk_0/base_link"
+      }
+    },
+    "robot_nonfloor_contacts": [],
+    "furniture_aabb_overlap_candidates": []
+  }
+}

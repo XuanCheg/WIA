@@ -1,0 +1,402 @@
+{
+  "schema": "wia_workstation_transfer_design_v1",
+  "hypothesis": "Extend the native-supported hall_arch transfer to all remaining dimensional and mirror proposal/seed combinations. Existing pilot artifacts remain immutable.",
+  "entries": [
+    {
+      "document_alias": "D1-1",
+      "variant_id": "d1_1_seed202_v2_hall_arch_v1",
+      "label": "D1-1 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d1_1_seed202_v2.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d1_1_seed202_v2.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_1_seed202_v2_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_1_seed202_v2_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "D1-2",
+      "variant_id": "d1_2_seed101_v2_hall_arch_v1",
+      "label": "D1-2 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d1_2_seed101_v2.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d1_2_seed101_v2.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_2_seed101_v2_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_2_seed101_v2_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "D1-2",
+      "variant_id": "d1_2_seed202_v2_hall_arch_v1",
+      "label": "D1-2 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d1_2_seed202_v2.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d1_2_seed202_v2.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_2_seed202_v2_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_2_seed202_v2_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "D1-3",
+      "variant_id": "d1_3_seed101_v2_hall_arch_v1",
+      "label": "D1-3 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d1_3_seed101_v2.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d1_3_seed101_v2.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_3_seed101_v2_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_3_seed101_v2_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "D1-3",
+      "variant_id": "d1_3_seed202_v2_hall_arch_v1",
+      "label": "D1-3 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d1_3_seed202_v2.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d1_3_seed202_v2.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_3_seed202_v2_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_3_seed202_v2_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "D2-1",
+      "variant_id": "d2_1_seed202_v2_hall_arch_v1",
+      "label": "D2-1 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d2_1_seed202_v2.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d2_1_seed202_v2.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d2_1_seed202_v2_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d2_1_seed202_v2_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "D2-2",
+      "variant_id": "d2_2_seed101_v2_hall_arch_v1",
+      "label": "D2-2 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d2_2_seed101_v2.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d2_2_seed101_v2.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d2_2_seed101_v2_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d2_2_seed101_v2_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "D2-2",
+      "variant_id": "d2_2_seed202_v2_hall_arch_v1",
+      "label": "D2-2 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/tasks/d2_2_seed202_v2.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/scenes/d2_2_seed202_v2.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d2_2_seed202_v2_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d2_2_seed202_v2_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "R-A1",
+      "variant_id": "r_a1_seed101_v1_hall_arch_v1",
+      "label": "R-A1 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_a1_seed101_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_a1_seed101_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_a1_seed101_v1_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_a1_seed101_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "R-A1",
+      "variant_id": "r_a1_seed202_v1_hall_arch_v1",
+      "label": "R-A1 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_a1_seed202_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_a1_seed202_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_a1_seed202_v1_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_a1_seed202_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "R-A2",
+      "variant_id": "r_a2_seed101_v1_hall_arch_v1",
+      "label": "R-A2 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_a2_seed101_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_a2_seed101_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_a2_seed101_v1_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_a2_seed101_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "R-A2",
+      "variant_id": "r_a2_seed202_v1_hall_arch_v1",
+      "label": "R-A2 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_a2_seed202_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_a2_seed202_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_a2_seed202_v1_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_a2_seed202_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "R-C1",
+      "variant_id": "r_c1_seed101_v1_hall_arch_v1",
+      "label": "R-C1 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c1_seed101_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c1_seed101_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c1_seed101_v1_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c1_seed101_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "R-C1",
+      "variant_id": "r_c1_seed202_v1_hall_arch_v1",
+      "label": "R-C1 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c1_seed202_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c1_seed202_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c1_seed202_v1_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c1_seed202_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "R-C2",
+      "variant_id": "r_c2_seed101_v1_hall_arch_v1",
+      "label": "R-C2 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c2_seed101_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c2_seed101_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c2_seed101_v1_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c2_seed101_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "R-C3",
+      "variant_id": "r_c3_seed101_v1_hall_arch_v1",
+      "label": "R-C3 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c3_seed101_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c3_seed101_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c3_seed101_v1_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c3_seed101_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "R-C3",
+      "variant_id": "r_c3_seed202_v1_hall_arch_v1",
+      "label": "R-C3 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c3_seed202_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c3_seed202_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c3_seed202_v1_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c3_seed202_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "R-S1",
+      "variant_id": "r_s1_seed202_v1_hall_arch_v1",
+      "label": "R-S1 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_s1_seed202_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_s1_seed202_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_s1_seed202_v1_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_s1_seed202_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "R-S2",
+      "variant_id": "r_s2_seed101_v1_hall_arch_v1",
+      "label": "R-S2 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_s2_seed101_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_s2_seed101_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_s2_seed101_v1_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_s2_seed101_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "R-S2",
+      "variant_id": "r_s2_seed202_v1_hall_arch_v1",
+      "label": "R-S2 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_s2_seed202_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_s2_seed202_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_s2_seed202_v1_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_s2_seed202_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "R-S3",
+      "variant_id": "r_s3_seed101_v1_hall_arch_v1",
+      "label": "R-S3 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_s3_seed101_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_s3_seed101_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_s3_seed101_v1_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_s3_seed101_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    },
+    {
+      "document_alias": "R-S3",
+      "variant_id": "r_s3_seed202_v1_hall_arch_v1",
+      "label": "R-S3 hall_arch native scene diversity",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_s3_seed202_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_s3_seed202_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_s3_seed202_v1_hall_arch_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_s3_seed202_v1_hall_arch_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -42,
+        13,
+        -0.01
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "artifact_path_base": "absolute",
+  "status": "pending_initialization_image_review",
+  "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/spatial_design_v4.json",
+  "design_sha256": "291a5b6929e35ca09ee7e3f6ba9b7f5d81628053c7519b40639037372b739a62",
+  "revision": "wia_spatial_tray_v1",
+  "native_validation_run": false,
+  "manipulation_verified": false,
+  "full_reference_execution": "deferred_until_user_review",
+  "entries": [
+    {
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/spatial_design_v4.json",
+      "design_sha256": "291a5b6929e35ca09ee7e3f6ba9b7f5d81628053c7519b40639037372b739a62",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Spatial Relations/Physical Contact/house_double_floor_lower/corridor_0/corev2__category_93025169f0b17c9183a2fdd9.yaml",
+      "parent_task_sha256": "44f1a5836238a604ca6f2e1b2767db750301a47be8af6608780c66522ff3b3a8",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Physical Contact/house_double_floor_lower/corridor_0/corev2__category_93025169f0b17c9183a2fdd9.yaml",
+      "parent_scene_sha256": "064e67e39e4e53d526ddc72f150eec0bc6e306eb6cdeee56c817bc999fdc377a",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Specular Reflection/Correspondence/Beechwood_0_garden/kitchen_0/wia_furnished_background_v1.json",
+      "source_sha256": "7b678c6e7d95d98df3657e4235c2682f4ce88590aeb458987e691e42aa4877c4",
+      "document_alias": "T31",
+      "variant_id": "t31_furnished_tray_v4",
+      "label": "T31 open-surface retrieval and tray arrangement v4 (native-reviewed support revision)",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/spatial_v4/tasks/t31__t31_furnished_tray_v4.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/spatial_v4/scenes/t31__t31_furnished_tray_v4.yaml",
+      "variant": "adapted",
+      "task_sha256": "5ed93f6a34382a4c640e8626548c1a1b5b49039813b557ae09e679e39f628a4c",
+      "scene_sha256": "e151d4483af9fdce78f17737c55091432f0f6d0f4be62099f908e57a03ab8dd2",
+      "task_id": "task_9802122d5b6e6d856a7c6635__t31_furnished_tray_v4",
+      "task_version": 2,
+      "seed": 0,
+      "revision": "wia_spatial_tray_v1",
+      "native_validation_run": false,
+      "manipulation_verified": false,
+      "full_reference_execution": "deferred_until_user_review"
+    }
+  ]
+}

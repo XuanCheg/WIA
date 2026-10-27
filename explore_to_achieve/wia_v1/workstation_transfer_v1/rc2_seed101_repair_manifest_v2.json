@@ -1,0 +1,176 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "artifact_path_base": "absolute",
+  "status": "pending_native_review",
+  "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/rc2_seed101_repair_design_v2.json",
+  "design_sha256": "056ffb1d969cc46b17016887c54a0a8068fa3702df6ae30283eea17d5261a47a",
+  "full_reference_execution": "pending",
+  "native_validation_run": false,
+  "native_geometry_verified": false,
+  "native_visibility_verified": false,
+  "native_shape_verified": false,
+  "native_hand_path_verified": false,
+  "native_gripper_path_verified": false,
+  "native_optics_verified": false,
+  "native_selected_identity_verified": false,
+  "native_non_goal_initialization_verified": false,
+  "physical_success_verified": false,
+  "scientific_controls_verified": false,
+  "continuous_path_certified": false,
+  "entries": [
+    {
+      "document_alias": "R-C2",
+      "variant_id": "r_c2_seed101_v1_hall_train_v2",
+      "label": "R-C2 seed101 native cue correction in hall_train_station",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c2_seed101_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c2_seed101_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c2_seed101_v1_hall_train_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c2_seed101_v1_hall_train_v2.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_train_station/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_train_station",
+      "room": "empty_room_0",
+      "floor_name": "floors_rfqpbd_0",
+      "translation_m": [
+        -8,
+        1,
+        0
+      ],
+      "object_overrides": {
+        "wia_mirror_cue_low": {
+          "position": [
+            0.7955000000000005,
+            -0.4760000000000002,
+            0.95
+          ]
+        },
+        "wia_mirror_cue_high": {
+          "position": [
+            0.7955000000000005,
+            -0.22399999999999995,
+            0.95
+          ]
+        },
+        "wia_mirror_cue_bottom": {
+          "position": [
+            0.7955000000000005,
+            -0.3500000000000001,
+            0.694
+          ]
+        },
+        "wia_mirror_cue_top": {
+          "position": [
+            0.7955000000000005,
+            -0.3500000000000001,
+            1.206
+          ]
+        }
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/rc2_seed101_repair_design_v2.json",
+      "design_sha256": "056ffb1d969cc46b17016887c54a0a8068fa3702df6ae30283eea17d5261a47a",
+      "parent_task_sha256": "ea178ac89ba37eafdd991ba2ee0ee984b32fd47c7555f32293c76537a336b079",
+      "parent_scene_sha256": "28dab9fd4aec7d10b41a5207db8aa45993d00496eb1e81d5b9491205cd8805d6",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Specular Reflection/Correspondence/hall_train_station/empty_room_0/wia_background_v1.json",
+      "source_sha256": "bc716ec89327b1a3109006b28d7bf3050497be5bc3603c2f4e6666f8c16c7cf7",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c2_seed101_v1_hall_train_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c2_seed101_v1_hall_train_v2.yaml",
+      "task_sha256": "9a6c7c072c3517f59ab90a0c602ebc092bd7c8df4d0610be9b0249e844ccfeaf",
+      "scene_sha256": "232823353f0869a8b74acac43b615233ceddc1c9320d2bd66f76da2f0f8c777f",
+      "variant": "adapted",
+      "seed": 101,
+      "task_id": "wia_mirror_r_c2_v1",
+      "task_version": 2,
+      "module": "core.esi_converters.wia_mirror",
+      "revision": "wia_mirror_v2",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "R-C2",
+      "variant_id": "r_c2_seed101_v1_hall_glass_repair_v2",
+      "label": "R-C2 seed101 native cue correction in hall_glass_ceiling",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_c2_seed101_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_c2_seed101_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c2_seed101_v1_hall_glass_repair_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c2_seed101_v1_hall_glass_repair_v2.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_glass_ceiling/empty_room_0/q_007.json",
+      "scene_model": "hall_glass_ceiling",
+      "room": "empty_room_0",
+      "floor_name": "floors_nbzwbf_0",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "object_overrides": {
+        "wia_mirror_cue_low": {
+          "position": [
+            8.7955,
+            -1.4760000000000002,
+            0.95
+          ]
+        },
+        "wia_mirror_cue_high": {
+          "position": [
+            8.7955,
+            -1.224,
+            0.95
+          ]
+        },
+        "wia_mirror_cue_bottom": {
+          "position": [
+            8.7955,
+            -1.35,
+            0.694
+          ]
+        },
+        "wia_mirror_cue_top": {
+          "position": [
+            8.7955,
+            -1.35,
+            1.206
+          ]
+        }
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/rc2_seed101_repair_design_v2.json",
+      "design_sha256": "056ffb1d969cc46b17016887c54a0a8068fa3702df6ae30283eea17d5261a47a",
+      "parent_task_sha256": "ea178ac89ba37eafdd991ba2ee0ee984b32fd47c7555f32293c76537a336b079",
+      "parent_scene_sha256": "28dab9fd4aec7d10b41a5207db8aa45993d00496eb1e81d5b9491205cd8805d6",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Specular Reflection/Correspondence/hall_glass_ceiling/empty_room_0/q_007.json",
+      "source_sha256": "8db1dff0211f9d4530e974c9995ff61f8bac64170c2534bce8040d8a5a59b2eb",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c2_seed101_v1_hall_glass_repair_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c2_seed101_v1_hall_glass_repair_v2.yaml",
+      "task_sha256": "d3c2de4f3a510c1e8b67c940c72bb7119dd0b139c28f1cb1da2816957afbd898",
+      "scene_sha256": "4b032127e2b2bc326977302228b45e0600cbeb2ef878cf43000693b89f026353",
+      "variant": "adapted",
+      "seed": 101,
+      "task_id": "wia_mirror_r_c2_v1",
+      "task_version": 2,
+      "module": "core.esi_converters.wia_mirror",
+      "revision": "wia_mirror_v2",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    }
+  ]
+}

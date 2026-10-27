@@ -1,0 +1,287 @@
+kind: scene_patch
+id: wia_rigid_t24_family_v1_scene__supported_spawn_v6__t24_furnished_native_support_v1
+version: 7
+status: pending
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/house_single_floor/utility_room_0/t24_furnished_native_support_v1.json
+target: null
+bindings:
+  target:
+    name: obj_containee
+    category: first_aid_kit
+    model: flctdz
+  container_2:
+    name: obj_container_2
+    category: tote
+    model: bnkjle
+  container_1:
+    name: obj_container_1
+    category: packing_box
+    model: cjhskr
+  container_0:
+    name: obj_container_0
+    category: mug
+    model: ycbmug
+  table:
+    name: countertop_ikwqer_0
+    category: countertop
+    model: ikwqer
+  pickup_support:
+    name: countertop_fjkase_0
+    category: countertop
+    model: fjkase
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    tabletop:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: wia_furnished_rigid_layout_v1
+          layout:
+            shared_layout_id: t24_furnished_native_support_v1
+            scene_model: house_single_floor
+            rooms:
+            - utility_room_0
+            floor_name: floors_glwobe_0
+            objects:
+            - type: DatasetObject
+              name: obj_containee
+              category: first_aid_kit
+              model: flctdz
+              position:
+              - 21.94
+              - 0.8
+              - 1.215742944328716
+              orientation:
+              - 7.610025932081044e-06
+              - -6.331742042675614e-06
+              - 1.1293078387097921e-05
+              - 1.0
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_0
+              category: mug
+              model: ycbmug
+              position:
+              - 24.51
+              - -0.9
+              - 1.2275437389647408
+              orientation:
+              - 1.6880219652626534e-08
+              - -7.79982563259295e-09
+              - 4.8210489404441126e-08
+              - 0.9999999999999987
+              scale:
+              - 1.5675586174806306
+              - 1.540657814790909
+              - 0.8232834353809855
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_1
+              category: packing_box
+              model: cjhskr
+              position:
+              - 24.51
+              - 0.1
+              - 1.2275437389647408
+              orientation:
+              - -2.5309982447464207e-06
+              - 2.9034865747019417e-06
+              - -1.2229206447409666e-07
+              - 0.9999999999925745
+              scale:
+              - 0.5770021821353934
+              - 0.5793293758735365
+              - 0.44997830507824754
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_2
+              category: tote
+              model: bnkjle
+              position:
+              - 24.51
+              - 1.1
+              - 1.2275437389647408
+              orientation:
+              - -0.0007792637371605133
+              - 9.68331447058488e-05
+              - -1.0163118276019198e-06
+              - 0.999999691685121
+              scale:
+              - 0.8090281963621989
+              - 1.3745362674476342
+              - 0.26327469882706944
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: obj_containee
+              support: countertop_fjkase_0
+            - name: obj_container_0
+              support: countertop_ikwqer_0
+            - name: obj_container_1
+              support: countertop_ikwqer_0
+            - name: obj_container_2
+              support: countertop_ikwqer_0
+            robot_start:
+              position:
+              - 23.25
+              - 0.15
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: house_single_floor
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: wia_furnished_rigid_layout_v1
+          layout:
+            shared_layout_id: t24_furnished_native_support_v1
+            scene_model: house_single_floor
+            rooms:
+            - utility_room_0
+            floor_name: floors_glwobe_0
+            objects:
+            - type: DatasetObject
+              name: obj_containee
+              category: first_aid_kit
+              model: flctdz
+              position:
+              - 21.94
+              - 0.8
+              - 1.215742944328716
+              orientation:
+              - 7.610025932081044e-06
+              - -6.331742042675614e-06
+              - 1.1293078387097921e-05
+              - 1.0
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_0
+              category: mug
+              model: ycbmug
+              position:
+              - 24.51
+              - -0.9
+              - 1.2275437389647408
+              orientation:
+              - 1.6880219652626534e-08
+              - -7.79982563259295e-09
+              - 4.8210489404441126e-08
+              - 0.9999999999999987
+              scale:
+              - 1.5675586174806306
+              - 1.540657814790909
+              - 0.8232834353809855
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_1
+              category: packing_box
+              model: cjhskr
+              position:
+              - 24.51
+              - 0.1
+              - 1.2275437389647408
+              orientation:
+              - -2.5309982447464207e-06
+              - 2.9034865747019417e-06
+              - -1.2229206447409666e-07
+              - 0.9999999999925745
+              scale:
+              - 0.5770021821353934
+              - 0.5793293758735365
+              - 0.44997830507824754
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_2
+              category: tote
+              model: bnkjle
+              position:
+              - 24.51
+              - 1.1
+              - 1.2275437389647408
+              orientation:
+              - -0.0007792637371605133
+              - 9.68331447058488e-05
+              - -1.0163118276019198e-06
+              - 0.999999691685121
+              scale:
+              - 0.8090281963621989
+              - 1.3745362674476342
+              - 0.26327469882706944
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: obj_containee
+              support: countertop_fjkase_0
+            - name: obj_container_0
+              support: countertop_ikwqer_0
+            - name: obj_container_1
+              support: countertop_ikwqer_0
+            - name: obj_container_2
+              support: countertop_ikwqer_0
+            robot_start:
+              position:
+              - 23.25
+              - 0.15
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: house_single_floor
+          disable_grid: false
+qualification: null
+runtime:
+  reflection_sensor_profile: {}
+  requires_native_visual_discovery: false
+  post_controller_settle_steps: 0
+  trunk_config: configs/esi_trunk_low_grasp.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0
+seed: 0
+target_bindings: []

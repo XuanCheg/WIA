@@ -1,0 +1,8 @@
+{
+  "action": "Archive existing scenes/tasks, copy the complete ESI description corpus, retain existing physical scene conversions as pending, and leave tasks empty.",
+  "source_root": "/scratch/xinyangzhou/models/Show-Harness/ESI-Bench/dataset/json_clean",
+  "archive": "/scratch/xinyangzhou/models/Show-Harness/explore_to_achieve/temp/20261012T111915Z",
+  "all_scene_status": "pending",
+  "simulation": "not_run",
+  "task_generation": "deferred_by_user"
+}

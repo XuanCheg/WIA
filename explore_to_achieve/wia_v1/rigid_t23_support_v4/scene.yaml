@@ -1,0 +1,428 @@
+kind: scene_patch
+id: wia_rigid_t23_family_v1_scene__supported_spawn_v4
+version: 4
+status: pending
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json
+target: target
+target_bindings:
+- target
+- extra1
+- extra2
+bindings:
+  target:
+    name: obj_containee
+    category: granola_box
+    model: yzeuqo
+  container_2:
+    name: obj_container_2
+    category: bucket
+    model: bdhvnt
+  container_1:
+    name: obj_container_1
+    category: wicker_basket
+    model: drxfmr
+  container_0:
+    name: obj_container_0
+    category: mug
+    model: ycbmug
+  table:
+    name: support_table_top
+    category: object
+    model: null
+  pickup_support:
+    name: sofa_qnnwfx_0
+    category: sofa
+    model: null
+  extra1:
+    name: multi_extra1
+    category: spray_can
+    model: tehmzy
+  extra2:
+    name: multi_extra2
+    category: colored_pencil
+    model: zisrpq
+  multi_support_extra1:
+    name: sofa_qnnwfx_0
+  multi_support_extra2:
+    name: sofa_qnnwfx_0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+      initial_visibility: null
+    tabletop:
+      patches:
+      - operation: object_scale
+        phase: before_construction
+        binding: target
+        multiplier: 0.6156076189497709
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - 1.846875925064087
+        - -4.392786502838135
+        - 0.1
+        yaw_deg: 0.0
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_top
+        primitive_type: Cube
+        position:
+        - 2.576875925064087
+        - -4.392786502838135
+        - 0.43
+        dimensions_m:
+        - 0.56
+        - 0.52
+        - 0.04
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.48
+        - 0.29
+        - 0.14
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_1
+        primitive_type: Cube
+        position:
+        - 2.3368759250640867
+        - -4.6127865028381345
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_2
+        primitive_type: Cube
+        position:
+        - 2.3368759250640867
+        - -4.172786502838135
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_3
+        primitive_type: Cube
+        position:
+        - 2.816875925064087
+        - -4.6127865028381345
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_4
+        primitive_type: Cube
+        position:
+        - 2.816875925064087
+        - -4.172786502838135
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_0
+        position:
+        - 2.4149296379089353
+        - -4.507264642715454
+        - 0.5406445770263671
+        candidates: []
+        quaternion_xyzw:
+        - 1.33170397020709e-06
+        - -2.8728391043805723e-07
+        - 8.114438969631722e-07
+        - 0.9999999999987428
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_1
+        position:
+        - 2.6802631092071536
+        - -4.258011789321899
+        - 0.5679883344769477
+        candidates: []
+        quaternion_xyzw:
+        - -0.0014184837707883842
+        - -0.00030071710328443416
+        - -1.4677642343535497e-06
+        - 0.9999989487348782
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_2
+        position:
+        - 2.6802631092071536
+        - -4.507264642715454
+        - 0.6183138995170593
+        candidates: []
+        quaternion_xyzw:
+        - 7.777997762351998e-08
+        - 2.2648234363668084e-08
+        - -3.485174186781482e-07
+        - 0.999999999999936
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: target
+        position:
+        - 1.503667950630188
+        - -3.5965774059295654
+        - 0.7052990794181824
+        candidates: []
+        quaternion_xyzw:
+        - -0.03154609352350235
+        - 0.004090696107596159
+        - 6.631857831962407e-05
+        - 0.9994940757751465
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: add_dataset_object
+        phase: before_construction
+        name: multi_extra1
+        category: spray_can
+        model: tehmzy
+        position: &id001
+        - 1.2841908931732178
+        - -3.61431884765625
+        - 0.7129917740821838
+        scale:
+        - 2.377927188609682
+        - 3.9291335261541596
+        - 0.8267473512744551
+        quaternion_xyzw: &id002
+        - -0.00023748460807837546
+        - 0.0002709553809836507
+        - -5.457750376081094e-07
+        - 0.9999999403953552
+      - operation: add_dataset_object
+        phase: before_construction
+        name: multi_extra2
+        category: colored_pencil
+        model: zisrpq
+        position: &id003
+        - 1.509343147277832
+        - -3.8347322940826416
+        - 0.5636064410209656
+        scale:
+        - 0.6264114665310713
+        - 20.477167312575247
+        - 25.935455051409946
+        quaternion_xyzw: &id004
+        - 0.04827207326889038
+        - 0.06616578996181488
+        - 0.0006534624844789505
+        - 0.9966400861740112
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: extra1
+        position: *id001
+        quaternion_xyzw: *id002
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: extra2
+        position: *id003
+        quaternion_xyzw: *id004
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: wia_rigid_t23_support_v4
+          layout:
+            objects:
+            - name: obj_container_0
+              position:
+              - 2.4149296379089353
+              - -4.507264642715454
+              - 0.5406445770263671
+              orientation:
+              - 1.33170397020709e-06
+              - -2.8728391043805723e-07
+              - 8.114438969631722e-07
+              - 0.9999999999987428
+            - name: obj_container_1
+              position:
+              - 2.6802631092071536
+              - -4.258011789321899
+              - 0.5679883344769477
+              orientation:
+              - -0.0014184837707883842
+              - -0.00030071710328443416
+              - -1.4677642343535497e-06
+              - 0.9999989487348782
+            - name: obj_container_2
+              position:
+              - 2.6802631092071536
+              - -4.507264642715454
+              - 0.6183138995170593
+              orientation:
+              - 7.777997762351998e-08
+              - 2.2648234363668084e-08
+              - -3.485174186781482e-07
+              - 0.999999999999936
+            - name: obj_containee
+              position:
+              - 1.503667950630188
+              - -3.5965774059295654
+              - 0.7052990794181824
+              orientation:
+              - -0.03154609352350235
+              - 0.004090696107596159
+              - 6.631857831962407e-05
+              - 0.9994940757751465
+            - name: multi_extra1
+              position:
+              - 1.2841908931732178
+              - -3.61431884765625
+              - 0.7129917740821838
+              orientation:
+              - -0.00023748460807837546
+              - 0.0002709553809836507
+              - -5.457750376081094e-07
+              - 0.9999999403953552
+            - name: multi_extra2
+              position:
+              - 1.509343147277832
+              - -3.8347322940826416
+              - 0.5636064410209656
+              orientation:
+              - 0.04827207326889038
+              - 0.06616578996181488
+              - 0.0006534624844789505
+              - 0.9966400861740112
+            supported_items:
+            - name: obj_container_0
+              support: support_table_top
+            - name: obj_container_1
+              support: support_table_top
+            - name: obj_container_2
+              support: support_table_top
+            - name: obj_containee
+              support: sofa_qnnwfx_0
+              support_alignment_mode: aabb_top
+              support_surface_mode: local_raycast
+            - name: multi_extra1
+              support: sofa_qnnwfx_0
+              support_alignment_mode: aabb_top
+              support_surface_mode: local_raycast
+            - name: multi_extra2
+              support: sofa_qnnwfx_0
+              support_alignment_mode: aabb_top
+              support_surface_mode: local_raycast
+            floor_name: floors_esoefs_0
+      initial_visibility: null
+qualification:
+  on_failure: skip
+  support: table
+  supported_objects:
+  - target
+  - container_2
+  - container_1
+  - container_0
+  - extra1
+  - extra2
+  object_supports:
+    target: pickup_support
+    extra1: multi_support_extra1
+    extra2: multi_support_extra2
+  support_surface_mode: local_raycast
+  support_tolerance_m: 0.015
+  maximum_linear_speed_m_s: 0.02
+  maximum_angular_speed_rad_s: 0.1
+  require_support_contact: true
+  reject_robot_contacts: true
+  screen_furniture_overlap: true
+  settle_steps: 30
+runtime:
+  post_controller_settle_steps: 0
+  trunk_config: configs/esi_trunk_low_grasp.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0
+seed: 0

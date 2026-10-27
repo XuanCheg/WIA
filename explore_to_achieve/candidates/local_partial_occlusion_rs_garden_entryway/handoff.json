@@ -1,0 +1,48 @@
+{
+  "candidate_id": "local_partial_occlusion_rs_garden_entryway_original_v1",
+  "source_identity": "Perceptual Grounding/Partial Occlusion/Rs_garden/entryway_0/Rs_garden__entryway_0_2.json",
+  "source_record_id": "1177",
+  "source_question_id": "partial_occlusion/Rs_garden/entryway_0/2",
+  "source_sha256": "c3fcb1c534df7ed978eb9be97486fc143adbb4f3813492af28ab91d352adcc88",
+  "esi_commit": "9f6f15ed43e81654a97de9e4db2a1fedadca2bc1",
+  "scene_identity": "local_partial_occlusion_rs_garden_entryway_scene_v1",
+  "source_json": "ESI-Bench/dataset/json_clean/Perceptual Grounding/Partial Occlusion/Rs_garden/entryway_0/Rs_garden__entryway_0_2.json",
+  "scene_file": "explore_to_achieve/candidates/local_partial_occlusion_rs_garden_entryway/scene.yaml",
+  "task_file": null,
+  "category": "Perceptual Grounding",
+  "subcategory": "Partial Occlusion",
+  "scene_model": "Rs_garden",
+  "room": "entryway_0",
+  "variant": "original",
+  "seed": 0,
+  "reuse_level": "original",
+  "modified_files": [
+    "explore_to_achieve/candidates/local_partial_occlusion_rs_garden_entryway/plan.md",
+    "explore_to_achieve/candidates/local_partial_occlusion_rs_garden_entryway/scene.yaml",
+    "explore_to_achieve/candidates/local_partial_occlusion_rs_garden_entryway/handoff.json"
+  ],
+  "expected_views": [
+    "global_diagonal",
+    "global_overhead",
+    "global_front",
+    "global_back",
+    "global_left",
+    "global_right",
+    "head",
+    "wrist",
+    "scene"
+  ],
+  "known_limitations": [
+    "Diagnostic only; candidate remains pending with no physical task or evaluator.",
+    "Native initialization, robot clearance, framing, and mounted-camera visibility are unverified.",
+    "Historical source metadata records both task objects as invisible in its first reference view; current native visibility is unverified.",
+    "The original low floor layout and compact room may challenge existing R1 initialization.",
+    "Review camera views never become Agent observations.",
+    "QA and physical success are unverified; no simulation or Agent episode was run."
+  ],
+  "code_commit": "148b8e5e9e5743867a8ccb33f8dedd9e23ce6708",
+  "owner": "scene_builder_b",
+  "parent_candidate_id": null,
+  "physical_task_id": null,
+  "render_config": {}
+}

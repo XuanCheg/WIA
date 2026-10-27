@@ -1,0 +1,97 @@
+kind: scene_patch
+id: scene_f8d83908263b09ab3a710b4f
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Cognitive Mapping/Connectivity/school_geography/full_scene/q_000.json
+bindings: {}
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.task_edit2_mapping_world
+        parameters:
+          mapping_joint_world_contract:
+            revision: task_edit2_mapping_world_20261018_v1
+            group_key: connectivity_school_geography
+            scene: school_geography
+            room: full_scene
+            source_members:
+            - source_identity: Cognitive Mapping/Connectivity/school_geography/full_scene/q_000.json
+              source_sha256: 7d573cd133cc6116526ca1551f89f4ae9921aabf48bb30cece94f651f3e6717e
+              task_sha256: f41f4efe86d054942d18d33ef348ddebeb15773b68ee1d4e3ea790143f8606f8
+              scene_sha256: 6bded7e17680c0571bc93559aa49c9eae15fa643d7c739277d1c55caa7481fc1
+            - source_identity: Cognitive Mapping/Connectivity/school_geography/full_scene/q_001.json
+              source_sha256: 6959a26e7d7330422a58d914fc66b45f3d7d6b7d0c3a248e7e1797bf47337ad4
+              task_sha256: dd31696ca4cdbe51ea2335e4fd3668f01d44ca9cb70133151e5eea93a19510ee
+              scene_sha256: 60252f5753cf07d4e33edb717f28747cf158d08860c4153cedcaac16ca4b880e
+            - source_identity: Cognitive Mapping/Connectivity/school_geography/full_scene/q_002.json
+              source_sha256: d28b66c0b2f6aa14c507ed53e927a00fb63ddf1c179ce4e09fcade73c7b46a99
+              task_sha256: d59d5575f3fa89db5eb55c7fa29b7380d98636057e34b339326347f8e66de5d8
+              scene_sha256: 17b70a8d3489a5c83e9ee59bebf363605ee1ec79c5412c85af7f4db635eaa96f
+            - source_identity: Cognitive Mapping/Connectivity/school_geography/full_scene/q_003.json
+              source_sha256: d8d24aa01ef5bf1f2f246d4d270d11bed8729638594e25f2fdac7e87e4b55c6c
+              task_sha256: 38443612be90cae51728a1f5bd300f2f297ced64fbd21844252cc5407ed1781e
+              scene_sha256: ebf26383d37b75b4b36197853431aff32df202d94c8299e1fead36dee77d9b83
+            - source_identity: Cognitive Mapping/Connectivity/school_geography/full_scene/q_007.json
+              source_sha256: 3faee72464c28f23ddd19b5cf6e41817844c44b6333154e7bd592652888c14de
+              task_sha256: c4661784efef957b605f6c9d879befec759ad890df0af9baba6566bfb2fb3baa
+              scene_sha256: cc82d66a6b7388cef4014ca14287fcac856624587e880967eb343b8093b7f14a
+            representative_source: Cognitive Mapping/Connectivity/school_geography/full_scene/q_000.json
+            common_start_proposal:
+              operation: robot_pose
+              phase: before_construction
+              position:
+              - -43.95000076293945
+              - -5.050000190734863
+              - 0.1
+              yaw_deg: 27.181107453238525
+              head_pitch_deg: 0.0
+            seed: 0
+            episode_budget:
+              origin: new_uncalibrated_geometric_pilot
+              calibrated: false
+              max_steps: 1270
+              wall_timeout_s: 3810.0
+              derivation: ceil(2 * Manhattan_MST(all unique saved camera/path XY)
+                / 0.25m) + 12 * distinct required rooms + 4 * unique semantic questions
+              evidence:
+                manhattan_mst_m: 150.14092786080715
+                translation_increment_m: 0.25
+                geometric_traversals: 2
+                translation_actions: 1202
+                inspection_turn_actions: 48
+                answer_actions: 20
+                wall_seconds_per_action: 3.0
+                wall_bound_calibrated: false
+                point_set: all_saved_source_camera_and_path_XY_superset
+                unique_xy_count: 600
+              limitation: Geometry ignores walls, door operation and controller timing;
+                native route and budget calibration remain mandatory.
+            full_building_required: true
+            retain_native_furniture_and_doors: true
+            source_world_equivalence: unverified_pending_all_source_relations_in_this_actual_reset
+            qualification_api: session.mapping_joint_world_identity(contract) and
+              session.mapping_joint_world_qualification(contract)
+            pending_gates:
+            - full_building_inventory_geometry
+            - all_original_source_relations
+            - source_runtime_door_reconciliation_and_public_crossings
+            - common_start_support_and_clearance
+            - controller_and_eight_plus_initial_global
+            - shared_budget_native_calibration
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - -43.95000076293945
+        - -5.050000190734863
+        - 0.1
+        yaw_deg: 27.181107453238525
+        head_pitch_deg: 0.0
+seed: 0

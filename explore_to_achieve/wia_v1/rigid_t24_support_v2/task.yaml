@@ -1,0 +1,510 @@
+kind: category_robot_task
+id: wia_rigid_t24_family_v1
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json
+public:
+  objective: 'Which container does the first aid kit best fit inside: the packing
+    box or the mug or the tote? For every named object, perform a real robot grasp,
+    lift it at least 5 cm, and partially insert it into the container selected for
+    that object. Release it and withdraw the robot hands at least 2 cm clear.'
+  success_criteria: 'Answer the original containment question for every named object.
+    For each object, complete an actual grasp and a lift of at least 5 cm, then release
+    it partially inside its selected container while touching that container. With
+    no robot contact or support, and the robot hands at least 2 cm clear, maintain
+    this state for at least 0.5 seconds with linear speed at most 0.02 m/s and angular
+    speed at most 0.1 rad/s. An object resting entirely on top does not count as inside.
+    Finish with empty hands and the working gripper open. Submit ANSWER: <container
+    label> and declare DONE.'
+  environment: Retrieve the target objects using the real R1 robot.
+  constraints:
+  - Complete every target subtask before declaring DONE. An object resting entirely
+    on top does not count as inside.
+  - Use the existing guarded public robot controls and visible object/container labels.
+  - Preserve all asset scales and keep every container within 2 cm and 0.05 radians
+    of its starting pose.
+  - Targets may be verified sequentially. An object may be removed after its released,
+    stable partial insertion has been completely verified, to free a shared container.
+    Simultaneous packing is not required.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    target:
+      name: obj_containee
+      category: first_aid_kit
+      model: flctdz
+    container_2:
+      name: obj_container_2
+      category: tote
+      model: bnkjle
+    container_1:
+      name: obj_container_1
+      category: packing_box
+      model: cjhskr
+    container_0:
+      name: obj_container_0
+      category: mug
+      model: ycbmug
+    table:
+      name: support_table_top
+      category: object
+      model: null
+    pickup_support:
+      name: wia_t24_pickup_top
+      category: object
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.rigid_partial_insertion
+    operation: pick_release_partial_insert
+    binding_keys:
+    - target
+    - container_2
+    - container_1
+    - container_0
+    - table
+    - pickup_support
+    parameters:
+      scorer_version: wia_rigid_partial_insertion_v1
+      targets:
+      - target
+      containers:
+      - container_0
+      - container_1
+      - container_2
+      expected_containers:
+        target: container_1
+      target_labels:
+        target: first aid kit
+      expected_answers:
+        target: packing box
+      minimum_lift_m: 0.05
+      stability_duration_s: 0.5
+      maximum_linear_speed_m_s: 0.02
+      maximum_angular_speed_rad_s: 0.1
+      max_sample_gap_s: 0.1
+      interior_margin_m: 0.002
+      penetration_tolerance_m: 0.001
+      withdrawal_clearance_m: 0.02
+      container_pose_tolerance_m: 0.02
+      maximum_container_rotation_rad: 0.05
+      scale_relative_tolerance: 0.0001
+      allow_remove_after_verification: true
+      initial_supports:
+        target: pickup_support
+        container_0: table
+        container_1: table
+        container_2: table
+      initial_support_tolerance_m: 0.015
+      maximum_initial_linear_speed_m_s: 0.02
+      maximum_initial_angular_speed_rad_s: 0.1
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+      initial_visibility: null
+    tabletop:
+      patches:
+      - operation: add_primitive
+        phase: before_construction
+        name: wia_t24_pickup_top
+        primitive_type: Cube
+        position:
+        - 2.93255352973938
+        - 0.8115564584732056
+        - 0.53
+        dimensions_m:
+        - 0.34
+        - 0.34
+        - 0.04
+        rgba:
+        - 0.48
+        - 0.29
+        - 0.14
+        - 1.0
+      - operation: add_primitive
+        phase: before_construction
+        name: wia_t24_pickup_leg_0
+        primitive_type: Cube
+        position:
+        - 2.7925535297393798
+        - 0.6715564584732056
+        - 0.255
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.51
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+      - operation: add_primitive
+        phase: before_construction
+        name: wia_t24_pickup_leg_1
+        primitive_type: Cube
+        position:
+        - 2.7925535297393798
+        - 0.9515564584732056
+        - 0.255
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.51
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+      - operation: add_primitive
+        phase: before_construction
+        name: wia_t24_pickup_leg_2
+        primitive_type: Cube
+        position:
+        - 3.07255352973938
+        - 0.6715564584732056
+        - 0.255
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.51
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+      - operation: add_primitive
+        phase: before_construction
+        name: wia_t24_pickup_leg_3
+        primitive_type: Cube
+        position:
+        - 3.07255352973938
+        - 0.9515564584732056
+        - 0.255
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.51
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - 1.2829767215251922
+        - 0.48491351678967476
+        - 0.1
+        yaw_deg: 0.0
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_top
+        primitive_type: Cube
+        position:
+        - 2.0279767215251923
+        - 0.48491351678967476
+        - 0.43
+        dimensions_m:
+        - 0.59
+        - 0.76
+        - 0.04
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.48
+        - 0.29
+        - 0.14
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_1
+        primitive_type: Cube
+        position:
+        - 1.7729767215251921
+        - 0.14491351678967473
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_2
+        primitive_type: Cube
+        position:
+        - 1.7729767215251921
+        - 0.8249135167896748
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_3
+        primitive_type: Cube
+        position:
+        - 2.282976721525192
+        - 0.14491351678967473
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: add_primitive
+        phase: before_construction
+        name: support_table_leg_4
+        primitive_type: Cube
+        position:
+        - 2.282976721525192
+        - 0.8249135167896748
+        - 0.20500000000000002
+        dimensions_m:
+        - 0.035
+        - 0.035
+        - 0.41000000000000003
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.3
+        - 0.2
+        - 0.12
+        - 1.0
+        shared_jitter_x_m: 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_0
+        position: &id001
+        - 1.8550237667560576
+        - 0.316533041447401
+        - 0.4834043143987656
+        candidates: []
+        quaternion_xyzw: &id002
+        - 1.6880219652626534e-08
+        - -7.79982563259295e-09
+        - 4.8210489404441126e-08
+        - 0.9999999999999987
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_1
+        position: &id003
+        - 2.1361502039432523
+        - 0.6850845094025135
+        - 0.48556291896104814
+        candidates: []
+        quaternion_xyzw: &id004
+        - -2.5309982447464207e-06
+        - 2.9034865747019417e-06
+        - -1.2229206447409666e-07
+        - 0.9999999999925745
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_2
+        position: &id005
+        - 2.1361502039432523
+        - 0.316533041447401
+        - 0.5037553108036518
+        candidates: []
+        quaternion_xyzw: &id006
+        - -0.0007792637371605133
+        - 9.68331447058488e-05
+        - -1.0163118276019198e-06
+        - 0.999999691685121
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: target
+        position: &id007
+        - 2.93255352973938
+        - 0.8115564584732056
+        - 0.5056697130203247
+        candidates: []
+        quaternion_xyzw: &id008
+        - 7.610025932081044e-06
+        - -6.331742042675614e-06
+        - 1.1293078387097921e-05
+        - 1.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: wia_rigid_support_v2
+          layout:
+            floor_name: floors_mcivwr_0
+            objects:
+            - name: obj_container_0
+              position: *id001
+              orientation: *id002
+            - name: obj_container_1
+              position: *id003
+              orientation: *id004
+            - name: obj_container_2
+              position: *id005
+              orientation: *id006
+            - name: obj_containee
+              position: *id007
+              orientation: *id008
+            supported_items:
+            - name: obj_container_0
+              support: support_table_top
+            - name: obj_container_1
+              support: support_table_top
+            - name: obj_container_2
+              support: support_table_top
+            - name: obj_containee
+              support: wia_t24_pickup_top
+      initial_visibility: null
+qualification:
+  on_failure: skip
+  support: null
+  initial_visibility: none
+defaults:
+  seed: 0
+  max_steps: 60
+  wall_timeout_s: 5400.0
+  world_advances_during_inference: true
+  observation_condition: current
+  action_mode: parameterized
+repair:
+  family_revision: wia_rigid_family_v1
+  contract_revision: wia_rigid_partial_insertion_v1
+  document_alias: T24
+  validation_status: pending-native-calibration-and-scene-review
+  parent_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/tasks/rigid_t24_v1.yaml
+  parent_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/scenes/rigid_t24_v1.yaml
+  scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/scenes/rigid_t24_v1.yaml
+  original_scene_qualification:
+    on_failure: skip
+    support: table
+    supported_objects:
+    - target
+    - container_2
+    - container_1
+    - container_0
+    object_supports:
+      target: pickup_support
+    support_surface_mode: local_raycast
+    support_tolerance_m: 0.015
+    maximum_linear_speed_m_s: 0.02
+    maximum_angular_speed_rad_s: 0.1
+    require_support_contact: true
+    reject_robot_contacts: true
+    screen_furniture_overlap: true
+    settle_steps: 30
+  original_qa_provenance:
+    question_source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
+      Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json
+    question_source_identity: Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json
+    question_source_sha256: 1a9bddbf21c57eb6dc37022c21727a45b45f0efde31bdb75df008238d1757035
+    scene_source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
+      Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json
+    scene_source_identity: Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json
+    scene_source_sha256: 1a9bddbf21c57eb6dc37022c21727a45b45f0efde31bdb75df008238d1757035
+    original_qa_id: '2089'
+    original_question: 'Which container does the first aid kit best fit inside: the
+      packing box or the mug or the tote?'
+    original_answer: '[{"_key":"first aid kit","value":"packing box"}]'
+    answer_type: sequence
+    original_options:
+    - packing box
+    - mug
+    - tote
+    verified_answer_by_public_label:
+      first aid kit: packing box
+    verification_basis: Original QA answer and named source target_container/idx metadata;
+      no AABB inference.
+  parameters_provisional: true
+  parameters_calibrated: false
+  threshold_basis: Explicit common provisional Rigid family criteria; native calibration
+    is pending.
+  native_validation_run: false
+  physically_qualified: false
+  legal_robot_reference_verified: false
+  reference_execution_status: Deferred until user scene review.
+  support_revision: wia_rigid_support_v2
+  physical_success_verified: false
+  runtime:
+    reflection_sensor_profile: {}
+    requires_native_visual_discovery: false
+    post_controller_settle_steps: 0
+    trunk_config: configs/esi_trunk_low_grasp.json
+    robot_camera_config: configs/esi_robot_cameras.json
+    viewer_config: configs/esi_viewer.json
+    camera_size:
+    - 512
+    - 512
+    viewer_main_view: global_diagonal
+    debug_cameras: true
+    human_depth_visualizations: true
+    preview_fps: 2.0
+  repair_reason: T24 review showed target on floor and containers below their support.
+    Add a compact support at the original target XY; align all bottoms to measured
+    support tops during initialization only. Original geometry, QA and insertion scorer
+    unchanged.

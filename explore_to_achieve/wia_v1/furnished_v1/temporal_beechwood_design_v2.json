@@ -1,0 +1,643 @@
+{
+  "schema": "wia_furnished_temporal_design_v1",
+  "author": "main_agent",
+  "status": "pending_native_initialization_review",
+  "hypothesis": "Cross-scene controls preserve each temporal recipe and the matched A/B/C intervention while changing only the explicitly authored furnished world placement and robot start.",
+  "primary_review_selection": {
+    "T41": {
+      "configuration": "B",
+      "history_variant": null
+    },
+    "T45": {
+      "configuration": "B",
+      "history_variant": null
+    }
+  },
+  "native_rgb_equivalence_verified": false,
+  "entries": [
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_history_a_b_furnished_v2",
+      "label": "T40 history A furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_a_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_a_v3.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t40_history_a_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t40_history_a_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t40_history_a_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": "a",
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ]
+    },
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_history_b_b_furnished_v2",
+      "label": "T40 history B furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_b_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_b_v3.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t40_history_b_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t40_history_b_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t40_history_b_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": "b",
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ]
+    },
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_history_c_b_furnished_v2",
+      "label": "T40 history C furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_c_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_c_v3.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t40_history_c_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t40_history_c_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t40_history_c_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": "c",
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ]
+    },
+    {
+      "document_alias": "T41",
+      "variant_id": "t41_b_furnished_v2",
+      "label": "T41 furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t41_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t41_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t41_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": null,
+      "review_role": "primary",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ]
+    },
+    {
+      "document_alias": "T45",
+      "variant_id": "t45_b_furnished_v2",
+      "label": "T45 furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t45_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t45_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t45_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": null,
+      "review_role": "primary",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ]
+    },
+    {
+      "document_alias": "T46",
+      "variant_id": "t46_b_furnished_v2",
+      "label": "T46 furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_0498b76051279b8acd7e914e.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_0498b76051279b8acd7e914e.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t46_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t46_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t46_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": null,
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ]
+    },
+    {
+      "document_alias": "T47",
+      "variant_id": "t47_b_furnished_v2",
+      "label": "T47 furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_b892978c0400005618c6589c.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_b892978c0400005618c6589c.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t47_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t47_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t47_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": null,
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ]
+    },
+    {
+      "document_alias": "T48",
+      "variant_id": "t48_b_furnished_v2",
+      "label": "T48 furnished B V2 (apparatus inside the dining floor)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_7fd79b0d5819ace319f077c7.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_7fd79b0d5819ace319f077c7.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t48_b_furnished_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t48_b_furnished_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Beechwood_0_garden/dining_room_0/t48_b_furnished_v2.json",
+      "scene_model": "Beechwood_0_garden",
+      "room": "dining_room_0",
+      "floor_name": "floors_jymrik_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -12.395399999999999,
+          13.1996,
+          -0.064149267872185
+        ],
+        "yaw_deg": 90.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "coffee_table_dnsjnv_0"
+      },
+      "robot_start": {
+        "position": [
+          -3.8,
+          17.3,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          1.0,
+          6.123233995736766e-17
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_b",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "B",
+      "history_variant": null,
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "coffee_table_dnsjnv_0",
+        "static_aabb_m": [
+          [
+            -5.626307523224202,
+            15.66210849542625,
+            0.004570710604841599
+          ],
+          [
+            -4.592378611262295,
+            17.70951965326703,
+            0.7484852002064283
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "apparatus_translation_world_m": [
+        0.2,
+        0.3,
+        0.0
+      ]
+    }
+  ],
+  "revision_evidence": {
+    "parent_design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_design_v1.json",
+    "parent_design_sha256": "f8b876c595d0131dbd5be7516f25634959204076cced92283770b4e175f3eacf",
+    "main_prescribed_change": "Translate only active apparatus by world [0.2, 0.3, 0.0] m. Preserve actor, robot and native furniture placements, temporal events, QA, assets and all thresholds.",
+    "primary_review_aliases": [
+      "T41",
+      "T45"
+    ],
+    "other_entries_role": "Controls, including all three inherited T40 history variants.",
+    "native_review_diagnosis": "The V1 collection tabletop crossed the dining floor minimum Y by approximately 0.176 m; the spare station was already inside the floor.",
+    "collection_table_center_world_xy_m": [
+      -4.6996,
+      14.9046
+    ],
+    "spare_table_center_world_xy_m": [
+      -3.8496,
+      15.8546
+    ],
+    "inventory_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261024_furnished/temporal_beechwood_inventory/Beechwood_0_garden.json",
+    "cpu_static_checks": {
+      "primitive_footprints": 160,
+      "entries": 8,
+      "all_primitive_footprints_inside_physical_dining_floor": true,
+      "all_covered_fine_map_cells_dining_room_0": true,
+      "fine_map_resolution_m": 0.1,
+      "overlap_with_six_native_dining_chairs_or_main_table": false,
+      "minimum_physical_floor_margin_m": 0.1237758632660455,
+      "minimum_native_chair_or_main_table_xy_clearance_m": 0.12837401179850794,
+      "spare_station_right_floor_edge_clearance_m": 0.18524986437560975,
+      "dataset_spare_check": "All spare roots remain on their translated station, inside the floor and fine-map room. Relative offsets are unchanged; collision meshes were not remeasured.",
+      "authored_robot_start_world_m": [
+        -3.8,
+        17.3,
+        0.02
+      ],
+      "minimum_authored_robot_root_to_apparatus_xy_distance_m": 1.1453999999999986,
+      "prior_native_robot_spawn_world_m": [
+        -6.199979305267334,
+        15.200007438659668,
+        0.0037619471549987793
+      ],
+      "minimum_prior_native_robot_root_to_apparatus_xy_distance_m": 1.2503793052673355,
+      "robot_limitation": "The supplied V1 receipts contain no explicit whole-robot AABB. Distances concern robot root points only; full robot collision and new native initialization remain pending.",
+      "validation_scope": "Authored primitive footprints and supplied static furniture bounds only; no native simulation or task execution."
+    },
+    "native_validation_run": false,
+    "physical_success_verified": false
+  }
+}

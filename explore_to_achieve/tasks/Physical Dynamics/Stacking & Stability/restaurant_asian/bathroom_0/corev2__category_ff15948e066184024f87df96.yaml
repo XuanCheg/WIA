@@ -1,0 +1,233 @@
+kind: category_robot_task
+id: task_0b25278aad4ef6e3dc9a3a41
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Physical Dynamics/Stacking & Stability/restaurant_asian/bathroom_0/restaurant_asian__bathroom_0.json
+public:
+  objective: 'Build one stable three-object tower using the chopping board, shoe box,
+    box of cookies. Choose a bottom object on the starting support surface. Grasp
+    and lift each of the other two objects at least 5 cm, place one on the bottom
+    and the last on the middle, lower into support contact before opening the gripper,
+    then withdraw and leave the tower untouched for at least one second. You may test
+    another order by physically unstacking and rebuilding. Original auxiliary question:
+    How should you stack box_of_cookies, chopping_board, shoe_box to maximize stability?'
+  success_criteria: All three objects are upright and form a supported tower in any
+    stable order. The bottom touches the starting support surface; each upper touches
+    and rests on its predecessor, with no other support. Both upper objects have real
+    grasp, lift and release evidence. All robot hands are detached and withdrawn;
+    the tower stays still for one continuous second. The original answer is scored
+    separately as auxiliary QA.
+  environment: The original room contains the three original-size objects on accessible
+    starting supports.
+  constraints:
+  - Use only existing guarded base, arm, trunk, wrist and gripper controls.
+  - Keep task object sizes and task supports unchanged. Noncritical native movable
+    furniture may be moved using guarded arm and gripper actions.
+  - Use real pick-and-place; legacy mock grasp and kinematic placement are excluded.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    object_0:
+      name: stack_obj0
+      category: chopping_board
+      model: afwefw
+    object_1:
+      name: stack_obj1
+      category: shoe_box
+      model: pitwey
+    object_2:
+      name: stack_obj2
+      category: box_of_cookies
+      model: ohhshb
+    floor:
+      name: floors_nvttpl_0
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.physical_dynamics_stacking_stability
+    operation: build_released_three_object_stack
+    binding_keys:
+    - object_0
+    - object_1
+    - object_2
+    - floor
+    parameters:
+      original_objects:
+        object_0:
+          name: stack_obj0
+          category: chopping_board
+          model: afwefw
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          position:
+          - -8.055084228515625
+          - 6.099613189697266
+          - 0.009504147805273533
+          quaternion_xyzw:
+          - -0.00019308613264001906
+          - -0.0003023631579708308
+          - 1.0516476578459333e-07
+          - 1.0
+          aabb_min:
+          - -8.179793357849121
+          - 5.912530899047852
+          - -0.00010266434401273727
+          aabb_max:
+          - -7.930404186248779
+          - 6.2865986824035645
+          - 0.01911120116710663
+        object_1:
+          name: stack_obj1
+          category: shoe_box
+          model: pitwey
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          position:
+          - -7.697297096252441
+          - 6.099564075469971
+          - 0.051026877015829086
+          quaternion_xyzw:
+          - -8.136530738056535e-08
+          - -6.460567902877301e-08
+          - 9.97046569750637e-08
+          - 1.0
+          aabb_min:
+          - -7.850255012512207
+          - 5.976837635040283
+          - 3.445520997047424e-05
+          aabb_max:
+          - -7.544040203094482
+          - 6.222654819488525
+          - 0.08921036124229431
+        object_2:
+          name: stack_obj2
+          category: box_of_cookies
+          model: ohhshb
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          position:
+          - -7.318576335906982
+          - 6.099562644958496
+          - 0.03261776268482208
+          quaternion_xyzw:
+          - -2.511503225832712e-06
+          - 0.05781352519989014
+          - -3.641844159574248e-05
+          - 0.9983274340629578
+          aabb_min:
+          - -7.461436748504639
+          - 5.957867622375488
+          - -0.01523246243596077
+          aabb_max:
+          - -7.174781322479248
+          - 6.24125862121582
+          - 0.07990032434463501
+      legacy_accepted_category_orders:
+      - - shoe_box
+        - box_of_cookies
+        - chopping_board
+      - - box_of_cookies
+        - shoe_box
+        - chopping_board
+      task_revision: task_edit_20261018_v1
+      mechanism_contract:
+        preserve:
+        - original_objects
+        - asset_scales
+        - native_grasp_release_history
+        goal: released_tower_after_robot_withdrawal
+        stability_seconds: 1.0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        position:
+        - -7.884433504051907
+        - 5.37513560032511
+        - -0.00010266434401273727
+        yaw_deg: 74.99999999999999
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 45.0
+      - operation: restore_robot_head_mount
+      - operation: object_physics
+        binding: object_0
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: object_0
+        visual_only: false
+      - operation: object_physics
+        binding: object_1
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: object_1
+        visual_only: false
+      - operation: object_physics
+        binding: object_2
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: object_2
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - object_0
+        - object_1
+        - object_2
+        manipulation_bindings:
+        - object_0
+        - object_1
+        - object_2
+        relocation_policy: independent_groups
+        placement_groups:
+        - - object_0
+        - - object_1
+        - - object_2
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: bathroom_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - independent_candidate_support_adaptation_requires_review
+        - source_qa_reference_layout_changed
+        - native_grasp_execution_unverified
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0

@@ -1,0 +1,443 @@
+kind: scene_patch
+id: category_9802122d5b6e6d856a7c6635__t31_furnished_tray_v2
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/Beechwood_0_garden/kitchen_0/wia_furnished_background_v1.json
+target: null
+qualification: null
+bindings:
+  obj1:
+    name: obj1
+    category: violin
+    model: rgwsac
+  initial_support_0:
+    name: countertop_tpuwys_0
+  obj2:
+    name: obj2
+    category: backpack
+    model: gvbiwl
+  initial_support_1:
+    name: countertop_tpuwys_0
+  deck:
+    name: wia_tray_deck
+  rim_w:
+    name: wia_tray_rim_w
+  rim_e:
+    name: wia_tray_rim_e
+  rim_s:
+    name: wia_tray_rim_s
+  rim_n:
+    name: wia_tray_rim_n
+  tray_table:
+    name: countertop_tpuwys_1
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_spatial_tray
+        parameters:
+          revision: wia_spatial_tray_v1
+          scene_contract:
+            scene_model: Beechwood_0_garden
+            room: kitchen_0
+          layout:
+            shared_layout_id: wia_furnished_T31_v2
+            scene_model: Beechwood_0_garden
+            rooms:
+            - kitchen_0
+            floor_name: floors_yrwwan_0
+            objects:
+            - type: DatasetObject
+              name: obj1
+              category: violin
+              model: rgwsac
+              position:
+              - -1.15
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - 0.08277695626020432
+              - 0.0009354343637824059
+              - -0.014519979245960712
+              - 0.9964619278907776
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj2
+              category: backpack
+              model: gvbiwl
+              position:
+              - -0.25
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - -0.0010458595352247357
+              - 0.06213609129190445
+              - -0.000616817269474268
+              - 0.9980670213699341
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_deck
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 1.2
+              - 0.02
+              position:
+              - -3.73
+              - 13.55
+              - 0.8796108667276747
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_w
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.2
+              - 0.036
+              position:
+              - -3.9619999999999997
+              - 13.55
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_e
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.2
+              - 0.036
+              position:
+              - -3.498
+              - 13.55
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_s
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 0.016
+              - 0.036
+              position:
+              - -3.73
+              - 12.958
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_n
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 0.016
+              - 0.036
+              position:
+              - -3.73
+              - 14.142000000000001
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            supported_items:
+            - name: obj1
+              support: countertop_tpuwys_0
+            - name: obj2
+              support: countertop_tpuwys_0
+            robot_start:
+              position:
+              - -2.75
+              - 13.55
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_spatial_tray
+        parameters:
+          revision: wia_spatial_tray_v1
+          scene_contract:
+            scene_model: Beechwood_0_garden
+            room: kitchen_0
+          layout:
+            shared_layout_id: wia_furnished_T31_v2
+            scene_model: Beechwood_0_garden
+            rooms:
+            - kitchen_0
+            floor_name: floors_yrwwan_0
+            objects:
+            - type: DatasetObject
+              name: obj1
+              category: violin
+              model: rgwsac
+              position:
+              - -1.15
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - 0.08277695626020432
+              - 0.0009354343637824059
+              - -0.014519979245960712
+              - 0.9964619278907776
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj2
+              category: backpack
+              model: gvbiwl
+              position:
+              - -0.25
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - -0.0010458595352247357
+              - 0.06213609129190445
+              - -0.000616817269474268
+              - 0.9980670213699341
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_deck
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 1.2
+              - 0.02
+              position:
+              - -3.73
+              - 13.55
+              - 0.8796108667276747
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_w
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.2
+              - 0.036
+              position:
+              - -3.9619999999999997
+              - 13.55
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_e
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.2
+              - 0.036
+              position:
+              - -3.498
+              - 13.55
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_s
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 0.016
+              - 0.036
+              position:
+              - -3.73
+              - 12.958
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_n
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 0.016
+              - 0.036
+              position:
+              - -3.73
+              - 14.142000000000001
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            supported_items:
+            - name: obj1
+              support: countertop_tpuwys_0
+            - name: obj2
+              support: countertop_tpuwys_0
+            robot_start:
+              position:
+              - -2.75
+              - 13.55
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+seed: 0
+runtime:
+  reflection_sensor_profile: {}
+  requires_native_visual_discovery: false
+  post_controller_settle_steps: 30
+  trunk_config: configs/esi_trunk.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0
+target_bindings: []

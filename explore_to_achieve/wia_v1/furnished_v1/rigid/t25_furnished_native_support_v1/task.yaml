@@ -1,0 +1,392 @@
+kind: category_robot_task
+id: wia_rigid_t25_v1__t25_furnished_native_support_v1
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/Merom_0_garden/playroom_0/t25_furnished_native_support_v1.json
+public:
+  objective: 'Find the target on the exposed furniture surface and inspect the containers
+    distributed along the other counter. Which container does the banana best fit
+    inside: the wicker basket or the bowl or the tupperware? Grasp the banana with
+    the robot, lift it at least 5 cm, and partially insert it into your chosen container.
+    Release it and withdraw the gripper at least 2 cm clear of the banana.'
+  success_criteria: 'Answer the original containment question and complete a real
+    grasp, a lift of at least 5 cm, and stable partial insertion into the chosen container.
+    After release, keep the banana partially inside with the gripper at least 2 cm
+    clear for at least 0.5 seconds, with linear speed at most 0.02 m/s and angular
+    speed at most 0.1 rad/s. An object resting entirely on top does not count as inside.
+    Submit ANSWER: <container label> and declare DONE.'
+  environment: A furnished playroom. The target and containers occupy separate native
+    furniture surfaces; none is deliberately hidden.
+  constraints:
+  - Complete every target subtask before declaring DONE. An object resting entirely
+    on top does not count as inside.
+  - Use the existing guarded robot controls and visible container labels.
+  - Preserve all asset scales and keep every container within 2 cm and 0.05 radians
+    of its starting pose.
+  - The banana may be removed after its released, stable partial insertion has been
+    verified.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    target:
+      name: obj_containee
+      category: banana
+      model: znakxm
+    container_2:
+      name: obj_container_2
+      category: wicker_basket
+      model: jqfftz
+    container_1:
+      name: obj_container_1
+      category: tupperware
+      model: mkstwr
+    container_0:
+      name: obj_container_0
+      category: bowl
+      model: byzaxy
+    table:
+      name: countertop_tpuwys_0
+      category: countertop
+      model: tpuwys
+    pickup_support:
+      name: bookcase_owvfik_0
+      category: bookcase
+      model: owvfik
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.rigid_partial_insertion
+    operation: pick_release_partial_insert
+    binding_keys:
+    - target
+    - container_2
+    - container_1
+    - container_0
+    - table
+    - pickup_support
+    parameters:
+      scorer_version: wia_rigid_partial_insertion_v1
+      targets:
+      - target
+      containers:
+      - container_0
+      - container_1
+      - container_2
+      expected_containers:
+        target: container_1
+      target_labels:
+        target: banana
+      expected_answers:
+        target: tupperware
+      minimum_lift_m: 0.05
+      stability_duration_s: 0.5
+      maximum_linear_speed_m_s: 0.02
+      maximum_angular_speed_rad_s: 0.1
+      max_sample_gap_s: 0.1
+      interior_margin_m: 0.002
+      penetration_tolerance_m: 0.001
+      withdrawal_clearance_m: 0.02
+      container_pose_tolerance_m: 0.02
+      maximum_container_rotation_rad: 0.05
+      scale_relative_tolerance: 0.0001
+      allow_remove_after_verification: true
+      initial_supports:
+        target: pickup_support
+        container_0: table
+        container_1: table
+        container_2: table
+      initial_support_tolerance_m: 0.015
+      maximum_initial_linear_speed_m_s: 0.02
+      maximum_initial_angular_speed_rad_s: 0.2
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    tabletop:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: wia_furnished_rigid_layout_v1
+          layout:
+            shared_layout_id: t25_furnished_native_support_v1
+            scene_model: Merom_0_garden
+            rooms:
+            - playroom_0
+            floor_name: floors_jrdgxz_0
+            objects:
+            - type: DatasetObject
+              name: obj_containee
+              category: banana
+              model: znakxm
+              position:
+              - -3.02
+              - -10.61
+              - 1.1024741013978911
+              orientation:
+              - 6.494810804724693e-07
+              - 1.2593809515237808e-06
+              - -0.05854220688343048
+              - 0.998285174369812
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_0
+              category: bowl
+              model: byzaxy
+              position:
+              - -5.82
+              - -11.8
+              - 1.1191993950803805
+              orientation:
+              - 0.0003229005402968168
+              - 0.003126484598275809
+              - 1.1255167094640558e-05
+              - 0.9999950603391095
+              scale:
+              - 0.5459178917593811
+              - 0.27949668238233843
+              - 0.2650372420818137
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_1
+              category: tupperware
+              model: mkstwr
+              position:
+              - -5.82
+              - -11.15
+              - 1.1191993950803805
+              orientation:
+              - 0.07903956640824547
+              - -0.19056954719292873
+              - -0.24059849257284885
+              - 0.948445232997853
+              scale:
+              - 1.089512783869568
+              - 0.5578015436773667
+              - 0.37826611553269435
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_2
+              category: wicker_basket
+              model: jqfftz
+              position:
+              - -5.82
+              - -10.6
+              - 1.1191993950803805
+              orientation:
+              - -0.16187102170775114
+              - 0.029060768171091475
+              - -0.005212663375990422
+              - 0.9863701497030025
+              scale:
+              - 1.011809469467461
+              - 0.5179295399061828
+              - 0.2371256964833768
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: obj_containee
+              support: bookcase_owvfik_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: obj_container_0
+              support: countertop_tpuwys_0
+            - name: obj_container_1
+              support: countertop_tpuwys_0
+            - name: obj_container_2
+              support: countertop_tpuwys_0
+            robot_start:
+              position:
+              - -4.8
+              - -11.45
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Merom_0_garden
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: wia_furnished_rigid_layout_v1
+          layout:
+            shared_layout_id: t25_furnished_native_support_v1
+            scene_model: Merom_0_garden
+            rooms:
+            - playroom_0
+            floor_name: floors_jrdgxz_0
+            objects:
+            - type: DatasetObject
+              name: obj_containee
+              category: banana
+              model: znakxm
+              position:
+              - -3.02
+              - -10.61
+              - 1.1024741013978911
+              orientation:
+              - 6.494810804724693e-07
+              - 1.2593809515237808e-06
+              - -0.05854220688343048
+              - 0.998285174369812
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_0
+              category: bowl
+              model: byzaxy
+              position:
+              - -5.82
+              - -11.8
+              - 1.1191993950803805
+              orientation:
+              - 0.0003229005402968168
+              - 0.003126484598275809
+              - 1.1255167094640558e-05
+              - 0.9999950603391095
+              scale:
+              - 0.5459178917593811
+              - 0.27949668238233843
+              - 0.2650372420818137
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_1
+              category: tupperware
+              model: mkstwr
+              position:
+              - -5.82
+              - -11.15
+              - 1.1191993950803805
+              orientation:
+              - 0.07903956640824547
+              - -0.19056954719292873
+              - -0.24059849257284885
+              - 0.948445232997853
+              scale:
+              - 1.089512783869568
+              - 0.5578015436773667
+              - 0.37826611553269435
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_2
+              category: wicker_basket
+              model: jqfftz
+              position:
+              - -5.82
+              - -10.6
+              - 1.1191993950803805
+              orientation:
+              - -0.16187102170775114
+              - 0.029060768171091475
+              - -0.005212663375990422
+              - 0.9863701497030025
+              scale:
+              - 1.011809469467461
+              - 0.5179295399061828
+              - 0.2371256964833768
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: obj_containee
+              support: bookcase_owvfik_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: obj_container_0
+              support: countertop_tpuwys_0
+            - name: obj_container_1
+              support: countertop_tpuwys_0
+            - name: obj_container_2
+              support: countertop_tpuwys_0
+            robot_start:
+              position:
+              - -4.8
+              - -11.45
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Merom_0_garden
+          disable_grid: false
+qualification:
+  on_failure: skip
+  support: null
+  initial_visibility: none
+defaults:
+  seed: 0
+  max_steps: 60
+  action_mode: parameterized
+repair:
+  contract_revision: wia_furnished_rigid_layout_v1
+  validation_status: pending-native-validation
+  parent_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/tasks/rigid_t25_v1.yaml
+  parent_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/scenes/rigid_t25_v1.yaml
+  scene_file: explore_to_achieve/wia_v1/scenes/rigid_t25_v1.yaml
+  original_scene_qualification:
+    on_failure: skip
+    support: table
+    supported_objects:
+    - target
+    - container_2
+    - container_1
+    - container_0
+    object_supports:
+      target: pickup_support
+    support_surface_mode: local_raycast
+    support_tolerance_m: 0.015
+    maximum_linear_speed_m_s: 0.02
+    maximum_angular_speed_rad_s: 0.2
+    require_support_contact: true
+    reject_robot_contacts: true
+    screen_furniture_overlap: true
+    settle_steps: 30
+  native_validation_run: false
+  physically_qualified: false
+  threshold_basis: Explicit pilot thresholds; native calibration is pending.
+  parent_task_sha256: bda37f3e4685e90c422ed2398c10b18bd0e1a474a603fed13dd8f93f6c344b14
+  parent_scene_sha256: 737555e89b8036464afe42889f6819b2de7ac9cc5868d67b0148c1b6c01e0f59
+  original_qa_source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
+    Structure/Rigid Containment/hall_arch_wood/empty_room_0/hall_arch_wood_scene_dict_storage2_1_revised.json
+  original_qa_source_sha256: 025cb554b358028741ec0274d67ce50386611d2ada310ee4cb39ccbb287361e2
+  physical_success_verified: false
+  full_reference_execution: deferred_until_user_review
+  original_support_v6_hold_preserved: false

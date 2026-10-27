@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wia"
+version = "0.1.0"
+description = "World Interactive Agency: model-independent embodied evaluation"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "PyYAML>=6", "pydantic>=2"]
+
+[project.optional-dependencies]
+harness = ["showharness[harness]>=0.1.0"]
+simulator = ["requests>=2", "Pillow>=9"]
+test = ["pytest>=7"]
+
+[project.scripts]
+wia = "wia.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["wia*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

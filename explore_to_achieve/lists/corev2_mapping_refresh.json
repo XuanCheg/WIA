@@ -1,0 +1,1169 @@
+{
+  "schema": "corev2_mapping_refresh_v1",
+  "collection_count": 54,
+  "removed": [
+    {
+      "candidate_id": "category_cf3e1d4983de15cade5721d8",
+      "source_subclasses": [
+        "Cognitive Mapping/Long-Term Navigation"
+      ],
+      "source_identities": [
+        "Cognitive Mapping/Long-Term Navigation/hall_arch_wood/full_scene/q_000.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Cognitive Mapping",
+      "subcategory": "Long-Term Navigation",
+      "scene": "hall_arch_wood",
+      "room": "full_scene",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": null,
+      "warning_codes": [
+        "assumption_review_required",
+        "interaction_layout_native_review_pending",
+        "long_route_budget_unqualified",
+        "mounted_sensor_coverage_unverified",
+        "native_grasp_execution_unverified",
+        "native_mapping_relation_and_door_qualification_pending",
+        "native_route_unverified",
+        "robot_spawn_unqualified",
+        "same_source_region_spawn_repair_requires_native_evidence",
+        "source_runtime_door_policy_difference"
+      ],
+      "setup_warning_codes": [
+        "native_grasp_execution_unverified"
+      ],
+      "task_file": "explore_to_achieve/tasks/Cognitive Mapping/Long-Term Navigation/hall_arch_wood/full_scene/corev2__category_cf3e1d4983de15cade5721d8.yaml",
+      "scene_file": "explore_to_achieve/scenes/Cognitive Mapping/Long-Term Navigation/hall_arch_wood/full_scene/corev2__category_cf3e1d4983de15cade5721d8.yaml",
+      "objective": "Follow this supplied room route in order: bathroom_0 -> corridor_0. While physically and stably inside each required room, output a standalone line 'ARRIVED: <room_instance>' in your world_observation text, replacing <room_instance> with the room instance you identify from your observations. Report each required room; a declaration alone does not establish a visit. For an ordered route, report each step after completing its predecessor, including repeated room names. Out-of-order visits do not erase completed steps; revisit and report the pending step to continue.",
+      "reflection_checks": {},
+      "historical_evidence_only": true,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "assumption_review_required",
+        "camera_review_framing_requires_repair",
+        "execution_not_qualified",
+        "interaction_layout_native_review_pending",
+        "long_route_budget_unqualified",
+        "mounted_sensor_coverage_unverified",
+        "native_grasp_execution_unverified",
+        "native_mapping_relation_and_door_qualification_pending",
+        "native_route_unverified",
+        "robot_spawn_unqualified",
+        "same_source_region_spawn_repair_requires_native_evidence",
+        "source_runtime_door_policy_difference"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_cf3e1d4983de15cade5721d8.json",
+      "evidence_sha256": "dee579bd9a6e18946fc4089c396cbc5d3ffdd890b53bf72afae18f44f4f558ae",
+      "camera_audit": {
+        "status": "repair_required",
+        "evidence_scope": "historical",
+        "finding": "All Global views show the building exterior/roof; source Scene is almost black. Mounted cameras show the bathroom, not the full route.",
+        "mount_calibration_verified": false
+      }
+    },
+    {
+      "candidate_id": "category_bd6e08dc3ad36d10b342895f",
+      "source_subclasses": [
+        "Cognitive Mapping/Connectivity"
+      ],
+      "source_identities": [
+        "Cognitive Mapping/Connectivity/hall_arch_wood/full_scene/q_002.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Cognitive Mapping",
+      "subcategory": "Connectivity",
+      "scene": "hall_arch_wood",
+      "room": "full_scene",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": null,
+      "warning_codes": [
+        "assumption_review_required",
+        "graph_path_advisory_only",
+        "interaction_layout_native_review_pending",
+        "native_door_passability_unverified",
+        "native_floor_layer_unverified",
+        "native_grasp_execution_unverified",
+        "native_mapping_relation_and_door_qualification_pending",
+        "native_route_execution_unverified",
+        "robot_initialization_unqualified",
+        "source_camera_xy_is_not_chassis_clearance",
+        "source_runtime_door_policy_difference"
+      ],
+      "setup_warning_codes": [
+        "native_grasp_execution_unverified"
+      ],
+      "task_file": "explore_to_achieve/tasks/Cognitive Mapping/Connectivity/hall_arch_wood/full_scene/corev2__category_bd6e08dc3ad36d10b342895f.yaml",
+      "scene_file": "explore_to_achieve/scenes/Cognitive Mapping/Connectivity/hall_arch_wood/full_scene/corev2__category_bd6e08dc3ad36d10b342895f.yaml",
+      "objective": "Are bathroom_0 and corridor_0 adjacent, with a direct connection between them? Explore the two named regions and report each arrival. While physically and stably inside each required room, output a standalone line 'ARRIVED: <room_instance>' in your world_observation text, replacing <room_instance> with the room instance you identify from your observations. Report each required room; a declaration alone does not establish a visit. For an ordered route, report each step after completing its predecessor, including repeated room names. Out-of-order visits do not erase completed steps; revisit and report the pending step to continue.",
+      "reflection_checks": {},
+      "historical_evidence_only": true,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "assumption_review_required",
+        "camera_review_framing_requires_repair",
+        "execution_not_qualified",
+        "graph_path_advisory_only",
+        "interaction_layout_native_review_pending",
+        "native_door_passability_unverified",
+        "native_floor_layer_unverified",
+        "native_grasp_execution_unverified",
+        "native_mapping_relation_and_door_qualification_pending",
+        "native_route_execution_unverified",
+        "robot_initialization_unqualified",
+        "source_camera_xy_is_not_chassis_clearance",
+        "source_runtime_door_policy_difference"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_bd6e08dc3ad36d10b342895f.json",
+      "evidence_sha256": "58b5a8b66304a341c386b24798c37722ac51d7f8e67f593a2c560d7654ec8ab5",
+      "camera_audit": {
+        "status": "repair_required",
+        "evidence_scope": "historical",
+        "finding": "All Global views show the building exterior/roof; source Scene is nearly black. Same room pair and world as navigation entry 05.",
+        "mount_calibration_verified": false
+      }
+    }
+  ],
+  "added": [
+    {
+      "candidate_id": "category_5296997426a116135b7c80aa",
+      "category": "Cognitive Mapping",
+      "subcategory": "Connectivity",
+      "scene": "school_geography",
+      "room": "full_scene",
+      "source_subclasses": [
+        "Cognitive Mapping/Connectivity"
+      ],
+      "source_identities": [
+        "Cognitive Mapping/Connectivity/school_geography/full_scene/q_000.json",
+        "Cognitive Mapping/Connectivity/school_geography/full_scene/q_001.json",
+        "Cognitive Mapping/Connectivity/school_geography/full_scene/q_002.json",
+        "Cognitive Mapping/Connectivity/school_geography/full_scene/q_003.json",
+        "Cognitive Mapping/Connectivity/school_geography/full_scene/q_007.json"
+      ],
+      "source_entry_count": 5,
+      "task_file": "explore_to_achieve/tasks/Cognitive Mapping/Connectivity/school_geography/full_scene/corev2__category_5296997426a116135b7c80aa.yaml",
+      "scene_file": "explore_to_achieve/scenes/Cognitive Mapping/Connectivity/school_geography/full_scene/corev2__category_5296997426a116135b7c80aa.yaml",
+      "objective": "Explore the complete preserved building once in one continuous episode.\ngoal_1: Are classroom_0 and corridor 2 (with display case and drinking fountain) adjacent, with a direct connection between them?\ngoal_2: Are corridor 0 (near classroom 0) and corridor 2 (with display case and drinking fountain) adjacent, with a direct connection between them?\ngoal_3: Are corridor 1 (near bathroom 0) and corridor 2 (with display case and drinking fountain) adjacent, with a direct connection between them?\ngoal_4: Are corridor 0 (near classroom 0) and corridor 1 (near bathroom 0) adjacent, with a direct connection between them?\ngoal_5: Are classroom_0 and corridor 0 (near classroom 0) adjacent, with a direct connection between them?",
+      "goal_count": 5,
+      "required_rooms": [
+        "classroom_0",
+        "corridor_0",
+        "corridor_1",
+        "corridor_2"
+      ],
+      "required_order": [],
+      "episode_budget": {
+        "origin": "new_uncalibrated_geometric_pilot",
+        "calibrated": false,
+        "max_steps": 1270,
+        "wall_timeout_s": 3810.0,
+        "derivation": "ceil(2 * Manhattan_MST(all unique saved camera/path XY) / 0.25m) + 12 * distinct required rooms + 4 * unique semantic questions",
+        "evidence": {
+          "manhattan_mst_m": 150.14092786080715,
+          "translation_increment_m": 0.25,
+          "geometric_traversals": 2,
+          "translation_actions": 1202,
+          "inspection_turn_actions": 48,
+          "answer_actions": 20,
+          "wall_seconds_per_action": 3.0,
+          "wall_bound_calibrated": false,
+          "point_set": "all_saved_source_camera_and_path_XY_superset",
+          "unique_xy_count": 600
+        },
+        "limitation": "Geometry ignores walls, door operation and controller timing; native route and budget calibration remain mandatory."
+      },
+      "setup_status": "native_setup_passed_execution_unverified",
+      "recommendation": "conditional_multi_goal_review",
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "failure_kind": null,
+      "reason": null,
+      "warning_codes": [
+        "execution_not_qualified",
+        "native_start_qualification_pending",
+        "native_mapping_relation_and_door_qualification_pending",
+        "shared_budget_native_calibration_pending",
+        "camera_visual_review_pending",
+        "joint_world_native_measurement_provider_unverified"
+      ],
+      "setup_warning_codes": [],
+      "issues": [
+        "camera_visual_review_notes",
+        "execution_not_qualified",
+        "joint_world_native_measurement_provider_unverified",
+        "native_mapping_relation_and_door_qualification_pending",
+        "shared_budget_native_calibration_pending"
+      ],
+      "evidence_note": "Fresh exact-definition capture verified; initialization evidence is separate from execution qualification.",
+      "capture_candidate_id": "category_aafa1ef4321fcc70fce2f196",
+      "current_capture_job_id": "capture_f9f9b2cb7e259b9a11bb150e9ad6a74d",
+      "current_capture": {
+        "candidate_id": "category_5296997426a116135b7c80aa",
+        "capture_candidate_id": "category_aafa1ef4321fcc70fce2f196",
+        "job_id": "capture_f9f9b2cb7e259b9a11bb150e9ad6a74d",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 21,
+        "error": null,
+        "attempts": 1,
+        "duration_s": 566.7774328617379,
+        "gpu": 5,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "initialization_reason": null,
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T10:22:38.936316+00:00",
+          "reset_identity": {
+            "episode_id": "reset_0edf173ef71145fc93528af5ab7e82a2",
+            "reset_id": "0edf173ef71145fc93528af5ab7e82a2",
+            "seed": 0
+          },
+          "native_time_s": 2.075000108219683,
+          "native_time_after_s": 2.075000108219683,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_f9f9b2cb7e259b9a11bb150e9ad6a74d",
+            "capture_signature": "f9f9b2cb7e259b9a11bb150e9ad6a74dfdd9c179fb373054d8ab7043a31e2b66",
+            "task_sha256": "8736dfcfd7e9e2032d7753a112916e78b8469aedb1626f9bbbf69f7d4bc78470",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "setup_warning_codes": [
+          "native_grasp_execution_unverified"
+        ],
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_5296997426a116135b7c80aa/preview_complete.json",
+            "sha256": "68a0e68aec6f7e63071b8a7cb95cfc2b4b6404282c62de4e2ec8a0a29d64e31f"
+          }
+        ]
+      },
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current",
+        "image_count": 21,
+        "capture_job_id": "capture_f9f9b2cb7e259b9a11bb150e9ad6a74d",
+        "finding": "The initial Agent overview and human overhead view expose the interior floor layout. Head and chassis views show the correct starting room and surrounding furniture/doors. Oblique whole-building human views show the roof exterior; object closeups mostly frame the robot and add little room coverage.",
+        "mounted_calibration": "unverified"
+      }
+    },
+    {
+      "candidate_id": "category_cf3697aa6546a5518f3e5735",
+      "category": "Cognitive Mapping",
+      "subcategory": "Connectivity",
+      "scene": "house_double_floor_upper",
+      "room": "full_scene",
+      "source_subclasses": [
+        "Cognitive Mapping/Connectivity"
+      ],
+      "source_identities": [
+        "Cognitive Mapping/Connectivity/house_double_floor_upper/full_scene/q_000.json",
+        "Cognitive Mapping/Connectivity/house_double_floor_upper/full_scene/q_001.json",
+        "Cognitive Mapping/Connectivity/house_double_floor_upper/full_scene/q_003.json",
+        "Cognitive Mapping/Connectivity/house_double_floor_upper/full_scene/q_005.json",
+        "Cognitive Mapping/Connectivity/house_double_floor_upper/full_scene/q_006.json"
+      ],
+      "source_entry_count": 5,
+      "task_file": "explore_to_achieve/tasks/Cognitive Mapping/Connectivity/house_double_floor_upper/full_scene/corev2__category_cf3697aa6546a5518f3e5735.yaml",
+      "scene_file": "explore_to_achieve/scenes/Cognitive Mapping/Connectivity/house_double_floor_upper/full_scene/corev2__category_cf3697aa6546a5518f3e5735.yaml",
+      "objective": "Explore the complete preserved building once in one continuous episode.\ngoal_1: Are bedroom 0 (with bed, nightstand, and table lamp) and living_room_0 adjacent, with a direct connection between them?\ngoal_2: Are bedroom 1 (near living room 0) and living_room_0 adjacent, with a direct connection between them?\ngoal_3: Are bedroom 1 (near living room 0) and bedroom 2 (with desk and bookcase) adjacent, with a direct connection between them?\ngoal_4: Are bathroom_0 and living_room_0 adjacent, with a direct connection between them?\ngoal_5: Are bathroom_0 and bedroom 0 (with bed, nightstand, and table lamp) adjacent, with a direct connection between them?",
+      "goal_count": 5,
+      "required_rooms": [
+        "bathroom_0",
+        "bedroom_0",
+        "bedroom_1",
+        "bedroom_2",
+        "living_room_0"
+      ],
+      "required_order": [],
+      "episode_budget": {
+        "origin": "new_uncalibrated_geometric_pilot",
+        "calibrated": false,
+        "max_steps": 553,
+        "wall_timeout_s": 1659.0,
+        "derivation": "ceil(2 * Manhattan_MST(all unique saved camera/path XY) / 0.25m) + 12 * distinct required rooms + 4 * unique semantic questions",
+        "evidence": {
+          "manhattan_mst_m": 59.11611357991602,
+          "translation_increment_m": 0.25,
+          "geometric_traversals": 2,
+          "translation_actions": 473,
+          "inspection_turn_actions": 60,
+          "answer_actions": 20,
+          "wall_seconds_per_action": 3.0,
+          "wall_bound_calibrated": false,
+          "point_set": "all_saved_source_camera_and_path_XY_superset",
+          "unique_xy_count": 171
+        },
+        "limitation": "Geometry ignores walls, door operation and controller timing; native route and budget calibration remain mandatory."
+      },
+      "setup_status": "native_setup_passed_execution_unverified",
+      "recommendation": "conditional_multi_goal_review",
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "failure_kind": null,
+      "reason": null,
+      "warning_codes": [
+        "execution_not_qualified",
+        "native_start_qualification_pending",
+        "native_mapping_relation_and_door_qualification_pending",
+        "shared_budget_native_calibration_pending",
+        "camera_visual_review_pending",
+        "joint_world_native_measurement_provider_unverified"
+      ],
+      "setup_warning_codes": [],
+      "issues": [
+        "camera_visual_review_notes",
+        "execution_not_qualified",
+        "joint_world_native_measurement_provider_unverified",
+        "native_mapping_relation_and_door_qualification_pending",
+        "shared_budget_native_calibration_pending"
+      ],
+      "evidence_note": "Fresh exact-definition capture verified; initialization evidence is separate from execution qualification.",
+      "capture_candidate_id": "category_e5a5dcfeb46cbacb04b93559",
+      "current_capture_job_id": "capture_8fe38d73053e340e399e703e5a769ff8",
+      "current_capture": {
+        "candidate_id": "category_cf3697aa6546a5518f3e5735",
+        "capture_candidate_id": "category_e5a5dcfeb46cbacb04b93559",
+        "job_id": "capture_8fe38d73053e340e399e703e5a769ff8",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 21,
+        "error": null,
+        "attempts": 1,
+        "duration_s": 485.3835856374353,
+        "gpu": 6,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "initialization_reason": null,
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T09:50:39.185291+00:00",
+          "reset_identity": {
+            "episode_id": "reset_3ead620a56764ae7b47ef0223db36067",
+            "reset_id": "3ead620a56764ae7b47ef0223db36067",
+            "seed": 0
+          },
+          "native_time_s": 2.075000108219683,
+          "native_time_after_s": 2.075000108219683,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_8fe38d73053e340e399e703e5a769ff8",
+            "capture_signature": "8fe38d73053e340e399e703e5a769ff85a53b9cc8c2f9aa65575d271be2adaba",
+            "task_sha256": "714f32e26fd1ce06a9a652ef646814af6e3d7873f64ab64fb58690905e011b8a",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "setup_warning_codes": [
+          "native_grasp_execution_unverified"
+        ],
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_cf3697aa6546a5518f3e5735/preview_complete.json",
+            "sha256": "50d99787be381899805bbdd7727133ad2652a9bc667ac4d9122fb454decb7511"
+          }
+        ]
+      },
+      "camera_audit": {
+        "status": "review_notes",
+        "finding": "The initial Agent overview and overhead Global view show the interior floor plan. Mounted views show the room, furniture and doors. Several oblique human Global views show the exterior roof; repeated object overview/top views add little information.",
+        "evidence_scope": "current",
+        "image_count": 21,
+        "mounted_calibration": "unverified",
+        "capture_job_id": "capture_8fe38d73053e340e399e703e5a769ff8"
+      }
+    },
+    {
+      "candidate_id": "category_062d036de1fac0297a84732f",
+      "category": "Cognitive Mapping",
+      "subcategory": "Long-Term Navigation",
+      "scene": "office_cubicles_left",
+      "room": "full_scene",
+      "source_subclasses": [
+        "Cognitive Mapping/Long-Term Navigation"
+      ],
+      "source_identities": [
+        "Cognitive Mapping/Long-Term Navigation/office_cubicles_left/full_scene/q_000.json"
+      ],
+      "source_entry_count": 1,
+      "task_file": "explore_to_achieve/tasks/Cognitive Mapping/Long-Term Navigation/office_cubicles_left/full_scene/corev2__category_062d036de1fac0297a84732f.yaml",
+      "scene_file": "explore_to_achieve/scenes/Cognitive Mapping/Long-Term Navigation/office_cubicles_left/full_scene/corev2__category_062d036de1fac0297a84732f.yaml",
+      "objective": "Follow this supplied room route in order: bathroom_0 -> shared_office_0 -> corridor_0 -> conference_hall_0. While physically and stably inside each required room, output a standalone line 'ARRIVED: <room_instance>' in your world_observation text, replacing <room_instance> with the room instance you identify from your observations. Report each required room; a declaration alone does not establish a visit. For an ordered route, report each step after completing its predecessor, including repeated room names. Out-of-order visits do not erase completed steps; revisit and report the pending step to continue.",
+      "goal_count": 4,
+      "required_rooms": [
+        "bathroom_0",
+        "conference_hall_0",
+        "corridor_0",
+        "shared_office_0"
+      ],
+      "required_order": [
+        "bathroom_0",
+        "shared_office_0",
+        "corridor_0",
+        "conference_hall_0"
+      ],
+      "episode_budget": {
+        "origin": "new_uncalibrated_route_pilot",
+        "calibrated": false,
+        "max_steps": 415,
+        "wall_timeout_s": 1245.0,
+        "derivation": "ceil(2 * source_path_distance_m / 0.25) + 12 * distinct rooms + 4 * ordered arrivals",
+        "evidence": {
+          "source_identity": "Cognitive Mapping/Long-Term Navigation/office_cubicles_left/full_scene/q_000.json",
+          "source_path_distance_m": 43.83086395263672,
+          "translation_increment_m": 0.25,
+          "wall_seconds_per_action": 3.0
+        },
+        "limitation": "Source geometry does not certify R1 clearance, door operation, or model latency."
+      },
+      "setup_status": "native_setup_passed_execution_unverified",
+      "recommendation": "conditional_multi_goal_review",
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "failure_kind": null,
+      "reason": null,
+      "warning_codes": [
+        "execution_not_qualified",
+        "native_start_qualification_pending",
+        "native_mapping_relation_and_door_qualification_pending",
+        "shared_budget_native_calibration_pending",
+        "camera_visual_review_pending"
+      ],
+      "setup_warning_codes": [],
+      "issues": [
+        "camera_visual_review_notes",
+        "execution_not_qualified",
+        "native_mapping_relation_and_door_qualification_pending",
+        "shared_budget_native_calibration_pending"
+      ],
+      "evidence_note": "Fresh exact-definition capture verified; initialization evidence is separate from execution qualification.",
+      "capture_candidate_id": "category_1738ff7b82a68a5b8d424adc",
+      "current_capture_job_id": "capture_2455945e7e2c4d2ba8d6442657ccd6fb",
+      "current_capture": {
+        "candidate_id": "category_062d036de1fac0297a84732f",
+        "capture_candidate_id": "category_1738ff7b82a68a5b8d424adc",
+        "job_id": "capture_2455945e7e2c4d2ba8d6442657ccd6fb",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 21,
+        "error": null,
+        "attempts": 1,
+        "duration_s": 688.0009898478165,
+        "gpu": 6,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "initialization_reason": null,
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T10:10:36.273788+00:00",
+          "reset_identity": {
+            "episode_id": "reset_f269a5efe3e54762a4441d67e2a05b0c",
+            "reset_id": "f269a5efe3e54762a4441d67e2a05b0c",
+            "seed": 0
+          },
+          "native_time_s": 2.075000108219683,
+          "native_time_after_s": 2.075000108219683,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_2455945e7e2c4d2ba8d6442657ccd6fb",
+            "capture_signature": "2455945e7e2c4d2ba8d6442657ccd6fb3b14f2a7073033f2741d3aa142612c50",
+            "task_sha256": "ea305ad4f09a98cba28f684f86ac08f02311832b0ed92825d766db362a48fc2a",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "setup_warning_codes": [
+          "native_grasp_execution_unverified"
+        ],
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_062d036de1fac0297a84732f/preview_complete.json",
+            "sha256": "6f7386b6b798453c307c27396465904f512931777210cfed0f75451d9ba47399"
+          }
+        ]
+      },
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current",
+        "image_count": 21,
+        "capture_job_id": "capture_2455945e7e2c4d2ba8d6442657ccd6fb",
+        "finding": "The initial Agent overview and human overhead view expose the interior floor layout. Head and chassis views show the correct starting room and surrounding furniture/doors. Oblique whole-building human views show the roof exterior; object closeups mostly frame the robot and add little room coverage.",
+        "mounted_calibration": "unverified"
+      },
+      "execution_diagnostic": {
+        "status": "diagnostic_waypoint_command_error_fixed_retest_pending",
+        "scene_initialization_accepted": true,
+        "error": "ValueError: Motion quantizes to zero primitives; request a representable magnitude.",
+        "elapsed_s": 2345.263666158542,
+        "commands_executed": 0,
+        "result_file": "outputs/corev2_native_route_20261020/office_cubicles_left/result.json",
+        "note": "The route helper requested less than the public half-primitive minimum. The helper is repaired; no route success or budget calibration has been established.",
+        "portable_result_file": "explore_to_achieve/category_reports/corev2/evidence/navigation_diagnostics_20261020/office_cubicles_left/result.json",
+        "followup": {
+          "controller_profile": "base_only",
+          "status": "scheduled_after_current_capture",
+          "physical_gpu": 4,
+          "note": "Base-only diagnostic matches the declared navigation capabilities. It does not resolve manipulation startup or qualify physical door interactions."
+        }
+      }
+    },
+    {
+      "candidate_id": "category_bb85ad2d7d19a7fdde23a2a0",
+      "category": "Cognitive Mapping",
+      "subcategory": "Long-Term Navigation",
+      "scene": "Beechwood_0_int",
+      "room": "full_scene",
+      "source_subclasses": [
+        "Cognitive Mapping/Long-Term Navigation"
+      ],
+      "source_identities": [
+        "Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/q_000.json"
+      ],
+      "source_entry_count": 1,
+      "task_file": "explore_to_achieve/tasks/Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/corev2__category_bb85ad2d7d19a7fdde23a2a0.yaml",
+      "scene_file": "explore_to_achieve/scenes/Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/corev2__category_bb85ad2d7d19a7fdde23a2a0.yaml",
+      "objective": "Follow this supplied room route in order: living_room_0 -> kitchen_0 -> corridor_0 -> private_office_0 -> utility_room_0 -> storage_room_1. While physically and stably inside each required room, output a standalone line 'ARRIVED: <room_instance>' in your world_observation text, replacing <room_instance> with the room instance you identify from your observations. Report each required room; a declaration alone does not establish a visit. For an ordered route, report each step after completing its predecessor, including repeated room names. Out-of-order visits do not erase completed steps; revisit and report the pending step to continue.",
+      "goal_count": 6,
+      "required_rooms": [
+        "corridor_0",
+        "kitchen_0",
+        "living_room_0",
+        "private_office_0",
+        "storage_room_1",
+        "utility_room_0"
+      ],
+      "required_order": [
+        "living_room_0",
+        "kitchen_0",
+        "corridor_0",
+        "private_office_0",
+        "utility_room_0",
+        "storage_room_1"
+      ],
+      "episode_budget": {
+        "origin": "new_uncalibrated_route_pilot",
+        "calibrated": false,
+        "max_steps": 187,
+        "wall_timeout_s": 561.0,
+        "derivation": "ceil(2 * source_path_distance_m / 0.25) + 12 * distinct rooms + 4 * ordered arrivals",
+        "evidence": {
+          "source_identity": "Cognitive Mapping/Long-Term Navigation/Beechwood_0_int/full_scene/q_000.json",
+          "source_path_distance_m": 11.361019134521484,
+          "translation_increment_m": 0.25,
+          "wall_seconds_per_action": 3.0
+        },
+        "limitation": "Source geometry does not certify R1 clearance, door operation, or model latency."
+      },
+      "setup_status": "native_setup_passed_execution_unverified",
+      "recommendation": "conditional_multi_goal_review",
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "failure_kind": null,
+      "reason": null,
+      "warning_codes": [
+        "execution_not_qualified",
+        "native_start_qualification_pending",
+        "native_mapping_relation_and_door_qualification_pending",
+        "shared_budget_native_calibration_pending",
+        "camera_visual_review_pending"
+      ],
+      "setup_warning_codes": [],
+      "issues": [
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "native_manipulation_controller_start_failed",
+        "native_mapping_relation_and_door_qualification_pending",
+        "shared_budget_native_calibration_pending"
+      ],
+      "evidence_note": "Fresh exact-definition capture verified; initialization evidence is separate from execution qualification.",
+      "capture_candidate_id": "category_acc78ff5cc05d2e5d5103f2a",
+      "current_capture_job_id": "capture_ba1530f6bf57a7e7c740cffbd9491be8",
+      "current_capture": {
+        "candidate_id": "category_bb85ad2d7d19a7fdde23a2a0",
+        "capture_candidate_id": "category_acc78ff5cc05d2e5d5103f2a",
+        "job_id": "capture_ba1530f6bf57a7e7c740cffbd9491be8",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 21,
+        "error": null,
+        "attempts": 1,
+        "duration_s": 468.74959237407893,
+        "gpu": 5,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "initialization_reason": null,
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T10:02:59.765630+00:00",
+          "reset_identity": {
+            "episode_id": "reset_9ac8f62bad1b48ec8a34e5929a284216",
+            "reset_id": "9ac8f62bad1b48ec8a34e5929a284216",
+            "seed": 0
+          },
+          "native_time_s": 2.075000108219683,
+          "native_time_after_s": 2.075000108219683,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_ba1530f6bf57a7e7c740cffbd9491be8",
+            "capture_signature": "ba1530f6bf57a7e7c740cffbd9491be8efbf8a1ff6f7545841668c8eaeb695f2",
+            "task_sha256": "1a7fcebc982ce10c95445d75d9aa12ba681ce62d597423e56cbb55a6ecd81e46",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "setup_warning_codes": [
+          "native_grasp_execution_unverified"
+        ],
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_bb85ad2d7d19a7fdde23a2a0/preview_complete.json",
+            "sha256": "a09ecfb294bb9df4ad666132596db2ef0c577ec5b46804ebbb3e16cd243d0e4c"
+          }
+        ]
+      },
+      "execution_diagnostic": {
+        "status": "manipulation_controller_start_failed",
+        "scene_initialization_accepted": true,
+        "error": "RuntimeError: Initial trunk posture changes EE orientation; inspect the R1 joint directions.",
+        "commands_executed": 0,
+        "elapsed_s": 1226.6893996754661,
+        "result_file": "outputs/corev2_native_route_20261020/Beechwood_0_int/result.json",
+        "note": "Optional full manipulation profile failed before any route command; base-only feasibility, door interaction and budgets remain unverified.",
+        "portable_result_file": "explore_to_achieve/category_reports/corev2/evidence/navigation_diagnostics_20261020/Beechwood_0_int/result.json",
+        "followup": {
+          "controller_profile": "base_only",
+          "status": "scheduled_after_current_capture",
+          "physical_gpu": 2,
+          "note": "Base-only diagnostic matches the declared navigation capabilities. It does not resolve manipulation startup or qualify physical door interactions."
+        }
+      }
+    }
+  ],
+  "rationale": "Replace two-room tasks, add building variety, retain one entry per multi-goal episode.",
+  "execution_qualified": false,
+  "pending_alternatives": [
+    {
+      "replaces_candidate_id": "category_063f98af506a148c7e542ad0",
+      "rejection_reason": "Remote swivel chairs moved during initialization; robot support and collision checks passed.",
+      "selection_status": "selected_after_native_initialization_pass",
+      "candidate": {
+        "candidate_id": "category_062d036de1fac0297a84732f",
+        "category": "Cognitive Mapping",
+        "subcategory": "Long-Term Navigation",
+        "scene": "office_cubicles_left",
+        "room": "full_scene",
+        "source_subclasses": [
+          "Cognitive Mapping/Long-Term Navigation"
+        ],
+        "source_identities": [
+          "Cognitive Mapping/Long-Term Navigation/office_cubicles_left/full_scene/q_000.json"
+        ],
+        "source_entry_count": 1,
+        "task_file": "explore_to_achieve/tasks/Cognitive Mapping/Long-Term Navigation/office_cubicles_left/full_scene/corev2__category_062d036de1fac0297a84732f.yaml",
+        "scene_file": "explore_to_achieve/scenes/Cognitive Mapping/Long-Term Navigation/office_cubicles_left/full_scene/corev2__category_062d036de1fac0297a84732f.yaml",
+        "objective": "Follow this supplied room route in order: bathroom_0 -> shared_office_0 -> corridor_0 -> conference_hall_0. While physically and stably inside each required room, output a standalone line 'ARRIVED: <room_instance>' in your world_observation text, replacing <room_instance> with the room instance you identify from your observations. Report each required room; a declaration alone does not establish a visit. For an ordered route, report each step after completing its predecessor, including repeated room names. Out-of-order visits do not erase completed steps; revisit and report the pending step to continue.",
+        "goal_count": 4,
+        "required_rooms": [
+          "bathroom_0",
+          "conference_hall_0",
+          "corridor_0",
+          "shared_office_0"
+        ],
+        "required_order": [
+          "bathroom_0",
+          "shared_office_0",
+          "corridor_0",
+          "conference_hall_0"
+        ],
+        "episode_budget": {
+          "origin": "new_uncalibrated_route_pilot",
+          "calibrated": false,
+          "max_steps": 415,
+          "wall_timeout_s": 1245.0,
+          "derivation": "ceil(2 * source_path_distance_m / 0.25) + 12 * distinct rooms + 4 * ordered arrivals",
+          "evidence": {
+            "source_identity": "Cognitive Mapping/Long-Term Navigation/office_cubicles_left/full_scene/q_000.json",
+            "source_path_distance_m": 43.83086395263672,
+            "translation_increment_m": 0.25,
+            "wall_seconds_per_action": 3.0
+          },
+          "limitation": "Source geometry does not certify R1 clearance, door operation, or model latency."
+        },
+        "setup_status": "native_initialization_pending",
+        "recommendation": "conditional_multi_goal_review",
+        "historical_evidence_only": false,
+        "final_release_qualified": false,
+        "failure_kind": null,
+        "reason": null,
+        "warning_codes": [
+          "execution_not_qualified",
+          "native_start_qualification_pending",
+          "native_mapping_relation_and_door_qualification_pending",
+          "shared_budget_native_calibration_pending",
+          "camera_visual_review_pending"
+        ],
+        "setup_warning_codes": [],
+        "issues": [
+          "execution_not_qualified",
+          "native_start_qualification_pending",
+          "native_mapping_relation_and_door_qualification_pending",
+          "shared_budget_native_calibration_pending",
+          "camera_visual_review_pending"
+        ],
+        "evidence_note": "New multi-goal selection; native capture, start and execution evidence are tracked separately."
+      },
+      "capture": {
+        "candidate_id": "category_1738ff7b82a68a5b8d424adc",
+        "corev2_candidate_id": "category_062d036de1fac0297a84732f",
+        "job_id": "capture_2455945e7e2c4d2ba8d6442657ccd6fb",
+        "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_2455945e7e2c4d2ba8d6442657ccd6fb/input/manifest.json",
+        "capture_submission_error": null
+      }
+    },
+    {
+      "replaces_candidate_id": "category_92281e30d33e0845517b17cb",
+      "rejection_reason": "All attempted starts failed floor-support checks; a taboret also moved during initialization.",
+      "selection_status": "rejected_after_native_initialization",
+      "candidate": {
+        "candidate_id": "category_8fa71fa2728f035a84e759d3",
+        "category": "Cognitive Mapping",
+        "subcategory": "Connectivity",
+        "scene": "restaurant_hotel",
+        "room": "full_scene",
+        "source_subclasses": [
+          "Cognitive Mapping/Connectivity"
+        ],
+        "source_identities": [
+          "Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_002.json",
+          "Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_003.json",
+          "Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_005.json",
+          "Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_006.json",
+          "Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/q_007.json"
+        ],
+        "source_entry_count": 5,
+        "task_file": "explore_to_achieve/tasks/Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/corev2__category_8fa71fa2728f035a84e759d3.yaml",
+        "scene_file": "explore_to_achieve/scenes/Cognitive Mapping/Connectivity/restaurant_hotel/full_scene/corev2__category_8fa71fa2728f035a84e759d3.yaml",
+        "objective": "Explore the complete preserved building once in one continuous episode.\ngoal_1: Are bathroom_0 and dining_room_0 adjacent, with a direct connection between them?\ngoal_2: Are dining_room_0 and lobby_0 adjacent, with a direct connection between them?\ngoal_3: Are corridor 0 (near dining room 0) and corridor 1 (near kitchen 0) adjacent, with a direct connection between them?\ngoal_4: Are corridor 0 (near dining room 0) and lobby_0 adjacent, with a direct connection between them?\ngoal_5: Are corridor 1 (near kitchen 0) and dining_room_0 adjacent, with a direct connection between them?",
+        "goal_count": 5,
+        "required_rooms": [
+          "bathroom_0",
+          "corridor_0",
+          "corridor_1",
+          "dining_room_0",
+          "lobby_0"
+        ],
+        "required_order": [],
+        "episode_budget": {
+          "origin": "new_uncalibrated_geometric_pilot",
+          "calibrated": false,
+          "max_steps": 948,
+          "wall_timeout_s": 2844.0,
+          "derivation": "ceil(2 * Manhattan_MST(all unique saved camera/path XY) / 0.25m) + 12 * distinct required rooms + 4 * unique semantic questions",
+          "evidence": {
+            "manhattan_mst_m": 108.41418285965389,
+            "translation_increment_m": 0.25,
+            "geometric_traversals": 2,
+            "translation_actions": 868,
+            "inspection_turn_actions": 60,
+            "answer_actions": 20,
+            "wall_seconds_per_action": 3.0,
+            "wall_bound_calibrated": false,
+            "point_set": "all_saved_source_camera_and_path_XY_superset",
+            "unique_xy_count": 400
+          },
+          "limitation": "Geometry ignores walls, door operation and controller timing; native route and budget calibration remain mandatory."
+        },
+        "setup_status": "native_initialization_pending",
+        "recommendation": "conditional_multi_goal_review",
+        "historical_evidence_only": false,
+        "final_release_qualified": false,
+        "failure_kind": null,
+        "reason": null,
+        "warning_codes": [
+          "execution_not_qualified",
+          "native_start_qualification_pending",
+          "native_mapping_relation_and_door_qualification_pending",
+          "shared_budget_native_calibration_pending",
+          "camera_visual_review_pending",
+          "joint_world_native_measurement_provider_unverified"
+        ],
+        "setup_warning_codes": [],
+        "issues": [
+          "execution_not_qualified",
+          "native_start_qualification_pending",
+          "native_mapping_relation_and_door_qualification_pending",
+          "shared_budget_native_calibration_pending",
+          "camera_visual_review_pending",
+          "joint_world_native_measurement_provider_unverified"
+        ],
+        "evidence_note": "New multi-goal selection; native capture, start and execution evidence are tracked separately."
+      },
+      "capture": {
+        "candidate_id": "category_0bb5dae83c04832cacbb1971",
+        "corev2_candidate_id": "category_8fa71fa2728f035a84e759d3",
+        "job_id": "capture_9c1ca1c6bf9040e9c67a55c2f8b4583d",
+        "capture_input": "/home/zhouxinyang/esi_task_edit2_20261018/capture_campaign/captures/jobs/capture_9c1ca1c6bf9040e9c67a55c2f8b4583d/input/manifest.json",
+        "capture_submission_error": null
+      },
+      "native_failure": "Movable commercial kitchen table drifted about 6 cm; robot support/collision checks passed."
+    }
+  ],
+  "native_validation_note": "The rejected school_biology and office_cubicles_right entries have been replaced by native-initialization-accepted school_geography and office_cubicles_left. The hotel alternative was rejected. Execution, source relations, doors and budget calibration remain separate pending checks.",
+  "native_validation_updated_at": "2026-10-20T11:09:45.201042+00:00",
+  "superseded_after_native_rejection": [
+    {
+      "candidate_id": "category_063f98af506a148c7e542ad0",
+      "category": "Cognitive Mapping",
+      "subcategory": "Long-Term Navigation",
+      "scene": "office_cubicles_right",
+      "room": "full_scene",
+      "source_subclasses": [
+        "Cognitive Mapping/Long-Term Navigation"
+      ],
+      "source_identities": [
+        "Cognitive Mapping/Long-Term Navigation/office_cubicles_right/full_scene/q_000.json"
+      ],
+      "source_entry_count": 1,
+      "task_file": "explore_to_achieve/tasks/Cognitive Mapping/Long-Term Navigation/office_cubicles_right/full_scene/corev2__category_063f98af506a148c7e542ad0.yaml",
+      "scene_file": "explore_to_achieve/scenes/Cognitive Mapping/Long-Term Navigation/office_cubicles_right/full_scene/corev2__category_063f98af506a148c7e542ad0.yaml",
+      "objective": "Follow this supplied room route in order: bathroom_0 -> corridor_0 -> shared_office_0 -> corridor_0 -> lobby_0. While physically and stably inside each required room, output a standalone line 'ARRIVED: <room_instance>' in your world_observation text, replacing <room_instance> with the room instance you identify from your observations. Report each required room; a declaration alone does not establish a visit. For an ordered route, report each step after completing its predecessor, including repeated room names. Out-of-order visits do not erase completed steps; revisit and report the pending step to continue.",
+      "goal_count": 5,
+      "required_rooms": [
+        "bathroom_0",
+        "corridor_0",
+        "lobby_0",
+        "shared_office_0"
+      ],
+      "required_order": [
+        "bathroom_0",
+        "corridor_0",
+        "shared_office_0",
+        "corridor_0",
+        "lobby_0"
+      ],
+      "episode_budget": {
+        "origin": "new_uncalibrated_route_pilot",
+        "calibrated": false,
+        "max_steps": 383,
+        "wall_timeout_s": 1149.0,
+        "derivation": "ceil(2 * source_path_distance_m / 0.25) + 12 * distinct rooms + 4 * ordered arrivals",
+        "evidence": {
+          "source_identity": "Cognitive Mapping/Long-Term Navigation/office_cubicles_right/full_scene/q_000.json",
+          "source_path_distance_m": 39.346805572509766,
+          "translation_increment_m": 0.25,
+          "wall_seconds_per_action": 3.0
+        },
+        "limitation": "Source geometry does not certify R1 clearance, door operation, or model latency."
+      },
+      "setup_status": "current_setup_rejected",
+      "recommendation": "conditional_multi_goal_review",
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "failure_kind": null,
+      "reason": null,
+      "warning_codes": [
+        "execution_not_qualified",
+        "native_start_qualification_pending",
+        "native_mapping_relation_and_door_qualification_pending",
+        "shared_budget_native_calibration_pending",
+        "camera_visual_review_pending"
+      ],
+      "setup_warning_codes": [],
+      "issues": [
+        "camera_visual_review_pending",
+        "current_native_setup_rejected",
+        "execution_not_qualified",
+        "native_mapping_relation_and_door_qualification_pending",
+        "native_start_qualification_pending",
+        "shared_budget_native_calibration_pending"
+      ],
+      "evidence_note": "Fresh exact-definition capture verified; initialization evidence is separate from execution qualification.",
+      "capture_candidate_id": "category_5a43f023175f2b8462cf9fa5",
+      "current_capture_job_id": "capture_8261f07bc9f3ec2aef034b4e29fb4fa7",
+      "current_capture": {
+        "candidate_id": "category_063f98af506a148c7e542ad0",
+        "capture_candidate_id": "category_5a43f023175f2b8462cf9fa5",
+        "job_id": "capture_8261f07bc9f3ec2aef034b4e29fb4fa7",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 21,
+        "error": null,
+        "attempts": 1,
+        "duration_s": 762.851866979152,
+        "gpu": 5,
+        "initialization_accepted": false,
+        "execution_qualified": false,
+        "initialization_reason": "ValueError: Measured support placements or robot approaches failed native height, support, geometry or collision checks.",
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T09:55:04.471210+00:00",
+          "reset_identity": {
+            "episode_id": "reset_b478f44aa2ec4692a77af2f597f7b984",
+            "reset_id": "b478f44aa2ec4692a77af2f597f7b984",
+            "seed": 0
+          },
+          "native_time_s": 5.075000264681876,
+          "native_time_after_s": 5.075000264681876,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_8261f07bc9f3ec2aef034b4e29fb4fa7",
+            "capture_signature": "8261f07bc9f3ec2aef034b4e29fb4fa702453dca9bb99bd7272bd9b2dbc5f190",
+            "task_sha256": "800176bd813d410c54213dcf8abc72554a4dfb3ff15d3f563584fc160179b1de",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "setup_warning_codes": [
+          "native_grasp_execution_unverified",
+          "interaction_layout_requires_review"
+        ],
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_063f98af506a148c7e542ad0/preview_complete.json",
+            "sha256": "240576058fb795b6936ab37f3c8c37aa358774c94bedc6c8078a4c828b8beeaf"
+          }
+        ]
+      }
+    },
+    {
+      "candidate_id": "category_92281e30d33e0845517b17cb",
+      "category": "Cognitive Mapping",
+      "subcategory": "Connectivity",
+      "scene": "school_biology",
+      "room": "full_scene",
+      "source_subclasses": [
+        "Cognitive Mapping/Connectivity"
+      ],
+      "source_identities": [
+        "Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json",
+        "Cognitive Mapping/Connectivity/school_biology/full_scene/q_001.json",
+        "Cognitive Mapping/Connectivity/school_biology/full_scene/q_002.json",
+        "Cognitive Mapping/Connectivity/school_biology/full_scene/q_004.json",
+        "Cognitive Mapping/Connectivity/school_biology/full_scene/q_005.json"
+      ],
+      "source_entry_count": 5,
+      "task_file": "explore_to_achieve/tasks/Cognitive Mapping/Connectivity/school_biology/full_scene/corev2__category_92281e30d33e0845517b17cb.yaml",
+      "scene_file": "explore_to_achieve/scenes/Cognitive Mapping/Connectivity/school_biology/full_scene/corev2__category_92281e30d33e0845517b17cb.yaml",
+      "objective": "Explore the complete preserved building once in one continuous episode.\ngoal_1: Are bathroom_0 and corridor 1 (with signpost) adjacent, with a direct connection between them?\ngoal_2: Are biology_lab_0 and corridor 0 (with display case, drinking fountain, and security camera) adjacent, with a direct connection between them?\ngoal_3: Are corridor 0 (with display case, drinking fountain, and security camera) and corridor 1 (with signpost) adjacent, with a direct connection between them?\ngoal_4: Are biology_lab_0 and corridor 1 (with signpost) adjacent, with a direct connection between them?\ngoal_5: Are bathroom_0 and corridor 0 (with display case, drinking fountain, and security camera) adjacent, with a direct connection between them?",
+      "goal_count": 5,
+      "required_rooms": [
+        "bathroom_0",
+        "biology_lab_0",
+        "corridor_0",
+        "corridor_1"
+      ],
+      "required_order": [],
+      "episode_budget": {
+        "origin": "new_uncalibrated_geometric_pilot",
+        "calibrated": false,
+        "max_steps": 1543,
+        "wall_timeout_s": 4629.0,
+        "derivation": "ceil(2 * Manhattan_MST(all unique saved camera/path XY) / 0.25m) + 12 * distinct required rooms + 4 * unique semantic questions",
+        "evidence": {
+          "manhattan_mst_m": 184.3041111016139,
+          "translation_increment_m": 0.25,
+          "geometric_traversals": 2,
+          "translation_actions": 1475,
+          "inspection_turn_actions": 48,
+          "answer_actions": 20,
+          "wall_seconds_per_action": 3.0,
+          "wall_bound_calibrated": false,
+          "point_set": "all_saved_source_camera_and_path_XY_superset",
+          "unique_xy_count": 692
+        },
+        "limitation": "Geometry ignores walls, door operation and controller timing; native route and budget calibration remain mandatory."
+      },
+      "setup_status": "current_setup_rejected",
+      "recommendation": "conditional_multi_goal_review",
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "failure_kind": null,
+      "reason": null,
+      "warning_codes": [
+        "execution_not_qualified",
+        "native_start_qualification_pending",
+        "native_mapping_relation_and_door_qualification_pending",
+        "shared_budget_native_calibration_pending",
+        "camera_visual_review_pending",
+        "joint_world_native_measurement_provider_unverified"
+      ],
+      "setup_warning_codes": [],
+      "issues": [
+        "camera_visual_review_pending",
+        "current_native_setup_rejected",
+        "execution_not_qualified",
+        "joint_world_native_measurement_provider_unverified",
+        "native_mapping_relation_and_door_qualification_pending",
+        "native_start_qualification_pending",
+        "shared_budget_native_calibration_pending"
+      ],
+      "evidence_note": "Fresh exact-definition capture verified; initialization evidence is separate from execution qualification.",
+      "capture_candidate_id": "category_5ccc6d745fa2888d837b319f",
+      "current_capture_job_id": "capture_9134da229844da6ae32ed7d21079101c",
+      "current_capture": {
+        "candidate_id": "category_92281e30d33e0845517b17cb",
+        "capture_candidate_id": "category_5ccc6d745fa2888d837b319f",
+        "job_id": "capture_9134da229844da6ae32ed7d21079101c",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 21,
+        "error": null,
+        "attempts": 1,
+        "duration_s": 804.4447289267555,
+        "gpu": 4,
+        "initialization_accepted": false,
+        "execution_qualified": false,
+        "initialization_reason": "ValueError: Measured support placements or robot approaches failed native height, support, geometry or collision checks.",
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T09:57:03.691585+00:00",
+          "reset_identity": {
+            "episode_id": "reset_8c2ec02daab345279b472b4ec8bd00e3",
+            "reset_id": "8c2ec02daab345279b472b4ec8bd00e3",
+            "seed": 0
+          },
+          "native_time_s": 21.075001099146903,
+          "native_time_after_s": 21.075001099146903,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_9134da229844da6ae32ed7d21079101c",
+            "capture_signature": "9134da229844da6ae32ed7d21079101cb4c01ced38f8fc95fafd78182f7f7177",
+            "task_sha256": "0e3c6286cd72cadf4faeaaf463ad6ebbca2308fc71b8f4591bae6761a9301ea8",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "setup_warning_codes": [
+          "native_grasp_execution_unverified",
+          "interaction_layout_requires_review"
+        ],
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_92281e30d33e0845517b17cb/preview_complete.json",
+            "sha256": "10b55d194ffe056094e31bc7afde3cfa8b08009f576a44677a0539acdab48865"
+          }
+        ]
+      }
+    }
+  ],
+  "selected_alternatives": [
+    {
+      "candidate_id": "category_5296997426a116135b7c80aa",
+      "scene": "school_geography",
+      "capture_candidate_id": "category_aafa1ef4321fcc70fce2f196",
+      "initialization_accepted": true
+    },
+    {
+      "candidate_id": "category_062d036de1fac0297a84732f",
+      "scene": "office_cubicles_left",
+      "capture_candidate_id": "category_1738ff7b82a68a5b8d424adc",
+      "initialization_accepted": true
+    }
+  ]
+}

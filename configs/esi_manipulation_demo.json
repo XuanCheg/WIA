@@ -1,0 +1,22 @@
+{
+  "metadata": "ESI-Bench/dataset/json_clean/Perceptual Grounding/Material Transparency/Beechwood_0_garden/dining_room_0/Beechwood_0_garden__dining_room_0__no.json",
+  "question_index": 0,
+  "robot_position": [-4.71, 15.15, 0.1],
+  "robot_yaw_deg": 90,
+  "head_pitch_deg": 45,
+  "camera_size": [512, 512],
+  "debug_target": "obj_small",
+  "video_fps": 6.0,
+  "stages": {
+    "open": ["RELEASE"],
+    "base_approach": ["BASE_FWD"],
+    "arm_approach": ["MV_DOWN", "MV_DOWN", "MV_DOWN", "MV_DOWN", "MV_DOWN", "MV_DOWN", "MV_DOWN", "MV_DOWN",
+                     "MV_DOWN", "MV_DOWN", "MV_DOWN", "MV_DOWN", "MV_DOWN", "MV_DOWN", "MV_DOWN", "MV_DOWN"],
+    "grasp": ["GRASP", "GRASP"],
+    "lift": ["MV_UP", "MV_UP", "MV_UP", "MV_UP", "MV_UP"],
+    "carry": ["BASE_LEFT"],
+    "lower": ["MV_DOWN", "MV_DOWN", "MV_DOWN", "MV_DOWN", "MV_DOWN"],
+    "release": ["RELEASE", "RELEASE"],
+    "retreat": ["MV_UP", "MV_UP"]
+  }
+}

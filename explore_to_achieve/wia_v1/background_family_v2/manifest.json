@@ -1,0 +1,263 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "entries": [
+    {
+      "document_alias": "T02",
+      "variant_id": "t02_complete_ground_v2",
+      "label": "T02 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t02_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t02_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/action_order_transfer_v2/t02_task.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/action_order_transfer_v2/t02_scene.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T19",
+      "variant_id": "t19_complete_ground_v2",
+      "label": "T19 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t19_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t19_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical Dynamics/Stacking & Stability/house_single_floor/childs_room_0/corev2__category_4c36dd4dc5bbbe9bc7e787d1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Dynamics/Stacking & Stability/house_single_floor/childs_room_0/corev2__category_4c36dd4dc5bbbe9bc7e787d1.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T32",
+      "variant_id": "t32_complete_ground_v2",
+      "label": "T32 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t32_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t32_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Spatial Relations/Physical Contact/house_single_floor/living_room_0/corev2__category_3a319828abcb43542f397e84.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Physical Contact/house_single_floor/living_room_0/corev2__category_3a319828abcb43542f397e84.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T33",
+      "variant_id": "t33_complete_ground_v2",
+      "label": "T33 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t33_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t33_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Spatial Relations/Physical Contact/house_single_floor/corridor_0/corev2__category_53f113c7995ababbabdd5559.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Physical Contact/house_single_floor/corridor_0/corev2__category_53f113c7995ababbabdd5559.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T36",
+      "variant_id": "t36_complete_ground_v2",
+      "label": "T36 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t36_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t36_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Enumerative Perception/Hidden Object Search/house_single_floor/multi_room/corev2__category_ff560c315a0a0407f6148a1b.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Enumerative Perception/Hidden Object Search/house_single_floor/multi_room/corev2__category_ff560c315a0a0407f6148a1b.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T38",
+      "variant_id": "t38_complete_ground_v2",
+      "label": "T38 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t38_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t38_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Agent Observation/house_single_floor/redesign_20261020/category_cdb38ede71f9e832885a7654.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Agent Observation/house_single_floor/redesign_20261020/category_cdb38ede71f9e832885a7654.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_temporal_a_v3_complete_ground_v2",
+      "label": "T40 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t40_temporal_a_v3_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t40_temporal_a_v3_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_a_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_a_v3.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_temporal_b_v3_complete_ground_v2",
+      "label": "T40 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t40_temporal_b_v3_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t40_temporal_b_v3_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_b_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_b_v3.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_temporal_c_v3_complete_ground_v2",
+      "label": "T40 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t40_temporal_c_v3_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t40_temporal_c_v3_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_c_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_c_v3.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T41",
+      "variant_id": "t41_complete_ground_v2",
+      "label": "T41 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t41_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t41_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T42",
+      "variant_id": "t42_complete_ground_v2",
+      "label": "T42 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t42_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t42_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/ramp_calibration/material_000/task.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/ramp_calibration/material_000/scene.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T43",
+      "variant_id": "t43_complete_ground_v2",
+      "label": "T43 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t43_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t43_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_75bff6e58684ce3d067bfee5.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_75bff6e58684ce3d067bfee5.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T44",
+      "variant_id": "t44_complete_ground_v2",
+      "label": "T44 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t44_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t44_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_c8b7b9e832f5ee2958b6efe0.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_c8b7b9e832f5ee2958b6efe0.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T45",
+      "variant_id": "t45_complete_ground_v2",
+      "label": "T45 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t45_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t45_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T46",
+      "variant_id": "t46_complete_ground_v2",
+      "label": "T46 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t46_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t46_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_0498b76051279b8acd7e914e.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_0498b76051279b8acd7e914e.yaml",
+      "variant": "adapted"
+    },
+    {
+      "document_alias": "T47",
+      "variant_id": "t47_complete_ground_v2",
+      "label": "T47 complete background ground surfaces",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/tasks/t47_complete_ground_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t47_complete_ground_v2.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_b892978c0400005618c6589c.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_b892978c0400005618c6589c.yaml",
+      "variant": "adapted"
+    }
+  ],
+  "source_scene_audit": [
+    {
+      "alias": "T02",
+      "source_scene": "house_single_floor",
+      "source_room": "dining_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/action_order_transfer_v2/t02_scene.yaml"
+    },
+    {
+      "alias": "T19",
+      "source_scene": "house_single_floor",
+      "source_room": "childs_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Dynamics/Stacking & Stability/house_single_floor/childs_room_0/corev2__category_4c36dd4dc5bbbe9bc7e787d1.yaml"
+    },
+    {
+      "alias": "T32",
+      "source_scene": "house_single_floor",
+      "source_room": "living_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Physical Contact/house_single_floor/living_room_0/corev2__category_3a319828abcb43542f397e84.yaml"
+    },
+    {
+      "alias": "T33",
+      "source_scene": "house_single_floor",
+      "source_room": "corridor_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Physical Contact/house_single_floor/corridor_0/corev2__category_53f113c7995ababbabdd5559.yaml"
+    },
+    {
+      "alias": "T36",
+      "source_scene": "house_single_floor",
+      "source_room": "living_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Enumerative Perception/Hidden Object Search/house_single_floor/multi_room/corev2__category_ff560c315a0a0407f6148a1b.yaml"
+    },
+    {
+      "alias": "T38",
+      "source_scene": "house_single_floor",
+      "source_room": "living_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Agent Observation/house_single_floor/redesign_20261020/category_cdb38ede71f9e832885a7654.yaml"
+    },
+    {
+      "alias": "T40",
+      "source_scene": "house_single_floor",
+      "source_room": "dining_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_a_v3.yaml"
+    },
+    {
+      "alias": "T40",
+      "source_scene": "house_single_floor",
+      "source_room": "dining_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_b_v3.yaml"
+    },
+    {
+      "alias": "T40",
+      "source_scene": "house_single_floor",
+      "source_room": "dining_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_c_v3.yaml"
+    },
+    {
+      "alias": "T41",
+      "source_scene": "house_single_floor",
+      "source_room": "dining_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml"
+    },
+    {
+      "alias": "T42",
+      "source_scene": "house_single_floor",
+      "source_room": "living_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/ramp_calibration/material_000/scene.yaml"
+    },
+    {
+      "alias": "T43",
+      "source_scene": "house_single_floor",
+      "source_room": "living_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_75bff6e58684ce3d067bfee5.yaml"
+    },
+    {
+      "alias": "T44",
+      "source_scene": "house_single_floor",
+      "source_room": "living_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_c8b7b9e832f5ee2958b6efe0.yaml"
+    },
+    {
+      "alias": "T45",
+      "source_scene": "house_single_floor",
+      "source_room": "dining_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0.yaml"
+    },
+    {
+      "alias": "T46",
+      "source_scene": "house_single_floor",
+      "source_room": "dining_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_0498b76051279b8acd7e914e.yaml"
+    },
+    {
+      "alias": "T47",
+      "source_scene": "house_single_floor",
+      "source_room": "dining_room_0",
+      "parent_scene": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_b892978c0400005618c6589c.yaml"
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "artifact_path_base": "absolute",
+  "revision": "wia_rigid_t23_support_v5",
+  "native_validation_run": false,
+  "physical_success_verified": false,
+  "scientific_controls_verified": false,
+  "reference_execution_status": "deferred_until_user_review",
+  "entries": [
+    {
+      "document_alias": "T23",
+      "variant_id": "t23_supported_spawn_v5",
+      "label": "T23 table/container/robot world-X shift with original sofa pickup supports",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t23_support_v5/task.yaml",
+      "task_sha256": "9648eb2ff84a0dc6d1365e46624a0627fec7fdf6d015833d957cf38593cfb85e",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t23_support_v5/scene.yaml",
+      "scene_sha256": "c9fe2ade86dfc95c63a14bafdad83924c68bc0da84ea945c2c115345128c1014",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/tasks/rigid_t23_v1.yaml",
+      "parent_task_sha256": "e89be4743fe5937489e1b67925b8be245a6013086d605734954e9d0248fa01a8",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/scenes/rigid_t23_v1.yaml",
+      "parent_scene_sha256": "a6e03dcc38c2e6b50c0cd9686fa84bbc6e039b36179bdc9eae50f47d8f2334bd",
+      "variant": "tabletop",
+      "seed": 0,
+      "source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json",
+      "source_sha256": "b3605aab6b6009c9733f639a2649d56c604c88db76ce1b29ba86a103dcc4b0a7",
+      "task_source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json",
+      "task_source_sha256": "3d5a24b945238a080f727335332d71334c1d76431abf5b5569aa49a5602afa37",
+      "scene_source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json",
+      "scene_source_sha256": "b3605aab6b6009c9733f639a2649d56c604c88db76ce1b29ba86a103dcc4b0a7",
+      "original_qa_provenance": {
+        "question_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json",
+        "question_source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json",
+        "question_source_sha256": "3d5a24b945238a080f727335332d71334c1d76431abf5b5569aa49a5602afa37",
+        "scene_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json",
+        "scene_source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json",
+        "scene_source_sha256": "b3605aab6b6009c9733f639a2649d56c604c88db76ce1b29ba86a103dcc4b0a7",
+        "original_qa_id": "2074",
+        "original_question": "Which container does each object best fit inside?\n- granola box\n- spray can\n- colored pencil\nContainers: bucket, mug, wicker basket",
+        "original_answer": "[{\"_key\":\"colored pencil\",\"value\":\"bucket\"},{\"_key\":\"granola box\",\"value\":\"wicker basket\"},{\"_key\":\"spray can\",\"value\":\"bucket\"}]",
+        "answer_type": "sequence",
+        "original_options": [
+          "bucket",
+          "mug",
+          "wicker basket"
+        ],
+        "verified_answer_by_public_label": {
+          "colored pencil": "bucket",
+          "granola box": "wicker basket",
+          "spray can": "bucket"
+        },
+        "verification_basis": "Original QA answer and named source target_container/idx metadata; no AABB inference."
+      },
+      "native_validation_run": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "reference_execution_status": "deferred_until_user_review",
+      "immediate_parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t23_support_v4/task.yaml",
+      "immediate_parent_task_sha256": "18ab83c6112720736a6c39e2181de2b6495dd44c1a3db30e077a240d51e8e144",
+      "immediate_parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t23_support_v4/scene.yaml",
+      "immediate_parent_scene_sha256": "f5415a742e8382b86997aa15e1eabaeedcd4c3f63f0e53c36bc3fce1da22cfa5",
+      "world_x_shift_m": 0.35,
+      "shifted_object_names": [
+        "obj_container_0",
+        "obj_container_1",
+        "obj_container_2",
+        "support_table_leg_1",
+        "support_table_leg_2",
+        "support_table_leg_3",
+        "support_table_leg_4",
+        "support_table_top"
+      ],
+      "robot_shifted": true,
+      "initialization_repair_reason": "V5 applies the explicitly selected +0.35 m world-X translation only to the original robot construction start, all five fabricated support-table primitives, and the three container pose patches plus their matching initialization layout rows. The pickup granola-box target and both multi extras remain at their original sofa positions. This follows the V4 initialization receipt in which all six support checks passed but robot contact with sofa_qnnwfx_0 rejected overall setup. Y/Z, orientations, support modes and thresholds, source roles, asset scales, insertion scoring, budgets and runtime remain unchanged. Native initialization review remains pending; actual operability and public-control reference execution remain deferred until user review.",
+      "coordinate_changes": {
+        "task": [
+          {
+            "path": "/scene/variants/tabletop/patches/1/position",
+            "before": [
+              1.846875925064087,
+              -4.392786502838135,
+              0.1
+            ],
+            "after": [
+              2.196875925064087,
+              -4.392786502838135,
+              0.1
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/2/position",
+            "before": [
+              2.576875925064087,
+              -4.392786502838135,
+              0.43
+            ],
+            "after": [
+              2.926875925064087,
+              -4.392786502838135,
+              0.43
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/3/position",
+            "before": [
+              2.3368759250640867,
+              -4.6127865028381345,
+              0.20500000000000002
+            ],
+            "after": [
+              2.686875925064087,
+              -4.6127865028381345,
+              0.20500000000000002
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/4/position",
+            "before": [
+              2.3368759250640867,
+              -4.172786502838135,
+              0.20500000000000002
+            ],
+            "after": [
+              2.686875925064087,
+              -4.172786502838135,
+              0.20500000000000002
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/5/position",
+            "before": [
+              2.816875925064087,
+              -4.6127865028381345,
+              0.20500000000000002
+            ],
+            "after": [
+              3.166875925064087,
+              -4.6127865028381345,
+              0.20500000000000002
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/6/position",
+            "before": [
+              2.816875925064087,
+              -4.172786502838135,
+              0.20500000000000002
+            ],
+            "after": [
+              3.166875925064087,
+              -4.172786502838135,
+              0.20500000000000002
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/7/position",
+            "before": [
+              2.4149296379089353,
+              -4.507264642715454,
+              0.5406445770263671
+            ],
+            "after": [
+              2.7649296379089354,
+              -4.507264642715454,
+              0.5406445770263671
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/8/position",
+            "before": [
+              2.6802631092071536,
+              -4.258011789321899,
+              0.5679883344769477
+            ],
+            "after": [
+              3.0302631092071537,
+              -4.258011789321899,
+              0.5679883344769477
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/9/position",
+            "before": [
+              2.6802631092071536,
+              -4.507264642715454,
+              0.6183138995170593
+            ],
+            "after": [
+              3.0302631092071537,
+              -4.507264642715454,
+              0.6183138995170593
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/15/parameters/layout/objects/0/position",
+            "before": [
+              2.4149296379089353,
+              -4.507264642715454,
+              0.5406445770263671
+            ],
+            "after": [
+              2.7649296379089354,
+              -4.507264642715454,
+              0.5406445770263671
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/15/parameters/layout/objects/1/position",
+            "before": [
+              2.6802631092071536,
+              -4.258011789321899,
+              0.5679883344769477
+            ],
+            "after": [
+              3.0302631092071537,
+              -4.258011789321899,
+              0.5679883344769477
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/15/parameters/layout/objects/2/position",
+            "before": [
+              2.6802631092071536,
+              -4.507264642715454,
+              0.6183138995170593
+            ],
+            "after": [
+              3.0302631092071537,
+              -4.507264642715454,
+              0.6183138995170593
+            ]
+          }
+        ],
+        "scene": [
+          {
+            "path": "/scene/variants/tabletop/patches/1/position",
+            "before": [
+              1.846875925064087,
+              -4.392786502838135,
+              0.1
+            ],
+            "after": [
+              2.196875925064087,
+              -4.392786502838135,
+              0.1
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/2/position",
+            "before": [
+              2.576875925064087,
+              -4.392786502838135,
+              0.43
+            ],
+            "after": [
+              2.926875925064087,
+              -4.392786502838135,
+              0.43
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/3/position",
+            "before": [
+              2.3368759250640867,
+              -4.6127865028381345,
+              0.20500000000000002
+            ],
+            "after": [
+              2.686875925064087,
+              -4.6127865028381345,
+              0.20500000000000002
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/4/position",
+            "before": [
+              2.3368759250640867,
+              -4.172786502838135,
+              0.20500000000000002
+            ],
+            "after": [
+              2.686875925064087,
+              -4.172786502838135,
+              0.20500000000000002
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/5/position",
+            "before": [
+              2.816875925064087,
+              -4.6127865028381345,
+              0.20500000000000002
+            ],
+            "after": [
+              3.166875925064087,
+              -4.6127865028381345,
+              0.20500000000000002
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/6/position",
+            "before": [
+              2.816875925064087,
+              -4.172786502838135,
+              0.20500000000000002
+            ],
+            "after": [
+              3.166875925064087,
+              -4.172786502838135,
+              0.20500000000000002
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/7/position",
+            "before": [
+              2.4149296379089353,
+              -4.507264642715454,
+              0.5406445770263671
+            ],
+            "after": [
+              2.7649296379089354,
+              -4.507264642715454,
+              0.5406445770263671
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/8/position",
+            "before": [
+              2.6802631092071536,
+              -4.258011789321899,
+              0.5679883344769477
+            ],
+            "after": [
+              3.0302631092071537,
+              -4.258011789321899,
+              0.5679883344769477
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/9/position",
+            "before": [
+              2.6802631092071536,
+              -4.507264642715454,
+              0.6183138995170593
+            ],
+            "after": [
+              3.0302631092071537,
+              -4.507264642715454,
+              0.6183138995170593
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/15/parameters/layout/objects/0/position",
+            "before": [
+              2.4149296379089353,
+              -4.507264642715454,
+              0.5406445770263671
+            ],
+            "after": [
+              2.7649296379089354,
+              -4.507264642715454,
+              0.5406445770263671
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/15/parameters/layout/objects/1/position",
+            "before": [
+              2.6802631092071536,
+              -4.258011789321899,
+              0.5679883344769477
+            ],
+            "after": [
+              3.0302631092071537,
+              -4.258011789321899,
+              0.5679883344769477
+            ]
+          },
+          {
+            "path": "/scene/variants/tabletop/patches/15/parameters/layout/objects/2/position",
+            "before": [
+              2.6802631092071536,
+              -4.507264642715454,
+              0.6183138995170593
+            ],
+            "after": [
+              3.0302631092071537,
+              -4.507264642715454,
+              0.6183138995170593
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

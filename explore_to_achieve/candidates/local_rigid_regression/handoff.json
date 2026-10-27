@@ -1,0 +1,43 @@
+{
+  "candidate_id": "local_rigid_benevolence_0_empty_room_regression_v1",
+  "source_json": "ESI-Bench/dataset/json_clean/Physical Structure/Rigid Containment/Benevolence_0_int/empty_room_0/Benevolence_0_int_scene_dict_storage2_2_revised.json",
+  "source_identity": "Physical Structure/Rigid Containment/Benevolence_0_int/empty_room_0/Benevolence_0_int_scene_dict_storage2_2_revised.json",
+  "scene_file": "explore_to_achieve/scenes/Physical Structure/Rigid Containment/Benevolence_0_int/empty_room_0/Benevolence_0_int_scene_dict_storage2_2_revised.yaml",
+  "scene_identity": "tabletop_Benevolence_0_int_scene_dict_storage2_2_revised",
+  "task_file": "explore_to_achieve/tasks/Physical Structure/Rigid Containment/Benevolence_0_int/empty_room_0/Benevolence_0_int_scene_dict_storage2_2_revised.yaml",
+  "physical_task_id": "tabletop_Benevolence_0_int_scene_dict_storage2_2_revised_answer_and_place",
+  "legacy_review_id": "16ad91d0487dc7bb3211de66",
+  "category": "Physical Structure",
+  "subcategory": "Rigid Containment",
+  "scene_model": "Benevolence_0_int",
+  "room": "empty_room_0",
+  "variant": "tabletop",
+  "seed": 0,
+  "reuse_level": "lightweight_adaptation",
+  "modified_files": [
+    "explore_to_achieve/candidates/local_rigid_regression/plan.md",
+    "explore_to_achieve/candidates/local_rigid_regression/handoff.json",
+    "research_log.md"
+  ],
+  "expected_views": [
+    "global_diagonal",
+    "global_overhead",
+    "global_front",
+    "global_back",
+    "global_left",
+    "global_right",
+    "head",
+    "wrist",
+    "scene",
+    "global_target"
+  ],
+  "known_limitations": [
+    "Previously approved canonical layout is referenced unchanged; local native initialization is unverified.",
+    "The existing native qualification gate remains required before an eligible final-layout preview.",
+    "Screenshot capture does not establish grasp, navigation, placement or task success."
+  ],
+  "code_commit": "da06fc33b28e79deb447c463b6086d1f700a5a1b",
+  "owner": "main_coordinator",
+  "parent_candidate_id": null,
+  "render_config": {}
+}

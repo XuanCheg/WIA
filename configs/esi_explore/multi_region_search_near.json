@@ -1,0 +1,130 @@
+{
+  "source_metadata": "ESI-Bench/dataset/json_clean/Perceptual Grounding/Material Transparency/Beechwood_0_garden/dining_room_0/Beechwood_0_garden__dining_room_0__no.json",
+  "scene": "Beechwood_0_garden",
+  "room": "dining_room_0",
+  "seed": 7,
+  "robot_initial_pose": {
+    "position": [
+      -4.71,
+      15.1,
+      0.1
+    ],
+    "yaw_deg": 115
+  },
+  "target_object": {
+    "name": "obj_small",
+    "category": "cherry_tomato",
+    "model": "dqjuub"
+  },
+  "support_object": "coffee_table_dnsjnv_0",
+  "target_jitter_xy_m": [
+    0.005,
+    0.005
+  ],
+  "occluder_jitter_x_m": 0.005,
+  "evaluation": {
+    "minimum_lift_m": 0.05,
+    "minimum_pixels": 64,
+    "minimum_extent_px": 8,
+    "support_tolerance_m": 0.005,
+    "approach_distance_m": 0.35
+  },
+  "episode_budget": {
+    "max_steps": 60,
+    "wall_timeout_s": 3600
+  },
+  "world_advances_during_inference": true,
+  "variant": "multi_region_search",
+  "target_placement_candidates": [
+    {
+      "region": "table_right_patch",
+      "position": [
+        -4.92,
+        15.92,
+        0.762765
+      ],
+      "inspection_camera_aabb": [
+        [
+          -5.03,
+          15.86,
+          0.79
+        ],
+        [
+          -4.8100000000000005,
+          16.04,
+          1.35
+        ]
+      ]
+    },
+    {
+      "region": "table_left_patch",
+      "position": [
+        -5.32,
+        15.92,
+        0.762765
+      ],
+      "inspection_camera_aabb": [
+        [
+          -5.430000000000001,
+          15.86,
+          0.79
+        ],
+        [
+          -5.21,
+          16.04,
+          1.35
+        ]
+      ]
+    }
+  ],
+  "occluders": [
+    {
+      "name": "explore_screen_right",
+      "position": [
+        -4.92,
+        15.84,
+        0.823912
+      ],
+      "dimensions_m": [
+        0.32,
+        0.02,
+        0.16
+      ]
+    },
+    {
+      "name": "explore_screen_left",
+      "position": [
+        -5.220000000000001,
+        15.87,
+        0.833912
+      ],
+      "dimensions_m": [
+        0.02,
+        0.3,
+        0.16
+      ]
+    }
+  ],
+  "heading_offsets_deg": [
+    -5,
+    0,
+    5
+  ],
+  "robot_jitter_xy_m": [
+    0.002,
+    0.002
+  ],
+  "nuisance_objects": [
+    "obj_container"
+  ],
+  "nuisance_jitter_xy_m": [
+    0.002,
+    0.002
+  ],
+  "head_pitch_deg": 40,
+  "qualification_approach_reduction_m": 0.05,
+  "qualification_motion_probes": true,
+  "placement_revision": "near_v2_targets_and_occluders_dx_0.10_dy_minus_0.05",
+  "qualification_left_approach_m": 0.25,
+  "qualification_grasp_height_offset_m": 0.007
+}

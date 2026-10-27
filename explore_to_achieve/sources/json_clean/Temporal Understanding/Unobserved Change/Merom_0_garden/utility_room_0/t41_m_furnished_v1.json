@@ -1,0 +1,968 @@
+{
+  "id": "t41_m_furnished_v1",
+  "big_task": "Temporal Understanding",
+  "small_task": "Unobserved Change",
+  "runner_task": "unobserved_changes",
+  "scene": "Merom_0_garden",
+  "room": "utility_room_0",
+  "question": "Comparing Phase 1 and Phase 2, did the contents of any comparison box change?",
+  "answer": "no",
+  "answer_type": "choice",
+  "options_json": "[\"yes\", \"no\"]",
+  "image_paths_json": "[]",
+  "metadata_json": {
+    "camera_poses": {
+      "agent_position_policy": "search_traversable_edge_positions_and_maximize_visible_boxes",
+      "gt_view_images": "image2_gt.png",
+      "mode": "two_phase_primary_plus_room_and_gt_views",
+      "phases": 2,
+      "primary_images": "image1.png + image2.png",
+      "room_view_images": "*"
+    },
+    "floor_name": "floors_kzcgnc_0",
+    "image_paths": [
+      "image1.png",
+      "corner_00.png",
+      "corner_01.png",
+      "corner_02.png",
+      "corner_03.png",
+      "image1_box_00.png",
+      "image2.png",
+      "corner_00.png",
+      "corner_01.png",
+      "corner_02.png",
+      "corner_03.png",
+      "image2_box_00.png"
+    ],
+    "question_data": {
+      "answer": "no",
+      "box_count": 1,
+      "boxes": [
+        {
+          "box_index": 0,
+          "change_type": "no_change",
+          "container": {
+            "bbox": [
+              [
+                4.183761071777344,
+                -12.93516679801941,
+                1.0037481836471258
+              ],
+              [
+                4.414251279449463,
+                -12.620714388275147,
+                1.1905742935332952
+              ]
+            ],
+            "category": "carton",
+            "model": "cdmmwy",
+            "name": "render_unobserved_box_0_carton",
+            "placement": {
+              "placement_type": "on_top",
+              "position": [
+                4.3,
+                -12.780000000000001,
+                1.11236541072461
+              ],
+              "support_category": "breakfast_table",
+              "support_name": "breakfast_table_skczfi_0"
+            }
+          },
+          "position_label": "left box",
+          "phase1_content": {
+            "bbox_size_m": [
+              0.0357700080871582,
+              0.03592482376098633,
+              0.09195598162463012
+            ],
+            "category": "shaker",
+            "display_name": "shaker",
+            "model": "hbheag",
+            "sampling_source": "keys_json_filtered_by_local_model_bbox_edges"
+          },
+          "phase2_content": {
+            "bbox_size_m": [
+              0.0357700080871582,
+              0.03592482376098633,
+              0.09195598162463012
+            ],
+            "category": "shaker",
+            "display_name": "shaker",
+            "model": "hbheag",
+            "sampling_source": "keys_json_filtered_by_local_model_bbox_edges"
+          }
+        },
+        {
+          "box_index": 1,
+          "change_type": "no_change",
+          "container": {
+            "bbox": [
+              [
+                4.833761071777344,
+                -12.93516679801941,
+                1.0037481836471258
+              ],
+              [
+                5.064251279449463,
+                -12.620714388275147,
+                1.1905742935332952
+              ]
+            ],
+            "category": "carton",
+            "model": "cdmmwy",
+            "name": "render_unobserved_box_1_carton",
+            "placement": {
+              "placement_type": "on_top",
+              "position": [
+                4.95,
+                -12.780000000000001,
+                1.11236541072461
+              ],
+              "support_category": "breakfast_table",
+              "support_name": "breakfast_table_skczfi_0"
+            }
+          },
+          "position_label": "middle box",
+          "phase1_content": {
+            "bbox_size_m": [
+              0.06,
+              0.06000002098083496,
+              0.07185805511474609
+            ],
+            "category": "jar_of_cumin",
+            "display_name": "jar of cumin",
+            "model": "tsktnz",
+            "sampling_source": "keys_json_filtered_by_local_model_bbox_edges"
+          },
+          "phase2_content": {
+            "bbox_size_m": [
+              0.06,
+              0.06000002098083496,
+              0.07185805511474609
+            ],
+            "category": "jar_of_cumin",
+            "display_name": "jar of cumin",
+            "model": "tsktnz",
+            "sampling_source": "keys_json_filtered_by_local_model_bbox_edges"
+          }
+        },
+        {
+          "box_index": 2,
+          "change_type": "no_change",
+          "container": {
+            "bbox": [
+              [
+                5.483761071777344,
+                -12.93516679801941,
+                1.0037481836471258
+              ],
+              [
+                5.7142512794494635,
+                -12.620714388275147,
+                1.1905742935332952
+              ]
+            ],
+            "category": "carton",
+            "model": "cdmmwy",
+            "name": "render_unobserved_box_2_carton",
+            "placement": {
+              "placement_type": "on_top",
+              "position": [
+                5.6000000000000005,
+                -12.780000000000001,
+                1.11236541072461
+              ],
+              "support_category": "breakfast_table",
+              "support_name": "breakfast_table_skczfi_0"
+            }
+          },
+          "position_label": "right box",
+          "phase1_content": null,
+          "phase2_content": null
+        }
+      ],
+      "candidate_index": 0,
+      "options": [
+        "yes",
+        "no"
+      ],
+      "phase_description": {
+        "phase_1": "Initial observation: box contents are clearly visible.",
+        "phase_2": "Later observation: box contents may have changed, been removed, been added, or stayed the same."
+      },
+      "question": "Comparing Phase 1 and Phase 2, did the contents of any comparison box change?",
+      "render": {
+        "gt_view": {
+          "dir": "gt_view",
+          "image1": {
+            "fov_deg": 55.0,
+            "images": [
+              {
+                "box_index": 0,
+                "camera_pose": {
+                  "position": [
+                    5.564251490673991,
+                    -12.831402915427798,
+                    1.687402421178465
+                  ],
+                  "quaternion_xyzw": [
+                    0.2820644341555037,
+                    0.25862378929878393,
+                    0.6243730596774459,
+                    0.6809637824013097
+                  ]
+                },
+                "container_name": "render_unobserved_box_0_carton",
+                "fov_deg": 55.0,
+                "image_path": "image1_box_00.png",
+                "look_target": [
+                  4.9489594455719,
+                  -12.777952514076233,
+                  1.0697931222114263
+                ],
+                "pitch_deg": 45.0,
+                "position_label": "the box",
+                "requested_clearance_m": 0.5,
+                "view_direction": "front"
+              }
+            ],
+            "output_dir": "gt_view",
+            "success": true
+          },
+          "image2": {
+            "fov_deg": 55.0,
+            "images": [
+              {
+                "box_index": 0,
+                "camera_pose": {
+                  "position": [
+                    5.564252809139297,
+                    -12.77793981099208,
+                    1.7124070376648717
+                  ],
+                  "quaternion_xyzw": [
+                    0.27059714403703966,
+                    0.2705989561061236,
+                    0.6532836697954055,
+                    0.6532792950736471
+                  ]
+                },
+                "container_name": "render_unobserved_box_0_carton",
+                "fov_deg": 55.0,
+                "image_path": "image2_box_00.png",
+                "look_target": [
+                  4.949006890869141,
+                  -12.777943931007385,
+                  1.097161119380921
+                ],
+                "pitch_deg": 45.0,
+                "position_label": "the box",
+                "requested_clearance_m": 0.5,
+                "view_direction": "front"
+              }
+            ],
+            "output_dir": "gt_view",
+            "success": true
+          }
+        },
+        "image": [
+          {
+            "_indices": [
+              1
+            ],
+            "_key": "image1",
+            "camera_poses": [
+              {
+                "_key": "image1.png",
+                "candidate_label": "east_0.20",
+                "look_target": [
+                  4.949005698776245,
+                  -12.777941189193726,
+                  1.097161119380921
+                ],
+                "pitch_deg": 11.631047027383973,
+                "position": [
+                  6.204600000000001,
+                  -13.8804,
+                  1.4410928837451635
+                ],
+                "quaternion_xyzw": [
+                  0.5755794865180954,
+                  0.2605837797781484,
+                  0.31968408194024,
+                  0.7061206951861169
+                ],
+                "selection_mode": "maximize_visible_boxes",
+                "target_metrics": [
+                  {
+                    "centered_score": 0.0,
+                    "is_visible": false,
+                    "target_name": "render_unobserved_box_0_carton",
+                    "visible_pixels": 0
+                  }
+                ],
+                "view_name": "maximize_box_visibility",
+                "visible_box_count": 0,
+                "visible_pixel_sum": 0
+              }
+            ],
+            "gt_view": {
+              "fov_deg": 55.0,
+              "images": [
+                {
+                  "box_index": 0,
+                  "camera_pose": {
+                    "position": [
+                      5.564251490673991,
+                      -12.831402915427798,
+                      1.687402421178465
+                    ],
+                    "quaternion_xyzw": [
+                      0.2820644341555037,
+                      0.25862378929878393,
+                      0.6243730596774459,
+                      0.6809637824013097
+                    ]
+                  },
+                  "container_name": "render_unobserved_box_0_carton",
+                  "fov_deg": 55.0,
+                  "image_path": "image1_box_00.png",
+                  "look_target": [
+                    4.9489594455719,
+                    -12.777952514076233,
+                    1.0697931222114263
+                  ],
+                  "pitch_deg": 45.0,
+                  "position_label": "the box",
+                  "requested_clearance_m": 0.5,
+                  "view_direction": "front"
+                }
+              ],
+              "output_dir": "gt_view",
+              "success": true
+            },
+            "image_path": "image1.png",
+            "output_dir": "q_000",
+            "room_view": {
+              "room_bbox_world_xy": [
+                1.6546000000000003,
+                -14.2804,
+                6.6546,
+                -12.2804
+              ],
+              "room_instance": "utility_room_0",
+              "views": [
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      2.0046,
+                      -13.9304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.4188580459247075,
+                      -0.3109500330026131,
+                      -0.5085423545168211,
+                      0.685020209922523
+                    ]
+                  },
+                  "image_path": "corner_00.png",
+                  "is_traversable": false,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_00"
+                },
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      2.0046,
+                      -12.6304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.31095003300261315,
+                      -0.4188580459247075,
+                      -0.6850202099225232,
+                      0.508542354516821
+                    ]
+                  },
+                  "image_path": "corner_01.png",
+                  "is_traversable": true,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_01"
+                },
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      6.304600000000001,
+                      -13.9304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.4188580459247075,
+                      0.3109500330026131,
+                      0.5085423545168211,
+                      0.685020209922523
+                    ]
+                  },
+                  "image_path": "corner_02.png",
+                  "is_traversable": true,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_02"
+                },
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      6.304600000000001,
+                      -12.6304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.31095003300261315,
+                      0.4188580459247075,
+                      0.6850202099225232,
+                      0.508542354516821
+                    ]
+                  },
+                  "image_path": "corner_03.png",
+                  "is_traversable": false,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_03"
+                }
+              ]
+            },
+            "success": true
+          },
+          {
+            "_indices": [
+              2
+            ],
+            "_key": "image2",
+            "camera_poses": [
+              {
+                "_key": "image2.png",
+                "candidate_label": "east_0.20",
+                "look_target": [
+                  4.949006652450562,
+                  -12.777943215751648,
+                  1.097161268392533
+                ],
+                "pitch_deg": 11.631056031887402,
+                "position": [
+                  6.204600000000001,
+                  -13.8804,
+                  1.4410928837451635
+                ],
+                "quaternion_xyzw": [
+                  0.5755793613505044,
+                  0.26058390857008745,
+                  0.319684291236426,
+                  0.7061206549296981
+                ],
+                "selection_mode": "maximize_visible_boxes",
+                "target_metrics": [
+                  {
+                    "centered_score": 0.0,
+                    "is_visible": false,
+                    "target_name": "render_unobserved_box_0_carton",
+                    "visible_pixels": 0
+                  }
+                ],
+                "view_name": "maximize_box_visibility",
+                "visible_box_count": 0,
+                "visible_pixel_sum": 0
+              }
+            ],
+            "gt_view": {
+              "fov_deg": 55.0,
+              "images": [
+                {
+                  "box_index": 0,
+                  "camera_pose": {
+                    "position": [
+                      5.564252809139297,
+                      -12.77793981099208,
+                      1.7124070376648717
+                    ],
+                    "quaternion_xyzw": [
+                      0.27059714403703966,
+                      0.2705989561061236,
+                      0.6532836697954055,
+                      0.6532792950736471
+                    ]
+                  },
+                  "container_name": "render_unobserved_box_0_carton",
+                  "fov_deg": 55.0,
+                  "image_path": "image2_box_00.png",
+                  "look_target": [
+                    4.949006890869141,
+                    -12.777943931007385,
+                    1.097161119380921
+                  ],
+                  "pitch_deg": 45.0,
+                  "position_label": "the box",
+                  "requested_clearance_m": 0.5,
+                  "view_direction": "front"
+                }
+              ],
+              "output_dir": "gt_view",
+              "success": true
+            },
+            "image_path": "image2.png",
+            "output_dir": "q_000",
+            "room_view": {
+              "room_bbox_world_xy": [
+                1.6546000000000003,
+                -14.2804,
+                6.6546,
+                -12.2804
+              ],
+              "room_instance": "utility_room_0",
+              "views": [
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      2.0046,
+                      -13.9304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.4188580459247075,
+                      -0.3109500330026131,
+                      -0.5085423545168211,
+                      0.685020209922523
+                    ]
+                  },
+                  "image_path": "corner_00.png",
+                  "is_traversable": false,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_00"
+                },
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      2.0046,
+                      -12.6304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.31095003300261315,
+                      -0.4188580459247075,
+                      -0.6850202099225232,
+                      0.508542354516821
+                    ]
+                  },
+                  "image_path": "corner_01.png",
+                  "is_traversable": true,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_01"
+                },
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      6.304600000000001,
+                      -13.9304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.4188580459247075,
+                      0.3109500330026131,
+                      0.5085423545168211,
+                      0.685020209922523
+                    ]
+                  },
+                  "image_path": "corner_02.png",
+                  "is_traversable": true,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_02"
+                },
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      6.304600000000001,
+                      -12.6304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.31095003300261315,
+                      0.4188580459247075,
+                      0.6850202099225232,
+                      0.508542354516821
+                    ]
+                  },
+                  "image_path": "corner_03.png",
+                  "is_traversable": false,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_03"
+                }
+              ]
+            },
+            "success": true
+          }
+        ],
+        "multi_image_input": true,
+        "room_bbox": {
+          "bbox_area_m2": 10.0,
+          "bbox_map_rc": [
+            45,
+            47,
+            47,
+            52
+          ],
+          "bbox_world_xy": [
+            1.6546000000000003,
+            -14.2804,
+            6.6546,
+            -12.2804
+          ],
+          "expanded_bbox_area_m2": 10.0,
+          "expanded_bbox_world_xy": [
+            1.6546000000000003,
+            -14.2804,
+            6.6546,
+            -12.2804
+          ],
+          "pixel_count": 16,
+          "room_id": 14,
+          "room_instance": "utility_room_0",
+          "source": "seg_map_expanded_with_walls"
+        },
+        "room_view": {
+          "image": [
+            {
+              "_indices": [
+                1
+              ],
+              "_key": "image1",
+              "room_bbox_world_xy": [
+                1.6546000000000003,
+                -14.2804,
+                6.6546,
+                -12.2804
+              ],
+              "room_instance": "utility_room_0",
+              "views": [
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      2.0046,
+                      -13.9304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.4188580459247075,
+                      -0.3109500330026131,
+                      -0.5085423545168211,
+                      0.685020209922523
+                    ]
+                  },
+                  "image_path": "corner_00.png",
+                  "is_traversable": false,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_00"
+                },
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      2.0046,
+                      -12.6304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.31095003300261315,
+                      -0.4188580459247075,
+                      -0.6850202099225232,
+                      0.508542354516821
+                    ]
+                  },
+                  "image_path": "corner_01.png",
+                  "is_traversable": true,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_01"
+                },
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      6.304600000000001,
+                      -13.9304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.4188580459247075,
+                      0.3109500330026131,
+                      0.5085423545168211,
+                      0.685020209922523
+                    ]
+                  },
+                  "image_path": "corner_02.png",
+                  "is_traversable": true,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_02"
+                },
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      6.304600000000001,
+                      -12.6304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.31095003300261315,
+                      0.4188580459247075,
+                      0.6850202099225232,
+                      0.508542354516821
+                    ]
+                  },
+                  "image_path": "corner_03.png",
+                  "is_traversable": false,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_03"
+                }
+              ]
+            },
+            {
+              "_indices": [
+                2
+              ],
+              "_key": "image2",
+              "room_bbox_world_xy": [
+                1.6546000000000003,
+                -14.2804,
+                6.6546,
+                -12.2804
+              ],
+              "room_instance": "utility_room_0",
+              "views": [
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      2.0046,
+                      -13.9304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.4188580459247075,
+                      -0.3109500330026131,
+                      -0.5085423545168211,
+                      0.685020209922523
+                    ]
+                  },
+                  "image_path": "corner_00.png",
+                  "is_traversable": false,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_00"
+                },
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      2.0046,
+                      -12.6304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.31095003300261315,
+                      -0.4188580459247075,
+                      -0.6850202099225232,
+                      0.508542354516821
+                    ]
+                  },
+                  "image_path": "corner_01.png",
+                  "is_traversable": true,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_01"
+                },
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      6.304600000000001,
+                      -13.9304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.4188580459247075,
+                      0.3109500330026131,
+                      0.5085423545168211,
+                      0.685020209922523
+                    ]
+                  },
+                  "image_path": "corner_02.png",
+                  "is_traversable": true,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_02"
+                },
+                {
+                  "blocker_occluded": false,
+                  "camera_pose": {
+                    "position": [
+                      6.304600000000001,
+                      -12.6304,
+                      2.3910928837451637
+                    ],
+                    "quaternion_xyzw": [
+                      0.31095003300261315,
+                      0.4188580459247075,
+                      0.6850202099225232,
+                      0.508542354516821
+                    ]
+                  },
+                  "image_path": "corner_03.png",
+                  "is_traversable": false,
+                  "target": [
+                    4.1546,
+                    -13.2804,
+                    1.2410928837451636
+                  ],
+                  "trav_occluded": true,
+                  "view_id": "corner_03"
+                }
+              ]
+            }
+          ],
+          "image_dir": [
+            {
+              "_indices": [
+                1
+              ],
+              "_key": "image1_dir",
+              "value": "image1"
+            },
+            {
+              "_indices": [
+                2
+              ],
+              "_key": "image2_dir",
+              "value": "image2"
+            }
+          ]
+        },
+        "success": true
+      },
+      "task_type": "change_detection"
+    },
+    "question_id": "t41_m_furnished_v1",
+    "question_index": 4,
+    "seed": 7,
+    "task_type": "change_detection",
+    "authored_revision": {
+      "revision": "paired_change_inventory_v1",
+      "parent_source": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/change_detection__q_000.json",
+      "event_branch": "no_change",
+      "initial_inventory": [
+        0,
+        1,
+        null
+      ],
+      "final_inventory": [
+        0,
+        1,
+        null
+      ],
+      "original_source_qa_reused": false
+    },
+    "scene": "Merom_0_garden",
+    "room": "utility_room_0",
+    "source_identity": "Temporal Understanding/Unobserved Change/Merom_0_garden/utility_room_0/t41_m_furnished_v1.json"
+  },
+  "gt_camera_poses": [],
+  "floor_name": "floors_kzcgnc_0",
+  "transfer_provenance": {
+    "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_design_v1.json",
+    "design_sha256": "f8b876c595d0131dbd5be7516f25634959204076cced92283770b4e175f3eacf",
+    "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+    "parent_task_sha256": "3131cab9a3b32a1a583adb842d70625af58469f057ba2e856bf2bcf5232cded2",
+    "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+    "parent_scene_sha256": "72f9af84b357126f5c80166bdc05be091ce4667ab96d028fd5aa3ebd51472e72",
+    "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_04.json",
+    "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_04.json",
+    "parent_source_sha256": "8cfc13cd0974fd04c29d94313285c74368da80eabde56bd8c26e48b92991ed2e"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "private_source_route_pilot_v1",
+  "source_sha256": "5c6c6072fe8f8455963974afff9537e8cdab5b320b981305897339b1192627da",
+  "task_sha256": "ea305ad4f09a98cba28f684f86ac08f02311832b0ed92825d766db362a48fc2a",
+  "required_order": [
+    "bathroom_0",
+    "shared_office_0",
+    "corridor_0",
+    "conference_hall_0"
+  ],
+  "waypoint_count": 204,
+  "waypoints_reached": 0,
+  "commands": [],
+  "observed_room_sequence": [],
+  "ordered_rooms_observed": 0,
+  "public_controls_only": true,
+  "object_pose_commands": 0,
+  "source_geometry_is_advisory": true,
+  "execution_qualified": false,
+  "autonomous_agent_performance": false,
+  "budget_calibrated": false,
+  "status": "running",
+  "waypoint_tolerance_m": 0.1,
+  "elapsed_s": 2.3089349269866943e-05
+}

@@ -1,0 +1,376 @@
+kind: category_robot_task
+id: task_d5409b5ab5fe3196481824dd
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Metric Comparison/Dimensional Size/Merom_0_garden/sauna_0/Merom_0_garden__sauna_0_2.json
+public:
+  objective: 'Which mug is larger: the one near the cactus, or the one near the ice
+    cream cone? Compare the identical asset copies by their uniform linear dimensions;
+    all dimensions scale together. Report "near the cactus" or "near the ice cream
+    cone" before moving either copy. Select the original candidate that satisfies
+    the comparison, transport it to the blue delivery table in this room, place it
+    on top, release it and withdraw.'
+  success_criteria: Report the correct initial comparison before moving candidates.
+    Acquire the selected original object with the native gripper, then leave it stably
+    released at the named destination for 15 consecutive native samples below 0.02
+    m/s and 0.1 rad/s, with the robot withdrawn. Preserve all comparison references
+    and the other candidate.
+  environment: Explore the original scene using the robot mounted sensors and bounded
+    controls. A blue delivery table is added without moving the source objects or
+    furniture.
+  constraints:
+  - Compare the initial arrangement through mounted robot observations before intervention.
+  - Preserve original asset scales, reference identities and all unselected comparison
+    objects.
+  - Use guarded native manipulation; source answers do not establish physical placement.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    task_obj1:
+      name: task_obj1
+      category: mug
+      model: fapsrj
+    task_obj2:
+      name: task_obj2
+      category: mug
+      model: fapsrj
+    ref_obj1:
+      name: ref_obj1
+      category: cactus
+      model: imitmg
+    ref_obj2:
+      name: ref_obj2
+      category: ice_cream_cone
+      model: thwtmp
+    target:
+      name: task_obj2
+      category: mug
+      model: fapsrj
+    destination:
+      name: esi_interaction_support_group_99_top
+      category: table
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.dimensional_size
+    operation: compare_select_transport_place
+    binding_keys:
+    - task_obj1
+    - task_obj2
+    - ref_obj1
+    - ref_obj2
+    - target
+    - destination
+    parameters:
+      task_revision: task_edit2_20261018_v1
+      mechanism_contract: &id001
+        preserve:
+        - original_target_identity
+        - asset_scales
+        - comparison_reference_associations
+        - source_metric
+        - source_reference_camera
+        goal: comparison_then_transport_and_stable_release
+        comparison_kind: identical_asset_uniform_linear_scale
+        answer_before_intervention: true
+      expected_identity: near the ice cream cone
+      placement_relation: on_top
+      selected_key: task_obj2
+      comparison_kind: identical_asset_uniform_linear_scale
+      source_objects:
+        ref_obj1:
+          _key: ref_obj1
+          category: cactus
+          model: imitmg
+          position:
+          - 6.744410991668701
+          - 4.437099933624268
+          - 0.09526246786117554
+          quaternion_xyzw:
+          - 5.439505912363529e-08
+          - -1.2177042663097382e-07
+          - 1.4846045814920217e-07
+          - 1.000000238418579
+          scale: 1.0
+        ref_obj2:
+          _key: ref_obj2
+          category: ice_cream_cone
+          model: thwtmp
+          position:
+          - 7.3426103591918945
+          - 2.947600841522217
+          - 0.04049355536699295
+          quaternion_xyzw:
+          - -0.0014598711859434843
+          - 0.0009157094173133373
+          - -0.00047982303658500314
+          - 0.9999985098838806
+          scale: 1.0
+        task_obj1:
+          _key: task_obj1
+          category: mug
+          model: fapsrj
+          position:
+          - 6.744411468505859
+          - 4.251595973968506
+          - 0.03357882425189018
+          quaternion_xyzw:
+          - 6.341724656522274e-08
+          - -5.471520125865936e-09
+          - 4.720175638794899e-06
+          - 1.0
+          scale: 1.0
+        task_obj2:
+          _key: task_obj2
+          category: mug
+          model: fapsrj
+          position:
+          - 7.342545986175537
+          - 3.080744981765747
+          - 0.04050745442509651
+          quaternion_xyzw:
+          - 3.4924596548080444e-10
+          - 9.615905582904816e-08
+          - 1.5666591934859753e-06
+          - 1.0000001192092896
+          scale: 1.2064722780797177
+      source_reference_evidence: null
+      placement_destination:
+        binding:
+          name: esi_interaction_support_group_99_top
+          category: table
+        public_label: the blue delivery table in this room
+        relation: on_top
+        selection_seed: 0
+        source: explicit_task_edit2_blue_delivery_support
+        public_label_evidence:
+          kind: reserved_blue_delivery_table
+          slot: 99
+          rgba:
+          - 0.05
+          - 0.2
+          - 0.95
+          - 1.0
+        fit_verified: false
+        access_verified: false
+      release_stability_steps: 15
+      maximum_release_speed_m_s: 0.02
+      maximum_release_angular_speed_rad_s: 0.1
+      completion_items:
+      - id: initial_comparison
+      - id: correct_bound_selection
+      - id: stable_placement
+      source_task_revision: task_edit_20261018_v1
+      definition_revision: task_edit2_20261018_v1
+      destination_contract:
+        version: task_edit2_20261018_v1
+        source_identity: Metric Comparison/Dimensional Size/Merom_0_garden/sauna_0/Merom_0_garden__sauna_0_2.json
+        scene: Merom_0_garden
+        room: sauna_0
+        selection_seed: 0
+        destination_binding:
+          name: esi_interaction_support_group_99_top
+          category: table
+        public_label: the blue delivery table in this room
+        label_relation:
+          kind: reserved_blue_delivery_table
+          slot: 99
+          rgba:
+          - 0.05
+          - 0.2
+          - 0.95
+          - 1.0
+        placement_relation: on_top
+        target_bindings:
+          target:
+            name: task_obj2
+            category: mug
+            model: fapsrj
+        fit_margin_m: 0.04
+        label_distance_gap_m: 0.1
+        distinguishability_verified: false
+        fit_verified: false
+        access_verified: false
+        native_qualification_required:
+        - current_loaded_label_relation
+        - every_target_surface_fit
+        - public_visual_label_association
+        - public_control_approach_and_release
+        fallback_table: true
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.task_edit2_destinations
+        parameters:
+          destination_contract:
+            version: task_edit2_20261018_v1
+            source_identity: Metric Comparison/Dimensional Size/Merom_0_garden/sauna_0/Merom_0_garden__sauna_0_2.json
+            scene: Merom_0_garden
+            room: sauna_0
+            selection_seed: 0
+            destination_binding:
+              name: esi_interaction_support_group_99_top
+              category: table
+            public_label: the blue delivery table in this room
+            label_relation:
+              kind: reserved_blue_delivery_table
+              slot: 99
+              rgba:
+              - 0.05
+              - 0.2
+              - 0.95
+              - 1.0
+            placement_relation: on_top
+            target_bindings:
+              target:
+                name: task_obj2
+                category: mug
+                model: fapsrj
+            fit_margin_m: 0.04
+            label_distance_gap_m: 0.1
+            distinguishability_verified: false
+            fit_verified: false
+            access_verified: false
+            native_qualification_required:
+            - current_loaded_label_relation
+            - every_target_surface_fit
+            - public_visual_label_association
+            - public_control_approach_and_release
+            fallback_table: true
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.task_edit2_destinations
+        parameters:
+          destination_contract:
+            version: task_edit2_20261018_v1
+            source_identity: Metric Comparison/Dimensional Size/Merom_0_garden/sauna_0/Merom_0_garden__sauna_0_2.json
+            scene: Merom_0_garden
+            room: sauna_0
+            selection_seed: 0
+            destination_binding:
+              name: esi_interaction_support_group_99_top
+              category: table
+            public_label: the blue delivery table in this room
+            label_relation:
+              kind: reserved_blue_delivery_table
+              slot: 99
+              rgba:
+              - 0.05
+              - 0.2
+              - 0.95
+              - 1.0
+            placement_relation: on_top
+            target_bindings:
+              target:
+                name: task_obj2
+                category: mug
+                model: fapsrj
+            fit_margin_m: 0.04
+            label_distance_gap_m: 0.1
+            distinguishability_verified: false
+            fit_verified: false
+            access_verified: false
+            native_qualification_required:
+            - current_loaded_label_relation
+            - every_target_surface_fit
+            - public_visual_label_association
+            - public_control_approach_and_release
+            fallback_table: true
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - task_obj1
+        - task_obj2
+        - ref_obj1
+        - ref_obj2
+        manipulation_bindings:
+        - task_obj1
+        - task_obj2
+        relocation_policy: comparison_pairs
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+        placement_groups:
+        - - task_obj1
+          - ref_obj1
+        - - task_obj2
+          - ref_obj2
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: sauna_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - native_grasp_ik_and_aperture_pending
+        - comparison_pair_layout_adapted_requires_review
+qualification:
+  on_failure: skip
+  target_movable_collidable: true
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  task_revision: task_edit_20261018_v1
+  mechanism_contract: *id001
+  definition_revision: task_edit2_20261018_v1
+  destination_contract:
+    version: task_edit2_20261018_v1
+    source_identity: Metric Comparison/Dimensional Size/Merom_0_garden/sauna_0/Merom_0_garden__sauna_0_2.json
+    scene: Merom_0_garden
+    room: sauna_0
+    selection_seed: 0
+    destination_binding:
+      name: esi_interaction_support_group_99_top
+      category: table
+    public_label: the blue delivery table in this room
+    label_relation:
+      kind: reserved_blue_delivery_table
+      slot: 99
+      rgba:
+      - 0.05
+      - 0.2
+      - 0.95
+      - 1.0
+    placement_relation: on_top
+    target_bindings:
+      target:
+        name: task_obj2
+        category: mug
+        model: fapsrj
+    fit_margin_m: 0.04
+    label_distance_gap_m: 0.1
+    distinguishability_verified: false
+    fit_verified: false
+    access_verified: false
+    native_qualification_required:
+    - current_loaded_label_relation
+    - every_target_surface_fit
+    - public_visual_label_association
+    - public_control_approach_and_release
+    fallback_table: true

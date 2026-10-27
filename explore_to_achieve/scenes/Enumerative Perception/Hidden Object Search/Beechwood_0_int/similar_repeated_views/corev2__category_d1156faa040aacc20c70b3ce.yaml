@@ -1,0 +1,875 @@
+kind: scene_patch
+id: scene_hidden_collection_d1156faa040aacc20c70b3ce
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Enumerative Perception/Spatial Segmentation/Beechwood_0_int/living_room_1/q_001.json
+target: null
+qualification: null
+bindings:
+  collection_item_1:
+    name: collection_item_1
+    category: hamburger
+    model: fyswch
+  collection_item_2:
+    name: collection_item_2
+    category: hamburger
+    model: fyswch
+  collection_item_3:
+    name: collection_item_3
+    category: hamburger
+    model: fyswch
+  collection_item_4:
+    name: collection_item_4
+    category: hamburger
+    model: fyswch
+  collection_item_5:
+    name: collection_item_5
+    category: hamburger
+    model: fyswch
+  collection_item_6:
+    name: collection_item_6
+    category: hamburger_bun
+    model: fqxumh
+  collection_item_7:
+    name: collection_item_7
+    category: club_sandwich
+    model: ablfyd
+  collection_plate:
+    name: collection_plate
+    category: tray
+    model: gsxbym
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.hidden_object_collection
+        parameters: &id001
+          revision: hidden_collection_20261020_v1
+          layout:
+            variant: similar_repeated_views
+            scene_model: Beechwood_0_int
+            loaded_rooms:
+            - living_room_1
+            target_count: 5
+            public_search_area: this living room
+            public_environment: A living room with a piano, tables and open shelves.
+              Some food items are distractors.
+            robot_start:
+              position:
+              - -0.2
+              - 0.0
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+            inventory:
+            - name: collection_item_1
+              category: hamburger
+              model: fyswch
+              role: target
+              position:
+              - -4.849185842870421
+              - -0.2716025403784439
+              - 0.8337
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              support: collection_shelf_1_deck
+            - name: collection_item_2
+              category: hamburger
+              model: fyswch
+              role: target
+              position:
+              - -4.450814157129579
+              - -0.5016025403784439
+              - 0.8337
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              support: collection_shelf_1_deck
+            - name: collection_item_3
+              category: hamburger
+              model: fyswch
+              role: target
+              position:
+              - -3.53
+              - -0.75
+              - 0.8337
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support: collection_shelf_2_deck
+            - name: collection_item_4
+              category: hamburger
+              model: fyswch
+              role: target
+              position:
+              - -3.07
+              - -0.75
+              - 0.8337
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support: collection_shelf_2_deck
+            - name: collection_item_5
+              category: hamburger
+              model: fyswch
+              role: target
+              position:
+              - -1.58
+              - -0.6
+              - 0.8337
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support: collection_shelf_3_deck
+            - name: collection_item_6
+              category: hamburger_bun
+              model: fqxumh
+              role: distractor
+              position:
+              - -1.2
+              - -0.6
+              - 0.8160000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support: collection_shelf_3_deck
+            - name: collection_item_7
+              category: club_sandwich
+              model: ablfyd
+              role: distractor
+              position:
+              - -0.82
+              - -0.6
+              - 0.8435
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support: collection_shelf_3_deck
+            support_objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_1_deck
+              category: shelf
+              position:
+              - -4.6
+              - -0.3
+              - 0.7825000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 1.0
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_1_roof
+              category: shelf
+              position:
+              - -4.6
+              - -0.3
+              - 1.2675
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 1.0
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_1_back
+              category: shelf
+              position:
+              - -4.48375
+              - -0.098649093620118
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 1.0
+              - 0.035
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_1_side_left
+              category: shelf
+              position:
+              - -5.017857257325991
+              - -0.058750000000000024
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_1_side_right
+              category: shelf
+              position:
+              - -4.182142742674008
+              - -0.54125
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_1_leg_0
+              category: shelf
+              position:
+              - -5.103371685740841
+              - -0.25186533479473217
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_1_leg_1
+              category: shelf
+              position:
+              - -4.893371685740841
+              - 0.1118653347947321
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_1_leg_2
+              category: shelf
+              position:
+              - -4.306628314259158
+              - -0.7118653347947321
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_1_leg_3
+              category: shelf
+              position:
+              - -4.096628314259158
+              - -0.3481346652052678
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.25881904510252074
+              - 0.9659258262890683
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_2_deck
+              category: shelf
+              position:
+              - -3.3
+              - -0.65
+              - 0.7825000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 1.0
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_2_roof
+              category: shelf
+              position:
+              - -3.3
+              - -0.65
+              - 1.2675
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 1.0
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_2_back
+              category: shelf
+              position:
+              - -3.3
+              - -0.41750000000000004
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 1.0
+              - 0.035
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_2_side_left
+              category: shelf
+              position:
+              - -3.7824999999999998
+              - -0.65
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_2_side_right
+              category: shelf
+              position:
+              - -2.8175
+              - -0.65
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_2_leg_0
+              category: shelf
+              position:
+              - -3.76
+              - -0.86
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_2_leg_1
+              category: shelf
+              position:
+              - -3.76
+              - -0.44000000000000006
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_2_leg_2
+              category: shelf
+              position:
+              - -2.84
+              - -0.86
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_2_leg_3
+              category: shelf
+              position:
+              - -2.84
+              - -0.44000000000000006
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_3_deck
+              category: shelf
+              position:
+              - -1.2
+              - -0.5
+              - 0.7825000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 1.2
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_3_roof
+              category: shelf
+              position:
+              - -1.2
+              - -0.5
+              - 1.2675
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 1.2
+              - 0.5
+              - 0.035
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_3_back
+              category: shelf
+              position:
+              - -1.2
+              - -0.2675
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 1.2
+              - 0.035
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_3_side_left
+              category: shelf
+              position:
+              - -1.7825
+              - -0.5
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_3_side_right
+              category: shelf
+              position:
+              - -0.6174999999999999
+              - -0.5
+              - 1.025
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.035
+              - 0.5
+              - 0.45
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_3_leg_0
+              category: shelf
+              position:
+              - -1.7599999999999998
+              - -0.71
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_3_leg_1
+              category: shelf
+              position:
+              - -1.7599999999999998
+              - -0.29000000000000004
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_3_leg_2
+              category: shelf
+              position:
+              - -0.64
+              - -0.71
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: collection_shelf_3_leg_3
+              category: shelf
+              position:
+              - -0.64
+              - -0.29000000000000004
+              - 0.3825
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.05
+              - 0.05
+              - 0.765
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            plate:
+              name: collection_plate
+              category: tray
+              model: gsxbym
+              right_eef_position_base_m:
+              - 0.4
+              - -0.25
+              - 0.8
+              rim_axis: y
+              rim_penetration_m: 0.025
+              usable_bounds_local_m:
+              - - -0.147
+                - -0.21
+                - -0.0049
+              - - 0.147
+                - 0.21
+                - 0.17
+            validation_status: basic_reset_review_pending_full_execution_unverified
+          plate:
+            name: collection_plate
+            category: tray
+            model: gsxbym
+            right_eef_position_base_m:
+            - 0.4
+            - -0.25
+            - 0.8
+            rim_axis: y
+            rim_penetration_m: 0.025
+            usable_bounds_local_m:
+            - - -0.147
+              - -0.21
+              - -0.0049
+            - - 0.147
+              - 0.21
+              - 0.17
+          targets:
+          - collection_item_1
+          - collection_item_2
+          - collection_item_3
+          - collection_item_4
+          - collection_item_5
+          distractors:
+          - collection_item_6
+          - collection_item_7
+          terminal_dwell_s: 1.0
+          maximum_relative_speed_m_s: 0.03
+          maximum_plate_tilt_deg: 10.0
+          maximum_plate_speed_m_s: 0.03
+          maximum_plate_angular_speed_rad_s: 0.1
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.hidden_object_collection
+        parameters: *id001
+seed: 0

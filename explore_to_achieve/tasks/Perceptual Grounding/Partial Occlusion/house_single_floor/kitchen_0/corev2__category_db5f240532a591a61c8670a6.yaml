@@ -1,0 +1,415 @@
+kind: category_robot_task
+id: task_d9ce770786d0ead8ab45c0b9
+version: 3
+status: pending
+source:
+  provider: esi
+  json: Perceptual Grounding/Partial Occlusion/house_single_floor/kitchen_0/house_single_floor__kitchen_0_3.json
+public:
+  objective: 'Inspect the candidate behind the foreground blocker. Change viewpoint
+    using a public base translation or torso-height change until you see a new diagnostic
+    feature; keep the blocker fixed. Determine whether the candidate is beer bottle
+    or wine bottle body. Report its category as ANSWER: <category> before grasping
+    it. Then grasp that same original candidate and release it on the countertop nearest
+    the bar in this room.'
+  success_criteria: Complete informative inspection, report the correct identity before
+    target grasp, select the same bound original candidate, and leave it released
+    and supported at the destination for 15 consecutive native samples. The final
+    placement must still hold when you finish.
+  environment: All eight mounted cameras and the frozen initial global image are available.
+    The source object identity, dimensions, material and appearance-producing orientation
+    are preserved; the declared complete task-prop group may be translated together
+    onto a measured support.
+  constraints:
+  - Preserve target pose/material until informative identification. Never substitute
+    another object.
+  - Do not move the original blocker.
+  - No minimum excursion, lift threshold or return-to-start trip is required.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - gripper
+  - trunk_height
+private:
+  bindings:
+    target:
+      name: target_obj
+      category: beer_bottle
+      model: nigfha
+    occluder:
+      name: occluder_obj
+      category: barbecue_sauce_bottle
+      model: gfxrnj
+    support:
+      name: floors_kxcpgy_0
+      category: floors
+    destination:
+      name: countertop_kelzer_0
+      category: countertop
+      model: kelzer
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.partial_occlusion
+    operation: viewpoint_identify_and_place_v2
+    binding_keys:
+    - target
+    - occluder
+    - support
+    - destination
+    parameters:
+      task_revision: task_edit2_20261018_v1
+      mechanism_contract:
+        preserved_relations:
+        - original target identity and scale
+        - target/occluder/support poses
+        - source reference camera and external room geometry
+        initialization_relocation_policy: preserve
+        required_native_evidence:
+        - all eight initial robot camera views
+        - reachable informative viewpoint and diagnostic feature visibility
+        - native source support and unchanged mechanism geometry
+        - destination interior geometry, fit and access separately qualified
+        - same bound original target manipulation
+        - released native destination relation and consecutive stability
+        recognition_difficulty: pending_all_camera_review
+        native_operation_verified: false
+      identity_choices:
+      - beer bottle
+      - wine bottle body
+      expected_identity: beer bottle
+      candidate_label: the partly hidden candidate behind the original foreground
+        blocker
+      placement_relation: on_top
+      destination_public_label: the countertop nearest the bar in this room
+      destination_selection_seed: 0
+      release_stability_steps: 15
+      maximum_release_speed_m_s: 0.02
+      maximum_release_angular_speed_rad_s: 0.1
+      completion_item_ids:
+      - informative_inspection
+      - identity
+      - correct_bound_selection
+      - stable_placement
+      grounding_revision: task_edit2_grounding_20261018_v1
+      grounding_contract:
+        version: task_edit2_grounding_20261018_v1
+        source_identity: Perceptual Grounding/Partial Occlusion/house_single_floor/kitchen_0/house_single_floor__kitchen_0_3.json
+        recipe: viewpoint
+        source_category: Partial Occlusion
+        dependency_group:
+        - target
+        - occluder
+        source_actors:
+          target:
+            name: target_obj
+            category: beer_bottle
+            model: nigfha
+            position:
+            - 6.672277450561523
+            - -0.4694400429725647
+            - 0.037196747958660126
+            orientation:
+            - 0.6071503162384033
+            - 0.3624500036239624
+            - -0.016659459099173546
+            - 0.7069094181060791
+          occluder:
+            name: occluder_obj
+            category: barbecue_sauce_bottle
+            model: gfxrnj
+            position:
+            - 6.533309459686279
+            - -0.2854963541030884
+            - 0.09787280857563019
+            orientation:
+            - -0.0004797904985025525
+            - -0.003450107993558049
+            - 0.011393590830266476
+            - 0.9999291300773621
+            scale:
+            - 1.1046469184118581
+            - 1.1110959906369287
+            - 1.1025150158118284
+        source_reference:
+          position_m:
+          - 6.119136019891476
+          - -0.03837773064050537
+          - 0.037196747958660126
+          quaternion_xyzw:
+          - -0.3103676280002935
+          - 0.6353518202456584
+          - 0.6353518202456584
+          - -0.3103676280002935
+          selection:
+            view_index: 0
+            view:
+              position:
+              - 6.119136019891476
+              - -0.03837773064050537
+              - 0.037196747958660126
+              quaternion_xyzw:
+              - -0.3103676280002935
+              - 0.6353518202456584
+              - 0.6353518202456584
+              - -0.3103676280002935
+              type: ring_lateral_hard
+              azimuth_deg: 142.07076543226316
+              collinear_az_deg: 127.07076543226316
+              lateral_offset_deg: 15.0
+              visibility:
+                target_obj: false
+                occluder_obj: false
+            selection: first_view
+        source_camera_translation_policy: translate_with_group
+        external_support_binding:
+          name: floors_kxcpgy_0
+          category: floors
+        external_support_preserved: true
+        floor_background_context_adapted: false
+        recognition_difficulty: unavailable_until_all_eight_and_initial_global_are_audited
+        initial_geometry_translation_only: true
+        target_fixed_base_override_permitted: false
+        position_tolerance_m: 0.02
+        orientation_tolerance_deg: 2.0
+        native_material_appearance_review_required: true
+        occluder_motion_permitted: false
+        inspection_only_alternative: Inspect and report the original candidate without
+          retrieval if native grasp/access cannot be qualified; this is a separately
+          declared alternative and cannot count as retrieval success.
+      requires_native_visual_discovery: true
+      native_visual_adapter: task_visual_evidence
+      identity_before_target_grasp: true
+      source_task_revision: task_edit_20261018_v1
+      definition_revision: task_edit2_20261018_v1
+      destination_contract:
+        version: task_edit2_20261018_v1
+        source_identity: Perceptual Grounding/Partial Occlusion/house_single_floor/kitchen_0/house_single_floor__kitchen_0_3.json
+        scene: house_single_floor
+        room: kitchen_0
+        selection_seed: 0
+        destination_binding:
+          name: countertop_kelzer_0
+          category: countertop
+          model: kelzer
+        public_label: the countertop nearest the bar in this room
+        label_relation:
+          kind: nearest_unique_room_landmark
+          landmark_binding:
+            name: bar_udatjt_0
+            category: bar
+            model: udatjt
+          source_root_distances_m:
+            countertop_kelzer_0: 2.5307558065212197
+            countertop_kelker_0: 3.1856208631204184
+          native_relation_verified: false
+        placement_relation: on_top
+        target_bindings:
+          target:
+            name: target_obj
+            category: beer_bottle
+            model: nigfha
+        fit_margin_m: 0.04
+        label_distance_gap_m: 0.1
+        distinguishability_verified: false
+        fit_verified: false
+        access_verified: false
+        native_qualification_required:
+        - current_loaded_label_relation
+        - every_target_surface_fit
+        - public_visual_label_association
+        - public_control_approach_and_release
+        fallback_table: false
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - 5.8525449258385525
+        - 0.15240462991164927
+        - 0.0050153183937072755
+        yaw_deg: -35.5888987704515
+        head_pitch_deg: 45.0
+      - operation: object_physics
+        phase: before_construction
+        binding: target
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: target
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: occluder
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: occluder
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - target
+        - occluder
+        manipulation_bindings:
+        - target
+        relocation_policy: rigid_group
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: kitchen_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - grounding_initial_all_inputs_and_native_diagnostic_features_pending
+qualification:
+  on_failure: skip
+  initial_visibility: none
+  target_movable_collidable: true
+defaults:
+  seed: 0
+repair:
+  grounding_contract:
+    version: task_edit2_grounding_20261018_v1
+    source_identity: Perceptual Grounding/Partial Occlusion/house_single_floor/kitchen_0/house_single_floor__kitchen_0_3.json
+    recipe: viewpoint
+    source_category: Partial Occlusion
+    dependency_group:
+    - target
+    - occluder
+    source_actors:
+      target:
+        name: target_obj
+        category: beer_bottle
+        model: nigfha
+        position:
+        - 6.672277450561523
+        - -0.4694400429725647
+        - 0.037196747958660126
+        orientation:
+        - 0.6071503162384033
+        - 0.3624500036239624
+        - -0.016659459099173546
+        - 0.7069094181060791
+      occluder:
+        name: occluder_obj
+        category: barbecue_sauce_bottle
+        model: gfxrnj
+        position:
+        - 6.533309459686279
+        - -0.2854963541030884
+        - 0.09787280857563019
+        orientation:
+        - -0.0004797904985025525
+        - -0.003450107993558049
+        - 0.011393590830266476
+        - 0.9999291300773621
+        scale:
+        - 1.1046469184118581
+        - 1.1110959906369287
+        - 1.1025150158118284
+    source_reference:
+      position_m:
+      - 6.119136019891476
+      - -0.03837773064050537
+      - 0.037196747958660126
+      quaternion_xyzw:
+      - -0.3103676280002935
+      - 0.6353518202456584
+      - 0.6353518202456584
+      - -0.3103676280002935
+      selection:
+        view_index: 0
+        view:
+          position:
+          - 6.119136019891476
+          - -0.03837773064050537
+          - 0.037196747958660126
+          quaternion_xyzw:
+          - -0.3103676280002935
+          - 0.6353518202456584
+          - 0.6353518202456584
+          - -0.3103676280002935
+          type: ring_lateral_hard
+          azimuth_deg: 142.07076543226316
+          collinear_az_deg: 127.07076543226316
+          lateral_offset_deg: 15.0
+          visibility:
+            target_obj: false
+            occluder_obj: false
+        selection: first_view
+    source_camera_translation_policy: translate_with_group
+    external_support_binding:
+      name: floors_kxcpgy_0
+      category: floors
+    external_support_preserved: true
+    floor_background_context_adapted: false
+    recognition_difficulty: unavailable_until_all_eight_and_initial_global_are_audited
+    initial_geometry_translation_only: true
+    target_fixed_base_override_permitted: false
+    position_tolerance_m: 0.02
+    orientation_tolerance_deg: 2.0
+    native_material_appearance_review_required: true
+    occluder_motion_permitted: false
+    inspection_only_alternative: Inspect and report the original candidate without
+      retrieval if native grasp/access cannot be qualified; this is a separately declared
+      alternative and cannot count as retrieval success.
+  definition_revision: task_edit2_20261018_v1
+  destination_contract:
+    version: task_edit2_20261018_v1
+    source_identity: Perceptual Grounding/Partial Occlusion/house_single_floor/kitchen_0/house_single_floor__kitchen_0_3.json
+    scene: house_single_floor
+    room: kitchen_0
+    selection_seed: 0
+    destination_binding:
+      name: countertop_kelzer_0
+      category: countertop
+      model: kelzer
+    public_label: the countertop nearest the bar in this room
+    label_relation:
+      kind: nearest_unique_room_landmark
+      landmark_binding:
+        name: bar_udatjt_0
+        category: bar
+        model: udatjt
+      source_root_distances_m:
+        countertop_kelzer_0: 2.5307558065212197
+        countertop_kelker_0: 3.1856208631204184
+      native_relation_verified: false
+    placement_relation: on_top
+    target_bindings:
+      target:
+        name: target_obj
+        category: beer_bottle
+        model: nigfha
+    fit_margin_m: 0.04
+    label_distance_gap_m: 0.1
+    distinguishability_verified: false
+    fit_verified: false
+    access_verified: false
+    native_qualification_required:
+    - current_loaded_label_relation
+    - every_target_surface_fit
+    - public_visual_label_association
+    - public_control_approach_and_release
+    fallback_table: false

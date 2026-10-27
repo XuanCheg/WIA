@@ -1,0 +1,150 @@
+{
+  "agent_experiments_run_by_generator": false,
+  "artifact_path_base": "manifest_directory",
+  "entries": [
+    {
+      "evidence": {
+        "legal_robot_success": "pending",
+        "native_calibration": "pending",
+        "trial_release_repeatability": "pending",
+        "winner_reversal": "not_established"
+      },
+      "private_condition_id": "material_000",
+      "private_provenance": {
+        "original_scene_file": "explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_88ce9d62d891ae0ba628a6e9.yaml",
+        "original_task_file": "explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_88ce9d62d891ae0ba628a6e9.yaml",
+        "source_ramp_geometry_and_friction_preserved": false,
+        "source_ramp_geometry_preserved": true
+      },
+      "ramp_material_coefficients": {
+        "dynamic_friction": 0.0,
+        "static_friction": 0.0
+      },
+      "ramp_material_multiplier": 0.0,
+      "scene_file": "material_000/scene.yaml",
+      "source_identity": "Physical Dynamics/Inclined Plane/house_single_floor/living_room_0/redesign_sphere_v2_from_childs_room_0.json",
+      "task_file": "material_000/task.yaml"
+    },
+    {
+      "evidence": {
+        "legal_robot_success": "pending",
+        "native_calibration": "pending",
+        "trial_release_repeatability": "pending",
+        "winner_reversal": "not_established"
+      },
+      "private_condition_id": "material_001",
+      "private_provenance": {
+        "original_scene_file": "explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_88ce9d62d891ae0ba628a6e9.yaml",
+        "original_task_file": "explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_88ce9d62d891ae0ba628a6e9.yaml",
+        "source_ramp_geometry_and_friction_preserved": false,
+        "source_ramp_geometry_preserved": true
+      },
+      "ramp_material_coefficients": {
+        "dynamic_friction": 0.17137000000000002,
+        "static_friction": 0.27440000000000003
+      },
+      "ramp_material_multiplier": 0.1,
+      "scene_file": "material_001/scene.yaml",
+      "source_identity": "Physical Dynamics/Inclined Plane/house_single_floor/living_room_0/redesign_sphere_v2_from_childs_room_0.json",
+      "task_file": "material_001/task.yaml"
+    },
+    {
+      "evidence": {
+        "legal_robot_success": "pending",
+        "native_calibration": "pending",
+        "trial_release_repeatability": "pending",
+        "winner_reversal": "not_established"
+      },
+      "private_condition_id": "material_002",
+      "private_provenance": {
+        "original_scene_file": "explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_88ce9d62d891ae0ba628a6e9.yaml",
+        "original_task_file": "explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_88ce9d62d891ae0ba628a6e9.yaml",
+        "source_ramp_geometry_and_friction_preserved": false,
+        "source_ramp_geometry_preserved": true
+      },
+      "ramp_material_coefficients": {
+        "dynamic_friction": 0.599795,
+        "static_friction": 0.9604
+      },
+      "ramp_material_multiplier": 0.35,
+      "scene_file": "material_002/scene.yaml",
+      "source_identity": "Physical Dynamics/Inclined Plane/house_single_floor/living_room_0/redesign_sphere_v2_from_childs_room_0.json",
+      "task_file": "material_002/task.yaml"
+    },
+    {
+      "evidence": {
+        "legal_robot_success": "pending",
+        "native_calibration": "pending",
+        "trial_release_repeatability": "pending",
+        "winner_reversal": "not_established"
+      },
+      "private_condition_id": "material_003",
+      "private_provenance": {
+        "original_scene_file": "explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_88ce9d62d891ae0ba628a6e9.yaml",
+        "original_task_file": "explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_88ce9d62d891ae0ba628a6e9.yaml",
+        "source_ramp_geometry_and_friction_preserved": true,
+        "source_ramp_geometry_preserved": true
+      },
+      "ramp_material_coefficients": {
+        "dynamic_friction": 1.7137,
+        "static_friction": 2.744
+      },
+      "ramp_material_multiplier": 1.0,
+      "scene_file": "material_003/scene.yaml",
+      "source_identity": "Physical Dynamics/Inclined Plane/house_single_floor/living_room_0/redesign_sphere_v2_from_childs_room_0.json",
+      "task_file": "material_003/task.yaml"
+    }
+  ],
+  "factor": {
+    "definition": "One scalar multiplies both original ramp friction coefficients; their nonzero ratio is fixed.",
+    "independent_dimensions": 1,
+    "multipliers": [
+      0.0,
+      0.1,
+      0.35,
+      1.0
+    ],
+    "name": "ramp_material_multiplier",
+    "original_coefficients": {
+      "dynamic_friction": 1.7137,
+      "static_friction": 2.744
+    },
+    "zero_condition": "Both coefficients are zero; their ratio is undefined at zero."
+  },
+  "hypothesis": "At lower ramp friction, bowl sliding may overtake the rolling ball. This is untested; no winner or reversal is asserted.",
+  "native_experiments_run_by_generator": false,
+  "original_path_base": "repository_root",
+  "preserved_protocol": {
+    "arrival_tie_tolerance_s": 0.15,
+    "geometry_poses_assets_spares": "unchanged",
+    "orientation_release_recovery": "unchanged",
+    "public_objective": "unchanged",
+    "seed_cameras_controller": "unchanged",
+    "source_identity": "Physical Dynamics/Inclined Plane/house_single_floor/living_room_0/redesign_sphere_v2_from_childs_room_0.json",
+    "trial_duration_s": 3.0
+  },
+  "privacy": "private_configuration_and_provenance_not_policy_input",
+  "public_task_identity": {
+    "id": "wia_ramp_material_calibration_v1",
+    "version": 1
+  },
+  "publication_ready": false,
+  "schema": "wia_ramp_material_calibration_candidates_v1",
+  "selection_method": "exact_task_and_scene_paths_required_shared_public_task_id",
+  "source_inputs": {
+    "scene": {
+      "path": "explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_88ce9d62d891ae0ba628a6e9.yaml",
+      "sha256": "7e24036fae2662de31ec304df2efe72466687a5376f1af82be2caaf3bb05bbcd"
+    },
+    "source": {
+      "path": "explore_to_achieve/sources/json_clean/Physical Dynamics/Inclined Plane/house_single_floor/living_room_0/redesign_sphere_v2_from_childs_room_0.json",
+      "sha256": "727107005a5dbe540ed8c84e14a137d0954252cd7a0d63fdf7defe388188fe7f"
+    },
+    "task": {
+      "path": "explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_88ce9d62d891ae0ba628a6e9.yaml",
+      "sha256": "7724b39956f452fbd2edd1bee68d9b2b50351dcea09112317e76efe94f764d7d"
+    }
+  },
+  "status": "pending_native_material_calibration",
+  "version": 1
+}

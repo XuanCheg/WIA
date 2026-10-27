@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-10-27",
+  "overall_status": "Core refactor and endpoint/credential CPU checks passed; model/GPU/native simulation qualification was not performed.",
+  "source_revisions": {
+    "harness_head": "8ff14cd3683079498949cfe95534cd25f486b496",
+    "harness_worktree_dirty": true,
+    "wia_commit": null,
+    "wia_history": "New independent repository; no commit created yet.",
+    "esi_bench_commit": "9f6f15ed43e81654a97de9e4db2a1fedadca2bc1"
+  },
+  "implementation_retained": [
+    "103 migrated benchmark modules and 45 pure authoring commands, with compatibility modules and source symlinks.",
+    "Independent WIA package with pinned ESI submodule and optional Show-Harness integration.",
+    "Separate API-owned Chat Completions and Responses histories from native Codex conversation history; backend model configuration remains distinct.",
+    "Policy/system protocols document future WorldModel/WAM integration; neither system is implemented. Claude remains a future backend concept only."
+  ],
+  "checks": [
+    {
+      "name": "Comprehensive Harness/WIA integration suite",
+      "command": "behavior Python -B -m pytest -q tests/test_api_sessions.py tests/test_backend_registry.py tests/test_backend_cli_integration.py tests/test_local_http_episode.py tests/test_esi_task_evaluation.py tests/test_wia_dimensional_scoring.py tests/test_wia_mirror_scoring.py tests/test_native_temporal_phases.py tests/test_temporal_phase_transport.py ../WIA/tests",
+      "result": "passed",
+      "passed": 224,
+      "duration_seconds": 138.37
+    },
+    {
+      "name": "Usage/log metadata follow-up",
+      "scope": "API sessions, backend registry, CLI integration, WIA evaluation and optional integration",
+      "result": "passed",
+      "passed": 70,
+      "duration_seconds": 2.81,
+      "note": "Reported separately; test suites overlap and counts are not summed."
+    },
+    {
+      "name": "Standalone package isolation",
+      "result": "passed",
+      "details": "In separate editable environments, WIA imports, API dry-run and actual task loading worked with Show-Harness/core/GUMI/scripts/MCP/torch blocked; Harness API/Codex/VLMClient imports worked with WIA absent or blocked."
+    },
+    {
+      "name": "Legacy-root authoring suites",
+      "result": "413 passed, 2 failed",
+      "details": "The two failures are pre-existing exact-artifact config-hash mismatches recorded below."
+    },
+    {
+      "name": "Canonical default standalone suite",
+      "result": "passed",
+      "passed": 10
+    },
+    {
+      "name": "Legacy native, agent and launcher help after ESI path conversion",
+      "result": "passed"
+    },
+    {
+      "name": "Final endpoint/credential integration follow-up",
+      "command_descriptor": "Same focused command plus optional_harness.",
+      "result": "passed",
+      "passed": 95,
+      "duration_seconds": 2.99,
+      "note": "Reported separately from overlapping suites; counts are not summed."
+    },
+    {
+      "name": "vLLM backend dry-run",
+      "result": "passed",
+      "details": "Run from /tmp; no output directory was created and no model or GPU was used."
+    },
+    {
+      "name": "Scoped staged whitespace check",
+      "scope": "src, tests, configs and scripts",
+      "result": "passed",
+      "details": "Surplus terminal blank lines were removed from src/wia/authoring/io.py and src/wia/authoring/scene_inventory.py, leaving one final newline in each."
+    }
+  ],
+  "known_limitations": [
+    {
+      "name": "Pre-existing exact-artifact config-hash mismatches",
+      "details": "Configs and manifests are byte-identical to the source Harness revision. esi_arm current config SHA-256 is dbc7c57727aa8fac4e81419179e94e7ae0dd054c286e000a2c5d48a023b23c8e, while the posture manifest records 04f66fcc723fff2ee9b76d669822ddad2f7295de7483765276db528d603cb8f3. esi_trunk current config SHA-256 is 57216b57800d95e0e4fc9b764a433be5702afd75db2bc5cc7ad522126fef2e99, while the temporal manifest records 56924f308bf3a5a0fe3ba57af79852871d97f314108f7f3989e189e28bc36586. No artifacts were rewritten to mask these differences."
+    },
+    {
+      "name": "Endpoint defaults correction",
+      "status": "Pending main final endpoint tests; no passing result is claimed here."
+    },
+    {
+      "name": "Whitespace in preserved raw source documents",
+      "details": "The full staged diff check reports trailing spaces in copied source Markdown and CSV files. These source artifacts are preserved verbatim. The scoped check for src, tests, configs and scripts passes."
+    }
+  ],
+  "runtime_scope": {
+    "model_calls": false,
+    "gpu_runs": false,
+    "native_simulations": false,
+    "existing_processes_signaled": false
+  },
+  "evidence_logs": [
+    "wia_authoring_regression_legacyroot_20261027.log",
+    "wia_authoring_secondary_legacyroot_20261027.log",
+    "wia_authoring_config_hash_baseline_20261027.log"
+  ]
+}

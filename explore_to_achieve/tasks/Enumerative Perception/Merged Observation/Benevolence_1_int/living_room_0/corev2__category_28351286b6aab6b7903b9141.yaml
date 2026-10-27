@@ -1,0 +1,344 @@
+kind: category_robot_task
+id: task_90a66221592e0228a8431cfe
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Enumerative Perception/Merged Observation/Benevolence_1_int/living_room_0/q_001.json
+public:
+  objective: Find all 5 distinct club sandwich objects in the overlapping original
+    cluster. Combine mounted-camera views to distinguish individual objects and avoid
+    counting repeated sightings.
+  success_criteria: Every original target appears in delivered native robot images
+    at least once; one target pickup or repeated observations cannot replace complete
+    inventory discovery.
+  environment: Original cluster overlap, support order, object identities, dimensions
+    and reference views remain unchanged.
+  constraints:
+  - Preserve the source cluster and inspect it through legal robot viewpoints.
+  - The total is supplied. No arbitrary lift, return, travel distance or count-estimation
+    answer is required.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+private:
+  bindings:
+    floor:
+      name: floors_buiarh_0
+    target_00:
+      name: render_count_target_club_sandwich_0
+      category: club_sandwich
+      model: ablfyd
+    target_01:
+      name: render_count_target_club_sandwich_1
+      category: club_sandwich
+      model: ablfyd
+    target_02:
+      name: render_count_target_club_sandwich_2
+      category: club_sandwich
+      model: ablfyd
+    target_03:
+      name: render_count_target_club_sandwich_3
+      category: club_sandwich
+      model: ablfyd
+    target_04:
+      name: render_count_target_club_sandwich_4
+      category: club_sandwich
+      model: ablfyd
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.partial_occlusion
+    operation: distinct_visual_inventory
+    binding_keys:
+    - floor
+    - target_00
+    - target_01
+    - target_02
+    - target_03
+    - target_04
+    parameters:
+      task_revision: task_edit_20261018_v1
+      target_keys:
+      - target_00
+      - target_01
+      - target_02
+      - target_03
+      - target_04
+      requires_native_visual_discovery: true
+      disclosed_target_count: 5
+      mechanism_contract:
+        preserved_relations:
+        - source cluster and overlap structure
+        - cross-view distinct identities
+        - original support relationships and source observer
+        initialization_relocation_policy: preserve
+        required_native_evidence:
+        - source support and no fallen targets
+        - source mechanism geometry
+        - all mounted initial camera views
+        - synchronized delivered RGB and private instance identity
+        - legal informative access
+        native_operation_verified: false
+      regions: {}
+      source_evidence:
+        source_objects:
+          target_00:
+            bbox:
+            - - 2.7901782989501953
+              - 2.1438591480255127
+              - -0.006463408470153809
+            - - 3.002127170562744
+              - 2.344960927963257
+              - 0.07837631553411484
+            category: club_sandwich
+            model: ablfyd
+            name: render_count_target_club_sandwich_0
+            position:
+            - 2.8949999809265137
+            - 2.244999885559082
+            - 0.03400001302361488
+            quaternion_xyzw:
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            requested_position:
+            - 2.8950000000000005
+            - 2.245
+            - 0.034000012874603275
+            role: count_target
+            source_category: boxed_ink_cartridge
+            source_entry_case: observation_merged
+            source_sampling_source: keys_json_filtered_by_estimated_size_and_local_models
+            target_name: render_count_target_club_sandwich_0
+          target_01:
+            bbox:
+            - - 2.845273733139038
+              - 2.057003974914551
+              - -0.006463408470153809
+            - - 3.057222604751587
+              - 2.258105754852295
+              - 0.07837631553411484
+            category: club_sandwich
+            model: ablfyd
+            name: render_count_target_club_sandwich_1
+            position:
+            - 2.9500954151153564
+            - 2.15814471244812
+            - 0.03400001302361488
+            quaternion_xyzw:
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            requested_position:
+            - 2.950095332760351
+            - 2.158144787288821
+            - 0.034000012874603275
+            role: count_target
+            source_category: boxed_ink_cartridge
+            source_entry_case: observation_merged
+            source_sampling_source: keys_json_filtered_by_estimated_size_and_local_models
+            target_name: render_count_target_club_sandwich_1
+          target_02:
+            bbox:
+            - - 2.845273733139038
+              - 2.057003974914551
+              - 0.06753659248352051
+            - - 3.057222604751587
+              - 2.258105754852295
+              - 0.15237630903720856
+            category: club_sandwich
+            model: ablfyd
+            name: render_count_target_club_sandwich_2
+            position:
+            - 2.9500954151153564
+            - 2.15814471244812
+            - 0.1080000102519989
+            quaternion_xyzw:
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            requested_position:
+            - 2.950095332760351
+            - 2.158144787288821
+            - 0.10800001287460329
+            role: count_target
+            source_category: boxed_ink_cartridge
+            source_entry_case: observation_merged
+            source_sampling_source: keys_json_filtered_by_estimated_size_and_local_models
+            target_name: render_count_target_club_sandwich_2
+          target_03:
+            bbox:
+            - - 2.84350848197937
+              - 2.2185354232788086
+              - -0.006463408470153809
+            - - 3.055457353591919
+              - 2.4196372032165527
+              - 0.07837631553411484
+            category: club_sandwich
+            model: ablfyd
+            name: render_count_target_club_sandwich_3
+            position:
+            - 2.9483301639556885
+            - 2.319676160812378
+            - 0.03400001302361488
+            quaternion_xyzw:
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            requested_position:
+            - 2.9483301621806515
+            - 2.319676268151767
+            - 0.034000012874603275
+            role: count_target
+            source_category: boxed_ink_cartridge
+            source_entry_case: observation_merged
+            source_sampling_source: keys_json_filtered_by_estimated_size_and_local_models
+            target_name: render_count_target_club_sandwich_3
+          target_04:
+            bbox:
+            - - 2.784660577774048
+              - 2.0069806575775146
+              - -0.006463408470153809
+            - - 2.9966094493865967
+              - 2.208082437515259
+              - 0.07837631553411484
+            category: club_sandwich
+            model: ablfyd
+            name: render_count_target_club_sandwich_4
+            position:
+            - 2.889482259750366
+            - 2.108121395111084
+            - 0.03400001302361488
+            quaternion_xyzw:
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            requested_position:
+            - 2.8894821731648848
+            - 2.1081214236523285
+            - 0.034000012874603275
+            role: count_target
+            source_category: boxed_ink_cartridge
+            source_entry_case: observation_merged
+            source_sampling_source: keys_json_filtered_by_estimated_size_and_local_models
+            target_name: render_count_target_club_sandwich_4
+        geometry_audit:
+          resolved_target_count: 5
+          source_aabb_overlaps:
+          - names:
+            - render_count_target_club_sandwich_0
+            - render_count_target_club_sandwich_1
+            overlap_extents_m:
+            - 0.15685343742370605
+            - 0.11424660682678223
+            - 0.08483972400426865
+          - names:
+            - render_count_target_club_sandwich_0
+            - render_count_target_club_sandwich_2
+            overlap_extents_m:
+            - 0.15685343742370605
+            - 0.11424660682678223
+            - 0.01083972305059433
+          - names:
+            - render_count_target_club_sandwich_0
+            - render_count_target_club_sandwich_3
+            overlap_extents_m:
+            - 0.15861868858337402
+            - 0.12642550468444824
+            - 0.08483972400426865
+          - names:
+            - render_count_target_club_sandwich_0
+            - render_count_target_club_sandwich_4
+            overlap_extents_m:
+            - 0.20643115043640137
+            - 0.0642232894897461
+            - 0.08483972400426865
+          - names:
+            - render_count_target_club_sandwich_1
+            - render_count_target_club_sandwich_2
+            overlap_extents_m:
+            - 0.21194887161254883
+            - 0.20110177993774414
+            - 0.01083972305059433
+          - names:
+            - render_count_target_club_sandwich_1
+            - render_count_target_club_sandwich_3
+            overlap_extents_m:
+            - 0.21018362045288086
+            - 0.03957033157348633
+            - 0.08483972400426865
+          - names:
+            - render_count_target_club_sandwich_1
+            - render_count_target_club_sandwich_4
+            overlap_extents_m:
+            - 0.1513357162475586
+            - 0.151078462600708
+            - 0.08483972400426865
+          - names:
+            - render_count_target_club_sandwich_2
+            - render_count_target_club_sandwich_3
+            overlap_extents_m:
+            - 0.21018362045288086
+            - 0.03957033157348633
+            - 0.01083972305059433
+          - names:
+            - render_count_target_club_sandwich_2
+            - render_count_target_club_sandwich_4
+            overlap_extents_m:
+            - 0.1513357162475586
+            - 0.151078462600708
+            - 0.01083972305059433
+          merge_patterns:
+          - random_compact_stacked_cluster
+          legacy_original_requested_category: boxed_ink_cartridge
+          saved_answer_matches_generated_count: true
+          source_camera_policy_preserved: true
+          aabb_overlap_is_not_mesh_penetration_evidence: true
+      completion_item_ids:
+      - discovery:target_00
+      - discovery:target_01
+      - discovery:target_02
+      - discovery:target_03
+      - discovery:target_04
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: navigation
+        group_bindings:
+        - target_00
+        - target_01
+        - target_02
+        - target_03
+        - target_04
+        manipulation_bindings: []
+        relocation_policy: preserve
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: bounded_group
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: living_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0

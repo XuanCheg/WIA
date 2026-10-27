@@ -1,0 +1,259 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "artifact_path_base": "absolute",
+  "status": "pending_native_review",
+  "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/pilot_design_v2.json",
+  "design_sha256": "2bc2dd6f66bff05944cff0492371e15e48c01eed90489919da02c563c8642777",
+  "full_reference_execution": "pending",
+  "native_validation_run": false,
+  "native_geometry_verified": false,
+  "native_visibility_verified": false,
+  "native_shape_verified": false,
+  "native_hand_path_verified": false,
+  "native_gripper_path_verified": false,
+  "native_optics_verified": false,
+  "native_selected_identity_verified": false,
+  "native_non_goal_initialization_verified": false,
+  "physical_success_verified": false,
+  "scientific_controls_verified": false,
+  "continuous_path_certified": false,
+  "entries": [
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_history_a_hall_arch_v2",
+      "label": "T40 matched history A hall_arch clear-floor v2",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_a_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_a_v3.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/tasks/t40_history_a_hall_arch_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/scenes/t40_history_a_hall_arch_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/hall_arch_wood/empty_room_0/t40_history_a_hall_arch_v2.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -47.2954,
+        13.5,
+        0
+      ],
+      "background_support_objects": [
+        {
+          "name": "breakfast_table_rhjoby_0",
+          "category": "breakfast_table",
+          "model": "rhjoby",
+          "scale": [
+            0.9999933242797852,
+            0.9999943971633911,
+            0.9999465942382812
+          ],
+          "fixed_base": false,
+          "visual_only": false,
+          "type": "DatasetObject",
+          "position": [
+            -40.00058159866333,
+            17.00055503845215,
+            0.7648534774780273
+          ],
+          "orientation": [
+            -1.9856030121445656e-05,
+            9.313507325714454e-05,
+            0.7062044739723206,
+            0.7080081105232239
+          ],
+          "in_rooms": [
+            "empty_room_0"
+          ]
+        }
+      ],
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/pilot_design_v2.json",
+      "design_sha256": "2bc2dd6f66bff05944cff0492371e15e48c01eed90489919da02c563c8642777",
+      "parent_task_sha256": "f293c0d06c976cdef58991b1cb5b00317a3611c10db0b670adf61f58d37bf6f6",
+      "parent_scene_sha256": "25b975cf3c5cea3cc533611f0f1767ecccca41cbf50e380ffbb2637e78a9cc0b",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_a_v1.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_a_v1.json",
+      "parent_source_sha256": "5cbe09a91dc1ca9824294125c465e650aa1a046b0cfce06101402101cae3edd5",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/tasks/t40_history_a_hall_arch_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/scenes/t40_history_a_hall_arch_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/hall_arch_wood/empty_room_0/t40_history_a_hall_arch_v2.json",
+      "source_sha256": "4b62f19bf5d4630365cec4429dd39515740f82776feadcd7a5d45eb9b29aa955",
+      "task_sha256": "711240c6aa30f65771adf7e8e7932221b4629cba607c03aca449c8da9235f5a2",
+      "scene_sha256": "1133b9896fcc25f4fbad076276f2ca209eb2bcf5c375f20bd9935f4c75186840",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "wia_tm2_matched_history_v3",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_history_b_hall_arch_v2",
+      "label": "T40 matched history B hall_arch clear-floor v2",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_b_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_b_v3.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/tasks/t40_history_b_hall_arch_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/scenes/t40_history_b_hall_arch_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/hall_arch_wood/empty_room_0/t40_history_b_hall_arch_v2.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -47.2954,
+        13.5,
+        0
+      ],
+      "background_support_objects": [
+        {
+          "name": "breakfast_table_rhjoby_0",
+          "category": "breakfast_table",
+          "model": "rhjoby",
+          "scale": [
+            0.9999933242797852,
+            0.9999943971633911,
+            0.9999465942382812
+          ],
+          "fixed_base": false,
+          "visual_only": false,
+          "type": "DatasetObject",
+          "position": [
+            -40.00058159866333,
+            17.00055503845215,
+            0.7648534774780273
+          ],
+          "orientation": [
+            -1.9856030121445656e-05,
+            9.313507325714454e-05,
+            0.7062044739723206,
+            0.7080081105232239
+          ],
+          "in_rooms": [
+            "empty_room_0"
+          ]
+        }
+      ],
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/pilot_design_v2.json",
+      "design_sha256": "2bc2dd6f66bff05944cff0492371e15e48c01eed90489919da02c563c8642777",
+      "parent_task_sha256": "d81a57085094f4460887dcc6d0d19f53d91d06c72a5b9caccc4bca2a45bd1798",
+      "parent_scene_sha256": "1048bad99736e7843c47101eeb2dbe84aa7b56af34006dbe8a7a3c3bec15551f",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json",
+      "parent_source_sha256": "d43c28f070ad1160669144b643bd04de9e33e960d6c1e75a918b29a116354f26",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/tasks/t40_history_b_hall_arch_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/scenes/t40_history_b_hall_arch_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/hall_arch_wood/empty_room_0/t40_history_b_hall_arch_v2.json",
+      "source_sha256": "22c4d88e6dd4706033c16a460d4c7eb18ebdfb5498523ad33da1b643ce774ce6",
+      "task_sha256": "9067c008538cc98715ab4757bec55ba2af05a3b7a9c6be60c107950cb6b9a677",
+      "scene_sha256": "d3cbf4c710d66b61fb91929f855cc82378a9bc0f49fbf3688a5a7c42c05e6625",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "wia_tm2_matched_history_v3",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_history_c_hall_arch_v2",
+      "label": "T40 matched history C hall_arch clear-floor v2",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_c_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_c_v3.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/tasks/t40_history_c_hall_arch_v2.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/scenes/t40_history_c_hall_arch_v2.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/hall_arch_wood/empty_room_0/t40_history_c_hall_arch_v2.json",
+      "scene_model": "hall_arch_wood",
+      "room": "empty_room_0",
+      "floor_name": "floors_hhszec_0",
+      "translation_m": [
+        -47.2954,
+        13.5,
+        0
+      ],
+      "background_support_objects": [
+        {
+          "name": "breakfast_table_rhjoby_0",
+          "category": "breakfast_table",
+          "model": "rhjoby",
+          "scale": [
+            0.9999933242797852,
+            0.9999943971633911,
+            0.9999465942382812
+          ],
+          "fixed_base": false,
+          "visual_only": false,
+          "type": "DatasetObject",
+          "position": [
+            -40.00058159866333,
+            17.00055503845215,
+            0.7648534774780273
+          ],
+          "orientation": [
+            -1.9856030121445656e-05,
+            9.313507325714454e-05,
+            0.7062044739723206,
+            0.7080081105232239
+          ],
+          "in_rooms": [
+            "empty_room_0"
+          ]
+        }
+      ],
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/pilot_design_v2.json",
+      "design_sha256": "2bc2dd6f66bff05944cff0492371e15e48c01eed90489919da02c563c8642777",
+      "parent_task_sha256": "703eca900ddf4f9c9bb5df5efdc3441e1a28496c92ed2f2521b4976b5de0edd1",
+      "parent_scene_sha256": "e06aed2faf0b53aa567eb72b8d9446e3b194a70dbb54a70f4af53b8a9417a2a7",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_c_v1.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_c_v1.json",
+      "parent_source_sha256": "54bc54baede0a567450b012633b2d497eec3260c787dfc969046403b4bf640d3",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/tasks/t40_history_c_hall_arch_v2.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_transfer_v1/scenes/t40_history_c_hall_arch_v2.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/hall_arch_wood/empty_room_0/t40_history_c_hall_arch_v2.json",
+      "source_sha256": "fe360daa35791e0f02dbc841bc5f0f22584393a698702bfb7f156e61bd864b0d",
+      "task_sha256": "2b9378a213fb50a26d7a2841989f479007f844971d526bd823d18920880c8512",
+      "scene_sha256": "d6563d4e2b0a64f49aa8cd15a2eec1cfb0ca7e7589ce1262cdfc16f8324a70f6",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "wia_tm2_matched_history_v3",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    }
+  ]
+}

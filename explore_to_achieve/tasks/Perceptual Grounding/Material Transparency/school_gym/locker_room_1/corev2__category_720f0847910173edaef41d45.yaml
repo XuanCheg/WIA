@@ -1,0 +1,99 @@
+kind: category_robot_task
+id: task_601093cd61d23ac1c721579c
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Perceptual Grounding/Material Transparency/school_gym/locker_room_1/school_gym__locker_room_1.json
+public:
+  objective: Place the dice inside its original solvent bottle and release it stably.
+    If it is already inside, leave it there and verify the final state.
+  success_criteria: The original small object is released, contacts its original container,
+    satisfies the native inside relation and stays stable for 15 consecutive physics
+    steps. An already satisfied state permits a no-op.
+  environment: The source inside/outside initial state, original container, object
+    and dimensions are retained.
+  constraints:
+  - Use mounted observations and legal robot controls.
+  - Do not extract an already-contained object merely to insert it again.
+  - A visual overlap alone does not establish containment.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - gripper
+private:
+  bindings:
+    obj_container:
+      name: obj_container
+      category: solvent_bottle
+      model: nbctrk
+    obj_small:
+      name: obj_small
+      category: dice
+      model: rcgtzz
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.perceptual_grounding_material_transparency
+    operation: insert_or_verify_inside
+    binding_keys:
+    - obj_container
+    - obj_small
+    parameters:
+      task_revision: task_edit_20261018_v1
+      placement_relation: inside
+      release_stability_steps: 15
+      maximum_release_speed_m_s: 0.02
+      maximum_release_angular_speed_rad_s: 0.1
+      expected_identity: ''
+      completion_item_ids:
+      - stable_inside
+      mechanism_contract:
+        preserved_relations:
+        - original inside/outside reset
+        - same small object and original container
+        - original asset scales and opening geometry
+        required_native_evidence:
+        - initial native relation
+        - independent interior geometry
+        - opening, fit and gripper clearance
+        - stable released relation
+        native_operation_verified: false
+      support_revision: task_edit2_support_20261018_v1
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - obj_container
+        - obj_small
+        manipulation_bindings:
+        - obj_small
+        relocation_policy: rigid_group
+        layout_parameters: {}
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: locker_room_1
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+qualification:
+  on_failure: skip
+  target_movable_collidable: true
+  initial_visibility: none
+defaults:
+  seed: 0

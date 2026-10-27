@@ -1,0 +1,157 @@
+{
+  "original_source": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Cognitive Mapping/Connectivity/school_geography/full_scene/q_001.json",
+  "source_identity": "Cognitive Mapping/Connectivity/school_geography/full_scene/q_001.json",
+  "big_task": "Cognitive Mapping",
+  "small_task": "Connectivity",
+  "converter_version": "connectivity_task_edit_20261018",
+  "converter_module": "core.esi_converters.cognitive_mapping_connectivity",
+  "candidate_id": "category_741c5b7b41ba36808012b764",
+  "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_741c5b7b41ba36808012b764/scene.yaml",
+  "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_741c5b7b41ba36808012b764/task.yaml",
+  "reuse_level": "L2",
+  "change_summary": [
+    "Preserve source geometry and references while restoring the declared mapping capability.",
+    "Separate semantic answers, physical progress, constraints and native evaluation validity.",
+    "Screen the actual R1 floor stance while preserving the original floorplan and furniture."
+  ],
+  "goal_predicate": {
+    "type": "category_operation",
+    "module": "core.esi_converters.cognitive_mapping_connectivity",
+    "operation": "answer_direct_adjacency_with_exploration",
+    "binding_keys": [],
+    "parameters": {
+      "source_region": "corridor_0",
+      "target_region": "corridor_2",
+      "stability_steps": 3,
+      "floor_idx": 0,
+      "floor_contact_height_tolerance_m": 0.005,
+      "minimum_floor_contact_vertical_normal": 0.5,
+      "required_regions": [
+        "corridor_0",
+        "corridor_2"
+      ],
+      "scoring_version": "task_completion_v2",
+      "required_order": [],
+      "arrival_report_required": true,
+      "public_route_required": false,
+      "public_route_evidence": [],
+      "source_public_question": null,
+      "task_revision": "task_edit_20261018_v1",
+      "source_path": "Cognitive Mapping/Connectivity/school_geography/full_scene/q_001.json",
+      "mapping_composition_contract": null,
+      "legacy_operation": "region_exploration_arrivals",
+      "source_qa": {
+        "question": "Are corridor 0 (near classroom 0) and corridor 2 (with display case and drinking fountain) adjacent, with a direct connection between them?",
+        "answer": "No",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "scored": true
+      },
+      "source_door_policy": {
+        "version": "mapping_source_runtime_doors_v1",
+        "generator": "ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py",
+        "source_policy": "exclude_door_and_sliding_door_then_remove_door_named_objects",
+        "source_trav_map_basename": "floor_trav_no_door",
+        "runtime_policy": "retain_native_doors",
+        "reconciled": null,
+        "physical_opening_and_crossing_verified": null
+      },
+      "mechanism_contract": {
+        "invariants": [
+          "original_building_and_region_boundaries",
+          "original_task_anchors_and_reference",
+          "source_order_and_intentional_revisits"
+        ],
+        "required_native_evidence": [
+          "source_runtime_door_policy_reconciled",
+          "task_relevant_door_qualification"
+        ],
+        "unavailable_is_not_agent_failure": true
+      },
+      "actual_capability": "direct_adjacency_and_region_exploration",
+      "relation_semantics": "direct_connection_not_global_reachability",
+      "source_graph_reachable": true
+    }
+  },
+  "qa_preserved": true,
+  "limitations": [
+    "Source/runtime door-policy reconciliation and task-relevant physical door trials remain required.",
+    "Unknown source-answer/native-graph agreement produces unavailable comparable results."
+  ],
+  "status": "generated",
+  "failure_stage": null,
+  "failure_reason": null,
+  "warning_codes": [
+    "assumption_review_required",
+    "graph_path_advisory_only",
+    "interaction_layout_native_review_pending",
+    "native_door_passability_unverified",
+    "native_floor_layer_unverified",
+    "native_mapping_relation_and_door_qualification_pending",
+    "native_route_execution_unverified",
+    "robot_initialization_unqualified",
+    "source_camera_xy_is_not_chassis_clearance",
+    "source_runtime_door_policy_difference"
+  ],
+  "assumptions": [],
+  "sample_evidence": [],
+  "review_record_id": null,
+  "source_sha256": "6959a26e7d7330422a58d914fc66b45f3d7d6b7d0c3a248e7e1797bf47337ad4",
+  "seed": 0,
+  "revision": "741c5b7b41ba36808012b764",
+  "attempted_repairs": [],
+  "next_step": "Reconcile source/native relations and qualify the required native doors, public anchors and route.",
+  "scene_model": "school_geography",
+  "room": "full_scene",
+  "question": "Are corridor 0 (near classroom 0) and corridor 2 (with display case and drinking fountain) adjacent, with a direct connection between them?",
+  "interaction_policy": {
+    "mode": "navigation",
+    "group_bindings": [],
+    "manipulation_bindings": [],
+    "relocation_policy": "preserve",
+    "source_region": "corridor_0",
+    "minimum_grasp_height_m": 0.35,
+    "maximum_grasp_height_m": 1.1,
+    "maximum_stance_distance_m": 0.85
+  },
+  "operation_recipe": "answer_direct_adjacency_with_exploration",
+  "available_operation_recipes": [
+    "answer_direct_adjacency_with_exploration",
+    "region_exploration_arrivals"
+  ],
+  "private_navigation_advice": {
+    "graph_shortest_region_path": [
+      "corridor_0",
+      "corridor_1",
+      "corridor_2"
+    ],
+    "source_camera_path_length_m": 37.216,
+    "source_verification_method": "scene.get_shortest_path + room_sequence_projection",
+    "advisory_only": true
+  },
+  "operation": "answer_direct_adjacency_with_exploration",
+  "rule_revision": "task_edit_20261018_v1",
+  "actual_capability": "direct_adjacency_and_region_exploration",
+  "source_mechanism_provenance": {
+    "version": "mapping_source_runtime_doors_v1",
+    "generator": "ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py",
+    "source_policy": "exclude_door_and_sliding_door_then_remove_door_named_objects",
+    "source_trav_map_basename": "floor_trav_no_door",
+    "runtime_policy": "retain_native_doors",
+    "reconciled": null,
+    "physical_opening_and_crossing_verified": null
+  },
+  "private_source_qa": {
+    "question": "Are corridor 0 (near classroom 0) and corridor 2 (with display case and drinking fountain) adjacent, with a direct connection between them?",
+    "answer": "No",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "scored": true
+  },
+  "variant": "adapted",
+  "diagnostic_dir": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_741c5b7b41ba36808012b764"
+}

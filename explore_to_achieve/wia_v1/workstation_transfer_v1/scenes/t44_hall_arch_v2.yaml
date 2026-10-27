@@ -1,0 +1,1276 @@
+kind: scene_patch
+id: scene_redesign_c8b7b9e832f5ee2958b6efe0__t44_hall_arch_v2
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json
+target: null
+qualification: null
+bindings:
+  ramp_deck:
+    name: ramp_deck
+    category: breakfast_table
+  ramp_deck_leg_0:
+    name: ramp_deck_leg_0
+    category: breakfast_table
+  ramp_deck_leg_1:
+    name: ramp_deck_leg_1
+    category: breakfast_table
+  ramp_deck_leg_2:
+    name: ramp_deck_leg_2
+    category: breakfast_table
+  ramp_deck_leg_3:
+    name: ramp_deck_leg_3
+    category: breakfast_table
+  candidate_table:
+    name: candidate_table
+    category: breakfast_table
+  candidate_table_leg_0:
+    name: candidate_table_leg_0
+    category: breakfast_table
+  candidate_table_leg_1:
+    name: candidate_table_leg_1
+    category: breakfast_table
+  candidate_table_leg_2:
+    name: candidate_table_leg_2
+    category: breakfast_table
+  candidate_table_leg_3:
+    name: candidate_table_leg_3
+    category: breakfast_table
+  trial_mat:
+    name: trial_mat
+    category: object
+  spare_mat:
+    name: spare_mat
+    category: object
+  receiver:
+    name: receiver
+    category: tray
+  receiver_rail_0:
+    name: receiver_rail_0
+    category: breakfast_table
+  receiver_rail_1:
+    name: receiver_rail_1
+    category: breakfast_table
+  receiver_rail_2:
+    name: receiver_rail_2
+    category: breakfast_table
+  ramp:
+    name: ramp
+    category: object
+  release_marker:
+    name: release_marker
+    category: object
+  trial_1:
+    name: trial_1
+    category: bowl
+    model: wryghu
+  spare_1:
+    name: spare_1
+    category: bowl
+    model: wryghu
+  trial_2:
+    name: trial_2
+    category: avocado
+    model: arswzs
+  spare_2:
+    name: spare_2
+    category: avocado
+    model: arswzs
+  trial_3:
+    name: trial_3
+    category: ball
+  spare_3:
+    name: spare_3
+    category: ball
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: controlled_ramp_comparison_v1
+          layout:
+            scene_model: hall_arch_wood
+            rooms:
+            - empty_room_0
+            objects:
+            - type: PrimitiveObject
+              name: ramp_deck
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.4
+              - 0.7
+              - 0.05
+              position:
+              - -39.45
+              - 18.1
+              - 0.6749999999999999
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.25
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_0
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -40.07
+              - 17.81
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_1
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -40.07
+              - 18.39
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_2
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -38.83
+              - 17.81
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_3
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -38.83
+              - 18.39
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.1
+              - 0.6
+              - 0.05
+              position:
+              - -38.0
+              - 16.3
+              - 0.6749999999999999
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.6
+              - 0.5
+              - 0.35
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_0
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -38.480000000000004
+              - 16.06
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_1
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -38.480000000000004
+              - 16.54
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_2
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -37.519999999999996
+              - 16.06
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_3
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -37.519999999999996
+              - 16.54
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: trial_mat
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.05
+              - 0.25
+              - 0.004
+              position:
+              - -38.0
+              - 16.16
+              - 0.702
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.9
+              - 0.7
+              - 0.1
+              - 1.0
+            - type: PrimitiveObject
+              name: spare_mat
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.05
+              - 0.25
+              - 0.004
+              position:
+              - -38.0
+              - 16.44
+              - 0.702
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.6
+              - 0.25
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver
+              category: tray
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.45
+              - 0.45
+              - 0.008
+              position:
+              - -39.17678923330098
+              - 18.1
+              - 0.704
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver_rail_0
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.02
+              - 0.49
+              - 0.1
+              position:
+              - -38.951789233300985
+              - 18.1
+              - 0.75
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver_rail_1
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.47
+              - 0.02
+              - 0.1
+              position:
+              - -39.17678923330098
+              - 17.865000000000002
+              - 0.75
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver_rail_2
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.47
+              - 0.02
+              - 0.1
+              position:
+              - -39.17678923330098
+              - 18.335
+              - 0.75
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp
+              category: object
+              primitive_type: Cube
+              scale:
+              - 0.406
+              - 0.3
+              - 0.02
+              position:
+              - -39.6
+              - 18.1
+              - 0.8059895680424842
+              orientation:
+              - 0.0
+              - 0.2471
+              - 0.0
+              - 0.969
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.75
+              - 0.6
+              - 0.3
+              - 1.0
+            - type: PrimitiveObject
+              name: release_marker
+              category: object
+              primitive_type: Cube
+              scale:
+              - 0.05
+              - 0.05
+              - 0.0005
+              position:
+              - -39.684077243045714
+              - 18.1
+              - 0.8638127225900545
+              orientation:
+              - 0.0
+              - 0.2471
+              - 0.0
+              - 0.969
+              fixed_base: true
+              visual_only: true
+              rgba:
+              - 0.95
+              - 0.8
+              - 0.15
+              - 1.0
+            - type: DatasetObject
+              name: trial_1
+              category: bowl
+              model: wryghu
+              position:
+              - -38.32
+              - 16.16
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: spare_1
+              category: bowl
+              model: wryghu
+              position:
+              - -38.32
+              - 16.44
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: trial_2
+              category: avocado
+              model: arswzs
+              position:
+              - -38.0
+              - 16.16
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: spare_2
+              category: avocado
+              model: arswzs
+              position:
+              - -38.0
+              - 16.44
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              name: trial_3
+              category: ball
+              position:
+              - -37.68
+              - 16.16
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              primitive_type: Sphere
+              radius: 0.03
+              mass: 0.145
+              rgba:
+              - 0.15
+              - 0.5
+              - 0.8
+              - 1.0
+            - type: PrimitiveObject
+              name: spare_3
+              category: ball
+              position:
+              - -37.68
+              - 16.44
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              primitive_type: Sphere
+              radius: 0.03
+              mass: 0.145
+              rgba:
+              - 0.15
+              - 0.5
+              - 0.8
+              - 1.0
+            supported_items:
+            - name: trial_1
+              support: trial_mat
+            - name: spare_1
+              support: spare_mat
+            - name: trial_2
+              support: trial_mat
+            - name: spare_2
+              support: spare_mat
+            - name: trial_3
+              support: trial_mat
+            - name: spare_3
+              support: spare_mat
+            floor_name: floors_hhszec_0
+            friction:
+              ramp:
+                static_friction: 2.8359
+                dynamic_friction: 0.9499
+            robot_start:
+              position:
+              - -40.0
+              - 17.0
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.5736971923032635
+              - 0.8190674767950149
+            shared_layout_id: wia_ramp_workstation__t44_hall_arch_v2
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: controlled_ramp_comparison_v1
+          layout:
+            scene_model: hall_arch_wood
+            rooms:
+            - empty_room_0
+            objects:
+            - type: PrimitiveObject
+              name: ramp_deck
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.4
+              - 0.7
+              - 0.05
+              position:
+              - -39.45
+              - 18.1
+              - 0.6749999999999999
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.25
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_0
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -40.07
+              - 17.81
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_1
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -40.07
+              - 18.39
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_2
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -38.83
+              - 17.81
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_3
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -38.83
+              - 18.39
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.1
+              - 0.6
+              - 0.05
+              position:
+              - -38.0
+              - 16.3
+              - 0.6749999999999999
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.6
+              - 0.5
+              - 0.35
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_0
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -38.480000000000004
+              - 16.06
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_1
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -38.480000000000004
+              - 16.54
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_2
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -37.519999999999996
+              - 16.06
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_3
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - -37.519999999999996
+              - 16.54
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: trial_mat
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.05
+              - 0.25
+              - 0.004
+              position:
+              - -38.0
+              - 16.16
+              - 0.702
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.9
+              - 0.7
+              - 0.1
+              - 1.0
+            - type: PrimitiveObject
+              name: spare_mat
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.05
+              - 0.25
+              - 0.004
+              position:
+              - -38.0
+              - 16.44
+              - 0.702
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.6
+              - 0.25
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver
+              category: tray
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.45
+              - 0.45
+              - 0.008
+              position:
+              - -39.17678923330098
+              - 18.1
+              - 0.704
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver_rail_0
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.02
+              - 0.49
+              - 0.1
+              position:
+              - -38.951789233300985
+              - 18.1
+              - 0.75
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver_rail_1
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.47
+              - 0.02
+              - 0.1
+              position:
+              - -39.17678923330098
+              - 17.865000000000002
+              - 0.75
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver_rail_2
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.47
+              - 0.02
+              - 0.1
+              position:
+              - -39.17678923330098
+              - 18.335
+              - 0.75
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp
+              category: object
+              primitive_type: Cube
+              scale:
+              - 0.406
+              - 0.3
+              - 0.02
+              position:
+              - -39.6
+              - 18.1
+              - 0.8059895680424842
+              orientation:
+              - 0.0
+              - 0.2471
+              - 0.0
+              - 0.969
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.75
+              - 0.6
+              - 0.3
+              - 1.0
+            - type: PrimitiveObject
+              name: release_marker
+              category: object
+              primitive_type: Cube
+              scale:
+              - 0.05
+              - 0.05
+              - 0.0005
+              position:
+              - -39.684077243045714
+              - 18.1
+              - 0.8638127225900545
+              orientation:
+              - 0.0
+              - 0.2471
+              - 0.0
+              - 0.969
+              fixed_base: true
+              visual_only: true
+              rgba:
+              - 0.95
+              - 0.8
+              - 0.15
+              - 1.0
+            - type: DatasetObject
+              name: trial_1
+              category: bowl
+              model: wryghu
+              position:
+              - -38.32
+              - 16.16
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: spare_1
+              category: bowl
+              model: wryghu
+              position:
+              - -38.32
+              - 16.44
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: trial_2
+              category: avocado
+              model: arswzs
+              position:
+              - -38.0
+              - 16.16
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: spare_2
+              category: avocado
+              model: arswzs
+              position:
+              - -38.0
+              - 16.44
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              name: trial_3
+              category: ball
+              position:
+              - -37.68
+              - 16.16
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              primitive_type: Sphere
+              radius: 0.03
+              mass: 0.145
+              rgba:
+              - 0.15
+              - 0.5
+              - 0.8
+              - 1.0
+            - type: PrimitiveObject
+              name: spare_3
+              category: ball
+              position:
+              - -37.68
+              - 16.44
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              primitive_type: Sphere
+              radius: 0.03
+              mass: 0.145
+              rgba:
+              - 0.15
+              - 0.5
+              - 0.8
+              - 1.0
+            supported_items:
+            - name: trial_1
+              support: trial_mat
+            - name: spare_1
+              support: spare_mat
+            - name: trial_2
+              support: trial_mat
+            - name: spare_2
+              support: spare_mat
+            - name: trial_3
+              support: trial_mat
+            - name: spare_3
+              support: spare_mat
+            floor_name: floors_hhszec_0
+            friction:
+              ramp:
+                static_friction: 2.8359
+                dynamic_friction: 0.9499
+            robot_start:
+              position:
+              - -40.0
+              - 17.0
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.5736971923032635
+              - 0.8190674767950149
+            shared_layout_id: wia_ramp_workstation__t44_hall_arch_v2
+seed: 0

@@ -1,0 +1,510 @@
+{
+  "schema": "corev2_review_retirement_v1",
+  "date": "2026-10-20",
+  "reason": "User requested excluding skipped tasks from the current shortlist; CoreV3 publication is deferred.",
+  "removed": [
+    {
+      "task": {
+        "source_identity": "Physical Structure/Rigid Containment/Benevolence_0_int/empty_room_0/Benevolence_0_int_scene_dict_storage2_2_revised.json",
+        "candidate_id": "category_82e78e6b5059c2f0f88cfce9",
+        "selection": "proposed_core",
+        "short_id": "R3",
+        "reason": "Irregular rigid teddy-bear shape and two different container types; historical native qualification receipt exists. Do not infer deformable-cloth capability from the object name.",
+        "target_count": 1,
+        "target_categories": [
+          "teddy_bear"
+        ],
+        "container_categories": [
+          "lunch_box",
+          "paper_cup"
+        ],
+        "task_file": "explore_to_achieve/tasks/Physical Structure/Rigid Containment/Benevolence_0_int/empty_room_0/Benevolence_0_int_scene_dict_storage2_2_revised.yaml",
+        "table_horizontal_distances_m": {
+          "target": 0.2567
+        },
+        "distance_scope": "Declared horizontal Euclidean target-to-container-table-centre distance; not a traversable path length or execution cost.",
+        "scale_patches": [],
+        "current_execution_qualified": false,
+        "difficulty_evidence": "Static task/geometry assessment only; no new experiment or empirical difficulty ranking.",
+        "category": "Physical Structure",
+        "subcategory": "Rigid Containment",
+        "scene": "Benevolence_0_int",
+        "room": "empty_room_0",
+        "source_identities": [
+          "Physical Structure/Rigid Containment/Benevolence_0_int/empty_room_0/Benevolence_0_int_scene_dict_storage2_2_revised.json"
+        ],
+        "setup_status": "native_preflight_passed",
+        "warning_codes": [
+          "current_setup_unverified",
+          "native_grasp_execution_unverified",
+          "source_answers_after_scaling_unverified"
+        ],
+        "final_release_qualified": false,
+        "scene_file": "explore_to_achieve/scenes/Physical Structure/Rigid Containment/Benevolence_0_int/empty_room_0/Benevolence_0_int_scene_dict_storage2_2_revised.yaml",
+        "evidence_note": "Fresh exact-definition capture verified; initialization evidence is separate from execution qualification.",
+        "historical_qualification_receipt_basename": "preview_complete.json",
+        "resolved_scene_file_basename": "Benevolence_0_int_scene_dict_storage2_2_revised.yaml",
+        "issues": [
+          "camera_visual_review_notes",
+          "camera_visual_review_pending",
+          "execution_not_qualified",
+          "native_grasp_execution_unverified",
+          "source_answers_after_scaling_unverified"
+        ],
+        "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_82e78e6b5059c2f0f88cfce9.json",
+        "evidence_sha256": "a971998b5455141a32c556386c9a7d865ae5fd8406f857aff912b84497790d48",
+        "camera_audit": {
+          "status": "review_notes",
+          "finding": "Layout, target and container views are usable. Several human Global directions repeat the same pose; mounted front cameras see the table underside.",
+          "evidence_scope": "current",
+          "image_count": 23,
+          "mounted_calibration": "unverified",
+          "capture_job_id": "capture_6d58db4bb2b8bb51eb7ab8c249c9763c"
+        },
+        "latest_capture_status": {
+          "candidate_id": "category_82e78e6b5059c2f0f88cfce9",
+          "job_id": "capture_df600fdf59ae5ecc5592c4f38b742892",
+          "state": "QUEUED",
+          "failure_cause": null,
+          "partial_image_count": 0,
+          "gpu": null,
+          "observed_at_unix": 1792484023.7977698
+        },
+        "capture_candidate_id": "category_5cc0fc8a76f28baadcab173a",
+        "current_capture_job_id": "capture_981834e47b588f426999e9631c0a9c14",
+        "historical_evidence_only": false,
+        "current_capture": {
+          "candidate_id": "category_82e78e6b5059c2f0f88cfce9",
+          "capture_candidate_id": "category_5cc0fc8a76f28baadcab173a",
+          "job_id": "capture_981834e47b588f426999e9631c0a9c14",
+          "state": "REVIEW_PENDING",
+          "complete": true,
+          "image_count": 23,
+          "initialization_accepted": true,
+          "execution_qualified": false,
+          "duration_s": 444.5426938859746,
+          "gpu": 2,
+          "receipts": [
+            {
+              "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_82e78e6b5059c2f0f88cfce9/preview_complete.json",
+              "sha256": "57ed13aecb4bb3ac3b4de13a606b23c87bf6a65bbdaa8fe89038c3e1c197d27b"
+            },
+            {
+              "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_82e78e6b5059c2f0f88cfce9/scene_status.json",
+              "sha256": "482c51ec53d5374fef1782bbccc06cacd7389ae592f30207c6c863d2e26cea41"
+            },
+            {
+              "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_82e78e6b5059c2f0f88cfce9/private_scene/qualification.json",
+              "sha256": "dcade09cdf0068692061b5601cf7ba9f2d8d7192bee79c73525f562c14506639"
+            }
+          ],
+          "initial_agent_bundle": {
+            "available": true,
+            "kind": "frozen_initial_native_agent_input_bundle",
+            "robot_actions": 0,
+            "model_calls": 0,
+            "snapshot_id": 2,
+            "action_step": 0,
+            "captured_at": "2026-10-20T11:08:42.844516+00:00",
+            "reset_identity": {
+              "episode_id": "reset_1875156a506d4b3da12f62d1c3cbbf73",
+              "reset_id": "1875156a506d4b3da12f62d1c3cbbf73",
+              "seed": 0
+            },
+            "native_time_s": 6.841667023487389,
+            "native_time_after_s": 6.841667023487389,
+            "physics_steps": 0,
+            "views": [
+              "chassis_front_left",
+              "chassis_front_right",
+              "chassis_left",
+              "chassis_rear",
+              "chassis_right",
+              "head",
+              "initial_overview_rgb",
+              "right_wrist",
+              "wrist"
+            ],
+            "capture_input_identity": {
+              "job_id": "capture_981834e47b588f426999e9631c0a9c14",
+              "capture_signature": "981834e47b588f426999e9631c0a9c144009ab30aaebcb379d68ff66198f3125",
+              "task_sha256": "0350489f81afa3defc370a6aebe55a4b4f4615bb3bba5ce1636cd680113465cb",
+              "seed": 0,
+              "variant": "tabletop"
+            }
+          },
+          "error": null
+        },
+        "pending_capture": {
+          "capture_candidate_id": "category_5cc0fc8a76f28baadcab173a",
+          "job_id": "capture_981834e47b588f426999e9631c0a9c14",
+          "reason": "Human camera bearing repair; fresh native initialization and visual review required.",
+          "state": "REVIEW_PENDING",
+          "resolution": "promoted",
+          "initialization_accepted": true
+        },
+        "capture_history": [
+          {
+            "capture_candidate_id": "category_54647fb3add91acd39cf94e4",
+            "job_id": "capture_6d58db4bb2b8bb51eb7ab8c249c9763c",
+            "current_capture": {
+              "candidate_id": "category_82e78e6b5059c2f0f88cfce9",
+              "capture_candidate_id": "category_54647fb3add91acd39cf94e4",
+              "job_id": "capture_6d58db4bb2b8bb51eb7ab8c249c9763c",
+              "state": "REVIEW_PENDING",
+              "complete": true,
+              "image_count": 23,
+              "error": null,
+              "attempts": 1,
+              "duration_s": 276.96891636494547,
+              "gpu": 7,
+              "initialization_accepted": true,
+              "execution_qualified": false,
+              "native_qualification_status": "accepted_minimal_patch",
+              "initialization_reason": null,
+              "initial_agent_bundle": {
+                "available": true,
+                "kind": "frozen_initial_native_agent_input_bundle",
+                "robot_actions": 0,
+                "model_calls": 0,
+                "snapshot_id": 2,
+                "action_step": 0,
+                "captured_at": "2026-10-20T09:40:19.320040+00:00",
+                "reset_identity": {
+                  "episode_id": "reset_da11b93e0ffc49cd81d13c34987b9791",
+                  "reset_id": "da11b93e0ffc49cd81d13c34987b9791",
+                  "seed": 0
+                },
+                "native_time_s": 6.841667023487389,
+                "native_time_after_s": 6.841667023487389,
+                "physics_steps": 0,
+                "views": [
+                  "chassis_front_left",
+                  "chassis_front_right",
+                  "chassis_left",
+                  "chassis_rear",
+                  "chassis_right",
+                  "head",
+                  "initial_overview_rgb",
+                  "right_wrist",
+                  "wrist"
+                ],
+                "capture_input_identity": {
+                  "job_id": "capture_6d58db4bb2b8bb51eb7ab8c249c9763c",
+                  "capture_signature": "6d58db4bb2b8bb51eb7ab8c249c9763cd1f9bbd836858dc6be4fbbb90322ed23",
+                  "task_sha256": "0350489f81afa3defc370a6aebe55a4b4f4615bb3bba5ce1636cd680113465cb",
+                  "seed": 0,
+                  "variant": "tabletop"
+                }
+              },
+              "setup_warning_codes": [],
+              "receipts": [
+                {
+                  "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_82e78e6b5059c2f0f88cfce9/preview_complete.json",
+                  "sha256": "ec617a843c864761193befd527256e605984a57d7dc31dfefe03919086c75f61"
+                },
+                {
+                  "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_82e78e6b5059c2f0f88cfce9/scene_status.json",
+                  "sha256": "482c51ec53d5374fef1782bbccc06cacd7389ae592f30207c6c863d2e26cea41"
+                },
+                {
+                  "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_82e78e6b5059c2f0f88cfce9/private_scene/qualification.json",
+                  "sha256": "dcade09cdf0068692061b5601cf7ba9f2d8d7192bee79c73525f562c14506639"
+                }
+              ]
+            }
+          }
+        ],
+        "camera_refresh_note": "New native camera revision completed; earlier visual findings need rechecking against these images."
+      },
+      "review": {
+        "fingerprint": "981834e47b588f426999e9631c0a9c144009ab30aaebcb379d68ff66198f3125",
+        "source": "Physical Structure/Rigid Containment/Benevolence_0_int/empty_room_0/Benevolence_0_int_scene_dict_storage2_2_revised.json",
+        "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Structure/Rigid Containment/Benevolence_0_int/empty_room_0/Benevolence_0_int_scene_dict_storage2_2_revised.yaml",
+        "variant": "tabletop",
+        "seed": 0,
+        "candidate_id": "category_82e78e6b5059c2f0f88cfce9",
+        "owner": null,
+        "parent_candidate_id": null,
+        "converter_version": "preserved_ready_recapture_v1",
+        "decision": "skipped",
+        "notes": "",
+        "revision": 1,
+        "updated_at": "2026-10-20T14:15:37.756788+00:00",
+        "big_task": "Physical Structure",
+        "small_task": "Rigid Containment",
+        "review_checks": {}
+      }
+    },
+    {
+      "task": {
+        "source_identity": "Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised__criterion_2.json",
+        "candidate_id": "category_2ffe98c5d556f073969e1d5b",
+        "selection": "proposed_core",
+        "short_id": "R5",
+        "reason": "Two targets and same-model container size choices in one existing episode. The racket has nonuniform scale; no claim of a standard long-racket geometry or measured high difficulty.",
+        "target_count": 2,
+        "target_categories": [
+          "pastry",
+          "tennis_racket"
+        ],
+        "container_categories": [
+          "ice_bucket",
+          "ice_bucket",
+          "ice_bucket"
+        ],
+        "task_file": "explore_to_achieve/tasks/Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised__criterion_2.yaml",
+        "table_horizontal_distances_m": {
+          "target": 0.2751,
+          "extra1": 1.0082
+        },
+        "distance_scope": "Declared horizontal Euclidean target-to-container-table-centre distance; not a traversable path length or execution cost.",
+        "scale_patches": [
+          {
+            "operation": "add_dataset_object",
+            "phase": "before_construction",
+            "name": "multi_extra1",
+            "category": "tennis_racket",
+            "model": "rmvafy",
+            "position": [
+              -0.398282527923584,
+              4.7478532791137695,
+              0.5611228942871094
+            ],
+            "scale": [
+              0.15807357380252404,
+              0.7377675202157836,
+              2.1822937383747743
+            ],
+            "quaternion_xyzw": [
+              -0.005310472100973129,
+              0.0018194669391959906,
+              -0.00026963994605466723,
+              0.9999843239784241
+            ]
+          }
+        ],
+        "current_execution_qualified": false,
+        "difficulty_evidence": "Static task/geometry assessment only; no new experiment or empirical difficulty ranking.",
+        "category": "Physical Structure",
+        "subcategory": "Rigid Containment",
+        "scene": "Benevolence_1_int",
+        "room": "living_room_0",
+        "source_identities": [
+          "Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised__criterion_2.json"
+        ],
+        "setup_status": "native_preflight_passed",
+        "warning_codes": [
+          "native_grasp_execution_unverified",
+          "source_answers_after_scaling_unverified"
+        ],
+        "final_release_qualified": false,
+        "scene_file": "explore_to_achieve/scenes/Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised__multi_extra1.yaml",
+        "evidence_note": "Fresh exact-definition capture verified; initialization evidence is separate from execution qualification.",
+        "resolved_scene_file_basename": "Benevolence_1_int_scene_dict_storage2_2_revised__multi_extra1.yaml",
+        "issues": [
+          "camera_visual_review_pending",
+          "execution_not_qualified",
+          "native_grasp_execution_unverified",
+          "source_answers_after_scaling_unverified"
+        ],
+        "camera_audit": {
+          "status": "review_notes",
+          "evidence_scope": "current",
+          "finding": "Fresh native initial overview and all eight mounted cameras are available. The racket is visible on the chair seat and task-object views cover both targets and containers. Several oblique human Globals repeat, the pastry appears dark, and the rear chassis view is obstructed by the sofa. Camera-mount calibration and grasp difficulty remain unverified.",
+          "mount_calibration_verified": false,
+          "image_count": 26
+        },
+        "latest_capture_status": {
+          "candidate_id": "category_2ffe98c5d556f073969e1d5b",
+          "capture_candidate_id": "category_24e5c82acd0949da5b3d6ce0",
+          "job_id": "capture_67e33cadbbbc55ba40df4511f102696c",
+          "state": "REVIEW_PENDING",
+          "failure_cause": null,
+          "image_count": 26,
+          "gpu": 7,
+          "observed_at_unix": 1792485279.417409,
+          "qualification_status": "accepted_minimal_patch",
+          "duration_s": 331.7417373787612
+        },
+        "capture_history": [
+          {
+            "candidate_id": "category_2ffe98c5d556f073969e1d5b",
+            "job_id": "capture_2e09c28f563e4f20ae448b646400f306",
+            "state": "FAILED",
+            "failure_cause": "initial_object_support_or_stability_failed",
+            "partial_image_count": 0,
+            "gpu": 3,
+            "observed_at_unix": 1792484023.7977707
+          },
+          {
+            "capture_candidate_id": "category_24e5c82acd0949da5b3d6ce0",
+            "job_id": null,
+            "current_capture": {
+              "candidate_id": "category_2ffe98c5d556f073969e1d5b",
+              "capture_candidate_id": "category_24e5c82acd0949da5b3d6ce0",
+              "job_id": "capture_67e33cadbbbc55ba40df4511f102696c",
+              "state": "REVIEW_PENDING",
+              "complete": true,
+              "image_count": 26,
+              "error": null,
+              "attempts": 1,
+              "duration_s": 331.7417373787612,
+              "gpu": 7,
+              "initialization_accepted": true,
+              "execution_qualified": false,
+              "native_qualification_status": "accepted_minimal_patch",
+              "initialization_reason": null,
+              "initial_agent_bundle": {
+                "available": true,
+                "kind": "frozen_initial_native_agent_input_bundle",
+                "robot_actions": 0,
+                "model_calls": 0,
+                "snapshot_id": 2,
+                "action_step": 0,
+                "captured_at": "2026-10-20T08:27:42.098436+00:00",
+                "reset_identity": {
+                  "episode_id": "reset_0f51366861d44510a64b3da825c43028",
+                  "reset_id": "0f51366861d44510a64b3da825c43028",
+                  "seed": 0
+                },
+                "native_time_s": 6.841667023487389,
+                "native_time_after_s": 6.841667023487389,
+                "physics_steps": 0,
+                "views": [
+                  "chassis_front_left",
+                  "chassis_front_right",
+                  "chassis_left",
+                  "chassis_rear",
+                  "chassis_right",
+                  "head",
+                  "initial_overview_rgb",
+                  "right_wrist",
+                  "wrist"
+                ],
+                "capture_input_identity": {
+                  "job_id": "capture_67e33cadbbbc55ba40df4511f102696c",
+                  "capture_signature": "67e33cadbbbc55ba40df4511f102696c95ebd743c2efc3abc097ce5816e0d6e6",
+                  "task_sha256": "721e65d24dda5aabd57d3f3fca0459ae99c3fd5b09014f164335fa9ed18b6372",
+                  "seed": 0,
+                  "variant": "tabletop"
+                }
+              },
+              "setup_warning_codes": [],
+              "receipts": [
+                {
+                  "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_2ffe98c5d556f073969e1d5b/preview_complete.json",
+                  "sha256": "c5c919a2d370aebcbe848d9714e964523510a86260ab75f74b9d37748121b35e"
+                },
+                {
+                  "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_2ffe98c5d556f073969e1d5b/scene_status.json",
+                  "sha256": "e9267569a8121dd9baaa180d4c76c64c5712a081d5030530e8c4b1b23e10f1f0"
+                },
+                {
+                  "file": "explore_to_achieve/category_reports/corev2/evidence/current_captures_20261020/category_2ffe98c5d556f073969e1d5b/private_scene/qualification.json",
+                  "sha256": "25ab58881c9840a0f19678ae617fec2bf12addd766b095130d4300e9f19e808f"
+                }
+              ]
+            }
+          }
+        ],
+        "capture_candidate_id": "category_69748c2608735bad7b89d364",
+        "repair_note": "Use the existing local upward-facing support raycast instead of the whole chair AABB top; retain all other physical checks and thresholds.",
+        "current_native_qualification_receipt": "explore_to_achieve/category_reports/corev2/evidence/repairs_20261020/R5/scene_status.json",
+        "current_capture_receipt": "explore_to_achieve/category_reports/corev2/evidence/repairs_20261020/R5/preview_complete.json",
+        "historical_evidence_only": false,
+        "current_capture": {
+          "candidate_id": "category_2ffe98c5d556f073969e1d5b",
+          "capture_candidate_id": "category_69748c2608735bad7b89d364",
+          "job_id": "capture_e4dd998db72dfd772fc66bb9c73e4bd5",
+          "state": "REVIEW_PENDING",
+          "complete": true,
+          "image_count": 26,
+          "initialization_accepted": true,
+          "execution_qualified": false,
+          "duration_s": 423.4565510917455,
+          "gpu": 3,
+          "receipts": [
+            {
+              "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_2ffe98c5d556f073969e1d5b/preview_complete.json",
+              "sha256": "73e2669d7b6053cb5bfdc6a0e5b91faa9ab4f5f73f5f331b4cd8a66135d99cf1"
+            },
+            {
+              "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_2ffe98c5d556f073969e1d5b/scene_status.json",
+              "sha256": "e9267569a8121dd9baaa180d4c76c64c5712a081d5030530e8c4b1b23e10f1f0"
+            },
+            {
+              "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_2ffe98c5d556f073969e1d5b/private_scene/qualification.json",
+              "sha256": "25ab58881c9840a0f19678ae617fec2bf12addd766b095130d4300e9f19e808f"
+            }
+          ],
+          "initial_agent_bundle": {
+            "available": true,
+            "kind": "frozen_initial_native_agent_input_bundle",
+            "robot_actions": 0,
+            "model_calls": 0,
+            "snapshot_id": 2,
+            "action_step": 0,
+            "captured_at": "2026-10-20T11:09:07.221595+00:00",
+            "reset_identity": {
+              "episode_id": "reset_12937123c492489b83e3b5f9f03766f6",
+              "reset_id": "12937123c492489b83e3b5f9f03766f6",
+              "seed": 0
+            },
+            "native_time_s": 6.841667023487389,
+            "native_time_after_s": 6.841667023487389,
+            "physics_steps": 0,
+            "views": [
+              "chassis_front_left",
+              "chassis_front_right",
+              "chassis_left",
+              "chassis_rear",
+              "chassis_right",
+              "head",
+              "initial_overview_rgb",
+              "right_wrist",
+              "wrist"
+            ],
+            "capture_input_identity": {
+              "job_id": "capture_e4dd998db72dfd772fc66bb9c73e4bd5",
+              "capture_signature": "e4dd998db72dfd772fc66bb9c73e4bd5c67cf3fc46954d6602571c8dad685508",
+              "task_sha256": "721e65d24dda5aabd57d3f3fca0459ae99c3fd5b09014f164335fa9ed18b6372",
+              "seed": 0,
+              "variant": "tabletop"
+            }
+          },
+          "error": null
+        },
+        "pending_capture": {
+          "capture_candidate_id": "category_69748c2608735bad7b89d364",
+          "job_id": "capture_e4dd998db72dfd772fc66bb9c73e4bd5",
+          "reason": "Human camera bearing repair; fresh native initialization and visual review required.",
+          "state": "REVIEW_PENDING",
+          "resolution": "promoted",
+          "initialization_accepted": true
+        },
+        "current_capture_job_id": "capture_e4dd998db72dfd772fc66bb9c73e4bd5",
+        "camera_refresh_note": "New native camera revision completed; earlier visual findings need rechecking against these images."
+      },
+      "review": {
+        "fingerprint": "e4dd998db72dfd772fc66bb9c73e4bd5c67cf3fc46954d6602571c8dad685508",
+        "source": "Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised__criterion_2.json",
+        "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised__multi_extra1.yaml",
+        "variant": "tabletop",
+        "seed": 0,
+        "candidate_id": "category_2ffe98c5d556f073969e1d5b",
+        "owner": null,
+        "parent_candidate_id": null,
+        "converter_version": "preserved_ready_recapture_v1",
+        "decision": "skipped",
+        "notes": "",
+        "revision": 1,
+        "updated_at": "2026-10-20T14:15:45.122615+00:00",
+        "big_task": "Physical Structure",
+        "small_task": "Rigid Containment",
+        "review_checks": {}
+      }
+    }
+  ],
+  "historical_files_preserved": true
+}

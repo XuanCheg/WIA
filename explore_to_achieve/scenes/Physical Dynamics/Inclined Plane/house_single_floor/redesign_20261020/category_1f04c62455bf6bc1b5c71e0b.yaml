@@ -1,0 +1,1248 @@
+kind: scene_patch
+id: scene_redesign_1f04c62455bf6bc1b5c71e0b
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Physical Dynamics/Inclined Plane/house_single_floor/kitchen_0/house_single_floor__kitchen_0__run_000.json
+target: null
+qualification: null
+bindings:
+  ramp_deck:
+    name: ramp_deck
+    category: breakfast_table
+  ramp_deck_leg_0:
+    name: ramp_deck_leg_0
+    category: breakfast_table
+  ramp_deck_leg_1:
+    name: ramp_deck_leg_1
+    category: breakfast_table
+  ramp_deck_leg_2:
+    name: ramp_deck_leg_2
+    category: breakfast_table
+  ramp_deck_leg_3:
+    name: ramp_deck_leg_3
+    category: breakfast_table
+  candidate_table:
+    name: candidate_table
+    category: breakfast_table
+  candidate_table_leg_0:
+    name: candidate_table_leg_0
+    category: breakfast_table
+  candidate_table_leg_1:
+    name: candidate_table_leg_1
+    category: breakfast_table
+  candidate_table_leg_2:
+    name: candidate_table_leg_2
+    category: breakfast_table
+  candidate_table_leg_3:
+    name: candidate_table_leg_3
+    category: breakfast_table
+  trial_mat:
+    name: trial_mat
+    category: object
+  spare_mat:
+    name: spare_mat
+    category: object
+  receiver:
+    name: receiver
+    category: tray
+  receiver_rail_0:
+    name: receiver_rail_0
+    category: breakfast_table
+  receiver_rail_1:
+    name: receiver_rail_1
+    category: breakfast_table
+  receiver_rail_2:
+    name: receiver_rail_2
+    category: breakfast_table
+  ramp:
+    name: ramp
+    category: object
+  release_marker:
+    name: release_marker
+    category: object
+  trial_1:
+    name: trial_1
+    category: bowl
+    model: wryghu
+  spare_1:
+    name: spare_1
+    category: bowl
+    model: wryghu
+  trial_2:
+    name: trial_2
+    category: avocado
+    model: arswzs
+  spare_2:
+    name: spare_2
+    category: avocado
+    model: arswzs
+  trial_3:
+    name: trial_3
+    category: baseball
+    model: zanmar
+  spare_3:
+    name: spare_3
+    category: baseball
+    model: zanmar
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: controlled_ramp_comparison_v1
+          layout:
+            scene_model: house_single_floor
+            rooms:
+            - kitchen_0
+            objects:
+            - type: PrimitiveObject
+              name: ramp_deck
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.4
+              - 0.7
+              - 0.05
+              position:
+              - 7.595162859291219
+              - -0.8384594944659692
+              - 0.6749999999999999
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.25
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_0
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 6.975162859291219
+              - -1.1284594944659692
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_1
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 6.975162859291219
+              - -0.5484594944659693
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_2
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 8.215162859291219
+              - -1.1284594944659692
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_3
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 8.215162859291219
+              - -0.5484594944659693
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.1
+              - 0.6
+              - 0.05
+              position:
+              - 7.4451628592912185
+              - 0.11154050553403072
+              - 0.6749999999999999
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.6
+              - 0.5
+              - 0.35
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_0
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 6.965162859291219
+              - -0.12845949446596927
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_1
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 6.965162859291219
+              - 0.3515405055340307
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_2
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 7.925162859291218
+              - -0.12845949446596927
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_3
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 7.925162859291218
+              - 0.3515405055340307
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: trial_mat
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.05
+              - 0.25
+              - 0.004
+              position:
+              - 7.4451628592912185
+              - -0.028459494465969293
+              - 0.702
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.9
+              - 0.7
+              - 0.1
+              - 1.0
+            - type: PrimitiveObject
+              name: spare_mat
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.05
+              - 0.25
+              - 0.004
+              position:
+              - 7.4451628592912185
+              - 0.25154050553403073
+              - 0.702
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.6
+              - 0.25
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver
+              category: tray
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.45
+              - 0.45
+              - 0.008
+              position:
+              - 7.920370601521016
+              - -0.8384594944659692
+              - 0.704
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver_rail_0
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.02
+              - 0.49
+              - 0.1
+              position:
+              - 8.145370601521016
+              - -0.8384594944659692
+              - 0.75
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver_rail_1
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.47
+              - 0.02
+              - 0.1
+              position:
+              - 7.920370601521016
+              - -1.0734594944659692
+              - 0.75
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver_rail_2
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.47
+              - 0.02
+              - 0.1
+              position:
+              - 7.920370601521016
+              - -0.6034594944659692
+              - 0.75
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp
+              category: object
+              primitive_type: Cube
+              scale:
+              - 0.551
+              - 0.3
+              - 0.02
+              position:
+              - 7.4451628592912185
+              - -0.8384594944659692
+              - 0.8596988055202839
+              orientation:
+              - 0.0
+              - 0.2867
+              - 0.0
+              - 0.958
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.75
+              - 0.6
+              - 0.3
+              - 1.0
+            - type: PrimitiveObject
+              name: release_marker
+              category: object
+              primitive_type: Cube
+              scale:
+              - 0.05
+              - 0.05
+              - 0.0005
+              position:
+              - 7.335827044364997
+              - -0.8384594944659692
+              - 0.9441440071271188
+              orientation:
+              - 0.0
+              - 0.2867
+              - 0.0
+              - 0.958
+              fixed_base: true
+              visual_only: true
+              rgba:
+              - 0.95
+              - 0.8
+              - 0.15
+              - 1.0
+            - type: DatasetObject
+              name: trial_1
+              category: bowl
+              model: wryghu
+              position:
+              - 7.125162859291218
+              - -0.028459494465969293
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: spare_1
+              category: bowl
+              model: wryghu
+              position:
+              - 7.125162859291218
+              - 0.25154050553403073
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: trial_2
+              category: avocado
+              model: arswzs
+              position:
+              - 7.4451628592912185
+              - -0.028459494465969293
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: spare_2
+              category: avocado
+              model: arswzs
+              position:
+              - 7.4451628592912185
+              - 0.25154050553403073
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: trial_3
+              category: baseball
+              model: zanmar
+              position:
+              - 7.765162859291219
+              - -0.028459494465969293
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: spare_3
+              category: baseball
+              model: zanmar
+              position:
+              - 7.765162859291219
+              - 0.25154050553403073
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: trial_1
+              support: trial_mat
+            - name: spare_1
+              support: spare_mat
+            - name: trial_2
+              support: trial_mat
+            - name: spare_2
+              support: spare_mat
+            - name: trial_3
+              support: trial_mat
+            - name: spare_3
+              support: spare_mat
+            floor_name: floors_kxcpgy_0
+            friction:
+              ramp:
+                static_friction: 2.7567
+                dynamic_friction: 1.4513
+            robot_start:
+              position:
+              - 8.599987983703613
+              - -0.9999753832817078
+              - 0.003780171275138855
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.9975872228692548
+              - 0.06942429522874252
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: controlled_ramp_comparison_v1
+          layout:
+            scene_model: house_single_floor
+            rooms:
+            - kitchen_0
+            objects:
+            - type: PrimitiveObject
+              name: ramp_deck
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.4
+              - 0.7
+              - 0.05
+              position:
+              - 7.595162859291219
+              - -0.8384594944659692
+              - 0.6749999999999999
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.25
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_0
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 6.975162859291219
+              - -1.1284594944659692
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_1
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 6.975162859291219
+              - -0.5484594944659693
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_2
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 8.215162859291219
+              - -1.1284594944659692
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp_deck_leg_3
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 8.215162859291219
+              - -0.5484594944659693
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.1
+              - 0.6
+              - 0.05
+              position:
+              - 7.4451628592912185
+              - 0.11154050553403072
+              - 0.6749999999999999
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.6
+              - 0.5
+              - 0.35
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_0
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 6.965162859291219
+              - -0.12845949446596927
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_1
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 6.965162859291219
+              - 0.3515405055340307
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_2
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 7.925162859291218
+              - -0.12845949446596927
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: candidate_table_leg_3
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.6499999999999999
+              position:
+              - 7.925162859291218
+              - 0.3515405055340307
+              - 0.32499999999999996
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.35
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: trial_mat
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.05
+              - 0.25
+              - 0.004
+              position:
+              - 7.4451628592912185
+              - -0.028459494465969293
+              - 0.702
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.9
+              - 0.7
+              - 0.1
+              - 1.0
+            - type: PrimitiveObject
+              name: spare_mat
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.05
+              - 0.25
+              - 0.004
+              position:
+              - 7.4451628592912185
+              - 0.25154050553403073
+              - 0.702
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.6
+              - 0.25
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver
+              category: tray
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.45
+              - 0.45
+              - 0.008
+              position:
+              - 7.920370601521016
+              - -0.8384594944659692
+              - 0.704
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver_rail_0
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.02
+              - 0.49
+              - 0.1
+              position:
+              - 8.145370601521016
+              - -0.8384594944659692
+              - 0.75
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver_rail_1
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.47
+              - 0.02
+              - 0.1
+              position:
+              - 7.920370601521016
+              - -1.0734594944659692
+              - 0.75
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: receiver_rail_2
+              category: breakfast_table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.47
+              - 0.02
+              - 0.1
+              position:
+              - 7.920370601521016
+              - -0.6034594944659692
+              - 0.75
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.15
+              - 0.4
+              - 0.7
+              - 1.0
+            - type: PrimitiveObject
+              name: ramp
+              category: object
+              primitive_type: Cube
+              scale:
+              - 0.551
+              - 0.3
+              - 0.02
+              position:
+              - 7.4451628592912185
+              - -0.8384594944659692
+              - 0.8596988055202839
+              orientation:
+              - 0.0
+              - 0.2867
+              - 0.0
+              - 0.958
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.75
+              - 0.6
+              - 0.3
+              - 1.0
+            - type: PrimitiveObject
+              name: release_marker
+              category: object
+              primitive_type: Cube
+              scale:
+              - 0.05
+              - 0.05
+              - 0.0005
+              position:
+              - 7.335827044364997
+              - -0.8384594944659692
+              - 0.9441440071271188
+              orientation:
+              - 0.0
+              - 0.2867
+              - 0.0
+              - 0.958
+              fixed_base: true
+              visual_only: true
+              rgba:
+              - 0.95
+              - 0.8
+              - 0.15
+              - 1.0
+            - type: DatasetObject
+              name: trial_1
+              category: bowl
+              model: wryghu
+              position:
+              - 7.125162859291218
+              - -0.028459494465969293
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: spare_1
+              category: bowl
+              model: wryghu
+              position:
+              - 7.125162859291218
+              - 0.25154050553403073
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: trial_2
+              category: avocado
+              model: arswzs
+              position:
+              - 7.4451628592912185
+              - -0.028459494465969293
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: spare_2
+              category: avocado
+              model: arswzs
+              position:
+              - 7.4451628592912185
+              - 0.25154050553403073
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: trial_3
+              category: baseball
+              model: zanmar
+              position:
+              - 7.765162859291219
+              - -0.028459494465969293
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: spare_3
+              category: baseball
+              model: zanmar
+              position:
+              - 7.765162859291219
+              - 0.25154050553403073
+              - 0.82
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: trial_1
+              support: trial_mat
+            - name: spare_1
+              support: spare_mat
+            - name: trial_2
+              support: trial_mat
+            - name: spare_2
+              support: spare_mat
+            - name: trial_3
+              support: trial_mat
+            - name: spare_3
+              support: spare_mat
+            floor_name: floors_kxcpgy_0
+            friction:
+              ramp:
+                static_friction: 2.7567
+                dynamic_friction: 1.4513
+            robot_start:
+              position:
+              - 8.599987983703613
+              - -0.9999753832817078
+              - 0.003780171275138855
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.9975872228692548
+              - 0.06942429522874252
+seed: 0

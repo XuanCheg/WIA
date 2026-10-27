@@ -1,0 +1,94 @@
+kind: scene_patch
+id: category_417c33b7f9da9058fd795848
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Spatial Relations/Geometric Configuration/Beechwood_0_garden/kitchen_0/Beechwood_0_garden__kitchen_0_5.json
+target: null
+qualification: null
+bindings:
+  vertex_1:
+    name: obj1
+    category: jar_of_sugar
+    model: vrmrci
+  vertex_2:
+    name: obj2
+    category: thyme_shaker
+    model: kuuwti
+  vertex_3:
+    name: obj3
+    category: vinegar_bottle
+    model: ykysuc
+  source_floor:
+    name: floors_yrwwan_0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: object_physics
+        phase: before_construction
+        binding: vertex_1
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: vertex_1
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: vertex_2
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: vertex_2
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: vertex_3
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: vertex_3
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - vertex_1
+        - vertex_2
+        - vertex_3
+        manipulation_bindings:
+        - vertex_1
+        - vertex_2
+        - vertex_3
+        relocation_policy: seeded_geometry
+        layout_parameters:
+          object_keys:
+          - vertex_1
+          - vertex_2
+          - vertex_3
+          target_shape: isosceles
+          seed: 0
+          source_identity: Spatial Relations/Geometric Configuration/Beechwood_0_garden/kitchen_0/Beechwood_0_garden__kitchen_0_5.json
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: kitchen_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+seed: 0

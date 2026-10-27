@@ -1,0 +1,67 @@
+kind: scene_patch
+id: category_4705ec6fe8f122cf3b6b4d70
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Enumerative Perception/Spatial Segmentation/Merom_0_garden/childs_room_0/q_000.json
+target: null
+qualification: null
+bindings:
+  anchor_0:
+    name: armchair_vzhxuf_0
+    category: armchair
+  target_0:
+    name: render_count_target_club_sandwich_0
+    category: club_sandwich
+    model: ablfyd
+  anchor_1:
+    name: armchair_bslhmj_0
+    category: armchair
+  target_1:
+    name: render_count_target_club_sandwich_1
+    category: club_sandwich
+    model: ablfyd
+  floor:
+    name: floors_vaeoco_0
+    category: floors
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        position:
+        - -0.95
+        - -7.84
+        - 2.5331974029541016e-07
+        yaw_deg: 15.894078602049406
+        head_pitch_deg: 45.0
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: navigation
+        group_bindings:
+        - target_0
+        - target_1
+        manipulation_bindings: []
+        relocation_policy: preserve
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad: null
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: bounded_group
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: childs_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+seed: 0
+runtime:
+  requires_native_visual_discovery: true

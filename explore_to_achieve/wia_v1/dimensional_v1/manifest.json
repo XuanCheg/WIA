@@ -1,0 +1,854 @@
+{
+  "schema": "wia_dimensional_manifest_v1",
+  "revision": "wia_dimensional_v1",
+  "status": "pending_native_review",
+  "artifact_path_base": "manifest_directory",
+  "proposal_count": 5,
+  "authored_seed_version_count": 10,
+  "primary_family": "GF",
+  "source_category_is_task_family": false,
+  "source": {
+    "identity": "Specular Reflection/Correspondence/hall_glass_ceiling/empty_room_0/q_007.json",
+    "sha256": "8db1dff0211f9d4530e974c9995ff61f8bac64170c2534bce8040d8a5a59b2eb",
+    "file": "ESI-Bench/dataset/json_clean/Specular Reflection/Correspondence/hall_glass_ceiling/empty_room_0/q_007.json",
+    "role": "background_loader_only; original optical inventory and QA are replaced explicitly by active_layout; no original optical answer is reused",
+    "category": "Specular Reflection/Correspondence",
+    "original_optical_inventory_replaced": true,
+    "original_optical_qa_reused": false
+  },
+  "design_file": "explore_to_achieve/wia_v1/dimensional_v1/design.json",
+  "design_sha256": "382ca063d292c68327b0f8846961eaf6ae1d1cfbf81158a35e9f60923f8ef0da",
+  "shared_layout_id": "wia_hall_dimensional_workstation_v1",
+  "counterbalance": {
+    "seeds": [
+      101,
+      202
+    ],
+    "seed_role": "Two explicit counterbalanced layout proposals; not an evaluation sample-size claim.",
+    "four_slot_permutations": {
+      "101": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "202": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "two_slot_permutations": {
+      "101": [
+        1,
+        0
+      ],
+      "202": [
+        0,
+        1
+      ]
+    },
+    "d2_first_three_positions_preserved_when_adding_fourth": true,
+    "generator_seed_changes_only_candidate_slot_assignment": true
+  },
+  "completion_item_meaning": {
+    "choice": "Lawful unique first-grasp commitment checkpoint; passage establishes mechanical correctness."
+  },
+  "fixture_color": "The neutral grey already declared in design.layout.candidate_rgba; colored pads use design colors.",
+  "provisional_budget_max_steps": 240,
+  "native_validation_run": false,
+  "native_geometry_verified": false,
+  "native_visibility_verified": false,
+  "native_gripper_path_verified": false,
+  "continuous_path_certified": false,
+  "scientific_controls_verified": false,
+  "full_reference_execution": "deferred_until_user_review",
+  "parameters_calibrated": false,
+  "entries": [
+    {
+      "proposal_alias": "D1-1",
+      "title": "Choose a block that fits a narrow opening",
+      "primary_family": "GF",
+      "seed": 101,
+      "variant": "adapted",
+      "task_id": "wia_dimensional_d1_1_v1",
+      "shared_layout_id": "wia_hall_dimensional_workstation_v1",
+      "task_file": "tasks/d1_1_seed101_v1.yaml",
+      "task_sha256": "ccc7bdeab8e4da99dd79c2fe4fff9c04b18505a85502f5100ad6910a5340a440",
+      "scene_file": "scenes/d1_1_seed101_v1.yaml",
+      "scene_sha256": "4e60c165ef06ed4385df85d842e2aa45dc48664134232359a2a7920004bc30f5",
+      "candidate_slot_permutation": [
+        1,
+        0
+      ],
+      "candidate_y_positions_m": {
+        "candidate_0": -0.55,
+        "candidate_1": -1.45
+      },
+      "geometry_proposal": {
+        "scope": "declared_object_bounds_only_not_native_geometry",
+        "opening_width_m": 0.1,
+        "opening_height_m": 0.22,
+        "tunnel_depth_m": 0.06,
+        "clearance_margin_m": 0.001,
+        "objects": {
+          "candidate_0": {
+            "declared_dimensions_m": [
+              0.09,
+              0.06,
+              0.06
+            ],
+            "axis_permutations_xyz_m": [
+              [
+                0.06,
+                0.06,
+                0.09
+              ],
+              [
+                0.06,
+                0.09,
+                0.06
+              ],
+              [
+                0.09,
+                0.06,
+                0.06
+              ]
+            ],
+            "object_only_axis_aligned_cross_section_fits_xyz_m": [
+              [
+                0.06,
+                0.06,
+                0.09
+              ],
+              [
+                0.06,
+                0.09,
+                0.06
+              ],
+              [
+                0.09,
+                0.06,
+                0.06
+              ]
+            ]
+          },
+          "candidate_1": {
+            "declared_dimensions_m": [
+              0.14,
+              0.14,
+              0.14
+            ],
+            "axis_permutations_xyz_m": [
+              [
+                0.14,
+                0.14,
+                0.14
+              ]
+            ],
+            "object_only_axis_aligned_cross_section_fits_xyz_m": [],
+            "cube_minimum_caliper_bound": {
+              "minimum_caliper_m": 0.14,
+              "blocking_aperture_axes": [
+                "world_y"
+              ],
+              "all_rotations_excluded_by_declared_object_bound": true,
+              "native_dimensions_verified": false,
+              "hand_or_path_certified": false
+            }
+          }
+        },
+        "hand_or_path_certified": false
+      },
+      "native_validation_run": false,
+      "native_dimensions_verified": false,
+      "legal_reference_execution_verified": false
+    },
+    {
+      "proposal_alias": "D1-1",
+      "title": "Choose a block that fits a narrow opening",
+      "primary_family": "GF",
+      "seed": 202,
+      "variant": "adapted",
+      "task_id": "wia_dimensional_d1_1_v1",
+      "shared_layout_id": "wia_hall_dimensional_workstation_v1",
+      "task_file": "tasks/d1_1_seed202_v1.yaml",
+      "task_sha256": "7d7a5365b7b9c87f59dd86490b3fdee4b20a9d016c888bad3d6c4d7e6888fe2d",
+      "scene_file": "scenes/d1_1_seed202_v1.yaml",
+      "scene_sha256": "d2be2d9cb8b6b4f230db25a6d0f057eee5b9b13649de48e3f3415485260b3390",
+      "candidate_slot_permutation": [
+        0,
+        1
+      ],
+      "candidate_y_positions_m": {
+        "candidate_0": -1.45,
+        "candidate_1": -0.55
+      },
+      "geometry_proposal": {
+        "scope": "declared_object_bounds_only_not_native_geometry",
+        "opening_width_m": 0.1,
+        "opening_height_m": 0.22,
+        "tunnel_depth_m": 0.06,
+        "clearance_margin_m": 0.001,
+        "objects": {
+          "candidate_0": {
+            "declared_dimensions_m": [
+              0.09,
+              0.06,
+              0.06
+            ],
+            "axis_permutations_xyz_m": [
+              [
+                0.06,
+                0.06,
+                0.09
+              ],
+              [
+                0.06,
+                0.09,
+                0.06
+              ],
+              [
+                0.09,
+                0.06,
+                0.06
+              ]
+            ],
+            "object_only_axis_aligned_cross_section_fits_xyz_m": [
+              [
+                0.06,
+                0.06,
+                0.09
+              ],
+              [
+                0.06,
+                0.09,
+                0.06
+              ],
+              [
+                0.09,
+                0.06,
+                0.06
+              ]
+            ]
+          },
+          "candidate_1": {
+            "declared_dimensions_m": [
+              0.14,
+              0.14,
+              0.14
+            ],
+            "axis_permutations_xyz_m": [
+              [
+                0.14,
+                0.14,
+                0.14
+              ]
+            ],
+            "object_only_axis_aligned_cross_section_fits_xyz_m": [],
+            "cube_minimum_caliper_bound": {
+              "minimum_caliper_m": 0.14,
+              "blocking_aperture_axes": [
+                "world_y"
+              ],
+              "all_rotations_excluded_by_declared_object_bound": true,
+              "native_dimensions_verified": false,
+              "hand_or_path_certified": false
+            }
+          }
+        },
+        "hand_or_path_certified": false
+      },
+      "native_validation_run": false,
+      "native_dimensions_verified": false,
+      "legal_reference_execution_verified": false
+    },
+    {
+      "proposal_alias": "D1-2",
+      "title": "Orient a tall block for a low opening",
+      "primary_family": "GF",
+      "seed": 101,
+      "variant": "adapted",
+      "task_id": "wia_dimensional_d1_2_v1",
+      "shared_layout_id": "wia_hall_dimensional_workstation_v1",
+      "task_file": "tasks/d1_2_seed101_v1.yaml",
+      "task_sha256": "52c08f8e908e5951a3d024e6746af80f02fcd0172cb73a47d83134bcb5c0291c",
+      "scene_file": "scenes/d1_2_seed101_v1.yaml",
+      "scene_sha256": "5a76f3a7313a10abcc4c961fa765aaf2caaa0cb323e1c68deab94b217ce515ea",
+      "candidate_slot_permutation": [
+        1,
+        0
+      ],
+      "candidate_y_positions_m": {
+        "candidate_0": -0.55,
+        "candidate_1": -1.45
+      },
+      "geometry_proposal": {
+        "scope": "declared_object_bounds_only_not_native_geometry",
+        "opening_width_m": 0.24,
+        "opening_height_m": 0.11,
+        "tunnel_depth_m": 0.06,
+        "clearance_margin_m": 0.001,
+        "objects": {
+          "candidate_0": {
+            "declared_dimensions_m": [
+              0.06,
+              0.06,
+              0.2
+            ],
+            "axis_permutations_xyz_m": [
+              [
+                0.06,
+                0.06,
+                0.2
+              ],
+              [
+                0.06,
+                0.2,
+                0.06
+              ],
+              [
+                0.2,
+                0.06,
+                0.06
+              ]
+            ],
+            "object_only_axis_aligned_cross_section_fits_xyz_m": [
+              [
+                0.06,
+                0.2,
+                0.06
+              ],
+              [
+                0.2,
+                0.06,
+                0.06
+              ]
+            ]
+          },
+          "candidate_1": {
+            "declared_dimensions_m": [
+              0.14,
+              0.14,
+              0.14
+            ],
+            "axis_permutations_xyz_m": [
+              [
+                0.14,
+                0.14,
+                0.14
+              ]
+            ],
+            "object_only_axis_aligned_cross_section_fits_xyz_m": [],
+            "cube_minimum_caliper_bound": {
+              "minimum_caliper_m": 0.14,
+              "blocking_aperture_axes": [
+                "world_z"
+              ],
+              "all_rotations_excluded_by_declared_object_bound": true,
+              "native_dimensions_verified": false,
+              "hand_or_path_certified": false
+            }
+          }
+        },
+        "hand_or_path_certified": false
+      },
+      "native_validation_run": false,
+      "native_dimensions_verified": false,
+      "legal_reference_execution_verified": false
+    },
+    {
+      "proposal_alias": "D1-2",
+      "title": "Orient a tall block for a low opening",
+      "primary_family": "GF",
+      "seed": 202,
+      "variant": "adapted",
+      "task_id": "wia_dimensional_d1_2_v1",
+      "shared_layout_id": "wia_hall_dimensional_workstation_v1",
+      "task_file": "tasks/d1_2_seed202_v1.yaml",
+      "task_sha256": "4c5cd8d147a3292e77d05843ca2961bd3e4b5aaef7dc7fd12f57e26e75afa571",
+      "scene_file": "scenes/d1_2_seed202_v1.yaml",
+      "scene_sha256": "f75fd072d61a3e2f9c40eb6a95f46291d1e945b196d0fae1676ef886802af696",
+      "candidate_slot_permutation": [
+        0,
+        1
+      ],
+      "candidate_y_positions_m": {
+        "candidate_0": -1.45,
+        "candidate_1": -0.55
+      },
+      "geometry_proposal": {
+        "scope": "declared_object_bounds_only_not_native_geometry",
+        "opening_width_m": 0.24,
+        "opening_height_m": 0.11,
+        "tunnel_depth_m": 0.06,
+        "clearance_margin_m": 0.001,
+        "objects": {
+          "candidate_0": {
+            "declared_dimensions_m": [
+              0.06,
+              0.06,
+              0.2
+            ],
+            "axis_permutations_xyz_m": [
+              [
+                0.06,
+                0.06,
+                0.2
+              ],
+              [
+                0.06,
+                0.2,
+                0.06
+              ],
+              [
+                0.2,
+                0.06,
+                0.06
+              ]
+            ],
+            "object_only_axis_aligned_cross_section_fits_xyz_m": [
+              [
+                0.06,
+                0.2,
+                0.06
+              ],
+              [
+                0.2,
+                0.06,
+                0.06
+              ]
+            ]
+          },
+          "candidate_1": {
+            "declared_dimensions_m": [
+              0.14,
+              0.14,
+              0.14
+            ],
+            "axis_permutations_xyz_m": [
+              [
+                0.14,
+                0.14,
+                0.14
+              ]
+            ],
+            "object_only_axis_aligned_cross_section_fits_xyz_m": [],
+            "cube_minimum_caliper_bound": {
+              "minimum_caliper_m": 0.14,
+              "blocking_aperture_axes": [
+                "world_z"
+              ],
+              "all_rotations_excluded_by_declared_object_bound": true,
+              "native_dimensions_verified": false,
+              "hand_or_path_certified": false
+            }
+          }
+        },
+        "hand_or_path_certified": false
+      },
+      "native_validation_run": false,
+      "native_dimensions_verified": false,
+      "legal_reference_execution_verified": false
+    },
+    {
+      "proposal_alias": "D1-3",
+      "title": "Align a long block with a narrow tunnel",
+      "primary_family": "GF",
+      "seed": 101,
+      "variant": "adapted",
+      "task_id": "wia_dimensional_d1_3_v1",
+      "shared_layout_id": "wia_hall_dimensional_workstation_v1",
+      "task_file": "tasks/d1_3_seed101_v1.yaml",
+      "task_sha256": "327d8f9b6ecaf6e834ce2eeffe24942f5c6d4481c0ddaa18345f5ecc7fdb9f54",
+      "scene_file": "scenes/d1_3_seed101_v1.yaml",
+      "scene_sha256": "ac1300ce3f4ea78d8ee6832d94c81dbb08e31c50a5d43b80d8f4982b435f401a",
+      "candidate_slot_permutation": [
+        1,
+        0
+      ],
+      "candidate_y_positions_m": {
+        "candidate_0": -0.55,
+        "candidate_1": -1.45
+      },
+      "geometry_proposal": {
+        "scope": "declared_object_bounds_only_not_native_geometry",
+        "opening_width_m": 0.11,
+        "opening_height_m": 0.09,
+        "tunnel_depth_m": 0.3,
+        "clearance_margin_m": 0.001,
+        "objects": {
+          "candidate_0": {
+            "declared_dimensions_m": [
+              0.26,
+              0.06,
+              0.05
+            ],
+            "axis_permutations_xyz_m": [
+              [
+                0.05,
+                0.06,
+                0.26
+              ],
+              [
+                0.05,
+                0.26,
+                0.06
+              ],
+              [
+                0.06,
+                0.05,
+                0.26
+              ],
+              [
+                0.06,
+                0.26,
+                0.05
+              ],
+              [
+                0.26,
+                0.05,
+                0.06
+              ],
+              [
+                0.26,
+                0.06,
+                0.05
+              ]
+            ],
+            "object_only_axis_aligned_cross_section_fits_xyz_m": [
+              [
+                0.26,
+                0.05,
+                0.06
+              ],
+              [
+                0.26,
+                0.06,
+                0.05
+              ]
+            ]
+          },
+          "candidate_1": {
+            "declared_dimensions_m": [
+              0.14,
+              0.14,
+              0.14
+            ],
+            "axis_permutations_xyz_m": [
+              [
+                0.14,
+                0.14,
+                0.14
+              ]
+            ],
+            "object_only_axis_aligned_cross_section_fits_xyz_m": [],
+            "cube_minimum_caliper_bound": {
+              "minimum_caliper_m": 0.14,
+              "blocking_aperture_axes": [
+                "world_y",
+                "world_z"
+              ],
+              "all_rotations_excluded_by_declared_object_bound": true,
+              "native_dimensions_verified": false,
+              "hand_or_path_certified": false
+            }
+          }
+        },
+        "hand_or_path_certified": false
+      },
+      "native_validation_run": false,
+      "native_dimensions_verified": false,
+      "legal_reference_execution_verified": false
+    },
+    {
+      "proposal_alias": "D1-3",
+      "title": "Align a long block with a narrow tunnel",
+      "primary_family": "GF",
+      "seed": 202,
+      "variant": "adapted",
+      "task_id": "wia_dimensional_d1_3_v1",
+      "shared_layout_id": "wia_hall_dimensional_workstation_v1",
+      "task_file": "tasks/d1_3_seed202_v1.yaml",
+      "task_sha256": "107d267e09cc71be7499a2740350fcceb2aba44bf833ee54c119bfd269a457f3",
+      "scene_file": "scenes/d1_3_seed202_v1.yaml",
+      "scene_sha256": "70e2b86510998220940be752ea510f3e1ccd21363aabaee246053c7a229b9485",
+      "candidate_slot_permutation": [
+        0,
+        1
+      ],
+      "candidate_y_positions_m": {
+        "candidate_0": -1.45,
+        "candidate_1": -0.55
+      },
+      "geometry_proposal": {
+        "scope": "declared_object_bounds_only_not_native_geometry",
+        "opening_width_m": 0.11,
+        "opening_height_m": 0.09,
+        "tunnel_depth_m": 0.3,
+        "clearance_margin_m": 0.001,
+        "objects": {
+          "candidate_0": {
+            "declared_dimensions_m": [
+              0.26,
+              0.06,
+              0.05
+            ],
+            "axis_permutations_xyz_m": [
+              [
+                0.05,
+                0.06,
+                0.26
+              ],
+              [
+                0.05,
+                0.26,
+                0.06
+              ],
+              [
+                0.06,
+                0.05,
+                0.26
+              ],
+              [
+                0.06,
+                0.26,
+                0.05
+              ],
+              [
+                0.26,
+                0.05,
+                0.06
+              ],
+              [
+                0.26,
+                0.06,
+                0.05
+              ]
+            ],
+            "object_only_axis_aligned_cross_section_fits_xyz_m": [
+              [
+                0.26,
+                0.05,
+                0.06
+              ],
+              [
+                0.26,
+                0.06,
+                0.05
+              ]
+            ]
+          },
+          "candidate_1": {
+            "declared_dimensions_m": [
+              0.14,
+              0.14,
+              0.14
+            ],
+            "axis_permutations_xyz_m": [
+              [
+                0.14,
+                0.14,
+                0.14
+              ]
+            ],
+            "object_only_axis_aligned_cross_section_fits_xyz_m": [],
+            "cube_minimum_caliper_bound": {
+              "minimum_caliper_m": 0.14,
+              "blocking_aperture_axes": [
+                "world_y",
+                "world_z"
+              ],
+              "all_rotations_excluded_by_declared_object_bound": true,
+              "native_dimensions_verified": false,
+              "hand_or_path_certified": false
+            }
+          }
+        },
+        "hand_or_path_certified": false
+      },
+      "native_validation_run": false,
+      "native_dimensions_verified": false,
+      "legal_reference_execution_verified": false
+    },
+    {
+      "proposal_alias": "D2-1",
+      "title": "Sort three blocks by their longest edge",
+      "primary_family": "GF",
+      "seed": 101,
+      "variant": "adapted",
+      "task_id": "wia_dimensional_d2_1_v1",
+      "shared_layout_id": "wia_hall_dimensional_workstation_v1",
+      "task_file": "tasks/d2_1_seed101_v1.yaml",
+      "task_sha256": "210c759ed8be1174c083529e83a3cdbbe577eedb943138030794ad1acd8b8c5a",
+      "scene_file": "scenes/d2_1_seed101_v1.yaml",
+      "scene_sha256": "ccda91e62deaaf742193f8c9642640b57d4b2664ad35a97510e0f3272edc002a",
+      "candidate_slot_permutation": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "candidate_y_positions_m": {
+        "candidate_0": -1.78,
+        "candidate_1": -0.22,
+        "candidate_2": -0.74
+      },
+      "geometry_proposal": {
+        "scope": "declared_intrinsic_object_dimensions_only",
+        "intrinsic_longest_edges_m": [
+          0.09,
+          0.13,
+          0.17
+        ],
+        "ordered_neighbor_gaps_m": [
+          0.04000000000000001,
+          0.04000000000000001
+        ],
+        "minimum_assignment_gap_m": 0.015,
+        "declared_gaps_meet_contract": true,
+        "world_aabb_used_as_intrinsic_metric": false,
+        "hand_or_path_certified": false
+      },
+      "native_validation_run": false,
+      "native_dimensions_verified": false,
+      "legal_reference_execution_verified": false
+    },
+    {
+      "proposal_alias": "D2-1",
+      "title": "Sort three blocks by their longest edge",
+      "primary_family": "GF",
+      "seed": 202,
+      "variant": "adapted",
+      "task_id": "wia_dimensional_d2_1_v1",
+      "shared_layout_id": "wia_hall_dimensional_workstation_v1",
+      "task_file": "tasks/d2_1_seed202_v1.yaml",
+      "task_sha256": "9f75d4d154fe1d9be0e6ce1fd1f1bc971fba96704285c6d097be7e95af8a35f0",
+      "scene_file": "scenes/d2_1_seed202_v1.yaml",
+      "scene_sha256": "d9866a21a1f900eb2e7e5be99c9ed5a8a86b83111074fd59d8fc26e4effd15c5",
+      "candidate_slot_permutation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "candidate_y_positions_m": {
+        "candidate_0": -1.78,
+        "candidate_1": -1.26,
+        "candidate_2": -0.74
+      },
+      "geometry_proposal": {
+        "scope": "declared_intrinsic_object_dimensions_only",
+        "intrinsic_longest_edges_m": [
+          0.09,
+          0.13,
+          0.17
+        ],
+        "ordered_neighbor_gaps_m": [
+          0.04000000000000001,
+          0.04000000000000001
+        ],
+        "minimum_assignment_gap_m": 0.015,
+        "declared_gaps_meet_contract": true,
+        "world_aabb_used_as_intrinsic_metric": false,
+        "hand_or_path_certified": false
+      },
+      "native_validation_run": false,
+      "native_dimensions_verified": false,
+      "legal_reference_execution_verified": false
+    },
+    {
+      "proposal_alias": "D2-2",
+      "title": "Sort four blocks on the same workstation",
+      "primary_family": "GF",
+      "seed": 101,
+      "variant": "adapted",
+      "task_id": "wia_dimensional_d2_2_v1",
+      "shared_layout_id": "wia_hall_dimensional_workstation_v1",
+      "task_file": "tasks/d2_2_seed101_v1.yaml",
+      "task_sha256": "3c75f46fbbdcb67d2d0b1c35cdbd568794b84b98dcae2ac0a71fa6409b02527d",
+      "scene_file": "scenes/d2_2_seed101_v1.yaml",
+      "scene_sha256": "a8ba9c791ec9a1fee3986ad2d818a788ae68886347cba97556f40c93b39cbab6",
+      "candidate_slot_permutation": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "candidate_y_positions_m": {
+        "candidate_0": -1.78,
+        "candidate_1": -0.22,
+        "candidate_2": -0.74,
+        "candidate_3": -1.26
+      },
+      "geometry_proposal": {
+        "scope": "declared_intrinsic_object_dimensions_only",
+        "intrinsic_longest_edges_m": [
+          0.09,
+          0.13,
+          0.17,
+          0.21
+        ],
+        "ordered_neighbor_gaps_m": [
+          0.04000000000000001,
+          0.04000000000000001,
+          0.03999999999999998
+        ],
+        "minimum_assignment_gap_m": 0.015,
+        "declared_gaps_meet_contract": true,
+        "world_aabb_used_as_intrinsic_metric": false,
+        "hand_or_path_certified": false
+      },
+      "native_validation_run": false,
+      "native_dimensions_verified": false,
+      "legal_reference_execution_verified": false
+    },
+    {
+      "proposal_alias": "D2-2",
+      "title": "Sort four blocks on the same workstation",
+      "primary_family": "GF",
+      "seed": 202,
+      "variant": "adapted",
+      "task_id": "wia_dimensional_d2_2_v1",
+      "shared_layout_id": "wia_hall_dimensional_workstation_v1",
+      "task_file": "tasks/d2_2_seed202_v1.yaml",
+      "task_sha256": "14f67a459f3dc68ec917ec384d0795527e6444d8fab726c41621a58df39edceb",
+      "scene_file": "scenes/d2_2_seed202_v1.yaml",
+      "scene_sha256": "a8ca67ee5003497da1c7572b08b176eb96f64310d2ae2ae771ce084c7d5bab48",
+      "candidate_slot_permutation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "candidate_y_positions_m": {
+        "candidate_0": -1.78,
+        "candidate_1": -1.26,
+        "candidate_2": -0.74,
+        "candidate_3": -0.22
+      },
+      "geometry_proposal": {
+        "scope": "declared_intrinsic_object_dimensions_only",
+        "intrinsic_longest_edges_m": [
+          0.09,
+          0.13,
+          0.17,
+          0.21
+        ],
+        "ordered_neighbor_gaps_m": [
+          0.04000000000000001,
+          0.04000000000000001,
+          0.03999999999999998
+        ],
+        "minimum_assignment_gap_m": 0.015,
+        "declared_gaps_meet_contract": true,
+        "world_aabb_used_as_intrinsic_metric": false,
+        "hand_or_path_certified": false
+      },
+      "native_validation_run": false,
+      "native_dimensions_verified": false,
+      "legal_reference_execution_verified": false
+    }
+  ]
+}

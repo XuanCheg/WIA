@@ -1,0 +1,325 @@
+{
+  "schema": "wia_workstation_portfolio_design_v1",
+  "selection_scope": "Select one additional native background for each of the thirteen workstation proposals at both unchanged seeds. Original hall_glass definitions remain available through the original manifests.",
+  "original_definitions_preserved": true,
+  "original_manifests": [
+    {
+      "file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/dimensional_v2/manifest.json",
+      "sha256": "6bd8520092aed9228c139c505d7d3f71c2cd68a2c0ba2fcc0140eca63e66bcf7"
+    },
+    {
+      "file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/manifest.json",
+      "sha256": "d5ac57374a3a497e2793952bfd05e2c60da6e4d18733045574f77e2230c369df"
+    }
+  ],
+  "source_manifests": [
+    {
+      "file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/pilot_manifest.json",
+      "sha256": "c1e4d1652ec9c097c516d7ca71544420ab07f53380a093e5b0e64c0ffe7df5ae"
+    },
+    {
+      "file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/arch_remaining_manifest.json",
+      "sha256": "377ecf7a327e431d7f7e4e29fdb9cdd165dd0cdc9651f2eddb0a0edcf121dd44"
+    },
+    {
+      "file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_pilot_manifest.json",
+      "sha256": "20ef176e629c7356a0915f668ca7790ed7601023a2ab8c0dab6e04eed18f824a"
+    },
+    {
+      "file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_manifest.json",
+      "sha256": "7613be968328123e394b6ddc4661625e180b6e26963326fd89e6217d8635ca15"
+    }
+  ],
+  "selected_destination_by_proposal": {
+    "D1-1": "hall_train_station",
+    "D1-2": "hall_arch_wood",
+    "D1-3": "hall_train_station",
+    "D2-1": "hall_arch_wood",
+    "D2-2": "hall_train_station",
+    "R-C1": "hall_arch_wood",
+    "R-C2": "hall_train_station",
+    "R-C3": "hall_arch_wood",
+    "R-S1": "hall_arch_wood",
+    "R-S2": "hall_train_station",
+    "R-S3": "hall_train_station",
+    "R-A1": "hall_train_station",
+    "R-A2": "hall_train_station"
+  },
+  "seeds": [
+    101,
+    202
+  ],
+  "paired_appearance_background": {
+    "aliases": [
+      "R-A1",
+      "R-A2"
+    ],
+    "scene_model": "hall_train_station"
+  },
+  "selected_transfer_count": 26,
+  "remaining_capture_count": 22,
+  "reference_execution_status": "deferred_until_user_review",
+  "scientific_controls_verified": false,
+  "entries": [
+    {
+      "document_alias": "D1-1",
+      "seed": 101,
+      "variant_id": "d1_1_seed101_v2_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_1_seed101_v2_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_1_seed101_v2_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_pilot_manifest.json",
+      "source_manifest_sha256": "20ef176e629c7356a0915f668ca7790ed7601023a2ab8c0dab6e04eed18f824a"
+    },
+    {
+      "document_alias": "D1-1",
+      "seed": 202,
+      "variant_id": "d1_1_seed202_v2_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_1_seed202_v2_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_1_seed202_v2_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_manifest.json",
+      "source_manifest_sha256": "7613be968328123e394b6ddc4661625e180b6e26963326fd89e6217d8635ca15"
+    },
+    {
+      "document_alias": "D1-2",
+      "seed": 101,
+      "variant_id": "d1_2_seed101_v2_hall_arch_v1",
+      "scene_model": "hall_arch_wood",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_2_seed101_v2_hall_arch_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_2_seed101_v2_hall_arch_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/arch_remaining_manifest.json",
+      "source_manifest_sha256": "377ecf7a327e431d7f7e4e29fdb9cdd165dd0cdc9651f2eddb0a0edcf121dd44"
+    },
+    {
+      "document_alias": "D1-2",
+      "seed": 202,
+      "variant_id": "d1_2_seed202_v2_hall_arch_v1",
+      "scene_model": "hall_arch_wood",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_2_seed202_v2_hall_arch_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_2_seed202_v2_hall_arch_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/arch_remaining_manifest.json",
+      "source_manifest_sha256": "377ecf7a327e431d7f7e4e29fdb9cdd165dd0cdc9651f2eddb0a0edcf121dd44"
+    },
+    {
+      "document_alias": "D1-3",
+      "seed": 101,
+      "variant_id": "d1_3_seed101_v2_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_3_seed101_v2_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_3_seed101_v2_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_manifest.json",
+      "source_manifest_sha256": "7613be968328123e394b6ddc4661625e180b6e26963326fd89e6217d8635ca15"
+    },
+    {
+      "document_alias": "D1-3",
+      "seed": 202,
+      "variant_id": "d1_3_seed202_v2_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_3_seed202_v2_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_3_seed202_v2_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_manifest.json",
+      "source_manifest_sha256": "7613be968328123e394b6ddc4661625e180b6e26963326fd89e6217d8635ca15"
+    },
+    {
+      "document_alias": "D2-1",
+      "seed": 101,
+      "variant_id": "d2_1_seed101_v2_hall_arch_v1",
+      "scene_model": "hall_arch_wood",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d2_1_seed101_v2_hall_arch_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d2_1_seed101_v2_hall_arch_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/pilot_manifest.json",
+      "source_manifest_sha256": "c1e4d1652ec9c097c516d7ca71544420ab07f53380a093e5b0e64c0ffe7df5ae"
+    },
+    {
+      "document_alias": "D2-1",
+      "seed": 202,
+      "variant_id": "d2_1_seed202_v2_hall_arch_v1",
+      "scene_model": "hall_arch_wood",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d2_1_seed202_v2_hall_arch_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d2_1_seed202_v2_hall_arch_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/arch_remaining_manifest.json",
+      "source_manifest_sha256": "377ecf7a327e431d7f7e4e29fdb9cdd165dd0cdc9651f2eddb0a0edcf121dd44"
+    },
+    {
+      "document_alias": "D2-2",
+      "seed": 101,
+      "variant_id": "d2_2_seed101_v2_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d2_2_seed101_v2_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d2_2_seed101_v2_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_manifest.json",
+      "source_manifest_sha256": "7613be968328123e394b6ddc4661625e180b6e26963326fd89e6217d8635ca15"
+    },
+    {
+      "document_alias": "D2-2",
+      "seed": 202,
+      "variant_id": "d2_2_seed202_v2_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d2_2_seed202_v2_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d2_2_seed202_v2_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_manifest.json",
+      "source_manifest_sha256": "7613be968328123e394b6ddc4661625e180b6e26963326fd89e6217d8635ca15"
+    },
+    {
+      "document_alias": "R-C1",
+      "seed": 101,
+      "variant_id": "r_c1_seed101_v1_hall_arch_v1",
+      "scene_model": "hall_arch_wood",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c1_seed101_v1_hall_arch_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c1_seed101_v1_hall_arch_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/arch_remaining_manifest.json",
+      "source_manifest_sha256": "377ecf7a327e431d7f7e4e29fdb9cdd165dd0cdc9651f2eddb0a0edcf121dd44"
+    },
+    {
+      "document_alias": "R-C1",
+      "seed": 202,
+      "variant_id": "r_c1_seed202_v1_hall_arch_v1",
+      "scene_model": "hall_arch_wood",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c1_seed202_v1_hall_arch_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c1_seed202_v1_hall_arch_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/arch_remaining_manifest.json",
+      "source_manifest_sha256": "377ecf7a327e431d7f7e4e29fdb9cdd165dd0cdc9651f2eddb0a0edcf121dd44"
+    },
+    {
+      "document_alias": "R-C2",
+      "seed": 101,
+      "variant_id": "r_c2_seed101_v1_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c2_seed101_v1_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c2_seed101_v1_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_manifest.json",
+      "source_manifest_sha256": "7613be968328123e394b6ddc4661625e180b6e26963326fd89e6217d8635ca15"
+    },
+    {
+      "document_alias": "R-C2",
+      "seed": 202,
+      "variant_id": "r_c2_seed202_v1_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c2_seed202_v1_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c2_seed202_v1_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_pilot_manifest.json",
+      "source_manifest_sha256": "20ef176e629c7356a0915f668ca7790ed7601023a2ab8c0dab6e04eed18f824a"
+    },
+    {
+      "document_alias": "R-C3",
+      "seed": 101,
+      "variant_id": "r_c3_seed101_v1_hall_arch_v1",
+      "scene_model": "hall_arch_wood",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c3_seed101_v1_hall_arch_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c3_seed101_v1_hall_arch_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/arch_remaining_manifest.json",
+      "source_manifest_sha256": "377ecf7a327e431d7f7e4e29fdb9cdd165dd0cdc9651f2eddb0a0edcf121dd44"
+    },
+    {
+      "document_alias": "R-C3",
+      "seed": 202,
+      "variant_id": "r_c3_seed202_v1_hall_arch_v1",
+      "scene_model": "hall_arch_wood",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c3_seed202_v1_hall_arch_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c3_seed202_v1_hall_arch_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/arch_remaining_manifest.json",
+      "source_manifest_sha256": "377ecf7a327e431d7f7e4e29fdb9cdd165dd0cdc9651f2eddb0a0edcf121dd44"
+    },
+    {
+      "document_alias": "R-S1",
+      "seed": 101,
+      "variant_id": "r_s1_seed101_v1_hall_arch_v1",
+      "scene_model": "hall_arch_wood",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_s1_seed101_v1_hall_arch_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_s1_seed101_v1_hall_arch_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/pilot_manifest.json",
+      "source_manifest_sha256": "c1e4d1652ec9c097c516d7ca71544420ab07f53380a093e5b0e64c0ffe7df5ae"
+    },
+    {
+      "document_alias": "R-S1",
+      "seed": 202,
+      "variant_id": "r_s1_seed202_v1_hall_arch_v1",
+      "scene_model": "hall_arch_wood",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_s1_seed202_v1_hall_arch_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_s1_seed202_v1_hall_arch_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/arch_remaining_manifest.json",
+      "source_manifest_sha256": "377ecf7a327e431d7f7e4e29fdb9cdd165dd0cdc9651f2eddb0a0edcf121dd44"
+    },
+    {
+      "document_alias": "R-S2",
+      "seed": 101,
+      "variant_id": "r_s2_seed101_v1_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_s2_seed101_v1_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_s2_seed101_v1_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_manifest.json",
+      "source_manifest_sha256": "7613be968328123e394b6ddc4661625e180b6e26963326fd89e6217d8635ca15"
+    },
+    {
+      "document_alias": "R-S2",
+      "seed": 202,
+      "variant_id": "r_s2_seed202_v1_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_s2_seed202_v1_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_s2_seed202_v1_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_manifest.json",
+      "source_manifest_sha256": "7613be968328123e394b6ddc4661625e180b6e26963326fd89e6217d8635ca15"
+    },
+    {
+      "document_alias": "R-S3",
+      "seed": 101,
+      "variant_id": "r_s3_seed101_v1_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_s3_seed101_v1_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_s3_seed101_v1_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_manifest.json",
+      "source_manifest_sha256": "7613be968328123e394b6ddc4661625e180b6e26963326fd89e6217d8635ca15"
+    },
+    {
+      "document_alias": "R-S3",
+      "seed": 202,
+      "variant_id": "r_s3_seed202_v1_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_s3_seed202_v1_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_s3_seed202_v1_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_manifest.json",
+      "source_manifest_sha256": "7613be968328123e394b6ddc4661625e180b6e26963326fd89e6217d8635ca15"
+    },
+    {
+      "document_alias": "R-A1",
+      "seed": 101,
+      "variant_id": "r_a1_seed101_v1_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_a1_seed101_v1_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_a1_seed101_v1_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_manifest.json",
+      "source_manifest_sha256": "7613be968328123e394b6ddc4661625e180b6e26963326fd89e6217d8635ca15"
+    },
+    {
+      "document_alias": "R-A1",
+      "seed": 202,
+      "variant_id": "r_a1_seed202_v1_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_a1_seed202_v1_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_a1_seed202_v1_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_manifest.json",
+      "source_manifest_sha256": "7613be968328123e394b6ddc4661625e180b6e26963326fd89e6217d8635ca15"
+    },
+    {
+      "document_alias": "R-A2",
+      "seed": 101,
+      "variant_id": "r_a2_seed101_v1_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_a2_seed101_v1_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_a2_seed101_v1_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_manifest.json",
+      "source_manifest_sha256": "7613be968328123e394b6ddc4661625e180b6e26963326fd89e6217d8635ca15"
+    },
+    {
+      "document_alias": "R-A2",
+      "seed": 202,
+      "variant_id": "r_a2_seed202_v1_hall_train_v1",
+      "scene_model": "hall_train_station",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_a2_seed202_v1_hall_train_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_a2_seed202_v1_hall_train_v1.yaml",
+      "source_manifest_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_manifest.json",
+      "source_manifest_sha256": "7613be968328123e394b6ddc4661625e180b6e26963326fd89e6217d8635ca15"
+    }
+  ]
+}

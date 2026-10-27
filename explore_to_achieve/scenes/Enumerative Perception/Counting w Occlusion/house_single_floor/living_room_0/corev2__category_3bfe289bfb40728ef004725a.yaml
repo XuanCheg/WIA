@@ -1,0 +1,97 @@
+kind: scene_patch
+id: category_6fde95fda2a55d32b2820078
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Enumerative Perception/Counting w Occlusion/house_single_floor/living_room_0/q_003.json
+target: null
+qualification: null
+bindings:
+  anchor_0:
+    name: coffee_table_rlsebe_0
+    category: coffee_table
+  target_0:
+    name: render_count_target_club_sandwich_0
+    category: club_sandwich
+    model: ablfyd
+  anchor_1:
+    name: sofa_hiphpn_0
+    category: sofa
+  target_1:
+    name: render_count_target_club_sandwich_1
+    category: club_sandwich
+    model: ablfyd
+  anchor_2:
+    name: sofa_wnzdke_0
+    category: sofa
+  target_2:
+    name: render_count_target_club_sandwich_2
+    category: club_sandwich
+    model: ablfyd
+  floor:
+    name: floors_uzsntg_0
+    category: floors
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        position:
+        - 15.349999999999982
+        - 3.4
+        - -7.465481758117676e-06
+        yaw_deg: -127.62623363866952
+        head_pitch_deg: 45.0
+      - operation: object_physics
+        phase: before_construction
+        binding: target_0
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: target_0
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: target_1
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: target_1
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: target_2
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: target_2
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: navigation
+        group_bindings:
+        - target_0
+        - target_1
+        - target_2
+        manipulation_bindings: []
+        relocation_policy: preserve
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: bounded_group
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: living_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+seed: 0
+runtime:
+  requires_native_visual_discovery: true

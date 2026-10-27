@@ -1,0 +1,732 @@
+kind: scene_patch
+id: wia_dimensional_d2_1_seed101_v2_scene__d2_1_seed101_v2_hall_arch_v1
+version: 3
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json
+target: null
+qualification: null
+bindings:
+  table:
+    name: wia_dim_table
+    category: table
+  leg_0:
+    name: wia_dim_leg_0
+    category: object
+  leg_1:
+    name: wia_dim_leg_1
+    category: object
+  leg_2:
+    name: wia_dim_leg_2
+    category: object
+  leg_3:
+    name: wia_dim_leg_3
+    category: object
+  pad_0:
+    name: wia_dim_pad_0
+    category: table
+  pad_1:
+    name: wia_dim_pad_1
+    category: table
+  pad_2:
+    name: wia_dim_pad_2
+    category: table
+  pad_3:
+    name: wia_dim_pad_3
+    category: table
+  candidate_0:
+    name: wia_dim_candidate_0
+    category: object
+  candidate_1:
+    name: wia_dim_candidate_1
+    category: object
+  candidate_2:
+    name: wia_dim_candidate_2
+    category: object
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: wia_dimensional_v3
+          layout:
+            shared_layout_id: wia_hall_dimensional_workstation_v2__d2_1_seed101_v2_hall_arch_v1
+            scene_model: hall_arch_wood
+            rooms:
+            - empty_room_0
+            floor_name: floors_hhszec_0
+            objects:
+            - type: PrimitiveObject
+              name: wia_dim_table
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.2
+              - 2.4
+              - 0.1
+              position:
+              - -34.0
+              - 12.0
+              - 0.6
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.22
+              - 0.22
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_0
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - -34.519999999999996
+              - 10.92
+              - 0.27499999999999997
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.4
+              - 0.4
+              - 0.4
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_1
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - -34.519999999999996
+              - 13.08
+              - 0.27499999999999997
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.4
+              - 0.4
+              - 0.4
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_2
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - -33.480000000000004
+              - 10.92
+              - 0.27499999999999997
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.4
+              - 0.4
+              - 0.4
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_3
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - -33.480000000000004
+              - 13.08
+              - 0.27499999999999997
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.4
+              - 0.4
+              - 0.4
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_pad_0
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.3
+              - 0.32
+              - 0.012
+              position:
+              - -33.68
+              - 11.22
+              - 0.656
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.1
+              - 0.3
+              - 0.95
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_pad_1
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.3
+              - 0.32
+              - 0.012
+              position:
+              - -33.68
+              - 11.74
+              - 0.656
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.8
+              - 0.1
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_pad_2
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.3
+              - 0.32
+              - 0.012
+              position:
+              - -33.68
+              - 12.26
+              - 0.656
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.75
+              - 0.15
+              - 0.85
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_pad_3
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.3
+              - 0.32
+              - 0.012
+              position:
+              - -33.68
+              - 12.78
+              - 0.656
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.1
+              - 0.85
+              - 0.85
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_candidate_0
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.09
+              - 0.05
+              - 0.05
+              position:
+              - -34.32
+              - 11.870000000000001
+              - 0.678
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_candidate_1
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.13
+              - 0.05
+              - 0.05
+              position:
+              - -34.07
+              - 12.13
+              - 0.678
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_candidate_2
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.17
+              - 0.05
+              - 0.05
+              position:
+              - -34.07
+              - 11.870000000000001
+              - 0.678
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.3826834323650898
+              - 0.9238795325112867
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            supported_items:
+            - name: wia_dim_candidate_0
+              support: wia_dim_table
+            - name: wia_dim_candidate_1
+              support: wia_dim_table
+            - name: wia_dim_candidate_2
+              support: wia_dim_table
+            robot_start:
+              position:
+              - -35.3
+              - 12.0
+              - 0.1
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+          scene_contract:
+            scene_model: hall_arch_wood
+            room: empty_room_0
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.active_layout
+        parameters:
+          revision: wia_dimensional_v3
+          layout:
+            shared_layout_id: wia_hall_dimensional_workstation_v2__d2_1_seed101_v2_hall_arch_v1
+            scene_model: hall_arch_wood
+            rooms:
+            - empty_room_0
+            floor_name: floors_hhszec_0
+            objects:
+            - type: PrimitiveObject
+              name: wia_dim_table
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.2
+              - 2.4
+              - 0.1
+              position:
+              - -34.0
+              - 12.0
+              - 0.6
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.22
+              - 0.22
+              - 0.22
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_0
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - -34.519999999999996
+              - 10.92
+              - 0.27499999999999997
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.4
+              - 0.4
+              - 0.4
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_1
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - -34.519999999999996
+              - 13.08
+              - 0.27499999999999997
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.4
+              - 0.4
+              - 0.4
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_2
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - -33.480000000000004
+              - 10.92
+              - 0.27499999999999997
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.4
+              - 0.4
+              - 0.4
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_leg_3
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - -33.480000000000004
+              - 13.08
+              - 0.27499999999999997
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.4
+              - 0.4
+              - 0.4
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_pad_0
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.3
+              - 0.32
+              - 0.012
+              position:
+              - -33.68
+              - 11.22
+              - 0.656
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.1
+              - 0.3
+              - 0.95
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_pad_1
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.3
+              - 0.32
+              - 0.012
+              position:
+              - -33.68
+              - 11.74
+              - 0.656
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.8
+              - 0.1
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_pad_2
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.3
+              - 0.32
+              - 0.012
+              position:
+              - -33.68
+              - 12.26
+              - 0.656
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.75
+              - 0.15
+              - 0.85
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_pad_3
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.3
+              - 0.32
+              - 0.012
+              position:
+              - -33.68
+              - 12.78
+              - 0.656
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.1
+              - 0.85
+              - 0.85
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_candidate_0
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.09
+              - 0.05
+              - 0.05
+              position:
+              - -34.32
+              - 11.870000000000001
+              - 0.678
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_candidate_1
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.13
+              - 0.05
+              - 0.05
+              position:
+              - -34.07
+              - 12.13
+              - 0.678
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_dim_candidate_2
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.17
+              - 0.05
+              - 0.05
+              position:
+              - -34.07
+              - 11.870000000000001
+              - 0.678
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.3826834323650898
+              - 0.9238795325112867
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            supported_items:
+            - name: wia_dim_candidate_0
+              support: wia_dim_table
+            - name: wia_dim_candidate_1
+              support: wia_dim_table
+            - name: wia_dim_candidate_2
+              support: wia_dim_table
+            robot_start:
+              position:
+              - -35.3
+              - 12.0
+              - 0.1
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+          scene_contract:
+            scene_model: hall_arch_wood
+            room: empty_room_0
+runtime:
+  reflection_sensor_profile: {}
+  requires_native_visual_discovery: false
+  post_controller_settle_steps: 0
+  trunk_config: configs/esi_trunk.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0
+seed: 101

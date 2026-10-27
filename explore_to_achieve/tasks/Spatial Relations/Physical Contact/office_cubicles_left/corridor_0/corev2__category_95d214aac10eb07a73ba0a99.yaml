@@ -1,0 +1,193 @@
+kind: category_robot_task
+id: task_56e6670ea7ed5120ffbf7899
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Spatial Relations/Physical Contact/office_cubicles_left/corridor_0/office_cubicles_left__corridor_0.json
+public:
+  objective: Inspect the shoe box and backpack. Finish with the shoe box separated
+    by a positive gap from the backpack, with both objects stably resting on their
+    starting support and the gripper empty and open. If this relation already holds,
+    leave the objects in place and wait for the measured stable state. Otherwise manipulate
+    the shoe box using the robot controls. Keep the backpack near its starting pose.
+  success_criteria: Touching requires actual native pair contact without penetration
+    deeper than the declared 1 mm solver tolerance. Separation requires no native
+    pair contact and a strictly positive measured bounding-box clearance. Both objects
+    must remain supported, within the source room and original pair neighborhood,
+    with speeds at most 0.02 m/s and 0.1 rad/s for 15 consecutive native samples.
+    Finish released with an empty open gripper. The partner remains within 3 cm and
+    15 degrees of its starting pose throughout. No grasp, lift, movement or contact/separation
+    cycle is required when already correct.
+  environment: The original room, floor, two original-size assets, pair relative geometry
+    and reference camera are retained. Initialization may translate both partners
+    together onto an existing same-room support without resizing or changing their
+    spacing. The original floor layout remains a historical variant. Record the initial
+    contact assessment before moving anything as auxiliary QA.
+  constraints:
+  - Use robot-mounted sensors and existing guarded base, arm, trunk and gripper controls.
+  - Manipulate the designated task object while preserving its partner and task supports.
+    Noncritical native movable furniture may be moved using guarded arm and gripper
+    actions.
+  - Keep the manipulated object within 1.5 m horizontally of the episode-start pair
+    midpoint; place it on the starting support beside its partner.
+  - Initial QA and saved visual labels do not prove the final native relation.
+  - Human review images, source maps, object names/poses and evaluator records remain
+    private, outside Agent sensors.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    obj1:
+      name: obj1
+      category: backpack
+      model: gvbiwl
+    obj2:
+      name: obj2
+      category: shoe_box
+      model: towipq
+    source_floor:
+      name: floors_xmgdee_0
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.spatial_relations_physical_contact
+    operation: establish_final_relation
+    binding_keys:
+    - obj1
+    - obj2
+    - source_floor
+    parameters:
+      target: obj2
+      anchor: obj1
+      source_objects:
+        obj1:
+          position:
+          - -7.375393390655518
+          - 2.882750988006592
+          - 0.200544536113739
+          quaternion_xyzw:
+          - 9.004538878798485e-05
+          - -0.003198815742507577
+          - 0.010471688583493233
+          - 0.9999400973320007
+          aabb_min:
+          - -7.586119174957275
+          - 2.6826529502868652
+          - -9.953975677490234e-06
+          aabb_max:
+          - -7.09094762802124
+          - 3.0927350521087646
+          - 0.4784289598464966
+        obj2:
+          position:
+          - -7.03364896774292
+          - 3.1222550868988037
+          - 0.04905698448419571
+          quaternion_xyzw:
+          - -0.00046294633648358285
+          - -0.0004054156015627086
+          - 0.0010120427468791604
+          - 0.9999993443489075
+          aabb_min:
+          - -7.174839496612549
+          - 3.012094497680664
+          - -1.0117888450622559e-05
+          aabb_max:
+          - -6.891989707946777
+          - 3.2330965995788574
+          - 0.08616377413272858
+      source_pair_midpoint_xy_m:
+      - -7.1859740018844604
+      - 3.005144774913788
+      desired_relation: separated
+      penetration_tolerance_m: 0.001
+      final_relation_selection:
+        seed: 0
+        source_identity: Spatial Relations/Physical Contact/office_cubicles_left/corridor_0/office_cubicles_left__corridor_0.json
+        algorithm: sha256_seed_source_final_contact_relation_v1
+        independent_of_initial_relation: true
+      task_revision: task_edit_20261018_v1
+      completion_items:
+      - id: desired_final_relation
+        description: Establish the separated relation.
+      - id: stable_released_support
+        description: Both objects settle supported and released.
+      mechanism_contract: &id001
+        preserve:
+        - target_identity
+        - asset_scale
+        - pair_initial_relative_geometry
+        - anchor_pose
+        - source_reference_camera
+        - stable_support
+        goal: seeded_final_native_contact_relation
+        desired_relation: separated
+        already_satisfied_no_op_allowed: true
+        mandatory_action_history: false
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        position:
+        - -6.24
+        - 3.0500000000000003
+        - 0.0
+        yaw_deg: -177.28524086163605
+        head_pitch_deg: 45.0
+      - operation: object_physics
+        binding: obj1
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: obj1
+        visual_only: false
+      - operation: object_physics
+        binding: obj2
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: obj2
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - obj1
+        - obj2
+        manipulation_bindings:
+        - obj2
+        relocation_policy: rigid_group
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: corridor_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - native_grasp_ik_and_aperture_pending
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0
+  max_steps: 240
+  wall_timeout_s: 14400.0
+repair:
+  task_revision: task_edit_20261018_v1
+  mechanism_contract: *id001

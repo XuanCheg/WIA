@@ -1,0 +1,629 @@
+kind: scene_patch
+id: scene_temporal_core_75b6bda28936af85faa6a0bc
+version: 3
+status: pending
+source:
+  provider: esi
+  json: Temporal Understanding/Unobserved Change/office_large/bathroom_0/change_detection__q_001.json
+target: null
+qualification: null
+bindings:
+  container_00:
+    name: render_unobserved_box_0_carton
+    category: carton
+    model: cdmmwy
+  floor:
+    name: floors_ldvzya_0
+    category: floors
+  change_collection_table:
+    name: change_collection_table
+    category: breakfast_table
+  change_collection_table_leg_0:
+    name: change_collection_table_leg_0
+    category: breakfast_table
+  change_collection_table_leg_1:
+    name: change_collection_table_leg_1
+    category: breakfast_table
+  change_collection_table_leg_2:
+    name: change_collection_table_leg_2
+    category: breakfast_table
+  change_collection_table_leg_3:
+    name: change_collection_table_leg_3
+    category: breakfast_table
+  change_collection_tray:
+    name: change_collection_tray
+    category: tray
+  change_collection_rim_0:
+    name: change_collection_rim_0
+    category: tray
+  change_collection_rim_1:
+    name: change_collection_rim_1
+    category: tray
+  change_collection_rim_2:
+    name: change_collection_rim_2
+    category: tray
+  change_collection_rim_3:
+    name: change_collection_rim_3
+    category: tray
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.temporal_understanding_two_phase
+        parameters: &id001
+          replay_payload:
+            scene: office_large
+            room: bathroom_0
+            seed: 7
+            question_index: 1
+            task_type: change_detection
+            question_data:
+              boxes:
+              - box_index: 0
+                change_type: no_change
+                container:
+                  bbox:
+                  - - -1.3609979152679443
+                    - 12.742034912109375
+                    - -3.725290298461914e-08
+                  - - -1.1305094957351685
+                    - 13.056427001953125
+                    - 0.18676631152629852
+                  category: carton
+                  model: cdmmwy
+                  name: render_unobserved_box_0_carton
+                  placement:
+                    placement_type: floor
+                    position:
+                    - -1.2447565231323265
+                    - 12.897195884704589
+                    - 0.10838363647460937
+                position_label: the box
+                phase1_content: null
+                phase2_content: null
+              task_type: change_detection
+              candidate_index: 1
+              render:
+                gt_view:
+                  dir: gt_view
+                  image1:
+                    fov_deg: 55.0
+                    images:
+                    - box_index: 0
+                      camera_pose:
+                        position:
+                        - -0.6305088384098402
+                        - 12.899228871413161
+                        - 0.7086283972540475
+                        quaternion_xyzw:
+                        - 0.2705987184452126
+                        - 0.2705973816993335
+                        - 0.65327986884118
+                        - 0.6532830960312109
+                      container_name: render_unobserved_box_0_carton
+                      fov_deg: 55.0
+                      image_path: image1_box_00.png
+                      look_target:
+                      - -1.2457541227340698
+                      - 12.899231910705566
+                      - 0.09338311292231083
+                      pitch_deg: 45.0
+                      position_label: the box
+                      requested_clearance_m: 0.5
+                      view_direction: front
+                    output_dir: gt_view
+                    success: true
+                  image2:
+                    fov_deg: 55.0
+                    images:
+                    - box_index: 0
+                      camera_pose:
+                        position:
+                        - -0.6305118976490259
+                        - 12.845729480390267
+                        - 0.7624995438086365
+                        quaternion_xyzw:
+                        - 0.2705976021806795
+                        - 0.27059849796477614
+                        - 0.653282563744351
+                        - 0.6532804011302358
+                      container_name: render_unobserved_box_0_carton
+                      fov_deg: 55.0
+                      image_path: image2_box_00.png
+                      look_target:
+                      - -1.2457558512687683
+                      - 12.845727443695068
+                      - 0.14725559018552303
+                      pitch_deg: 45.0
+                      position_label: the box
+                      requested_clearance_m: 0.5
+                      view_direction: front
+                    output_dir: gt_view
+                    success: true
+          bindings:
+            container_00:
+              name: render_unobserved_box_0_carton
+              category: carton
+              model: cdmmwy
+            floor:
+              name: floors_ldvzya_0
+              category: floors
+            change_collection_table:
+              name: change_collection_table
+              category: breakfast_table
+            change_collection_table_leg_0:
+              name: change_collection_table_leg_0
+              category: breakfast_table
+            change_collection_table_leg_1:
+              name: change_collection_table_leg_1
+              category: breakfast_table
+            change_collection_table_leg_2:
+              name: change_collection_table_leg_2
+              category: breakfast_table
+            change_collection_table_leg_3:
+              name: change_collection_table_leg_3
+              category: breakfast_table
+            change_collection_tray:
+              name: change_collection_tray
+              category: tray
+            change_collection_rim_0:
+              name: change_collection_rim_0
+              category: tray
+            change_collection_rim_1:
+              name: change_collection_rim_1
+              category: tray
+            change_collection_rim_2:
+              name: change_collection_rim_2
+              category: tray
+            change_collection_rim_3:
+              name: change_collection_rim_3
+              category: tray
+          container_keys:
+          - container_00
+          phase_keys:
+            image1: []
+            image2: []
+          relations: {}
+          source_objects:
+            container_00:
+              position:
+              - -1.2447565231323265
+              - 12.897195884704589
+              - 0.10838363647460937
+              quaternion_xyzw:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              bbox:
+              - - -1.3609979152679443
+                - 12.742034912109375
+                - -3.725290298461914e-08
+              - - -1.1305094957351685
+                - 13.056427001953125
+                - 0.18676631152629852
+          scene_model: office_large
+          room: bathroom_0
+          source_identity: Temporal Understanding/Unobserved Change/office_large/bathroom_0/change_detection__q_001.json
+          phase: image1
+          builder_sha256: 6fe04f703d0a43121fa0a446005b0351ad52dbddb0a375c90517c0ba14c707ab
+          generator_sha256: ef40b0c0bf7a17563ba09f2dc25f2741e90ac3686aec1a9f692794df41a1b584
+          replay_sha256: d20f0eb7958f25f4b4650a98b4754cd09eaf7063c92a1fb79f48de25897be337
+          provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration
+            build_unobserved_replay_plan and _preloaded_object_configs; saved AABB-center
+            placement from _place_preloaded_phase_content and producer _try_place_inside_container.
+          source_task_type: change_detection
+          public_options:
+          - 'yes'
+          - 'no'
+          original_answer: 'no'
+          box_labels:
+            container_00: the box
+          target_box_index: null
+          temporal_episode: true
+          accessible_support_rebase_required: true
+          task_revision: task_edit2_temporal_20261018_v1
+          requires_native_visual_discovery: true
+          task_edit2_physical: true
+          physical_branch: no_change
+          source_event_recipe:
+            branch: no_change
+            changed_containers: []
+            phase_1_slots:
+              container_00: null
+            phase_2_slots:
+              container_00: null
+          physical_target_key: null
+          physical_destination_key: null
+          placement_relation: null
+          apparatus:
+            primitives:
+            - name: change_collection_table
+              position:
+              - -6.4
+              - 12.6
+              - 0.695
+              dimensions_m:
+              - 0.6
+              - 0.5
+              - 0.05
+              rgba:
+              - 0.35
+              - 0.28
+              - 0.18
+              - 1.0
+            - name: change_collection_table_leg_0
+              position:
+              - -6.640000000000001
+              - 12.41
+              - 0.33499999999999996
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: change_collection_table_leg_1
+              position:
+              - -6.640000000000001
+              - 12.79
+              - 0.33499999999999996
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: change_collection_table_leg_2
+              position:
+              - -6.16
+              - 12.41
+              - 0.33499999999999996
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: change_collection_table_leg_3
+              position:
+              - -6.16
+              - 12.79
+              - 0.33499999999999996
+              dimensions_m:
+              - 0.04
+              - 0.04
+              - 0.6699999999999999
+            - name: change_collection_tray
+              category: tray
+              position:
+              - -6.4
+              - 12.6
+              - 0.73
+              dimensions_m:
+              - 0.5
+              - 0.4
+              - 0.02
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: change_collection_rim_0
+              category: tray
+              position:
+              - -6.6450000000000005
+              - 12.6
+              - 0.76
+              dimensions_m:
+              - 0.01
+              - 0.4
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: change_collection_rim_1
+              category: tray
+              position:
+              - -6.155
+              - 12.6
+              - 0.76
+              dimensions_m:
+              - 0.01
+              - 0.4
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: change_collection_rim_2
+              category: tray
+              position:
+              - -6.4
+              - 12.405
+              - 0.76
+              dimensions_m:
+              - 0.5
+              - 0.01
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            - name: change_collection_rim_3
+              category: tray
+              position:
+              - -6.4
+              - 12.795
+              - 0.76
+              dimensions_m:
+              - 0.5
+              - 0.01
+              - 0.06
+              rgba:
+              - 0.15
+              - 0.3
+              - 0.9
+              - 1.0
+            dataset_objects: []
+            floor_contact_names:
+            - change_collection_table_leg_0
+            - change_collection_table_leg_1
+            - change_collection_table_leg_2
+            - change_collection_table_leg_3
+            proposal_status: native_floor_support_collision_reach_and_fit_pending
+          public_spare_inventory: []
+          phase_2_navigation_required: false
+          release_stability_steps: 15
+          maximum_release_speed_m_s: 0.02
+          maximum_release_angular_speed_rad_s: 0.1
+          budget_status: pending_representative_comparison_and_branch_execution
+          native_visual_adapter: task_visual_evidence
+          source_sha256: 82d10f6bc262ffa66bb8b1185a75296dbc403cad4579a5cd9a72552c30728b6b
+          source_core_candidate_id: category_99a805eeca93fd4b381fdab2
+      - operation: robot_pose
+        position:
+        - -5.449999999999999
+        - 12.48
+        - 0.0
+        yaw_deg: 5.694486293042882
+        head_pitch_deg: 35.0
+      - operation: object_physics
+        phase: before_construction
+        binding: container_00
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: container_00
+        visual_only: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.temporal_understanding_two_phase
+        parameters: *id001
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: inspection
+        group_bindings:
+        - container_00
+        manipulation_bindings:
+        - container_00
+        relocation_policy: independent_groups
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad: null
+        placement_groups:
+        - - container_00
+        support_bindings:
+        - container_00
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: bathroom_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - accessible_temporal_container_placement
+        - native_temporal_support_unverified
+    saved_image1:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.temporal_understanding_unobserved_change
+        parameters: &id002
+          replay_payload: &id003
+            scene: office_large
+            room: bathroom_0
+            seed: 7
+            question_index: 1
+            task_type: change_detection
+            question_data:
+              boxes:
+              - box_index: 0
+                change_type: no_change
+                container:
+                  bbox:
+                  - - -1.3609979152679443
+                    - 12.742034912109375
+                    - -3.725290298461914e-08
+                  - - -1.1305094957351685
+                    - 13.056427001953125
+                    - 0.18676631152629852
+                  category: carton
+                  model: cdmmwy
+                  name: render_unobserved_box_0_carton
+                  placement:
+                    placement_type: floor
+                    position:
+                    - -1.2447565231323265
+                    - 12.897195884704589
+                    - 0.10838363647460937
+                position_label: the box
+                phase1_content: null
+                phase2_content: null
+              task_type: change_detection
+              candidate_index: 1
+              render:
+                gt_view:
+                  dir: gt_view
+                  image1:
+                    fov_deg: 55.0
+                    images:
+                    - box_index: 0
+                      camera_pose:
+                        position:
+                        - -0.6305088384098402
+                        - 12.899228871413161
+                        - 0.7086283972540475
+                        quaternion_xyzw:
+                        - 0.2705987184452126
+                        - 0.2705973816993335
+                        - 0.65327986884118
+                        - 0.6532830960312109
+                      container_name: render_unobserved_box_0_carton
+                      fov_deg: 55.0
+                      image_path: image1_box_00.png
+                      look_target:
+                      - -1.2457541227340698
+                      - 12.899231910705566
+                      - 0.09338311292231083
+                      pitch_deg: 45.0
+                      position_label: the box
+                      requested_clearance_m: 0.5
+                      view_direction: front
+                    output_dir: gt_view
+                    success: true
+                  image2:
+                    fov_deg: 55.0
+                    images:
+                    - box_index: 0
+                      camera_pose:
+                        position:
+                        - -0.6305118976490259
+                        - 12.845729480390267
+                        - 0.7624995438086365
+                        quaternion_xyzw:
+                        - 0.2705976021806795
+                        - 0.27059849796477614
+                        - 0.653282563744351
+                        - 0.6532804011302358
+                      container_name: render_unobserved_box_0_carton
+                      fov_deg: 55.0
+                      image_path: image2_box_00.png
+                      look_target:
+                      - -1.2457558512687683
+                      - 12.845727443695068
+                      - 0.14725559018552303
+                      pitch_deg: 45.0
+                      position_label: the box
+                      requested_clearance_m: 0.5
+                      view_direction: front
+                    output_dir: gt_view
+                    success: true
+          bindings: &id004
+            container_00:
+              name: render_unobserved_box_0_carton
+              category: carton
+              model: cdmmwy
+            floor:
+              name: floors_ldvzya_0
+              category: floors
+          container_keys: &id005
+          - container_00
+          phase_keys: &id006
+            image1: []
+            image2: []
+          relations: &id007 {}
+          source_objects: &id008
+            container_00:
+              position:
+              - -1.2447565231323265
+              - 12.897195884704589
+              - 0.10838363647460937
+              quaternion_xyzw:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              bbox:
+              - - -1.3609979152679443
+                - 12.742034912109375
+                - -3.725290298461914e-08
+              - - -1.1305094957351685
+                - 13.056427001953125
+                - 0.18676631152629852
+          scene_model: office_large
+          room: bathroom_0
+          source_identity: Temporal Understanding/Unobserved Change/office_large/bathroom_0/change_detection__q_001.json
+          phase: image1
+          builder_sha256: 6fe04f703d0a43121fa0a446005b0351ad52dbddb0a375c90517c0ba14c707ab
+          generator_sha256: ef40b0c0bf7a17563ba09f2dc25f2741e90ac3686aec1a9f692794df41a1b584
+          replay_sha256: d20f0eb7958f25f4b4650a98b4754cd09eaf7063c92a1fb79f48de25897be337
+          provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration
+            build_unobserved_replay_plan and _preloaded_object_configs; saved AABB-center
+            placement from _place_preloaded_phase_content and producer _try_place_inside_container.
+      - operation: robot_pose
+        position: &id009
+        - -5.449999999999999
+        - 12.48
+        - 0.0
+        yaw_deg: 5.694486293042882
+        head_pitch_deg: 35.0
+      - operation: object_physics
+        phase: before_construction
+        binding: container_00
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: container_00
+        visual_only: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.temporal_understanding_unobserved_change
+        parameters: *id002
+    saved_image2:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.temporal_understanding_unobserved_change
+        parameters: &id010
+          replay_payload: *id003
+          bindings: *id004
+          container_keys: *id005
+          phase_keys: *id006
+          relations: *id007
+          source_objects: *id008
+          scene_model: office_large
+          room: bathroom_0
+          source_identity: Temporal Understanding/Unobserved Change/office_large/bathroom_0/change_detection__q_001.json
+          phase: image2
+          builder_sha256: 6fe04f703d0a43121fa0a446005b0351ad52dbddb0a375c90517c0ba14c707ab
+          generator_sha256: ef40b0c0bf7a17563ba09f2dc25f2741e90ac3686aec1a9f692794df41a1b584
+          replay_sha256: d20f0eb7958f25f4b4650a98b4754cd09eaf7063c92a1fb79f48de25897be337
+          provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration
+            build_unobserved_replay_plan and _preloaded_object_configs; saved AABB-center
+            placement from _place_preloaded_phase_content and producer _try_place_inside_container.
+      - operation: robot_pose
+        position: *id009
+        yaw_deg: 5.694486293042882
+        head_pitch_deg: 35.0
+      - operation: object_physics
+        phase: before_construction
+        binding: container_00
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: container_00
+        visual_only: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.temporal_understanding_unobserved_change
+        parameters: *id010
+seed: 7
+runtime:
+  requires_native_visual_discovery: true

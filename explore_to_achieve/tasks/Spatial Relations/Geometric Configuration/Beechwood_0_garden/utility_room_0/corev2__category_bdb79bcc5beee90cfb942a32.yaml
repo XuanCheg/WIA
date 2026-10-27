@@ -1,0 +1,204 @@
+kind: category_robot_task
+id: task_8ad4fa57bc50fddcb3204b8b
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Spatial Relations/Geometric Configuration/Beechwood_0_garden/utility_room_0/Beechwood_0_garden__utility_room_0_3.json
+public:
+  objective: Arrange the lime juice bottle, bottle of vinegar, jar of jam into a equilateral
+    arrangement on their starting support. Use their horizontal bounding-box centers
+    and physically rearrange the objects with the robot.
+  success_criteria: Compare side lengths using 5% of the longest side. Equilateral
+    requires all equal; isosceles requires an equal pair and a distinct third side;
+    random triangle means all sides distinct. Twice the horizontal area divided by
+    longest side squared must be at least 0.05. Every center pair must be farther
+    apart than max(3 cm, 5% of the longest span). Object bounding boxes must have
+    at least 5 mm horizontal clearance. Preserve asset scales, release every object,
+    open the gripper, and keep supported objects below 0.02 m/s and 0.1 rad/s for
+    15 consecutive native samples. Recorded native robot control and grasp/contact
+    must cause object displacement exceeding the 3.5 cm initialization pose tolerance.
+    Simulator state setters and initialization placement do not count as rearrangement.
+  environment: The original objects, orientations, scales and room are retained. Their
+    seeded initial arrangement deliberately fails the requested shape. Objects share
+    a qualified support with space for grasping.
+  constraints:
+  - Use mounted observations and guarded robot controls.
+  - Preserve the starting support and task objects; no resizing or collapsed overlapping
+    formation.
+  - The original initial-state question and answer remain historical evidence.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    vertex_1:
+      name: obj1
+      category: lime_juice_bottle
+      model: bnekjp
+    vertex_2:
+      name: obj2
+      category: bottle_of_vinegar
+      model: snzyfk
+    vertex_3:
+      name: obj3
+      category: jar_of_jam
+      model: vxjbjf
+    source_floor:
+      name: floors_ciodcg_0
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.spatial_relations_geometric_configuration
+    operation: arrange_released_source_shape
+    binding_keys:
+    - vertex_1
+    - vertex_2
+    - vertex_3
+    - source_floor
+    parameters:
+      task_revision: task_edit2_20261018_v1
+      mechanism_contract: &id001
+        preserve:
+        - participating_object_identities
+        - asset_scales
+        - asset_orientations
+        - source_reference_camera
+        goal: stable_released_arrangement
+        shape: equilateral
+        plane: world_xy
+        initial_layout_policy: seeded_aabb_centers_v1
+        source_qa_role: historical_initial_state
+        already_satisfied_no_op_allowed: false
+      object_keys:
+      - vertex_1
+      - vertex_2
+      - vertex_3
+      target_shape: equilateral
+      source_positions:
+      - - 3.583239793777466
+        - 19.54673194885254
+        - 0.13273023068904877
+      - - 4.101785182952881
+        - 19.546735763549805
+        - 0.05882139131426811
+      - - 3.842512369155884
+        - 19.995803833007812
+        - 0.04998062178492546
+      source_quaternions:
+      - - 7.026537787169218e-07
+        - 3.805529559031129e-06
+        - 0.8726142644882202
+        - -0.48841023445129395
+      - - 6.223635864444077e-07
+        - -6.055518042558106e-07
+        - 0.9860575199127197
+        - 0.16640500724315643
+      - - -0.00013924689847044647
+        - -2.7775782655226067e-05
+        - -0.5649771094322205
+        - 0.8251065611839294
+      source_scales:
+      - 1.0
+      - 1.0
+      - 1.0
+      release_stability_steps: 15
+      completion_items:
+      - id: requested_shape
+      - id: robot_caused_rearrangement
+      - id: stable_released_support
+      initial_layout:
+        version: seeded_aabb_centers_v1
+        seed: 0
+        source_identity: Spatial Relations/Geometric Configuration/Beechwood_0_garden/utility_room_0/Beechwood_0_garden__utility_room_0_3.json
+        reference_points: horizontal_aabb_centers
+        initial_false_margin: 0.025
+      minimum_rearrangement_m: 0.035
+      source_assets:
+      - category: lime_juice_bottle
+        model: bnekjp
+      - category: bottle_of_vinegar
+        model: snzyfk
+      - category: jar_of_jam
+        model: vxjbjf
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: object_physics
+        phase: before_construction
+        binding: vertex_1
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: vertex_1
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: vertex_2
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: vertex_2
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: vertex_3
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: vertex_3
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - vertex_1
+        - vertex_2
+        - vertex_3
+        manipulation_bindings:
+        - vertex_1
+        - vertex_2
+        - vertex_3
+        relocation_policy: seeded_geometry
+        layout_parameters:
+          object_keys:
+          - vertex_1
+          - vertex_2
+          - vertex_3
+          target_shape: equilateral
+          seed: 0
+          source_identity: Spatial Relations/Geometric Configuration/Beechwood_0_garden/utility_room_0/Beechwood_0_garden__utility_room_0_3.json
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: utility_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  task_revision: task_edit2_20261018_v1
+  mechanism_contract: *id001

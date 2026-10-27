@@ -1,0 +1,840 @@
+{
+  "schema": "wia_furnished_existing_design_v1",
+  "entries": [
+    {
+      "document_alias": "T01",
+      "variant_id": "t01_furnished_existing_v1",
+      "label": "T01 open-furniture retrieval with retained parent goal",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/action_order_transfer_v2/t01_task.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/action_order_transfer_v2/t01_scene.yaml",
+      "source_identity": "Specular Reflection/Correspondence/Beechwood_0_garden/kitchen_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_existing_T01",
+        "scene_model": "Beechwood_0_garden",
+        "rooms": [
+          "kitchen_0"
+        ],
+        "floor_name": "floors_yrwwan_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "obj_fixed",
+            "category": "wicker_basket",
+            "model": "tsjvyu",
+            "position": [
+              -1.15,
+              15.85,
+              1.1696108667276748
+            ],
+            "orientation": [
+              0.00020672453683800995,
+              -0.00025485927471891046,
+              -7.157213985919952e-07,
+              1.0000001192092896
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj_A_correct",
+            "category": "pizza_box",
+            "model": "hvaucj",
+            "position": [
+              -3.73,
+              14.0,
+              1.1696108667276748
+            ],
+            "orientation": [
+              -7.802009349688888e-07,
+              1.3279321137815714e-05,
+              4.287558112991974e-07,
+              1.0000001192092896
+            ],
+            "scale": [
+              0.7373815765896378,
+              0.7373815765896378,
+              0.7373815765896378
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj_A_wrong",
+            "category": "pizza_box",
+            "model": "hvaucj",
+            "position": [
+              -2.5,
+              11.96,
+              1.1696108667276748
+            ],
+            "orientation": [
+              -1.2187520042061806e-06,
+              2.076386590488255e-05,
+              1.6522244550287724e-07,
+              1.0000001192092896
+            ],
+            "scale": [
+              0.4571887491248964,
+              0.4571887491248964,
+              0.4571887491248964
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj_C_correct",
+            "category": "lemon",
+            "model": "dsacfa",
+            "position": [
+              -0.35,
+              15.85,
+              1.1696108667276748
+            ],
+            "orientation": [
+              -0.086679607629776,
+              0.17074477672576904,
+              -0.009833233430981636,
+              0.9814459681510925
+            ],
+            "scale": [
+              1.5676430225490114,
+              1.5676430225490114,
+              1.5676430225490114
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj_C_wrong",
+            "category": "lemon",
+            "model": "dsacfa",
+            "position": [
+              -1.95,
+              11.96,
+              1.1696108667276748
+            ],
+            "orientation": [
+              -0.109947070479393,
+              0.16526144742965698,
+              -0.006264340132474899,
+              0.9800822734832764
+            ],
+            "scale": [
+              1.0242529064190258,
+              1.0242529064190258,
+              1.0242529064190258
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "obj_fixed",
+            "support": "countertop_tpuwys_0"
+          },
+          {
+            "name": "obj_A_correct",
+            "support": "countertop_tpuwys_1"
+          },
+          {
+            "name": "obj_A_wrong",
+            "support": "countertop_tpuwys_2"
+          },
+          {
+            "name": "obj_C_correct",
+            "support": "countertop_tpuwys_0"
+          },
+          {
+            "name": "obj_C_wrong",
+            "support": "countertop_tpuwys_2"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            -1.6,
+            14.98,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            -0.7071067811865475,
+            0.7071067811865476
+          ]
+        }
+      },
+      "source_reference_positions": {
+        "obj_fixed": [
+          2.316042423248291,
+          -11.263289451599121,
+          0.09201844781637192
+        ],
+        "obj_A_correct": [
+          1.5219632387161255,
+          -11.480606079101562,
+          0.0024277111515402794
+        ],
+        "obj_A_wrong": [
+          3.106523275375366,
+          -11.046906471252441,
+          0.0015036218101158738
+        ],
+        "obj_C_correct": [
+          2.7391905784606934,
+          -11.1430025100708,
+          0.05124829337000847
+        ],
+        "obj_C_wrong": [
+          1.9596294164657593,
+          -11.35621166229248,
+          0.033283960074186325
+        ]
+      },
+      "floor_binding_updates": {},
+      "public": {
+        "objective": "Retrieve the items from exposed room furniture. Follow this supplied order. Choose one pizza box as the base for B (the wicker basket). Grasp B, separate it from its current support, then place and release it on the chosen base until stable. Then choose one lemon, grasp and separate it from its current support, and place and release it on top of B until the whole stack is stable.",
+        "environment": "A furnished kitchen with the task items openly dispersed on exposed native furniture surfaces. The items are not deliberately hidden."
+      }
+    },
+    {
+      "document_alias": "T03",
+      "variant_id": "t03_furnished_existing_v1",
+      "label": "T03 open-furniture retrieval with retained parent goal",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Action Sequencing/Action Order Inference/office_cubicles_left/lobby_0/corev2__category_47e03b7b97473aacca3cfd04.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Action Sequencing/Action Order Inference/office_cubicles_left/lobby_0/corev2__category_47e03b7b97473aacca3cfd04.yaml",
+      "source_identity": "Specular Reflection/Correspondence/house_single_floor/utility_room_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_existing_T03",
+        "scene_model": "house_single_floor",
+        "rooms": [
+          "utility_room_0"
+        ],
+        "floor_name": "floors_glwobe_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "obj_fixed",
+            "category": "casserole",
+            "model": "mmbavt",
+            "position": [
+              24.51,
+              0.15,
+              1.2275437389647408
+            ],
+            "orientation": [
+              -7.992948667379096e-07,
+              -1.824919309001416e-05,
+              1.870439518825151e-07,
+              1.0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj_A_correct",
+            "category": "pizza_box",
+            "model": "hvaucj",
+            "position": [
+              21.94,
+              0.85,
+              1.215742944328716
+            ],
+            "orientation": [
+              -8.438946679234505e-07,
+              1.3699667761102319e-05,
+              6.794834916945547e-08,
+              1.0
+            ],
+            "scale": [
+              0.4228196153311746,
+              0.4228196153311746,
+              0.4228196153311746
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj_A_wrong",
+            "category": "pizza_box",
+            "model": "hvaucj",
+            "position": [
+              23.65,
+              -2.05,
+              1.2275426642390619
+            ],
+            "orientation": [
+              -1.9902654457837343e-07,
+              8.272560080513358e-06,
+              6.494483386632055e-07,
+              1.0
+            ],
+            "scale": [
+              0.26626975575856765,
+              0.26626975575856765,
+              0.26626975575856765
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj_C_correct",
+            "category": "pear",
+            "model": "ngtwvy",
+            "position": [
+              24.51,
+              1.35,
+              1.2275437389647408
+            ],
+            "orientation": [
+              -0.11799224466085434,
+              0.015591204166412354,
+              0.0018800348043441772,
+              0.9928903579711914
+            ],
+            "scale": [
+              0.9452510643519152,
+              0.9452510643519152,
+              0.9452510643519152
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj_C_wrong",
+            "category": "pear",
+            "model": "ngtwvy",
+            "position": [
+              21.94,
+              -0.25,
+              1.215742944328716
+            ],
+            "orientation": [
+              -0.09164750576019287,
+              0.007869500666856766,
+              0.001641400158405304,
+              0.995759129524231
+            ],
+            "scale": [
+              0.6849359494336409,
+              0.6849359494336409,
+              0.6849359494336409
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "obj_fixed",
+            "support": "countertop_ikwqer_0"
+          },
+          {
+            "name": "obj_A_correct",
+            "support": "countertop_fjkase_0"
+          },
+          {
+            "name": "obj_A_wrong",
+            "support": "countertop_sjxber_0"
+          },
+          {
+            "name": "obj_C_correct",
+            "support": "countertop_ikwqer_0"
+          },
+          {
+            "name": "obj_C_wrong",
+            "support": "countertop_fjkase_0"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            23.25,
+            0.15,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      },
+      "source_reference_positions": {
+        "obj_fixed": [
+          -2.3414461612701416,
+          -14.225539207458496,
+          0.01731964945793152
+        ],
+        "obj_A_correct": [
+          -1.8141534328460693,
+          -14.756863594055176,
+          0.0013814900303259492
+        ],
+        "obj_A_wrong": [
+          -2.812181234359741,
+          -13.751202583312988,
+          0.0008667096262797713
+        ],
+        "obj_C_correct": [
+          -2.0838124752044678,
+          -14.476935386657715,
+          0.030463578179478645
+        ],
+        "obj_C_wrong": [
+          -2.584716320037842,
+          -13.975913047790527,
+          0.021737752482295036
+        ]
+      },
+      "floor_binding_updates": {},
+      "public": {
+        "objective": "Retrieve the items from exposed room furniture. Follow this supplied order. Choose one pizza box as the base for B (the casserole). Grasp B, lift it at least 5 cm, then place and release it on the chosen base until stable. Then choose one pear, grasp and lift it at least 5 cm, and place and release it on top of B until the whole stack is stable.",
+        "environment": "A furnished utility room with the task items openly dispersed on exposed native furniture surfaces. The items are not deliberately hidden."
+      }
+    },
+    {
+      "document_alias": "T19",
+      "variant_id": "t19_furnished_existing_v1",
+      "label": "T19 open-furniture retrieval with retained parent goal",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical Dynamics/Stacking & Stability/house_single_floor/childs_room_0/corev2__category_4c36dd4dc5bbbe9bc7e787d1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Dynamics/Stacking & Stability/house_single_floor/childs_room_0/corev2__category_4c36dd4dc5bbbe9bc7e787d1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/Merom_0_garden/playroom_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_existing_T19",
+        "scene_model": "Merom_0_garden",
+        "rooms": [
+          "playroom_0"
+        ],
+        "floor_name": "floors_jrdgxz_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "stack_obj0",
+            "category": "paperback_book",
+            "model": "bisnup",
+            "position": [
+              -3.02,
+              -10.61,
+              1.1024741013978911
+            ],
+            "orientation": [
+              -7.123979184342488e-09,
+              -5.460531724565953e-07,
+              2.793971942693929e-09,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "stack_obj1",
+            "category": "bowl",
+            "model": "jblalf",
+            "position": [
+              -5.82,
+              -12.72,
+              1.1191993950803805
+            ],
+            "orientation": [
+              0.0012749484740197659,
+              7.833373820176348e-05,
+              -5.168320967641193e-06,
+              0.9999992847442627
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "stack_obj2",
+            "category": "lunch_box",
+            "model": "adxzhe",
+            "position": [
+              -5.82,
+              -10.6,
+              1.1191993950803805
+            ],
+            "orientation": [
+              1.1597876437008381e-08,
+              1.0129588190466166e-07,
+              1.3369572116062045e-08,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "stack_obj0",
+            "support": "bookcase_owvfik_0",
+            "support_surface_mode": "local_raycast",
+            "support_alignment_mode": "local_raycast"
+          },
+          {
+            "name": "stack_obj1",
+            "support": "countertop_tpuwys_0"
+          },
+          {
+            "name": "stack_obj2",
+            "support": "countertop_tpuwys_0"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            -4.8,
+            -11.45,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            1.0,
+            6.123233995736766e-17
+          ]
+        }
+      },
+      "source_reference_positions": {
+        "stack_obj0": [
+          23.429912567138672,
+          17.86972427368164,
+          0.004752142820507288
+        ],
+        "stack_obj1": [
+          23.747222900390625,
+          17.86978530883789,
+          0.03912317380309105
+        ],
+        "stack_obj2": [
+          24.005146026611328,
+          17.869884490966797,
+          0.03587300330400467
+        ]
+      },
+      "floor_binding_updates": {
+        "floor": "floors_jrdgxz_0"
+      },
+      "public": {
+        "objective": "Retrieve the items from exposed room furniture. Build one stable three-object tower using the paperback book, bowl, lunch box. Choose a bottom object on the starting support surface. Grasp and lift each of the other two objects at least 5 cm, place one on the bottom and the last on the middle, lower into support contact before opening the gripper, then withdraw and leave the tower untouched for at least one second. You may test another order by physically unstacking and rebuilding. Original auxiliary question: How should you stack bowl, lunch_box, paperback_book to maximize stability?",
+        "environment": "A furnished playroom with the task items openly dispersed on exposed native furniture surfaces. The items are not deliberately hidden."
+      }
+    },
+    {
+      "document_alias": "T20",
+      "variant_id": "t20_furnished_existing_v1",
+      "label": "T20 open-furniture retrieval with retained parent goal",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical Dynamics/Stacking & Stability/office_cubicles_right/lobby_0/corev2__category_32485510e87a6ad8f32178d7.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Dynamics/Stacking & Stability/office_cubicles_right/lobby_0/corev2__category_32485510e87a6ad8f32178d7.yaml",
+      "source_identity": "Specular Reflection/Correspondence/Beechwood_0_garden/kitchen_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_existing_T20",
+        "scene_model": "Beechwood_0_garden",
+        "rooms": [
+          "kitchen_0"
+        ],
+        "floor_name": "floors_yrwwan_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "stack_obj0",
+            "category": "can_of_tomatoes",
+            "model": "ckdouu",
+            "position": [
+              -1.15,
+              15.85,
+              1.1696108667276748
+            ],
+            "orientation": [
+              5.137114555964217e-08,
+              -9.715665783005534e-08,
+              1.0430748886847141e-07,
+              1.0000001192092896
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "stack_obj1",
+            "category": "mixing_bowl",
+            "model": "xifive",
+            "position": [
+              -3.73,
+              14.0,
+              1.1696108667276748
+            ],
+            "orientation": [
+              6.904522888362408e-05,
+              -1.978622458409518e-05,
+              -9.904761100187898e-07,
+              1.0000001192092896
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "stack_obj2",
+            "category": "tomato_sauce_jar",
+            "model": "krfzqk",
+            "position": [
+              -2.5,
+              11.96,
+              1.1696108667276748
+            ],
+            "orientation": [
+              -9.504146873950958e-07,
+              1.6897101886570454e-06,
+              -9.061390301212668e-06,
+              1.0000001192092896
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "stack_obj0",
+            "support": "countertop_tpuwys_0"
+          },
+          {
+            "name": "stack_obj1",
+            "support": "countertop_tpuwys_1"
+          },
+          {
+            "name": "stack_obj2",
+            "support": "countertop_tpuwys_2"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            -1.6,
+            14.98,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            -0.7071067811865475,
+            0.7071067811865476
+          ]
+        }
+      },
+      "source_reference_positions": {
+        "stack_obj0": [
+          -5.244593620300293,
+          -13.987441062927246,
+          0.05598088726401329
+        ],
+        "stack_obj1": [
+          -4.975824356079102,
+          -13.987449645996094,
+          0.05870718136429787
+        ],
+        "stack_obj2": [
+          -4.676246643066406,
+          -13.987439155578613,
+          0.08938486129045486
+        ]
+      },
+      "floor_binding_updates": {
+        "floor": "floors_yrwwan_0"
+      },
+      "public": {
+        "objective": "Retrieve the items from exposed room furniture. Build one stable three-object tower using the can of tomatoes, mixing bowl, tomato sauce jar. Choose a bottom object on the starting support surface. Grasp and lift each of the other two objects at least 5 cm, place one on the bottom and the last on the middle, lower into support contact before opening the gripper, then withdraw and leave the tower untouched for at least one second. You may test another order by physically unstacking and rebuilding. Original auxiliary question: How should you stack can_of_tomatoes, mixing_bowl, tomato_sauce_jar to maximize stability?",
+        "environment": "A furnished kitchen with the task items openly dispersed on exposed native furniture surfaces. The items are not deliberately hidden."
+      }
+    },
+    {
+      "document_alias": "T21",
+      "variant_id": "t21_furnished_existing_v1",
+      "label": "T21 open-furniture retrieval with retained parent goal",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical Dynamics/Stacking & Stability/restaurant_asian/bathroom_0/corev2__category_ff15948e066184024f87df96.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical Dynamics/Stacking & Stability/restaurant_asian/bathroom_0/corev2__category_ff15948e066184024f87df96.yaml",
+      "source_identity": "Specular Reflection/Correspondence/house_single_floor/utility_room_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_existing_T21",
+        "scene_model": "house_single_floor",
+        "rooms": [
+          "utility_room_0"
+        ],
+        "floor_name": "floors_glwobe_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "stack_obj0",
+            "category": "chopping_board",
+            "model": "afwefw",
+            "position": [
+              24.51,
+              0.15,
+              1.2275437389647408
+            ],
+            "orientation": [
+              -0.00019308613264001906,
+              -0.0003023631579708308,
+              1.0516476578459333e-07,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "stack_obj1",
+            "category": "shoe_box",
+            "model": "pitwey",
+            "position": [
+              21.94,
+              0.85,
+              1.215742944328716
+            ],
+            "orientation": [
+              -8.136530738056535e-08,
+              -6.460567902877301e-08,
+              9.97046569750637e-08,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "stack_obj2",
+            "category": "box_of_cookies",
+            "model": "ohhshb",
+            "position": [
+              23.65,
+              -2.05,
+              1.2275426642390619
+            ],
+            "orientation": [
+              -2.511503225832712e-06,
+              0.05781352519989014,
+              -3.641844159574248e-05,
+              0.9983274340629578
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "stack_obj0",
+            "support": "countertop_ikwqer_0"
+          },
+          {
+            "name": "stack_obj1",
+            "support": "countertop_fjkase_0"
+          },
+          {
+            "name": "stack_obj2",
+            "support": "countertop_sjxber_0"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            23.25,
+            0.15,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      },
+      "source_reference_positions": {
+        "stack_obj0": [
+          -8.055084228515625,
+          6.099613189697266,
+          0.009504147805273533
+        ],
+        "stack_obj1": [
+          -7.697297096252441,
+          6.099564075469971,
+          0.051026877015829086
+        ],
+        "stack_obj2": [
+          -7.318576335906982,
+          6.099562644958496,
+          0.03261776268482208
+        ]
+      },
+      "floor_binding_updates": {
+        "floor": "floors_glwobe_0"
+      },
+      "public": {
+        "objective": "Retrieve the items from exposed room furniture. Build one stable three-object tower using the chopping board, shoe box, box of cookies. Choose a bottom object on the starting support surface. Grasp and lift each of the other two objects at least 5 cm, place one on the bottom and the last on the middle, lower into support contact before opening the gripper, then withdraw and leave the tower untouched for at least one second. You may test another order by physically unstacking and rebuilding. Original auxiliary question: How should you stack box_of_cookies, chopping_board, shoe_box to maximize stability?",
+        "environment": "A furnished utility room with the task items openly dispersed on exposed native furniture surfaces. The items are not deliberately hidden."
+      }
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+kind: category_robot_task
+id: task_c74d20f3c6bf8587ea487146_controller_reset_v1
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Metric Comparison/Dimensional Size/Merom_0_garden/playroom_0/Merom_0_garden__playroom_0_8.json
+public:
+  objective: 'Which goblet is larger: the one near the baseball, or the one near the
+    cactus? Compare the identical asset copies by their uniform linear dimensions;
+    all dimensions scale together. Report "near the baseball" or "near the cactus"
+    before moving either copy. Select the original candidate that satisfies the comparison,
+    transport it to the countertop nearest the bottom cabinet in this room, place
+    it on top, release it and withdraw.'
+  success_criteria: Report the correct initial comparison before moving candidates.
+    Acquire the selected original object with the native gripper, then leave it stably
+    released at the named destination for 15 consecutive native samples below 0.02
+    m/s and 0.1 rad/s, with the robot withdrawn. Preserve all comparison references
+    and the other candidate.
+  environment: Explore the original scene using the robot mounted sensors and bounded
+    controls.
+  constraints:
+  - Compare the initial arrangement through mounted robot observations before intervention.
+  - Preserve original asset scales, reference identities and all unselected comparison
+    objects.
+  - Use guarded native manipulation; source answers do not establish physical placement.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    task_obj1:
+      name: task_obj1
+      category: goblet
+      model: nawrfs
+    task_obj2:
+      name: task_obj2
+      category: goblet
+      model: nawrfs
+    ref_obj1:
+      name: ref_obj1
+      category: baseball
+      model: zanmar
+    ref_obj2:
+      name: ref_obj2
+      category: cactus
+      model: imitmg
+    target:
+      name: task_obj2
+      category: goblet
+      model: nawrfs
+    destination:
+      name: countertop_tpuwys_0
+      category: countertop
+      model: tpuwys
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.dimensional_size
+    operation: compare_select_transport_place
+    binding_keys:
+    - task_obj1
+    - task_obj2
+    - ref_obj1
+    - ref_obj2
+    - target
+    - destination
+    parameters:
+      task_revision: task_edit2_controller_reset_20261018_v1
+      mechanism_contract: &id001
+        preserve:
+        - original_target_identity
+        - asset_scales
+        - comparison_reference_associations
+        - source_metric
+        - source_reference_camera
+        goal: comparison_then_transport_and_stable_release
+        comparison_kind: identical_asset_uniform_linear_scale
+        answer_before_intervention: true
+      expected_identity: near the cactus
+      placement_relation: on_top
+      selected_key: task_obj2
+      comparison_kind: identical_asset_uniform_linear_scale
+      source_objects:
+        ref_obj1:
+          _key: ref_obj1
+          category: baseball
+          model: zanmar
+          position:
+          - -2.3758277893066406
+          - -12.202845573425293
+          - 0.03463933244347572
+          quaternion_xyzw:
+          - -0.1329490840435028
+          - -0.11695998162031174
+          - -0.018914775922894478
+          - 0.9840158224105835
+          scale: 1.0
+        ref_obj2:
+          _key: ref_obj2
+          category: cactus
+          model: imitmg
+          position:
+          - -4.460615158081055
+          - -10.038774490356445
+          - 0.09524113684892654
+          quaternion_xyzw:
+          - 1.4103716239333153e-07
+          - -1.9313301891088486e-07
+          - -2.540109562687576e-07
+          - 1.000000238418579
+          scale: 1.0
+        task_obj1:
+          _key: task_obj1
+          category: goblet
+          model: nawrfs
+          position:
+          - -2.367645502090454
+          - -12.051850318908691
+          - 0.12230440974235535
+          quaternion_xyzw:
+          - -2.6309862732887268e-08
+          - 6.792834028601646e-08
+          - -1.579457602929324e-06
+          - 1.0000001192092896
+          scale: 1.0
+        task_obj2:
+          _key: task_obj2
+          category: goblet
+          model: nawrfs
+          position:
+          - -4.460546016693115
+          - -10.250045776367188
+          - 0.15462297201156616
+          quaternion_xyzw:
+          - 8.89413058757782e-08
+          - -3.9639417082071304e-08
+          - 2.0892002794425935e-07
+          - 1.0000001192092896
+          scale: 1.2642470994986448
+      source_reference_evidence: null
+      placement_destination:
+        binding:
+          name: countertop_tpuwys_0
+          category: countertop
+          model: tpuwys
+        public_label: the countertop nearest the bottom cabinet in this room
+        public_label_evidence:
+          kind: nearest_unique_room_landmark
+          landmark_binding:
+            name: bottom_cabinet_dajebq_0
+            category: bottom_cabinet
+            model: dajebq
+          source_root_distances_m:
+            countertop_tpuwys_0: 4.084596006276853
+            countertop_tpuwys_1: 4.204010007223079
+            countertop_tpuwys_2: 4.204010007223079
+          native_relation_verified: false
+        relation: on_top
+        selection_seed: 0
+        source: native_scene_inventory_observable_description
+        fit_verified: false
+        access_verified: false
+      release_stability_steps: 15
+      maximum_release_speed_m_s: 0.02
+      maximum_release_angular_speed_rad_s: 0.1
+      completion_items:
+      - id: initial_comparison
+      - id: correct_bound_selection
+      - id: stable_placement
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - task_obj1
+        - task_obj2
+        - ref_obj1
+        - ref_obj2
+        manipulation_bindings:
+        - task_obj1
+        - task_obj2
+        relocation_policy: comparison_pairs
+        placement_groups:
+        - - task_obj1
+          - ref_obj1
+        - - task_obj2
+          - ref_obj2
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: playroom_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - native_grasp_ik_and_aperture_pending
+        - comparison_pair_layout_adapted_requires_review
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+qualification:
+  on_failure: skip
+  target_movable_collidable: true
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  task_revision: task_edit_20261018_v1
+  mechanism_contract: *id001

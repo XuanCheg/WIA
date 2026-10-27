@@ -1,0 +1,491 @@
+kind: scene_patch
+id: category_417c33b7f9da9058fd795848__t28_furnished_tray_v2
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/Beechwood_0_garden/kitchen_0/wia_furnished_background_v1.json
+target: null
+qualification: null
+bindings:
+  vertex_1:
+    name: obj1
+    category: jar_of_sugar
+    model: vrmrci
+  initial_support_0:
+    name: countertop_tpuwys_0
+  vertex_2:
+    name: obj2
+    category: thyme_shaker
+    model: kuuwti
+  initial_support_1:
+    name: countertop_tpuwys_0
+  vertex_3:
+    name: obj3
+    category: vinegar_bottle
+    model: ykysuc
+  initial_support_2:
+    name: countertop_tpuwys_2
+  deck:
+    name: wia_tray_deck
+  rim_w:
+    name: wia_tray_rim_w
+  rim_e:
+    name: wia_tray_rim_e
+  rim_s:
+    name: wia_tray_rim_s
+  rim_n:
+    name: wia_tray_rim_n
+  tray_table:
+    name: countertop_tpuwys_1
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_spatial_tray
+        parameters:
+          revision: wia_spatial_tray_v1
+          scene_contract:
+            scene_model: Beechwood_0_garden
+            room: kitchen_0
+          layout:
+            shared_layout_id: wia_furnished_T28_v2
+            scene_model: Beechwood_0_garden
+            rooms:
+            - kitchen_0
+            floor_name: floors_yrwwan_0
+            objects:
+            - type: DatasetObject
+              name: obj1
+              category: jar_of_sugar
+              model: vrmrci
+              position:
+              - -1.15
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - -7.206806913018227e-06
+              - -0.0003121694317087531
+              - 0.6686335206031799
+              - 0.7435922026634216
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj2
+              category: thyme_shaker
+              model: kuuwti
+              position:
+              - -0.25
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - -0.0009973074775189161
+              - -0.00036772838211618364
+              - -0.7033123970031738
+              - 0.7108803391456604
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj3
+              category: vinegar_bottle
+              model: ykysuc
+              position:
+              - -2.2
+              - 11.96
+              - 1.1696108667276748
+              orientation:
+              - -9.745126590132713e-07
+              - -7.552007446065545e-07
+              - 0.9295969605445862
+              - 0.3685777485370636
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_deck
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 1.2
+              - 0.02
+              position:
+              - -3.73
+              - 13.55
+              - 0.8796108667276747
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_w
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.2
+              - 0.036
+              position:
+              - -3.9619999999999997
+              - 13.55
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_e
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.2
+              - 0.036
+              position:
+              - -3.498
+              - 13.55
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_s
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 0.016
+              - 0.036
+              position:
+              - -3.73
+              - 12.958
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_n
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 0.016
+              - 0.036
+              position:
+              - -3.73
+              - 14.142000000000001
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            supported_items:
+            - name: obj1
+              support: countertop_tpuwys_0
+            - name: obj2
+              support: countertop_tpuwys_0
+            - name: obj3
+              support: countertop_tpuwys_2
+            robot_start:
+              position:
+              - -2.75
+              - 13.55
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_spatial_tray
+        parameters:
+          revision: wia_spatial_tray_v1
+          scene_contract:
+            scene_model: Beechwood_0_garden
+            room: kitchen_0
+          layout:
+            shared_layout_id: wia_furnished_T28_v2
+            scene_model: Beechwood_0_garden
+            rooms:
+            - kitchen_0
+            floor_name: floors_yrwwan_0
+            objects:
+            - type: DatasetObject
+              name: obj1
+              category: jar_of_sugar
+              model: vrmrci
+              position:
+              - -1.15
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - -7.206806913018227e-06
+              - -0.0003121694317087531
+              - 0.6686335206031799
+              - 0.7435922026634216
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj2
+              category: thyme_shaker
+              model: kuuwti
+              position:
+              - -0.25
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - -0.0009973074775189161
+              - -0.00036772838211618364
+              - -0.7033123970031738
+              - 0.7108803391456604
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj3
+              category: vinegar_bottle
+              model: ykysuc
+              position:
+              - -2.2
+              - 11.96
+              - 1.1696108667276748
+              orientation:
+              - -9.745126590132713e-07
+              - -7.552007446065545e-07
+              - 0.9295969605445862
+              - 0.3685777485370636
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_deck
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 1.2
+              - 0.02
+              position:
+              - -3.73
+              - 13.55
+              - 0.8796108667276747
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_w
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.2
+              - 0.036
+              position:
+              - -3.9619999999999997
+              - 13.55
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_e
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.2
+              - 0.036
+              position:
+              - -3.498
+              - 13.55
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_s
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 0.016
+              - 0.036
+              position:
+              - -3.73
+              - 12.958
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_n
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 0.016
+              - 0.036
+              position:
+              - -3.73
+              - 14.142000000000001
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            supported_items:
+            - name: obj1
+              support: countertop_tpuwys_0
+            - name: obj2
+              support: countertop_tpuwys_0
+            - name: obj3
+              support: countertop_tpuwys_2
+            robot_start:
+              position:
+              - -2.75
+              - 13.55
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+seed: 0
+target_bindings: []
+runtime:
+  reflection_sensor_profile: {}
+  requires_native_visual_discovery: false
+  post_controller_settle_steps: 0
+  trunk_config: configs/esi_trunk.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0

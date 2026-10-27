@@ -1,0 +1,65 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "artifact_path_base": "absolute",
+  "status": "pending_native_review",
+  "native_validation_run": false,
+  "physical_success_verified": false,
+  "scientific_controls_verified": false,
+  "full_reference_execution": "deferred_until_user_review",
+  "entries": [
+    {
+      "document_alias": "T23",
+      "variant_id": "t23_source_aligned_capture_v2",
+      "label": "T23 source-aligned capture v2; criterion_4 QA identity preserved",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t23_capture_v2/task.yaml",
+      "task_sha256": "b5a183d303665691c13300b03aafb8310b055bc29846e3a7f9ecab160433f28e",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t23_capture_v2/scene.yaml",
+      "scene_sha256": "9f9d655724f60f0708a2fe385ed604d6d36857cf1f01e310c2a3fe60c9c2bcfb",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/tasks/rigid_t23_v1.yaml",
+      "parent_task_sha256": "e89be4743fe5937489e1b67925b8be245a6013086d605734954e9d0248fa01a8",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/scenes/rigid_t23_v1.yaml",
+      "parent_scene_sha256": "a6e03dcc38c2e6b50c0cd9686fa84bbc6e039b36179bdc9eae50f47d8f2334bd",
+      "variant": "tabletop",
+      "seed": 0,
+      "source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json",
+      "source_sha256": "3d5a24b945238a080f727335332d71334c1d76431abf5b5569aa49a5602afa37",
+      "task_source_sha256": "3d5a24b945238a080f727335332d71334c1d76431abf5b5569aa49a5602afa37",
+      "scene_source_sha256": "3d5a24b945238a080f727335332d71334c1d76431abf5b5569aa49a5602afa37",
+      "scene_model": "Beechwood_1_int",
+      "room": "television_room_0",
+      "module": "core.esi_converters.rigid_partial_insertion",
+      "task_id": "wia_rigid_t23_family_v1",
+      "task_version": 2,
+      "source_alignment_reason": "Align the scene source with the task criterion_4 QA source identity for sealed task/source agreement. The task QA identity is preserved and the native inventory is unchanged; historical original QA provenance is retained. This definition-only alignment does not establish native initialization, physical qualification or task success.",
+      "original_qa_provenance": {
+        "question_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json",
+        "question_source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json",
+        "question_source_sha256": "3d5a24b945238a080f727335332d71334c1d76431abf5b5569aa49a5602afa37",
+        "scene_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json",
+        "scene_source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json",
+        "scene_source_sha256": "b3605aab6b6009c9733f639a2649d56c604c88db76ce1b29ba86a103dcc4b0a7",
+        "original_qa_id": "2074",
+        "original_question": "Which container does each object best fit inside?\n- granola box\n- spray can\n- colored pencil\nContainers: bucket, mug, wicker basket",
+        "original_answer": "[{\"_key\":\"colored pencil\",\"value\":\"bucket\"},{\"_key\":\"granola box\",\"value\":\"wicker basket\"},{\"_key\":\"spray can\",\"value\":\"bucket\"}]",
+        "answer_type": "sequence",
+        "original_options": [
+          "bucket",
+          "mug",
+          "wicker basket"
+        ],
+        "verified_answer_by_public_label": {
+          "colored pencil": "bucket",
+          "granola box": "wicker basket",
+          "spray can": "bucket"
+        },
+        "verification_basis": "Original QA answer and named source target_container/idx metadata; no AABB inference."
+      },
+      "native_validation_run": false,
+      "physical_success_verified": false,
+      "physically_qualified": false,
+      "scientific_controls_verified": false,
+      "full_reference_execution": "deferred_until_user_review"
+    }
+  ]
+}

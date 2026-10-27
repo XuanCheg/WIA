@@ -1,0 +1,231 @@
+kind: category_robot_task
+id: task_55b6750f64537930372330e1
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Physical Dynamics/Stacking & Stability/Beechwood_0_garden/dining_room_0/Beechwood_0_garden__dining_room_0.json
+public:
+  objective: 'Build one stable three-object tower using the outline tray, coffee bean
+    jar, refried beans can. Choose a bottom object on the starting support surface.
+    Grasp and lift each of the other two objects at least 5 cm, place one on the bottom
+    and the last on the middle, lower into support contact before opening the gripper,
+    then withdraw and leave the tower untouched for at least one second. You may test
+    another order by physically unstacking and rebuilding. Original auxiliary question:
+    How should you stack coffee_bean_jar, outline_tray, refried_beans_can to maximize
+    stability?'
+  success_criteria: All three objects are upright and form a supported tower in any
+    stable order. The bottom touches the starting support surface; each upper touches
+    and rests on its predecessor, with no other support. Both upper objects have real
+    grasp, lift and release evidence. All robot hands are detached and withdrawn;
+    the tower stays still for one continuous second. The original answer is scored
+    separately as auxiliary QA.
+  environment: The original room contains the three original-size objects on accessible
+    starting supports.
+  constraints:
+  - Use only existing guarded base, arm, trunk, wrist and gripper controls.
+  - Keep task object sizes and task supports unchanged. Noncritical native movable
+    furniture may be moved using guarded arm and gripper actions.
+  - Use real pick-and-place; legacy mock grasp and kinematic placement are excluded.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    object_0:
+      name: stack_obj0
+      category: outline_tray
+      model: mmegts
+    object_1:
+      name: stack_obj1
+      category: coffee_bean_jar
+      model: loduxu
+    object_2:
+      name: stack_obj2
+      category: refried_beans_can
+      model: dafdgk
+    floor:
+      name: floors_jymrik_0
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.physical_dynamics_stacking_stability
+    operation: build_released_three_object_stack
+    binding_keys:
+    - object_0
+    - object_1
+    - object_2
+    - floor
+    parameters:
+      original_objects:
+        object_0:
+          name: stack_obj0
+          category: outline_tray
+          model: mmegts
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          position:
+          - -6.609689712524414
+          - 17.35474967956543
+          - 0.01773282140493393
+          quaternion_xyzw:
+          - 5.607034836430103e-09
+          - 5.1282995627843775e-08
+          - -1.8937498680315912e-08
+          - 1.0000001192092896
+          aabb_min:
+          - -6.673112392425537
+          - 17.21565055847168
+          - -2.9150396585464478e-06
+          aabb_max:
+          - -6.54668664932251
+          - 17.493785858154297
+          - 0.04473232850432396
+        object_1:
+          name: stack_obj1
+          category: coffee_bean_jar
+          model: loduxu
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          position:
+          - -6.388632297515869
+          - 17.354719161987305
+          - 0.08939202129840851
+          quaternion_xyzw:
+          - -4.741363227367401e-06
+          - 5.621579475700855e-06
+          - 2.938089892268181e-06
+          - 1.0000001192092896
+          aabb_min:
+          - -6.475732803344727
+          - 17.289735794067383
+          - -1.2673437595367432e-05
+          aabb_max:
+          - -6.319624900817871
+          - 17.419689178466797
+          - 0.2052668184041977
+        object_2:
+          name: stack_obj2
+          category: refried_beans_can
+          model: dafdgk
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          position:
+          - -6.161568641662598
+          - 17.35471534729004
+          - 0.08939201384782791
+          quaternion_xyzw:
+          - -3.861729055643082e-06
+          - 4.669127520173788e-06
+          - 5.935144145041704e-06
+          - 1.0000001192092896
+          aabb_min:
+          - -6.248671531677246
+          - 17.28973388671875
+          - -1.1615455150604248e-05
+          aabb_max:
+          - -6.092561721801758
+          - 17.419687271118164
+          - 0.20526628196239471
+      legacy_accepted_category_orders:
+      - - coffee_bean_jar
+        - refried_beans_can
+        - outline_tray
+      task_revision: task_edit_20261018_v1
+      mechanism_contract:
+        preserve:
+        - original_objects
+        - asset_scales
+        - native_grasp_release_history
+        goal: released_tower_after_robot_withdrawal
+        stability_seconds: 1.0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        position:
+        - -6.580744501061185
+        - 16.630283693230787
+        - -1.1615455150604248e-05
+        yaw_deg: 75.00000000000003
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 45.0
+      - operation: restore_robot_head_mount
+      - operation: object_physics
+        binding: object_0
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: object_0
+        visual_only: false
+      - operation: object_physics
+        binding: object_1
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: object_1
+        visual_only: false
+      - operation: object_physics
+        binding: object_2
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: object_2
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - object_0
+        - object_1
+        - object_2
+        manipulation_bindings:
+        - object_0
+        - object_1
+        - object_2
+        relocation_policy: independent_groups
+        placement_groups:
+        - - object_0
+        - - object_1
+        - - object_2
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: dining_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - independent_candidate_support_adaptation_requires_review
+        - source_qa_reference_layout_changed
+        - native_grasp_execution_unverified
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0

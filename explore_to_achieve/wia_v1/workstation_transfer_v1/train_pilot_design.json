@@ -1,0 +1,71 @@
+{
+  "schema": "wia_workstation_transfer_design_v1",
+  "entries": [
+    {
+      "document_alias": "D1-1",
+      "variant_id": "d1_1_seed101_v2_hall_train_v1",
+      "label": "D1-1 hall_train native scene pilot",
+      "parent_task_file": "explore_to_achieve/wia_v1/dimensional_v2/tasks/d1_1_seed101_v2.yaml",
+      "parent_scene_file": "explore_to_achieve/wia_v1/dimensional_v2/scenes/d1_1_seed101_v2.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_1_seed101_v2_hall_train_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_1_seed101_v2_hall_train_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_train_station/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_train_station",
+      "room": "empty_room_0",
+      "floor_name": "floors_rfqpbd_0",
+      "translation_m": [
+        -8,
+        1,
+        0
+      ]
+    },
+    {
+      "document_alias": "R-C2",
+      "variant_id": "r_c2_seed202_v1_hall_train_v1",
+      "label": "R-C2 hall_train native scene pilot",
+      "parent_task_file": "explore_to_achieve/wia_v1/mirror_v1/tasks/r_c2_seed202_v1.yaml",
+      "parent_scene_file": "explore_to_achieve/wia_v1/mirror_v1/scenes/r_c2_seed202_v1.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/r_c2_seed202_v1_hall_train_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/r_c2_seed202_v1_hall_train_v1.yaml",
+      "source_identity": "Specular Reflection/Correspondence/hall_train_station/empty_room_0/wia_background_v1.json",
+      "scene_model": "hall_train_station",
+      "room": "empty_room_0",
+      "floor_name": "floors_rfqpbd_0",
+      "translation_m": [
+        -8,
+        1,
+        0
+      ],
+      "object_overrides": {
+        "wia_mirror_cue_low": {
+          "position": [
+            0.7955000000000005,
+            0.20899999999999996,
+            0.95
+          ]
+        },
+        "wia_mirror_cue_high": {
+          "position": [
+            0.7955000000000005,
+            0.46099999999999997,
+            0.95
+          ]
+        },
+        "wia_mirror_cue_bottom": {
+          "position": [
+            0.7955000000000005,
+            0.33499999999999996,
+            0.694
+          ]
+        },
+        "wia_mirror_cue_top": {
+          "position": [
+            0.7955000000000005,
+            0.33499999999999996,
+            1.206
+          ]
+        }
+      }
+    }
+  ]
+}

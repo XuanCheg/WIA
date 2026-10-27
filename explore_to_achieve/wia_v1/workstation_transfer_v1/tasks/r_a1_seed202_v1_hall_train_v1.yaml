@@ -1,0 +1,1247 @@
+kind: category_robot_task
+id: wia_appearance_delivery_v1
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/hall_train_station/empty_room_0/wia_background_v1.json
+public:
+  objective: 'Inspect the grey block appearance inside the red outline in the initial head-camera
+    view. Report ANSWER: reflected or ANSWER: direct before grasping a candidate. Deliver
+    the corresponding real block to blue if the appearance is reflected, or to yellow if it
+    is direct.'
+  success_criteria: Report whether the initial framed appearance is reflected or direct before
+    the first candidate grasp, and deliver the corresponding real block to the declared color.
+    Use a genuine robot grasp to lift each required block at least 5 cm. Leave all required
+    blocks supported and released without robot contact for at least 0.5 seconds, with linear
+    speed at most 0.02 m/s and angular speed at most 0.1 rad/s. Leave the working hand empty
+    and open, withdraw the robot hands from the blocks, and declare DONE.
+  environment: A shared hall workstation with grey blocks, a physical mirror, a red outline,
+    blue and yellow pads, and a fixed yellow reference pillar.
+  constraints:
+  - Keep the table, pads, mirror, red outline and yellow reference pillar fixed; preserve
+    all object dimensions.
+  - Use the existing guarded public controls and robot-mounted observations.
+  - Interpret the requested appearance using the initial head-camera view. Later robot movement
+    does not redefine the requested real block.
+  - The first candidate grasp commits the real-object selection. Do not grasp a different
+    candidate.
+  - Keep each unselected block within 2 cm of its starting position.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    table:
+      name: wia_mirror_table
+      category: table
+    leg_0:
+      name: wia_mirror_leg_0
+      category: object
+    leg_1:
+      name: wia_mirror_leg_1
+      category: object
+    leg_2:
+      name: wia_mirror_leg_2
+      category: object
+    leg_3:
+      name: wia_mirror_leg_3
+      category: object
+    pad_blue:
+      name: wia_mirror_pad_blue
+      category: table
+    pad_yellow:
+      name: wia_mirror_pad_yellow
+      category: table
+    mirror:
+      name: wia_mirror_panel
+      category: object
+    mirror_post_0:
+      name: wia_mirror_mirror_post_0
+      category: object
+    mirror_post_1:
+      name: wia_mirror_mirror_post_1
+      category: object
+    anchor:
+      name: wia_reference_beacon
+      category: object
+    cue_low:
+      name: wia_mirror_cue_low
+      category: object
+    cue_high:
+      name: wia_mirror_cue_high
+      category: object
+    cue_bottom:
+      name: wia_mirror_cue_bottom
+      category: object
+    cue_top:
+      name: wia_mirror_cue_top
+      category: object
+    candidate_0:
+      name: wia_mirror_candidate_0
+      category: object
+    candidate_1:
+      name: wia_mirror_candidate_1
+      category: object
+    candidate_2:
+      name: wia_mirror_candidate_2
+      category: object
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.wia_mirror
+    operation: classify_appearance_deliver
+    binding_keys:
+    - table
+    - leg_0
+    - leg_1
+    - leg_2
+    - leg_3
+    - pad_blue
+    - pad_yellow
+    - mirror
+    - mirror_post_0
+    - mirror_post_1
+    - anchor
+    - cue_low
+    - cue_high
+    - cue_bottom
+    - cue_top
+    - candidate_0
+    - candidate_1
+    - candidate_2
+    parameters:
+      revision: wia_mirror_v2
+      operation: classify_appearance_deliver
+      candidates:
+        candidate_0: wia_mirror_candidate_0
+        candidate_1: wia_mirror_candidate_1
+        candidate_2: wia_mirror_candidate_2
+      candidate_dimensions_m:
+        candidate_0:
+        - 0.065
+        - 0.065
+        - 0.12
+        candidate_1:
+        - 0.065
+        - 0.065
+        - 0.12
+        candidate_2:
+        - 0.065
+        - 0.065
+        - 0.12
+      fixture_keys:
+      - table
+      - leg_0
+      - leg_1
+      - leg_2
+      - leg_3
+      - pad_blue
+      - pad_yellow
+      - mirror
+      - mirror_post_0
+      - mirror_post_1
+      - anchor
+      - cue_low
+      - cue_high
+      - cue_bottom
+      - cue_top
+      scoring:
+        minimum_lift_m: 0.05
+        stability_duration_s: 0.5
+        maximum_linear_speed_m_s: 0.02
+        maximum_angular_speed_rad_s: 0.1
+        max_sample_gap_s: 0.1
+        fixture_position_tolerance_m: 0.002
+        fixture_angle_tolerance_rad: 0.01
+        dimension_relative_tolerance: 1.0e-05
+        aperture_clearance_margin_m: 0.001
+        minimum_assignment_gap_m: 0.015
+        threshold_status: Explicit provisional development contract; native calibration and
+          legal reference execution deferred until user review.
+        unselected_position_tolerance_m: 0.02
+        minimum_required_motion_m: 0.05
+        selection_commitment: First post-begin native grasp commits the real object; a different
+          candidate grasp violates single-target selection. Spatial swap requires both targets.
+        optical_scope: Physical outcome and geometric selection are scored separately from
+          optical visibility/necessity. No mirrored segmentation-mask proxy or source QA truth.
+      table_key: table
+      mirror_key: mirror
+      cue_bindings:
+        lower_side: cue_low
+        upper_side: cue_high
+        roof: cue_top
+        floor: cue_bottom
+      anchor_key: anchor
+      destinations:
+        blue: pad_blue
+        yellow: pad_yellow
+      appearance_mode: reflected
+      completion_items:
+      - id: appearance_report
+        kind: historical_checkpoint
+      - id: selection
+        kind: historical_checkpoint
+      - id: grasp_lift
+        kind: historical_checkpoint
+      - id: stable_placement
+        kind: terminal_condition
+      scene_contract:
+        scene_model: hall_train_station
+        room: empty_room_0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_mirror
+        parameters:
+          revision: wia_mirror_v2
+          layout:
+            shared_layout_id: wia_hall_mirror_workstation_v1__r_a1_seed202_v1_hall_train_v1
+            scene_model: hall_train_station
+            rooms:
+            - empty_room_0
+            floor_name: floors_rfqpbd_0
+            objects:
+            - type: PrimitiveObject
+              name: wia_mirror_table
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.2
+              - 2.4
+              - 0.1
+              position:
+              - 0.0
+              - 0.0
+              - 0.61
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_leg_0
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - -0.5199999999999996
+              - -1.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_leg_1
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - -0.5199999999999996
+              - 1.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_leg_2
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - 0.5199999999999996
+              - -1.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_leg_3
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - 0.5199999999999996
+              - 1.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_pad_blue
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.3
+              - 0.35
+              - 0.012
+              position:
+              - 0.3200000000000003
+              - -0.6499999999999999
+              - 0.666
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.1
+              - 0.3
+              - 0.95
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_pad_yellow
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.3
+              - 0.35
+              - 0.012
+              position:
+              - 0.3200000000000003
+              - 0.65
+              - 0.666
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.8
+              - 0.1
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_panel
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.025
+              - 1.6
+              - 1.5
+              position:
+              - 0.8200000000000003
+              - 0.0
+              - 1.2
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.95
+              - 0.95
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_mirror_post_0
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.44
+              position:
+              - 0.8200000000000003
+              - -0.69
+              - 0.23
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_mirror_post_1
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.44
+              position:
+              - 0.8200000000000003
+              - 0.69
+              - 0.23
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_reference_beacon
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.1
+              - 0.1
+              - 0.3
+              position:
+              - 0.13000000000000078
+              - -1.04
+              - 0.81
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.8
+              - 0.1
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_cue_low
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.012
+              - 0.524
+              position:
+              - 0.7955000000000005
+              - 0.09399999999999997
+              - 0.95
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_cue_high
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.012
+              - 0.524
+              position:
+              - 0.7955000000000005
+              - 0.346
+              - 0.95
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_cue_bottom
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.24
+              - 0.012
+              position:
+              - 0.7955000000000005
+              - 0.21999999999999997
+              - 0.694
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_cue_top
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.24
+              - 0.012
+              position:
+              - 0.7955000000000005
+              - 0.21999999999999997
+              - 1.206
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_candidate_0
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.065
+              - 0.065
+              - 0.12
+              position:
+              - -0.40000000000000036
+              - -0.5
+              - 0.723
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_candidate_1
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.065
+              - 0.065
+              - 0.12
+              position:
+              - -0.40000000000000036
+              - 0.5
+              - 0.723
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_candidate_2
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.065
+              - 0.065
+              - 0.12
+              position:
+              - -0.40000000000000036
+              - 0.0
+              - 0.723
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            supported_items:
+            - name: wia_mirror_candidate_0
+              support: wia_mirror_table
+            - name: wia_mirror_candidate_1
+              support: wia_mirror_table
+            - name: wia_mirror_candidate_2
+              support: wia_mirror_table
+            robot_start:
+              position:
+              - -1.2999999999999998
+              - 0.0
+              - 0.11
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+          mirror_material:
+            binding: mirror
+            metallic_constant: 1.0
+            reflection_roughness_constant: 0.0
+            diffuse_color_constant:
+            - 0.95
+            - 0.95
+            - 0.95
+          mirror_key: mirror
+          scene_contract:
+            scene_model: hall_train_station
+            room: empty_room_0
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_mirror
+        parameters:
+          revision: wia_mirror_v2
+          layout:
+            shared_layout_id: wia_hall_mirror_workstation_v1__r_a1_seed202_v1_hall_train_v1
+            scene_model: hall_train_station
+            rooms:
+            - empty_room_0
+            floor_name: floors_rfqpbd_0
+            objects:
+            - type: PrimitiveObject
+              name: wia_mirror_table
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 1.2
+              - 2.4
+              - 0.1
+              position:
+              - 0.0
+              - 0.0
+              - 0.61
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_leg_0
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - -0.5199999999999996
+              - -1.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_leg_1
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - -0.5199999999999996
+              - 1.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_leg_2
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - 0.5199999999999996
+              - -1.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_leg_3
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.55
+              position:
+              - 0.5199999999999996
+              - 1.08
+              - 0.285
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_pad_blue
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.3
+              - 0.35
+              - 0.012
+              position:
+              - 0.3200000000000003
+              - -0.6499999999999999
+              - 0.666
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.1
+              - 0.3
+              - 0.95
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_pad_yellow
+              category: table
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.3
+              - 0.35
+              - 0.012
+              position:
+              - 0.3200000000000003
+              - 0.65
+              - 0.666
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.8
+              - 0.1
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_panel
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.025
+              - 1.6
+              - 1.5
+              position:
+              - 0.8200000000000003
+              - 0.0
+              - 1.2
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.95
+              - 0.95
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_mirror_post_0
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.44
+              position:
+              - 0.8200000000000003
+              - -0.69
+              - 0.23
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_mirror_post_1
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.44
+              position:
+              - 0.8200000000000003
+              - 0.69
+              - 0.23
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_reference_beacon
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.1
+              - 0.1
+              - 0.3
+              position:
+              - 0.13000000000000078
+              - -1.04
+              - 0.81
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.8
+              - 0.1
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_cue_low
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.012
+              - 0.524
+              position:
+              - 0.7955000000000005
+              - 0.09399999999999997
+              - 0.95
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_cue_high
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.012
+              - 0.524
+              position:
+              - 0.7955000000000005
+              - 0.346
+              - 0.95
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_cue_bottom
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.24
+              - 0.012
+              position:
+              - 0.7955000000000005
+              - 0.21999999999999997
+              - 0.694
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_cue_top
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.24
+              - 0.012
+              position:
+              - 0.7955000000000005
+              - 0.21999999999999997
+              - 1.206
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_candidate_0
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.065
+              - 0.065
+              - 0.12
+              position:
+              - -0.40000000000000036
+              - -0.5
+              - 0.723
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_candidate_1
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.065
+              - 0.065
+              - 0.12
+              position:
+              - -0.40000000000000036
+              - 0.5
+              - 0.723
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            - type: PrimitiveObject
+              name: wia_mirror_candidate_2
+              category: object
+              primitive_type: Cube
+              size: 1.0
+              scale:
+              - 0.065
+              - 0.065
+              - 0.12
+              position:
+              - -0.40000000000000036
+              - 0.0
+              - 0.723
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.65
+              - 0.65
+              - 1.0
+            supported_items:
+            - name: wia_mirror_candidate_0
+              support: wia_mirror_table
+            - name: wia_mirror_candidate_1
+              support: wia_mirror_table
+            - name: wia_mirror_candidate_2
+              support: wia_mirror_table
+            robot_start:
+              position:
+              - -1.2999999999999998
+              - 0.0
+              - 0.11
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+          mirror_material:
+            binding: mirror
+            metallic_constant: 1.0
+            reflection_roughness_constant: 0.0
+            diffuse_color_constant:
+            - 0.95
+            - 0.95
+            - 0.95
+          mirror_key: mirror
+          scene_contract:
+            scene_model: hall_train_station
+            room: empty_room_0
+qualification:
+  on_failure: skip
+  target_movable_collidable: true
+  support: null
+  initial_visibility: none
+defaults:
+  seed: 202
+  max_steps: 240
+  world_advances_during_inference: true
+  observation_condition: current
+  action_mode: parameterized
+repair:
+  contract_revision: wia_mirror_v2
+  design_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_design.json
+  design_sha256: 2b58a9f83e4e55989b5decc2f30a086c6cd3a38d31bc6d25c82bea21d1f55435
+  source_role: background_loader_only; original optical inventory and QA are replaced explicitly
+    by active_layout; no original optical answer is reused
+  budget_status: Explicit provisional 240-decision development budget.
+  runtime:
+    reflection_sensor_profile: {}
+    requires_native_visual_discovery: false
+    post_controller_settle_steps: 0
+    trunk_config: configs/esi_trunk.json
+    robot_camera_config: configs/esi_robot_cameras.json
+    viewer_config: configs/esi_viewer.json
+    camera_size:
+    - 512
+    - 512
+    viewer_main_view: global_diagonal
+    debug_cameras: true
+    human_depth_visualizations: true
+    preview_fps: 2.0
+  native_optics_verified: false
+  physical_success_verified: false
+  full_reference_execution: pending
+  parent_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_a1_seed202_v1.yaml
+  parent_task_sha256: 64227cc9a0d0600f368b6198c9be4f355a7d1019b446f94eddece323c569f7e0
+  parent_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_a1_seed202_v1.yaml
+  parent_scene_sha256: 0ab505818387101341de60c0ff220000d57b68df87f1fe9ff488acc94a948aa7
+  source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Specular
+    Reflection/Correspondence/hall_train_station/empty_room_0/wia_background_v1.json
+  source_sha256: bc716ec89327b1a3109006b28d7bf3050497be5bc3603c2f4e6666f8c16c7cf7
+  document_alias: R-A1
+  variant_id: r_a1_seed202_v1_hall_train_v1
+  label: R-A1 hall_train native scene diversity
+  translation_m:
+  - -8
+  - 1
+  - 0
+  object_overrides: {}
+  scene_contract:
+    scene_model: hall_train_station
+    room: empty_room_0
+  native_validation_run: false
+  native_geometry_verified: false
+  native_visibility_verified: false
+  native_shape_verified: false
+  native_hand_path_verified: false
+  native_gripper_path_verified: false
+  native_selected_identity_verified: false
+  native_non_goal_initialization_verified: false
+  scientific_controls_verified: false
+  continuous_path_certified: false

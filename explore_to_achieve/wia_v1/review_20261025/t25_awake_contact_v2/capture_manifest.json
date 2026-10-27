@@ -1,0 +1,18 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "entries": [
+    {
+      "document_alias": "T25",
+      "variant_id": "t25_awake_contact_v2",
+      "label": "T25 furnished partial insertion / explicit awake-target contact protocol",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/t25_awake_contact_v2/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/t25_awake_contact_v2/scene.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/rigid/t25_furnished_native_support_v1/task.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/rigid/t25_furnished_native_support_v1/scene.yaml",
+      "variant": "tabletop",
+      "seed": 0,
+      "native_validation_run": false,
+      "physical_success_verified": false
+    }
+  ]
+}

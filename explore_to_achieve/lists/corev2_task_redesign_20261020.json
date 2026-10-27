@@ -1,0 +1,2097 @@
+{
+  "schema": "corev2_task_redesign_v1",
+  "updated_at": "2026-10-20T18:33:20.396404+00:00",
+  "retired": [
+    {
+      "candidate_id": "category_0b8fc74b233237c1503434dc",
+      "source_subclasses": [
+        "Physical Dynamics/Inclined Plane"
+      ],
+      "source_identities": [
+        "Physical Dynamics/Inclined Plane/house_single_floor/childs_room_0/house_single_floor__childs_room_0__run_000.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Physical Dynamics",
+      "subcategory": "Inclined Plane",
+      "scene": "house_single_floor",
+      "room": "childs_room_0",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": "",
+      "warning_codes": [
+        "assumption_review_required",
+        "conservative_stance_radius_exceeded",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_pickup_bounds_and_physics_required",
+        "native_pickup_contact_feasibility_pending",
+        "native_reach_and_route_unverified",
+        "native_runoff_and_release_pending",
+        "native_whole_apparatus_support_pending",
+        "original_default_target_physics_native_receipt_required",
+        "source_30_steps_do_not_certify_one_second_runoff"
+      ],
+      "setup_warning_codes": [
+        "native_whole_apparatus_support_pending",
+        "native_pickup_bounds_and_physics_required",
+        "native_runoff_and_release_pending",
+        "native_grasp_execution_unverified",
+        "initial_base_approach_required",
+        "conservative_stance_radius_exceeded",
+        "native_reach_and_route_unverified"
+      ],
+      "task_file": "explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/childs_room_0/corev2__category_0b8fc74b233237c1503434dc.yaml",
+      "scene_file": "explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/childs_room_0/corev2__category_0b8fc74b233237c1503434dc.yaml",
+      "objective": "Grasp the bowl from its initialized pickup on the elevated complete ramp apparatus, lift it clear, lower it onto the ramp upper face until supported, release it and withdraw. Observe one uninterrupted second of stable, sliding or rolling motion; use the full selected apparatus deck as the safe runoff region. Original auxiliary question: Do you think the bowl will stay stable (not slide) when placed on the slope?",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "assumption_review_required",
+        "camera_visual_review_notes",
+        "conservative_stance_radius_exceeded",
+        "execution_not_qualified",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_pickup_bounds_and_physics_required",
+        "native_pickup_contact_feasibility_pending",
+        "native_reach_and_route_unverified",
+        "native_runoff_and_release_pending",
+        "native_whole_apparatus_support_pending",
+        "original_default_target_physics_native_receipt_required",
+        "source_30_steps_do_not_certify_one_second_runoff"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_0b8fc74b233237c1503434dc.json",
+      "evidence_sha256": "40231ad2a654de35668355aa18556daae13604c8d9086aa45c53f1a05761c975",
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current",
+        "finding": "Source Scene is dominated by robot base. Ramp/bowl are visible in object views; head framing is weak and white surfaces have low contrast.",
+        "mount_calibration_verified": false
+      }
+    },
+    {
+      "candidate_id": "category_eed1d3a8b7293a5df95cfbe8",
+      "source_subclasses": [
+        "Physical Dynamics/Inclined Plane"
+      ],
+      "source_identities": [
+        "Physical Dynamics/Inclined Plane/house_single_floor/kitchen_0/house_single_floor__kitchen_0__run_000.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Physical Dynamics",
+      "subcategory": "Inclined Plane",
+      "scene": "house_single_floor",
+      "room": "kitchen_0",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": "",
+      "warning_codes": [
+        "assumption_review_required",
+        "conservative_stance_radius_exceeded",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_pickup_bounds_and_physics_required",
+        "native_pickup_contact_feasibility_pending",
+        "native_reach_and_route_unverified",
+        "native_runoff_and_release_pending",
+        "native_whole_apparatus_support_pending",
+        "original_default_target_physics_native_receipt_required",
+        "source_30_steps_do_not_certify_one_second_runoff",
+        "user_authorized_simple_support_added"
+      ],
+      "setup_warning_codes": [
+        "native_whole_apparatus_support_pending",
+        "native_pickup_bounds_and_physics_required",
+        "native_runoff_and_release_pending",
+        "native_grasp_execution_unverified",
+        "user_authorized_simple_support_added",
+        "initial_base_approach_required",
+        "conservative_stance_radius_exceeded",
+        "native_reach_and_route_unverified"
+      ],
+      "task_file": "explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/kitchen_0/corev2__category_eed1d3a8b7293a5df95cfbe8.yaml",
+      "scene_file": "explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/kitchen_0/corev2__category_eed1d3a8b7293a5df95cfbe8.yaml",
+      "objective": "Grasp the avocado from its initialized pickup on the elevated complete ramp apparatus, lift it clear, lower it onto the ramp upper face until supported, release it and withdraw. Observe one uninterrupted second of stable, sliding or rolling motion; use the full selected apparatus deck as the safe runoff region. Original auxiliary question: Do you think the avocado will stay stable (not slide) when placed on the slope?",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "assumption_review_required",
+        "camera_visual_review_notes",
+        "conservative_stance_radius_exceeded",
+        "execution_not_qualified",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_pickup_bounds_and_physics_required",
+        "native_pickup_contact_feasibility_pending",
+        "native_reach_and_route_unverified",
+        "native_runoff_and_release_pending",
+        "native_whole_apparatus_support_pending",
+        "original_default_target_physics_native_receipt_required",
+        "source_30_steps_do_not_certify_one_second_runoff",
+        "user_authorized_simple_support_added"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_eed1d3a8b7293a5df95cfbe8.json",
+      "evidence_sha256": "7caf5589290f5f50b32ea9db1059cab62f6e854912771087cdb77bdd99a968c8",
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current",
+        "finding": "Source Scene frames floor/table underside instead of the apparatus. Head/object cameras show the ramp and avocado.",
+        "mount_calibration_verified": false
+      }
+    },
+    {
+      "candidate_id": "category_20bf03a28735924cfbb774ce",
+      "source_subclasses": [
+        "Physical Dynamics/Inclined Plane"
+      ],
+      "source_identities": [
+        "Physical Dynamics/Inclined Plane/house_single_floor/entryway_0/house_single_floor__entryway_0__run_000.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Physical Dynamics",
+      "subcategory": "Inclined Plane",
+      "scene": "house_single_floor",
+      "room": "entryway_0",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": "",
+      "warning_codes": [
+        "assumption_review_required",
+        "conservative_stance_radius_exceeded",
+        "dynamic_background_settled_during_initialization_requires_review",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_pickup_bounds_and_physics_required",
+        "native_pickup_contact_feasibility_pending",
+        "native_reach_and_route_unverified",
+        "native_runoff_and_release_pending",
+        "native_whole_apparatus_support_pending",
+        "original_default_target_physics_native_receipt_required",
+        "source_30_steps_do_not_certify_one_second_runoff",
+        "user_authorized_simple_support_added"
+      ],
+      "setup_warning_codes": [
+        "native_whole_apparatus_support_pending",
+        "native_pickup_bounds_and_physics_required",
+        "native_runoff_and_release_pending",
+        "native_grasp_execution_unverified",
+        "dynamic_background_settled_during_initialization_requires_review",
+        "user_authorized_simple_support_added",
+        "initial_base_approach_required",
+        "conservative_stance_radius_exceeded",
+        "native_reach_and_route_unverified"
+      ],
+      "task_file": "explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/entryway_0/corev2__category_20bf03a28735924cfbb774ce.yaml",
+      "scene_file": "explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/entryway_0/corev2__category_20bf03a28735924cfbb774ce.yaml",
+      "objective": "Grasp the vase from its initialized pickup on the elevated complete ramp apparatus, lift it clear, lower it onto the ramp upper face until supported, release it and withdraw. Observe one uninterrupted second of stable, sliding or rolling motion; use the full selected apparatus deck as the safe runoff region. Original auxiliary question: Do you think the vase will stay stable (not slide) when placed on the slope?",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "assumption_review_required",
+        "camera_visual_review_notes",
+        "conservative_stance_radius_exceeded",
+        "dynamic_background_settled_during_initialization_requires_review",
+        "execution_not_qualified",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_pickup_bounds_and_physics_required",
+        "native_pickup_contact_feasibility_pending",
+        "native_reach_and_route_unverified",
+        "native_runoff_and_release_pending",
+        "native_whole_apparatus_support_pending",
+        "original_default_target_physics_native_receipt_required",
+        "source_30_steps_do_not_certify_one_second_runoff",
+        "user_authorized_simple_support_added"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_20bf03a28735924cfbb774ce.json",
+      "evidence_sha256": "93ac7e2b7624ee2a4951ab1767a1b25445598880bbbad93c2cd934ac072e9fbb",
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current",
+        "finding": "Source Scene frames floor/corridor; head partly frames the apparatus. Object side/detail views show the ramp and vase.",
+        "mount_calibration_verified": false
+      }
+    },
+    {
+      "candidate_id": "category_7adf37c037d6408f300d4b10",
+      "source_subclasses": [
+        "Physical Structure/Deformable"
+      ],
+      "source_identities": [
+        "Physical Structure/Deformable/hall_arch_wood/bathroom_0/q_002.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Physical Structure",
+      "subcategory": "Deformable",
+      "scene": "hall_arch_wood",
+      "room": "bathroom_0",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": "",
+      "warning_codes": [
+        "assumption_review_required",
+        "covered_pair_accessible_support_requires_review",
+        "injected_r1_assisted_mode_requires_integration",
+        "interaction_layout_native_review_pending",
+        "native_cloth_cover_after_translation_unverified",
+        "native_full_cloth_footprint_required",
+        "native_grasp_execution_unverified",
+        "native_mesh_translation_and_settled_cover_pending",
+        "native_sweep_and_grasp_unverified",
+        "shared_robot_initialization_order_requires_integration",
+        "source_qa_reference_layout_changed",
+        "user_authorized_simple_support_added"
+      ],
+      "setup_warning_codes": [
+        "covered_pair_accessible_support_requires_review",
+        "native_cloth_cover_after_translation_unverified",
+        "source_qa_reference_layout_changed",
+        "native_full_cloth_footprint_required",
+        "native_mesh_translation_and_settled_cover_pending",
+        "native_grasp_execution_unverified",
+        "user_authorized_simple_support_added"
+      ],
+      "task_file": "explore_to_achieve/tasks/Physical Structure/Deformable/hall_arch_wood/bathroom_0/corev2__category_7adf37c037d6408f300d4b10.yaml",
+      "scene_file": "explore_to_achieve/scenes/Physical Structure/Deformable/hall_arch_wood/bathroom_0/corev2__category_7adf37c037d6408f300d4b10.yaml",
+      "objective": "Use the working gripper to gently sweep the original cloth sideways until the covered item is exposed. Keep the item in its starting place while uncovering it. Then grasp the exposed item, lift it clear of its starting support and cloth, and hold it steadily.",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "assumption_review_required",
+        "camera_visual_review_notes",
+        "covered_pair_accessible_support_requires_review",
+        "execution_not_qualified",
+        "injected_r1_assisted_mode_requires_integration",
+        "interaction_layout_native_review_pending",
+        "native_cloth_cover_after_translation_unverified",
+        "native_full_cloth_footprint_required",
+        "native_grasp_execution_unverified",
+        "native_mesh_translation_and_settled_cover_pending",
+        "native_sweep_and_grasp_unverified",
+        "shared_robot_initialization_order_requires_integration",
+        "source_qa_reference_layout_changed",
+        "user_authorized_simple_support_added"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_7adf37c037d6408f300d4b10.json",
+      "evidence_sha256": "18698a4ee4dacd7bea07e159bced5ab4f7cd1a9eaab2d89d7b2a7485f6cd5de6",
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current",
+        "finding": "Head/object framing is usable, but the nominally covered item is already largely exposed beside the cloth. This is a task-initialization ambiguity, not proof of a camera-mount error.",
+        "mount_calibration_verified": false
+      }
+    },
+    {
+      "candidate_id": "category_2824b7b487f4e1f369e87aee",
+      "source_subclasses": [
+        "Physical Structure/Deformable"
+      ],
+      "source_identities": [
+        "Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Physical Structure",
+      "subcategory": "Deformable",
+      "scene": "hall_arch_wood",
+      "room": "empty_room_0",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": "",
+      "warning_codes": [
+        "assumption_review_required",
+        "covered_pair_accessible_support_requires_review",
+        "injected_r1_assisted_mode_requires_integration",
+        "interaction_layout_native_review_pending",
+        "native_cloth_cover_after_translation_unverified",
+        "native_full_cloth_footprint_required",
+        "native_grasp_execution_unverified",
+        "native_mesh_translation_and_settled_cover_pending",
+        "native_sweep_and_grasp_unverified",
+        "shared_robot_initialization_order_requires_integration",
+        "source_qa_reference_layout_changed",
+        "user_authorized_simple_support_added"
+      ],
+      "setup_warning_codes": [
+        "covered_pair_accessible_support_requires_review",
+        "native_cloth_cover_after_translation_unverified",
+        "source_qa_reference_layout_changed",
+        "native_full_cloth_footprint_required",
+        "native_mesh_translation_and_settled_cover_pending",
+        "native_grasp_execution_unverified",
+        "user_authorized_simple_support_added"
+      ],
+      "task_file": "explore_to_achieve/tasks/Physical Structure/Deformable/hall_arch_wood/empty_room_0/corev2__category_2824b7b487f4e1f369e87aee.yaml",
+      "scene_file": "explore_to_achieve/scenes/Physical Structure/Deformable/hall_arch_wood/empty_room_0/corev2__category_2824b7b487f4e1f369e87aee.yaml",
+      "objective": "Use the working gripper to gently sweep the original cloth sideways until the covered item is exposed. Keep the item in its starting place while uncovering it. Then grasp the exposed item, lift it clear of its starting support and cloth, and hold it steadily.",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "assumption_review_required",
+        "camera_visual_review_notes",
+        "covered_pair_accessible_support_requires_review",
+        "execution_not_qualified",
+        "initial_global_small_object_scale",
+        "injected_r1_assisted_mode_requires_integration",
+        "interaction_layout_native_review_pending",
+        "native_cloth_cover_after_translation_unverified",
+        "native_full_cloth_footprint_required",
+        "native_grasp_execution_unverified",
+        "native_mesh_translation_and_settled_cover_pending",
+        "native_sweep_and_grasp_unverified",
+        "shared_robot_initialization_order_requires_integration",
+        "source_qa_reference_layout_changed",
+        "user_authorized_simple_support_added"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_2824b7b487f4e1f369e87aee.json",
+      "evidence_sha256": "81e04768aff4b2e081a5912431fa086532235829c2aeff173321852ae2fc7137",
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current",
+        "finding": "Full-resolution comparison with the close overhead view identifies the gray surface as the hall floor, not an occluding roof. The robot and task objects are visible but small in the whole-loaded-floor overview. Preserve the common overview extent; use separate human closeups for detailed review.",
+        "mount_calibration_verified": false,
+        "correction": "The earlier roof-only classification was a visual audit error, corrected on 2026-10-20.",
+        "mounted_calibration": "unverified"
+      }
+    },
+    {
+      "candidate_id": "category_1ed8ec9964afccff526c97b8",
+      "source_subclasses": [
+        "Temporal Understanding/Agent Observation"
+      ],
+      "source_identities": [
+        "Temporal Understanding/Agent Observation/hall_conference_large/bathroom_0/hall_conference_large__bathroom_0__run_000.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Temporal Understanding",
+      "subcategory": "Agent Observation",
+      "scene": "hall_conference_large",
+      "room": "bathroom_0",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": "",
+      "warning_codes": [
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified"
+      ],
+      "setup_warning_codes": [
+        "initial_base_approach_required",
+        "native_grasp_execution_unverified"
+      ],
+      "task_file": "explore_to_achieve/tasks/Temporal Understanding/Agent Observation/hall_conference_large/bathroom_0/corev2__category_1ed8ec9964afccff526c97b8.yaml",
+      "scene_file": "explore_to_achieve/scenes/Temporal Understanding/Agent Observation/hall_conference_large/bathroom_0/corev2__category_1ed8ec9964afccff526c97b8.yaml",
+      "objective": "Survey all 3 distinct targets along this route: Survey the red, green and blue table landmarks in the bathroom 0, changing viewpoint as needed. Remember actual first sightings; the listed landmarks do not prescribe encounter order. Target inventory: the bottle of soda at the red table; the jar of jam at the green table; the box of sanitary napkins at the blue table. Remember their first-observed order. After observing every target from an informative legal viewpoint, submit ANSWER: SURVEY_COMPLETE. A reproducible rank question will then be revealed. Identify that history-selected target, retrieve it, and place it on the blue-rimmed delivery tray.",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "camera_visual_review_notes",
+        "execution_not_qualified",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_1ed8ec9964afccff526c97b8.json",
+      "evidence_sha256": "07a84788ab64a0fc79fd8e949b5964f43e969d6752fc8311156a59b5caab2f27",
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current",
+        "finding": "Head and object views are legible. Initial overview includes all colored landmarks; simultaneous-target shortcuts require temporal-evidence validation. Repeated Globals add little coverage.",
+        "mount_calibration_verified": false
+      }
+    },
+    {
+      "candidate_id": "category_ce08ee016fe57c3ea9b1797b",
+      "source_subclasses": [
+        "Temporal Understanding/Agent Observation"
+      ],
+      "source_identities": [
+        "Temporal Understanding/Agent Observation/school_gym/locker_room_1/school_gym__locker_room_1__run_000.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Temporal Understanding",
+      "subcategory": "Agent Observation",
+      "scene": "school_gym",
+      "room": "locker_room_1",
+      "setup_status": "setup_accepted",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": "",
+      "warning_codes": [
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified"
+      ],
+      "setup_warning_codes": [
+        "native_grasp_execution_unverified"
+      ],
+      "task_file": "explore_to_achieve/tasks/Temporal Understanding/Agent Observation/school_gym/locker_room_1/corev2__category_ce08ee016fe57c3ea9b1797b.yaml",
+      "scene_file": "explore_to_achieve/scenes/Temporal Understanding/Agent Observation/school_gym/locker_room_1/corev2__category_ce08ee016fe57c3ea9b1797b.yaml",
+      "objective": "Survey all 3 distinct targets along this route: Survey the red, green and blue table landmarks in the locker room 1, changing viewpoint as needed. Remember actual first sightings; the listed landmarks do not prescribe encounter order. Target inventory: the mug at the red table; the jar of jam at the green table; the box of sanitary napkins at the blue table. Remember their first-observed order. After observing every target from an informative legal viewpoint, submit ANSWER: SURVEY_COMPLETE. A reproducible rank question will then be revealed. Identify that history-selected target, retrieve it, and place it on the blue-rimmed delivery tray.",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "camera_visual_review_notes",
+        "execution_not_qualified",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_ce08ee016fe57c3ea9b1797b.json",
+      "evidence_sha256": "9e2b9e154686aad58fe967b476c5e9f67c453a8ea66191b3f09d8a1021bb4647",
+      "camera_audit": {
+        "status": "review_notes",
+        "evidence_scope": "current",
+        "finding": "Head faces nearby lockers/blue table; other targets require turning. Object views show all landmarks. Initial overview may simplify the intended history task.",
+        "mount_calibration_verified": false
+      }
+    },
+    {
+      "candidate_id": "category_4a5ba221f9e00dd17c77c541",
+      "source_subclasses": [
+        "Temporal Understanding/Unobserved Change"
+      ],
+      "source_identities": [
+        "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/change_detection__q_000.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Temporal Understanding",
+      "subcategory": "Unobserved Change",
+      "scene": "house_single_floor",
+      "room": "dining_room_0",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": "",
+      "warning_codes": [
+        "accessible_layout_differs_from_original_reference",
+        "accessible_temporal_container_placement",
+        "assumption_review_required",
+        "conservative_stance_radius_exceeded",
+        "external_source_phase_transition",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_reach_and_route_unverified",
+        "native_temporal_execution_unverified",
+        "native_temporal_support_unverified",
+        "source_content_container_clearance_requires_native_check",
+        "unsupported_initial_object_requires_support_repair"
+      ],
+      "setup_warning_codes": [
+        "accessible_temporal_container_placement",
+        "conservative_stance_radius_exceeded",
+        "initial_base_approach_required",
+        "native_grasp_execution_unverified",
+        "native_reach_and_route_unverified",
+        "native_temporal_support_unverified",
+        "unsupported_initial_object_requires_support_repair"
+      ],
+      "task_file": "explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/corev2__category_4a5ba221f9e00dd17c77c541.yaml",
+      "scene_file": "explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/corev2__category_4a5ba221f9e00dd17c77c541.yaml",
+      "objective": "Comparing Phase 1 and Phase 2, did the contents of any box change?\n\nPhase 1: inspect every comparison location in a read-only survey of at most 20 decisions. Use mounted cameras, base/torso motion and empty arms; preserve all objects and furniture. Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved in this same episode. Phase 2: compare with memory and submit ANSWER: <original option>. Then perform the applicable operation: if an object was added, put the actual added object on the blue-rimmed collection and inspection tray; if replaced, put the current replacement on the blue-rimmed collection and inspection tray; if moved, return the displaced object to its remembered original container/support; if removed, select the matching category and model by appearance from the public spare inventory and replenish the remembered original location; if unchanged, inspect all comparison locations with informative views and leave the contents in place. No grasp is required for no-change. Public spare inventory: spare 1 on the yellow spare table: bottle of bug repellent. The spare table is visible and reachable during both phases. Original answer options: [\"yes\", \"no\"]",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "accessible_layout_differs_from_original_reference",
+        "accessible_temporal_container_placement",
+        "assumption_review_required",
+        "camera_review_framing_requires_repair",
+        "camera_visual_review_pending",
+        "conservative_stance_radius_exceeded",
+        "execution_not_qualified",
+        "external_source_phase_transition",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_reach_and_route_unverified",
+        "native_temporal_execution_unverified",
+        "native_temporal_support_unverified",
+        "source_content_container_clearance_requires_native_check",
+        "unsupported_initial_object_requires_support_repair"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_4a5ba221f9e00dd17c77c541.json",
+      "evidence_sha256": "c7e4e07403c4b42274caf916a6a43cc9c19f3e5be7439e5b91bce48dccf005cf",
+      "camera_audit": {
+        "status": "repair_required",
+        "evidence_scope": "current",
+        "finding": "Several Global views are wall/ceiling-occluded. Initial overview includes a large exterior pool/building region, making comparison objects small. Phase head frames do not establish informative inspection of box contents.",
+        "mount_calibration_verified": false
+      },
+      "pending_capture": {
+        "capture_candidate_id": "category_0f5b1ae218b7920696bb5c51",
+        "job_id": "capture_7f39d0faf43e93b052ae9e3f7fb9816c",
+        "reason": "Human camera bearing repair; fresh native initialization and visual review required.",
+        "state": "REVIEW_PENDING",
+        "resolution": "promoted",
+        "initialization_accepted": true
+      },
+      "capture_candidate_id": "category_0f5b1ae218b7920696bb5c51",
+      "current_capture_job_id": "capture_7f39d0faf43e93b052ae9e3f7fb9816c",
+      "current_capture": {
+        "candidate_id": "category_4a5ba221f9e00dd17c77c541",
+        "capture_candidate_id": "category_0f5b1ae218b7920696bb5c51",
+        "job_id": "capture_7f39d0faf43e93b052ae9e3f7fb9816c",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 38,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 1244.501646743156,
+        "gpu": 1,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_4a5ba221f9e00dd17c77c541/preview_complete.json",
+            "sha256": "aeb7be2b049ad8965936d71711336ef6bd47abd2beb7b615dae9977162adeec8"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T11:17:02.401347+00:00",
+          "reset_identity": {
+            "episode_id": "reset_36440b32130d40fbb87f625338f32acc",
+            "reset_id": "36440b32130d40fbb87f625338f32acc",
+            "seed": 7
+          },
+          "native_time_s": 2.075000108219683,
+          "native_time_after_s": 2.075000108219683,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_7f39d0faf43e93b052ae9e3f7fb9816c",
+            "capture_signature": "7f39d0faf43e93b052ae9e3f7fb9816c566cdc826e1bfe9538ecdabd0bf7ccfa",
+            "task_sha256": "6d4ea032add40db2663b79a98e70a885aaf22b70741947a195fc3d2437830392",
+            "seed": 7,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      },
+      "camera_refresh_note": "New native camera revision completed; earlier visual findings need rechecking against these images."
+    },
+    {
+      "candidate_id": "category_6c580ba77019bc8a51e330a5",
+      "source_subclasses": [
+        "Temporal Understanding/Unobserved Change"
+      ],
+      "source_identities": [
+        "Temporal Understanding/Unobserved Change/office_large/bathroom_0/change_detection__q_001.json"
+      ],
+      "source_entry_count": 1,
+      "category": "Temporal Understanding",
+      "subcategory": "Unobserved Change",
+      "scene": "office_large",
+      "room": "bathroom_0",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "recommendation": "conditional_retention_pool",
+      "failure_kind": null,
+      "reason": "",
+      "warning_codes": [
+        "accessible_layout_differs_from_original_reference",
+        "accessible_temporal_container_placement",
+        "assumption_review_required",
+        "conservative_stance_radius_exceeded",
+        "external_source_phase_transition",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_reach_and_route_unverified",
+        "native_temporal_execution_unverified",
+        "native_temporal_support_unverified",
+        "source_content_container_clearance_requires_native_check",
+        "unsupported_initial_object_requires_support_repair",
+        "user_authorized_simple_support_added"
+      ],
+      "setup_warning_codes": [
+        "accessible_temporal_container_placement",
+        "conservative_stance_radius_exceeded",
+        "initial_base_approach_required",
+        "native_grasp_execution_unverified",
+        "native_reach_and_route_unverified",
+        "native_temporal_support_unverified",
+        "unsupported_initial_object_requires_support_repair",
+        "user_authorized_simple_support_added"
+      ],
+      "task_file": "explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/office_large/bathroom_0/corev2__category_6c580ba77019bc8a51e330a5.yaml",
+      "scene_file": "explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/office_large/bathroom_0/corev2__category_6c580ba77019bc8a51e330a5.yaml",
+      "objective": "Comparing Phase 1 and Phase 2, did the contents of any box change?\n\nPhase 1: inspect every comparison location in a read-only survey of at most 20 decisions. Use mounted cameras, base/torso motion and empty arms; preserve all objects and furniture. Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved in this same episode. Phase 2: compare with memory and submit ANSWER: <original option>. Then perform the applicable operation: if an object was added, put the actual added object on the blue-rimmed collection and inspection tray; if replaced, put the current replacement on the blue-rimmed collection and inspection tray; if moved, return the displaced object to its remembered original container/support; if removed, select the matching category and model by appearance from the public spare inventory and replenish the remembered original location; if unchanged, inspect all comparison locations with informative views and leave the contents in place. No grasp is required for no-change. Original answer options: [\"yes\", \"no\"]",
+      "reflection_checks": {},
+      "historical_evidence_only": false,
+      "final_release_qualified": false,
+      "evidence_note": "Existing receipts inspected on 2026-10-20; no new simulation. Setup acceptance is not execution qualification.",
+      "receipt_basename": "preview_complete.json",
+      "issues": [
+        "accessible_layout_differs_from_original_reference",
+        "accessible_temporal_container_placement",
+        "assumption_review_required",
+        "camera_review_framing_requires_repair",
+        "camera_visual_review_pending",
+        "conservative_stance_radius_exceeded",
+        "execution_not_qualified",
+        "external_source_phase_transition",
+        "initial_base_approach_required",
+        "interaction_layout_native_review_pending",
+        "native_grasp_execution_unverified",
+        "native_reach_and_route_unverified",
+        "native_temporal_execution_unverified",
+        "native_temporal_support_unverified",
+        "source_content_container_clearance_requires_native_check",
+        "unsupported_initial_object_requires_support_repair",
+        "user_authorized_simple_support_added"
+      ],
+      "evidence_file": "explore_to_achieve/category_reports/corev2/evidence/category_6c580ba77019bc8a51e330a5.json",
+      "evidence_sha256": "b7164507723921a0e772cf70b9e34d0bd7454f8cad658746881024b73ea2d14c",
+      "camera_audit": {
+        "status": "repair_required",
+        "evidence_scope": "current",
+        "finding": "Several Global and phase views are wall/ceiling-occluded; object detail 04/05 are nearly black. Initial whole-building overview makes the comparison location small.",
+        "mount_calibration_verified": false
+      },
+      "pending_capture": {
+        "capture_candidate_id": "category_e0cbd6c9011dfb9724101f07",
+        "job_id": "capture_76c4a33cb127150da0013ebab6209dbd",
+        "reason": "Human camera bearing repair; fresh native initialization and visual review required.",
+        "state": "REVIEW_PENDING",
+        "resolution": "promoted",
+        "initialization_accepted": true
+      },
+      "capture_candidate_id": "category_e0cbd6c9011dfb9724101f07",
+      "current_capture_job_id": "capture_76c4a33cb127150da0013ebab6209dbd",
+      "current_capture": {
+        "candidate_id": "category_6c580ba77019bc8a51e330a5",
+        "capture_candidate_id": "category_e0cbd6c9011dfb9724101f07",
+        "job_id": "capture_76c4a33cb127150da0013ebab6209dbd",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 38,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 1161.6097859954461,
+        "gpu": 4,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/camera_repairs_20261020/category_6c580ba77019bc8a51e330a5/preview_complete.json",
+            "sha256": "ebeeb5e688e15b5043c2e3eea721c38504f8c78361b02b7b9e66dabfda6d9f84"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T11:19:10.517620+00:00",
+          "reset_identity": {
+            "episode_id": "reset_b728cb816e54490c9324ca84689cb561",
+            "reset_id": "b728cb816e54490c9324ca84689cb561",
+            "seed": 7
+          },
+          "native_time_s": 2.075000108219683,
+          "native_time_after_s": 2.075000108219683,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_76c4a33cb127150da0013ebab6209dbd",
+            "capture_signature": "76c4a33cb127150da0013ebab6209dbdd587f6af86ed9b55e79aca074097dae5",
+            "task_sha256": "5e128886db3ebbc6c10e580340984262d6452aa0438f1ea053c17256c166b02d",
+            "seed": 7,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      },
+      "camera_refresh_note": "New native camera revision completed; earlier visual findings need rechecking against these images."
+    }
+  ],
+  "replacements": [
+    {
+      "category": "Temporal Understanding",
+      "subcategory": "Agent Observation",
+      "scene": "house_single_floor",
+      "room": "living_room_0",
+      "source_subclasses": [
+        "Temporal Understanding/Agent Observation"
+      ],
+      "source_identities": [
+        "Temporal Understanding/Agent Observation/house_single_floor/living_room_0/house_single_floor__living_room_0__run_000.json"
+      ],
+      "source_entry_count": 1,
+      "candidate_id": "category_cdb38ede71f9e832885a7654",
+      "replaces": "category_1ed8ec9964afccff526c97b8",
+      "task_file": "explore_to_achieve/tasks/Temporal Understanding/Agent Observation/house_single_floor/redesign_20261020/category_cdb38ede71f9e832885a7654.yaml",
+      "scene_file": "explore_to_achieve/scenes/Temporal Understanding/Agent Observation/house_single_floor/redesign_20261020/category_cdb38ede71f9e832885a7654.yaml",
+      "objective": "Inspect the three food items stored on the pantry shelves. Choose your own route and remember the order in which you first inspect each item. The items are a hamburger with filling, a plain bun, and a triangular sandwich; their locations are not supplied. After inspecting all three, submit ANSWER: SURVEY_COMPLETE. A delivery request referring to your actual inspection history will then arrive. Identify and deliver the requested item to the blue-rimmed serving tray.",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "issues": [
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "episode_budget_uncalibrated"
+      ],
+      "final_release_qualified": false,
+      "capture_candidate_id": "category_cdb38ede71f9e832885a7654",
+      "current_capture_job_id": "capture_f7d592fc11ed9a0fbc0e46ecfae1e053",
+      "historical_evidence_only": false,
+      "recommendation": "human_review_pending",
+      "redesign_revision": "task_redesign_20261020_v1",
+      "visual_inspection_notes": "Native shelf support and clear wide-room delivery layout inspected in overhead and mounted views.",
+      "current_capture": {
+        "candidate_id": "category_cdb38ede71f9e832885a7654",
+        "capture_candidate_id": "category_cdb38ede71f9e832885a7654",
+        "job_id": "capture_f7d592fc11ed9a0fbc0e46ecfae1e053",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 27,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 851.8066264269873,
+        "gpu": 5,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_cdb38ede71f9e832885a7654/preview_complete.json",
+            "sha256": "6b777ff377160fa92a7fb77152aeef91207f27696bd79bfc075899138a987a7f"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T16:08:20.836522+00:00",
+          "reset_identity": {
+            "episode_id": "reset_bd68ffcd85774220b452fa076ff1fff1",
+            "reset_id": "bd68ffcd85774220b452fa076ff1fff1",
+            "seed": 0
+          },
+          "native_time_s": 4.0750002125278115,
+          "native_time_after_s": 4.0750002125278115,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_f7d592fc11ed9a0fbc0e46ecfae1e053",
+            "capture_signature": "f7d592fc11ed9a0fbc0e46ecfae1e053d60a5aa9248ddfde3a6feacc40fab141",
+            "task_sha256": "ea6df4fad3fa06acdc92bf59dec29b9720c616767c453ca62a80259f46bf8bfa",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      }
+    },
+    {
+      "category": "Temporal Understanding",
+      "subcategory": "Agent Observation",
+      "scene": "Beechwood_0_int",
+      "room": "living_room_1",
+      "source_subclasses": [
+        "Temporal Understanding/Agent Observation"
+      ],
+      "source_identities": [
+        "Temporal Understanding/Agent Observation/Beechwood_0_int/living_room_1/Beechwood_0_int__living_room_1__run_000.json"
+      ],
+      "source_entry_count": 1,
+      "candidate_id": "category_ebb26cc29316e397864246bd",
+      "replaces": "category_ce08ee016fe57c3ea9b1797b",
+      "task_file": "explore_to_achieve/tasks/Temporal Understanding/Agent Observation/Beechwood_0_int/redesign_20261020/category_ebb26cc29316e397864246bd.yaml",
+      "scene_file": "explore_to_achieve/scenes/Temporal Understanding/Agent Observation/Beechwood_0_int/redesign_20261020/category_ebb26cc29316e397864246bd.yaml",
+      "objective": "Inspect the three food items stored on the pantry shelves. Choose your own route and remember the order in which you first inspect each item. The items are a hamburger with filling, a plain bun, and a triangular sandwich; their locations are not supplied. After inspecting all three, submit ANSWER: SURVEY_COMPLETE. A delivery request referring to your actual inspection history will then arrive. Identify and deliver the requested item to the blue-rimmed serving tray.",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "issues": [
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "episode_budget_uncalibrated"
+      ],
+      "final_release_qualified": false,
+      "capture_candidate_id": "category_ebb26cc29316e397864246bd",
+      "current_capture_job_id": "capture_4e0beb7c1a9eba9403f27f8c4a1c03d9",
+      "historical_evidence_only": false,
+      "recommendation": "human_review_pending",
+      "redesign_revision": "task_redesign_20261020_v1",
+      "visual_inspection_notes": "Delivery stand relocated clear of the native piano stool; overhead layout inspected.",
+      "current_capture": {
+        "candidate_id": "category_ebb26cc29316e397864246bd",
+        "capture_candidate_id": "category_ebb26cc29316e397864246bd",
+        "job_id": "capture_4e0beb7c1a9eba9403f27f8c4a1c03d9",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 27,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 459.2077787807211,
+        "gpu": 3,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_ebb26cc29316e397864246bd/preview_complete.json",
+            "sha256": "3286c6333502c13de5b320c808bc82f3461f1ae3f4683611400641d021c7d7bd"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T16:23:08.367709+00:00",
+          "reset_identity": {
+            "episode_id": "reset_dfecd12ffb264ea885f2dd1ca23075e8",
+            "reset_id": "dfecd12ffb264ea885f2dd1ca23075e8",
+            "seed": 0
+          },
+          "native_time_s": 4.0750002125278115,
+          "native_time_after_s": 4.0750002125278115,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_4e0beb7c1a9eba9403f27f8c4a1c03d9",
+            "capture_signature": "4e0beb7c1a9eba9403f27f8c4a1c03d942c2e49eecfaef09f530b13503cd143a",
+            "task_sha256": "e4ca2ab911f70e61851e06917d26ff10e1f7733cfbe2a3b58d7f6b3f1e38143a",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      }
+    },
+    {
+      "category": "Temporal Understanding",
+      "subcategory": "Unobserved Change",
+      "scene": "house_single_floor",
+      "room": "dining_room_0",
+      "source_subclasses": [
+        "Temporal Understanding/Unobserved Change"
+      ],
+      "source_identities": [
+        "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_01.json"
+      ],
+      "source_entry_count": 1,
+      "candidate_id": "category_006a82c80075ae1fb18c5bc6",
+      "replaces": "category_6c580ba77019bc8a51e330a5",
+      "task_file": "explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_006a82c80075ae1fb18c5bc6.yaml",
+      "scene_file": "explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_006a82c80075ae1fb18c5bc6.yaml",
+      "objective": "Comparing Phase 1 and Phase 2, did the contents of any comparison box change?\n\nPhase 1: freely inspect comparison locations in a read-only survey of at most 10 decisions. Use mounted cameras, base/torso motion and empty arms; preserve all objects and furniture. Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved in this same episode. Phase 2: compare with memory and submit ANSWER: <original option>. Then perform the applicable operation: if an object was added, put the actual added object on the collection and inspection tray; if replaced, put the current replacement on the collection and inspection tray; if moved, return the displaced object to its remembered original container/support; if removed, select the matching category and model by appearance from the public spare inventory and replenish the remembered original location; if unchanged, inspect all comparison locations with informative views and leave the contents in place. No grasp is required for no-change. If several locations changed, complete the applicable operation for each change. You may finish Phase 1 before visiting every location; the phase switches automatically after ten decisions. Survey coverage is recorded but is not a transition or full-success gate. The spare tray contains the complete candidate inventory from the beginning in every event variant. Public spare inventory: spare 1 on the stocked spare tray: shaker; spare 2 on the stocked spare tray: jar of cumin; spare 3 on the stocked spare tray: butter; spare 4 on the stocked spare tray: bottle of lavender oil. The spare table is visible and reachable during both phases. Original answer options: [\"yes\", \"no\"]",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "issues": [
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "episode_budget_uncalibrated"
+      ],
+      "final_release_qualified": false,
+      "capture_candidate_id": "category_006a82c80075ae1fb18c5bc6",
+      "current_capture_job_id": "capture_a4ab3ca7db8ddf9b7c408fab426793dd",
+      "historical_evidence_only": false,
+      "recommendation": "human_review_pending",
+      "redesign_revision": "task_redesign_20261020_v1",
+      "visual_inspection_notes": "Paired same-camera RGB inspected with native instance pixel bounds: the dark shaker disappears and the light-capped cumin jar remains. Full four-item spare tray is unchanged; all active and inactive actor visibility checks pass.",
+      "current_capture": {
+        "candidate_id": "category_006a82c80075ae1fb18c5bc6",
+        "capture_candidate_id": "category_006a82c80075ae1fb18c5bc6",
+        "job_id": "capture_a4ab3ca7db8ddf9b7c408fab426793dd",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 38,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 832.8137091044337,
+        "gpu": 3,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_006a82c80075ae1fb18c5bc6/preview_complete.json",
+            "sha256": "4fc1a0a8988af392cc336f8a257a28a9abd7c172ae3e87d0f446bee59b0defc4"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T17:04:06.060426+00:00",
+          "reset_identity": {
+            "episode_id": "reset_906823137f524aac92a7a82f1ccb041c",
+            "reset_id": "906823137f524aac92a7a82f1ccb041c",
+            "seed": 0
+          },
+          "native_time_s": 4.0750002125278115,
+          "native_time_after_s": 4.0750002125278115,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_a4ab3ca7db8ddf9b7c408fab426793dd",
+            "capture_signature": "a4ab3ca7db8ddf9b7c408fab426793ddaca10999a3bcf29fd340ed6ba8e3e0d0",
+            "task_sha256": "4f24ad9fb2dfed02e26ac2d66adc4904a15fb9aa63a36f0c8d610466b3dd6a71",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      }
+    },
+    {
+      "category": "Temporal Understanding",
+      "subcategory": "Unobserved Change",
+      "scene": "house_single_floor",
+      "room": "dining_room_0",
+      "source_subclasses": [
+        "Temporal Understanding/Unobserved Change"
+      ],
+      "source_identities": [
+        "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_04.json"
+      ],
+      "source_entry_count": 1,
+      "candidate_id": "category_bd0c096bec07a9036cd4bb66",
+      "replaces": null,
+      "task_file": "explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+      "scene_file": "explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+      "objective": "Comparing Phase 1 and Phase 2, did the contents of any comparison box change?\n\nPhase 1: freely inspect comparison locations in a read-only survey of at most 10 decisions. Use mounted cameras, base/torso motion and empty arms; preserve all objects and furniture. Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved in this same episode. Phase 2: compare with memory and submit ANSWER: <original option>. Then perform the applicable operation: if an object was added, put the actual added object on the collection and inspection tray; if replaced, put the current replacement on the collection and inspection tray; if moved, return the displaced object to its remembered original container/support; if removed, select the matching category and model by appearance from the public spare inventory and replenish the remembered original location; if unchanged, inspect all comparison locations with informative views and leave the contents in place. No grasp is required for no-change. If several locations changed, complete the applicable operation for each change. You may finish Phase 1 before visiting every location; the phase switches automatically after ten decisions. Survey coverage is recorded but is not a transition or full-success gate. The spare tray contains the complete candidate inventory from the beginning in every event variant. Public spare inventory: spare 1 on the stocked spare tray: shaker; spare 2 on the stocked spare tray: jar of cumin; spare 3 on the stocked spare tray: butter; spare 4 on the stocked spare tray: bottle of lavender oil. The spare table is visible and reachable during both phases. Original answer options: [\"yes\", \"no\"]",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "issues": [
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "episode_budget_uncalibrated"
+      ],
+      "final_release_qualified": false,
+      "capture_candidate_id": "category_bd0c096bec07a9036cd4bb66",
+      "current_capture_job_id": "capture_b0a2eb7b22543b4c13ce1d8305c9653a",
+      "historical_evidence_only": false,
+      "recommendation": "human_review_pending",
+      "redesign_revision": "task_redesign_20261020_v1",
+      "visual_inspection_notes": "Same-camera phase-one and phase-two top images inspected: both contents remain in their original positions, third box stays empty, and the complete four-item spare tray remains stocked. Native active/inactive pixel checks pass.",
+      "current_capture": {
+        "candidate_id": "category_bd0c096bec07a9036cd4bb66",
+        "capture_candidate_id": "category_bd0c096bec07a9036cd4bb66",
+        "job_id": "capture_b0a2eb7b22543b4c13ce1d8305c9653a",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 38,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 733.7467221589759,
+        "gpu": 1,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_bd0c096bec07a9036cd4bb66/preview_complete.json",
+            "sha256": "040418ff2e844caaf0943cde734033223496520b61ffab6bff44f221ef5915e9"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T17:22:36.564994+00:00",
+          "reset_identity": {
+            "episode_id": "reset_91500e481c334b02864301083a1f02a1",
+            "reset_id": "91500e481c334b02864301083a1f02a1",
+            "seed": 0
+          },
+          "native_time_s": 4.0750002125278115,
+          "native_time_after_s": 4.0750002125278115,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_b0a2eb7b22543b4c13ce1d8305c9653a",
+            "capture_signature": "b0a2eb7b22543b4c13ce1d8305c9653ac21d0e0514a5f7334157969764eb2a4a",
+            "task_sha256": "3131cab9a3b32a1a583adb842d70625af58469f057ba2e856bf2bcf5232cded2",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      }
+    },
+    {
+      "category": "Physical Dynamics",
+      "subcategory": "Inclined Plane",
+      "scene": "house_single_floor",
+      "room": "living_room_0",
+      "source_subclasses": [
+        "Physical Dynamics/Inclined Plane"
+      ],
+      "source_identities": [
+        "Physical Dynamics/Inclined Plane/house_single_floor/living_room_0/redesign_sphere_v2_from_childs_room_0.json"
+      ],
+      "source_entry_count": 1,
+      "candidate_id": "category_88ce9d62d891ae0ba628a6e9",
+      "replaces": "category_0b8fc74b233237c1503434dc",
+      "task_file": "explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_88ce9d62d891ae0ba628a6e9.yaml",
+      "scene_file": "explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_88ce9d62d891ae0ba628a6e9.yaml",
+      "objective": "Compare how a bowl, an avocado and a spherical ball travel down the ramp. The candidate table contains one trial item and one unused matching spare of each type. Use the items on the yellow mat for trials and preserve those on the green mat as spares. Test each trial item separately: grasp it, place it over the yellow release mark on the ramp in its initial resting orientation, release without a push and observe three seconds. Recover trial items to the candidate table after observing them so the runway is clear. Then select the unused spare matching the fastest successful trial and deliver it through the ramp into the blue receiving tray.",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "issues": [
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "episode_budget_uncalibrated"
+      ],
+      "final_release_qualified": false,
+      "capture_candidate_id": "category_88ce9d62d891ae0ba628a6e9",
+      "current_capture_job_id": "capture_8a8753411a883f40f9d00533ceba430d",
+      "historical_evidence_only": false,
+      "recommendation": "human_review_pending",
+      "redesign_revision": "task_redesign_20261020_v1",
+      "visual_inspection_notes": "Inspected native side overview: the six-item trial/spare supply table, source-parameter ramp and open-entry receiver are clear of original furniture. Genuine spherical pair replaces the shallow-ramp baseball failure; separate passive probe evidence is retained without claiming Agent manipulation success.",
+      "current_capture": {
+        "candidate_id": "category_88ce9d62d891ae0ba628a6e9",
+        "capture_candidate_id": "category_88ce9d62d891ae0ba628a6e9",
+        "job_id": "capture_8a8753411a883f40f9d00533ceba430d",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 27,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 653.1961204363033,
+        "gpu": 7,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_88ce9d62d891ae0ba628a6e9/preview_complete.json",
+            "sha256": "630ad6fd28ad84f4662a95542489ddd0b9e4291b5dd9cfd1b6946d8307509191"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T17:25:26.761432+00:00",
+          "reset_identity": {
+            "episode_id": "reset_4ac529acfe674021aed86f9669174062",
+            "reset_id": "4ac529acfe674021aed86f9669174062",
+            "seed": 0
+          },
+          "native_time_s": 4.0750002125278115,
+          "native_time_after_s": 4.0750002125278115,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_8a8753411a883f40f9d00533ceba430d",
+            "capture_signature": "8a8753411a883f40f9d00533ceba430d2f6e49be9c04cc4b2d9ee76f80e6acd7",
+            "task_sha256": "7724b39956f452fbd2edd1bee68d9b2b50351dcea09112317e76efe94f764d7d",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      },
+      "passive_physics_validation": {
+        "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_88ce9d62d891ae0ba628a6e9/passive_probe.json",
+        "sha256": "179d8cc2ea174179a4f5b690fd96594239aa2437a11f18a2c9dc4501b34d73fc",
+        "job_id": "capture_24ab682eb100d86eda9db65d31d6d4bc",
+        "qualifying_candidates": [
+          "trial_3"
+        ],
+        "robot_manipulation_verified": false
+      }
+    },
+    {
+      "category": "Physical Dynamics",
+      "subcategory": "Inclined Plane",
+      "scene": "house_single_floor",
+      "room": "living_room_0",
+      "source_subclasses": [
+        "Physical Dynamics/Inclined Plane"
+      ],
+      "source_identities": [
+        "Physical Dynamics/Inclined Plane/house_single_floor/living_room_0/redesign_sphere_v2_from_kitchen_0.json"
+      ],
+      "source_entry_count": 1,
+      "candidate_id": "category_75bff6e58684ce3d067bfee5",
+      "replaces": "category_eed1d3a8b7293a5df95cfbe8",
+      "task_file": "explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_75bff6e58684ce3d067bfee5.yaml",
+      "scene_file": "explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_75bff6e58684ce3d067bfee5.yaml",
+      "objective": "Compare how a bowl, an avocado and a spherical ball travel down the ramp. The candidate table contains one trial item and one unused matching spare of each type. Use the items on the yellow mat for trials and preserve those on the green mat as spares. Test each trial item separately: grasp it, place it over the yellow release mark on the ramp in its initial resting orientation, release without a push and observe three seconds. Recover trial items to the candidate table after observing them so the runway is clear. Then select the unused spare matching the fastest successful trial and deliver it through the ramp into the blue receiving tray.",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "issues": [
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "episode_budget_uncalibrated"
+      ],
+      "final_release_qualified": false,
+      "capture_candidate_id": "category_75bff6e58684ce3d067bfee5",
+      "current_capture_job_id": "capture_d923c8fe2f379d8954b4dd8b67652dbb",
+      "historical_evidence_only": false,
+      "recommendation": "human_review_pending",
+      "redesign_revision": "task_redesign_20261020_v1",
+      "visual_inspection_notes": "Inspected native side overview: the six-item trial/spare supply table, source-parameter ramp and open-entry receiver are clear of original furniture. Genuine spherical pair replaces the shallow-ramp baseball failure; separate passive probe evidence is retained without claiming Agent manipulation success.",
+      "current_capture": {
+        "candidate_id": "category_75bff6e58684ce3d067bfee5",
+        "capture_candidate_id": "category_75bff6e58684ce3d067bfee5",
+        "job_id": "capture_d923c8fe2f379d8954b4dd8b67652dbb",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 27,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 303.7421487867832,
+        "gpu": 5,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_75bff6e58684ce3d067bfee5/preview_complete.json",
+            "sha256": "8fd076514f267511e3f57b8aaacf6fce4aaaf5cd17d487d2e5782db8fc411b69"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T17:30:51.346797+00:00",
+          "reset_identity": {
+            "episode_id": "reset_28b6e6a8258b4e019c8523032af7cdc2",
+            "reset_id": "28b6e6a8258b4e019c8523032af7cdc2",
+            "seed": 0
+          },
+          "native_time_s": 4.0750002125278115,
+          "native_time_after_s": 4.0750002125278115,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_d923c8fe2f379d8954b4dd8b67652dbb",
+            "capture_signature": "d923c8fe2f379d8954b4dd8b67652dbbdb00158c5e8533bfd12846b096816bd6",
+            "task_sha256": "0bd0a5c817b82e22e5fc3c17ac8aed280879365f0175712f84956515d9fff214",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      },
+      "passive_physics_validation": {
+        "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_75bff6e58684ce3d067bfee5/passive_probe.json",
+        "sha256": "9f1415da5f9c0bf24b31e9fdb725bfbe589d166a7dd8a0b6da3fd706e012d663",
+        "job_id": "capture_e3c9a959d4bd33b25fddd6db3304a794",
+        "qualifying_candidates": [
+          "trial_2",
+          "trial_3"
+        ],
+        "robot_manipulation_verified": false
+      }
+    },
+    {
+      "category": "Physical Dynamics",
+      "subcategory": "Inclined Plane",
+      "scene": "house_single_floor",
+      "room": "living_room_0",
+      "source_subclasses": [
+        "Physical Dynamics/Inclined Plane"
+      ],
+      "source_identities": [
+        "Physical Dynamics/Inclined Plane/house_single_floor/living_room_0/redesign_sphere_v2_from_entryway_0.json"
+      ],
+      "source_entry_count": 1,
+      "candidate_id": "category_c8b7b9e832f5ee2958b6efe0",
+      "replaces": "category_20bf03a28735924cfbb774ce",
+      "task_file": "explore_to_achieve/tasks/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_c8b7b9e832f5ee2958b6efe0.yaml",
+      "scene_file": "explore_to_achieve/scenes/Physical Dynamics/Inclined Plane/house_single_floor/redesign_20261020/category_c8b7b9e832f5ee2958b6efe0.yaml",
+      "objective": "Compare how a bowl, an avocado and a spherical ball travel down the ramp. The candidate table contains one trial item and one unused matching spare of each type. Use the items on the yellow mat for trials and preserve those on the green mat as spares. Test each trial item separately: grasp it, place it over the yellow release mark on the ramp in its initial resting orientation, release without a push and observe three seconds. Recover trial items to the candidate table after observing them so the runway is clear. Then select the unused spare matching the fastest successful trial and deliver it through the ramp into the blue receiving tray.",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "issues": [
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "episode_budget_uncalibrated"
+      ],
+      "final_release_qualified": false,
+      "capture_candidate_id": "category_c8b7b9e832f5ee2958b6efe0",
+      "current_capture_job_id": "capture_4b4872d5f76ecdb43be825d2f8760e89",
+      "historical_evidence_only": false,
+      "recommendation": "human_review_pending",
+      "redesign_revision": "task_redesign_20261020_v1",
+      "visual_inspection_notes": "Inspected native side overview: the six-item trial/spare supply table, source-parameter ramp and open-entry receiver are clear of original furniture. Genuine spherical pair replaces the shallow-ramp baseball failure; separate passive probe evidence is retained without claiming Agent manipulation success.",
+      "current_capture": {
+        "candidate_id": "category_c8b7b9e832f5ee2958b6efe0",
+        "capture_candidate_id": "category_c8b7b9e832f5ee2958b6efe0",
+        "job_id": "capture_4b4872d5f76ecdb43be825d2f8760e89",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 27,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 625.4759703064337,
+        "gpu": 5,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_c8b7b9e832f5ee2958b6efe0/preview_complete.json",
+            "sha256": "5feb4a26e98861650f754dc1822bd8f3a0986df4a4c8ed4ae47563fc71e33219"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T17:25:24.147449+00:00",
+          "reset_identity": {
+            "episode_id": "reset_11e5600b49ec423094d07c063ac22c1a",
+            "reset_id": "11e5600b49ec423094d07c063ac22c1a",
+            "seed": 0
+          },
+          "native_time_s": 4.0750002125278115,
+          "native_time_after_s": 4.0750002125278115,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_4b4872d5f76ecdb43be825d2f8760e89",
+            "capture_signature": "4b4872d5f76ecdb43be825d2f8760e896311d6dbf0cad26adfac115217b1b44b",
+            "task_sha256": "7bb6d7a1686a6b3d32804dfda180493935983fc6413a114cd5bc6580a5575d8f",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      },
+      "passive_physics_validation": {
+        "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_c8b7b9e832f5ee2958b6efe0/passive_probe.json",
+        "sha256": "261ae9dca08b2756a4baf04b8f65b2a1a27770e8ab61a0dfdc65033b96b02abf",
+        "job_id": "capture_bba3362d7ea2517179023e6b1e6053e7",
+        "qualifying_candidates": [
+          "trial_2",
+          "trial_3"
+        ],
+        "robot_manipulation_verified": false
+      }
+    },
+    {
+      "category": "Temporal Understanding",
+      "subcategory": "Unobserved Change",
+      "scene": "house_single_floor",
+      "room": "dining_room_0",
+      "source_subclasses": [
+        "Temporal Understanding/Unobserved Change"
+      ],
+      "source_identities": [
+        "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_00.json"
+      ],
+      "source_entry_count": 1,
+      "candidate_id": "category_939a8fa9a40b1fc7e04a5db0",
+      "replaces": "category_4a5ba221f9e00dd17c77c541",
+      "task_file": "explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0.yaml",
+      "scene_file": "explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0.yaml",
+      "objective": "Comparing Phase 1 and Phase 2, did the contents of any comparison box change?\n\nPhase 1: freely inspect comparison locations in a read-only survey of at most 10 decisions. Use mounted cameras, base/torso motion and empty arms; preserve all objects and furniture. Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved in this same episode. Phase 2: compare with memory and submit ANSWER: <original option>. Then perform the applicable operation: if an object was added, put the actual added object on the collection and inspection tray; if replaced, put the current replacement on the collection and inspection tray; if moved, return the displaced object to its remembered original container/support; if removed, select the matching category and model by appearance from the public spare inventory and replenish the remembered original location; if unchanged, inspect all comparison locations with informative views and leave the contents in place. No grasp is required for no-change. If several locations changed, complete the applicable operation for each change. You may finish Phase 1 before visiting every location; the phase switches automatically after ten decisions. Survey coverage is recorded but is not a transition or full-success gate. The spare tray contains the complete candidate inventory from the beginning in every event variant. Public spare inventory: spare 1 on the stocked spare tray: shaker; spare 2 on the stocked spare tray: jar of cumin; spare 3 on the stocked spare tray: butter; spare 4 on the stocked spare tray: bottle of lavender oil. The spare table is visible and reachable during both phases. Original answer options: [\"yes\", \"no\"]",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "issues": [
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "episode_budget_uncalibrated"
+      ],
+      "final_release_qualified": false,
+      "capture_candidate_id": "category_939a8fa9a40b1fc7e04a5db0",
+      "current_capture_job_id": "capture_588e83a11ce316818959b92246859b07",
+      "historical_evidence_only": false,
+      "recommendation": "human_review_pending",
+      "redesign_revision": "task_redesign_20261020_v1",
+      "visual_inspection_notes": "Inspected matched phase-one and phase-two top images: the authored added, moved, replaced or compound change is visible; full four-item spare inventory remains unchanged. Native active/inactive actor rendering and geometry synchronization pass.",
+      "current_capture": {
+        "candidate_id": "category_939a8fa9a40b1fc7e04a5db0",
+        "capture_candidate_id": "category_939a8fa9a40b1fc7e04a5db0",
+        "job_id": "capture_588e83a11ce316818959b92246859b07",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 38,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 645.0164657011628,
+        "gpu": 3,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0/preview_complete.json",
+            "sha256": "63cb57146c1142773cc493bee60e16c2a586b754b0e0601b67c4d71869f78dd1"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T17:46:49.959978+00:00",
+          "reset_identity": {
+            "episode_id": "reset_45adbc29ce894ea3a0acdeb9988a5a64",
+            "reset_id": "45adbc29ce894ea3a0acdeb9988a5a64",
+            "seed": 0
+          },
+          "native_time_s": 4.0750002125278115,
+          "native_time_after_s": 4.0750002125278115,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_588e83a11ce316818959b92246859b07",
+            "capture_signature": "588e83a11ce316818959b92246859b07bc4f3b1547cab6ae5f60694c547637b5",
+            "task_sha256": "1dfb5254d06aab219c89b85e2a7b9451b08b8585133ef5c2df66186a22eb794d",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      }
+    },
+    {
+      "category": "Temporal Understanding",
+      "subcategory": "Unobserved Change",
+      "scene": "house_single_floor",
+      "room": "dining_room_0",
+      "source_subclasses": [
+        "Temporal Understanding/Unobserved Change"
+      ],
+      "source_identities": [
+        "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_02.json"
+      ],
+      "source_entry_count": 1,
+      "candidate_id": "category_0498b76051279b8acd7e914e",
+      "replaces": null,
+      "task_file": "explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_0498b76051279b8acd7e914e.yaml",
+      "scene_file": "explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_0498b76051279b8acd7e914e.yaml",
+      "objective": "Comparing Phase 1 and Phase 2, did the contents of any comparison box change?\n\nPhase 1: freely inspect comparison locations in a read-only survey of at most 10 decisions. Use mounted cameras, base/torso motion and empty arms; preserve all objects and furniture. Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved in this same episode. Phase 2: compare with memory and submit ANSWER: <original option>. Then perform the applicable operation: if an object was added, put the actual added object on the collection and inspection tray; if replaced, put the current replacement on the collection and inspection tray; if moved, return the displaced object to its remembered original container/support; if removed, select the matching category and model by appearance from the public spare inventory and replenish the remembered original location; if unchanged, inspect all comparison locations with informative views and leave the contents in place. No grasp is required for no-change. If several locations changed, complete the applicable operation for each change. You may finish Phase 1 before visiting every location; the phase switches automatically after ten decisions. Survey coverage is recorded but is not a transition or full-success gate. The spare tray contains the complete candidate inventory from the beginning in every event variant. Public spare inventory: spare 1 on the stocked spare tray: shaker; spare 2 on the stocked spare tray: jar of cumin; spare 3 on the stocked spare tray: butter; spare 4 on the stocked spare tray: bottle of lavender oil. The spare table is visible and reachable during both phases. Original answer options: [\"yes\", \"no\"]",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "issues": [
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "episode_budget_uncalibrated"
+      ],
+      "final_release_qualified": false,
+      "capture_candidate_id": "category_0498b76051279b8acd7e914e",
+      "current_capture_job_id": "capture_25bd5cb138f35198b6314ab2c0639d44",
+      "historical_evidence_only": false,
+      "recommendation": "human_review_pending",
+      "redesign_revision": "task_redesign_20261020_v1",
+      "visual_inspection_notes": "Inspected matched phase-one and phase-two top images: the authored added, moved, replaced or compound change is visible; full four-item spare inventory remains unchanged. Native active/inactive actor rendering and geometry synchronization pass.",
+      "current_capture": {
+        "candidate_id": "category_0498b76051279b8acd7e914e",
+        "capture_candidate_id": "category_0498b76051279b8acd7e914e",
+        "job_id": "capture_25bd5cb138f35198b6314ab2c0639d44",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 38,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 627.9568327385932,
+        "gpu": 1,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_0498b76051279b8acd7e914e/preview_complete.json",
+            "sha256": "cab779d470e12a4f2978227161b6768663ee218567f470e659650fd1e9284448"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T17:46:45.459900+00:00",
+          "reset_identity": {
+            "episode_id": "reset_9c87e386aef4458dacbce410522ba734",
+            "reset_id": "9c87e386aef4458dacbce410522ba734",
+            "seed": 0
+          },
+          "native_time_s": 4.0750002125278115,
+          "native_time_after_s": 4.0750002125278115,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_25bd5cb138f35198b6314ab2c0639d44",
+            "capture_signature": "25bd5cb138f35198b6314ab2c0639d445f014e6a4fc79fc873057f41d6f267c6",
+            "task_sha256": "b4e8b9fee4ff00141e878c6b3157e3e88757d1b67c872e8bf7da5eb42ff9cf2a",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      }
+    },
+    {
+      "category": "Temporal Understanding",
+      "subcategory": "Unobserved Change",
+      "scene": "house_single_floor",
+      "room": "dining_room_0",
+      "source_subclasses": [
+        "Temporal Understanding/Unobserved Change"
+      ],
+      "source_identities": [
+        "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_03.json"
+      ],
+      "source_entry_count": 1,
+      "candidate_id": "category_b892978c0400005618c6589c",
+      "replaces": null,
+      "task_file": "explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_b892978c0400005618c6589c.yaml",
+      "scene_file": "explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_b892978c0400005618c6589c.yaml",
+      "objective": "Comparing Phase 1 and Phase 2, did the contents of any comparison box change?\n\nPhase 1: freely inspect comparison locations in a read-only survey of at most 10 decisions. Use mounted cameras, base/torso motion and empty arms; preserve all objects and furniture. Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved in this same episode. Phase 2: compare with memory and submit ANSWER: <original option>. Then perform the applicable operation: if an object was added, put the actual added object on the collection and inspection tray; if replaced, put the current replacement on the collection and inspection tray; if moved, return the displaced object to its remembered original container/support; if removed, select the matching category and model by appearance from the public spare inventory and replenish the remembered original location; if unchanged, inspect all comparison locations with informative views and leave the contents in place. No grasp is required for no-change. If several locations changed, complete the applicable operation for each change. You may finish Phase 1 before visiting every location; the phase switches automatically after ten decisions. Survey coverage is recorded but is not a transition or full-success gate. The spare tray contains the complete candidate inventory from the beginning in every event variant. Public spare inventory: spare 1 on the stocked spare tray: shaker; spare 2 on the stocked spare tray: jar of cumin; spare 3 on the stocked spare tray: butter; spare 4 on the stocked spare tray: bottle of lavender oil. The spare table is visible and reachable during both phases. Original answer options: [\"yes\", \"no\"]",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "issues": [
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "episode_budget_uncalibrated"
+      ],
+      "final_release_qualified": false,
+      "capture_candidate_id": "category_b892978c0400005618c6589c",
+      "current_capture_job_id": "capture_62b1d1b236bde4b1fde9bcafb4f5a49a",
+      "historical_evidence_only": false,
+      "recommendation": "human_review_pending",
+      "redesign_revision": "task_redesign_20261020_v1",
+      "visual_inspection_notes": "Inspected matched phase-one and phase-two top images: the authored added, moved, replaced or compound change is visible; full four-item spare inventory remains unchanged. Native active/inactive actor rendering and geometry synchronization pass.",
+      "current_capture": {
+        "candidate_id": "category_b892978c0400005618c6589c",
+        "capture_candidate_id": "category_b892978c0400005618c6589c",
+        "job_id": "capture_62b1d1b236bde4b1fde9bcafb4f5a49a",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 38,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 798.8946448573843,
+        "gpu": 5,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_b892978c0400005618c6589c/preview_complete.json",
+            "sha256": "d12ae48256ccc6c3af04ccc85c07d3f64bba2331a3c3fed1772ddd3de06b109a"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T17:47:26.659151+00:00",
+          "reset_identity": {
+            "episode_id": "reset_2a77856af6ad4603a2dc988e95121bb7",
+            "reset_id": "2a77856af6ad4603a2dc988e95121bb7",
+            "seed": 0
+          },
+          "native_time_s": 4.0750002125278115,
+          "native_time_after_s": 4.0750002125278115,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_62b1d1b236bde4b1fde9bcafb4f5a49a",
+            "capture_signature": "62b1d1b236bde4b1fde9bcafb4f5a49a9f10f0f49b5fd7da5bb616d2520c77b7",
+            "task_sha256": "79f8ea2fc71fff1e4fd27bc8060330d7924de14f0547b27e91c364be3e114b13",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      }
+    },
+    {
+      "category": "Temporal Understanding",
+      "subcategory": "Unobserved Change",
+      "scene": "house_single_floor",
+      "room": "dining_room_0",
+      "source_subclasses": [
+        "Temporal Understanding/Unobserved Change"
+      ],
+      "source_identities": [
+        "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_05.json"
+      ],
+      "source_entry_count": 1,
+      "candidate_id": "category_7fd79b0d5819ace319f077c7",
+      "replaces": null,
+      "task_file": "explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_7fd79b0d5819ace319f077c7.yaml",
+      "scene_file": "explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_7fd79b0d5819ace319f077c7.yaml",
+      "objective": "Comparing Phase 1 and Phase 2, did the contents of any comparison box change?\n\nPhase 1: freely inspect comparison locations in a read-only survey of at most 10 decisions. Use mounted cameras, base/torso motion and empty arms; preserve all objects and furniture. Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved in this same episode. Phase 2: compare with memory and submit ANSWER: <original option>. Then perform the applicable operation: if an object was added, put the actual added object on the collection and inspection tray; if replaced, put the current replacement on the collection and inspection tray; if moved, return the displaced object to its remembered original container/support; if removed, select the matching category and model by appearance from the public spare inventory and replenish the remembered original location; if unchanged, inspect all comparison locations with informative views and leave the contents in place. No grasp is required for no-change. If several locations changed, complete the applicable operation for each change. You may finish Phase 1 before visiting every location; the phase switches automatically after ten decisions. Survey coverage is recorded but is not a transition or full-success gate. The spare tray contains the complete candidate inventory from the beginning in every event variant. Public spare inventory: spare 1 on the stocked spare tray: shaker; spare 2 on the stocked spare tray: jar of cumin; spare 3 on the stocked spare tray: butter; spare 4 on the stocked spare tray: bottle of lavender oil. The spare table is visible and reachable during both phases. Original answer options: [\"yes\", \"no\"]",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "issues": [
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "episode_budget_uncalibrated"
+      ],
+      "final_release_qualified": false,
+      "capture_candidate_id": "category_7fd79b0d5819ace319f077c7",
+      "current_capture_job_id": "capture_a5711ad069d7fd8e6c6bbdf4f285ee1f",
+      "historical_evidence_only": false,
+      "recommendation": "human_review_pending",
+      "redesign_revision": "task_redesign_20261020_v1",
+      "visual_inspection_notes": "Inspected matched phase-one and phase-two top images: the authored added, moved, replaced or compound change is visible; full four-item spare inventory remains unchanged. Native active/inactive actor rendering and geometry synchronization pass.",
+      "current_capture": {
+        "candidate_id": "category_7fd79b0d5819ace319f077c7",
+        "capture_candidate_id": "category_7fd79b0d5819ace319f077c7",
+        "job_id": "capture_a5711ad069d7fd8e6c6bbdf4f285ee1f",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 38,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 691.2384191043675,
+        "gpu": 2,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_7fd79b0d5819ace319f077c7/preview_complete.json",
+            "sha256": "c26feb86603bfac60ebb26f2489534bc2c104d00c757c1ee92b21e3524b1be60"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T17:47:40.409659+00:00",
+          "reset_identity": {
+            "episode_id": "reset_36d69b52adb64816a71eb60d96853643",
+            "reset_id": "36d69b52adb64816a71eb60d96853643",
+            "seed": 0
+          },
+          "native_time_s": 4.0750002125278115,
+          "native_time_after_s": 4.0750002125278115,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_a5711ad069d7fd8e6c6bbdf4f285ee1f",
+            "capture_signature": "a5711ad069d7fd8e6c6bbdf4f285ee1fcdf6af049f2d691447ab7a2dfea408bd",
+            "task_sha256": "9f50ff5cc566daaf6377e56984d80a8c4fdd5d69af4e0e829afb242512be9bb0",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      }
+    },
+    {
+      "category": "Physical Structure",
+      "subcategory": "Deformable",
+      "scene": "hall_arch_wood",
+      "room": "empty_room_0",
+      "source_subclasses": [
+        "Physical Structure/Deformable"
+      ],
+      "source_identities": [
+        "Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json"
+      ],
+      "source_entry_count": 1,
+      "candidate_id": "category_9fd3d70ee489c4228f5f44ec",
+      "replaces": "category_2824b7b487f4e1f369e87aee",
+      "task_file": "explore_to_achieve/tasks/Physical Structure/Deformable/hall_arch_wood/redesign_20261020/category_9fd3d70ee489c4228f5f44ec.yaml",
+      "scene_file": "explore_to_achieve/scenes/Physical Structure/Deformable/hall_arch_wood/redesign_20261020/category_9fd3d70ee489c4228f5f44ec.yaml",
+      "objective": "Use the working gripper to gently sweep the cloth sideways until the covered item is exposed. Keep the item in its starting place while uncovering it. Then grasp the exposed item, lift it clear of its starting support and cloth, and hold it steadily.",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "issues": [
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "episode_budget_uncalibrated"
+      ],
+      "final_release_qualified": false,
+      "capture_candidate_id": "category_9fd3d70ee489c4228f5f44ec",
+      "current_capture_job_id": "capture_7f0e9c2a028b8cedf39cef642ef132f8",
+      "historical_evidence_only": false,
+      "recommendation": "human_review_pending",
+      "redesign_revision": "task_redesign_20261020_v1",
+      "visual_inspection_notes": "The authentic full-size towel covers the unchanged tomato. All sampled rays, mounted images and nine close/elevated/top views pass; native support and inspected top/side RGB agree. The independent repeated reset also passes all nine views and support checks; repeated top RGB inspected.",
+      "current_capture": {
+        "candidate_id": "category_9fd3d70ee489c4228f5f44ec",
+        "capture_candidate_id": "category_9fd3d70ee489c4228f5f44ec",
+        "job_id": "capture_7f0e9c2a028b8cedf39cef642ef132f8",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 21,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 568.8701123325154,
+        "gpu": 6,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_9fd3d70ee489c4228f5f44ec/preview_complete.json",
+            "sha256": "e414d04e3ecba90e9bf03bfb2f31464fe3585ad81dd48b7130ff9b671a59337c"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T18:10:03.416550+00:00",
+          "reset_identity": {
+            "episode_id": "reset_44a93d0eef7a4b338a04bac5300fc599",
+            "reset_id": "44a93d0eef7a4b338a04bac5300fc599",
+            "seed": 0
+          },
+          "native_time_s": 12.53750065388158,
+          "native_time_after_s": 12.53750065388158,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_7f0e9c2a028b8cedf39cef642ef132f8",
+            "capture_signature": "7f0e9c2a028b8cedf39cef642ef132f8cb3fe3ae9872fd65a23fd05824fb6331",
+            "task_sha256": "1b98f4b4f4bfbe249bce62da688acc1f1c4c55bde434f86f8db8f429c0f3c190",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      },
+      "independent_reset_validation": {
+        "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_9fd3d70ee489c4228f5f44ec/independent_reset.json",
+        "sha256": "60dc0e60fe7f303e34c323d4c8806b959d581d2ea42beb0dd45587e7e783451d",
+        "job_id": "capture_375cc6a6a5583ab3c88d0932bc87cd85",
+        "native_initialization_accepted": true,
+        "robot_manipulation_verified": false
+      }
+    },
+    {
+      "category": "Physical Structure",
+      "subcategory": "Deformable",
+      "scene": "hall_arch_wood",
+      "room": "empty_room_0",
+      "source_subclasses": [
+        "Physical Structure/Deformable"
+      ],
+      "source_identities": [
+        "Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json"
+      ],
+      "source_entry_count": 1,
+      "candidate_id": "category_fb64ed932434e097adc84053",
+      "replaces": null,
+      "task_file": "explore_to_achieve/tasks/Physical Structure/Deformable/hall_arch_wood/redesign_20261020/category_fb64ed932434e097adc84053.yaml",
+      "scene_file": "explore_to_achieve/scenes/Physical Structure/Deformable/hall_arch_wood/redesign_20261020/category_fb64ed932434e097adc84053.yaml",
+      "objective": "The cloth covers a tomato and a plain bun. Gently move the cloth to expose and identify the tomato without moving either covered item. Then grasp the tomato and place it on the blue-rimmed delivery tray. Leave the plain bun on its starting support.",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "issues": [
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "episode_budget_uncalibrated"
+      ],
+      "final_release_qualified": false,
+      "capture_candidate_id": "category_fb64ed932434e097adc84053",
+      "current_capture_job_id": "capture_5685c237c64216c1cd351527682a7c3d",
+      "historical_evidence_only": false,
+      "recommendation": "human_review_pending",
+      "redesign_revision": "task_redesign_20261020_v1",
+      "visual_inspection_notes": "Both independent native resets pass complete mesh, mounted, nine-view occlusion and support checks. Primary top/side and repeated top RGB inspected: the authentic towel fully covers the unchanged tomato and native plain bun; the separate delivery tray is clear. Physical bridging is allowed only under the explicit new multi-item cover semantics; genuine hand-driven reveal remains mandatory.",
+      "current_capture": {
+        "candidate_id": "category_fb64ed932434e097adc84053",
+        "capture_candidate_id": "category_fb64ed932434e097adc84053",
+        "job_id": "capture_5685c237c64216c1cd351527682a7c3d",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 27,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 446.2644897820428,
+        "gpu": 7,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_fb64ed932434e097adc84053/preview_complete.json",
+            "sha256": "12dc8023821e54c2f54754ffe847d4135647a96d111a1a99715e1cf0380568c1"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T18:25:11.862763+00:00",
+          "reset_identity": {
+            "episode_id": "reset_a8a7ab3953444378b94a210984c6edb5",
+            "reset_id": "a8a7ab3953444378b94a210984c6edb5",
+            "seed": 0
+          },
+          "native_time_s": 12.53750065388158,
+          "native_time_after_s": 12.53750065388158,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_5685c237c64216c1cd351527682a7c3d",
+            "capture_signature": "5685c237c64216c1cd351527682a7c3d6b5f2808c942b312510658980bb4f707",
+            "task_sha256": "f403fd337d95cdc1a4d3c71b3403445aba1447e4d742d530c1db7892651a3972",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      },
+      "independent_reset_validation": {
+        "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_fb64ed932434e097adc84053/independent_reset.json",
+        "sha256": "bc75f4d731295cfa2c1ce79c99d38410da208f7a0d242bfe9c313958ffaef9d0",
+        "job_id": "capture_a1e42ad514c82579f195fb8e82c9480f",
+        "native_initialization_accepted": true,
+        "robot_manipulation_verified": false
+      }
+    },
+    {
+      "category": "Physical Structure",
+      "subcategory": "Deformable",
+      "scene": "hall_arch_wood",
+      "room": "bathroom_0",
+      "source_subclasses": [
+        "Physical Structure/Deformable"
+      ],
+      "source_identities": [
+        "Physical Structure/Deformable/hall_arch_wood/bathroom_0/q_002.json"
+      ],
+      "source_entry_count": 1,
+      "candidate_id": "category_e2b21727ae8a25c6b7b860d5",
+      "replaces": "category_7adf37c037d6408f300d4b10",
+      "task_file": "explore_to_achieve/tasks/Physical Structure/Deformable/hall_arch_wood/redesign_20261020/category_e2b21727ae8a25c6b7b860d5.yaml",
+      "scene_file": "explore_to_achieve/scenes/Physical Structure/Deformable/hall_arch_wood/redesign_20261020/category_e2b21727ae8a25c6b7b860d5.yaml",
+      "objective": "Use the working gripper to gently sweep the cloth sideways until the covered item is exposed. Keep the item in its starting place while uncovering it. Then grasp the exposed item, lift it clear of its starting support and cloth, and hold it steadily.",
+      "setup_status": "native_setup_passed_execution_unverified",
+      "issues": [
+        "camera_visual_review_pending",
+        "execution_not_qualified",
+        "episode_budget_uncalibrated"
+      ],
+      "final_release_qualified": false,
+      "capture_candidate_id": "category_e2b21727ae8a25c6b7b860d5",
+      "current_capture_job_id": "capture_5e288d33cce965fd9cf9019ac605871a",
+      "historical_evidence_only": false,
+      "recommendation": "human_review_pending",
+      "redesign_revision": "task_redesign_20261020_v1",
+      "visual_inspection_notes": "Authentic bath towel enlarged to 1.3x covers the unchanged sanitary-napkin box. Both independent native resets pass mounted, top and eight side-view occlusion and support checks. Primary top/side RGB and repeated top RGB inspected; the wider cloth removes the previously visible lower edge.",
+      "current_capture": {
+        "candidate_id": "category_e2b21727ae8a25c6b7b860d5",
+        "capture_candidate_id": "category_e2b21727ae8a25c6b7b860d5",
+        "job_id": "capture_5e288d33cce965fd9cf9019ac605871a",
+        "state": "REVIEW_PENDING",
+        "complete": true,
+        "image_count": 21,
+        "initialization_accepted": true,
+        "execution_qualified": false,
+        "duration_s": 562.473684085533,
+        "gpu": 6,
+        "receipts": [
+          {
+            "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_e2b21727ae8a25c6b7b860d5/preview_complete.json",
+            "sha256": "cd7c876e66c6c2764f6d3c58d97b45756eb27db89292e63058113c26efe89b47"
+          }
+        ],
+        "initial_agent_bundle": {
+          "available": true,
+          "kind": "frozen_initial_native_agent_input_bundle",
+          "robot_actions": 0,
+          "model_calls": 0,
+          "snapshot_id": 2,
+          "action_step": 0,
+          "captured_at": "2026-10-20T18:22:14.130388+00:00",
+          "reset_identity": {
+            "episode_id": "reset_313d1808bdc9436687deae2e2a8be2a5",
+            "reset_id": "313d1808bdc9436687deae2e2a8be2a5",
+            "seed": 0
+          },
+          "native_time_s": 12.53750065388158,
+          "native_time_after_s": 12.53750065388158,
+          "physics_steps": 0,
+          "views": [
+            "chassis_front_left",
+            "chassis_front_right",
+            "chassis_left",
+            "chassis_rear",
+            "chassis_right",
+            "head",
+            "initial_overview_rgb",
+            "right_wrist",
+            "wrist"
+          ],
+          "capture_input_identity": {
+            "job_id": "capture_5e288d33cce965fd9cf9019ac605871a",
+            "capture_signature": "5e288d33cce965fd9cf9019ac605871a544bf431255e12690eb430e638bc5483",
+            "task_sha256": "1a9db4f2fe0ca89504fb58475b46924dcaca8c6578de8a136443b42c01d636b4",
+            "seed": 0,
+            "variant": "adapted"
+          }
+        },
+        "error": null
+      },
+      "independent_reset_validation": {
+        "file": "explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_e2b21727ae8a25c6b7b860d5/independent_reset.json",
+        "sha256": "1f70a29f2f225a21ae202ad59669f4de8721650ec06a199af6100b9d27588d4d",
+        "job_id": "capture_0fe1efa3163985cf5600a214d19ba6ef",
+        "native_initialization_accepted": true,
+        "robot_manipulation_verified": false
+      }
+    }
+  ],
+  "definition_relocations": [],
+  "dimensional_size_changed": false,
+  "human_approval_granted": false,
+  "complete_agent_execution_verified": false,
+  "selection_evidence": {
+    "entries": [
+      {
+        "staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/history_v4/staged.json",
+        "candidate_id": "category_cdb38ede71f9e832885a7654",
+        "visual_notes": "Native shelf support and clear wide-room delivery layout inspected in overhead and mounted views."
+      },
+      {
+        "staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/history_v5/staged.json",
+        "candidate_id": "category_ebb26cc29316e397864246bd",
+        "visual_notes": "Delivery stand relocated clear of the native piano stool; overhead layout inspected."
+      },
+      {
+        "staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/change_sync_v6/staged.json",
+        "candidate_id": "category_006a82c80075ae1fb18c5bc6",
+        "visual_notes": "Paired same-camera RGB inspected with native instance pixel bounds: the dark shaker disappears and the light-capped cumin jar remains. Full four-item spare tray is unchanged; all active and inactive actor visibility checks pass."
+      },
+      {
+        "staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/change_unchanged_v7/staged.json",
+        "candidate_id": "category_bd0c096bec07a9036cd4bb66",
+        "visual_notes": "Same-camera phase-one and phase-two top images inspected: both contents remain in their original positions, third box stays empty, and the complete four-item spare tray remains stocked. Native active/inactive pixel checks pass."
+      },
+      {
+        "staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/inclined_sphere_v5/staged.json",
+        "candidate_id": "category_88ce9d62d891ae0ba628a6e9",
+        "visual_notes": "Inspected native side overview: the six-item trial/spare supply table, source-parameter ramp and open-entry receiver are clear of original furniture. Genuine spherical pair replaces the shallow-ramp baseball failure; separate passive probe evidence is retained without claiming Agent manipulation success.",
+        "passive_probe_staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/inclined_sphere_probe_v3/staged.json",
+        "passive_probe_candidate_id": "category_39c43be370e88d516d112b3d"
+      },
+      {
+        "staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/inclined_sphere_v5/staged.json",
+        "candidate_id": "category_75bff6e58684ce3d067bfee5",
+        "visual_notes": "Inspected native side overview: the six-item trial/spare supply table, source-parameter ramp and open-entry receiver are clear of original furniture. Genuine spherical pair replaces the shallow-ramp baseball failure; separate passive probe evidence is retained without claiming Agent manipulation success.",
+        "passive_probe_staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/inclined_sphere_probe_v3/staged.json",
+        "passive_probe_candidate_id": "category_c2e0555aac14a25bf28934f8"
+      },
+      {
+        "staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/inclined_sphere_v5/staged.json",
+        "candidate_id": "category_c8b7b9e832f5ee2958b6efe0",
+        "visual_notes": "Inspected native side overview: the six-item trial/spare supply table, source-parameter ramp and open-entry receiver are clear of original furniture. Genuine spherical pair replaces the shallow-ramp baseball failure; separate passive probe evidence is retained without claiming Agent manipulation success.",
+        "passive_probe_staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/inclined_sphere_probe_v3/staged.json",
+        "passive_probe_candidate_id": "category_4f9e9963c1c9cb200e99f79a"
+      },
+      {
+        "staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/change_sync_v9/staged.json",
+        "candidate_id": "category_939a8fa9a40b1fc7e04a5db0",
+        "visual_notes": "Inspected matched phase-one and phase-two top images: the authored added, moved, replaced or compound change is visible; full four-item spare inventory remains unchanged. Native active/inactive actor rendering and geometry synchronization pass."
+      },
+      {
+        "staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/change_sync_v9/staged.json",
+        "candidate_id": "category_0498b76051279b8acd7e914e",
+        "visual_notes": "Inspected matched phase-one and phase-two top images: the authored added, moved, replaced or compound change is visible; full four-item spare inventory remains unchanged. Native active/inactive actor rendering and geometry synchronization pass."
+      },
+      {
+        "staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/change_sync_v9/staged.json",
+        "candidate_id": "category_b892978c0400005618c6589c",
+        "visual_notes": "Inspected matched phase-one and phase-two top images: the authored added, moved, replaced or compound change is visible; full four-item spare inventory remains unchanged. Native active/inactive actor rendering and geometry synchronization pass."
+      },
+      {
+        "staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/change_sync_v9/staged.json",
+        "candidate_id": "category_7fd79b0d5819ace319f077c7",
+        "visual_notes": "Inspected matched phase-one and phase-two top images: the authored added, moved, replaced or compound change is visible; full four-item spare inventory remains unchanged. Native active/inactive actor rendering and geometry synchronization pass."
+      },
+      {
+        "staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/cloth_single_bath_v15/staged.json",
+        "candidate_id": "category_9fd3d70ee489c4228f5f44ec",
+        "visual_notes": "The authentic full-size towel covers the unchanged tomato. All sampled rays, mounted images and nine close/elevated/top views pass; native support and inspected top/side RGB agree. The independent repeated reset also passes all nine views and support checks; repeated top RGB inspected.",
+        "reset_repeat_staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/cloth_single_full_contact_v19/staged.json",
+        "reset_repeat_candidate_id": "category_9110e2c16137435edf9a96cc"
+      },
+      {
+        "staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/cloth_multi_bridge_v18/staged.json",
+        "candidate_id": "category_fb64ed932434e097adc84053",
+        "visual_notes": "Both independent native resets pass complete mesh, mounted, nine-view occlusion and support checks. Primary top/side and repeated top RGB inspected: the authentic towel fully covers the unchanged tomato and native plain bun; the separate delivery tray is clear. Physical bridging is allowed only under the explicit new multi-item cover semantics; genuine hand-driven reveal remains mandatory.",
+        "reset_repeat_staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/cloth_multi_bridge_repeat_v18/staged.json",
+        "reset_repeat_candidate_id": "category_6946ad10f38738eadced0e3f"
+      },
+      {
+        "staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/cloth_bath_wide_v17/staged.json",
+        "candidate_id": "category_e2b21727ae8a25c6b7b860d5",
+        "visual_notes": "Authentic bath towel enlarged to 1.3x covers the unchanged sanitary-napkin box. Both independent native resets pass mounted, top and eight side-view occlusion and support checks. Primary top/side RGB and repeated top RGB inspected; the wider cloth removes the previously visible lower edge.",
+        "reset_repeat_staged_file": "/home/zhouxinyang/esi_task_redesign_20261020/cloth_bath_wide_repeat_v17/staged.json",
+        "reset_repeat_candidate_id": "category_c55df4350dea3eb8ed71494a"
+      }
+    ]
+  }
+}

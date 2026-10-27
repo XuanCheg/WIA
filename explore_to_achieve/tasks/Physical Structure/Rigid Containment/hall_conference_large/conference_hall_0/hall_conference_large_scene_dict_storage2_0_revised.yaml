@@ -1,0 +1,24 @@
+kind: rigid_containment_task
+id: tabletop_hall_conference_large_scene_dict_storage2_0_revised_free_floor_repair_support_000_head_camera_clear_answer_and_place
+version: 1
+status: ready
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_0_revised.json
+scene_file: Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_0_revised.yaml
+targets:
+- target
+goal: answer_and_place
+allow_remove_after_verification: true
+public:
+  objective: 'Which container does the textbook best fit inside: the packing box or
+    the tupperware or the wicker basket?'
+  success_criteria: Answer the original containment question and complete a real pickup
+    and stable partial insertion for every named target.
+  environment: Retrieve the target objects using the real R1 robot.
+  constraints:
+  - Complete every target subtask before declaring DONE. An object resting entirely
+    on top does not count as inside.
+defaults:
+  seed: 0
+  max_steps: 60

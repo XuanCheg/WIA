@@ -1,0 +1,1561 @@
+kind: category_robot_task
+id: task_63511affcbd2be8a74701f11
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+public:
+  objective: 'Explore the complete preserved building once in one continuous episode.
+
+    goal_1: Are bathroom_0 and corridor 1 (with signpost) adjacent, with a direct
+    connection between them?
+
+    goal_2: Are biology_lab_0 and corridor 0 (with display case, drinking fountain,
+    and security camera) adjacent, with a direct connection between them?
+
+    goal_3: Are corridor 0 (with display case, drinking fountain, and security camera)
+    and corridor 1 (with signpost) adjacent, with a direct connection between them?
+
+    goal_4: Are biology_lab_0 and corridor 1 (with signpost) adjacent, with a direct
+    connection between them?
+
+    goal_5: Are bathroom_0 and corridor 0 (with display case, drinking fountain, and
+    security camera) adjacent, with a direct connection between them?'
+  success_criteria: 'Inspect the queried anchors and report each distinct required
+    room arrival while stably inside it. Shared unordered visits can satisfy multiple
+    questions. Submit one final JSON answer sheet in one world_observation line: ANSWER:
+    {"goal_1":"<answer>","goal_2":"<answer>","goal_3":"<answer>","goal_4":"<answer>","goal_5":"<answer>"}.
+    Use each question''s source options shown below. Legacy ANSWER: goal_N=<answer>
+    is accepted. No action or observation is required solely to answer another question.
+
+    goal_1: Report a standalone ANSWER: <option> line in world_observation, choosing
+    from: Yes, No. Answer direct adjacency: a No answer does not mean the rooms are
+    globally unreachable. Each distinct required room is counted once; no return tour
+    is required.
+
+    goal_2: Report a standalone ANSWER: <option> line in world_observation, choosing
+    from: Yes, No. Answer direct adjacency: a No answer does not mean the rooms are
+    globally unreachable. Each distinct required room is counted once; no return tour
+    is required.
+
+    goal_3: Report a standalone ANSWER: <option> line in world_observation, choosing
+    from: Yes, No. Answer direct adjacency: a No answer does not mean the rooms are
+    globally unreachable. Each distinct required room is counted once; no return tour
+    is required.
+
+    goal_4: Report a standalone ANSWER: <option> line in world_observation, choosing
+    from: Yes, No. Answer direct adjacency: a No answer does not mean the rooms are
+    globally unreachable. Each distinct required room is counted once; no return tour
+    is required.
+
+    goal_5: Report a standalone ANSWER: <option> line in world_observation, choosing
+    from: Yes, No. Answer direct adjacency: a No answer does not mean the rooms are
+    globally unreachable. Each distinct required room is counted once; no return tour
+    is required.'
+  environment: The complete original building, furniture and native doors are retained.
+    Use all eight mounted cameras and the initial Global overview.
+  constraints:
+  - Preserve original room boundaries, queried anchors and doorway geometry.
+  - Use legal robot controls; door opening requires actual physical interaction.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+private:
+  bindings: {}
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.task_edit2_mapping_world
+    operation: canonical_mapping_joint_world
+    binding_keys: []
+    parameters:
+      task_revision: task_edit2_mapping_world_20261018_v1
+      members:
+      - id: native_d57fcdac1c6f32b40f63
+        public_id: goal_1
+        source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+        source_sha256: 0b19d3a4ef1e8d584d8f591055378bae98fcad39d1c5dc078ca4cfd400bb3d64
+        small_task: Connectivity
+        public:
+          objective: 'Are bathroom_0 and corridor 1 (with signpost) adjacent, with
+            a direct connection between them? Explore the two named regions and report
+            each arrival. While physically and stably inside each required room, output
+            a standalone line ''ARRIVED: <room_instance>'' in your world_observation
+            text, replacing <room_instance> with the room instance you identify from
+            your observations. Report each required room; a declaration alone does
+            not establish a visit. For an ordered route, report each step after completing
+            its predecessor, including repeated room names. Out-of-order visits do
+            not erase completed steps; revisit and report the pending step to continue.'
+          success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+            choosing from: Yes, No. Answer direct adjacency: a No answer does not
+            mean the rooms are globally unreachable. Each distinct required room is
+            counted once; no return tour is required.'
+          environment: Explore the preserved original building using the robot-mounted
+            observations.
+          constraints:
+          - Preserve original room boundaries, queried anchors and doorway geometry.
+          - Use legal robot controls; door opening requires actual physical interaction.
+        evaluation:
+          type: category_operation
+          module: core.esi_converters.cognitive_mapping_connectivity
+          operation: answer_direct_adjacency_with_exploration
+          binding_keys: []
+          parameters:
+            source_region: bathroom_0
+            target_region: corridor_1
+            stability_steps: 3
+            floor_idx: 0
+            floor_contact_height_tolerance_m: 0.005
+            minimum_floor_contact_vertical_normal: 0.5
+            required_regions:
+            - bathroom_0
+            - corridor_1
+            scoring_version: task_completion_v2
+            required_order: []
+            arrival_report_required: true
+            public_route_required: false
+            public_route_evidence: []
+            source_public_question: null
+            task_revision: task_edit_20261018_v1
+            source_path: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+            mapping_composition_contract: null
+            legacy_operation: region_exploration_arrivals
+            source_qa:
+              question: Are bathroom_0 and corridor 1 (with signpost) adjacent, with
+                a direct connection between them?
+              answer: 'Yes'
+              options:
+              - 'Yes'
+              - 'No'
+              scored: true
+            source_door_policy:
+              version: mapping_source_runtime_doors_v1
+              generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+              source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+              source_trav_map_basename: floor_trav_no_door
+              runtime_policy: retain_native_doors
+              reconciled: null
+              physical_opening_and_crossing_verified: null
+            mechanism_contract:
+              invariants:
+              - original_building_and_region_boundaries
+              - original_task_anchors_and_reference
+              - source_order_and_intentional_revisits
+              required_native_evidence:
+              - source_runtime_door_policy_reconciled
+              - task_relevant_door_qualification
+              unavailable_is_not_agent_failure: true
+            actual_capability: direct_adjacency_and_region_exploration
+            relation_semantics: direct_connection_not_global_reachability
+            source_graph_reachable: true
+        bindings: {}
+        qa:
+          question: Are bathroom_0 and corridor 1 (with signpost) adjacent, with a
+            direct connection between them?
+          answer: 'Yes'
+          answer_type: choice
+          options_json: '["Yes","No"]'
+        source_task_definition:
+          kind: category_robot_task
+          id: task_d57fcdac1c6f32b40f63d389
+          version: 1
+          status: pending
+          source:
+            provider: esi
+            json: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+          public:
+            objective: 'Are bathroom_0 and corridor 1 (with signpost) adjacent, with
+              a direct connection between them? Explore the two named regions and
+              report each arrival. While physically and stably inside each required
+              room, output a standalone line ''ARRIVED: <room_instance>'' in your
+              world_observation text, replacing <room_instance> with the room instance
+              you identify from your observations. Report each required room; a declaration
+              alone does not establish a visit. For an ordered route, report each
+              step after completing its predecessor, including repeated room names.
+              Out-of-order visits do not erase completed steps; revisit and report
+              the pending step to continue.'
+            success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+              choosing from: Yes, No. Answer direct adjacency: a No answer does not
+              mean the rooms are globally unreachable. Each distinct required room
+              is counted once; no return tour is required.'
+            environment: Explore the preserved original building using the robot-mounted
+              observations.
+            constraints:
+            - Preserve original room boundaries, queried anchors and doorway geometry.
+            - Use legal robot controls; door opening requires actual physical interaction.
+          requirements:
+            capabilities:
+            - base_translation
+            - base_rotation
+          private:
+            bindings: {}
+            evaluation:
+              type: category_operation
+              module: core.esi_converters.cognitive_mapping_connectivity
+              operation: answer_direct_adjacency_with_exploration
+              binding_keys: []
+              parameters:
+                source_region: bathroom_0
+                target_region: corridor_1
+                stability_steps: 3
+                floor_idx: 0
+                floor_contact_height_tolerance_m: 0.005
+                minimum_floor_contact_vertical_normal: 0.5
+                required_regions:
+                - bathroom_0
+                - corridor_1
+                scoring_version: task_completion_v2
+                required_order: []
+                arrival_report_required: true
+                public_route_required: false
+                public_route_evidence: []
+                source_public_question: null
+                task_revision: task_edit_20261018_v1
+                source_path: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+                mapping_composition_contract: null
+                legacy_operation: region_exploration_arrivals
+                source_qa:
+                  question: Are bathroom_0 and corridor 1 (with signpost) adjacent,
+                    with a direct connection between them?
+                  answer: 'Yes'
+                  options:
+                  - 'Yes'
+                  - 'No'
+                  scored: true
+                source_door_policy:
+                  version: mapping_source_runtime_doors_v1
+                  generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+                  source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+                  source_trav_map_basename: floor_trav_no_door
+                  runtime_policy: retain_native_doors
+                  reconciled: null
+                  physical_opening_and_crossing_verified: null
+                mechanism_contract:
+                  invariants:
+                  - original_building_and_region_boundaries
+                  - original_task_anchors_and_reference
+                  - source_order_and_intentional_revisits
+                  required_native_evidence:
+                  - source_runtime_door_policy_reconciled
+                  - task_relevant_door_qualification
+                  unavailable_is_not_agent_failure: true
+                actual_capability: direct_adjacency_and_region_exploration
+                relation_semantics: direct_connection_not_global_reachability
+                source_graph_reachable: true
+          scene:
+            policy: native_then_minimal_patch_else_skip
+            variants:
+              original:
+                patches: []
+              adapted:
+                patches:
+                - operation: robot_pose
+                  phase: before_construction
+                  position:
+                  - -5.950000286102295
+                  - -2.25
+                  - 0.1
+                  yaw_deg: 77.34743949124234
+                  head_pitch_deg: 0.0
+                - operation: prepare_category_interaction
+                  phase: after_postprocessing
+                  mode: navigation
+                  group_bindings: []
+                  manipulation_bindings: []
+                  relocation_policy: preserve
+                  layout_parameters: {}
+                  controller_initial_trunk_joint_positions_rad: null
+                  placement_groups: []
+                  support_bindings: []
+                  support_preferences: {}
+                  support_search: bounded_group
+                  allow_fallback_table: false
+                  anchor_policy: none
+                  source_camera_policy: translate_with_group
+                  fixed_reference_evidence: {}
+                  source_region: bathroom_0
+                  minimum_grasp_height_m: 0.35
+                  maximum_grasp_height_m: 1.1
+                  maximum_stance_distance_m: 0.85
+                  warning_codes: []
+          qualification:
+            on_failure: skip
+            initial_visibility: none
+            target_movable_collidable: false
+          defaults:
+            seed: 0
+            max_steps: 600
+      - id: native_ed3d8d0e44217ca02e92
+        public_id: goal_2
+        source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_001.json
+        source_sha256: 6df8f3c24c7117c9e9f9dc75895c3467cf26cf58299b3802bb78f5753374b95b
+        small_task: Connectivity
+        public:
+          objective: 'Are biology_lab_0 and corridor 0 (with display case, drinking
+            fountain, and security camera) adjacent, with a direct connection between
+            them? Explore the two named regions and report each arrival. While physically
+            and stably inside each required room, output a standalone line ''ARRIVED:
+            <room_instance>'' in your world_observation text, replacing <room_instance>
+            with the room instance you identify from your observations. Report each
+            required room; a declaration alone does not establish a visit. For an
+            ordered route, report each step after completing its predecessor, including
+            repeated room names. Out-of-order visits do not erase completed steps;
+            revisit and report the pending step to continue.'
+          success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+            choosing from: Yes, No. Answer direct adjacency: a No answer does not
+            mean the rooms are globally unreachable. Each distinct required room is
+            counted once; no return tour is required.'
+          environment: Explore the preserved original building using the robot-mounted
+            observations.
+          constraints:
+          - Preserve original room boundaries, queried anchors and doorway geometry.
+          - Use legal robot controls; door opening requires actual physical interaction.
+        evaluation:
+          type: category_operation
+          module: core.esi_converters.cognitive_mapping_connectivity
+          operation: answer_direct_adjacency_with_exploration
+          binding_keys: []
+          parameters:
+            source_region: biology_lab_0
+            target_region: corridor_0
+            stability_steps: 3
+            floor_idx: 0
+            floor_contact_height_tolerance_m: 0.005
+            minimum_floor_contact_vertical_normal: 0.5
+            required_regions:
+            - biology_lab_0
+            - corridor_0
+            scoring_version: task_completion_v2
+            required_order: []
+            arrival_report_required: true
+            public_route_required: false
+            public_route_evidence: []
+            source_public_question: null
+            task_revision: task_edit_20261018_v1
+            source_path: Cognitive Mapping/Connectivity/school_biology/full_scene/q_001.json
+            mapping_composition_contract: null
+            legacy_operation: region_exploration_arrivals
+            source_qa:
+              question: Are biology_lab_0 and corridor 0 (with display case, drinking
+                fountain, and security camera) adjacent, with a direct connection
+                between them?
+              answer: 'No'
+              options:
+              - 'Yes'
+              - 'No'
+              scored: true
+            source_door_policy:
+              version: mapping_source_runtime_doors_v1
+              generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+              source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+              source_trav_map_basename: floor_trav_no_door
+              runtime_policy: retain_native_doors
+              reconciled: null
+              physical_opening_and_crossing_verified: null
+            mechanism_contract:
+              invariants:
+              - original_building_and_region_boundaries
+              - original_task_anchors_and_reference
+              - source_order_and_intentional_revisits
+              required_native_evidence:
+              - source_runtime_door_policy_reconciled
+              - task_relevant_door_qualification
+              unavailable_is_not_agent_failure: true
+            actual_capability: direct_adjacency_and_region_exploration
+            relation_semantics: direct_connection_not_global_reachability
+            source_graph_reachable: true
+        bindings: {}
+        qa:
+          question: Are biology_lab_0 and corridor 0 (with display case, drinking
+            fountain, and security camera) adjacent, with a direct connection between
+            them?
+          answer: 'No'
+          answer_type: choice
+          options_json: '["Yes","No"]'
+        source_task_definition:
+          kind: category_robot_task
+          id: task_ed3d8d0e44217ca02e9256ee
+          version: 1
+          status: pending
+          source:
+            provider: esi
+            json: Cognitive Mapping/Connectivity/school_biology/full_scene/q_001.json
+          public:
+            objective: 'Are biology_lab_0 and corridor 0 (with display case, drinking
+              fountain, and security camera) adjacent, with a direct connection between
+              them? Explore the two named regions and report each arrival. While physically
+              and stably inside each required room, output a standalone line ''ARRIVED:
+              <room_instance>'' in your world_observation text, replacing <room_instance>
+              with the room instance you identify from your observations. Report each
+              required room; a declaration alone does not establish a visit. For an
+              ordered route, report each step after completing its predecessor, including
+              repeated room names. Out-of-order visits do not erase completed steps;
+              revisit and report the pending step to continue.'
+            success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+              choosing from: Yes, No. Answer direct adjacency: a No answer does not
+              mean the rooms are globally unreachable. Each distinct required room
+              is counted once; no return tour is required.'
+            environment: Explore the preserved original building using the robot-mounted
+              observations.
+            constraints:
+            - Preserve original room boundaries, queried anchors and doorway geometry.
+            - Use legal robot controls; door opening requires actual physical interaction.
+          requirements:
+            capabilities:
+            - base_translation
+            - base_rotation
+          private:
+            bindings: {}
+            evaluation:
+              type: category_operation
+              module: core.esi_converters.cognitive_mapping_connectivity
+              operation: answer_direct_adjacency_with_exploration
+              binding_keys: []
+              parameters:
+                source_region: biology_lab_0
+                target_region: corridor_0
+                stability_steps: 3
+                floor_idx: 0
+                floor_contact_height_tolerance_m: 0.005
+                minimum_floor_contact_vertical_normal: 0.5
+                required_regions:
+                - biology_lab_0
+                - corridor_0
+                scoring_version: task_completion_v2
+                required_order: []
+                arrival_report_required: true
+                public_route_required: false
+                public_route_evidence: []
+                source_public_question: null
+                task_revision: task_edit_20261018_v1
+                source_path: Cognitive Mapping/Connectivity/school_biology/full_scene/q_001.json
+                mapping_composition_contract: null
+                legacy_operation: region_exploration_arrivals
+                source_qa:
+                  question: Are biology_lab_0 and corridor 0 (with display case, drinking
+                    fountain, and security camera) adjacent, with a direct connection
+                    between them?
+                  answer: 'No'
+                  options:
+                  - 'Yes'
+                  - 'No'
+                  scored: true
+                source_door_policy:
+                  version: mapping_source_runtime_doors_v1
+                  generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+                  source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+                  source_trav_map_basename: floor_trav_no_door
+                  runtime_policy: retain_native_doors
+                  reconciled: null
+                  physical_opening_and_crossing_verified: null
+                mechanism_contract:
+                  invariants:
+                  - original_building_and_region_boundaries
+                  - original_task_anchors_and_reference
+                  - source_order_and_intentional_revisits
+                  required_native_evidence:
+                  - source_runtime_door_policy_reconciled
+                  - task_relevant_door_qualification
+                  unavailable_is_not_agent_failure: true
+                actual_capability: direct_adjacency_and_region_exploration
+                relation_semantics: direct_connection_not_global_reachability
+                source_graph_reachable: true
+          scene:
+            policy: native_then_minimal_patch_else_skip
+            variants:
+              original:
+                patches: []
+              adapted:
+                patches:
+                - operation: robot_pose
+                  phase: before_construction
+                  position:
+                  - 4.150000095367432
+                  - 10.25
+                  - 0.1
+                  yaw_deg: -129.88958295851103
+                  head_pitch_deg: 0.0
+                - operation: prepare_category_interaction
+                  phase: after_postprocessing
+                  mode: navigation
+                  group_bindings: []
+                  manipulation_bindings: []
+                  relocation_policy: preserve
+                  layout_parameters: {}
+                  controller_initial_trunk_joint_positions_rad: null
+                  placement_groups: []
+                  support_bindings: []
+                  support_preferences: {}
+                  support_search: bounded_group
+                  allow_fallback_table: false
+                  anchor_policy: none
+                  source_camera_policy: translate_with_group
+                  fixed_reference_evidence: {}
+                  source_region: biology_lab_0
+                  minimum_grasp_height_m: 0.35
+                  maximum_grasp_height_m: 1.1
+                  maximum_stance_distance_m: 0.85
+                  warning_codes: []
+          qualification:
+            on_failure: skip
+            initial_visibility: none
+            target_movable_collidable: false
+          defaults:
+            seed: 0
+            max_steps: 600
+      - id: native_79737197dc998b2c177f
+        public_id: goal_3
+        source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_002.json
+        source_sha256: 4a6bcae68012607f7f5d29bb4bfc57a5820b69d771ca1771f0cbb0a0c4c4f4ff
+        small_task: Connectivity
+        public:
+          objective: 'Are corridor 0 (with display case, drinking fountain, and security
+            camera) and corridor 1 (with signpost) adjacent, with a direct connection
+            between them? Explore the two named regions and report each arrival. While
+            physically and stably inside each required room, output a standalone line
+            ''ARRIVED: <room_instance>'' in your world_observation text, replacing
+            <room_instance> with the room instance you identify from your observations.
+            Report each required room; a declaration alone does not establish a visit.
+            For an ordered route, report each step after completing its predecessor,
+            including repeated room names. Out-of-order visits do not erase completed
+            steps; revisit and report the pending step to continue.'
+          success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+            choosing from: Yes, No. Answer direct adjacency: a No answer does not
+            mean the rooms are globally unreachable. Each distinct required room is
+            counted once; no return tour is required.'
+          environment: Explore the preserved original building using the robot-mounted
+            observations.
+          constraints:
+          - Preserve original room boundaries, queried anchors and doorway geometry.
+          - Use legal robot controls; door opening requires actual physical interaction.
+        evaluation:
+          type: category_operation
+          module: core.esi_converters.cognitive_mapping_connectivity
+          operation: answer_direct_adjacency_with_exploration
+          binding_keys: []
+          parameters:
+            source_region: corridor_0
+            target_region: corridor_1
+            stability_steps: 3
+            floor_idx: 0
+            floor_contact_height_tolerance_m: 0.005
+            minimum_floor_contact_vertical_normal: 0.5
+            required_regions:
+            - corridor_0
+            - corridor_1
+            scoring_version: task_completion_v2
+            required_order: []
+            arrival_report_required: true
+            public_route_required: false
+            public_route_evidence: []
+            source_public_question: null
+            task_revision: task_edit_20261018_v1
+            source_path: Cognitive Mapping/Connectivity/school_biology/full_scene/q_002.json
+            mapping_composition_contract: null
+            legacy_operation: region_exploration_arrivals
+            source_qa:
+              question: Are corridor 0 (with display case, drinking fountain, and
+                security camera) and corridor 1 (with signpost) adjacent, with a direct
+                connection between them?
+              answer: 'Yes'
+              options:
+              - 'Yes'
+              - 'No'
+              scored: true
+            source_door_policy:
+              version: mapping_source_runtime_doors_v1
+              generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+              source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+              source_trav_map_basename: floor_trav_no_door
+              runtime_policy: retain_native_doors
+              reconciled: null
+              physical_opening_and_crossing_verified: null
+            mechanism_contract:
+              invariants:
+              - original_building_and_region_boundaries
+              - original_task_anchors_and_reference
+              - source_order_and_intentional_revisits
+              required_native_evidence:
+              - source_runtime_door_policy_reconciled
+              - task_relevant_door_qualification
+              unavailable_is_not_agent_failure: true
+            actual_capability: direct_adjacency_and_region_exploration
+            relation_semantics: direct_connection_not_global_reachability
+            source_graph_reachable: true
+        bindings: {}
+        qa:
+          question: Are corridor 0 (with display case, drinking fountain, and security
+            camera) and corridor 1 (with signpost) adjacent, with a direct connection
+            between them?
+          answer: 'Yes'
+          answer_type: choice
+          options_json: '["Yes","No"]'
+        source_task_definition:
+          kind: category_robot_task
+          id: task_79737197dc998b2c177fb837
+          version: 1
+          status: pending
+          source:
+            provider: esi
+            json: Cognitive Mapping/Connectivity/school_biology/full_scene/q_002.json
+          public:
+            objective: 'Are corridor 0 (with display case, drinking fountain, and
+              security camera) and corridor 1 (with signpost) adjacent, with a direct
+              connection between them? Explore the two named regions and report each
+              arrival. While physically and stably inside each required room, output
+              a standalone line ''ARRIVED: <room_instance>'' in your world_observation
+              text, replacing <room_instance> with the room instance you identify
+              from your observations. Report each required room; a declaration alone
+              does not establish a visit. For an ordered route, report each step after
+              completing its predecessor, including repeated room names. Out-of-order
+              visits do not erase completed steps; revisit and report the pending
+              step to continue.'
+            success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+              choosing from: Yes, No. Answer direct adjacency: a No answer does not
+              mean the rooms are globally unreachable. Each distinct required room
+              is counted once; no return tour is required.'
+            environment: Explore the preserved original building using the robot-mounted
+              observations.
+            constraints:
+            - Preserve original room boundaries, queried anchors and doorway geometry.
+            - Use legal robot controls; door opening requires actual physical interaction.
+          requirements:
+            capabilities:
+            - base_translation
+            - base_rotation
+          private:
+            bindings: {}
+            evaluation:
+              type: category_operation
+              module: core.esi_converters.cognitive_mapping_connectivity
+              operation: answer_direct_adjacency_with_exploration
+              binding_keys: []
+              parameters:
+                source_region: corridor_0
+                target_region: corridor_1
+                stability_steps: 3
+                floor_idx: 0
+                floor_contact_height_tolerance_m: 0.005
+                minimum_floor_contact_vertical_normal: 0.5
+                required_regions:
+                - corridor_0
+                - corridor_1
+                scoring_version: task_completion_v2
+                required_order: []
+                arrival_report_required: true
+                public_route_required: false
+                public_route_evidence: []
+                source_public_question: null
+                task_revision: task_edit_20261018_v1
+                source_path: Cognitive Mapping/Connectivity/school_biology/full_scene/q_002.json
+                mapping_composition_contract: null
+                legacy_operation: region_exploration_arrivals
+                source_qa:
+                  question: Are corridor 0 (with display case, drinking fountain,
+                    and security camera) and corridor 1 (with signpost) adjacent,
+                    with a direct connection between them?
+                  answer: 'Yes'
+                  options:
+                  - 'Yes'
+                  - 'No'
+                  scored: true
+                source_door_policy:
+                  version: mapping_source_runtime_doors_v1
+                  generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+                  source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+                  source_trav_map_basename: floor_trav_no_door
+                  runtime_policy: retain_native_doors
+                  reconciled: null
+                  physical_opening_and_crossing_verified: null
+                mechanism_contract:
+                  invariants:
+                  - original_building_and_region_boundaries
+                  - original_task_anchors_and_reference
+                  - source_order_and_intentional_revisits
+                  required_native_evidence:
+                  - source_runtime_door_policy_reconciled
+                  - task_relevant_door_qualification
+                  unavailable_is_not_agent_failure: true
+                actual_capability: direct_adjacency_and_region_exploration
+                relation_semantics: direct_connection_not_global_reachability
+                source_graph_reachable: true
+          scene:
+            policy: native_then_minimal_patch_else_skip
+            variants:
+              original:
+                patches: []
+              adapted:
+                patches:
+                - operation: robot_pose
+                  phase: before_construction
+                  position:
+                  - -1.350000023841858
+                  - -19.25
+                  - 0.1
+                  yaw_deg: 86.99510550425748
+                  head_pitch_deg: 0.0
+                - operation: prepare_category_interaction
+                  phase: after_postprocessing
+                  mode: navigation
+                  group_bindings: []
+                  manipulation_bindings: []
+                  relocation_policy: preserve
+                  layout_parameters: {}
+                  controller_initial_trunk_joint_positions_rad: null
+                  placement_groups: []
+                  support_bindings: []
+                  support_preferences: {}
+                  support_search: bounded_group
+                  allow_fallback_table: false
+                  anchor_policy: none
+                  source_camera_policy: translate_with_group
+                  fixed_reference_evidence: {}
+                  source_region: corridor_0
+                  minimum_grasp_height_m: 0.35
+                  maximum_grasp_height_m: 1.1
+                  maximum_stance_distance_m: 0.85
+                  warning_codes: []
+          qualification:
+            on_failure: skip
+            initial_visibility: none
+            target_movable_collidable: false
+          defaults:
+            seed: 0
+            max_steps: 600
+      - id: native_f0ed58ea5b47d9115b03
+        public_id: goal_4
+        source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_004.json
+        source_sha256: 2ac3cf688fcb474b81c6e3b59c2bee559a0ad03ef5b5d8f5e1013d6b0c7fe515
+        small_task: Connectivity
+        public:
+          objective: 'Are biology_lab_0 and corridor 1 (with signpost) adjacent, with
+            a direct connection between them? Explore the two named regions and report
+            each arrival. While physically and stably inside each required room, output
+            a standalone line ''ARRIVED: <room_instance>'' in your world_observation
+            text, replacing <room_instance> with the room instance you identify from
+            your observations. Report each required room; a declaration alone does
+            not establish a visit. For an ordered route, report each step after completing
+            its predecessor, including repeated room names. Out-of-order visits do
+            not erase completed steps; revisit and report the pending step to continue.'
+          success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+            choosing from: Yes, No. Answer direct adjacency: a No answer does not
+            mean the rooms are globally unreachable. Each distinct required room is
+            counted once; no return tour is required.'
+          environment: Explore the preserved original building using the robot-mounted
+            observations.
+          constraints:
+          - Preserve original room boundaries, queried anchors and doorway geometry.
+          - Use legal robot controls; door opening requires actual physical interaction.
+        evaluation:
+          type: category_operation
+          module: core.esi_converters.cognitive_mapping_connectivity
+          operation: answer_direct_adjacency_with_exploration
+          binding_keys: []
+          parameters:
+            source_region: biology_lab_0
+            target_region: corridor_1
+            stability_steps: 3
+            floor_idx: 0
+            floor_contact_height_tolerance_m: 0.005
+            minimum_floor_contact_vertical_normal: 0.5
+            required_regions:
+            - biology_lab_0
+            - corridor_1
+            scoring_version: task_completion_v2
+            required_order: []
+            arrival_report_required: true
+            public_route_required: false
+            public_route_evidence: []
+            source_public_question: null
+            task_revision: task_edit_20261018_v1
+            source_path: Cognitive Mapping/Connectivity/school_biology/full_scene/q_004.json
+            mapping_composition_contract: null
+            legacy_operation: region_exploration_arrivals
+            source_qa:
+              question: Are biology_lab_0 and corridor 1 (with signpost) adjacent,
+                with a direct connection between them?
+              answer: 'Yes'
+              options:
+              - 'Yes'
+              - 'No'
+              scored: true
+            source_door_policy:
+              version: mapping_source_runtime_doors_v1
+              generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+              source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+              source_trav_map_basename: floor_trav_no_door
+              runtime_policy: retain_native_doors
+              reconciled: null
+              physical_opening_and_crossing_verified: null
+            mechanism_contract:
+              invariants:
+              - original_building_and_region_boundaries
+              - original_task_anchors_and_reference
+              - source_order_and_intentional_revisits
+              required_native_evidence:
+              - source_runtime_door_policy_reconciled
+              - task_relevant_door_qualification
+              unavailable_is_not_agent_failure: true
+            actual_capability: direct_adjacency_and_region_exploration
+            relation_semantics: direct_connection_not_global_reachability
+            source_graph_reachable: true
+        bindings: {}
+        qa:
+          question: Are biology_lab_0 and corridor 1 (with signpost) adjacent, with
+            a direct connection between them?
+          answer: 'Yes'
+          answer_type: choice
+          options_json: '["Yes","No"]'
+        source_task_definition:
+          kind: category_robot_task
+          id: task_f0ed58ea5b47d9115b039ac4
+          version: 1
+          status: pending
+          source:
+            provider: esi
+            json: Cognitive Mapping/Connectivity/school_biology/full_scene/q_004.json
+          public:
+            objective: 'Are biology_lab_0 and corridor 1 (with signpost) adjacent,
+              with a direct connection between them? Explore the two named regions
+              and report each arrival. While physically and stably inside each required
+              room, output a standalone line ''ARRIVED: <room_instance>'' in your
+              world_observation text, replacing <room_instance> with the room instance
+              you identify from your observations. Report each required room; a declaration
+              alone does not establish a visit. For an ordered route, report each
+              step after completing its predecessor, including repeated room names.
+              Out-of-order visits do not erase completed steps; revisit and report
+              the pending step to continue.'
+            success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+              choosing from: Yes, No. Answer direct adjacency: a No answer does not
+              mean the rooms are globally unreachable. Each distinct required room
+              is counted once; no return tour is required.'
+            environment: Explore the preserved original building using the robot-mounted
+              observations.
+            constraints:
+            - Preserve original room boundaries, queried anchors and doorway geometry.
+            - Use legal robot controls; door opening requires actual physical interaction.
+          requirements:
+            capabilities:
+            - base_translation
+            - base_rotation
+          private:
+            bindings: {}
+            evaluation:
+              type: category_operation
+              module: core.esi_converters.cognitive_mapping_connectivity
+              operation: answer_direct_adjacency_with_exploration
+              binding_keys: []
+              parameters:
+                source_region: biology_lab_0
+                target_region: corridor_1
+                stability_steps: 3
+                floor_idx: 0
+                floor_contact_height_tolerance_m: 0.005
+                minimum_floor_contact_vertical_normal: 0.5
+                required_regions:
+                - biology_lab_0
+                - corridor_1
+                scoring_version: task_completion_v2
+                required_order: []
+                arrival_report_required: true
+                public_route_required: false
+                public_route_evidence: []
+                source_public_question: null
+                task_revision: task_edit_20261018_v1
+                source_path: Cognitive Mapping/Connectivity/school_biology/full_scene/q_004.json
+                mapping_composition_contract: null
+                legacy_operation: region_exploration_arrivals
+                source_qa:
+                  question: Are biology_lab_0 and corridor 1 (with signpost) adjacent,
+                    with a direct connection between them?
+                  answer: 'Yes'
+                  options:
+                  - 'Yes'
+                  - 'No'
+                  scored: true
+                source_door_policy:
+                  version: mapping_source_runtime_doors_v1
+                  generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+                  source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+                  source_trav_map_basename: floor_trav_no_door
+                  runtime_policy: retain_native_doors
+                  reconciled: null
+                  physical_opening_and_crossing_verified: null
+                mechanism_contract:
+                  invariants:
+                  - original_building_and_region_boundaries
+                  - original_task_anchors_and_reference
+                  - source_order_and_intentional_revisits
+                  required_native_evidence:
+                  - source_runtime_door_policy_reconciled
+                  - task_relevant_door_qualification
+                  unavailable_is_not_agent_failure: true
+                actual_capability: direct_adjacency_and_region_exploration
+                relation_semantics: direct_connection_not_global_reachability
+                source_graph_reachable: true
+          scene:
+            policy: native_then_minimal_patch_else_skip
+            variants:
+              original:
+                patches: []
+              adapted:
+                patches:
+                - operation: robot_pose
+                  phase: before_construction
+                  position:
+                  - 4.150000095367432
+                  - 10.25
+                  - 0.1
+                  yaw_deg: -129.88958295851103
+                  head_pitch_deg: 0.0
+                - operation: prepare_category_interaction
+                  phase: after_postprocessing
+                  mode: navigation
+                  group_bindings: []
+                  manipulation_bindings: []
+                  relocation_policy: preserve
+                  layout_parameters: {}
+                  controller_initial_trunk_joint_positions_rad: null
+                  placement_groups: []
+                  support_bindings: []
+                  support_preferences: {}
+                  support_search: bounded_group
+                  allow_fallback_table: false
+                  anchor_policy: none
+                  source_camera_policy: translate_with_group
+                  fixed_reference_evidence: {}
+                  source_region: biology_lab_0
+                  minimum_grasp_height_m: 0.35
+                  maximum_grasp_height_m: 1.1
+                  maximum_stance_distance_m: 0.85
+                  warning_codes: []
+          qualification:
+            on_failure: skip
+            initial_visibility: none
+            target_movable_collidable: false
+          defaults:
+            seed: 0
+            max_steps: 600
+      - id: native_9a1a5366ca0529cc12f1
+        public_id: goal_5
+        source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_005.json
+        source_sha256: db3fdf4af38929a35ad08564f3caf8f877515512ff1a711cea2b6443ca77e37e
+        small_task: Connectivity
+        public:
+          objective: 'Are bathroom_0 and corridor 0 (with display case, drinking fountain,
+            and security camera) adjacent, with a direct connection between them?
+            Explore the two named regions and report each arrival. While physically
+            and stably inside each required room, output a standalone line ''ARRIVED:
+            <room_instance>'' in your world_observation text, replacing <room_instance>
+            with the room instance you identify from your observations. Report each
+            required room; a declaration alone does not establish a visit. For an
+            ordered route, report each step after completing its predecessor, including
+            repeated room names. Out-of-order visits do not erase completed steps;
+            revisit and report the pending step to continue.'
+          success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+            choosing from: Yes, No. Answer direct adjacency: a No answer does not
+            mean the rooms are globally unreachable. Each distinct required room is
+            counted once; no return tour is required.'
+          environment: Explore the preserved original building using the robot-mounted
+            observations.
+          constraints:
+          - Preserve original room boundaries, queried anchors and doorway geometry.
+          - Use legal robot controls; door opening requires actual physical interaction.
+        evaluation:
+          type: category_operation
+          module: core.esi_converters.cognitive_mapping_connectivity
+          operation: answer_direct_adjacency_with_exploration
+          binding_keys: []
+          parameters:
+            source_region: bathroom_0
+            target_region: corridor_0
+            stability_steps: 3
+            floor_idx: 0
+            floor_contact_height_tolerance_m: 0.005
+            minimum_floor_contact_vertical_normal: 0.5
+            required_regions:
+            - bathroom_0
+            - corridor_0
+            scoring_version: task_completion_v2
+            required_order: []
+            arrival_report_required: true
+            public_route_required: false
+            public_route_evidence: []
+            source_public_question: null
+            task_revision: task_edit_20261018_v1
+            source_path: Cognitive Mapping/Connectivity/school_biology/full_scene/q_005.json
+            mapping_composition_contract: null
+            legacy_operation: region_exploration_arrivals
+            source_qa:
+              question: Are bathroom_0 and corridor 0 (with display case, drinking
+                fountain, and security camera) adjacent, with a direct connection
+                between them?
+              answer: 'No'
+              options:
+              - 'Yes'
+              - 'No'
+              scored: true
+            source_door_policy:
+              version: mapping_source_runtime_doors_v1
+              generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+              source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+              source_trav_map_basename: floor_trav_no_door
+              runtime_policy: retain_native_doors
+              reconciled: null
+              physical_opening_and_crossing_verified: null
+            mechanism_contract:
+              invariants:
+              - original_building_and_region_boundaries
+              - original_task_anchors_and_reference
+              - source_order_and_intentional_revisits
+              required_native_evidence:
+              - source_runtime_door_policy_reconciled
+              - task_relevant_door_qualification
+              unavailable_is_not_agent_failure: true
+            actual_capability: direct_adjacency_and_region_exploration
+            relation_semantics: direct_connection_not_global_reachability
+            source_graph_reachable: true
+        bindings: {}
+        qa:
+          question: Are bathroom_0 and corridor 0 (with display case, drinking fountain,
+            and security camera) adjacent, with a direct connection between them?
+          answer: 'No'
+          answer_type: choice
+          options_json: '["Yes","No"]'
+        source_task_definition:
+          kind: category_robot_task
+          id: task_9a1a5366ca0529cc12f150b2
+          version: 1
+          status: pending
+          source:
+            provider: esi
+            json: Cognitive Mapping/Connectivity/school_biology/full_scene/q_005.json
+          public:
+            objective: 'Are bathroom_0 and corridor 0 (with display case, drinking
+              fountain, and security camera) adjacent, with a direct connection between
+              them? Explore the two named regions and report each arrival. While physically
+              and stably inside each required room, output a standalone line ''ARRIVED:
+              <room_instance>'' in your world_observation text, replacing <room_instance>
+              with the room instance you identify from your observations. Report each
+              required room; a declaration alone does not establish a visit. For an
+              ordered route, report each step after completing its predecessor, including
+              repeated room names. Out-of-order visits do not erase completed steps;
+              revisit and report the pending step to continue.'
+            success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
+              choosing from: Yes, No. Answer direct adjacency: a No answer does not
+              mean the rooms are globally unreachable. Each distinct required room
+              is counted once; no return tour is required.'
+            environment: Explore the preserved original building using the robot-mounted
+              observations.
+            constraints:
+            - Preserve original room boundaries, queried anchors and doorway geometry.
+            - Use legal robot controls; door opening requires actual physical interaction.
+          requirements:
+            capabilities:
+            - base_translation
+            - base_rotation
+          private:
+            bindings: {}
+            evaluation:
+              type: category_operation
+              module: core.esi_converters.cognitive_mapping_connectivity
+              operation: answer_direct_adjacency_with_exploration
+              binding_keys: []
+              parameters:
+                source_region: bathroom_0
+                target_region: corridor_0
+                stability_steps: 3
+                floor_idx: 0
+                floor_contact_height_tolerance_m: 0.005
+                minimum_floor_contact_vertical_normal: 0.5
+                required_regions:
+                - bathroom_0
+                - corridor_0
+                scoring_version: task_completion_v2
+                required_order: []
+                arrival_report_required: true
+                public_route_required: false
+                public_route_evidence: []
+                source_public_question: null
+                task_revision: task_edit_20261018_v1
+                source_path: Cognitive Mapping/Connectivity/school_biology/full_scene/q_005.json
+                mapping_composition_contract: null
+                legacy_operation: region_exploration_arrivals
+                source_qa:
+                  question: Are bathroom_0 and corridor 0 (with display case, drinking
+                    fountain, and security camera) adjacent, with a direct connection
+                    between them?
+                  answer: 'No'
+                  options:
+                  - 'Yes'
+                  - 'No'
+                  scored: true
+                source_door_policy:
+                  version: mapping_source_runtime_doors_v1
+                  generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_connect.py
+                  source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+                  source_trav_map_basename: floor_trav_no_door
+                  runtime_policy: retain_native_doors
+                  reconciled: null
+                  physical_opening_and_crossing_verified: null
+                mechanism_contract:
+                  invariants:
+                  - original_building_and_region_boundaries
+                  - original_task_anchors_and_reference
+                  - source_order_and_intentional_revisits
+                  required_native_evidence:
+                  - source_runtime_door_policy_reconciled
+                  - task_relevant_door_qualification
+                  unavailable_is_not_agent_failure: true
+                actual_capability: direct_adjacency_and_region_exploration
+                relation_semantics: direct_connection_not_global_reachability
+                source_graph_reachable: true
+          scene:
+            policy: native_then_minimal_patch_else_skip
+            variants:
+              original:
+                patches: []
+              adapted:
+                patches:
+                - operation: robot_pose
+                  phase: before_construction
+                  position:
+                  - -5.950000286102295
+                  - -2.25
+                  - 0.1
+                  yaw_deg: 77.34743949124234
+                  head_pitch_deg: 0.0
+                - operation: prepare_category_interaction
+                  phase: after_postprocessing
+                  mode: navigation
+                  group_bindings: []
+                  manipulation_bindings: []
+                  relocation_policy: preserve
+                  layout_parameters: {}
+                  controller_initial_trunk_joint_positions_rad: null
+                  placement_groups: []
+                  support_bindings: []
+                  support_preferences: {}
+                  support_search: bounded_group
+                  allow_fallback_table: false
+                  anchor_policy: none
+                  source_camera_policy: translate_with_group
+                  fixed_reference_evidence: {}
+                  source_region: bathroom_0
+                  minimum_grasp_height_m: 0.35
+                  maximum_grasp_height_m: 1.1
+                  maximum_stance_distance_m: 0.85
+                  warning_codes: []
+          qualification:
+            on_failure: skip
+            initial_visibility: none
+            target_movable_collidable: false
+          defaults:
+            seed: 0
+            max_steps: 600
+      answer_sheet: true
+      semantic_questions:
+      - id: question_1
+        subclass: Connectivity
+        sources:
+        - member_id: native_d57fcdac1c6f32b40f63
+          source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+          native_item_id: source_relation_answer
+          public_id: goal_1
+        equivalence: exact_native_semantic_contract
+      - id: question_2
+        subclass: Connectivity
+        sources:
+        - member_id: native_ed3d8d0e44217ca02e92
+          source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_001.json
+          native_item_id: source_relation_answer
+          public_id: goal_2
+        equivalence: exact_native_semantic_contract
+      - id: question_3
+        subclass: Connectivity
+        sources:
+        - member_id: native_79737197dc998b2c177f
+          source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_002.json
+          native_item_id: source_relation_answer
+          public_id: goal_3
+        equivalence: exact_native_semantic_contract
+      - id: question_4
+        subclass: Connectivity
+        sources:
+        - member_id: native_f0ed58ea5b47d9115b03
+          source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_004.json
+          native_item_id: source_relation_answer
+          public_id: goal_4
+        equivalence: exact_native_semantic_contract
+      - id: question_5
+        subclass: Connectivity
+        sources:
+        - member_id: native_9a1a5366ca0529cc12f1
+          source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_005.json
+          native_item_id: source_relation_answer
+          public_id: goal_5
+        equivalence: exact_native_semantic_contract
+      mapping_joint_world_contract:
+        revision: task_edit2_mapping_world_20261018_v1
+        group_key: connectivity_school_biology
+        scene: school_biology
+        room: full_scene
+        source_members:
+        - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+          source_sha256: 0b19d3a4ef1e8d584d8f591055378bae98fcad39d1c5dc078ca4cfd400bb3d64
+          task_sha256: 7518a4e858e91825e0bc2682e01bb3d9ab3540c21c0cc25d78942a1c84070602
+          scene_sha256: 2a33d9b7c7363ec5edf69b23e13feae9790d85052e944136037cf3fed7d25917
+        - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_001.json
+          source_sha256: 6df8f3c24c7117c9e9f9dc75895c3467cf26cf58299b3802bb78f5753374b95b
+          task_sha256: aa7e53874e8d930c361babb55d0fa3fe64c188b4ad5463217b7d24ba14c577ad
+          scene_sha256: d5066f8a7dfaada8ab22cd474a87972f8cef7c78f4fc76c9845cc14d0eedf2ba
+        - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_002.json
+          source_sha256: 4a6bcae68012607f7f5d29bb4bfc57a5820b69d771ca1771f0cbb0a0c4c4f4ff
+          task_sha256: d59e143e2e62a3e0528395ee84edf21109b1b969e7498d151d0a843e34602af1
+          scene_sha256: f6fe4d50056b1e4f9836513bb575b5e52e0f5aba4bc05125a267f581001123d5
+        - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_004.json
+          source_sha256: 2ac3cf688fcb474b81c6e3b59c2bee559a0ad03ef5b5d8f5e1013d6b0c7fe515
+          task_sha256: f80f56016cd8d1f23331c9f9d9c0560c156c5416df601fc4f200f588bb163028
+          scene_sha256: b9760a2a6a53a7a4e48b53343fb412484803504e193a2dbd00dbcd1c3db7333c
+        - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_005.json
+          source_sha256: db3fdf4af38929a35ad08564f3caf8f877515512ff1a711cea2b6443ca77e37e
+          task_sha256: 2340d3a3c0efd65aa093ab5f9fb1107f3ade740b02b6dc1ca7572c33e72dfc32
+          scene_sha256: 2f0c5245d79fb6e44a75c6698f5c88c053df32d58ac7347e1543bb65d8138adf
+        representative_source: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+        common_start_proposal:
+          operation: robot_pose
+          phase: before_construction
+          position:
+          - -5.950000286102295
+          - -2.25
+          - 0.1
+          yaw_deg: 77.34743949124234
+          head_pitch_deg: 0.0
+        seed: 0
+        episode_budget:
+          origin: new_uncalibrated_geometric_pilot
+          calibrated: false
+          max_steps: 1543
+          wall_timeout_s: 4629.0
+          derivation: ceil(2 * Manhattan_MST(all unique saved camera/path XY) / 0.25m)
+            + 12 * distinct required rooms + 4 * unique semantic questions
+          evidence:
+            manhattan_mst_m: 184.3041111016139
+            translation_increment_m: 0.25
+            geometric_traversals: 2
+            translation_actions: 1475
+            inspection_turn_actions: 48
+            answer_actions: 20
+            wall_seconds_per_action: 3.0
+            wall_bound_calibrated: false
+            point_set: all_saved_source_camera_and_path_XY_superset
+            unique_xy_count: 692
+          limitation: Geometry ignores walls, door operation and controller timing;
+            native route and budget calibration remain mandatory.
+        full_building_required: true
+        retain_native_furniture_and_doors: true
+        source_world_equivalence: unverified_pending_all_source_relations_in_this_actual_reset
+        qualification_api: session.mapping_joint_world_identity(contract) and session.mapping_joint_world_qualification(contract)
+        pending_gates:
+        - full_building_inventory_geometry
+        - all_original_source_relations
+        - source_runtime_door_reconciliation_and_public_crossings
+        - common_start_support_and_clearance
+        - controller_and_eight_plus_initial_global
+        - shared_budget_native_calibration
+        common_start_policy:
+          operation: prepare_category_interaction
+          phase: after_postprocessing
+          mode: navigation
+          group_bindings: []
+          manipulation_bindings: []
+          relocation_policy: preserve
+          layout_parameters: {}
+          controller_initial_trunk_joint_positions_rad: null
+          placement_groups: []
+          support_bindings: []
+          support_preferences: {}
+          support_search: bounded_group
+          allow_fallback_table: false
+          anchor_policy: none
+          source_camera_policy: translate_with_group
+          fixed_reference_evidence: {}
+          source_region: bathroom_0
+          minimum_grasp_height_m: 0.35
+          maximum_grasp_height_m: 1.1
+          maximum_stance_distance_m: 0.85
+          warning_codes: []
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.task_edit2_mapping_world
+        parameters:
+          mapping_joint_world_contract:
+            revision: task_edit2_mapping_world_20261018_v1
+            group_key: connectivity_school_biology
+            scene: school_biology
+            room: full_scene
+            source_members:
+            - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+              source_sha256: 0b19d3a4ef1e8d584d8f591055378bae98fcad39d1c5dc078ca4cfd400bb3d64
+              task_sha256: 7518a4e858e91825e0bc2682e01bb3d9ab3540c21c0cc25d78942a1c84070602
+              scene_sha256: 2a33d9b7c7363ec5edf69b23e13feae9790d85052e944136037cf3fed7d25917
+            - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_001.json
+              source_sha256: 6df8f3c24c7117c9e9f9dc75895c3467cf26cf58299b3802bb78f5753374b95b
+              task_sha256: aa7e53874e8d930c361babb55d0fa3fe64c188b4ad5463217b7d24ba14c577ad
+              scene_sha256: d5066f8a7dfaada8ab22cd474a87972f8cef7c78f4fc76c9845cc14d0eedf2ba
+            - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_002.json
+              source_sha256: 4a6bcae68012607f7f5d29bb4bfc57a5820b69d771ca1771f0cbb0a0c4c4f4ff
+              task_sha256: d59e143e2e62a3e0528395ee84edf21109b1b969e7498d151d0a843e34602af1
+              scene_sha256: f6fe4d50056b1e4f9836513bb575b5e52e0f5aba4bc05125a267f581001123d5
+            - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_004.json
+              source_sha256: 2ac3cf688fcb474b81c6e3b59c2bee559a0ad03ef5b5d8f5e1013d6b0c7fe515
+              task_sha256: f80f56016cd8d1f23331c9f9d9c0560c156c5416df601fc4f200f588bb163028
+              scene_sha256: b9760a2a6a53a7a4e48b53343fb412484803504e193a2dbd00dbcd1c3db7333c
+            - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_005.json
+              source_sha256: db3fdf4af38929a35ad08564f3caf8f877515512ff1a711cea2b6443ca77e37e
+              task_sha256: 2340d3a3c0efd65aa093ab5f9fb1107f3ade740b02b6dc1ca7572c33e72dfc32
+              scene_sha256: 2f0c5245d79fb6e44a75c6698f5c88c053df32d58ac7347e1543bb65d8138adf
+            representative_source: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+            common_start_proposal:
+              operation: robot_pose
+              phase: before_construction
+              position:
+              - -5.950000286102295
+              - -2.25
+              - 0.1
+              yaw_deg: 77.34743949124234
+              head_pitch_deg: 0.0
+            seed: 0
+            episode_budget:
+              origin: new_uncalibrated_geometric_pilot
+              calibrated: false
+              max_steps: 1543
+              wall_timeout_s: 4629.0
+              derivation: ceil(2 * Manhattan_MST(all unique saved camera/path XY)
+                / 0.25m) + 12 * distinct required rooms + 4 * unique semantic questions
+              evidence:
+                manhattan_mst_m: 184.3041111016139
+                translation_increment_m: 0.25
+                geometric_traversals: 2
+                translation_actions: 1475
+                inspection_turn_actions: 48
+                answer_actions: 20
+                wall_seconds_per_action: 3.0
+                wall_bound_calibrated: false
+                point_set: all_saved_source_camera_and_path_XY_superset
+                unique_xy_count: 692
+              limitation: Geometry ignores walls, door operation and controller timing;
+                native route and budget calibration remain mandatory.
+            full_building_required: true
+            retain_native_furniture_and_doors: true
+            source_world_equivalence: unverified_pending_all_source_relations_in_this_actual_reset
+            qualification_api: session.mapping_joint_world_identity(contract) and
+              session.mapping_joint_world_qualification(contract)
+            pending_gates:
+            - full_building_inventory_geometry
+            - all_original_source_relations
+            - source_runtime_door_reconciliation_and_public_crossings
+            - common_start_support_and_clearance
+            - controller_and_eight_plus_initial_global
+            - shared_budget_native_calibration
+            common_start_policy:
+              operation: prepare_category_interaction
+              phase: after_postprocessing
+              mode: navigation
+              group_bindings: []
+              manipulation_bindings: []
+              relocation_policy: preserve
+              layout_parameters: {}
+              controller_initial_trunk_joint_positions_rad: null
+              placement_groups: []
+              support_bindings: []
+              support_preferences: {}
+              support_search: bounded_group
+              allow_fallback_table: false
+              anchor_policy: none
+              source_camera_policy: translate_with_group
+              fixed_reference_evidence: {}
+              source_region: bathroom_0
+              minimum_grasp_height_m: 0.35
+              maximum_grasp_height_m: 1.1
+              maximum_stance_distance_m: 0.85
+              warning_codes: []
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - -5.950000286102295
+        - -2.25
+        - 0.1
+        yaw_deg: 77.34743949124234
+        head_pitch_deg: 0.0
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: navigation
+        group_bindings: []
+        manipulation_bindings: []
+        relocation_policy: preserve
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad: null
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: bounded_group
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: bathroom_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+qualification:
+  on_failure: skip
+  initial_visibility: none
+  target_movable_collidable: false
+defaults:
+  seed: 0
+  max_steps: 1543
+  wall_timeout_s: 4629.0
+repair:
+  definition_revision: task_edit2_mapping_world_20261018_v1
+  diagnostic_only: true
+  mapping_joint_world_contract:
+    revision: task_edit2_mapping_world_20261018_v1
+    group_key: connectivity_school_biology
+    scene: school_biology
+    room: full_scene
+    source_members:
+    - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+      source_sha256: 0b19d3a4ef1e8d584d8f591055378bae98fcad39d1c5dc078ca4cfd400bb3d64
+      task_sha256: 7518a4e858e91825e0bc2682e01bb3d9ab3540c21c0cc25d78942a1c84070602
+      scene_sha256: 2a33d9b7c7363ec5edf69b23e13feae9790d85052e944136037cf3fed7d25917
+    - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_001.json
+      source_sha256: 6df8f3c24c7117c9e9f9dc75895c3467cf26cf58299b3802bb78f5753374b95b
+      task_sha256: aa7e53874e8d930c361babb55d0fa3fe64c188b4ad5463217b7d24ba14c577ad
+      scene_sha256: d5066f8a7dfaada8ab22cd474a87972f8cef7c78f4fc76c9845cc14d0eedf2ba
+    - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_002.json
+      source_sha256: 4a6bcae68012607f7f5d29bb4bfc57a5820b69d771ca1771f0cbb0a0c4c4f4ff
+      task_sha256: d59e143e2e62a3e0528395ee84edf21109b1b969e7498d151d0a843e34602af1
+      scene_sha256: f6fe4d50056b1e4f9836513bb575b5e52e0f5aba4bc05125a267f581001123d5
+    - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_004.json
+      source_sha256: 2ac3cf688fcb474b81c6e3b59c2bee559a0ad03ef5b5d8f5e1013d6b0c7fe515
+      task_sha256: f80f56016cd8d1f23331c9f9d9c0560c156c5416df601fc4f200f588bb163028
+      scene_sha256: b9760a2a6a53a7a4e48b53343fb412484803504e193a2dbd00dbcd1c3db7333c
+    - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_005.json
+      source_sha256: db3fdf4af38929a35ad08564f3caf8f877515512ff1a711cea2b6443ca77e37e
+      task_sha256: 2340d3a3c0efd65aa093ab5f9fb1107f3ade740b02b6dc1ca7572c33e72dfc32
+      scene_sha256: 2f0c5245d79fb6e44a75c6698f5c88c053df32d58ac7347e1543bb65d8138adf
+    representative_source: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+    common_start_proposal:
+      operation: robot_pose
+      phase: before_construction
+      position:
+      - -5.950000286102295
+      - -2.25
+      - 0.1
+      yaw_deg: 77.34743949124234
+      head_pitch_deg: 0.0
+    seed: 0
+    episode_budget:
+      origin: new_uncalibrated_geometric_pilot
+      calibrated: false
+      max_steps: 1543
+      wall_timeout_s: 4629.0
+      derivation: ceil(2 * Manhattan_MST(all unique saved camera/path XY) / 0.25m)
+        + 12 * distinct required rooms + 4 * unique semantic questions
+      evidence:
+        manhattan_mst_m: 184.3041111016139
+        translation_increment_m: 0.25
+        geometric_traversals: 2
+        translation_actions: 1475
+        inspection_turn_actions: 48
+        answer_actions: 20
+        wall_seconds_per_action: 3.0
+        wall_bound_calibrated: false
+        point_set: all_saved_source_camera_and_path_XY_superset
+        unique_xy_count: 692
+      limitation: Geometry ignores walls, door operation and controller timing; native
+        route and budget calibration remain mandatory.
+    full_building_required: true
+    retain_native_furniture_and_doors: true
+    source_world_equivalence: unverified_pending_all_source_relations_in_this_actual_reset
+    qualification_api: session.mapping_joint_world_identity(contract) and session.mapping_joint_world_qualification(contract)
+    pending_gates:
+    - full_building_inventory_geometry
+    - all_original_source_relations
+    - source_runtime_door_reconciliation_and_public_crossings
+    - common_start_support_and_clearance
+    - controller_and_eight_plus_initial_global
+    - shared_budget_native_calibration
+    common_start_policy:
+      operation: prepare_category_interaction
+      phase: after_postprocessing
+      mode: navigation
+      group_bindings: []
+      manipulation_bindings: []
+      relocation_policy: preserve
+      layout_parameters: {}
+      controller_initial_trunk_joint_positions_rad: null
+      placement_groups: []
+      support_bindings: []
+      support_preferences: {}
+      support_search: bounded_group
+      allow_fallback_table: false
+      anchor_policy: none
+      source_camera_policy: translate_with_group
+      fixed_reference_evidence: {}
+      source_region: bathroom_0
+      minimum_grasp_height_m: 0.35
+      maximum_grasp_height_m: 1.1
+      maximum_stance_distance_m: 0.85
+      warning_codes: []
+  source_provenance:
+  - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+    source_sha256: 0b19d3a4ef1e8d584d8f591055378bae98fcad39d1c5dc078ca4cfd400bb3d64
+    task_sha256: 7518a4e858e91825e0bc2682e01bb3d9ab3540c21c0cc25d78942a1c84070602
+    scene_sha256: 2a33d9b7c7363ec5edf69b23e13feae9790d85052e944136037cf3fed7d25917
+    source_core_candidate_id: category_6bf8bf881eb1fb8e3a8669f4
+    source_file: ESI-Bench/dataset/json_clean/Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json
+    task_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_6bf8bf881eb1fb8e3a8669f4/task.yaml
+    scene_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_6bf8bf881eb1fb8e3a8669f4/scene.yaml
+  - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_001.json
+    source_sha256: 6df8f3c24c7117c9e9f9dc75895c3467cf26cf58299b3802bb78f5753374b95b
+    task_sha256: aa7e53874e8d930c361babb55d0fa3fe64c188b4ad5463217b7d24ba14c577ad
+    scene_sha256: d5066f8a7dfaada8ab22cd474a87972f8cef7c78f4fc76c9845cc14d0eedf2ba
+    source_core_candidate_id: category_b57536d3d034b9b99427ae78
+    source_file: ESI-Bench/dataset/json_clean/Cognitive Mapping/Connectivity/school_biology/full_scene/q_001.json
+    task_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_b57536d3d034b9b99427ae78/task.yaml
+    scene_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_b57536d3d034b9b99427ae78/scene.yaml
+  - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_002.json
+    source_sha256: 4a6bcae68012607f7f5d29bb4bfc57a5820b69d771ca1771f0cbb0a0c4c4f4ff
+    task_sha256: d59e143e2e62a3e0528395ee84edf21109b1b969e7498d151d0a843e34602af1
+    scene_sha256: f6fe4d50056b1e4f9836513bb575b5e52e0f5aba4bc05125a267f581001123d5
+    source_core_candidate_id: category_a87bd17a129e65b6d584dcc5
+    source_file: ESI-Bench/dataset/json_clean/Cognitive Mapping/Connectivity/school_biology/full_scene/q_002.json
+    task_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_a87bd17a129e65b6d584dcc5/task.yaml
+    scene_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_a87bd17a129e65b6d584dcc5/scene.yaml
+  - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_004.json
+    source_sha256: 2ac3cf688fcb474b81c6e3b59c2bee559a0ad03ef5b5d8f5e1013d6b0c7fe515
+    task_sha256: f80f56016cd8d1f23331c9f9d9c0560c156c5416df601fc4f200f588bb163028
+    scene_sha256: b9760a2a6a53a7a4e48b53343fb412484803504e193a2dbd00dbcd1c3db7333c
+    source_core_candidate_id: category_36d4393fde9ec5dff5a298b6
+    source_file: ESI-Bench/dataset/json_clean/Cognitive Mapping/Connectivity/school_biology/full_scene/q_004.json
+    task_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_36d4393fde9ec5dff5a298b6/task.yaml
+    scene_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_36d4393fde9ec5dff5a298b6/scene.yaml
+  - source_identity: Cognitive Mapping/Connectivity/school_biology/full_scene/q_005.json
+    source_sha256: db3fdf4af38929a35ad08564f3caf8f877515512ff1a711cea2b6443ca77e37e
+    task_sha256: 2340d3a3c0efd65aa093ab5f9fb1107f3ade740b02b6dc1ca7572c33e72dfc32
+    scene_sha256: 2f0c5245d79fb6e44a75c6698f5c88c053df32d58ac7347e1543bb65d8138adf
+    source_core_candidate_id: category_dc5bb4ff4e64976f652c47ce
+    source_file: ESI-Bench/dataset/json_clean/Cognitive Mapping/Connectivity/school_biology/full_scene/q_005.json
+    task_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_dc5bb4ff4e64976f652c47ce/task.yaml
+    scene_file: explore_to_achieve/category_reports/corev2/mapping_refresh_20261020/children/candidates/category_dc5bb4ff4e64976f652c47ce/scene.yaml

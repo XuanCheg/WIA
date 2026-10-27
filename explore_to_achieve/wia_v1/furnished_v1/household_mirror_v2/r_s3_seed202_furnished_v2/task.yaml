@@ -1,0 +1,841 @@
+kind: category_robot_task
+id: wia_household_r_s3_seed202_v2
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/house_single_floor/dining_room_0/wia_furnished_background_v1.json
+public:
+  objective: Use the mirror to identify the two pepper grinders and their initial order relative
+    to the fixed yellow reference pillar. Swap which pepper grinder is closer to that pillar,
+    with at least a 20 cm distance gap. Grasp and lift both real pepper grinders and leave
+    both stably released on the worktable. Moving the robot does not change the reference.
+  success_criteria: Use a genuine robot grasp to lift each required pepper grinder at least
+    5 cm. Leave all required pepper grinders supported and released without robot contact
+    for at least 0.5 seconds, with linear speed at most 0.02 m/s and angular speed at most
+    0.1 rad/s. Leave the working hand empty and open, withdraw the robot hands from the pepper
+    grinders, and declare DONE.
+  environment: A furnished dining room with pepper grinders on a fixed deck over an existing
+    native table, a physical mirror, a red rectangular outline, blue and yellow delivery pads,
+    and a fixed yellow reference pillar.
+  constraints:
+  - Keep the table, pads, mirror, red outline and yellow reference pillar fixed; preserve
+    all object dimensions.
+  - Use the existing guarded public controls and robot-mounted observations.
+  - Interpret the requested appearance using the initial head-camera view. Later robot movement
+    does not redefine the requested real pepper grinder.
+  - Grasp and lift both real pepper grinders. Move each pepper grinder at least 5 cm from
+    its starting position.
+  - Measure the final distance order in the horizontal plane relative to the fixed yellow
+    pillar; moving the robot does not establish progress.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    table:
+      name: wia_mirror_table
+      category: table
+    mirror:
+      name: wia_mirror_panel
+      category: object
+    pad_blue:
+      name: wia_mirror_pad_blue
+      category: table
+    pad_yellow:
+      name: wia_mirror_pad_yellow
+      category: table
+    anchor:
+      name: wia_reference_beacon
+      category: object
+    cue_low:
+      name: wia_mirror_cue_low
+      category: object
+    cue_high:
+      name: wia_mirror_cue_high
+      category: object
+    cue_bottom:
+      name: wia_mirror_cue_bottom
+      category: object
+    cue_top:
+      name: wia_mirror_cue_top
+      category: object
+    candidate_0:
+      name: wia_mirror_candidate_0
+      category: pepper_grinder
+      model: tfoogy
+    candidate_1:
+      name: wia_mirror_candidate_1
+      category: pepper_grinder
+      model: tfoogy
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.wia_mirror
+    operation: mirror_reconfigure
+    binding_keys:
+    - table
+    - mirror
+    - pad_blue
+    - pad_yellow
+    - anchor
+    - cue_low
+    - cue_high
+    - cue_bottom
+    - cue_top
+    - candidate_0
+    - candidate_1
+    parameters:
+      revision: wia_mirror_v3
+      operation: mirror_reconfigure
+      candidates:
+        candidate_0: wia_mirror_candidate_0
+        candidate_1: wia_mirror_candidate_1
+      fixture_keys:
+      - table
+      - mirror
+      - pad_blue
+      - pad_yellow
+      - anchor
+      - cue_low
+      - cue_high
+      - cue_bottom
+      - cue_top
+      scoring:
+        minimum_lift_m: 0.05
+        stability_duration_s: 0.5
+        maximum_linear_speed_m_s: 0.02
+        maximum_angular_speed_rad_s: 0.1
+        max_sample_gap_s: 0.1
+        fixture_position_tolerance_m: 0.002
+        fixture_angle_tolerance_rad: 0.01
+        dimension_relative_tolerance: 1.0e-05
+        aperture_clearance_margin_m: 0.001
+        minimum_assignment_gap_m: 0.015
+        threshold_status: Explicit provisional development contract; native calibration and
+          legal reference execution deferred until user review.
+        unselected_position_tolerance_m: 0.02
+        minimum_required_motion_m: 0.05
+        selection_commitment: First post-begin native grasp commits the real object; a different
+          candidate grasp violates single-target selection. Spatial swap requires both targets.
+        optical_scope: Physical outcome and geometric selection are scored separately from
+          optical visibility/necessity. No mirrored segmentation-mask proxy or source QA truth.
+      table_key: table
+      mirror_key: mirror
+      cue_bindings:
+        lower_side: cue_low
+        upper_side: cue_high
+        roof: cue_top
+        floor: cue_bottom
+      anchor_key: anchor
+      destinations:
+        blue: pad_blue
+        yellow: pad_yellow
+      appearance_mode: reflected
+      completion_items:
+      - id: selection
+        kind: historical_checkpoint
+      - id: grasp_lift
+        kind: historical_checkpoint
+      - id: reconfiguration
+        kind: historical_checkpoint
+      - id: stable_placement
+        kind: terminal_condition
+      relation: reverse_initial_distance_order
+      distance_gap_m: 0.2
+      requires_both_objects_moved: true
+      non_goal_initialization_required: true
+      scene_contract:
+        scene_model: house_single_floor
+        room: dining_room_0
+      candidate_assets:
+        candidate_0:
+          category: pepper_grinder
+          model: tfoogy
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+        candidate_1:
+          category: pepper_grinder
+          model: tfoogy
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_mirror
+        parameters:
+          revision: wia_mirror_v3
+          layout:
+            shared_layout_id: wia_furnished_mirror_r_s3_seed202_v2
+            scene_model: house_single_floor
+            rooms:
+            - dining_room_0
+            floor_name: floors_qgmjvd_0
+            objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_table
+              category: table
+              size: 1.0
+              scale:
+              - 2.4
+              - 1.0
+              - 0.014
+              position:
+              - 7.3
+              - 3.5
+              - 0.8198919282566188
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.42
+              - 0.38
+              - 0.32
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_panel
+              category: object
+              size: 1.0
+              scale:
+              - 0.025
+              - 1.12
+              - 1.25
+              position:
+              - 8.5725
+              - 3.5
+              - 1.4328919282566188
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.95
+              - 0.95
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_pad_blue
+              category: table
+              size: 1.0
+              scale:
+              - 0.28
+              - 0.28
+              - 0.012
+              position:
+              - 8.3
+              - 3.24
+              - 0.8328919282566188
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.1
+              - 0.3
+              - 0.95
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_pad_yellow
+              category: table
+              size: 1.0
+              scale:
+              - 0.28
+              - 0.28
+              - 0.012
+              position:
+              - 8.3
+              - 3.76
+              - 0.8328919282566188
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.8
+              - 0.1
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_reference_beacon
+              category: object
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.28
+              position:
+              - 6.97
+              - 3.92
+              - 0.9528919282566188
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.8
+              - 0.1
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_low
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.012
+              - 0.404
+              position:
+              - 8.548
+              - 3.5934876895881596
+              - 1.1008768475512194
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_high
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.012
+              - 0.404
+              position:
+              - 8.548
+              - 3.8054876895881593
+              - 1.1008768475512194
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_bottom
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.224
+              - 0.012
+              position:
+              - 8.548
+              - 3.6994876895881594
+              - 0.9048768475512194
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_top
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.224
+              - 0.012
+              position:
+              - 8.548
+              - 3.6994876895881594
+              - 1.2968768475512193
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: DatasetObject
+              name: wia_mirror_candidate_0
+              category: pepper_grinder
+              model: tfoogy
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - 6.85
+              - 3.18
+              - 1.1128919282566188
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: wia_mirror_candidate_1
+              category: pepper_grinder
+              model: tfoogy
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - 6.85
+              - 3.82
+              - 1.1128919282566188
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: wia_mirror_candidate_0
+              support: wia_mirror_table
+            - name: wia_mirror_candidate_1
+              support: wia_mirror_table
+            robot_start:
+              position:
+              - 5.3999999999999995
+              - 3.5
+              - 0.11
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+          mirror_material:
+            binding: mirror
+            metallic_constant: 1.0
+            reflection_roughness_constant: 0.0
+            diffuse_color_constant:
+            - 0.95
+            - 0.95
+            - 0.95
+          mirror_key: mirror
+          scene_contract:
+            scene_model: house_single_floor
+            room: dining_room_0
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_mirror
+        parameters:
+          revision: wia_mirror_v3
+          layout:
+            shared_layout_id: wia_furnished_mirror_r_s3_seed202_v2
+            scene_model: house_single_floor
+            rooms:
+            - dining_room_0
+            floor_name: floors_qgmjvd_0
+            objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_table
+              category: table
+              size: 1.0
+              scale:
+              - 2.4
+              - 1.0
+              - 0.014
+              position:
+              - 7.3
+              - 3.5
+              - 0.8198919282566188
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.42
+              - 0.38
+              - 0.32
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_panel
+              category: object
+              size: 1.0
+              scale:
+              - 0.025
+              - 1.12
+              - 1.25
+              position:
+              - 8.5725
+              - 3.5
+              - 1.4328919282566188
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.95
+              - 0.95
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_pad_blue
+              category: table
+              size: 1.0
+              scale:
+              - 0.28
+              - 0.28
+              - 0.012
+              position:
+              - 8.3
+              - 3.24
+              - 0.8328919282566188
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.1
+              - 0.3
+              - 0.95
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_pad_yellow
+              category: table
+              size: 1.0
+              scale:
+              - 0.28
+              - 0.28
+              - 0.012
+              position:
+              - 8.3
+              - 3.76
+              - 0.8328919282566188
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.8
+              - 0.1
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_reference_beacon
+              category: object
+              size: 1.0
+              scale:
+              - 0.06
+              - 0.06
+              - 0.28
+              position:
+              - 6.97
+              - 3.92
+              - 0.9528919282566188
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.8
+              - 0.1
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_low
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.012
+              - 0.404
+              position:
+              - 8.548
+              - 3.5934876895881596
+              - 1.1008768475512194
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_high
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.012
+              - 0.404
+              position:
+              - 8.548
+              - 3.8054876895881593
+              - 1.1008768475512194
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_bottom
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.224
+              - 0.012
+              position:
+              - 8.548
+              - 3.6994876895881594
+              - 0.9048768475512194
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_top
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.224
+              - 0.012
+              position:
+              - 8.548
+              - 3.6994876895881594
+              - 1.2968768475512193
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: DatasetObject
+              name: wia_mirror_candidate_0
+              category: pepper_grinder
+              model: tfoogy
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - 6.85
+              - 3.18
+              - 1.1128919282566188
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: wia_mirror_candidate_1
+              category: pepper_grinder
+              model: tfoogy
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - 6.85
+              - 3.82
+              - 1.1128919282566188
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: wia_mirror_candidate_0
+              support: wia_mirror_table
+            - name: wia_mirror_candidate_1
+              support: wia_mirror_table
+            robot_start:
+              position:
+              - 5.3999999999999995
+              - 3.5
+              - 0.11
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+          mirror_material:
+            binding: mirror
+            metallic_constant: 1.0
+            reflection_roughness_constant: 0.0
+            diffuse_color_constant:
+            - 0.95
+            - 0.95
+            - 0.95
+          mirror_key: mirror
+          scene_contract:
+            scene_model: house_single_floor
+            room: dining_room_0
+qualification:
+  on_failure: skip
+  target_movable_collidable: true
+  support: null
+  initial_visibility: none
+defaults:
+  seed: 202
+  max_steps: 240
+  world_advances_during_inference: true
+  observation_condition: current
+  action_mode: parameterized
+repair:
+  contract_revision: wia_mirror_v3
+  design_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/mirror_design_v2.json
+  design_sha256: 5d0b46982dc7ac791dfe610843dc8ff20a5793e8d43e7e77509f1d8dcd51fcc4
+  source_role: background_loader_only; original optical inventory and QA are replaced explicitly
+    by active_layout; no original optical answer is reused
+  budget_status: Explicit provisional 240-decision development budget.
+  runtime:
+    reflection_sensor_profile: {}
+    requires_native_visual_discovery: false
+    post_controller_settle_steps: 0
+    trunk_config: configs/esi_trunk.json
+    robot_camera_config: configs/esi_robot_cameras.json
+    viewer_config: configs/esi_viewer.json
+    camera_size:
+    - 512
+    - 512
+    viewer_main_view: global_diagonal
+    debug_cameras: true
+    human_depth_visualizations: true
+    preview_fps: 2.0
+  native_optics_verified: false
+  physical_success_verified: false
+  full_reference_execution: pending
+  parent_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/tasks/r_s3_seed202_v1.yaml
+  parent_task_sha256: 0f8d4d52dda10e203597df6925790adb268cbeb7b5af502a35782b33857af5a0
+  parent_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/mirror_v1/scenes/r_s3_seed202_v1.yaml
+  parent_scene_sha256: 12bd85e08d60c810697b15a51dd97c17d0f39666c6b65a70730ceb44b4537c92
+  source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Specular
+    Reflection/Correspondence/house_single_floor/dining_room_0/wia_furnished_background_v1.json
+  source_sha256: 63755e50e8452100c55294edc9535952f92721853709b44111e76be07091106a
+  document_alias: R-S3
+  variant_id: r_s3_seed202_furnished_v2
+  label: R-S3 household mirror seed 202 v2 (native fixed-joint compatibility and furniture
+    clearance)
+  scene_contract:
+    scene_model: house_single_floor
+    room: dining_room_0
+  geometry_scope: Measured native household collision bounds and optical vertex centroid only;
+    no physical feasibility certificate.
+  native_validation_run: false
+  native_geometry_verified: false
+  native_visibility_verified: false
+  native_shape_verified: false
+  native_hand_path_verified: false
+  native_gripper_path_verified: false
+  native_selected_identity_verified: false
+  native_non_goal_initialization_verified: false
+  scientific_controls_verified: false
+  continuous_path_certified: false

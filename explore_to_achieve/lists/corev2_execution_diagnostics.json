@@ -1,0 +1,42 @@
+{
+  "updated_at": "2026-10-20T11:09:45.201042+00:00",
+  "execution_qualified": false,
+  "tasks": [
+    {
+      "candidate_id": "category_bb85ad2d7d19a7fdde23a2a0",
+      "scene": "Beechwood_0_int",
+      "status": "manipulation_controller_start_failed",
+      "scene_initialization_accepted": true,
+      "error": "RuntimeError: Initial trunk posture changes EE orientation; inspect the R1 joint directions.",
+      "commands_executed": 0,
+      "elapsed_s": 1226.6893996754661,
+      "result_file": "outputs/corev2_native_route_20261020/Beechwood_0_int/result.json",
+      "note": "Optional full manipulation profile failed before any route command; base-only feasibility, door interaction and budgets remain unverified.",
+      "portable_result_file": "explore_to_achieve/category_reports/corev2/evidence/navigation_diagnostics_20261020/Beechwood_0_int/result.json",
+      "followup": {
+        "controller_profile": "base_only",
+        "status": "scheduled_after_current_capture",
+        "physical_gpu": 2,
+        "note": "Base-only diagnostic matches the declared navigation capabilities. It does not resolve manipulation startup or qualify physical door interactions."
+      }
+    },
+    {
+      "candidate_id": "category_062d036de1fac0297a84732f",
+      "scene": "office_cubicles_left",
+      "status": "diagnostic_waypoint_command_error_fixed_retest_pending",
+      "scene_initialization_accepted": true,
+      "error": "ValueError: Motion quantizes to zero primitives; request a representable magnitude.",
+      "elapsed_s": 2345.263666158542,
+      "commands_executed": 0,
+      "result_file": "outputs/corev2_native_route_20261020/office_cubicles_left/result.json",
+      "note": "The route helper requested less than the public half-primitive minimum. The helper is repaired; no route success or budget calibration has been established.",
+      "portable_result_file": "explore_to_achieve/category_reports/corev2/evidence/navigation_diagnostics_20261020/office_cubicles_left/result.json",
+      "followup": {
+        "controller_profile": "base_only",
+        "status": "scheduled_after_current_capture",
+        "physical_gpu": 4,
+        "note": "Base-only diagnostic matches the declared navigation capabilities. It does not resolve manipulation startup or qualify physical door interactions."
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "candidate_id": "pilot_partial_occlusion_original_v1",
+  "source_json": "ESI-Bench/dataset/json_clean/Perceptual Grounding/Partial Occlusion/Beechwood_0_garden/garden_0/Beechwood_0_garden__garden_0_0.json",
+  "scene_file": "explore_to_achieve/candidates/pilot_partial_occlusion/scene.yaml",
+  "task_file": null,
+  "category": "Perceptual Grounding",
+  "subcategory": "Partial Occlusion",
+  "scene_model": "Beechwood_0_garden",
+  "room": "garden_0",
+  "variant": "original",
+  "seed": 0,
+  "reuse_level": "original",
+  "modified_files": [
+    "explore_to_achieve/candidates/pilot_partial_occlusion/plan.md",
+    "explore_to_achieve/candidates/pilot_partial_occlusion/scene.yaml",
+    "explore_to_achieve/candidates/pilot_partial_occlusion/validate.py",
+    "explore_to_achieve/candidates/pilot_partial_occlusion/handoff.json",
+    "research_log.md"
+  ],
+  "expected_views": [
+    "global_diagonal",
+    "global_overhead",
+    "global_front",
+    "global_back",
+    "global_left",
+    "global_right",
+    "head",
+    "wrist",
+    "scene"
+  ],
+  "known_limitations": [
+    "Diagnostic only; candidate remains pending.",
+    "Native framing and initialization are unverified in this iteration.",
+    "Changing viewpoint for review never becomes an Agent observation.",
+    "QA and physical success are unverified."
+  ],
+  "code_commit": "c6e707b885f9ad18cedf85b0d6b0f47bea4ea281",
+  "owner": "scene_builder_b",
+  "parent_candidate_id": null,
+  "physical_task_id": null,
+  "render_config": {}
+}

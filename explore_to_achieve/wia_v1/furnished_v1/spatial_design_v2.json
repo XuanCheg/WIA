@@ -1,0 +1,3325 @@
+{
+  "schema": "wia_spatial_tray_design_v1",
+  "entries": [
+    {
+      "document_alias": "T26",
+      "variant_id": "t26_furnished_tray_v2",
+      "label": "T26 open-surface retrieval and tray arrangement v2 (native-reviewed support revision)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Spatial Relations/Geometric Configuration/Beechwood_0_garden/utility_room_0/corev2__category_bdb79bcc5beee90cfb942a32.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Geometric Configuration/Beechwood_0_garden/utility_room_0/corev2__category_bdb79bcc5beee90cfb942a32.yaml",
+      "source_identity": "Specular Reflection/Correspondence/Beechwood_0_garden/kitchen_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_T26_v2",
+        "scene_model": "Beechwood_0_garden",
+        "rooms": [
+          "kitchen_0"
+        ],
+        "floor_name": "floors_yrwwan_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "obj1",
+            "category": "lime_juice_bottle",
+            "model": "bnekjp",
+            "position": [
+              -1.15,
+              15.85,
+              1.1696108667276748
+            ],
+            "orientation": [
+              7.026537787169218e-07,
+              3.805529559031129e-06,
+              0.8726142644882202,
+              -0.48841023445129395
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj2",
+            "category": "bottle_of_vinegar",
+            "model": "snzyfk",
+            "position": [
+              -0.25,
+              15.85,
+              1.1696108667276748
+            ],
+            "orientation": [
+              6.223635864444077e-07,
+              -6.055518042558106e-07,
+              0.9860575199127197,
+              0.16640500724315643
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj3",
+            "category": "jar_of_jam",
+            "model": "vxjbjf",
+            "position": [
+              -2.2,
+              11.96,
+              1.1696108667276748
+            ],
+            "orientation": [
+              -0.00013924689847044647,
+              -2.7775782655226067e-05,
+              -0.5649771094322205,
+              0.8251065611839294
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_deck",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.48,
+              1.2,
+              0.02
+            ],
+            "position": [
+              -3.73,
+              13.55,
+              0.8796108667276747
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_w",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.2,
+              0.036
+            ],
+            "position": [
+              -3.9619999999999997,
+              13.55,
+              0.9076108667276748
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_e",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.2,
+              0.036
+            ],
+            "position": [
+              -3.498,
+              13.55,
+              0.9076108667276748
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_s",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.48,
+              0.016,
+              0.036
+            ],
+            "position": [
+              -3.73,
+              12.958,
+              0.9076108667276748
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_n",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.48,
+              0.016,
+              0.036
+            ],
+            "position": [
+              -3.73,
+              14.142000000000001,
+              0.9076108667276748
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "obj1",
+            "support": "countertop_tpuwys_0"
+          },
+          {
+            "name": "obj2",
+            "support": "countertop_tpuwys_0"
+          },
+          {
+            "name": "obj3",
+            "support": "countertop_tpuwys_2"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            -2.75,
+            13.55,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            1.0,
+            6.123233995736766e-17
+          ]
+        }
+      },
+      "bindings": {
+        "vertex_1": {
+          "name": "obj1",
+          "category": "lime_juice_bottle",
+          "model": "bnekjp"
+        },
+        "initial_support_0": {
+          "name": "countertop_tpuwys_0"
+        },
+        "vertex_2": {
+          "name": "obj2",
+          "category": "bottle_of_vinegar",
+          "model": "snzyfk"
+        },
+        "initial_support_1": {
+          "name": "countertop_tpuwys_0"
+        },
+        "vertex_3": {
+          "name": "obj3",
+          "category": "jar_of_jam",
+          "model": "vxjbjf"
+        },
+        "initial_support_2": {
+          "name": "countertop_tpuwys_2"
+        },
+        "deck": {
+          "name": "wia_tray_deck"
+        },
+        "rim_w": {
+          "name": "wia_tray_rim_w"
+        },
+        "rim_e": {
+          "name": "wia_tray_rim_e"
+        },
+        "rim_s": {
+          "name": "wia_tray_rim_s"
+        },
+        "rim_n": {
+          "name": "wia_tray_rim_n"
+        },
+        "tray_table": {
+          "name": "countertop_tpuwys_1"
+        }
+      },
+      "parameters": {
+        "revision": "wia_spatial_tray_v1",
+        "scene_contract": {
+          "scene_model": "Beechwood_0_garden",
+          "room": "kitchen_0"
+        },
+        "targets": {
+          "vertex_1": "obj1",
+          "vertex_2": "obj2",
+          "vertex_3": "obj3"
+        },
+        "initial_supports": {
+          "vertex_1": "initial_support_0",
+          "vertex_2": "initial_support_1",
+          "vertex_3": "initial_support_2"
+        },
+        "tray": {
+          "deck_key": "deck",
+          "table_support_key": "tray_table",
+          "rim_keys": [
+            "rim_w",
+            "rim_e",
+            "rim_s",
+            "rim_n"
+          ],
+          "mounting_mode": "fixed_fixture_on_native_table",
+          "usable_world_xy_m": [
+            [
+              -3.9499999999999997,
+              12.97
+            ],
+            [
+              -3.5100000000000002,
+              14.13
+            ]
+          ],
+          "deck_top_world_z_m": 0.8896108667276748
+        },
+        "goal_relation": {
+          "kind": "shape",
+          "shape": "equilateral"
+        },
+        "scoring": {
+          "minimum_lift_m": 0.05,
+          "minimum_displacement_m": 0.05,
+          "stability_duration_s": 0.5,
+          "maximum_linear_speed_m_s": 0.02,
+          "maximum_angular_speed_rad_s": 0.1,
+          "max_sample_gap_s": 0.1,
+          "fixture_position_tolerance_m": 0.002,
+          "fixture_angle_tolerance_rad": 0.01,
+          "deck_height_tolerance_m": 0.015,
+          "maximum_bottom_gap_m": 0.015,
+          "penetration_tolerance_m": 0.001,
+          "minimum_separation_m": 0.05
+        }
+      },
+      "public": {
+        "objective": "Find the lime juice bottle, bottle of vinegar, jar of jam on open furniture surfaces. Bring them to the blue-grey tray on the counter. Arrange their centers into equilateral.",
+        "environment": "A furnished kitchen. Target objects are on exposed surfaces and are not deliberately hidden.",
+        "success_criteria": "Retrieve each target with a genuine grasp and at least 5 cm lift, then release all targets entirely on the tray deck in the requested relation. Leave hands clear and objects stable for at least 0.5 seconds.",
+        "constraints": [
+          "Use lawful robot controls and mounted observations.",
+          "Keep the tray and its supporting furniture fixed.",
+          "The tray is a fixed destination on furniture, not a hand-held collection tray."
+        ]
+      }
+    },
+    {
+      "document_alias": "T27",
+      "variant_id": "t27_furnished_tray_v2",
+      "label": "T27 open-surface retrieval and tray arrangement v2 (native-reviewed support revision)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Spatial Relations/Geometric Configuration/Beechwood_0_garden/garden_0/corev2__category_abfc72cb2d4b9fb983221f89.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Geometric Configuration/Beechwood_0_garden/garden_0/corev2__category_abfc72cb2d4b9fb983221f89.yaml",
+      "source_identity": "Specular Reflection/Correspondence/house_single_floor/utility_room_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_T27_v2",
+        "scene_model": "house_single_floor",
+        "rooms": [
+          "utility_room_0"
+        ],
+        "floor_name": "floors_glwobe_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "obj1",
+            "category": "vase",
+            "model": "htyvuz",
+            "position": [
+              21.94,
+              0.85,
+              1.215742944328716
+            ],
+            "orientation": [
+              0.00030665152007713914,
+              4.450555570656434e-05,
+              0.9813327193260193,
+              -0.1923174262046814
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj2",
+            "category": "snow_globe",
+            "model": "owteks",
+            "position": [
+              23.65,
+              -2.05,
+              1.2275426642390619
+            ],
+            "orientation": [
+              -3.818422555923462e-07,
+              -1.7408747225999832e-06,
+              -0.6023526787757874,
+              0.7982301712036133
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj3",
+            "category": "alarm_clock",
+            "model": "vqwovi",
+            "position": [
+              21.94,
+              -0.25,
+              1.215742944328716
+            ],
+            "orientation": [
+              -0.00044528255239129066,
+              0.0008251843973994255,
+              0.03693939000368118,
+              0.9993170499801636
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_deck",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.5,
+              1.4,
+              0.02
+            ],
+            "position": [
+              24.51,
+              0.15,
+              0.9375437389647407
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_w",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.4,
+              0.036
+            ],
+            "position": [
+              24.268,
+              0.15,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_e",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.4,
+              0.036
+            ],
+            "position": [
+              24.752000000000002,
+              0.15,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_s",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.5,
+              0.016,
+              0.036
+            ],
+            "position": [
+              24.51,
+              -0.5419999999999999,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_n",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.5,
+              0.016,
+              0.036
+            ],
+            "position": [
+              24.51,
+              0.842,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "obj1",
+            "support": "countertop_fjkase_0"
+          },
+          {
+            "name": "obj2",
+            "support": "countertop_sjxber_0"
+          },
+          {
+            "name": "obj3",
+            "support": "countertop_fjkase_0"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            23.25,
+            0.15,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      },
+      "bindings": {
+        "vertex_1": {
+          "name": "obj1",
+          "category": "vase",
+          "model": "htyvuz"
+        },
+        "initial_support_0": {
+          "name": "countertop_fjkase_0"
+        },
+        "vertex_2": {
+          "name": "obj2",
+          "category": "snow_globe",
+          "model": "owteks"
+        },
+        "initial_support_1": {
+          "name": "countertop_sjxber_0"
+        },
+        "vertex_3": {
+          "name": "obj3",
+          "category": "alarm_clock",
+          "model": "vqwovi"
+        },
+        "initial_support_2": {
+          "name": "countertop_fjkase_0"
+        },
+        "deck": {
+          "name": "wia_tray_deck"
+        },
+        "rim_w": {
+          "name": "wia_tray_rim_w"
+        },
+        "rim_e": {
+          "name": "wia_tray_rim_e"
+        },
+        "rim_s": {
+          "name": "wia_tray_rim_s"
+        },
+        "rim_n": {
+          "name": "wia_tray_rim_n"
+        },
+        "tray_table": {
+          "name": "countertop_ikwqer_0"
+        }
+      },
+      "parameters": {
+        "revision": "wia_spatial_tray_v1",
+        "scene_contract": {
+          "scene_model": "house_single_floor",
+          "room": "utility_room_0"
+        },
+        "targets": {
+          "vertex_1": "obj1",
+          "vertex_2": "obj2",
+          "vertex_3": "obj3"
+        },
+        "initial_supports": {
+          "vertex_1": "initial_support_0",
+          "vertex_2": "initial_support_1",
+          "vertex_3": "initial_support_2"
+        },
+        "tray": {
+          "deck_key": "deck",
+          "table_support_key": "tray_table",
+          "rim_keys": [
+            "rim_w",
+            "rim_e",
+            "rim_s",
+            "rim_n"
+          ],
+          "mounting_mode": "fixed_fixture_on_native_table",
+          "usable_world_xy_m": [
+            [
+              24.28,
+              -0.5299999999999999
+            ],
+            [
+              24.740000000000002,
+              0.83
+            ]
+          ],
+          "deck_top_world_z_m": 0.9475437389647408
+        },
+        "goal_relation": {
+          "kind": "shape",
+          "shape": "equilateral"
+        },
+        "scoring": {
+          "minimum_lift_m": 0.05,
+          "minimum_displacement_m": 0.05,
+          "stability_duration_s": 0.5,
+          "maximum_linear_speed_m_s": 0.02,
+          "maximum_angular_speed_rad_s": 0.1,
+          "max_sample_gap_s": 0.1,
+          "fixture_position_tolerance_m": 0.002,
+          "fixture_angle_tolerance_rad": 0.01,
+          "deck_height_tolerance_m": 0.015,
+          "maximum_bottom_gap_m": 0.015,
+          "penetration_tolerance_m": 0.001,
+          "minimum_separation_m": 0.05
+        }
+      },
+      "public": {
+        "objective": "Find the vase, snow globe, alarm clock on open furniture surfaces. Bring them to the blue-grey tray on the counter. Arrange their centers into equilateral.",
+        "environment": "A furnished utility room. Target objects are on exposed surfaces and are not deliberately hidden.",
+        "success_criteria": "Retrieve each target with a genuine grasp and at least 5 cm lift, then release all targets entirely on the tray deck in the requested relation. Leave hands clear and objects stable for at least 0.5 seconds.",
+        "constraints": [
+          "Use lawful robot controls and mounted observations.",
+          "Keep the tray and its supporting furniture fixed.",
+          "The tray is a fixed destination on furniture, not a hand-held collection tray."
+        ]
+      }
+    },
+    {
+      "document_alias": "T28",
+      "variant_id": "t28_furnished_tray_v2",
+      "label": "T28 open-surface retrieval and tray arrangement v2 (native-reviewed support revision)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Spatial Relations/Geometric Configuration/Beechwood_0_garden/kitchen_0/corev2__category_1bb95023d01fbe5c29601ab3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Geometric Configuration/Beechwood_0_garden/kitchen_0/corev2__category_1bb95023d01fbe5c29601ab3.yaml",
+      "source_identity": "Specular Reflection/Correspondence/Beechwood_0_garden/kitchen_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_T28_v2",
+        "scene_model": "Beechwood_0_garden",
+        "rooms": [
+          "kitchen_0"
+        ],
+        "floor_name": "floors_yrwwan_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "obj1",
+            "category": "jar_of_sugar",
+            "model": "vrmrci",
+            "position": [
+              -1.15,
+              15.85,
+              1.1696108667276748
+            ],
+            "orientation": [
+              -7.206806913018227e-06,
+              -0.0003121694317087531,
+              0.6686335206031799,
+              0.7435922026634216
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj2",
+            "category": "thyme_shaker",
+            "model": "kuuwti",
+            "position": [
+              -0.25,
+              15.85,
+              1.1696108667276748
+            ],
+            "orientation": [
+              -0.0009973074775189161,
+              -0.00036772838211618364,
+              -0.7033123970031738,
+              0.7108803391456604
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj3",
+            "category": "vinegar_bottle",
+            "model": "ykysuc",
+            "position": [
+              -2.2,
+              11.96,
+              1.1696108667276748
+            ],
+            "orientation": [
+              -9.745126590132713e-07,
+              -7.552007446065545e-07,
+              0.9295969605445862,
+              0.3685777485370636
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_deck",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.48,
+              1.2,
+              0.02
+            ],
+            "position": [
+              -3.73,
+              13.55,
+              0.8796108667276747
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_w",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.2,
+              0.036
+            ],
+            "position": [
+              -3.9619999999999997,
+              13.55,
+              0.9076108667276748
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_e",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.2,
+              0.036
+            ],
+            "position": [
+              -3.498,
+              13.55,
+              0.9076108667276748
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_s",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.48,
+              0.016,
+              0.036
+            ],
+            "position": [
+              -3.73,
+              12.958,
+              0.9076108667276748
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_n",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.48,
+              0.016,
+              0.036
+            ],
+            "position": [
+              -3.73,
+              14.142000000000001,
+              0.9076108667276748
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "obj1",
+            "support": "countertop_tpuwys_0"
+          },
+          {
+            "name": "obj2",
+            "support": "countertop_tpuwys_0"
+          },
+          {
+            "name": "obj3",
+            "support": "countertop_tpuwys_2"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            -2.75,
+            13.55,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            1.0,
+            6.123233995736766e-17
+          ]
+        }
+      },
+      "bindings": {
+        "vertex_1": {
+          "name": "obj1",
+          "category": "jar_of_sugar",
+          "model": "vrmrci"
+        },
+        "initial_support_0": {
+          "name": "countertop_tpuwys_0"
+        },
+        "vertex_2": {
+          "name": "obj2",
+          "category": "thyme_shaker",
+          "model": "kuuwti"
+        },
+        "initial_support_1": {
+          "name": "countertop_tpuwys_0"
+        },
+        "vertex_3": {
+          "name": "obj3",
+          "category": "vinegar_bottle",
+          "model": "ykysuc"
+        },
+        "initial_support_2": {
+          "name": "countertop_tpuwys_2"
+        },
+        "deck": {
+          "name": "wia_tray_deck"
+        },
+        "rim_w": {
+          "name": "wia_tray_rim_w"
+        },
+        "rim_e": {
+          "name": "wia_tray_rim_e"
+        },
+        "rim_s": {
+          "name": "wia_tray_rim_s"
+        },
+        "rim_n": {
+          "name": "wia_tray_rim_n"
+        },
+        "tray_table": {
+          "name": "countertop_tpuwys_1"
+        }
+      },
+      "parameters": {
+        "revision": "wia_spatial_tray_v1",
+        "scene_contract": {
+          "scene_model": "Beechwood_0_garden",
+          "room": "kitchen_0"
+        },
+        "targets": {
+          "vertex_1": "obj1",
+          "vertex_2": "obj2",
+          "vertex_3": "obj3"
+        },
+        "initial_supports": {
+          "vertex_1": "initial_support_0",
+          "vertex_2": "initial_support_1",
+          "vertex_3": "initial_support_2"
+        },
+        "tray": {
+          "deck_key": "deck",
+          "table_support_key": "tray_table",
+          "rim_keys": [
+            "rim_w",
+            "rim_e",
+            "rim_s",
+            "rim_n"
+          ],
+          "mounting_mode": "fixed_fixture_on_native_table",
+          "usable_world_xy_m": [
+            [
+              -3.9499999999999997,
+              12.97
+            ],
+            [
+              -3.5100000000000002,
+              14.13
+            ]
+          ],
+          "deck_top_world_z_m": 0.8896108667276748
+        },
+        "goal_relation": {
+          "kind": "shape",
+          "shape": "isosceles"
+        },
+        "scoring": {
+          "minimum_lift_m": 0.05,
+          "minimum_displacement_m": 0.05,
+          "stability_duration_s": 0.5,
+          "maximum_linear_speed_m_s": 0.02,
+          "maximum_angular_speed_rad_s": 0.1,
+          "max_sample_gap_s": 0.1,
+          "fixture_position_tolerance_m": 0.002,
+          "fixture_angle_tolerance_rad": 0.01,
+          "deck_height_tolerance_m": 0.015,
+          "maximum_bottom_gap_m": 0.015,
+          "penetration_tolerance_m": 0.001,
+          "minimum_separation_m": 0.05
+        }
+      },
+      "public": {
+        "objective": "Find the jar of sugar, thyme shaker, vinegar bottle on open furniture surfaces. Bring them to the blue-grey tray on the counter. Arrange their centers into isosceles.",
+        "environment": "A furnished kitchen. Target objects are on exposed surfaces and are not deliberately hidden.",
+        "success_criteria": "Retrieve each target with a genuine grasp and at least 5 cm lift, then release all targets entirely on the tray deck in the requested relation. Leave hands clear and objects stable for at least 0.5 seconds.",
+        "constraints": [
+          "Use lawful robot controls and mounted observations.",
+          "Keep the tray and its supporting furniture fixed.",
+          "The tray is a fixed destination on furniture, not a hand-held collection tray."
+        ]
+      }
+    },
+    {
+      "document_alias": "T29",
+      "variant_id": "t29_furnished_tray_v2",
+      "label": "T29 open-surface retrieval and tray arrangement v2 (native-reviewed support revision)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Spatial Relations/Geometric Configuration/Beechwood_0_int/kitchen_0/corev2__category_be95222ebb4493f9b61d87fd.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Geometric Configuration/Beechwood_0_int/kitchen_0/corev2__category_be95222ebb4493f9b61d87fd.yaml",
+      "source_identity": "Specular Reflection/Correspondence/Merom_0_garden/playroom_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_T29_v2",
+        "scene_model": "Merom_0_garden",
+        "rooms": [
+          "playroom_0"
+        ],
+        "floor_name": "floors_jrdgxz_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "obj1",
+            "category": "salt_shaker",
+            "model": "fonexa",
+            "position": [
+              -3.02,
+              -10.61,
+              1.1024741013978911
+            ],
+            "orientation": [
+              6.479407602455467e-06,
+              -2.095298987114802e-05,
+              -0.05827397108078003,
+              0.9983006715774536
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj2",
+            "category": "bottle_of_lemon_juice",
+            "model": "vsjter",
+            "position": [
+              -5.82,
+              -12.72,
+              1.1191993950803805
+            ],
+            "orientation": [
+              0.019388826563954353,
+              0.004282738082110882,
+              -0.3213925361633301,
+              0.9467378854751587
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj3",
+            "category": "erlenmeyer_flask",
+            "model": "bpwjxr",
+            "position": [
+              -5.82,
+              -10.6,
+              1.1191993950803805
+            ],
+            "orientation": [
+              0.0071294596418738365,
+              -0.000547843286767602,
+              0.9448279738426208,
+              0.32748889923095703
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_deck",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.45,
+              1.3,
+              0.02
+            ],
+            "position": [
+              -5.82,
+              -11.45,
+              0.8291993950803804
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_w",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.3,
+              0.036
+            ],
+            "position": [
+              -6.037,
+              -11.45,
+              0.8571993950803805
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_e",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.3,
+              0.036
+            ],
+            "position": [
+              -5.603000000000001,
+              -11.45,
+              0.8571993950803805
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_s",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.45,
+              0.016,
+              0.036
+            ],
+            "position": [
+              -5.82,
+              -12.092,
+              0.8571993950803805
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_n",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.45,
+              0.016,
+              0.036
+            ],
+            "position": [
+              -5.82,
+              -10.807999999999998,
+              0.8571993950803805
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "obj1",
+            "support": "bookcase_owvfik_0",
+            "support_surface_mode": "local_raycast",
+            "support_alignment_mode": "local_raycast"
+          },
+          {
+            "name": "obj2",
+            "support": "countertop_tpuwys_0"
+          },
+          {
+            "name": "obj3",
+            "support": "countertop_tpuwys_0"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            -4.8,
+            -11.45,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            1.0,
+            6.123233995736766e-17
+          ]
+        }
+      },
+      "bindings": {
+        "vertex_1": {
+          "name": "obj1",
+          "category": "salt_shaker",
+          "model": "fonexa"
+        },
+        "initial_support_0": {
+          "name": "bookcase_owvfik_0"
+        },
+        "vertex_2": {
+          "name": "obj2",
+          "category": "bottle_of_lemon_juice",
+          "model": "vsjter"
+        },
+        "initial_support_1": {
+          "name": "countertop_tpuwys_0"
+        },
+        "vertex_3": {
+          "name": "obj3",
+          "category": "erlenmeyer_flask",
+          "model": "bpwjxr"
+        },
+        "initial_support_2": {
+          "name": "countertop_tpuwys_0"
+        },
+        "deck": {
+          "name": "wia_tray_deck"
+        },
+        "rim_w": {
+          "name": "wia_tray_rim_w"
+        },
+        "rim_e": {
+          "name": "wia_tray_rim_e"
+        },
+        "rim_s": {
+          "name": "wia_tray_rim_s"
+        },
+        "rim_n": {
+          "name": "wia_tray_rim_n"
+        },
+        "tray_table": {
+          "name": "countertop_tpuwys_0"
+        }
+      },
+      "parameters": {
+        "revision": "wia_spatial_tray_v1",
+        "scene_contract": {
+          "scene_model": "Merom_0_garden",
+          "room": "playroom_0"
+        },
+        "targets": {
+          "vertex_1": "obj1",
+          "vertex_2": "obj2",
+          "vertex_3": "obj3"
+        },
+        "initial_supports": {
+          "vertex_1": "initial_support_0",
+          "vertex_2": "initial_support_1",
+          "vertex_3": "initial_support_2"
+        },
+        "tray": {
+          "deck_key": "deck",
+          "table_support_key": "tray_table",
+          "rim_keys": [
+            "rim_w",
+            "rim_e",
+            "rim_s",
+            "rim_n"
+          ],
+          "mounting_mode": "fixed_fixture_on_native_table",
+          "usable_world_xy_m": [
+            [
+              -6.025,
+              -12.08
+            ],
+            [
+              -5.615,
+              -10.819999999999999
+            ]
+          ],
+          "deck_top_world_z_m": 0.8391993950803804
+        },
+        "goal_relation": {
+          "kind": "shape",
+          "shape": "equilateral"
+        },
+        "scoring": {
+          "minimum_lift_m": 0.05,
+          "minimum_displacement_m": 0.05,
+          "stability_duration_s": 0.5,
+          "maximum_linear_speed_m_s": 0.02,
+          "maximum_angular_speed_rad_s": 0.1,
+          "max_sample_gap_s": 0.1,
+          "fixture_position_tolerance_m": 0.002,
+          "fixture_angle_tolerance_rad": 0.01,
+          "deck_height_tolerance_m": 0.015,
+          "maximum_bottom_gap_m": 0.015,
+          "penetration_tolerance_m": 0.001,
+          "minimum_separation_m": 0.05
+        }
+      },
+      "public": {
+        "objective": "Find the salt shaker, bottle of lemon juice, erlenmeyer flask on open furniture surfaces. Bring them to the blue-grey tray on the counter. Arrange their centers into equilateral.",
+        "environment": "A furnished playroom. Target objects are on exposed surfaces and are not deliberately hidden.",
+        "success_criteria": "Retrieve each target with a genuine grasp and at least 5 cm lift, then release all targets entirely on the tray deck in the requested relation. Leave hands clear and objects stable for at least 0.5 seconds.",
+        "constraints": [
+          "Use lawful robot controls and mounted observations.",
+          "Keep the tray and its supporting furniture fixed.",
+          "The tray is a fixed destination on furniture, not a hand-held collection tray."
+        ]
+      }
+    },
+    {
+      "document_alias": "T30",
+      "variant_id": "t30_furnished_tray_v2",
+      "label": "T30 open-surface retrieval and tray arrangement v2 (native-reviewed support revision)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Spatial Relations/Linear Alignment/Beechwood_0_garden/private_office_0/corev2__category_309ff5d1a6ed664bd8726e4b.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Linear Alignment/Beechwood_0_garden/private_office_0/corev2__category_309ff5d1a6ed664bd8726e4b.yaml",
+      "source_identity": "Specular Reflection/Correspondence/house_single_floor/utility_room_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_T30_v2",
+        "scene_model": "house_single_floor",
+        "rooms": [
+          "utility_room_0"
+        ],
+        "floor_name": "floors_glwobe_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "obj1",
+            "category": "bottle_of_vodka",
+            "model": "nwegts",
+            "position": [
+              21.94,
+              0.85,
+              1.215742944328716
+            ],
+            "orientation": [
+              -9.579816833138466e-07,
+              1.5587902453262359e-06,
+              0.48207801580429077,
+              0.8761283159255981
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj2",
+            "category": "liquid_soap_bottle",
+            "model": "hazvbh",
+            "position": [
+              23.65,
+              -2.05,
+              1.2275426642390619
+            ],
+            "orientation": [
+              -1.3550743460655212e-06,
+              -4.145374987274408e-06,
+              0.9668752551078796,
+              0.2552499771118164
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj3",
+            "category": "pepper_grinder",
+            "model": "tfoogy",
+            "position": [
+              21.94,
+              -0.25,
+              1.215742944328716
+            ],
+            "orientation": [
+              2.7160276658833027e-06,
+              -3.319582901895046e-07,
+              -0.2849092483520508,
+              0.9585545063018799
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_deck",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.5,
+              1.4,
+              0.02
+            ],
+            "position": [
+              24.51,
+              0.15,
+              0.9375437389647407
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_w",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.4,
+              0.036
+            ],
+            "position": [
+              24.268,
+              0.15,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_e",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.4,
+              0.036
+            ],
+            "position": [
+              24.752000000000002,
+              0.15,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_s",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.5,
+              0.016,
+              0.036
+            ],
+            "position": [
+              24.51,
+              -0.5419999999999999,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_n",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.5,
+              0.016,
+              0.036
+            ],
+            "position": [
+              24.51,
+              0.842,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "obj1",
+            "support": "countertop_fjkase_0"
+          },
+          {
+            "name": "obj2",
+            "support": "countertop_sjxber_0"
+          },
+          {
+            "name": "obj3",
+            "support": "countertop_fjkase_0"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            23.25,
+            0.15,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      },
+      "bindings": {
+        "alignment_1": {
+          "name": "obj1",
+          "category": "bottle_of_vodka",
+          "model": "nwegts"
+        },
+        "initial_support_0": {
+          "name": "countertop_fjkase_0"
+        },
+        "alignment_2": {
+          "name": "obj2",
+          "category": "liquid_soap_bottle",
+          "model": "hazvbh"
+        },
+        "initial_support_1": {
+          "name": "countertop_sjxber_0"
+        },
+        "alignment_3": {
+          "name": "obj3",
+          "category": "pepper_grinder",
+          "model": "tfoogy"
+        },
+        "initial_support_2": {
+          "name": "countertop_fjkase_0"
+        },
+        "deck": {
+          "name": "wia_tray_deck"
+        },
+        "rim_w": {
+          "name": "wia_tray_rim_w"
+        },
+        "rim_e": {
+          "name": "wia_tray_rim_e"
+        },
+        "rim_s": {
+          "name": "wia_tray_rim_s"
+        },
+        "rim_n": {
+          "name": "wia_tray_rim_n"
+        },
+        "tray_table": {
+          "name": "countertop_ikwqer_0"
+        }
+      },
+      "parameters": {
+        "revision": "wia_spatial_tray_v1",
+        "scene_contract": {
+          "scene_model": "house_single_floor",
+          "room": "utility_room_0"
+        },
+        "targets": {
+          "alignment_1": "obj1",
+          "alignment_2": "obj2",
+          "alignment_3": "obj3"
+        },
+        "initial_supports": {
+          "alignment_1": "initial_support_0",
+          "alignment_2": "initial_support_1",
+          "alignment_3": "initial_support_2"
+        },
+        "tray": {
+          "deck_key": "deck",
+          "table_support_key": "tray_table",
+          "rim_keys": [
+            "rim_w",
+            "rim_e",
+            "rim_s",
+            "rim_n"
+          ],
+          "mounting_mode": "fixed_fixture_on_native_table",
+          "usable_world_xy_m": [
+            [
+              24.28,
+              -0.5299999999999999
+            ],
+            [
+              24.740000000000002,
+              0.83
+            ]
+          ],
+          "deck_top_world_z_m": 0.9475437389647408
+        },
+        "goal_relation": {
+          "kind": "shape",
+          "shape": "collinear"
+        },
+        "scoring": {
+          "minimum_lift_m": 0.05,
+          "minimum_displacement_m": 0.05,
+          "stability_duration_s": 0.5,
+          "maximum_linear_speed_m_s": 0.02,
+          "maximum_angular_speed_rad_s": 0.1,
+          "max_sample_gap_s": 0.1,
+          "fixture_position_tolerance_m": 0.002,
+          "fixture_angle_tolerance_rad": 0.01,
+          "deck_height_tolerance_m": 0.015,
+          "maximum_bottom_gap_m": 0.015,
+          "penetration_tolerance_m": 0.001,
+          "minimum_separation_m": 0.05
+        }
+      },
+      "public": {
+        "objective": "Find the bottle of vodka, liquid soap bottle, pepper grinder on open furniture surfaces. Bring them to the blue-grey tray on the counter. Arrange their centers into straight line.",
+        "environment": "A furnished utility room. Target objects are on exposed surfaces and are not deliberately hidden.",
+        "success_criteria": "Retrieve each target with a genuine grasp and at least 5 cm lift, then release all targets entirely on the tray deck in the requested relation. Leave hands clear and objects stable for at least 0.5 seconds.",
+        "constraints": [
+          "Use lawful robot controls and mounted observations.",
+          "Keep the tray and its supporting furniture fixed.",
+          "The tray is a fixed destination on furniture, not a hand-held collection tray."
+        ]
+      }
+    },
+    {
+      "document_alias": "T31",
+      "variant_id": "t31_furnished_tray_v2",
+      "label": "T31 open-surface retrieval and tray arrangement v2 (native-reviewed support revision)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Spatial Relations/Physical Contact/house_double_floor_lower/corridor_0/corev2__category_93025169f0b17c9183a2fdd9.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Physical Contact/house_double_floor_lower/corridor_0/corev2__category_93025169f0b17c9183a2fdd9.yaml",
+      "source_identity": "Specular Reflection/Correspondence/Beechwood_0_garden/kitchen_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_T31_v2",
+        "scene_model": "Beechwood_0_garden",
+        "rooms": [
+          "kitchen_0"
+        ],
+        "floor_name": "floors_yrwwan_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "obj1",
+            "category": "violin",
+            "model": "rgwsac",
+            "position": [
+              -1.15,
+              15.85,
+              1.1696108667276748
+            ],
+            "orientation": [
+              0.08277695626020432,
+              0.0009354343637824059,
+              -0.014519979245960712,
+              0.9964619278907776
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj2",
+            "category": "backpack",
+            "model": "gvbiwl",
+            "position": [
+              -0.25,
+              15.85,
+              1.1696108667276748
+            ],
+            "orientation": [
+              -0.0010458595352247357,
+              0.06213609129190445,
+              -0.000616817269474268,
+              0.9980670213699341
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_deck",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.48,
+              1.2,
+              0.02
+            ],
+            "position": [
+              -3.73,
+              13.55,
+              0.8796108667276747
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_w",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.2,
+              0.036
+            ],
+            "position": [
+              -3.9619999999999997,
+              13.55,
+              0.9076108667276748
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_e",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.2,
+              0.036
+            ],
+            "position": [
+              -3.498,
+              13.55,
+              0.9076108667276748
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_s",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.48,
+              0.016,
+              0.036
+            ],
+            "position": [
+              -3.73,
+              12.958,
+              0.9076108667276748
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_n",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.48,
+              0.016,
+              0.036
+            ],
+            "position": [
+              -3.73,
+              14.142000000000001,
+              0.9076108667276748
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "obj1",
+            "support": "countertop_tpuwys_0"
+          },
+          {
+            "name": "obj2",
+            "support": "countertop_tpuwys_0"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            -2.75,
+            13.55,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            1.0,
+            6.123233995736766e-17
+          ]
+        }
+      },
+      "bindings": {
+        "obj1": {
+          "name": "obj1",
+          "category": "violin",
+          "model": "rgwsac"
+        },
+        "initial_support_0": {
+          "name": "countertop_tpuwys_0"
+        },
+        "obj2": {
+          "name": "obj2",
+          "category": "backpack",
+          "model": "gvbiwl"
+        },
+        "initial_support_1": {
+          "name": "countertop_tpuwys_0"
+        },
+        "deck": {
+          "name": "wia_tray_deck"
+        },
+        "rim_w": {
+          "name": "wia_tray_rim_w"
+        },
+        "rim_e": {
+          "name": "wia_tray_rim_e"
+        },
+        "rim_s": {
+          "name": "wia_tray_rim_s"
+        },
+        "rim_n": {
+          "name": "wia_tray_rim_n"
+        },
+        "tray_table": {
+          "name": "countertop_tpuwys_1"
+        }
+      },
+      "parameters": {
+        "revision": "wia_spatial_tray_v1",
+        "scene_contract": {
+          "scene_model": "Beechwood_0_garden",
+          "room": "kitchen_0"
+        },
+        "targets": {
+          "obj1": "obj1",
+          "obj2": "obj2"
+        },
+        "initial_supports": {
+          "obj1": "initial_support_0",
+          "obj2": "initial_support_1"
+        },
+        "tray": {
+          "deck_key": "deck",
+          "table_support_key": "tray_table",
+          "rim_keys": [
+            "rim_w",
+            "rim_e",
+            "rim_s",
+            "rim_n"
+          ],
+          "mounting_mode": "fixed_fixture_on_native_table",
+          "usable_world_xy_m": [
+            [
+              -3.9499999999999997,
+              12.97
+            ],
+            [
+              -3.5100000000000002,
+              14.13
+            ]
+          ],
+          "deck_top_world_z_m": 0.8896108667276748
+        },
+        "goal_relation": {
+          "kind": "contact",
+          "pair": [
+            "obj1",
+            "obj2"
+          ],
+          "relation": "separated"
+        },
+        "scoring": {
+          "minimum_lift_m": 0.05,
+          "minimum_displacement_m": 0.05,
+          "stability_duration_s": 0.5,
+          "maximum_linear_speed_m_s": 0.02,
+          "maximum_angular_speed_rad_s": 0.1,
+          "max_sample_gap_s": 0.1,
+          "fixture_position_tolerance_m": 0.002,
+          "fixture_angle_tolerance_rad": 0.01,
+          "deck_height_tolerance_m": 0.015,
+          "maximum_bottom_gap_m": 0.015,
+          "penetration_tolerance_m": 0.001,
+          "minimum_separation_m": 0.05
+        }
+      },
+      "public": {
+        "objective": "Find the violin, backpack on open furniture surfaces. Bring them to the blue-grey tray on the counter. Leave the two objects separated by at least 5 cm.",
+        "environment": "A furnished kitchen. Target objects are on exposed surfaces and are not deliberately hidden.",
+        "success_criteria": "Retrieve each target with a genuine grasp and at least 5 cm lift, then release all targets entirely on the tray deck in the requested relation. Leave hands clear and objects stable for at least 0.5 seconds.",
+        "constraints": [
+          "Use lawful robot controls and mounted observations.",
+          "Keep the tray and its supporting furniture fixed.",
+          "The tray is a fixed destination on furniture, not a hand-held collection tray."
+        ]
+      }
+    },
+    {
+      "document_alias": "T32",
+      "variant_id": "t32_furnished_tray_v2",
+      "label": "T32 open-surface retrieval and tray arrangement v2 (native-reviewed support revision)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Spatial Relations/Physical Contact/house_single_floor/living_room_0/corev2__category_3a319828abcb43542f397e84.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Physical Contact/house_single_floor/living_room_0/corev2__category_3a319828abcb43542f397e84.yaml",
+      "source_identity": "Specular Reflection/Correspondence/Merom_0_garden/playroom_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_T32_v2",
+        "scene_model": "Merom_0_garden",
+        "rooms": [
+          "playroom_0"
+        ],
+        "floor_name": "floors_jrdgxz_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "obj1",
+            "category": "vase",
+            "model": "saenda",
+            "position": [
+              -3.02,
+              -10.61,
+              1.1024741013978911
+            ],
+            "orientation": [
+              0.6988173127174377,
+              0.021653205156326294,
+              0.18345484137535095,
+              0.6910354495048523
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj2",
+            "category": "trophy",
+            "model": "ayuubt",
+            "position": [
+              -5.82,
+              -12.72,
+              1.1191993950803805
+            ],
+            "orientation": [
+              3.712080797413364e-06,
+              -5.020261824029149e-07,
+              9.003560990095139e-07,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_deck",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.45,
+              1.3,
+              0.02
+            ],
+            "position": [
+              -5.82,
+              -11.45,
+              0.8291993950803804
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_w",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.3,
+              0.036
+            ],
+            "position": [
+              -6.037,
+              -11.45,
+              0.8571993950803805
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_e",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.3,
+              0.036
+            ],
+            "position": [
+              -5.603000000000001,
+              -11.45,
+              0.8571993950803805
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_s",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.45,
+              0.016,
+              0.036
+            ],
+            "position": [
+              -5.82,
+              -12.092,
+              0.8571993950803805
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_n",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.45,
+              0.016,
+              0.036
+            ],
+            "position": [
+              -5.82,
+              -10.807999999999998,
+              0.8571993950803805
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "obj1",
+            "support": "bookcase_owvfik_0",
+            "support_surface_mode": "local_raycast",
+            "support_alignment_mode": "local_raycast"
+          },
+          {
+            "name": "obj2",
+            "support": "countertop_tpuwys_0"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            -4.8,
+            -11.45,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            1.0,
+            6.123233995736766e-17
+          ]
+        }
+      },
+      "bindings": {
+        "obj1": {
+          "name": "obj1",
+          "category": "vase",
+          "model": "saenda"
+        },
+        "initial_support_0": {
+          "name": "bookcase_owvfik_0"
+        },
+        "obj2": {
+          "name": "obj2",
+          "category": "trophy",
+          "model": "ayuubt"
+        },
+        "initial_support_1": {
+          "name": "countertop_tpuwys_0"
+        },
+        "deck": {
+          "name": "wia_tray_deck"
+        },
+        "rim_w": {
+          "name": "wia_tray_rim_w"
+        },
+        "rim_e": {
+          "name": "wia_tray_rim_e"
+        },
+        "rim_s": {
+          "name": "wia_tray_rim_s"
+        },
+        "rim_n": {
+          "name": "wia_tray_rim_n"
+        },
+        "tray_table": {
+          "name": "countertop_tpuwys_0"
+        }
+      },
+      "parameters": {
+        "revision": "wia_spatial_tray_v1",
+        "scene_contract": {
+          "scene_model": "Merom_0_garden",
+          "room": "playroom_0"
+        },
+        "targets": {
+          "obj1": "obj1",
+          "obj2": "obj2"
+        },
+        "initial_supports": {
+          "obj1": "initial_support_0",
+          "obj2": "initial_support_1"
+        },
+        "tray": {
+          "deck_key": "deck",
+          "table_support_key": "tray_table",
+          "rim_keys": [
+            "rim_w",
+            "rim_e",
+            "rim_s",
+            "rim_n"
+          ],
+          "mounting_mode": "fixed_fixture_on_native_table",
+          "usable_world_xy_m": [
+            [
+              -6.025,
+              -12.08
+            ],
+            [
+              -5.615,
+              -10.819999999999999
+            ]
+          ],
+          "deck_top_world_z_m": 0.8391993950803804
+        },
+        "goal_relation": {
+          "kind": "contact",
+          "pair": [
+            "obj1",
+            "obj2"
+          ],
+          "relation": "separated"
+        },
+        "scoring": {
+          "minimum_lift_m": 0.05,
+          "minimum_displacement_m": 0.05,
+          "stability_duration_s": 0.5,
+          "maximum_linear_speed_m_s": 0.02,
+          "maximum_angular_speed_rad_s": 0.1,
+          "max_sample_gap_s": 0.1,
+          "fixture_position_tolerance_m": 0.002,
+          "fixture_angle_tolerance_rad": 0.01,
+          "deck_height_tolerance_m": 0.015,
+          "maximum_bottom_gap_m": 0.015,
+          "penetration_tolerance_m": 0.001,
+          "minimum_separation_m": 0.05
+        }
+      },
+      "public": {
+        "objective": "Find the vase, trophy on open furniture surfaces. Bring them to the blue-grey tray on the counter. Leave the two objects separated by at least 5 cm.",
+        "environment": "A furnished playroom. Target objects are on exposed surfaces and are not deliberately hidden.",
+        "success_criteria": "Retrieve each target with a genuine grasp and at least 5 cm lift, then release all targets entirely on the tray deck in the requested relation. Leave hands clear and objects stable for at least 0.5 seconds.",
+        "constraints": [
+          "Use lawful robot controls and mounted observations.",
+          "Keep the tray and its supporting furniture fixed.",
+          "The tray is a fixed destination on furniture, not a hand-held collection tray."
+        ]
+      }
+    },
+    {
+      "document_alias": "T33",
+      "variant_id": "t33_furnished_tray_v2",
+      "label": "T33 open-surface retrieval and tray arrangement v2 (native-reviewed support revision)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Spatial Relations/Physical Contact/house_single_floor/corridor_0/corev2__category_53f113c7995ababbabdd5559.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Physical Contact/house_single_floor/corridor_0/corev2__category_53f113c7995ababbabdd5559.yaml",
+      "source_identity": "Specular Reflection/Correspondence/house_single_floor/utility_room_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_T33_v2",
+        "scene_model": "house_single_floor",
+        "rooms": [
+          "utility_room_0"
+        ],
+        "floor_name": "floors_glwobe_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "obj1",
+            "category": "shoulder_bag",
+            "model": "rykngq",
+            "position": [
+              21.94,
+              0.85,
+              1.215742944328716
+            ],
+            "orientation": [
+              0.040681950747966766,
+              -0.008659185841679573,
+              -0.0010641799308359623,
+              0.9991341233253479
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj2",
+            "category": "textbook",
+            "model": "nloqia",
+            "position": [
+              23.65,
+              -2.05,
+              1.2275426642390619
+            ],
+            "orientation": [
+              1.8783352970785927e-06,
+              -4.853176506003365e-06,
+              2.8374273597364663e-07,
+              1.0000001192092896
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_deck",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.5,
+              1.4,
+              0.02
+            ],
+            "position": [
+              24.51,
+              0.15,
+              0.9375437389647407
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_w",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.4,
+              0.036
+            ],
+            "position": [
+              24.268,
+              0.15,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_e",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.4,
+              0.036
+            ],
+            "position": [
+              24.752000000000002,
+              0.15,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_s",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.5,
+              0.016,
+              0.036
+            ],
+            "position": [
+              24.51,
+              -0.5419999999999999,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_n",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.5,
+              0.016,
+              0.036
+            ],
+            "position": [
+              24.51,
+              0.842,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "obj1",
+            "support": "countertop_fjkase_0"
+          },
+          {
+            "name": "obj2",
+            "support": "countertop_sjxber_0"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            23.25,
+            0.15,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      },
+      "bindings": {
+        "obj1": {
+          "name": "obj1",
+          "category": "shoulder_bag",
+          "model": "rykngq"
+        },
+        "initial_support_0": {
+          "name": "countertop_fjkase_0"
+        },
+        "obj2": {
+          "name": "obj2",
+          "category": "textbook",
+          "model": "nloqia"
+        },
+        "initial_support_1": {
+          "name": "countertop_sjxber_0"
+        },
+        "deck": {
+          "name": "wia_tray_deck"
+        },
+        "rim_w": {
+          "name": "wia_tray_rim_w"
+        },
+        "rim_e": {
+          "name": "wia_tray_rim_e"
+        },
+        "rim_s": {
+          "name": "wia_tray_rim_s"
+        },
+        "rim_n": {
+          "name": "wia_tray_rim_n"
+        },
+        "tray_table": {
+          "name": "countertop_ikwqer_0"
+        }
+      },
+      "parameters": {
+        "revision": "wia_spatial_tray_v1",
+        "scene_contract": {
+          "scene_model": "house_single_floor",
+          "room": "utility_room_0"
+        },
+        "targets": {
+          "obj1": "obj1",
+          "obj2": "obj2"
+        },
+        "initial_supports": {
+          "obj1": "initial_support_0",
+          "obj2": "initial_support_1"
+        },
+        "tray": {
+          "deck_key": "deck",
+          "table_support_key": "tray_table",
+          "rim_keys": [
+            "rim_w",
+            "rim_e",
+            "rim_s",
+            "rim_n"
+          ],
+          "mounting_mode": "fixed_fixture_on_native_table",
+          "usable_world_xy_m": [
+            [
+              24.28,
+              -0.5299999999999999
+            ],
+            [
+              24.740000000000002,
+              0.83
+            ]
+          ],
+          "deck_top_world_z_m": 0.9475437389647408
+        },
+        "goal_relation": {
+          "kind": "contact",
+          "pair": [
+            "obj1",
+            "obj2"
+          ],
+          "relation": "touching"
+        },
+        "scoring": {
+          "minimum_lift_m": 0.05,
+          "minimum_displacement_m": 0.05,
+          "stability_duration_s": 0.5,
+          "maximum_linear_speed_m_s": 0.02,
+          "maximum_angular_speed_rad_s": 0.1,
+          "max_sample_gap_s": 0.1,
+          "fixture_position_tolerance_m": 0.002,
+          "fixture_angle_tolerance_rad": 0.01,
+          "deck_height_tolerance_m": 0.015,
+          "maximum_bottom_gap_m": 0.015,
+          "penetration_tolerance_m": 0.001,
+          "minimum_separation_m": 0.05
+        }
+      },
+      "public": {
+        "objective": "Find the shoulder bag, textbook on open furniture surfaces. Bring them to the blue-grey tray on the counter. Leave the two objects touching each other.",
+        "environment": "A furnished utility room. Target objects are on exposed surfaces and are not deliberately hidden.",
+        "success_criteria": "Retrieve each target with a genuine grasp and at least 5 cm lift, then release all targets entirely on the tray deck in the requested relation. Leave hands clear and objects stable for at least 0.5 seconds.",
+        "constraints": [
+          "Use lawful robot controls and mounted observations.",
+          "Keep the tray and its supporting furniture fixed.",
+          "The tray is a fixed destination on furniture, not a hand-held collection tray."
+        ]
+      }
+    },
+    {
+      "document_alias": "T34",
+      "variant_id": "t34_furnished_tray_v2",
+      "label": "T34 open-surface retrieval and tray arrangement v2 (native-reviewed support revision)",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Spatial Relations/Physical Contact/office_cubicles_left/corridor_0/corev2__category_95d214aac10eb07a73ba0a99.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial Relations/Physical Contact/office_cubicles_left/corridor_0/corev2__category_95d214aac10eb07a73ba0a99.yaml",
+      "source_identity": "Specular Reflection/Correspondence/house_single_floor/utility_room_0/wia_furnished_background_v1.json",
+      "layout": {
+        "shared_layout_id": "wia_furnished_T34_v2",
+        "scene_model": "house_single_floor",
+        "rooms": [
+          "utility_room_0"
+        ],
+        "floor_name": "floors_glwobe_0",
+        "objects": [
+          {
+            "type": "DatasetObject",
+            "name": "obj1",
+            "category": "backpack",
+            "model": "gvbiwl",
+            "position": [
+              21.94,
+              0.85,
+              1.215742944328716
+            ],
+            "orientation": [
+              9.004538878798485e-05,
+              -0.003198815742507577,
+              0.010471688583493233,
+              0.9999400973320007
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "obj2",
+            "category": "shoe_box",
+            "model": "towipq",
+            "position": [
+              23.65,
+              -2.05,
+              1.2275426642390619
+            ],
+            "orientation": [
+              -0.00046294633648358285,
+              -0.0004054156015627086,
+              0.0010120427468791604,
+              0.9999993443489075
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_deck",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.5,
+              1.4,
+              0.02
+            ],
+            "position": [
+              24.51,
+              0.15,
+              0.9375437389647407
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_w",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.4,
+              0.036
+            ],
+            "position": [
+              24.268,
+              0.15,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_e",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.016,
+              1.4,
+              0.036
+            ],
+            "position": [
+              24.752000000000002,
+              0.15,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_s",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.5,
+              0.016,
+              0.036
+            ],
+            "position": [
+              24.51,
+              -0.5419999999999999,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "wia_tray_rim_n",
+            "category": "tray",
+            "size": 1.0,
+            "scale": [
+              0.5,
+              0.016,
+              0.036
+            ],
+            "position": [
+              24.51,
+              0.842,
+              0.9655437389647408
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.28,
+              0.44,
+              0.55,
+              1.0
+            ]
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "obj1",
+            "support": "countertop_fjkase_0"
+          },
+          {
+            "name": "obj2",
+            "support": "countertop_sjxber_0"
+          }
+        ],
+        "robot_start": {
+          "position": [
+            23.25,
+            0.15,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      },
+      "bindings": {
+        "obj1": {
+          "name": "obj1",
+          "category": "backpack",
+          "model": "gvbiwl"
+        },
+        "initial_support_0": {
+          "name": "countertop_fjkase_0"
+        },
+        "obj2": {
+          "name": "obj2",
+          "category": "shoe_box",
+          "model": "towipq"
+        },
+        "initial_support_1": {
+          "name": "countertop_sjxber_0"
+        },
+        "deck": {
+          "name": "wia_tray_deck"
+        },
+        "rim_w": {
+          "name": "wia_tray_rim_w"
+        },
+        "rim_e": {
+          "name": "wia_tray_rim_e"
+        },
+        "rim_s": {
+          "name": "wia_tray_rim_s"
+        },
+        "rim_n": {
+          "name": "wia_tray_rim_n"
+        },
+        "tray_table": {
+          "name": "countertop_ikwqer_0"
+        }
+      },
+      "parameters": {
+        "revision": "wia_spatial_tray_v1",
+        "scene_contract": {
+          "scene_model": "house_single_floor",
+          "room": "utility_room_0"
+        },
+        "targets": {
+          "obj1": "obj1",
+          "obj2": "obj2"
+        },
+        "initial_supports": {
+          "obj1": "initial_support_0",
+          "obj2": "initial_support_1"
+        },
+        "tray": {
+          "deck_key": "deck",
+          "table_support_key": "tray_table",
+          "rim_keys": [
+            "rim_w",
+            "rim_e",
+            "rim_s",
+            "rim_n"
+          ],
+          "mounting_mode": "fixed_fixture_on_native_table",
+          "usable_world_xy_m": [
+            [
+              24.28,
+              -0.5299999999999999
+            ],
+            [
+              24.740000000000002,
+              0.83
+            ]
+          ],
+          "deck_top_world_z_m": 0.9475437389647408
+        },
+        "goal_relation": {
+          "kind": "contact",
+          "pair": [
+            "obj1",
+            "obj2"
+          ],
+          "relation": "separated"
+        },
+        "scoring": {
+          "minimum_lift_m": 0.05,
+          "minimum_displacement_m": 0.05,
+          "stability_duration_s": 0.5,
+          "maximum_linear_speed_m_s": 0.02,
+          "maximum_angular_speed_rad_s": 0.1,
+          "max_sample_gap_s": 0.1,
+          "fixture_position_tolerance_m": 0.002,
+          "fixture_angle_tolerance_rad": 0.01,
+          "deck_height_tolerance_m": 0.015,
+          "maximum_bottom_gap_m": 0.015,
+          "penetration_tolerance_m": 0.001,
+          "minimum_separation_m": 0.05
+        }
+      },
+      "public": {
+        "objective": "Find the backpack, shoe box on open furniture surfaces. Bring them to the blue-grey tray on the counter. Leave the two objects separated by at least 5 cm.",
+        "environment": "A furnished utility room. Target objects are on exposed surfaces and are not deliberately hidden.",
+        "success_criteria": "Retrieve each target with a genuine grasp and at least 5 cm lift, then release all targets entirely on the tray deck in the requested relation. Leave hands clear and objects stable for at least 0.5 seconds.",
+        "constraints": [
+          "Use lawful robot controls and mounted observations.",
+          "Keep the tray and its supporting furniture fixed.",
+          "The tray is a fixed destination on furniture, not a hand-held collection tray."
+        ]
+      }
+    }
+  ],
+  "revision_evidence": {
+    "kitchen": "v1 native head/object_top show the island stove intersecting the tray.",
+    "playroom": "v1 object bottom .774167m versus bookcase whole AABB top .801433m; local ray measures the actual shelf.",
+    "validation_scope": "Initialization only; no robot action or physical task success."
+  }
+}

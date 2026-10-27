@@ -1,0 +1,253 @@
+kind: category_robot_task
+id: task_6fde95fda2a55d32b2820078
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Enumerative Perception/Counting w Occlusion/house_single_floor/living_room_0/q_003.json
+public:
+  objective: Find all 3 distinct club sandwich objects hidden around the original
+    furniture. Use multiple robot observations as needed and track each distinct object
+    across views.
+  success_criteria: Every original target must appear in a delivered mounted-camera
+    observation; repeated views of the same target count once. The total is supplied,
+    so this task does not score count estimation.
+  environment: Original target locations, supporting floor, occluding furniture and
+    source reference are retained.
+  constraints:
+  - Keep semantic occluders, task targets and supports in place.
+  - No prescribed standoff, travel distance or return trip is required.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+private:
+  bindings:
+    anchor_0:
+      name: coffee_table_rlsebe_0
+      category: coffee_table
+    target_0:
+      name: render_count_target_club_sandwich_0
+      category: club_sandwich
+      model: ablfyd
+    anchor_1:
+      name: sofa_hiphpn_0
+      category: sofa
+    target_1:
+      name: render_count_target_club_sandwich_1
+      category: club_sandwich
+      model: ablfyd
+    anchor_2:
+      name: sofa_wnzdke_0
+      category: sofa
+    target_2:
+      name: render_count_target_club_sandwich_2
+      category: club_sandwich
+      model: ablfyd
+    floor:
+      name: floors_uzsntg_0
+      category: floors
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.partial_occlusion
+    operation: distinct_visual_inventory
+    binding_keys:
+    - anchor_0
+    - target_0
+    - anchor_1
+    - target_1
+    - anchor_2
+    - target_2
+    - floor
+    parameters:
+      task_revision: task_edit_20261018_v1
+      target_keys:
+      - target_0
+      - target_1
+      - target_2
+      requires_native_visual_discovery: true
+      disclosed_target_count: 3
+      mechanism_contract:
+        preserved_relations:
+        - target-to-occluder relations
+        - source floor support
+        - original observer and target scale
+        initialization_relocation_policy: preserve
+        required_native_evidence:
+        - source support and no fallen targets
+        - source mechanism geometry
+        - all mounted initial camera views
+        - synchronized delivered RGB and private instance identity
+        - legal informative access
+        native_operation_verified: false
+      regions: {}
+      source_evidence:
+        pairs:
+        - target: target_0
+          anchor: anchor_0
+        - target: target_1
+          anchor: anchor_1
+        - target: target_2
+          anchor: anchor_2
+        expected:
+          anchor_0:
+            bbox:
+            - - 12.104037284851074
+              - 0.12120652198791504
+              - -7.4803829193115234e-06
+            - - 13.078937530517578
+              - 1.0961066484451294
+              - 0.2691924571990967
+          target_0:
+            position:
+            - 12.061248779296875
+            - 0.07210705429315567
+            - 0.034992534667253494
+            quaternion_xyzw:
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            bbox:
+            - - 11.956427574157715
+              - -0.029033616185188293
+              - -0.005470886826515198
+            - - 12.168375968933105
+              - 0.1720680296421051
+              - 0.07936883717775345
+          anchor_1:
+            bbox:
+            - - 13.614952087402344
+              - -1.7942562103271484
+              - -0.017696484923362732
+            - - 16.402923583984375
+              - -0.11092853546142578
+              - 0.7194892764091492
+          target_1:
+            position:
+            - 14.869987487792969
+            - -1.9577980041503906
+            - 0.034992534667253494
+            quaternion_xyzw:
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            bbox:
+            - - 14.765166282653809
+              - -2.05893874168396
+              - -0.005470886826515198
+            - - 14.9771146774292
+              - -1.8578370809555054
+              - 0.07936883717775345
+          anchor_2:
+            bbox:
+            - - 10.166512489318848
+              - -1.7640975713729858
+              - 0.0066558122634887695
+            - - 11.323324203491211
+              - -0.6044914126396179
+              - 0.713689386844635
+          target_2:
+            position:
+            - 10.11844253540039
+            - -1.807942271232605
+            - 0.034992534667253494
+            quaternion_xyzw:
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            bbox:
+            - - 10.01362133026123
+              - -1.9090828895568848
+              - -0.005470886826515198
+            - - 10.225569725036621
+              - -1.7079813480377197
+              - 0.07936883717775345
+        source_camera:
+          _key: q_003.png
+          look_target:
+          - 13.5
+          - 1.0
+          - 0.8999925345182419
+          pitch_deg: 6.588552842740052
+          position:
+          - 15.349999999999982
+          - 3.4
+          - 1.2499925345182419
+          quaternion_xyzw:
+          - 0.21454913599661393
+          - 0.6297613257461532
+          - 0.7066864730507553
+          - 0.24075624528688372
+          view_name: room_center_single_view
+      completion_item_ids:
+      - discovery:target_0
+      - discovery:target_1
+      - discovery:target_2
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        position:
+        - 15.349999999999982
+        - 3.4
+        - -7.465481758117676e-06
+        yaw_deg: -127.62623363866952
+        head_pitch_deg: 45.0
+      - operation: object_physics
+        phase: before_construction
+        binding: target_0
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: target_0
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: target_1
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: target_1
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: target_2
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: target_2
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: navigation
+        group_bindings:
+        - target_0
+        - target_1
+        - target_2
+        manipulation_bindings: []
+        relocation_policy: preserve
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: bounded_group
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: living_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0

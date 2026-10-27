@@ -1,0 +1,21 @@
+{
+  "pid": 6207,
+  "gpu": 4,
+  "cuda_visible_devices": "GPU-1e5f5478-0045-65b1-3e09-a981a64277aa",
+  "argv": [
+    "/local_home2/zhouxinyang/miniconda3/envs/behavior/bin/python",
+    "-u",
+    "-B",
+    "/local_home2/zhouxinyang/models/Show-Harness-Explore/scripts/check_esi_core_native.py",
+    "--task-file",
+    "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Cognitive Mapping/Long-Term Navigation/office_cubicles_left/full_scene/corev2__category_062d036de1fac0297a84732f.yaml",
+    "--scene-file",
+    "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Cognitive Mapping/Long-Term Navigation/office_cubicles_left/full_scene/corev2__category_062d036de1fac0297a84732f.yaml",
+    "--output-dir",
+    "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/corev2_native_route_20261020/office_cubicles_left",
+    "--manipulation",
+    "--source-route-pilot"
+  ],
+  "tmux_window": "corev2-route-gpu4",
+  "scope": "Private source-waypoint pilot; no autonomous Agent score or release qualification."
+}

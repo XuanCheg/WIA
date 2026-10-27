@@ -1,0 +1,267 @@
+kind: scene_patch
+id: category_ba68b4fd5a239222565074ef__t20_furnished_existing_v1
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/Beechwood_0_garden/kitchen_0/wia_furnished_background_v1.json
+target: null
+qualification: null
+bindings:
+  object_0:
+    name: stack_obj0
+    category: can_of_tomatoes
+    model: ckdouu
+  object_1:
+    name: stack_obj1
+    category: mixing_bowl
+    model: xifive
+  object_2:
+    name: stack_obj2
+    category: tomato_sauce_jar
+    model: krfzqk
+  floor:
+    name: floors_yrwwan_0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_furnished_layout
+        parameters:
+          revision: wia_furnished_layout_v1
+          scene_contract:
+            scene_model: Beechwood_0_garden
+            room: kitchen_0
+          layout:
+            shared_layout_id: wia_furnished_existing_T20
+            scene_model: Beechwood_0_garden
+            rooms:
+            - kitchen_0
+            floor_name: floors_yrwwan_0
+            objects:
+            - type: DatasetObject
+              name: stack_obj0
+              category: can_of_tomatoes
+              model: ckdouu
+              position:
+              - -1.15
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - 5.137114555964217e-08
+              - -9.715665783005534e-08
+              - 1.0430748886847141e-07
+              - 1.0000001192092896
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj1
+              category: mixing_bowl
+              model: xifive
+              position:
+              - -3.73
+              - 14.0
+              - 1.1696108667276748
+              orientation:
+              - 6.904522888362408e-05
+              - -1.978622458409518e-05
+              - -9.904761100187898e-07
+              - 1.0000001192092896
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj2
+              category: tomato_sauce_jar
+              model: krfzqk
+              position:
+              - -2.5
+              - 11.96
+              - 1.1696108667276748
+              orientation:
+              - -9.504146873950958e-07
+              - 1.6897101886570454e-06
+              - -9.061390301212668e-06
+              - 1.0000001192092896
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: stack_obj0
+              support: countertop_tpuwys_0
+            - name: stack_obj1
+              support: countertop_tpuwys_1
+            - name: stack_obj2
+              support: countertop_tpuwys_2
+            robot_start:
+              position:
+              - -1.6
+              - 14.98
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.7071067811865475
+              - 0.7071067811865476
+          source_reference_positions:
+            stack_obj0:
+            - -5.244593620300293
+            - -13.987441062927246
+            - 0.05598088726401329
+            stack_obj1:
+            - -4.975824356079102
+            - -13.987449645996094
+            - 0.05870718136429787
+            stack_obj2:
+            - -4.676246643066406
+            - -13.987439155578613
+            - 0.08938486129045486
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Beechwood_0_garden
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_furnished_layout
+        parameters:
+          revision: wia_furnished_layout_v1
+          scene_contract:
+            scene_model: Beechwood_0_garden
+            room: kitchen_0
+          layout:
+            shared_layout_id: wia_furnished_existing_T20
+            scene_model: Beechwood_0_garden
+            rooms:
+            - kitchen_0
+            floor_name: floors_yrwwan_0
+            objects:
+            - type: DatasetObject
+              name: stack_obj0
+              category: can_of_tomatoes
+              model: ckdouu
+              position:
+              - -1.15
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - 5.137114555964217e-08
+              - -9.715665783005534e-08
+              - 1.0430748886847141e-07
+              - 1.0000001192092896
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj1
+              category: mixing_bowl
+              model: xifive
+              position:
+              - -3.73
+              - 14.0
+              - 1.1696108667276748
+              orientation:
+              - 6.904522888362408e-05
+              - -1.978622458409518e-05
+              - -9.904761100187898e-07
+              - 1.0000001192092896
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj2
+              category: tomato_sauce_jar
+              model: krfzqk
+              position:
+              - -2.5
+              - 11.96
+              - 1.1696108667276748
+              orientation:
+              - -9.504146873950958e-07
+              - 1.6897101886570454e-06
+              - -9.061390301212668e-06
+              - 1.0000001192092896
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: stack_obj0
+              support: countertop_tpuwys_0
+            - name: stack_obj1
+              support: countertop_tpuwys_1
+            - name: stack_obj2
+              support: countertop_tpuwys_2
+            robot_start:
+              position:
+              - -1.6
+              - 14.98
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.7071067811865475
+              - 0.7071067811865476
+          source_reference_positions:
+            stack_obj0:
+            - -5.244593620300293
+            - -13.987441062927246
+            - 0.05598088726401329
+            stack_obj1:
+            - -4.975824356079102
+            - -13.987449645996094
+            - 0.05870718136429787
+            stack_obj2:
+            - -4.676246643066406
+            - -13.987439155578613
+            - 0.08938486129045486
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Beechwood_0_garden
+          disable_grid: false
+seed: 0
+target_bindings: []
+runtime:
+  reflection_sensor_profile: {}
+  requires_native_visual_discovery: false
+  post_controller_settle_steps: 0
+  trunk_config: configs/esi_trunk.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0

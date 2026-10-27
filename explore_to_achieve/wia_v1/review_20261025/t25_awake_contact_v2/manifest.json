@@ -1,0 +1,15 @@
+{
+  "schema": "wia_blocker_protocol_revision_v1",
+  "variant_id": "t25_awake_contact_v2",
+  "parent_directory": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/rigid/t25_furnished_native_support_v1",
+  "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/t25_awake_contact_v2/task.yaml",
+  "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/t25_awake_contact_v2/scene.yaml",
+  "change": "Declare zero sleep threshold and one native wake at initialization for the dynamic target only. Keep all later scoring read-only and use actual native pair contact separations.",
+  "invariants": [
+    "Same assets, poses, scales, mass, friction, collision shapes, controllers, action budget, seed and scorer thresholds.",
+    "No episode pose/velocity setters, wake calls, generated attachments or relaxed contact criteria."
+  ],
+  "native_validation_status": "physical_and_answer_success",
+  "protocol_difference": "Native target sleeping is disabled; this is a declared simulation-configuration revision, not an identical-physics replay.",
+  "validation_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261025_blockers/t25_validation.json"
+}

@@ -1,0 +1,398 @@
+kind: category_robot_task
+id: task_a66d68656b7c181da5079cc2
+version: 3
+status: pending
+source:
+  provider: esi
+  json: Perceptual Grounding/Partial Occlusion/house_single_floor/childs_room_0/house_single_floor__childs_room_0_0.json
+public:
+  objective: 'Inspect the candidate behind the foreground blocker. Change viewpoint
+    using a public base translation or torso-height change until you see a new diagnostic
+    feature; keep the blocker fixed. Determine whether the candidate is colander or
+    salad bowl. Report its category as ANSWER: <category> before grasping it. Then
+    grasp that same original candidate and release it on the desk in this room.'
+  success_criteria: Complete informative inspection, report the correct identity before
+    target grasp, select the same bound original candidate, and leave it released
+    and supported at the destination for 15 consecutive native samples. The final
+    placement must still hold when you finish.
+  environment: All eight mounted cameras and the frozen initial global image are available.
+    The source object identity, dimensions, material and appearance-producing orientation
+    are preserved; the declared complete task-prop group may be translated together
+    onto a measured support.
+  constraints:
+  - Preserve target pose/material until informative identification. Never substitute
+    another object.
+  - Do not move the original blocker.
+  - No minimum excursion, lift threshold or return-to-start trip is required.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - gripper
+  - trunk_height
+private:
+  bindings:
+    target:
+      name: target_obj
+      category: colander
+      model: ambnzk
+    occluder:
+      name: occluder_obj
+      category: digital_scale
+      model: hfetby
+    support:
+      name: floors_vcsslq_0
+      category: floors
+    destination:
+      name: desk_xhjsub_0
+      category: desk
+      model: xhjsub
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.partial_occlusion
+    operation: viewpoint_identify_and_place_v2
+    binding_keys:
+    - target
+    - occluder
+    - support
+    - destination
+    parameters:
+      task_revision: task_edit2_20261018_v1
+      mechanism_contract:
+        preserved_relations:
+        - original target identity and scale
+        - target/occluder/support poses
+        - source reference camera and external room geometry
+        initialization_relocation_policy: preserve
+        required_native_evidence:
+        - all eight initial robot camera views
+        - reachable informative viewpoint and diagnostic feature visibility
+        - native source support and unchanged mechanism geometry
+        - destination interior geometry, fit and access separately qualified
+        - same bound original target manipulation
+        - released native destination relation and consecutive stability
+        recognition_difficulty: pending_all_camera_review
+        native_operation_verified: false
+      identity_choices:
+      - colander
+      - salad bowl
+      expected_identity: colander
+      candidate_label: the partly hidden candidate behind the original foreground
+        blocker
+      placement_relation: on_top
+      destination_public_label: the desk in this room
+      destination_selection_seed: 0
+      release_stability_steps: 15
+      maximum_release_speed_m_s: 0.02
+      maximum_release_angular_speed_rad_s: 0.1
+      completion_item_ids:
+      - informative_inspection
+      - identity
+      - correct_bound_selection
+      - stable_placement
+      grounding_revision: task_edit2_grounding_20261018_v1
+      grounding_contract:
+        version: task_edit2_grounding_20261018_v1
+        source_identity: Perceptual Grounding/Partial Occlusion/house_single_floor/childs_room_0/house_single_floor__childs_room_0_0.json
+        recipe: viewpoint
+        source_category: Partial Occlusion
+        dependency_group:
+        - target
+        - occluder
+        source_actors:
+          target:
+            name: target_obj
+            category: colander
+            model: ambnzk
+            position:
+            - 22.27508544921875
+            - 18.06676483154297
+            - 0.06296607106924057
+            orientation:
+            - 1.1798692867159843e-07
+            - 6.507616490125656e-08
+            - -2.2651493054581806e-06
+            - 1.0
+          occluder:
+            name: occluder_obj
+            category: digital_scale
+            model: hfetby
+            position:
+            - 22.59810447692871
+            - 18.3574275970459
+            - 0.08049234002828598
+            orientation:
+            - 4.0978193283081055e-08
+            - 3.6088749766349792e-09
+            - 2.828892320394516e-08
+            - 1.0
+            scale:
+            - 1.2014823737484897
+            - 0.9771755143699515
+            - 1.0045998344461382
+        source_reference:
+          position_m:
+          - 22.674911835059337
+          - 18.682017583988774
+          - 0.06296607106924057
+          quaternion_xyzw:
+          - 0.20093633735928199
+          - 0.677956184667296
+          - 0.677956184667296
+          - 0.20093633735928199
+          selection:
+            view_index: 0
+            view:
+              position:
+              - 22.674911835059337
+              - 18.682017583988774
+              - 0.06296607106924057
+              quaternion_xyzw:
+              - 0.20093633735928199
+              - 0.677956184667296
+              - 0.677956184667296
+              - 0.20093633735928199
+              type: ring_lateral_hard
+              azimuth_deg: 56.9818875070776
+              collinear_az_deg: 41.9818875070776
+              lateral_offset_deg: 15.0
+              visibility:
+                target_obj: false
+                occluder_obj: true
+            selection: first_view
+        source_camera_translation_policy: translate_with_group
+        external_support_binding:
+          name: floors_vcsslq_0
+          category: floors
+        external_support_preserved: true
+        floor_background_context_adapted: false
+        recognition_difficulty: unavailable_until_all_eight_and_initial_global_are_audited
+        initial_geometry_translation_only: true
+        target_fixed_base_override_permitted: false
+        position_tolerance_m: 0.02
+        orientation_tolerance_deg: 2.0
+        native_material_appearance_review_required: true
+        occluder_motion_permitted: false
+        inspection_only_alternative: Inspect and report the original candidate without
+          retrieval if native grasp/access cannot be qualified; this is a separately
+          declared alternative and cannot count as retrieval success.
+      requires_native_visual_discovery: true
+      native_visual_adapter: task_visual_evidence
+      identity_before_target_grasp: true
+      source_task_revision: task_edit_20261018_v1
+      definition_revision: task_edit2_20261018_v1
+      destination_contract:
+        version: task_edit2_20261018_v1
+        source_identity: Perceptual Grounding/Partial Occlusion/house_single_floor/childs_room_0/house_single_floor__childs_room_0_0.json
+        scene: house_single_floor
+        room: childs_room_0
+        selection_seed: 0
+        destination_binding:
+          name: desk_xhjsub_0
+          category: desk
+          model: xhjsub
+        public_label: the desk in this room
+        label_relation:
+          kind: unique_room_category
+        placement_relation: on_top
+        target_bindings:
+          target:
+            name: target_obj
+            category: colander
+            model: ambnzk
+        fit_margin_m: 0.04
+        label_distance_gap_m: 0.1
+        distinguishability_verified: false
+        fit_verified: false
+        access_verified: false
+        native_qualification_required:
+        - current_loaded_label_relation
+        - every_target_surface_fit
+        - public_visual_label_association
+        - public_control_approach_and_release
+        fallback_table: false
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - 23.464183245015583
+        - 18.558263004685134
+        - 0.004990448355674744
+        yaw_deg: -161.3575913818083
+        head_pitch_deg: 45.0
+      - operation: object_physics
+        phase: before_construction
+        binding: target
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: target
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: occluder
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: occluder
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - target
+        - occluder
+        manipulation_bindings:
+        - target
+        relocation_policy: rigid_group
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: childs_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - grounding_initial_all_inputs_and_native_diagnostic_features_pending
+qualification:
+  on_failure: skip
+  initial_visibility: none
+  target_movable_collidable: true
+defaults:
+  seed: 0
+repair:
+  grounding_contract:
+    version: task_edit2_grounding_20261018_v1
+    source_identity: Perceptual Grounding/Partial Occlusion/house_single_floor/childs_room_0/house_single_floor__childs_room_0_0.json
+    recipe: viewpoint
+    source_category: Partial Occlusion
+    dependency_group:
+    - target
+    - occluder
+    source_actors:
+      target:
+        name: target_obj
+        category: colander
+        model: ambnzk
+        position:
+        - 22.27508544921875
+        - 18.06676483154297
+        - 0.06296607106924057
+        orientation:
+        - 1.1798692867159843e-07
+        - 6.507616490125656e-08
+        - -2.2651493054581806e-06
+        - 1.0
+      occluder:
+        name: occluder_obj
+        category: digital_scale
+        model: hfetby
+        position:
+        - 22.59810447692871
+        - 18.3574275970459
+        - 0.08049234002828598
+        orientation:
+        - 4.0978193283081055e-08
+        - 3.6088749766349792e-09
+        - 2.828892320394516e-08
+        - 1.0
+        scale:
+        - 1.2014823737484897
+        - 0.9771755143699515
+        - 1.0045998344461382
+    source_reference:
+      position_m:
+      - 22.674911835059337
+      - 18.682017583988774
+      - 0.06296607106924057
+      quaternion_xyzw:
+      - 0.20093633735928199
+      - 0.677956184667296
+      - 0.677956184667296
+      - 0.20093633735928199
+      selection:
+        view_index: 0
+        view:
+          position:
+          - 22.674911835059337
+          - 18.682017583988774
+          - 0.06296607106924057
+          quaternion_xyzw:
+          - 0.20093633735928199
+          - 0.677956184667296
+          - 0.677956184667296
+          - 0.20093633735928199
+          type: ring_lateral_hard
+          azimuth_deg: 56.9818875070776
+          collinear_az_deg: 41.9818875070776
+          lateral_offset_deg: 15.0
+          visibility:
+            target_obj: false
+            occluder_obj: true
+        selection: first_view
+    source_camera_translation_policy: translate_with_group
+    external_support_binding:
+      name: floors_vcsslq_0
+      category: floors
+    external_support_preserved: true
+    floor_background_context_adapted: false
+    recognition_difficulty: unavailable_until_all_eight_and_initial_global_are_audited
+    initial_geometry_translation_only: true
+    target_fixed_base_override_permitted: false
+    position_tolerance_m: 0.02
+    orientation_tolerance_deg: 2.0
+    native_material_appearance_review_required: true
+    occluder_motion_permitted: false
+    inspection_only_alternative: Inspect and report the original candidate without
+      retrieval if native grasp/access cannot be qualified; this is a separately declared
+      alternative and cannot count as retrieval success.
+  definition_revision: task_edit2_20261018_v1
+  destination_contract:
+    version: task_edit2_20261018_v1
+    source_identity: Perceptual Grounding/Partial Occlusion/house_single_floor/childs_room_0/house_single_floor__childs_room_0_0.json
+    scene: house_single_floor
+    room: childs_room_0
+    selection_seed: 0
+    destination_binding:
+      name: desk_xhjsub_0
+      category: desk
+      model: xhjsub
+    public_label: the desk in this room
+    label_relation:
+      kind: unique_room_category
+    placement_relation: on_top
+    target_bindings:
+      target:
+        name: target_obj
+        category: colander
+        model: ambnzk
+    fit_margin_m: 0.04
+    label_distance_gap_m: 0.1
+    distinguishability_verified: false
+    fit_verified: false
+    access_verified: false
+    native_qualification_required:
+    - current_loaded_label_relation
+    - every_target_surface_fit
+    - public_visual_label_association
+    - public_control_approach_and_release
+    fallback_table: false

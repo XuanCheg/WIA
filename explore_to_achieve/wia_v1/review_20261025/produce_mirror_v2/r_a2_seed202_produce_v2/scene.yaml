@@ -1,0 +1,733 @@
+kind: scene_patch
+id: wia_r_a2_seed202_produce_v2_scene
+version: 4
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/office_cubicles_left/meeting_room_0/wia_furnished_background_v1.json
+target: null
+qualification: null
+bindings:
+  mirror:
+    name: wia_mirror_panel
+    category: object
+  cue_low:
+    name: wia_mirror_cue_low
+    category: object
+  cue_high:
+    name: wia_mirror_cue_high
+    category: object
+  cue_bottom:
+    name: wia_mirror_cue_bottom
+    category: object
+  cue_top:
+    name: wia_mirror_cue_top
+    category: object
+  pot:
+    name: wia_produce_pot
+    category: stockpot
+    model: lfnbhc
+  board:
+    name: wia_produce_board
+    category: cutting_board
+    model: tcdrzs
+  candidate_0:
+    name: wia_produce_candidate_0
+    category: bell_pepper
+    model: uqcenz
+  candidate_1:
+    name: wia_produce_candidate_1
+    category: bell_pepper
+    model: uqcenz
+  candidate_2:
+    name: wia_produce_candidate_2
+    category: bell_pepper
+    model: ukkycp
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: core.esi_converters.wia_mirror
+        parameters:
+          revision: wia_mirror_v4
+          layout:
+            shared_layout_id: appearance_produce_seed202
+            scene_model: office_cubicles_left
+            rooms:
+            - meeting_room_0
+            floor_name: floors_oxwqrw_0
+            objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_panel
+              category: object
+              size: 1.0
+              scale:
+              - 0.025
+              - 2.52
+              - 1.25
+              position:
+              - -6.327500000000001
+              - 13.4
+              - 1.3126497794688734
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.95
+              - 0.95
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_low
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.012
+              - 0.404
+              position:
+              - -7.444452522631634
+              - 13.893585876648704
+              - 0.8045369993293143
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_high
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.012
+              - 0.404
+              position:
+              - -7.444452522631634
+              - 14.085585876648704
+              - 0.8045369993293143
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_bottom
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.204
+              - 0.012
+              position:
+              - -7.444452522631634
+              - 13.989585876648704
+              - 0.6085369993293144
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_top
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.204
+              - 0.012
+              position:
+              - -7.444452522631634
+              - 13.989585876648704
+              - 1.0005369993293143
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: DatasetObject
+              name: wia_produce_pot
+              category: stockpot
+              model: lfnbhc
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - -6.640000000000001
+              - 13.976
+              - 0.7796810162338177
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: DatasetObject
+              name: wia_produce_board
+              category: cutting_board
+              model: tcdrzs
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - -6.640000000000001
+              - 12.824
+              - 0.704478090518371
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+              fixed_base: true
+              visual_only: false
+            - type: DatasetObject
+              name: wia_produce_candidate_0
+              category: bell_pepper
+              model: uqcenz
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - -7.38
+              - 12.75
+              - 0.7281054334705985
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: wia_produce_candidate_1
+              category: bell_pepper
+              model: uqcenz
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - -7.38
+              - 14.05
+              - 0.7281054334705985
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: wia_produce_candidate_2
+              category: bell_pepper
+              model: ukkycp
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - -7.38
+              - 13.4
+              - 0.7272940808367656
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: wia_produce_pot
+              support: conference_table_fpkmyw_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+              support_contract: fixed_mount
+            - name: wia_produce_board
+              support: conference_table_fpkmyw_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+              support_contract: fixed_mount
+            - name: wia_produce_candidate_0
+              support: conference_table_fpkmyw_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: wia_produce_candidate_1
+              support: conference_table_fpkmyw_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: wia_produce_candidate_2
+              support: conference_table_fpkmyw_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            robot_start:
+              position:
+              - -8.299999999999999
+              - 13.4
+              - 0.11
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            native_object_poses:
+            - name: swivel_chair_ucawqa_5
+              category: swivel_chair
+              model: ucawqa
+              position:
+              - -8.1
+              - 16.3
+              - 0.47985392808914185
+              orientation:
+              - 0.00017823651432991028
+              - -6.855603714939207e-05
+              - -3.653811290860176e-06
+              - 1.0000001192092896
+            - name: swivel_chair_ucawqa_7
+              category: swivel_chair
+              model: ucawqa
+              position:
+              - -5.6
+              - 16.3
+              - 0.47985389828681946
+              orientation:
+              - 0.00017826911062002182
+              - -6.852998922113329e-05
+              - -3.4547410905361176e-06
+              - 1.0000001192092896
+          mirror_material:
+            binding: mirror
+            metallic_constant: 1.0
+            reflection_roughness_constant: 0.0
+            diffuse_color_constant:
+            - 0.95
+            - 0.95
+            - 0.95
+          mirror_key: mirror
+          scene_contract:
+            scene_model: office_cubicles_left
+            room: meeting_room_0
+          table_key: board
+          destinations:
+            blue: pot
+            yellow: board
+          fixture_keys:
+          - mirror
+          - cue_low
+          - cue_high
+          - cue_bottom
+          - cue_top
+          - pot
+          - board
+          destination_contracts:
+            pot:
+              kind: inside
+              usable_bounds_local_m:
+              - - -0.1
+                - -0.1
+                - -0.082
+              - - 0.1
+                - 0.1
+                - 0.09
+            board:
+              kind: on_top
+              usable_bounds_local_m:
+              - - -0.19
+                - -0.13
+                - -0.011
+              - - 0.19
+                - 0.13
+                - 0.011
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: core.esi_converters.wia_mirror
+        parameters:
+          revision: wia_mirror_v4
+          layout:
+            shared_layout_id: appearance_produce_seed202
+            scene_model: office_cubicles_left
+            rooms:
+            - meeting_room_0
+            floor_name: floors_oxwqrw_0
+            objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_panel
+              category: object
+              size: 1.0
+              scale:
+              - 0.025
+              - 2.52
+              - 1.25
+              position:
+              - -6.327500000000001
+              - 13.4
+              - 1.3126497794688734
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.95
+              - 0.95
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_low
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.012
+              - 0.404
+              position:
+              - -7.444452522631634
+              - 13.893585876648704
+              - 0.8045369993293143
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_high
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.012
+              - 0.404
+              position:
+              - -7.444452522631634
+              - 14.085585876648704
+              - 0.8045369993293143
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_bottom
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.204
+              - 0.012
+              position:
+              - -7.444452522631634
+              - 13.989585876648704
+              - 0.6085369993293144
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_mirror_cue_top
+              category: object
+              size: 1.0
+              scale:
+              - 0.008
+              - 0.204
+              - 0.012
+              position:
+              - -7.444452522631634
+              - 13.989585876648704
+              - 1.0005369993293143
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.04
+              - 0.03
+              - 1.0
+            - type: DatasetObject
+              name: wia_produce_pot
+              category: stockpot
+              model: lfnbhc
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - -6.640000000000001
+              - 13.976
+              - 0.7796810162338177
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+            - type: DatasetObject
+              name: wia_produce_board
+              category: cutting_board
+              model: tcdrzs
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - -6.640000000000001
+              - 12.824
+              - 0.704478090518371
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+              fixed_base: true
+              visual_only: false
+            - type: DatasetObject
+              name: wia_produce_candidate_0
+              category: bell_pepper
+              model: uqcenz
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - -7.38
+              - 12.75
+              - 0.7281054334705985
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: wia_produce_candidate_1
+              category: bell_pepper
+              model: uqcenz
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - -7.38
+              - 14.05
+              - 0.7281054334705985
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: wia_produce_candidate_2
+              category: bell_pepper
+              model: ukkycp
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - -7.38
+              - 13.4
+              - 0.7272940808367656
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: wia_produce_pot
+              support: conference_table_fpkmyw_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+              support_contract: fixed_mount
+            - name: wia_produce_board
+              support: conference_table_fpkmyw_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+              support_contract: fixed_mount
+            - name: wia_produce_candidate_0
+              support: conference_table_fpkmyw_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: wia_produce_candidate_1
+              support: conference_table_fpkmyw_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: wia_produce_candidate_2
+              support: conference_table_fpkmyw_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            robot_start:
+              position:
+              - -8.299999999999999
+              - 13.4
+              - 0.11
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            native_object_poses:
+            - name: swivel_chair_ucawqa_5
+              category: swivel_chair
+              model: ucawqa
+              position:
+              - -8.1
+              - 16.3
+              - 0.47985392808914185
+              orientation:
+              - 0.00017823651432991028
+              - -6.855603714939207e-05
+              - -3.653811290860176e-06
+              - 1.0000001192092896
+            - name: swivel_chair_ucawqa_7
+              category: swivel_chair
+              model: ucawqa
+              position:
+              - -5.6
+              - 16.3
+              - 0.47985389828681946
+              orientation:
+              - 0.00017826911062002182
+              - -6.852998922113329e-05
+              - -3.4547410905361176e-06
+              - 1.0000001192092896
+          mirror_material:
+            binding: mirror
+            metallic_constant: 1.0
+            reflection_roughness_constant: 0.0
+            diffuse_color_constant:
+            - 0.95
+            - 0.95
+            - 0.95
+          mirror_key: mirror
+          scene_contract:
+            scene_model: office_cubicles_left
+            room: meeting_room_0
+          table_key: board
+          destinations:
+            blue: pot
+            yellow: board
+          fixture_keys:
+          - mirror
+          - cue_low
+          - cue_high
+          - cue_bottom
+          - cue_top
+          - pot
+          - board
+          destination_contracts:
+            pot:
+              kind: inside
+              usable_bounds_local_m:
+              - - -0.1
+                - -0.1
+                - -0.082
+              - - 0.1
+                - 0.1
+                - 0.09
+            board:
+              kind: on_top
+              usable_bounds_local_m:
+              - - -0.19
+                - -0.13
+                - -0.011
+              - - 0.19
+                - 0.13
+                - 0.011
+seed: 202
+runtime:
+  reflection_sensor_profile: {}
+  requires_native_visual_discovery: false
+  post_controller_settle_steps: 0
+  trunk_config: configs/esi_trunk.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0

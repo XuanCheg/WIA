@@ -1,0 +1,973 @@
+{
+  "schema": "benchmark_source_list_v1",
+  "id": "corev1",
+  "count": 161,
+  "groups": [
+    {
+      "id": "core_77a92848514d4e101c6495f7",
+      "source_identity": "Action Sequencing/Action Order Inference/Merom_0_garden/utility_room_0/Merom_0_garden__utility_room_0.json",
+      "original_variant_id": "category_17d798839775b73b4f9f8d26",
+      "default_variant_id": "category_17d798839775b73b4f9f8d26"
+    },
+    {
+      "id": "core_dbb97eccd54578916fe7e285",
+      "source_identity": "Action Sequencing/Action Order Inference/office_cubicles_left/lobby_0/office_cubicles_left__lobby_0.json",
+      "original_variant_id": "category_47e03b7b97473aacca3cfd04",
+      "default_variant_id": "category_47e03b7b97473aacca3cfd04"
+    },
+    {
+      "id": "core_2c2ca58835855c28c46e85dd",
+      "source_identity": "Action Sequencing/Action Order Inference/house_single_floor/dining_room_0/house_single_floor__dining_room_0.json",
+      "original_variant_id": "category_11e210b18d60f8824aa6f88e",
+      "default_variant_id": "category_11e210b18d60f8824aa6f88e"
+    },
+    {
+      "id": "core_a324cec372667d310c5af157",
+      "source_identity": "Action Sequencing/Action Order Inference/house_single_floor/garden_0/house_single_floor__garden_0.json",
+      "original_variant_id": "category_6dd62b0954e73a25423efd4e",
+      "default_variant_id": "category_6dd62b0954e73a25423efd4e"
+    },
+    {
+      "id": "core_ccd11d242efa3259ab978b9c",
+      "source_identity": "Cognitive Mapping/Connectivity/hall_glass_ceiling/full_scene/q_000.json",
+      "original_variant_id": "category_582e3da985bb459d95d9850f",
+      "default_variant_id": "category_582e3da985bb459d95d9850f"
+    },
+    {
+      "id": "core_24ec7fb5b12a43afd68ab9de",
+      "source_identity": "Cognitive Mapping/Regional Boundary/hall_glass_ceiling/full_scene/q_015.json",
+      "original_variant_id": "category_efccff79a38ab94420782ef5",
+      "default_variant_id": "category_efccff79a38ab94420782ef5"
+    },
+    {
+      "id": "core_29fb5e0d0159342ed40b38ef",
+      "source_identity": "Cognitive Mapping/Connectivity/Rs_int/full_scene/q_003.json",
+      "original_variant_id": "category_a8f49ca31bf5f14acf8ab31a",
+      "default_variant_id": "category_a8f49ca31bf5f14acf8ab31a"
+    },
+    {
+      "id": "core_f4cbbcf32542f9c6b7c962d0",
+      "source_identity": "Cognitive Mapping/Long-Term Navigation/hall_arch_wood/full_scene/q_000.json",
+      "original_variant_id": "category_cf3e1d4983de15cade5721d8",
+      "default_variant_id": "category_cf3e1d4983de15cade5721d8"
+    },
+    {
+      "id": "core_65a21cd3b7ebd01d3b2e818d",
+      "source_identity": "Cognitive Mapping/Regional Boundary/hall_arch_wood/full_scene/q_005.json",
+      "original_variant_id": "category_585cb06bd3e00e650dbca7ab",
+      "default_variant_id": "category_585cb06bd3e00e650dbca7ab"
+    },
+    {
+      "id": "core_5b4ceebb85cc7af7884f42e6",
+      "source_identity": "Cognitive Mapping/Connectivity/hall_arch_wood/full_scene/q_002.json",
+      "original_variant_id": "category_bd6e08dc3ad36d10b342895f",
+      "default_variant_id": "category_bd6e08dc3ad36d10b342895f"
+    },
+    {
+      "id": "core_4fa04846dd66ef0e5e1c1ae9",
+      "source_identity": "Cognitive Mapping/Long-Term Navigation/Merom_0_garden/full_scene/q_001.json",
+      "original_variant_id": "category_5502ed035fb96e2befd19b01",
+      "default_variant_id": "category_5502ed035fb96e2befd19b01"
+    },
+    {
+      "id": "core_4f3e24e624fd742de54d8196",
+      "source_identity": "Cognitive Mapping/Regional Boundary/Merom_0_garden/full_scene/q_010.json",
+      "original_variant_id": "category_0cbc932bab5fcdfeb47de30a",
+      "default_variant_id": "category_0cbc932bab5fcdfeb47de30a"
+    },
+    {
+      "id": "core_1301f5cd43c710e848f77f45",
+      "source_identity": "Cognitive Mapping/Connectivity/Merom_0_garden/full_scene/q_004.json",
+      "original_variant_id": "category_6fab7b6dc247658319c718d1",
+      "default_variant_id": "category_6fab7b6dc247658319c718d1"
+    },
+    {
+      "id": "core_5979cce7c2803373e7c27469",
+      "source_identity": "Cognitive Mapping/Long-Term Navigation/Merom_0_garden/full_scene/q_005.json",
+      "original_variant_id": "category_a4626766d5dcb57f43a31e7e",
+      "default_variant_id": "category_a4626766d5dcb57f43a31e7e"
+    },
+    {
+      "id": "core_1a1a49b96f7e0a2fb6ba6c0f",
+      "source_identity": "Cognitive Mapping/Long-Term Navigation/school_biology/full_scene/q_003.json",
+      "original_variant_id": "category_6e91b41c6345ec8aad4de656",
+      "default_variant_id": "category_6e91b41c6345ec8aad4de656"
+    },
+    {
+      "id": "core_7e4deaa784f04057ad661fbc",
+      "source_identity": "Cognitive Mapping/Connectivity/school_biology/full_scene/q_001.json",
+      "original_variant_id": "category_d3d55ad6c5b0a653232fc500",
+      "default_variant_id": "category_92281e30d33e0845517b17cb"
+    },
+    {
+      "id": "core_96812cd0d82f1d58cc78bce9",
+      "source_identity": "Cognitive Mapping/Connectivity/school_biology/full_scene/q_002.json",
+      "original_variant_id": "category_09eefa9c7a32c7b5f395144e",
+      "default_variant_id": "category_92281e30d33e0845517b17cb"
+    },
+    {
+      "id": "core_30f9348d8573dfe0c5d39672",
+      "source_identity": "Cognitive Mapping/Connectivity/school_biology/full_scene/q_000.json",
+      "original_variant_id": "category_a3527737a93c753858c4d247",
+      "default_variant_id": "category_92281e30d33e0845517b17cb"
+    },
+    {
+      "id": "core_e60365c1b20a99c3d58ad9dc",
+      "source_identity": "Cognitive Mapping/Regional Boundary/school_biology/full_scene/q_019.json",
+      "original_variant_id": "category_412b8cc1f02c15bc3855d1f6",
+      "default_variant_id": "category_412b8cc1f02c15bc3855d1f6"
+    },
+    {
+      "id": "core_5b32cfa4be8a3d237cbeaecf",
+      "source_identity": "Cognitive Mapping/Connectivity/school_biology/full_scene/q_004.json",
+      "original_variant_id": "category_8e8aef8b98e653d713e2db1d",
+      "default_variant_id": "category_92281e30d33e0845517b17cb"
+    },
+    {
+      "id": "core_9a5043ef3b4a3c032c1a6a0a",
+      "source_identity": "Cognitive Mapping/Connectivity/school_biology/full_scene/q_005.json",
+      "original_variant_id": "category_f5fbed89109446a9cee644d0",
+      "default_variant_id": "category_92281e30d33e0845517b17cb"
+    },
+    {
+      "id": "core_57c6cf452dee181a3fd64cf6",
+      "source_identity": "Cognitive Mapping/Regional Boundary/school_biology/full_scene/q_011.json",
+      "original_variant_id": "category_19a520fd0078881df22b4420",
+      "default_variant_id": "category_19a520fd0078881df22b4420"
+    },
+    {
+      "id": "core_4850fe1d3384c4f7efeb3705",
+      "source_identity": "Cognitive Mapping/Long-Term Navigation/office_cubicles_right/full_scene/q_000.json",
+      "original_variant_id": "category_1ac9cd09ef0bdb237df77fb0",
+      "default_variant_id": "category_1ac9cd09ef0bdb237df77fb0"
+    },
+    {
+      "id": "core_1c70467a1dafe494538d06f1",
+      "source_identity": "Cognitive Mapping/Regional Boundary/restaurant_cafeteria/full_scene/q_043.json",
+      "original_variant_id": "category_6f23dae3a5a0c6b26db61a50",
+      "default_variant_id": "category_6f23dae3a5a0c6b26db61a50"
+    },
+    {
+      "id": "core_19196bad568ed71d4f8f6563",
+      "source_identity": "Cognitive Mapping/Regional Boundary/restaurant_cafeteria/full_scene/q_028.json",
+      "original_variant_id": "category_2f46a8c2898ca9d05d6ac045",
+      "default_variant_id": "category_2f46a8c2898ca9d05d6ac045"
+    },
+    {
+      "id": "core_d0b81924f2324c1755b38732",
+      "source_identity": "Cognitive Mapping/Regional Boundary/hall_train_station/full_scene/q_026.json",
+      "original_variant_id": "category_13bf326b1e517b5f7708652e",
+      "default_variant_id": "category_13bf326b1e517b5f7708652e"
+    },
+    {
+      "id": "core_97b015e56de38942685bd52b",
+      "source_identity": "Cognitive Mapping/Regional Boundary/hall_train_station/full_scene/q_014.json",
+      "original_variant_id": "category_4fba84b045fe95d2123df366",
+      "default_variant_id": "category_4fba84b045fe95d2123df366"
+    },
+    {
+      "id": "core_05ebd2a54429d3bd0965aa41",
+      "source_identity": "Cognitive Mapping/Regional Boundary/office_vendor_machine/full_scene/q_015.json",
+      "original_variant_id": "category_2bf7ade2837c9ce43ffe887e",
+      "default_variant_id": "category_2bf7ade2837c9ce43ffe887e"
+    },
+    {
+      "id": "core_cd1ae9a45771c63492be46e0",
+      "source_identity": "Cognitive Mapping/Regional Boundary/office_vendor_machine/full_scene/q_045.json",
+      "original_variant_id": "category_79baebd1fe7b767d90fed323",
+      "default_variant_id": "category_79baebd1fe7b767d90fed323"
+    },
+    {
+      "id": "core_c7527403722fff64d9556f82",
+      "source_identity": "Cognitive Mapping/Regional Boundary/office_vendor_machine/full_scene/q_017.json",
+      "original_variant_id": "category_a69d1de44eeb86afdbe2a5b5",
+      "default_variant_id": "category_a69d1de44eeb86afdbe2a5b5"
+    },
+    {
+      "id": "core_4f306bb8f24239c4d2386eda",
+      "source_identity": "Cognitive Mapping/Regional Boundary/Rs_garden/full_scene/q_016.json",
+      "original_variant_id": "category_bdf3a5e8007c099903295d61",
+      "default_variant_id": "category_4f2e97f2aca9110982999c59"
+    },
+    {
+      "id": "core_94b0d4b477f3392566a9316c",
+      "source_identity": "Cognitive Mapping/Regional Boundary/Rs_garden/full_scene/q_044.json",
+      "original_variant_id": "category_1ee3a6312fc8da3e3881ae48",
+      "default_variant_id": "category_4f2e97f2aca9110982999c59"
+    },
+    {
+      "id": "core_eeb37d402817b481485f2e02",
+      "source_identity": "Cognitive Mapping/Regional Boundary/Rs_garden/full_scene/q_045.json",
+      "original_variant_id": "category_fdb14613259775106f3ba181",
+      "default_variant_id": "category_4f2e97f2aca9110982999c59"
+    },
+    {
+      "id": "core_566551bba10d928832600a47",
+      "source_identity": "Cognitive Mapping/Regional Boundary/Rs_garden/full_scene/q_036.json",
+      "original_variant_id": "category_4528d0b5b40b7b595387c937",
+      "default_variant_id": "category_4f2e97f2aca9110982999c59"
+    },
+    {
+      "id": "core_5022ad1208be5727c637f43b",
+      "source_identity": "Cognitive Mapping/Regional Boundary/Rs_garden/full_scene/q_015.json",
+      "original_variant_id": "category_f407d6db69160aeca2a8a4db",
+      "default_variant_id": "category_4f2e97f2aca9110982999c59"
+    },
+    {
+      "id": "core_fa59feb3897d13c7dff285be",
+      "source_identity": "Cognitive Mapping/Traversable Passage/Wainscott_0_garden/full_scene/q_006.json",
+      "original_variant_id": "category_aaf3c64def5bd0f8f6e1e013",
+      "default_variant_id": "category_aaf3c64def5bd0f8f6e1e013"
+    },
+    {
+      "id": "core_8e58ea3b245c33f32a65dcbd",
+      "source_identity": "Cognitive Mapping/Connectivity/school_gym/full_scene/q_003.json",
+      "original_variant_id": "category_5762784ab8e2dcc5807def56",
+      "default_variant_id": "category_5762784ab8e2dcc5807def56"
+    },
+    {
+      "id": "core_0be854c95704f2ca30ca6682",
+      "source_identity": "Cognitive Mapping/Regional Boundary/school_gym/full_scene/q_008.json",
+      "original_variant_id": "category_1a55282aea78514f749fe4e0",
+      "default_variant_id": "category_1a55282aea78514f749fe4e0"
+    },
+    {
+      "id": "core_fa2e9a5e254e02027fab5b6a",
+      "source_identity": "Cognitive Mapping/Traversable Passage/school_gym/full_scene/q_001.json",
+      "original_variant_id": "category_0a6d6d14645892257a4de7b8",
+      "default_variant_id": "category_0a6d6d14645892257a4de7b8"
+    },
+    {
+      "id": "core_95540c99217e7477190c91e3",
+      "source_identity": "Cognitive Mapping/Traversable Passage/restaurant_hotel/full_scene/q_002.json",
+      "original_variant_id": "category_859f58a08b7058eed945f900",
+      "default_variant_id": "category_859f58a08b7058eed945f900"
+    },
+    {
+      "id": "core_20ab64e388db172943da9773",
+      "source_identity": "Cognitive Mapping/Traversable Passage/grocery_store_half_stocked/full_scene/q_000.json",
+      "original_variant_id": "category_c82d22e3c07fe6d40de792d1",
+      "default_variant_id": "category_c82d22e3c07fe6d40de792d1"
+    },
+    {
+      "id": "core_10f1c0404babe9a62795d94f",
+      "source_identity": "Enumerative Perception/Category Ambiguity/hotel_gym_spa/bathroom_0/q_001.json",
+      "original_variant_id": "category_8d8db98cd0948560fa88e5a3",
+      "default_variant_id": "category_37ca19a5ea813061c7641b82"
+    },
+    {
+      "id": "core_c09e0926cfda33a63facb531",
+      "source_identity": "Enumerative Perception/Category Ambiguity/house_double_floor_lower/living_room_0/q_000.json",
+      "original_variant_id": "category_e484d0897575108ecc568657",
+      "default_variant_id": "category_e484d0897575108ecc568657"
+    },
+    {
+      "id": "core_7e9d11acafc679c13e423daa",
+      "source_identity": "Enumerative Perception/Category Ambiguity/Merom_0_garden/utility_room_0/q_000.json",
+      "original_variant_id": "category_1c353e92789519488a999fcd",
+      "default_variant_id": "category_1c353e92789519488a999fcd"
+    },
+    {
+      "id": "core_a3f2cb5a3369ca957204b8b2",
+      "source_identity": "Enumerative Perception/Category Ambiguity/office_cubicles_left/lobby_0/q_004.json",
+      "original_variant_id": "category_e224cb9eb4a6dbb1c46683e1",
+      "default_variant_id": "category_42e05bf67f1636897a8b5d40"
+    },
+    {
+      "id": "core_1c5d392f869936ac32c06763",
+      "source_identity": "Enumerative Perception/Counting w Occlusion/house_single_floor/kitchen_0/q_004.json",
+      "original_variant_id": "category_d4dff5527dadb5fa8ea31161",
+      "default_variant_id": "category_a9beba97ae76f2224bc0702d"
+    },
+    {
+      "id": "core_d643f71bbe09ab9738ea4fac",
+      "source_identity": "Enumerative Perception/Counting w Occlusion/house_single_floor/living_room_0/q_003.json",
+      "original_variant_id": "category_3bfe289bfb40728ef004725a",
+      "default_variant_id": "category_3bfe289bfb40728ef004725a"
+    },
+    {
+      "id": "core_413f5cfbaa5bbe179df8ed08",
+      "source_identity": "Enumerative Perception/Counting w Occlusion/office_cubicles_right/private_office_2/q_000.json",
+      "original_variant_id": "category_5503634306a80f3b9ad9bc00",
+      "default_variant_id": "category_5503634306a80f3b9ad9bc00"
+    },
+    {
+      "id": "core_a9f7aaf780a6a284c1835b75",
+      "source_identity": "Enumerative Perception/Counting w Occlusion/office_cubicles_right/private_office_1/q_000.json",
+      "original_variant_id": "category_4aaf412c84514f9637575568",
+      "default_variant_id": "category_4aaf412c84514f9637575568"
+    },
+    {
+      "id": "core_3958be4020dcf17237b516af",
+      "source_identity": "Enumerative Perception/Illumination Variability/grocery_store_cafe/dining_room_0/q_002.json",
+      "original_variant_id": "category_1f81b7206f6a9d353c5d067c",
+      "default_variant_id": "category_1f81b7206f6a9d353c5d067c"
+    },
+    {
+      "id": "core_7d3b5e069f8e9433c527f00b",
+      "source_identity": "Enumerative Perception/Illumination Variability/hall_arch_wood/bathroom_0/q_000.json",
+      "original_variant_id": "category_bf44e564460c236eb3130e6a",
+      "default_variant_id": "category_bf44e564460c236eb3130e6a"
+    },
+    {
+      "id": "core_97e94cd58fa0a922722daf63",
+      "source_identity": "Enumerative Perception/Illumination Variability/house_single_floor/kitchen_0/q_002.json",
+      "original_variant_id": "category_a1da5487e5fcd073853c751c",
+      "default_variant_id": "category_a1da5487e5fcd073853c751c"
+    },
+    {
+      "id": "core_a746c870f1e7ce716c1093ed",
+      "source_identity": "Enumerative Perception/Illumination Variability/house_single_floor/entryway_0/q_000.json",
+      "original_variant_id": "category_5741f693acb8ec008fdaff93",
+      "default_variant_id": "category_5741f693acb8ec008fdaff93"
+    },
+    {
+      "id": "core_41583b8a7125ba86be45bbca",
+      "source_identity": "Enumerative Perception/Merged Observation/Benevolence_1_int/living_room_0/q_001.json",
+      "original_variant_id": "category_28351286b6aab6b7903b9141",
+      "default_variant_id": "category_28351286b6aab6b7903b9141"
+    },
+    {
+      "id": "core_4c70468e3bfd8f243ec6cb52",
+      "source_identity": "Enumerative Perception/Merged Observation/hall_train_station/bathroom_0/q_002.json",
+      "original_variant_id": "category_024e3c6c890592dcfc66840f",
+      "default_variant_id": "category_024e3c6c890592dcfc66840f"
+    },
+    {
+      "id": "core_8db4556823e20b724d98a932",
+      "source_identity": "Enumerative Perception/Merged Observation/hall_glass_ceiling/bathroom_0/q_002.json",
+      "original_variant_id": "category_724f6b0e5e7c763cd2114b16",
+      "default_variant_id": "category_724f6b0e5e7c763cd2114b16"
+    },
+    {
+      "id": "core_4cadc0c652154f4b54867d03",
+      "source_identity": "Enumerative Perception/Merged Observation/house_single_floor/bedroom_0/q_000.json",
+      "original_variant_id": "category_3f1d88eeea4f845e0ac756a3",
+      "default_variant_id": "category_3f1d88eeea4f845e0ac756a3"
+    },
+    {
+      "id": "core_297a01150f20fa553ccd2b9a",
+      "source_identity": "Enumerative Perception/Spatial Segmentation/house_single_floor/dining_room_0/q_002.json",
+      "original_variant_id": "category_794d8b318f462e76b857423c",
+      "default_variant_id": "category_2cabd39af31d96fe524b641b"
+    },
+    {
+      "id": "core_ee0296930d69105c774262aa",
+      "source_identity": "Enumerative Perception/Spatial Segmentation/house_double_floor_lower/kitchen_0/q_002.json",
+      "original_variant_id": "category_a0338a39ca5c62b8b47a7bdc",
+      "default_variant_id": "category_ac7e0a10580cf5bcf1c6c894"
+    },
+    {
+      "id": "core_4493ef55812173e2c4573c47",
+      "source_identity": "Enumerative Perception/Spatial Segmentation/Merom_0_garden/living_room_0/q_003.json",
+      "original_variant_id": "category_e74c1f55da480059d56451d9",
+      "default_variant_id": "category_1fe906c9220e9e100d4a6565"
+    },
+    {
+      "id": "core_5fbf662646ecbf146c5a5dbb",
+      "source_identity": "Enumerative Perception/Spatial Segmentation/Merom_0_garden/childs_room_0/q_000.json",
+      "original_variant_id": "category_14a8f95cd5bec773c03f589f",
+      "default_variant_id": "category_359f0a936262ec496271264f"
+    },
+    {
+      "id": "core_cc08ebdc59d1d5613a0cbf3f",
+      "source_identity": "Enumerative Perception/Spatial Segmentation/Merom_0_garden/childs_room_0/q_004.json",
+      "original_variant_id": "category_3883cf35d193eb5acce65302",
+      "default_variant_id": "category_6f86d0532d37990e990d4086"
+    },
+    {
+      "id": "core_8deec0463fdb66ec2e3526ca",
+      "source_identity": "Enumerative Perception/Structural Enclosure/hall_glass_ceiling/bathroom_0/q_001.json",
+      "original_variant_id": "category_301d2452e4047feabcd5a363",
+      "default_variant_id": "category_301d2452e4047feabcd5a363"
+    },
+    {
+      "id": "core_2f9fe2c5012932ff208aa3e7",
+      "source_identity": "Enumerative Perception/Structural Enclosure/house_single_floor/kitchen_0/q_001.json",
+      "original_variant_id": "category_0f7b52d676855c4e8ba126e8",
+      "default_variant_id": "category_0f7b52d676855c4e8ba126e8"
+    },
+    {
+      "id": "core_07070a46059d195e6565b9ab",
+      "source_identity": "Enumerative Perception/Structural Enclosure/house_single_floor/living_room_1/q_001.json",
+      "original_variant_id": "category_cfd79b18f8d20eb5222dcdb6",
+      "default_variant_id": "category_cfd79b18f8d20eb5222dcdb6"
+    },
+    {
+      "id": "core_4adffa0fbd0237b8ccd1c1c5",
+      "source_identity": "Enumerative Perception/Structural Enclosure/house_single_floor/sauna_0/q_000.json",
+      "original_variant_id": "category_ecc371777f734a39c9f9a430",
+      "default_variant_id": "category_ecc371777f734a39c9f9a430"
+    },
+    {
+      "id": "core_c12e8c2cf058d6fa8acdffcf",
+      "source_identity": "Metric Comparison/Dimensional Size/house_double_floor_lower/living_room_0/house_double_floor_lower__living_room_0_6.json",
+      "original_variant_id": "category_c78fa64bce252b26deea671b",
+      "default_variant_id": "category_c78fa64bce252b26deea671b"
+    },
+    {
+      "id": "core_72b82719976e56e2877f22ca",
+      "source_identity": "Metric Comparison/Dimensional Size/Merom_0_garden/playroom_0/Merom_0_garden__playroom_0_8.json",
+      "original_variant_id": "category_2e97fee382ce745c708f7adf",
+      "default_variant_id": "category_6b899eec6ad148ab6135693f"
+    },
+    {
+      "id": "core_1d3ece7f07d1ca6af64419d6",
+      "source_identity": "Metric Comparison/Dimensional Size/Merom_0_garden/sauna_0/Merom_0_garden__sauna_0_2.json",
+      "original_variant_id": "category_9204d24831179f20dd20cdbe",
+      "default_variant_id": "category_401dda068f1b176b02d85350"
+    },
+    {
+      "id": "core_4ec95ae0831ca12cb0c26007",
+      "source_identity": "Metric Comparison/Dimensional Size/office_cubicles_right/bathroom_0/office_cubicles_right__bathroom_0_3.json",
+      "original_variant_id": "category_1d497c942c21724d36621fd0",
+      "default_variant_id": "category_1d497c942c21724d36621fd0"
+    },
+    {
+      "id": "core_631f23d77668c4c4a36e1124",
+      "source_identity": "Metric Comparison/Spatial Distance/house_single_floor/bathroom_0/house_single_floor__bathroom_0_0.json",
+      "original_variant_id": "category_2ee265125c067081fa03c409",
+      "default_variant_id": "category_535394523132ce64ae9c8f93"
+    },
+    {
+      "id": "core_1375b447390c3a76c80448c9",
+      "source_identity": "Metric Comparison/Spatial Distance/house_single_floor/garage_0/house_single_floor__garage_0_0.json",
+      "original_variant_id": "category_dcf4a0c463551a8db219de8f",
+      "default_variant_id": "category_83b96330dae525573dc88e38"
+    },
+    {
+      "id": "core_b642cdbc51763dc83f22344a",
+      "source_identity": "Metric Comparison/Spatial Distance/house_single_floor/living_room_0/house_single_floor__living_room_0_0.json",
+      "original_variant_id": "category_4888f9bfab7d58b76a9a109e",
+      "default_variant_id": "category_4888f9bfab7d58b76a9a109e"
+    },
+    {
+      "id": "core_2fb00c3180c77d40ea3bfbd4",
+      "source_identity": "Metric Comparison/Spatial Distance/house_single_floor/childs_room_1/house_single_floor__childs_room_1_1.json",
+      "original_variant_id": "category_025af4e90b9605d87fa5ad5f",
+      "default_variant_id": "category_025af4e90b9605d87fa5ad5f"
+    },
+    {
+      "id": "core_41a41e1e42a18689dad4392f",
+      "source_identity": "Perceptual Grounding/Material Transparency/school_gym/locker_room_1/school_gym__locker_room_1.json",
+      "original_variant_id": "category_302959844daf34e447c87378",
+      "default_variant_id": "category_720f0847910173edaef41d45"
+    },
+    {
+      "id": "core_49c898541caefdeba9c13471",
+      "source_identity": "Perceptual Grounding/Material Transparency/restaurant_hotel/lobby_0/restaurant_hotel__lobby_0.json",
+      "original_variant_id": "category_54f951b6a29855a51844da54",
+      "default_variant_id": "category_54f951b6a29855a51844da54"
+    },
+    {
+      "id": "core_24dc3a88d56ead0537258a83",
+      "source_identity": "Perceptual Grounding/Material Transparency/Beechwood_0_garden/dining_room_0/Beechwood_0_garden__dining_room_0.json",
+      "original_variant_id": "category_a819197786bd511068cee095",
+      "default_variant_id": "category_a819197786bd511068cee095"
+    },
+    {
+      "id": "core_d8df1ca2c7e820ff44a4382e",
+      "source_identity": "Perceptual Grounding/Material Transparency/Pomaria_1_int/pantry_room_0/Pomaria_1_int__pantry_room_0.json",
+      "original_variant_id": "category_42b139d67016e9376e0b33f1",
+      "default_variant_id": "category_42b139d67016e9376e0b33f1"
+    },
+    {
+      "id": "core_99c754fa27cfdb2177beabd1",
+      "source_identity": "Perceptual Grounding/Partial Occlusion/hall_arch_wood/corridor_0/hall_arch_wood__corridor_0_2.json",
+      "original_variant_id": "category_30bf1ae097bad15672814927",
+      "default_variant_id": "category_950d1cc3e1316fb5f24df1b6"
+    },
+    {
+      "id": "core_a2015608eb8a992960106f83",
+      "source_identity": "Perceptual Grounding/Partial Occlusion/house_single_floor/kitchen_0/house_single_floor__kitchen_0_3.json",
+      "original_variant_id": "category_cc596be2a628c9cf3d8f1899",
+      "default_variant_id": "category_db5f240532a591a61c8670a6"
+    },
+    {
+      "id": "core_18f40410919a5ca252521a4c",
+      "source_identity": "Perceptual Grounding/Partial Occlusion/house_single_floor/childs_room_0/house_single_floor__childs_room_0_0.json",
+      "original_variant_id": "category_5e262bd44dda90bac58dc2c0",
+      "default_variant_id": "category_b605f4e1a6fed76603ad1988"
+    },
+    {
+      "id": "core_afbe15cd7ec9d63fae8a559a",
+      "source_identity": "Perceptual Grounding/Partial Occlusion/house_single_floor/dining_room_0/house_single_floor__dining_room_0_1.json",
+      "original_variant_id": "category_a5f134e8a05e9115ad8e8c39",
+      "default_variant_id": "category_0db0e231cd931e198cd09bbc"
+    },
+    {
+      "id": "core_ec881df004e00e44a3954dbf",
+      "source_identity": "Perceptual Grounding/View Hallucination/hall_arch_wood/empty_room_0/hall_arch_wood__empty_room_0_2.json",
+      "original_variant_id": "category_9ca20023b89bde85b6c70be1",
+      "default_variant_id": "category_095c131edc889cc291724db4"
+    },
+    {
+      "id": "core_7a0b55e256884f384c785beb",
+      "source_identity": "Perceptual Grounding/View Hallucination/hall_arch_wood/corridor_0/hall_arch_wood__corridor_0_1.json",
+      "original_variant_id": "category_b13886b1322aaab5462e6ed5",
+      "default_variant_id": "category_818a2216203b2ec448eb26d1"
+    },
+    {
+      "id": "core_5d0e802442d3b5b51b606e87",
+      "source_identity": "Perceptual Grounding/View Hallucination/hall_arch_wood/bathroom_0/hall_arch_wood__bathroom_0_2.json",
+      "original_variant_id": "category_b1c28034bfece5af8cfc0548",
+      "default_variant_id": "category_0f57ceaf45479d659c886c10"
+    },
+    {
+      "id": "core_8ea984ddf9e3efb8edf1f0b8",
+      "source_identity": "Perceptual Grounding/View Hallucination/house_single_floor/childs_room_1/house_single_floor__childs_room_1_3.json",
+      "original_variant_id": "category_8f2ff0ad396e44e44d7140c7",
+      "default_variant_id": "category_345df681fea14d6e99569b3b"
+    },
+    {
+      "id": "core_e9b81d7d6a88d8d33edc6edb",
+      "source_identity": "Physical Dynamics/Inclined Plane/house_single_floor/bathroom_1/house_single_floor__bathroom_1__run_000.json",
+      "original_variant_id": "category_b7bf18e60e12e2b45d873d60",
+      "default_variant_id": "category_66756a248150cab61e8f9c8d"
+    },
+    {
+      "id": "core_c28a11b2bae006f5cbe5d48d",
+      "source_identity": "Physical Dynamics/Inclined Plane/house_single_floor/childs_room_0/house_single_floor__childs_room_0__run_000.json",
+      "original_variant_id": "category_f6f2a97d1268598b74b4be6c",
+      "default_variant_id": "category_0b8fc74b233237c1503434dc"
+    },
+    {
+      "id": "core_5d15e23b686706e705555767",
+      "source_identity": "Physical Dynamics/Inclined Plane/house_single_floor/kitchen_0/house_single_floor__kitchen_0__run_000.json",
+      "original_variant_id": "category_54415d3431ef8464af94daed",
+      "default_variant_id": "category_eed1d3a8b7293a5df95cfbe8"
+    },
+    {
+      "id": "core_fddc9913c33e1c00584a896d",
+      "source_identity": "Physical Dynamics/Inclined Plane/house_single_floor/entryway_0/house_single_floor__entryway_0__run_000.json",
+      "original_variant_id": "category_1a4e1d0ad5f8648cc29c4c0a",
+      "default_variant_id": "category_20bf03a28735924cfbb774ce"
+    },
+    {
+      "id": "core_794459bb3bc7b18c59f0c72a",
+      "source_identity": "Physical Dynamics/Stacking & Stability/house_single_floor/childs_room_0/house_single_floor__childs_room_0.json",
+      "original_variant_id": "category_4c36dd4dc5bbbe9bc7e787d1",
+      "default_variant_id": "category_4c36dd4dc5bbbe9bc7e787d1"
+    },
+    {
+      "id": "core_5a541c0935365b1ff672bc17",
+      "source_identity": "Physical Dynamics/Stacking & Stability/office_cubicles_right/lobby_0/office_cubicles_right__lobby_0.json",
+      "original_variant_id": "category_32485510e87a6ad8f32178d7",
+      "default_variant_id": "category_32485510e87a6ad8f32178d7"
+    },
+    {
+      "id": "core_d91334e6e227fdb430ae086c",
+      "source_identity": "Physical Dynamics/Stacking & Stability/restaurant_asian/bathroom_0/restaurant_asian__bathroom_0.json",
+      "original_variant_id": "category_ff15948e066184024f87df96",
+      "default_variant_id": "category_ff15948e066184024f87df96"
+    },
+    {
+      "id": "core_11b95b6c62314b06a68f2526",
+      "source_identity": "Physical Dynamics/Stacking & Stability/Beechwood_0_garden/dining_room_0/Beechwood_0_garden__dining_room_0.json",
+      "original_variant_id": "category_6101117684a66f96ee6f4bef",
+      "default_variant_id": "category_6101117684a66f96ee6f4bef"
+    },
+    {
+      "id": "core_a28f61ef24accfe5ae994d74",
+      "source_identity": "Physical Structure/Deformable/hall_arch_wood/bathroom_0/q_002.json",
+      "original_variant_id": "category_24984e5dcf7d2f54faef5778",
+      "default_variant_id": "category_7adf37c037d6408f300d4b10"
+    },
+    {
+      "id": "core_b6af756607d21ce7509d44fd",
+      "source_identity": "Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json",
+      "original_variant_id": "category_9f8ea7f3ab0635cc16fe92cc",
+      "default_variant_id": "category_2824b7b487f4e1f369e87aee"
+    },
+    {
+      "id": "core_cc7590be5a316eb772ff69ab",
+      "source_identity": "Physical Structure/Deformable/hall_train_station/bathroom_0/q_000.json",
+      "original_variant_id": "category_8426fda67dc6a6ab1f26181f",
+      "default_variant_id": "category_dc3ed6041fad0c66a19dd70f"
+    },
+    {
+      "id": "core_00a576a8094b60254ff23f55",
+      "source_identity": "Physical Structure/Deformable/hall_glass_ceiling/empty_room_0/q_000.json",
+      "original_variant_id": "category_41af67487bac1a9541464e63",
+      "default_variant_id": "category_d5576eefeb8a782ddce52dab"
+    },
+    {
+      "id": "core_3756593db5984ff28debbc1e",
+      "source_identity": "Physical Structure/Liquid Volume/unknown_scene/unknown_room/run_247.json",
+      "original_variant_id": "category_d1d2ac51f622d9d159db8e60",
+      "default_variant_id": "category_9154408bc966fbe58bca95ee"
+    },
+    {
+      "id": "core_46f5a8d082fc91841514e45a",
+      "source_identity": "Physical Structure/Liquid Volume/unknown_scene/unknown_room/run_89.json",
+      "original_variant_id": "category_ca51dc4498bbac7ba245df11",
+      "default_variant_id": "category_9154408bc966fbe58bca95ee"
+    },
+    {
+      "id": "core_307645df0bd6e8a1204394e0",
+      "source_identity": "Physical Structure/Liquid Volume/unknown_scene/unknown_room/run_191.json",
+      "original_variant_id": "category_a82d9127381368636bfe12df",
+      "default_variant_id": "category_9154408bc966fbe58bca95ee"
+    },
+    {
+      "id": "core_4eafdde26fcf4634bd43ede7",
+      "source_identity": "Physical Structure/Liquid Volume/unknown_scene/unknown_room/run_275.json",
+      "original_variant_id": "category_f5f27b04a5a11d766882f29b",
+      "default_variant_id": "category_9154408bc966fbe58bca95ee"
+    },
+    {
+      "id": "core_9127263cc096e51039996cbd",
+      "source_identity": "Physical Structure/Rigid Containment/hall_arch_wood/empty_room_0/hall_arch_wood_scene_dict_storage2_1_revised.json",
+      "original_variant_id": "category_654f8bfa37612193a879dd59",
+      "default_variant_id": "category_654f8bfa37612193a879dd59"
+    },
+    {
+      "id": "core_892cb67274273843c9284540",
+      "source_identity": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_2_revised__criterion_2.json",
+      "original_variant_id": "category_5cd40f4881c27570f05e0a5d",
+      "default_variant_id": "category_5cd40f4881c27570f05e0a5d"
+    },
+    {
+      "id": "core_cbf90e587c29d567a195afc4",
+      "source_identity": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_0_revised__criterion_3.json",
+      "original_variant_id": "category_67cf502f0e7d80a6c51f61b8",
+      "default_variant_id": "category_67cf502f0e7d80a6c51f61b8"
+    },
+    {
+      "id": "core_c5565ff4341b6fdf1be65fdf",
+      "source_identity": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_2_revised.json",
+      "original_variant_id": "category_919e836750cbdec7b2ef6473",
+      "default_variant_id": "category_919e836750cbdec7b2ef6473"
+    },
+    {
+      "id": "core_79470df4a900aaf4e0e4522b",
+      "source_identity": "Physical Structure/Rigid Containment/hall_conference_large/conference_hall_0/hall_conference_large_scene_dict_storage2_0_revised.json",
+      "original_variant_id": "category_f3b6dbc547bfc34dd495260e",
+      "default_variant_id": "category_f3b6dbc547bfc34dd495260e"
+    },
+    {
+      "id": "core_bd693f915e1fe11e25d21184",
+      "source_identity": "Physical Structure/Rigid Containment/Wainscott_0_garden/living_room_1/Wainscott_0_garden_scene_dict_storage2_2_revised__criterion_3.json",
+      "original_variant_id": "category_0c6e1d179791dd0fe4755394",
+      "default_variant_id": "category_0c6e1d179791dd0fe4755394"
+    },
+    {
+      "id": "core_87075a5aef34a4f65da09651",
+      "source_identity": "Physical Structure/Rigid Containment/Wainscott_0_garden/living_room_1/Wainscott_0_garden_scene_dict_storage2_2_revised.json",
+      "original_variant_id": "category_e6bc95de025433300555b1e1",
+      "default_variant_id": "category_e6bc95de025433300555b1e1"
+    },
+    {
+      "id": "core_539479df43647480f022104d",
+      "source_identity": "Physical Structure/Rigid Containment/house_double_floor_lower/living_room_0/house_double_floor_lower_scene_dict_storage2_0_revised__criterion_4.json",
+      "original_variant_id": "category_5e7d4c0444caa30aa75f97e4",
+      "default_variant_id": "category_5e7d4c0444caa30aa75f97e4"
+    },
+    {
+      "id": "core_d27fbc319e8a148f47a2953d",
+      "source_identity": "Physical Structure/Rigid Containment/house_double_floor_lower/living_room_0/house_double_floor_lower_scene_dict_storage2_0_revised.json",
+      "original_variant_id": "category_c41e310e1bebfabd4de67985",
+      "default_variant_id": "category_c41e310e1bebfabd4de67985"
+    },
+    {
+      "id": "core_6bfc5d7d0b622ae9e65c67c2",
+      "source_identity": "Physical Structure/Rigid Containment/restaurant_hotel/lobby_0/restaurant_hotel_scene_dict_storage2_1_revised__criterion_4.json",
+      "original_variant_id": "category_069d5f2a70d982613fb30a27",
+      "default_variant_id": "category_069d5f2a70d982613fb30a27"
+    },
+    {
+      "id": "core_66c30a63ba3e34a6b50af582",
+      "source_identity": "Physical Structure/Rigid Containment/restaurant_hotel/lobby_0/restaurant_hotel_scene_dict_storage2_1_revised.json",
+      "original_variant_id": "category_6fc1fff5122b52f75638dcbf",
+      "default_variant_id": "category_6fc1fff5122b52f75638dcbf"
+    },
+    {
+      "id": "core_085eba882fefd961d8222327",
+      "source_identity": "Physical Structure/Rigid Containment/office_vendor_machine/meeting_room_0/office_vendor_machine_scene_dict_storage2_2_revised.json",
+      "original_variant_id": "category_5b210eb4680b3f11dbc52146",
+      "default_variant_id": "category_5b210eb4680b3f11dbc52146"
+    },
+    {
+      "id": "core_502c48666c79ed8bba174f5e",
+      "source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json",
+      "original_variant_id": "category_34c618e3e729c224000d39d3",
+      "default_variant_id": "category_34c618e3e729c224000d39d3"
+    },
+    {
+      "id": "core_aa5b2a3d02f09776ad06f17f",
+      "source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/playroom_0/Beechwood_1_int_scene_dict_storage2_2_revised__criterion_2.json",
+      "original_variant_id": "category_64f0dc4894d3a242253c9643",
+      "default_variant_id": "category_64f0dc4894d3a242253c9643"
+    },
+    {
+      "id": "core_a9bd9e8b16ccba854383e638",
+      "source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json",
+      "original_variant_id": "category_8644156dec67b0eaddf1472a",
+      "default_variant_id": "category_8644156dec67b0eaddf1472a"
+    },
+    {
+      "id": "core_30adf926dc3e7ad87fe8760d",
+      "source_identity": "Physical Structure/Rigid Containment/Beechwood_1_int/playroom_0/Beechwood_1_int_scene_dict_storage2_2_revised.json",
+      "original_variant_id": "category_cc51a6badc23adb7cacbac1d",
+      "default_variant_id": "category_cc51a6badc23adb7cacbac1d"
+    },
+    {
+      "id": "core_4794ee785a833bb891ce77fe",
+      "source_identity": "Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_2_revised__criterion_2.json",
+      "original_variant_id": "category_1c44f7c63aab8eeecccb6ed8",
+      "default_variant_id": "category_1c44f7c63aab8eeecccb6ed8"
+    },
+    {
+      "id": "core_0e5891ad0cac8e03d2e928ee",
+      "source_identity": "Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_2_revised.json",
+      "original_variant_id": "category_8216b182cce84f4fd4f5177b",
+      "default_variant_id": "category_8216b182cce84f4fd4f5177b"
+    },
+    {
+      "id": "core_e27a03e5521a29e67e33a28d",
+      "source_identity": "Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_1_revised.json",
+      "original_variant_id": "category_85149bb259d79b75368be5da",
+      "default_variant_id": "category_85149bb259d79b75368be5da"
+    },
+    {
+      "id": "core_7d769bd1f473a53326a290e7",
+      "source_identity": "Physical Structure/Rigid Containment/Pomaria_1_int/living_room_0/Pomaria_1_int_scene_dict_storage2_1_revised.json",
+      "original_variant_id": "category_09622404ae05d59a58ef8984",
+      "default_variant_id": "category_09622404ae05d59a58ef8984"
+    },
+    {
+      "id": "core_1883fca261a53d6d2319c3fd",
+      "source_identity": "Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json",
+      "original_variant_id": "category_e58c1c507e7cc7a429b80bd9",
+      "default_variant_id": "category_e58c1c507e7cc7a429b80bd9"
+    },
+    {
+      "id": "core_c59d947360086487b8e6a55d",
+      "source_identity": "Physical Structure/Rigid Containment/Merom_0_int/living_room_0/Merom_0_int_scene_dict_storage2_2_revised.json",
+      "original_variant_id": "category_a27c56821464654bad113773",
+      "default_variant_id": "category_a27c56821464654bad113773"
+    },
+    {
+      "id": "core_67b91ec692b430ecca86b20b",
+      "source_identity": "Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised__criterion_2.json",
+      "original_variant_id": "category_3133dfe51ce8a16bf6cb674f",
+      "default_variant_id": "category_3133dfe51ce8a16bf6cb674f"
+    },
+    {
+      "id": "core_a0ae50febb5eaf0ea2657417",
+      "source_identity": "Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json",
+      "original_variant_id": "category_b1fffff9aef66e7517638538",
+      "default_variant_id": "category_b1fffff9aef66e7517638538"
+    },
+    {
+      "id": "core_adf7b8f3a2438d946891b74d",
+      "source_identity": "Physical Structure/Rigid Containment/Benevolence_0_int/empty_room_0/Benevolence_0_int_scene_dict_storage2_2_revised.json",
+      "original_variant_id": "category_82e78e6b5059c2f0f88cfce9",
+      "default_variant_id": "category_82e78e6b5059c2f0f88cfce9"
+    },
+    {
+      "id": "core_48529ce41c9994c84397b4d2",
+      "source_identity": "Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised__criterion_2.json",
+      "original_variant_id": "category_2ffe98c5d556f073969e1d5b",
+      "default_variant_id": "category_2ffe98c5d556f073969e1d5b"
+    },
+    {
+      "id": "core_68e0082db74107fd6e3acd8d",
+      "source_identity": "Physical Structure/Rigid Containment/Benevolence_1_int/living_room_0/Benevolence_1_int_scene_dict_storage2_2_revised.json",
+      "original_variant_id": "category_95526e99958c591fe04ed92b",
+      "default_variant_id": "category_95526e99958c591fe04ed92b"
+    },
+    {
+      "id": "core_9071fe5165a6708f787ccb52",
+      "source_identity": "Spatial Relations/Geometric Configuration/Beechwood_0_garden/utility_room_0/Beechwood_0_garden__utility_room_0_3.json",
+      "original_variant_id": "category_820e9d258145bca866eb7c88",
+      "default_variant_id": "category_bdb79bcc5beee90cfb942a32"
+    },
+    {
+      "id": "core_8d24ad86e5803d6edb55d7b2",
+      "source_identity": "Spatial Relations/Geometric Configuration/Beechwood_0_garden/garden_0/Beechwood_0_garden__garden_0_0.json",
+      "original_variant_id": "category_9eab1c92c74778b5fc3fe565",
+      "default_variant_id": "category_abfc72cb2d4b9fb983221f89"
+    },
+    {
+      "id": "core_aed74772ac76d69c275b590f",
+      "source_identity": "Spatial Relations/Geometric Configuration/Beechwood_0_garden/kitchen_0/Beechwood_0_garden__kitchen_0_5.json",
+      "original_variant_id": "category_7d6f81f1215b665590b64ad5",
+      "default_variant_id": "category_1bb95023d01fbe5c29601ab3"
+    },
+    {
+      "id": "core_c8741900d937c6667e928778",
+      "source_identity": "Spatial Relations/Geometric Configuration/Beechwood_0_int/kitchen_0/Beechwood_0_int__kitchen_0_0.json",
+      "original_variant_id": "category_2b9cedd0ae8db6629b36bc56",
+      "default_variant_id": "category_be95222ebb4493f9b61d87fd"
+    },
+    {
+      "id": "core_058ae73cbc7bfc65709f07b8",
+      "source_identity": "Spatial Relations/Linear Alignment/Beechwood_0_garden/private_office_0/Beechwood_0_garden__private_office_0.json",
+      "original_variant_id": "category_309ff5d1a6ed664bd8726e4b",
+      "default_variant_id": "category_309ff5d1a6ed664bd8726e4b"
+    },
+    {
+      "id": "core_ee1941c3d940fac4068c67af",
+      "source_identity": "Spatial Relations/Linear Alignment/hall_arch_wood/empty_room_0/hall_arch_wood__empty_room_0.json",
+      "original_variant_id": "category_fa56fb768c5d3e0676ad6c33",
+      "default_variant_id": "category_fa56fb768c5d3e0676ad6c33"
+    },
+    {
+      "id": "core_3b1753c77fe32ae2719e2de8",
+      "source_identity": "Spatial Relations/Linear Alignment/hall_arch_wood/bathroom_0/hall_arch_wood__bathroom_0.json",
+      "original_variant_id": "category_c141a39cebdb8eb46b8f06a3",
+      "default_variant_id": "category_c141a39cebdb8eb46b8f06a3"
+    },
+    {
+      "id": "core_ef03559e76839c7e19e53c9a",
+      "source_identity": "Spatial Relations/Linear Alignment/house_single_floor/entryway_0/house_single_floor__entryway_0.json",
+      "original_variant_id": "category_c5f1c7e0204b26434c80e765",
+      "default_variant_id": "category_c5f1c7e0204b26434c80e765"
+    },
+    {
+      "id": "core_b72ce45f858daac4c4d6ad1b",
+      "source_identity": "Spatial Relations/Physical Contact/house_single_floor/living_room_0/house_single_floor__living_room_0.json",
+      "original_variant_id": "category_3a319828abcb43542f397e84",
+      "default_variant_id": "category_3a319828abcb43542f397e84"
+    },
+    {
+      "id": "core_9c7896b3d09f852f6e13b585",
+      "source_identity": "Spatial Relations/Physical Contact/house_single_floor/corridor_0/house_single_floor__corridor_0.json",
+      "original_variant_id": "category_53f113c7995ababbabdd5559",
+      "default_variant_id": "category_53f113c7995ababbabdd5559"
+    },
+    {
+      "id": "core_9829cb1d68cdf6d475da4816",
+      "source_identity": "Spatial Relations/Physical Contact/house_double_floor_lower/corridor_0/house_double_floor_lower__corridor_0.json",
+      "original_variant_id": "category_93025169f0b17c9183a2fdd9",
+      "default_variant_id": "category_93025169f0b17c9183a2fdd9"
+    },
+    {
+      "id": "core_e8d8c6e941f4ff3857aec134",
+      "source_identity": "Spatial Relations/Physical Contact/office_cubicles_left/corridor_0/office_cubicles_left__corridor_0.json",
+      "original_variant_id": "category_95d214aac10eb07a73ba0a99",
+      "default_variant_id": "category_95d214aac10eb07a73ba0a99"
+    },
+    {
+      "id": "core_5c1949b809af645f06a385b3",
+      "source_identity": "Specular Reflection/Correspondence/hall_glass_ceiling/empty_room_0/q_007.json",
+      "original_variant_id": "category_16d0700abb78eac7709afa71",
+      "default_variant_id": "category_e65509ee0325ec9732f9cfc3"
+    },
+    {
+      "id": "core_230aaa5e77220ae66e17cc7c",
+      "source_identity": "Specular Reflection/Correspondence/Wainscott_0_garden/living_room_2/q_001.json",
+      "original_variant_id": "category_a0d00fcc535741da87d5b674",
+      "default_variant_id": "category_7d2383a92846eb790be70c3a"
+    },
+    {
+      "id": "core_f9c7d2a11093b4b50c4b2b40",
+      "source_identity": "Specular Reflection/Correspondence/hotel_gym_spa/gym_0/q_003.json",
+      "original_variant_id": "category_a00a0fa029a8b56437de5564",
+      "default_variant_id": "category_e9cd1ee42d94d111a794424a"
+    },
+    {
+      "id": "core_73fe7bb6da111c058e1a2888",
+      "source_identity": "Specular Reflection/Correspondence/Merom_0_garden/childs_room_0/q_001.json",
+      "original_variant_id": "category_9c8cd8a98c5ac289a1626df3",
+      "default_variant_id": "category_bcbf357d8d72eead5fac8007"
+    },
+    {
+      "id": "core_519bdc15e6eeeeb97319033d",
+      "source_identity": "Specular Reflection/Reflection Authoring/hall_arch_wood/bathroom_0/q_000.json",
+      "original_variant_id": "category_b9f52d58338833d4c8ba1c40",
+      "default_variant_id": "category_c911962f6ae4ff7f88872739"
+    },
+    {
+      "id": "core_281c02b8168ebd2216b10110",
+      "source_identity": "Specular Reflection/Reflection Authoring/hall_glass_ceiling/empty_room_0/q_003.json",
+      "original_variant_id": "category_e3b2ccaf8a8753a1615d1146",
+      "default_variant_id": "category_b1521a9f8b0104f5d28b0cf9"
+    },
+    {
+      "id": "core_2132651c63075202af07a8f2",
+      "source_identity": "Specular Reflection/Reflection Authoring/hall_glass_ceiling/bathroom_0/q_003.json",
+      "original_variant_id": "category_016810f2a904a6c2349b42fc",
+      "default_variant_id": "category_680deff28582d60681fcce2c"
+    },
+    {
+      "id": "core_6a699a26ab6e2d8e9dded346",
+      "source_identity": "Specular Reflection/Reflection Authoring/house_single_floor/living_room_0/q_003.json",
+      "original_variant_id": "category_037dbb5cd7ac4c1714bdb991",
+      "default_variant_id": "category_f7dcedc4e4c06f0749ae5c0b"
+    },
+    {
+      "id": "core_a418aff636fe73892552c9d3",
+      "source_identity": "Specular Reflection/Spatial Relations/hall_arch_wood/bathroom_0/q_000.json",
+      "original_variant_id": "category_7edb02252f23f1fb3919d667",
+      "default_variant_id": "category_398674f4626887d5c2a6fd11"
+    },
+    {
+      "id": "core_9c84b3d1c041191f7f634239",
+      "source_identity": "Specular Reflection/Spatial Relations/hall_glass_ceiling/empty_room_0/q_005.json",
+      "original_variant_id": "category_d1ae248ffab4ac84eb0f4d3b",
+      "default_variant_id": "category_f312af647a95c3ad702d8be0"
+    },
+    {
+      "id": "core_2df1c4b8f8049c2302646e72",
+      "source_identity": "Specular Reflection/Spatial Relations/house_single_floor/bathroom_0/q_005.json",
+      "original_variant_id": "category_dd91d14b4eb3fc4af81e3f2f",
+      "default_variant_id": "category_ac7141e1c8ba32f6e8128205"
+    },
+    {
+      "id": "core_9984a15ff1c79f8faab72b3c",
+      "source_identity": "Specular Reflection/Spatial Relations/house_single_floor/utility_room_0/q_000.json",
+      "original_variant_id": "category_473ac2d915078c93db1e1b21",
+      "default_variant_id": "category_90586a3cc042a2ae9c0a7d6f"
+    },
+    {
+      "id": "core_98f123263641986125fd81e8",
+      "source_identity": "Temporal Understanding/Agent Observation/house_single_floor/childs_room_2/house_single_floor__childs_room_2__run_000.json",
+      "original_variant_id": "category_7aa192e45e757718416649c9",
+      "default_variant_id": "category_d0b96d6192b0bce071220462"
+    },
+    {
+      "id": "core_483c5b23dac0f71b6f97ffcc",
+      "source_identity": "Temporal Understanding/Agent Observation/hall_conference_large/bathroom_0/hall_conference_large__bathroom_0__run_000.json",
+      "original_variant_id": "category_79311465f45737f407973df2",
+      "default_variant_id": "category_1ed8ec9964afccff526c97b8"
+    },
+    {
+      "id": "core_d8c92da37b399ebd89dbdc55",
+      "source_identity": "Temporal Understanding/Agent Observation/school_gym/locker_room_1/school_gym__locker_room_1__run_000.json",
+      "original_variant_id": "category_77030fbdb9d15c07882de8e0",
+      "default_variant_id": "category_ce08ee016fe57c3ea9b1797b"
+    },
+    {
+      "id": "core_106398f0f20847cc7f5f088c",
+      "source_identity": "Temporal Understanding/Agent Observation/school_computer_lab_and_infirmary/bathroom_0/school_computer_lab_and_infirmary__bathroom_0__run_000.json",
+      "original_variant_id": "category_459250915d028607cc45c7e8",
+      "default_variant_id": "category_69201895585ffa8774bb77c4"
+    },
+    {
+      "id": "core_1df8ca4d0c860fd569c40659",
+      "source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/change_detection__q_000.json",
+      "original_variant_id": "category_10c3cbb10f16c17b73e09502",
+      "default_variant_id": "category_4a5ba221f9e00dd17c77c541"
+    },
+    {
+      "id": "core_cec4f0b32259d0fcecebcaf5",
+      "source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/living_room_1/change_identification__q_000.json",
+      "original_variant_id": "category_60e12c2d9221a4cef2014976",
+      "default_variant_id": "category_7062c02ed4378daa5cff3764"
+    },
+    {
+      "id": "core_3db7065fc6c5dd4d99fe8735",
+      "source_identity": "Temporal Understanding/Unobserved Change/hotel_gym_spa/gym_0/change_detection__q_001.json",
+      "original_variant_id": "category_4591bd5265f906339d003263",
+      "default_variant_id": "category_429db137a7567a0a6dc54abd"
+    },
+    {
+      "id": "core_6060280874f8716daceb3c5b",
+      "source_identity": "Temporal Understanding/Unobserved Change/office_large/bathroom_0/change_detection__q_001.json",
+      "original_variant_id": "category_99a805eeca93fd4b381fdab2",
+      "default_variant_id": "category_6c580ba77019bc8a51e330a5"
+    }
+  ]
+}

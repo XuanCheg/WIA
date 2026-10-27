@@ -1,0 +1,2942 @@
+{
+  "schema": "scene_review_preview_v1",
+  "id": "category_bd6e08dc3ad36d10b342895f",
+  "fingerprint": "d007279bb119d2ff2d475c01ef42170a7b9fd38cd928943a676d6fc048a4d776",
+  "capture_signature": "7bc3ba217592c0d53ce6da5a6509fd8961f800b3d0b422b58d99f5b018ad35b6",
+  "capture_protocol": "esi_parallel_capture_v1",
+  "variant": "adapted",
+  "seed": 0,
+  "images": {
+    "global_diagonal": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/global_diagonal.png",
+    "global_overhead": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/global_overhead.png",
+    "global_front": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/global_front.png",
+    "global_back": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/global_back.png",
+    "global_left": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/global_left.png",
+    "global_right": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/global_right.png",
+    "head": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/head.png",
+    "wrist": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/wrist.png",
+    "scene": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/scene.png",
+    "right_wrist": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/right_wrist.png",
+    "chassis_front_left": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/chassis_front_left.png",
+    "chassis_front_right": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/chassis_front_right.png",
+    "chassis_left": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/chassis_left.png",
+    "chassis_right": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/chassis_right.png",
+    "chassis_rear": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/chassis_rear.png",
+    "object_overview": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/object_overview.png",
+    "object_top": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/object_top.png",
+    "object_side": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/object_side.png",
+    "object_detail_00": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/object_detail_00.png",
+    "global_floorplan": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/queue/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/attempts/01/global_floorplan.png"
+  },
+  "complete": true,
+  "code_commit": "working_7b9b6c404bf55ee730a0be23d617d665",
+  "esi_commit": "9f6f15ed43e81654a97de9e4db2a1fedadca2bc1",
+  "diagnostic_pending": true,
+  "native_qualification_run": false,
+  "eligible_final_layout": false,
+  "provenance": "Fresh native exact-snapshot initialization; diagnostic preview; qualification was not run. Native application retained; world rebuilt by the declared lifecycle adapter.",
+  "target_location": null,
+  "job_id": "capture_7bc3ba217592c0d53ce6da5a6509fd89",
+  "capture_job_id": "capture_7bc3ba217592c0d53ce6da5a6509fd89",
+  "execution_mode": "local",
+  "pbs_job_id": null,
+  "gpu": {
+    "physical_index": 5,
+    "uuid": "GPU-73fbc0fe-85e7-260e-cfd7-8033e88a363a",
+    "pci_bus_id": "00000000:A1:00.0",
+    "renderer_index": 5,
+    "vulkan_enumeration_index": 7,
+    "renderer_order": "pci",
+    "slot": 0,
+    "execution_mode": "local",
+    "pbs_job_id": null,
+    "hostname": "deep59",
+    "allocation_gpu_count": 1,
+    "inherited_cuda_visible_devices": "GPU-73fbc0fe-85e7-260e-cfd7-8033e88a363a",
+    "wait_for_capture": false,
+    "retain_world": false,
+    "texture_cache_max_bytes": 0,
+    "automatic_disk_thresholds": false,
+    "appdata_path": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5",
+    "native_tmp_path": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/native_tmp",
+    "persistent_simulator": true,
+    "renderer_active_gpu": 5,
+    "renderer_multi_gpu": false,
+    "cuda_device_count": 1,
+    "cuda_device": "cuda:0",
+    "physics_device": "cpu",
+    "native_process_pid": 3683261,
+    "verified_process_gpu_uuids": [
+      "GPU-73fbc0fe-85e7-260e-cfd7-8033e88a363a"
+    ]
+  },
+  "model_calls": 0,
+  "robot_actions": 0,
+  "physical_grasp_verified": false,
+  "background_reused": false,
+  "human_camera_framing": {
+    "target_world_m": [
+      -32.660000000000004,
+      6.055,
+      0.8
+    ],
+    "include_robot": true,
+    "task_object_count": 0,
+    "strategy": "whole_native_floor_bounds_v1",
+    "floor_geometry": {
+      "bounds_world_xy_m": [
+        [
+          -82.665,
+          -23.225
+        ],
+        [
+          17.345,
+          35.335
+        ]
+      ],
+      "occupied_map_bounds_row_col": [
+        [
+          5945,
+          1
+        ],
+        [
+          11800,
+          10001
+        ]
+      ],
+      "map_shape_row_col": [
+        16534,
+        16534
+      ],
+      "map_resolution_m": 0.01,
+      "native_map_resolution_m": 1.0,
+      "original_map_resolution_m": 0.01,
+      "original_segmentation_path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/hall_arch_wood/layout/floor_insseg_0.png",
+      "raster_source": "original_native_layout_png",
+      "native_raster_room_ids": [
+        1,
+        2,
+        3
+      ],
+      "original_room_ids_lost_by_native_resize": [],
+      "unregistered_room_ids": [],
+      "map_origin_world_xy_m": [
+        -82.67,
+        -82.67
+      ],
+      "floor_idx": 0,
+      "floor_z_m": 0.0,
+      "declared_floor_heights_m": [
+        0.0
+      ],
+      "floor_reference": "native seg_map.floor_heights[0]; declared, not measured support",
+      "rooms": [
+        {
+          "id": 1,
+          "name": "bathroom_0",
+          "name_available": true,
+          "cell_count": 339199,
+          "label_map_row_col": [
+            6299,
+            9491
+          ],
+          "label_world_xy_m": [
+            12.24,
+            -19.68
+          ]
+        },
+        {
+          "id": 2,
+          "name": "corridor_0",
+          "name_available": true,
+          "cell_count": 34209,
+          "label_map_row_col": [
+            6748,
+            9500
+          ],
+          "label_world_xy_m": [
+            12.33,
+            -15.19
+          ]
+        },
+        {
+          "id": 3,
+          "name": "empty_room_0",
+          "name_available": true,
+          "cell_count": 49584958,
+          "label_map_row_col": [
+            9321,
+            5001
+          ],
+          "label_world_xy_m": [
+            -32.660000000000004,
+            10.540000000000001
+          ]
+        }
+      ],
+      "all_raster_room_ids": [
+        1,
+        2,
+        3
+      ],
+      "registered_room_ids_missing_from_raster": [],
+      "orientation": "world +X right, world +Y up; native row increases +Y, column increases +X",
+      "coverage": "All nonzero original native floor-0 PNG room IDs.",
+      "limitations": [
+        "Segmentation is not a native render or a traversability/doorway graph.",
+        "Room adjacency does not prove a real R1 passage or collision clearance.",
+        "The installed native map loads floor_insseg_0 only; other floors are not reconstructed.",
+        "Original room IDs absent from the native dictionary retain explicit unregistered ID labels.",
+        "Unlabelled cells, walls, doors and furniture are not classified by this room raster."
+      ],
+      "bounds_source": "original_native_room_png_all_nonzero_ids",
+      "original_bounds_world_xy_m": [
+        [
+          -82.665,
+          -23.225
+        ],
+        [
+          17.345,
+          35.335
+        ]
+      ],
+      "native_bounds_world_xy_m": [
+        [
+          -82.0,
+          -23.0
+        ],
+        [
+          17.0,
+          35.0
+        ]
+      ]
+    },
+    "views": {
+      "global_front": {
+        "position_world_m": [
+          16.533563879946065,
+          6.055,
+          87.612171552846
+        ],
+        "target_world_m": [
+          -32.660000000000004,
+          6.055,
+          0.8
+        ],
+        "distance_m": 99.78156070602975,
+        "horizontal_fov_deg": 65.00378278435835,
+        "vertical_fov_deg": 65.00378278435835,
+        "horizontal_aperture_mm": 20.9950008392334,
+        "focal_length_mm": 12.0,
+        "vertical_aperture_mm": 15.290800094604492,
+        "image_width": 512,
+        "image_height": 512,
+        "framing_margin": 1.1,
+        "optics_fit_policy": "Conservative intersection of native apertures and render-product aspect.",
+        "fitted_z_interval_m": [
+          0.0,
+          1.6
+        ],
+        "clipping_range_m": [
+          0.001,
+          127.13067211661256
+        ],
+        "cutaway_plane_world_z_m": null,
+        "coverage": "All floor-map bounds fit the frustum; occlusion is not measured.",
+        "limitations": [
+          "Walls and tall furniture may occlude diagonal views.",
+          "No cutaway clipping is applied to this view."
+        ],
+        "actual_position_world_m": [
+          16.5335636138916,
+          6.054999828338623,
+          87.61217498779297
+        ],
+        "actual_quaternion_xyzw": [
+          0.18026217818260193,
+          0.18026217818260193,
+          0.6837437748908997,
+          0.6837437748908997
+        ],
+        "position_error_m": 3.4495091436492812e-06,
+        "rotation_error_deg": 0.0,
+        "capture_render_boundaries": 9,
+        "capture_protocol": "native_human_render_products_drained_v2"
+      },
+      "global_back": {
+        "position_world_m": [
+          -81.85356387994608,
+          6.055,
+          87.612171552846
+        ],
+        "target_world_m": [
+          -32.660000000000004,
+          6.055,
+          0.8
+        ],
+        "distance_m": 99.78156070602975,
+        "horizontal_fov_deg": 65.00378278435835,
+        "vertical_fov_deg": 65.00378278435835,
+        "horizontal_aperture_mm": 20.9950008392334,
+        "focal_length_mm": 12.0,
+        "vertical_aperture_mm": 15.290800094604492,
+        "image_width": 512,
+        "image_height": 512,
+        "framing_margin": 1.1,
+        "optics_fit_policy": "Conservative intersection of native apertures and render-product aspect.",
+        "fitted_z_interval_m": [
+          0.0,
+          1.6
+        ],
+        "clipping_range_m": [
+          0.001,
+          127.13067211661256
+        ],
+        "cutaway_plane_world_z_m": null,
+        "coverage": "All floor-map bounds fit the frustum; occlusion is not measured.",
+        "limitations": [
+          "Walls and tall furniture may occlude diagonal views.",
+          "No cutaway clipping is applied to this view."
+        ],
+        "actual_position_world_m": [
+          -81.85356140136719,
+          6.054999828338623,
+          87.61217498779297
+        ],
+        "actual_quaternion_xyzw": [
+          0.18026217818260193,
+          -0.18026217818260193,
+          -0.6837437748908997,
+          0.6837437748908997
+        ],
+        "position_error_m": 4.23930202745961e-06,
+        "rotation_error_deg": 0.0,
+        "capture_render_boundaries": 9,
+        "capture_protocol": "native_human_render_products_drained_v2"
+      },
+      "global_left": {
+        "position_world_m": [
+          -32.660000000000004,
+          56.07924853134691,
+          89.07808564355337
+        ],
+        "target_world_m": [
+          -32.660000000000004,
+          6.055,
+          0.8
+        ],
+        "distance_m": 101.46647646398543,
+        "horizontal_fov_deg": 65.00378278435835,
+        "vertical_fov_deg": 65.00378278435835,
+        "horizontal_aperture_mm": 20.9950008392334,
+        "focal_length_mm": 12.0,
+        "vertical_aperture_mm": 15.290800094604492,
+        "image_width": 512,
+        "image_height": 512,
+        "framing_margin": 1.1,
+        "optics_fit_policy": "Conservative intersection of native apertures and render-product aspect.",
+        "fitted_z_interval_m": [
+          0.0,
+          1.6
+        ],
+        "clipping_range_m": [
+          0.001,
+          118.5979023202645
+        ],
+        "cutaway_plane_world_z_m": null,
+        "coverage": "All floor-map bounds fit the frustum; occlusion is not measured.",
+        "limitations": [
+          "Walls and tall furniture may occlude diagonal views.",
+          "No cutaway clipping is applied to this view."
+        ],
+        "actual_position_world_m": [
+          -32.65999984741211,
+          56.07925033569336,
+          89.07808685302734
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.25492921471595764,
+          0.9669597148895264,
+          6.123234262925839e-17
+        ],
+        "position_error_m": 2.1775620472612785e-06,
+        "rotation_error_deg": 0.00831485608801742,
+        "capture_render_boundaries": 9,
+        "capture_protocol": "native_human_render_products_drained_v2"
+      },
+      "global_right": {
+        "position_world_m": [
+          -32.660000000000004,
+          -43.96924853134691,
+          89.07808564355337
+        ],
+        "target_world_m": [
+          -32.660000000000004,
+          6.055,
+          0.8
+        ],
+        "distance_m": 101.46647646398543,
+        "horizontal_fov_deg": 65.00378278435835,
+        "vertical_fov_deg": 65.00378278435835,
+        "horizontal_aperture_mm": 20.9950008392334,
+        "focal_length_mm": 12.0,
+        "vertical_aperture_mm": 15.290800094604492,
+        "image_width": 512,
+        "image_height": 512,
+        "framing_margin": 1.1,
+        "optics_fit_policy": "Conservative intersection of native apertures and render-product aspect.",
+        "fitted_z_interval_m": [
+          0.0,
+          1.6
+        ],
+        "clipping_range_m": [
+          0.001,
+          118.5979023202645
+        ],
+        "cutaway_plane_world_z_m": null,
+        "coverage": "All floor-map bounds fit the frustum; occlusion is not measured.",
+        "limitations": [
+          "Walls and tall furniture may occlude diagonal views.",
+          "No cutaway clipping is applied to this view."
+        ],
+        "actual_position_world_m": [
+          -32.65999984741211,
+          -43.9692497253418,
+          89.07808685302734
+        ],
+        "actual_quaternion_xyzw": [
+          0.2549290060997009,
+          0.0,
+          0.0,
+          0.9669597744941711
+        ],
+        "position_error_m": 1.7063804242796168e-06,
+        "rotation_error_deg": 0.0,
+        "capture_render_boundaries": 9,
+        "capture_protocol": "native_human_render_products_drained_v2"
+      },
+      "global_overhead": {
+        "position_world_m": [
+          -32.660000000000004,
+          6.055,
+          87.93505060770636
+        ],
+        "target_world_m": [
+          -32.660000000000004,
+          6.055,
+          0.8
+        ],
+        "distance_m": 87.13505060770636,
+        "horizontal_fov_deg": 65.00378278435835,
+        "vertical_fov_deg": 65.00378278435835,
+        "horizontal_aperture_mm": 20.9950008392334,
+        "focal_length_mm": 12.0,
+        "vertical_aperture_mm": 15.290800094604492,
+        "image_width": 512,
+        "image_height": 512,
+        "framing_margin": 1.1,
+        "optics_fit_policy": "Conservative intersection of native apertures and render-product aspect.",
+        "fitted_z_interval_m": [
+          0.0,
+          1.6
+        ],
+        "clipping_range_m": [
+          86.33505060770636,
+          89.93505060770636
+        ],
+        "cutaway_plane_world_z_m": 1.6,
+        "coverage": "All floor-map bounds fit the frustum; occlusion is not measured.",
+        "limitations": [
+          "Walls and tall furniture may occlude diagonal views.",
+          "Overhead near clipping removes geometry above floor + 1.6 m for this human sensor only."
+        ],
+        "actual_position_world_m": [
+          -32.65999984741211,
+          6.054999828338623,
+          87.93505096435547
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position_error_m": 4.2420429225922523e-07,
+        "rotation_error_deg": 0.0,
+        "capture_render_boundaries": 9,
+        "capture_protocol": "native_human_render_products_drained_v2"
+      },
+      "global_diagonal": {
+        "position_world_m": [
+          -59.545819106065835,
+          -20.830819106065835,
+          104.50244512339681
+        ],
+        "target_world_m": [
+          -32.660000000000004,
+          6.055,
+          0.8
+        ],
+        "distance_m": 110.45311975032357,
+        "horizontal_fov_deg": 65.00378278435835,
+        "vertical_fov_deg": 65.00378278435835,
+        "horizontal_aperture_mm": 20.9950008392334,
+        "focal_length_mm": 12.0,
+        "vertical_aperture_mm": 15.290800094604492,
+        "image_width": 512,
+        "image_height": 512,
+        "framing_margin": 1.1,
+        "optics_fit_policy": "Conservative intersection of native apertures and render-product aspect.",
+        "fitted_z_interval_m": [
+          0.0,
+          1.6
+        ],
+        "clipping_range_m": [
+          0.001,
+          132.50329242927734
+        ],
+        "cutaway_plane_world_z_m": null,
+        "coverage": "All floor-map bounds fit the frustum; occlusion is not measured.",
+        "limitations": [
+          "Walls and tall furniture may occlude diagonal views.",
+          "No cutaway clipping is applied to this view."
+        ],
+        "actual_position_world_m": [
+          -59.54581832885742,
+          -20.83081817626953,
+          104.50244140625
+        ],
+        "actual_quaternion_xyzw": [
+          0.1615045815706253,
+          -0.06689739227294922,
+          -0.3767908215522766,
+          0.9096536040306091
+        ],
+        "position_error_m": 3.9097000521014e-06,
+        "rotation_error_deg": 0.009243543059750453,
+        "capture_render_boundaries": 9,
+        "capture_protocol": "native_human_render_products_drained_v2"
+      }
+    }
+  },
+  "human_review_cameras": {
+    "strategy": "category_bounds_and_native_visibility_v1",
+    "profile": {
+      "purpose": "Whole-room context and navigation anchors.",
+      "detail_elevations": [
+        35.0,
+        65.0
+      ],
+      "overview_elevation": 90.0,
+      "known_profile": true
+    },
+    "views": {
+      "object_overview": {
+        "position_world_m": [
+          12.53797721862793,
+          -19.479167938232422,
+          2.2921753086179866
+        ],
+        "target_world_m": [
+          12.53797721862793,
+          -19.479167938232422,
+          0.8528604246675968
+        ],
+        "clipping_range_m": [
+          0.5064879049390926,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            12.095056533813477,
+            -19.925302505493164,
+            3.3445656299591064e-05
+          ],
+          [
+            12.980897903442383,
+            -19.03303337097168,
+            1.705687403678894
+          ]
+        ],
+        "human_cutaway_above_framed_bounds": true,
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          12.53797721862793,
+          -19.479167938232422,
+          2.29217529296875
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position_error_m": 1.5649236573267444e-08,
+        "object_pixels": {},
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [],
+        "view_purpose": "Whole-room context and navigation anchors.",
+        "framing_scope": "full_task_context"
+      },
+      "object_top": {
+        "position_world_m": [
+          12.53797721862793,
+          -19.479167938232422,
+          2.2921753086179866
+        ],
+        "target_world_m": [
+          12.53797721862793,
+          -19.479167938232422,
+          0.8528604246675968
+        ],
+        "clipping_range_m": [
+          0.5064879049390926,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            12.095056533813477,
+            -19.925302505493164,
+            3.3445656299591064e-05
+          ],
+          [
+            12.980897903442383,
+            -19.03303337097168,
+            1.705687403678894
+          ]
+        ],
+        "human_cutaway_above_framed_bounds": true,
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          12.53797721862793,
+          -19.479167938232422,
+          2.29217529296875
+        ],
+        "actual_quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position_error_m": 1.5649236573267444e-08,
+        "object_pixels": {},
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [],
+        "view_purpose": "Whole-room context and navigation anchors.",
+        "framing_scope": "full_task_context"
+      },
+      "object_side": {
+        "position_world_m": [
+          13.208780076202396,
+          -19.479167938232422,
+          2.2914017950336274
+        ],
+        "target_world_m": [
+          12.53797721862793,
+          -19.479167938232422,
+          0.8528604246675968
+        ],
+        "clipping_range_m": [
+          0.01,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            12.095056533813477,
+            -19.925302505493164,
+            3.3445656299591064e-05
+          ],
+          [
+            12.980897903442383,
+            -19.03303337097168,
+            1.705687403678894
+          ]
+        ],
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          13.208780288696289,
+          -19.479167938232422,
+          2.2914018630981445
+        ],
+        "actual_quaternion_xyzw": [
+          0.1530459225177765,
+          0.1530459225177765,
+          0.6903455257415771,
+          0.6903455257415771
+        ],
+        "position_error_m": 2.2312873622441702e-07,
+        "object_pixels": {},
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [],
+        "view_purpose": "Whole-room context and navigation anchors.",
+        "framing_scope": "full_task_context"
+      },
+      "object_detail_00": {
+        "position_world_m": [
+          13.71630183485988,
+          -19.479167938232422,
+          1.6779322034112722
+        ],
+        "target_world_m": [
+          12.53797721862793,
+          -19.479167938232422,
+          0.8528604246675968
+        ],
+        "clipping_range_m": [
+          0.01,
+          100.0
+        ],
+        "bounds_world_m": [
+          [
+            12.095056533813477,
+            -19.925302505493164,
+            3.3445656299591064e-05
+          ],
+          [
+            12.980897903442383,
+            -19.03303337097168,
+            1.705687403678894
+          ]
+        ],
+        "clear_ray_fraction": 0.0,
+        "actual_position_world_m": [
+          13.716301918029785,
+          -19.479167938232422,
+          1.6779322624206543
+        ],
+        "actual_quaternion_xyzw": [
+          0.326505571603775,
+          0.326505571603775,
+          0.6272113919258118,
+          0.6272113919258118
+        ],
+        "position_error_m": 1.0197715540375635e-07,
+        "object_pixels": {},
+        "objects_below_64_pixels": [],
+        "render_boundaries": 9,
+        "visibility_certifies_task_success": false,
+        "intended_objects": [],
+        "view_purpose": "Whole-room context and navigation anchors.",
+        "framing_scope": "task_actor_detail"
+      }
+    },
+    "native_objects": [],
+    "object_issues": [],
+    "missing_task_objects": true,
+    "robot_sensors_modified": false,
+    "physics_steps": 0,
+    "actor_mutations": 0
+  },
+  "human_camera_capture_protocol": "native_human_render_products_drained_v2",
+  "human_floorplan": {
+    "bounds_world_xy_m": [
+      [
+        -82.665,
+        -23.225
+      ],
+      [
+        17.345,
+        35.335
+      ]
+    ],
+    "occupied_map_bounds_row_col": [
+      [
+        5945,
+        1
+      ],
+      [
+        11800,
+        10001
+      ]
+    ],
+    "map_shape_row_col": [
+      16534,
+      16534
+    ],
+    "map_resolution_m": 0.01,
+    "native_map_resolution_m": 1.0,
+    "original_map_resolution_m": 0.01,
+    "original_segmentation_path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/hall_arch_wood/layout/floor_insseg_0.png",
+    "raster_source": "original_native_layout_png",
+    "native_raster_room_ids": [
+      1,
+      2,
+      3
+    ],
+    "original_room_ids_lost_by_native_resize": [],
+    "unregistered_room_ids": [],
+    "map_origin_world_xy_m": [
+      -82.67,
+      -82.67
+    ],
+    "floor_idx": 0,
+    "floor_z_m": 0.0,
+    "declared_floor_heights_m": [
+      0.0
+    ],
+    "floor_reference": "native seg_map.floor_heights[0]; declared, not measured support",
+    "rooms": [
+      {
+        "id": 1,
+        "name": "bathroom_0",
+        "name_available": true,
+        "cell_count": 339199,
+        "label_map_row_col": [
+          6299,
+          9491
+        ],
+        "label_world_xy_m": [
+          12.24,
+          -19.68
+        ]
+      },
+      {
+        "id": 2,
+        "name": "corridor_0",
+        "name_available": true,
+        "cell_count": 34209,
+        "label_map_row_col": [
+          6748,
+          9500
+        ],
+        "label_world_xy_m": [
+          12.33,
+          -15.19
+        ]
+      },
+      {
+        "id": 3,
+        "name": "empty_room_0",
+        "name_available": true,
+        "cell_count": 49584958,
+        "label_map_row_col": [
+          9321,
+          5001
+        ],
+        "label_world_xy_m": [
+          -32.660000000000004,
+          10.540000000000001
+        ]
+      }
+    ],
+    "all_raster_room_ids": [
+      1,
+      2,
+      3
+    ],
+    "registered_room_ids_missing_from_raster": [],
+    "orientation": "world +X right, world +Y up; native row increases +Y, column increases +X",
+    "coverage": "All nonzero original native floor-0 PNG room IDs.",
+    "limitations": [
+      "Segmentation is not a native render or a traversability/doorway graph.",
+      "Room adjacency does not prove a real R1 passage or collision clearance.",
+      "The installed native map loads floor_insseg_0 only; other floors are not reconstructed.",
+      "Original room IDs absent from the native dictionary retain explicit unregistered ID labels.",
+      "Unlabelled cells, walls, doors and furniture are not classified by this room raster."
+    ],
+    "view": "global_floorplan",
+    "label": "Room map (segmentation; not a native render)",
+    "human_only": true,
+    "native_render": false,
+    "agent_exposed": false,
+    "provenance": "native_room_segmentation_cpu_visualization",
+    "robot_marker": {
+      "position_world_m": [
+        12.45002269744873,
+        -19.550010681152344,
+        0.003765106201171875
+      ],
+      "inside_map_bounds": true,
+      "floor_membership_verified": false
+    },
+    "image_size_px": [
+      1334,
+      1024
+    ]
+  },
+  "interaction_setup": {
+    "schema": "interaction_accessible_groups_v3",
+    "accepted": true,
+    "relocated": false,
+    "group_translation_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "object_names": [],
+    "attempts": [
+      {
+        "support": null,
+        "translation_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "robot_position_m": [
+          12.45002269744873,
+          -19.550010681152344,
+          0.003765106201171875
+        ],
+        "checks": {
+          "floor_supported": true,
+          "floor_contact_positions_m": [
+            [
+              12.590149879455566,
+              -19.226245880126953,
+              -3.2782554626464844e-07
+            ],
+            [
+              12.724854469299316,
+              -19.769821166992188,
+              2.905726432800293e-07
+            ],
+            [
+              12.177896499633789,
+              -19.619720458984375,
+              2.682209014892578e-07
+            ]
+          ],
+          "unexpected_contact_bodies": [],
+          "collision_free": true,
+          "original_scene_reference_unchanged": true,
+          "task_group_geometry_preserved": true,
+          "background_geometry_preserved": true,
+          "fixed_background_geometry_preserved": true,
+          "independent_groups_do_not_interpenetrate": true,
+          "independent_groups_horizontal_clearance": true
+        },
+        "robot_quaternion_xyzw": [
+          0.004153389483690262,
+          0.0028799420688301325,
+          0.12391958385705948,
+          0.9922794103622437
+        ],
+        "height_screen": {}
+      }
+    ],
+    "physical_grasp_verified": false,
+    "ik_verified": false,
+    "task_process_checks": {
+      "route_to_target": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "base_turning_space": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "arm_approach": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "local_grasp": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "lift_clearance": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "transport_path": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "container_opening": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "door_sweep": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "release_and_retreat": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      },
+      "required_return": {
+        "status": "unverified",
+        "evidence_kind": "not_executed"
+      }
+    },
+    "warning_codes": [
+      "native_grasp_execution_unverified"
+    ],
+    "original_geometry": {},
+    "spawn_grid": {
+      "chassis_extent_m": [
+        0.7245941162109375,
+        0.6799907684326172,
+        0.37926408648490906
+      ],
+      "chassis_radius_m": 0.526846079826355,
+      "floor_index": 0,
+      "floor_z_m": 0.0,
+      "requested_source_region": "bathroom_0",
+      "candidate_cell_count": 937,
+      "route_and_arm_clearance_verified": false
+    },
+    "objects_outside_native_floor_bounds": [],
+    "target_physics": {},
+    "height_screen_before": {},
+    "aperture_screen": {
+      "native_finger_limit_openings_m": {
+        "left": 0.10000000149011612,
+        "right": 0.10000000149011612
+      },
+      "objects": {},
+      "physical_grasp_verified": false,
+      "scope": "Native finger limits and global AABB only; local grasp affordances require execution."
+    },
+    "robot_spawn": {
+      "support": null,
+      "translation_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "robot_position_m": [
+        12.45002269744873,
+        -19.550010681152344,
+        0.003765106201171875
+      ],
+      "checks": {
+        "floor_supported": true,
+        "floor_contact_positions_m": [
+          [
+            12.590149879455566,
+            -19.226245880126953,
+            -3.2782554626464844e-07
+          ],
+          [
+            12.724854469299316,
+            -19.769821166992188,
+            2.905726432800293e-07
+          ],
+          [
+            12.177896499633789,
+            -19.619720458984375,
+            2.682209014892578e-07
+          ]
+        ],
+        "unexpected_contact_bodies": [],
+        "collision_free": true,
+        "original_scene_reference_unchanged": true,
+        "task_group_geometry_preserved": true,
+        "background_geometry_preserved": true,
+        "fixed_background_geometry_preserved": true,
+        "independent_groups_do_not_interpenetrate": true,
+        "independent_groups_horizontal_clearance": true
+      },
+      "robot_quaternion_xyzw": [
+        0.004153389483690262,
+        0.0028799420688301325,
+        0.12391958385705948,
+        0.9922794103622437
+      ],
+      "height_screen": {}
+    },
+    "height_screen_after": {},
+    "adapted_geometry": {}
+  },
+  "reflection_qualification": null,
+  "temporal_episode_preview": null,
+  "view_provenance": {
+    "global_floorplan": {
+      "kind": "human_floorplan",
+      "label": "Room map (segmentation; not a native render)",
+      "native_render": false
+    }
+  },
+  "duration_s": 238.77529641333967,
+  "timings": {
+    "cold_initialization_s": 147.813436165452,
+    "initialization_wait_s": 0.0,
+    "screenshot_s": 68.85466699954122,
+    "warm_swap_s": 0.0,
+    "total_s": 238.77529641333967,
+    "scene_initialization_s": 147.813436165452,
+    "scene_clear_s": 6.49487563688308
+  },
+  "persistent_runtime": {
+    "native_pid": 3683261,
+    "request_index": 0,
+    "engine_reused": false,
+    "world_rebuilt": true,
+    "application_identity": 140315505102992,
+    "lifecycle_file": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/resident_services/runtime/097100386b1975e92809f1991845b70055c86e278fa4cd5341284a61bea4a561.py",
+    "lifecycle_sha256": "097100386b1975e92809f1991845b70055c86e278fa4cd5341284a61bea4a561",
+    "runtime_key": "8b7f28f943037ee8b74d7706463a2953a4866ed2560674944f890e64b2f1d3e6",
+    "seed_reset": 0,
+    "frozen_code_root": "/tmp/show-harness-zhouxinyang/core_revision_20261018/category_code/working_7b9b6c404bf55ee730a0be23d617d665"
+  },
+  "native_asset_preparation": {
+    "cache_root": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2",
+    "enabled": true,
+    "helper_provenance": {
+      "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+      "native_consumer_path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/resident_services/runtime/asset_preparation/04b44cf9d61a9d72bb8c5dcf98caa347e6fbe1484cf64e6de2be6b4445e8aa44.py",
+      "native_consumer_sha256": "04b44cf9d61a9d72bb8c5dcf98caa347e6fbe1484cf64e6de2be6b4445e8aa44",
+      "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+      "validation_helper_path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/resident_services/runtime/asset_preparation/6802f05b078452fa1bef24d913881263fdc222999653882c6fc1ee5da67b90d1.py",
+      "validation_helper_sha256": "6802f05b078452fa1bef24d913881263fdc222999653882c6fc1ee5da67b90d1"
+    },
+    "native_construction_parallel": false,
+    "native_fallback_calls": 1,
+    "prepared_object_loads": 0,
+    "prepared_object_prebuilds": 95,
+    "prepared_unique_assets_used": 35,
+    "robot_task_qualification": false,
+    "schema": "native_asset_preparation_v1",
+    "scope": "Capture-only reuse of CPU decryption and unpacking; native MDL normalization, stage composition, scene construction and physics remain serial.",
+    "sdk_method_sha256": {
+      "_load": "6dd7b6e3a6b803bc2127635022d7979025886bef2ddcaf1423652cb5c1bceef9",
+      "prebuild": "5d559d3c79b565fc20d34e8ae380a6f0ca364866858cf451314e54a57120373c"
+    },
+    "sdk_source_path": "/local_home2/zhouxinyang/third_party/BEHAVIOR-1K/OmniGibson/omnigibson/objects/usd_object.py",
+    "sdk_source_sha256": "6d170dfca79336ccd3030d0456b9ce7645b7552234a4f95bb50373987fe47b10",
+    "warnings": [
+      "_load uses original native loading: Object uses the native unencrypted asset path."
+    ]
+  },
+  "asset_preparation_runtime": {
+    "schema": "native_asset_preparation_runtime_v1",
+    "modules": {
+      "core/scene_capture_assets.py": {
+        "path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/resident_services/runtime/asset_preparation/6802f05b078452fa1bef24d913881263fdc222999653882c6fc1ee5da67b90d1.py",
+        "sha256": "6802f05b078452fa1bef24d913881263fdc222999653882c6fc1ee5da67b90d1"
+      },
+      "core/sim/esi_prepared_assets.py": {
+        "path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/resident_services/runtime/asset_preparation/04b44cf9d61a9d72bb8c5dcf98caa347e6fbe1484cf64e6de2be6b4445e8aa44.py",
+        "sha256": "04b44cf9d61a9d72bb8c5dcf98caa347e6fbe1484cf64e6de2be6b4445e8aa44"
+      }
+    }
+  },
+  "exit_code": null,
+  "native_process_running": true,
+  "cpu_preload": {
+    "schema": "capture_cpu_preload_v1",
+    "ok": true,
+    "worker_pid": 3214584,
+    "monotonic_start_s": 5181537.754869203,
+    "monotonic_end_s": 5181541.905928336,
+    "wall_duration_s": 4.151059133000672,
+    "timings_s": {
+      "immutable_verification": 0.014382394962012768,
+      "asset_discovery_and_read": 0.18747171200811863,
+      "asset_decryption_and_unpack": 3.9487132960930467
+    },
+    "manifest_path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/input/manifest.json",
+    "manifest_sha256": "3a624e73355bf84f560d288160ef872a73ed620231c5c4f6e0581692b0ad88a3",
+    "scene_model": "hall_arch_wood",
+    "room": "full_scene",
+    "asset_root": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets",
+    "read_assets": true,
+    "input_hashes_verified": 3,
+    "files": [
+      {
+        "path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/accepted.json",
+        "sha256": "753ce1177d306c6cd308f3db0b34010bdae3c081c83fcd1319d1186c61779500",
+        "bytes_read": 359,
+        "size_bytes": 359,
+        "roles": [
+          "accepted_manifest_seal"
+        ],
+        "read": true
+      },
+      {
+        "path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/input/data/Cognitive Mapping/Connectivity/hall_arch_wood/full_scene/q_002.json",
+        "sha256": "fe9f433d48cabd8ea60a9f012968b0f1eafeb0ee3a20f9ffeed3a1c2cc71cc97",
+        "bytes_read": 24423,
+        "size_bytes": 24423,
+        "roles": [
+          "immutable_input"
+        ],
+        "read": true
+      },
+      {
+        "path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/input/manifest.json",
+        "sha256": "3a624e73355bf84f560d288160ef872a73ed620231c5c4f6e0581692b0ad88a3",
+        "bytes_read": 33042,
+        "size_bytes": 33042,
+        "roles": [
+          "capture_manifest"
+        ],
+        "read": true
+      },
+      {
+        "path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/input/scene.yaml",
+        "sha256": "a74373886da5aba794baa5ab1f5228e2519618b5ca151489084350adb6ee9c70",
+        "bytes_read": 1240,
+        "size_bytes": 1240,
+        "roles": [
+          "immutable_input"
+        ],
+        "read": true
+      },
+      {
+        "path": "/home/zhouxinyang/esi_category_conversion/core_revision_20261018/captures/jobs/capture_7bc3ba217592c0d53ce6da5a6509fd89/input/task.yaml",
+        "sha256": "2083c34198ce6fc5acf1f0e6e5b7130ec44625556e7155ab2585bb1dd04c3fa4",
+        "bytes_read": 4726,
+        "size_bytes": 4726,
+        "roles": [
+          "immutable_input"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/iyouhu/usd/iyouhu.usdz.encrypted",
+        "sha256": "b18a4aa367c4024accc27d32b0338df40eec32967075d4c6c0a2329cfc472768",
+        "bytes_read": 1506980,
+        "size_bytes": 1506980,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/ljueem/usd/ljueem.usdz.encrypted",
+        "sha256": "283496499a61d744d5ea2a883c80e51de78b34ff4cfee99b7d9838c7e8cc344d",
+        "bytes_read": 678840,
+        "size_bytes": 678840,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/oktrwd/usd/oktrwd.usdz.encrypted",
+        "sha256": "ffb31627f8ef999635868b49459520aeb8ddb51385ba020a88a112517383b68f",
+        "bytes_read": 11603468,
+        "size_bytes": 11603468,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/utgliy/usd/utgliy.usdz.encrypted",
+        "sha256": "2f374c6a00116a34ac34ed4da299a00f7ab25b987a83583d359be84f6aafd035",
+        "bytes_read": 3945272,
+        "size_bytes": 3945272,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/xaodor/usd/xaodor.usdz.encrypted",
+        "sha256": "e829c4ef8c57e73aceadd87903a28261f00895be04744efd748311d93dfd9526",
+        "bytes_read": 2636748,
+        "size_bytes": 2636748,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/zkoute/usd/zkoute.usdz.encrypted",
+        "sha256": "bdb839bb969dcc0a06c41ed3742c6a6519c75b676deec8861dbdcd8e5438fa41",
+        "bytes_read": 3029708,
+        "size_bytes": 3029708,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/cvvumy/usd/cvvumy.usdz.encrypted",
+        "sha256": "82ed44bf3faeaf54941d823b691320344e502f70cef0b85365ccf41c480207b5",
+        "bytes_read": 3250916,
+        "size_bytes": 3250916,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/downlight/jexffy/usd/jexffy.usdz.encrypted",
+        "sha256": "34723442a35d3dc7d61f8d143ef93fc130e4210b11b3237337aa7186c7f8f83e",
+        "bytes_read": 617400,
+        "size_bytes": 617400,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/fixed_window/ijnwlp/usd/ijnwlp.usdz.encrypted",
+        "sha256": "f5f30760e8e819455ae8dd0fc37733f1ccc55f955d6fa30830913cd30aad2d76",
+        "bytes_read": 2473720,
+        "size_bytes": 2473720,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/fixed_window/kmvdjo/usd/kmvdjo.usdz.encrypted",
+        "sha256": "2a3649c1b5596593934ffd0fcc01b2a8788e17c38fabfead37967caad9640c1a",
+        "bytes_read": 3584312,
+        "size_bytes": 3584312,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/fixed_window/yxclci/usd/yxclci.usdz.encrypted",
+        "sha256": "8990270da343c5d58cd9644386180173d32804c1acfee78ccff24a2ee178a9c0",
+        "bytes_read": 3020428,
+        "size_bytes": 3020428,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/hhszec/usd/hhszec.usdz.encrypted",
+        "sha256": "71f8539be6fb28d57dd0a37014c95f0470028066b789ab127327d67271407121",
+        "bytes_read": 36216972,
+        "size_bytes": 36216972,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/jeufgb/usd/jeufgb.usdz.encrypted",
+        "sha256": "9776034e92d0b22f3d8b9eeb212e5ceae11dbe586971ebd7e1abdb7dbbed0875",
+        "bytes_read": 42695928,
+        "size_bytes": 42695928,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/sqkllg/usd/sqkllg.usdz.encrypted",
+        "sha256": "bc4ebe5ec09debb24392ae2519adfac88959126ce7c080c4bdec8d5f05dd89be",
+        "bytes_read": 22981176,
+        "size_bytes": 22981176,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/furniture_sink/kyxynl/usd/kyxynl.usdz.encrypted",
+        "sha256": "d9abda8b52c84482be531a309cc3968c611bb6888321f9a8ad5ed4a7e0706ced",
+        "bytes_read": 3077068,
+        "size_bytes": 3077068,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/mirror/jtgjha/usd/jtgjha.usdz.encrypted",
+        "sha256": "bc9f105be35fc8aed0981d0e607e82eaaae458c8fe17078e9c529765b3e1d329",
+        "bytes_read": 373772,
+        "size_bytes": 373772,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/mirror/lkmqmv/usd/lkmqmv.usdz.encrypted",
+        "sha256": "d481ff206197e8700aee556d9ddfab7bd4717e45a6613958ed0e59af44a9dc34",
+        "bytes_read": 230628,
+        "size_bytes": 230628,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/paper_towel_dispenser/ovwdpz/usd/ovwdpz.usdz.encrypted",
+        "sha256": "a8763e15e21c78ee02083e5460f59f09eccd6603c5ae3c353ed4f1045cb491c0",
+        "bytes_read": 2884216,
+        "size_bytes": 2884216,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/pillar/xznmxo/usd/xznmxo.usdz.encrypted",
+        "sha256": "1e6ab874eca2e59742b312040a9196219d139ed4a53f46bb59c102792d5e6e16",
+        "bytes_read": 1345764,
+        "size_bytes": 1345764,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/pillar/zjotnf/usd/zjotnf.usdz.encrypted",
+        "sha256": "6b474a0b00c1ae027485d86bf72f9112914b41197a2f791082b1324ce543edf0",
+        "bytes_read": 1249548,
+        "size_bytes": 1249548,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/shower_stall/gqxmqf/usd/gqxmqf.usdz.encrypted",
+        "sha256": "89327ce3a4d3ecb6ad700adf8a509c62be2f02cbeb776aba8fd9889fa95bd83b",
+        "bytes_read": 4398284,
+        "size_bytes": 4398284,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/toilet/obhimx/usd/obhimx.usdz.encrypted",
+        "sha256": "b72870aedd6d6e42a4b3c3ba7b85972be8f8782a7da659ed6e6c6adfeec3f625",
+        "bytes_read": 1868620,
+        "size_bytes": 1868620,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/toilet_paper_dispenser/rlccfh/usd/rlccfh.usdz.encrypted",
+        "sha256": "3cbf8fa308bfd360e758281b1db4bbe67fc16a3dd09e888a5f28ea6a33c2daa5",
+        "bytes_read": 2190244,
+        "size_bytes": 2190244,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/eiepif/usd/eiepif.usdz.encrypted",
+        "sha256": "7dc16049b5d333611000aea314f0f506f08d370a3f5ae6d5f6af4d87957703a5",
+        "bytes_read": 9753784,
+        "size_bytes": 9753784,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/hcdfmx/usd/hcdfmx.usdz.encrypted",
+        "sha256": "923354f5a8d0f9b1a55bfa932949549cd056412c2908a5db2123621de1f0a3e3",
+        "bytes_read": 5099148,
+        "size_bytes": 5099148,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/jothjy/usd/jothjy.usdz.encrypted",
+        "sha256": "02e96f80e2ab7335815d88e97837ff039f4b07868782c2393924aa82e75d876b",
+        "bytes_read": 11190860,
+        "size_bytes": 11190860,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/mafsga/usd/mafsga.usdz.encrypted",
+        "sha256": "901c5167d26752a73cc6b80b2053d75592bf1ecfc62f6c8b60fe3336f5c3b85f",
+        "bytes_read": 1276900,
+        "size_bytes": 1276900,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/mdbihb/usd/mdbihb.usdz.encrypted",
+        "sha256": "657bb5ff65f0610b40b7f036591aa4c976cf30cf2435bb202b879c73e4283121",
+        "bytes_read": 11805412,
+        "size_bytes": 11805412,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/odlitx/usd/odlitx.usdz.encrypted",
+        "sha256": "7b33f56dbd90354774297a712c144d805acfc82ff1898a4b6428d8868df92953",
+        "bytes_read": 2973048,
+        "size_bytes": 2973048,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/oronke/usd/oronke.usdz.encrypted",
+        "sha256": "adcf4fc73fa85a889e8823c96450d2ed1b5f26e98cc096c39bcd4f8c96e77dd1",
+        "bytes_read": 1258340,
+        "size_bytes": 1258340,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/uaszec/usd/uaszec.usdz.encrypted",
+        "sha256": "c4ed2085636f6036f9c854cb17d22090028b737d4b41a10f1e88d951abdcf4e1",
+        "bytes_read": 7213516,
+        "size_bytes": 7213516,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/urfnch/usd/urfnch.usdz.encrypted",
+        "sha256": "34d70b8fabc3ba42f7ab2bcc77461af977f15921027a93644259470bcbd4edc5",
+        "bytes_read": 9608696,
+        "size_bytes": 9608696,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/vtplrx/usd/vtplrx.usdz.encrypted",
+        "sha256": "2dbc574e9381d6efdd945d38857880bfa8402835efa353202b78976aedc9c57f",
+        "bytes_read": 7017592,
+        "size_bytes": 7017592,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/wynpvm/usd/wynpvm.usdz.encrypted",
+        "sha256": "a8477307cbaa4a01b8fed7cb9b01ea872a80a432105b1b5dbbacb14866fbd4ef",
+        "bytes_read": 3585444,
+        "size_bytes": 3585444,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/ztyvde/usd/ztyvde.usdz.encrypted",
+        "sha256": "6c4c1584bbbbf07a9549c40a25af1438ca49926ba29a53998068d5ea30fb8150",
+        "bytes_read": 10387788,
+        "size_bytes": 10387788,
+        "roles": [
+          "official_encrypted_object"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/hall_arch_wood/json/hall_arch_wood_best.json",
+        "sha256": "0e6e60a6659ffe73c6acfbe811bb4e59beab713abfe7b81b6b9c1b7fab21e855",
+        "bytes_read": 164751,
+        "size_bytes": 164751,
+        "roles": [
+          "official_scene_json"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/hall_arch_wood/layout/floor_insseg_0.png",
+        "sha256": "d54efba39bffd3c27ef3b3d8c3582b16089a815ec442ba1f0171d4d32441723b",
+        "bytes_read": 278667,
+        "size_bytes": 278667,
+        "roles": [
+          "scene_layout_or_metadata"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/hall_arch_wood/layout/floor_semseg_0.png",
+        "sha256": "d060dfa1cd56b3bafbdfe38d0c644b44288c7c74fb68b7b3327406d04b51ad99",
+        "bytes_read": 278671,
+        "size_bytes": 278671,
+        "roles": [
+          "scene_layout_or_metadata"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/hall_arch_wood/layout/floor_trav_0.png",
+        "sha256": "80bcd814d9ffb903ff289d96ea2c01cc12f2fbfa45fac9c8768a2121e980bce4",
+        "bytes_read": 285186,
+        "size_bytes": 285186,
+        "roles": [
+          "scene_layout_or_metadata"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/hall_arch_wood/layout/floor_trav_no_door_0.png",
+        "sha256": "56fa8ccbfa1cb16692b535d3763ba896af4e9159dc27f7a89d786c0895857320",
+        "bytes_read": 285074,
+        "size_bytes": 285074,
+        "roles": [
+          "scene_layout_or_metadata"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/hall_arch_wood/layout/floor_trav_no_obj_0.png",
+        "sha256": "e0136e8d56141a66d48285bedc538f40a04a0224fb22ee0fc7ff4092ca58704f",
+        "bytes_read": 280289,
+        "size_bytes": 280289,
+        "roles": [
+          "scene_layout_or_metadata"
+        ],
+        "read": true
+      },
+      {
+        "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/scenes/hall_arch_wood/layout/floor_trav_open_door_0.png",
+        "sha256": "2445bfec8ca95e590bc4c17a2e9c508d97075affd3c132efc5d8d145428e8dcc",
+        "bytes_read": 285166,
+        "size_bytes": 285166,
+        "roles": [
+          "scene_layout_or_metadata"
+        ],
+        "read": true
+      }
+    ],
+    "resolved_file_count": 47,
+    "read_file_count": 47,
+    "bytes_read": 238952134,
+    "assets": [
+      {
+        "category": "ceilings",
+        "model": "iyouhu",
+        "origins": [
+          "official_scene.ceilings_iyouhu_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/iyouhu/usd/iyouhu.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "ceilings",
+        "model": "ljueem",
+        "origins": [
+          "official_scene.ceilings_ljueem_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/ljueem/usd/ljueem.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "ceilings",
+        "model": "oktrwd",
+        "origins": [
+          "official_scene.ceilings_oktrwd_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/oktrwd/usd/oktrwd.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "ceilings",
+        "model": "utgliy",
+        "origins": [
+          "official_scene.ceilings_utgliy_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/utgliy/usd/utgliy.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "ceilings",
+        "model": "xaodor",
+        "origins": [
+          "official_scene.ceilings_xaodor_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/xaodor/usd/xaodor.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "ceilings",
+        "model": "zkoute",
+        "origins": [
+          "official_scene.ceilings_zkoute_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/zkoute/usd/zkoute.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "door",
+        "model": "cvvumy",
+        "origins": [
+          "official_scene.door_cvvumy_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/cvvumy/usd/cvvumy.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "downlight",
+        "model": "jexffy",
+        "origins": [
+          "official_scene.downlight_jexffy_0",
+          "official_scene.downlight_jexffy_1",
+          "official_scene.downlight_jexffy_2",
+          "official_scene.downlight_jexffy_3",
+          "official_scene.downlight_jexffy_4",
+          "official_scene.downlight_jexffy_5",
+          "official_scene.downlight_jexffy_6",
+          "official_scene.downlight_jexffy_7",
+          "official_scene.downlight_jexffy_8",
+          "official_scene.downlight_jexffy_9"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/downlight/jexffy/usd/jexffy.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "fixed_window",
+        "model": "ijnwlp",
+        "origins": [
+          "official_scene.fixed_window_ijnwlp_0",
+          "official_scene.fixed_window_ijnwlp_1",
+          "official_scene.fixed_window_ijnwlp_10",
+          "official_scene.fixed_window_ijnwlp_11",
+          "official_scene.fixed_window_ijnwlp_2",
+          "official_scene.fixed_window_ijnwlp_3",
+          "official_scene.fixed_window_ijnwlp_4",
+          "official_scene.fixed_window_ijnwlp_5",
+          "official_scene.fixed_window_ijnwlp_6",
+          "official_scene.fixed_window_ijnwlp_7",
+          "official_scene.fixed_window_ijnwlp_8",
+          "official_scene.fixed_window_ijnwlp_9"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/fixed_window/ijnwlp/usd/ijnwlp.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "fixed_window",
+        "model": "kmvdjo",
+        "origins": [
+          "official_scene.fixed_window_kmvdjo_0",
+          "official_scene.fixed_window_kmvdjo_1",
+          "official_scene.fixed_window_kmvdjo_2",
+          "official_scene.fixed_window_kmvdjo_3"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/fixed_window/kmvdjo/usd/kmvdjo.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "fixed_window",
+        "model": "yxclci",
+        "origins": [
+          "official_scene.fixed_window_yxclci_0",
+          "official_scene.fixed_window_yxclci_1",
+          "official_scene.fixed_window_yxclci_10",
+          "official_scene.fixed_window_yxclci_11",
+          "official_scene.fixed_window_yxclci_2",
+          "official_scene.fixed_window_yxclci_3",
+          "official_scene.fixed_window_yxclci_4",
+          "official_scene.fixed_window_yxclci_5",
+          "official_scene.fixed_window_yxclci_6",
+          "official_scene.fixed_window_yxclci_7",
+          "official_scene.fixed_window_yxclci_8",
+          "official_scene.fixed_window_yxclci_9"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/fixed_window/yxclci/usd/yxclci.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "floors",
+        "model": "hhszec",
+        "origins": [
+          "official_scene.floors_hhszec_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/hhszec/usd/hhszec.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "floors",
+        "model": "jeufgb",
+        "origins": [
+          "official_scene.floors_jeufgb_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/jeufgb/usd/jeufgb.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "floors",
+        "model": "sqkllg",
+        "origins": [
+          "official_scene.floors_sqkllg_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/sqkllg/usd/sqkllg.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "furniture_sink",
+        "model": "kyxynl",
+        "origins": [
+          "official_scene.furniture_sink_kyxynl_0",
+          "official_scene.furniture_sink_kyxynl_1",
+          "official_scene.furniture_sink_kyxynl_2",
+          "official_scene.furniture_sink_kyxynl_3",
+          "official_scene.furniture_sink_kyxynl_4"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/furniture_sink/kyxynl/usd/kyxynl.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "mirror",
+        "model": "jtgjha",
+        "origins": [
+          "official_scene.mirror_jtgjha_0",
+          "official_scene.mirror_jtgjha_1",
+          "official_scene.mirror_jtgjha_2",
+          "official_scene.mirror_jtgjha_3",
+          "official_scene.mirror_jtgjha_4"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/mirror/jtgjha/usd/jtgjha.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "mirror",
+        "model": "lkmqmv",
+        "origins": [
+          "official_scene.mirror_lkmqmv_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/mirror/lkmqmv/usd/lkmqmv.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "paper_towel_dispenser",
+        "model": "ovwdpz",
+        "origins": [
+          "official_scene.paper_towel_dispenser_ovwdpz_0",
+          "official_scene.paper_towel_dispenser_ovwdpz_1"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/paper_towel_dispenser/ovwdpz/usd/ovwdpz.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "pillar",
+        "model": "xznmxo",
+        "origins": [
+          "official_scene.pillar_xznmxo_0",
+          "official_scene.pillar_xznmxo_1"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/pillar/xznmxo/usd/xznmxo.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "pillar",
+        "model": "zjotnf",
+        "origins": [
+          "official_scene.pillar_zjotnf_0",
+          "official_scene.pillar_zjotnf_1",
+          "official_scene.pillar_zjotnf_2",
+          "official_scene.pillar_zjotnf_3",
+          "official_scene.pillar_zjotnf_4"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/pillar/zjotnf/usd/zjotnf.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "shower_stall",
+        "model": "gqxmqf",
+        "origins": [
+          "official_scene.shower_stall_gqxmqf_0",
+          "official_scene.shower_stall_gqxmqf_1",
+          "official_scene.shower_stall_gqxmqf_2",
+          "official_scene.shower_stall_gqxmqf_3",
+          "official_scene.shower_stall_gqxmqf_4"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/shower_stall/gqxmqf/usd/gqxmqf.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "toilet",
+        "model": "obhimx",
+        "origins": [
+          "official_scene.toilet_obhimx_0",
+          "official_scene.toilet_obhimx_1",
+          "official_scene.toilet_obhimx_2",
+          "official_scene.toilet_obhimx_3",
+          "official_scene.toilet_obhimx_4"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/toilet/obhimx/usd/obhimx.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "toilet_paper_dispenser",
+        "model": "rlccfh",
+        "origins": [
+          "official_scene.toilet_paper_dispenser_rlccfh_0",
+          "official_scene.toilet_paper_dispenser_rlccfh_1",
+          "official_scene.toilet_paper_dispenser_rlccfh_2",
+          "official_scene.toilet_paper_dispenser_rlccfh_3",
+          "official_scene.toilet_paper_dispenser_rlccfh_4"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/toilet_paper_dispenser/rlccfh/usd/rlccfh.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "eiepif",
+        "origins": [
+          "official_scene.walls_eiepif_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/eiepif/usd/eiepif.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "hcdfmx",
+        "origins": [
+          "official_scene.walls_hcdfmx_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/hcdfmx/usd/hcdfmx.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "jothjy",
+        "origins": [
+          "official_scene.walls_jothjy_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/jothjy/usd/jothjy.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "mafsga",
+        "origins": [
+          "official_scene.walls_mafsga_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/mafsga/usd/mafsga.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "mdbihb",
+        "origins": [
+          "official_scene.walls_mdbihb_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/mdbihb/usd/mdbihb.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "odlitx",
+        "origins": [
+          "official_scene.walls_odlitx_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/odlitx/usd/odlitx.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "oronke",
+        "origins": [
+          "official_scene.walls_oronke_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/oronke/usd/oronke.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "uaszec",
+        "origins": [
+          "official_scene.walls_uaszec_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/uaszec/usd/uaszec.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "urfnch",
+        "origins": [
+          "official_scene.walls_urfnch_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/urfnch/usd/urfnch.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "vtplrx",
+        "origins": [
+          "official_scene.walls_vtplrx_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/vtplrx/usd/vtplrx.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "wynpvm",
+        "origins": [
+          "official_scene.walls_wynpvm_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/wynpvm/usd/wynpvm.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      },
+      {
+        "category": "walls",
+        "model": "ztyvde",
+        "origins": [
+          "official_scene.walls_ztyvde_0"
+        ],
+        "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/ztyvde/usd/ztyvde.usdz.encrypted",
+        "available": true,
+        "model_metadata_file_count": 0
+      }
+    ],
+    "requested_asset_count": 35,
+    "available_asset_count": 35,
+    "native_furniture_filtered_by_room": 0,
+    "warnings": [],
+    "cpu_worker_gpu_hidden": true,
+    "numerical_threads_limited": true,
+    "native_ready": false,
+    "native_construction_run": false,
+    "decryption_run": true,
+    "scope": "CPU task verification and original asset decryption/unpacking. Kit retains native material processing, USD stage construction, physics and sensors. No robot operation, grasp or render readiness is established.",
+    "prepared_assets": {
+      "schema": "capture_prepared_assets_v1",
+      "cache_root": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2",
+      "sdk_asset_utils_path": "/local_home2/zhouxinyang/third_party/BEHAVIOR-1K/OmniGibson/omnigibson/utils/asset_utils.py",
+      "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+      "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+      "assets": [
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/iyouhu/usd/iyouhu.usdz.encrypted",
+          "encrypted_sha256": "b18a4aa367c4024accc27d32b0338df40eec32967075d4c6c0a2329cfc472768",
+          "encrypted_md5": "d60fcd8c6c467c6e83a70f00413c37cd",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/iyouhu/usd/iyouhu.usdz.encrypted",
+            "device": 66309,
+            "inode": 392562334,
+            "size": 1506980,
+            "mtime_ns": 1791970419121473280,
+            "ctime_ns": 1791970419121473280
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 1128447,
+          "file_count": 8,
+          "category": "ceilings",
+          "model": "iyouhu",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/b18a4aa367c4024accc27d32b0338df40eec32967075d4c6c0a2329cfc472768-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/b18a4aa367c4024accc27d32b0338df40eec32967075d4c6c0a2329cfc472768-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/iyouhu.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/b18a4aa367c4024accc27d32b0338df40eec32967075d4c6c0a2329cfc472768-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "126d1b52f3544024ab34febac4ec345c892f8bd6b9cfede8dd564bc5b12f1580",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/ljueem/usd/ljueem.usdz.encrypted",
+          "encrypted_sha256": "283496499a61d744d5ea2a883c80e51de78b34ff4cfee99b7d9838c7e8cc344d",
+          "encrypted_md5": "663cf96bb30401dbcf34555577305c85",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/ljueem/usd/ljueem.usdz.encrypted",
+            "device": 66309,
+            "inode": 392562430,
+            "size": 678840,
+            "mtime_ns": 1791970419361473270,
+            "ctime_ns": 1791970419361473270
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 507208,
+          "file_count": 8,
+          "category": "ceilings",
+          "model": "ljueem",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/283496499a61d744d5ea2a883c80e51de78b34ff4cfee99b7d9838c7e8cc344d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/283496499a61d744d5ea2a883c80e51de78b34ff4cfee99b7d9838c7e8cc344d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/ljueem.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/283496499a61d744d5ea2a883c80e51de78b34ff4cfee99b7d9838c7e8cc344d-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "c615fc34ccebf69f0a20f32100e417c83eb12dcaf4ea6d917fdb672ab61fe642",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/oktrwd/usd/oktrwd.usdz.encrypted",
+          "encrypted_sha256": "ffb31627f8ef999635868b49459520aeb8ddb51385ba020a88a112517383b68f",
+          "encrypted_md5": "c834f706b52cb15dcb5f9111b570d535",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/oktrwd/usd/oktrwd.usdz.encrypted",
+            "device": 66309,
+            "inode": 392562559,
+            "size": 11603468,
+            "mtime_ns": 1791970419709473255,
+            "ctime_ns": 1791970419709473255
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 8700817,
+          "file_count": 8,
+          "category": "ceilings",
+          "model": "oktrwd",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/ffb31627f8ef999635868b49459520aeb8ddb51385ba020a88a112517383b68f-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/ffb31627f8ef999635868b49459520aeb8ddb51385ba020a88a112517383b68f-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/oktrwd.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/ffb31627f8ef999635868b49459520aeb8ddb51385ba020a88a112517383b68f-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "92a39453af4168e7a0c5a1b2a24769c24aaa9736982615fcbd4fb10451a4d250",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/utgliy/usd/utgliy.usdz.encrypted",
+          "encrypted_sha256": "2f374c6a00116a34ac34ed4da299a00f7ab25b987a83583d359be84f6aafd035",
+          "encrypted_md5": "c0d8b2e17f847c87cac4ce06d6d610eb",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/utgliy/usd/utgliy.usdz.encrypted",
+            "device": 66309,
+            "inode": 392562778,
+            "size": 3945272,
+            "mtime_ns": 1791970420213473234,
+            "ctime_ns": 1791970420213473234
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2957219,
+          "file_count": 8,
+          "category": "ceilings",
+          "model": "utgliy",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/2f374c6a00116a34ac34ed4da299a00f7ab25b987a83583d359be84f6aafd035-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/2f374c6a00116a34ac34ed4da299a00f7ab25b987a83583d359be84f6aafd035-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/utgliy.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/2f374c6a00116a34ac34ed4da299a00f7ab25b987a83583d359be84f6aafd035-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "585947d3f9ee62f3d9776a824ca330d754f048596cba31086574bd79ccc647c0",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/xaodor/usd/xaodor.usdz.encrypted",
+          "encrypted_sha256": "e829c4ef8c57e73aceadd87903a28261f00895be04744efd748311d93dfd9526",
+          "encrypted_md5": "f86903c20908f6ca78fb8bca41bf1e50",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/xaodor/usd/xaodor.usdz.encrypted",
+            "device": 66309,
+            "inode": 392562889,
+            "size": 2636748,
+            "mtime_ns": 1791970420413473226,
+            "ctime_ns": 1791970420413473226
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 1975891,
+          "file_count": 8,
+          "category": "ceilings",
+          "model": "xaodor",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/e829c4ef8c57e73aceadd87903a28261f00895be04744efd748311d93dfd9526-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/e829c4ef8c57e73aceadd87903a28261f00895be04744efd748311d93dfd9526-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/xaodor.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/e829c4ef8c57e73aceadd87903a28261f00895be04744efd748311d93dfd9526-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "23a5608cd7d6f89be32400ec573bceaa05c3fd15bbc719479631e322c158bf0d",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/zkoute/usd/zkoute.usdz.encrypted",
+          "encrypted_sha256": "bdb839bb969dcc0a06c41ed3742c6a6519c75b676deec8861dbdcd8e5438fa41",
+          "encrypted_md5": "84aeb0edcd8f7a4942ce993a3e9c8f66",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/ceilings/zkoute/usd/zkoute.usdz.encrypted",
+            "device": 66309,
+            "inode": 392563018,
+            "size": 3029708,
+            "mtime_ns": 1791970420725473213,
+            "ctime_ns": 1791970420725473213
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2270566,
+          "file_count": 8,
+          "category": "ceilings",
+          "model": "zkoute",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/bdb839bb969dcc0a06c41ed3742c6a6519c75b676deec8861dbdcd8e5438fa41-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/bdb839bb969dcc0a06c41ed3742c6a6519c75b676deec8861dbdcd8e5438fa41-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/zkoute.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/bdb839bb969dcc0a06c41ed3742c6a6519c75b676deec8861dbdcd8e5438fa41-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "0b5f6cb9174626935acbc86fc35802796dcc7a2bc625175681617420a09a2c93",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/cvvumy/usd/cvvumy.usdz.encrypted",
+          "encrypted_sha256": "82ed44bf3faeaf54941d823b691320344e502f70cef0b85365ccf41c480207b5",
+          "encrypted_md5": "fa20630c98a0e8cafae863721fc96311",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/door/cvvumy/usd/cvvumy.usdz.encrypted",
+            "device": 66309,
+            "inode": 392564778,
+            "size": 3250916,
+            "mtime_ns": 1791970430669472794,
+            "ctime_ns": 1791970430669472794
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2429772,
+          "file_count": 36,
+          "category": "door",
+          "model": "cvvumy",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/82ed44bf3faeaf54941d823b691320344e502f70cef0b85365ccf41c480207b5-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/82ed44bf3faeaf54941d823b691320344e502f70cef0b85365ccf41c480207b5-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/cvvumy.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/82ed44bf3faeaf54941d823b691320344e502f70cef0b85365ccf41c480207b5-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "fd4bec42416844bee4a46076e14dfa2f1a7d9eb7b846d060be3449334e8c946e",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/downlight/jexffy/usd/jexffy.usdz.encrypted",
+          "encrypted_sha256": "34723442a35d3dc7d61f8d143ef93fc130e4210b11b3237337aa7186c7f8f83e",
+          "encrypted_md5": "0c9ae5d4f75dfbe95fb0673481ae9874",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/downlight/jexffy/usd/jexffy.usdz.encrypted",
+            "device": 66309,
+            "inode": 392565032,
+            "size": 617400,
+            "mtime_ns": 1791970432773472706,
+            "ctime_ns": 1791970432773472706
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 461283,
+          "file_count": 8,
+          "category": "downlight",
+          "model": "jexffy",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/34723442a35d3dc7d61f8d143ef93fc130e4210b11b3237337aa7186c7f8f83e-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/34723442a35d3dc7d61f8d143ef93fc130e4210b11b3237337aa7186c7f8f83e-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/jexffy.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/34723442a35d3dc7d61f8d143ef93fc130e4210b11b3237337aa7186c7f8f83e-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "be5dd0bdfcbd1eb0eed4bcfea1cb2b1fb603100e54a827239b09b710ac1c3a1b",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/fixed_window/ijnwlp/usd/ijnwlp.usdz.encrypted",
+          "encrypted_sha256": "f5f30760e8e819455ae8dd0fc37733f1ccc55f955d6fa30830913cd30aad2d76",
+          "encrypted_md5": "b3855619a5575380a8bffa6010803f2c",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/fixed_window/ijnwlp/usd/ijnwlp.usdz.encrypted",
+            "device": 66309,
+            "inode": 392565611,
+            "size": 2473720,
+            "mtime_ns": 1791970436045472568,
+            "ctime_ns": 1791970436045472568
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 1851991,
+          "file_count": 15,
+          "category": "fixed_window",
+          "model": "ijnwlp",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/f5f30760e8e819455ae8dd0fc37733f1ccc55f955d6fa30830913cd30aad2d76-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/f5f30760e8e819455ae8dd0fc37733f1ccc55f955d6fa30830913cd30aad2d76-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/ijnwlp.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/f5f30760e8e819455ae8dd0fc37733f1ccc55f955d6fa30830913cd30aad2d76-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "f976757fd467e725f0a42d8d891c44e7a9d267293670e21cb3dac746df2f3ec5",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/fixed_window/kmvdjo/usd/kmvdjo.usdz.encrypted",
+          "encrypted_sha256": "2a3649c1b5596593934ffd0fcc01b2a8788e17c38fabfead37967caad9640c1a",
+          "encrypted_md5": "85c58139b00c90ba2e082d3dd13a87cb",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/fixed_window/kmvdjo/usd/kmvdjo.usdz.encrypted",
+            "device": 66309,
+            "inode": 392565626,
+            "size": 3584312,
+            "mtime_ns": 1791970436117472565,
+            "ctime_ns": 1791970436117472565
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2684979,
+          "file_count": 15,
+          "category": "fixed_window",
+          "model": "kmvdjo",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/2a3649c1b5596593934ffd0fcc01b2a8788e17c38fabfead37967caad9640c1a-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/2a3649c1b5596593934ffd0fcc01b2a8788e17c38fabfead37967caad9640c1a-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/kmvdjo.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/2a3649c1b5596593934ffd0fcc01b2a8788e17c38fabfead37967caad9640c1a-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "3f85044ee8317f52fc6cd75027e36f167a5bbe7f6e0aa56cf451e414c4d9a7df",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/fixed_window/yxclci/usd/yxclci.usdz.encrypted",
+          "encrypted_sha256": "8990270da343c5d58cd9644386180173d32804c1acfee78ccff24a2ee178a9c0",
+          "encrypted_md5": "8da4398c7748eae390c8e47569507003",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/fixed_window/yxclci/usd/yxclci.usdz.encrypted",
+            "device": 66309,
+            "inode": 392565737,
+            "size": 3020428,
+            "mtime_ns": 1791970436677472541,
+            "ctime_ns": 1791970436677472541
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2262377,
+          "file_count": 15,
+          "category": "fixed_window",
+          "model": "yxclci",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/8990270da343c5d58cd9644386180173d32804c1acfee78ccff24a2ee178a9c0-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/8990270da343c5d58cd9644386180173d32804c1acfee78ccff24a2ee178a9c0-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/yxclci.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/8990270da343c5d58cd9644386180173d32804c1acfee78ccff24a2ee178a9c0-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "9489f114669e692b9a244320adf3df051214ad81fd8d047e82d275981170ee5d",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/hhszec/usd/hhszec.usdz.encrypted",
+          "encrypted_sha256": "71f8539be6fb28d57dd0a37014c95f0470028066b789ab127327d67271407121",
+          "encrypted_md5": "79ee52139dc5cc1a73e326077c139b16",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/hhszec/usd/hhszec.usdz.encrypted",
+            "device": 66309,
+            "inode": 392566109,
+            "size": 36216972,
+            "mtime_ns": 1791970450925471942,
+            "ctime_ns": 1791970450925471942
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 27160973,
+          "file_count": 8,
+          "category": "floors",
+          "model": "hhszec",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/71f8539be6fb28d57dd0a37014c95f0470028066b789ab127327d67271407121-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/71f8539be6fb28d57dd0a37014c95f0470028066b789ab127327d67271407121-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/hhszec.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/71f8539be6fb28d57dd0a37014c95f0470028066b789ab127327d67271407121-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "73d57303aeee1dbe6054ac6697124ad2da95d227e660529909b924d8f8d71554",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/jeufgb/usd/jeufgb.usdz.encrypted",
+          "encrypted_sha256": "9776034e92d0b22f3d8b9eeb212e5ceae11dbe586971ebd7e1abdb7dbbed0875",
+          "encrypted_md5": "f969f8868636323934cbe1efc30ab640",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/jeufgb/usd/jeufgb.usdz.encrypted",
+            "device": 66309,
+            "inode": 392566190,
+            "size": 42695928,
+            "mtime_ns": 1791970455461471751,
+            "ctime_ns": 1791970455461471751
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 32020123,
+          "file_count": 8,
+          "category": "floors",
+          "model": "jeufgb",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/9776034e92d0b22f3d8b9eeb212e5ceae11dbe586971ebd7e1abdb7dbbed0875-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/9776034e92d0b22f3d8b9eeb212e5ceae11dbe586971ebd7e1abdb7dbbed0875-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/jeufgb.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/9776034e92d0b22f3d8b9eeb212e5ceae11dbe586971ebd7e1abdb7dbbed0875-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "98e335cae3aec31d47da5ec1b8dfbce35ba5953ff8281e073bb80d0a3abf6abb",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/sqkllg/usd/sqkllg.usdz.encrypted",
+          "encrypted_sha256": "bc4ebe5ec09debb24392ae2519adfac88959126ce7c080c4bdec8d5f05dd89be",
+          "encrypted_md5": "627dbf4731163c81e5fbdd834ce1bb4a",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/floors/sqkllg/usd/sqkllg.usdz.encrypted",
+            "device": 66309,
+            "inode": 392626182,
+            "size": 22981176,
+            "mtime_ns": 1791970475753470897,
+            "ctime_ns": 1791970475753470897
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 17234129,
+          "file_count": 8,
+          "category": "floors",
+          "model": "sqkllg",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/bc4ebe5ec09debb24392ae2519adfac88959126ce7c080c4bdec8d5f05dd89be-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/bc4ebe5ec09debb24392ae2519adfac88959126ce7c080c4bdec8d5f05dd89be-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/sqkllg.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/bc4ebe5ec09debb24392ae2519adfac88959126ce7c080c4bdec8d5f05dd89be-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "fc9cb49da5da241ad05fce5a0c65d06d7e69ad5d1c57b5a197209e2104055c5a",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/furniture_sink/kyxynl/usd/kyxynl.usdz.encrypted",
+          "encrypted_sha256": "d9abda8b52c84482be531a309cc3968c611bb6888321f9a8ad5ed4a7e0706ced",
+          "encrypted_md5": "9056997dd2c668a6a4fce33d6036fa8a",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/furniture_sink/kyxynl/usd/kyxynl.usdz.encrypted",
+            "device": 66309,
+            "inode": 392626792,
+            "size": 3077068,
+            "mtime_ns": 1791970493709470141,
+            "ctime_ns": 1791970493709470141
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2306116,
+          "file_count": 8,
+          "category": "furniture_sink",
+          "model": "kyxynl",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/d9abda8b52c84482be531a309cc3968c611bb6888321f9a8ad5ed4a7e0706ced-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/d9abda8b52c84482be531a309cc3968c611bb6888321f9a8ad5ed4a7e0706ced-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/kyxynl.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/d9abda8b52c84482be531a309cc3968c611bb6888321f9a8ad5ed4a7e0706ced-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "4f9636824fe5f0a9e7e8fdd60246fb86e49b052026ffe98e9fbdad40bbd7d00d",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/mirror/jtgjha/usd/jtgjha.usdz.encrypted",
+          "encrypted_sha256": "bc9f105be35fc8aed0981d0e607e82eaaae458c8fe17078e9c529765b3e1d329",
+          "encrypted_md5": "9e829671c01b0e3fab5994ee90578558",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/mirror/jtgjha/usd/jtgjha.usdz.encrypted",
+            "device": 66309,
+            "inode": 392631727,
+            "size": 373772,
+            "mtime_ns": 1791970514829469252,
+            "ctime_ns": 1791970514829469252
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 278575,
+          "file_count": 8,
+          "category": "mirror",
+          "model": "jtgjha",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/bc9f105be35fc8aed0981d0e607e82eaaae458c8fe17078e9c529765b3e1d329-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/bc9f105be35fc8aed0981d0e607e82eaaae458c8fe17078e9c529765b3e1d329-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/jtgjha.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/bc9f105be35fc8aed0981d0e607e82eaaae458c8fe17078e9c529765b3e1d329-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "76a0dec3d183e946a921995591fa0aed10e00536d4a49ecfc6aea8bf761fe41d",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/mirror/lkmqmv/usd/lkmqmv.usdz.encrypted",
+          "encrypted_sha256": "d481ff206197e8700aee556d9ddfab7bd4717e45a6613958ed0e59af44a9dc34",
+          "encrypted_md5": "5ade5fbf8dd8f1d64ead5d1031029d76",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/mirror/lkmqmv/usd/lkmqmv.usdz.encrypted",
+            "device": 66309,
+            "inode": 392631736,
+            "size": 230628,
+            "mtime_ns": 1791970514833469252,
+            "ctime_ns": 1791970514833469252
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 171340,
+          "file_count": 8,
+          "category": "mirror",
+          "model": "lkmqmv",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/d481ff206197e8700aee556d9ddfab7bd4717e45a6613958ed0e59af44a9dc34-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/d481ff206197e8700aee556d9ddfab7bd4717e45a6613958ed0e59af44a9dc34-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/lkmqmv.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/d481ff206197e8700aee556d9ddfab7bd4717e45a6613958ed0e59af44a9dc34-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "7a36e283442ff027ec820d90b903c1e5c3448c20e96e6b13697d44f5cde0127e",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/paper_towel_dispenser/ovwdpz/usd/ovwdpz.usdz.encrypted",
+          "encrypted_sha256": "a8763e15e21c78ee02083e5460f59f09eccd6603c5ae3c353ed4f1045cb491c0",
+          "encrypted_md5": "0f2bbf5fe8f511daa672e5fbeeacac34",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/paper_towel_dispenser/ovwdpz/usd/ovwdpz.usdz.encrypted",
+            "device": 66309,
+            "inode": 392692495,
+            "size": 2884216,
+            "mtime_ns": 1791970519921469038,
+            "ctime_ns": 1791970519921469038
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2161433,
+          "file_count": 8,
+          "category": "paper_towel_dispenser",
+          "model": "ovwdpz",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/a8763e15e21c78ee02083e5460f59f09eccd6603c5ae3c353ed4f1045cb491c0-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/a8763e15e21c78ee02083e5460f59f09eccd6603c5ae3c353ed4f1045cb491c0-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/ovwdpz.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/a8763e15e21c78ee02083e5460f59f09eccd6603c5ae3c353ed4f1045cb491c0-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "b415a42c0458847dcf2dedd4090c2ad1016632ae2b0ec620f10a3ca0b396dc1e",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/pillar/xznmxo/usd/xznmxo.usdz.encrypted",
+          "encrypted_sha256": "1e6ab874eca2e59742b312040a9196219d139ed4a53f46bb59c102792d5e6e16",
+          "encrypted_md5": "69771396bfd77723700301a9ef336683",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/pillar/xznmxo/usd/xznmxo.usdz.encrypted",
+            "device": 66309,
+            "inode": 392693615,
+            "size": 1345764,
+            "mtime_ns": 1791970523873468872,
+            "ctime_ns": 1791970523873468872
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 1007488,
+          "file_count": 8,
+          "category": "pillar",
+          "model": "xznmxo",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/1e6ab874eca2e59742b312040a9196219d139ed4a53f46bb59c102792d5e6e16-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/1e6ab874eca2e59742b312040a9196219d139ed4a53f46bb59c102792d5e6e16-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/xznmxo.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/1e6ab874eca2e59742b312040a9196219d139ed4a53f46bb59c102792d5e6e16-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "42bb33e371e584b0fd51dbc0413eca88c27338a545da2650bf1a87440b365e2b",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/pillar/zjotnf/usd/zjotnf.usdz.encrypted",
+          "encrypted_sha256": "6b474a0b00c1ae027485d86bf72f9112914b41197a2f791082b1324ce543edf0",
+          "encrypted_md5": "96bcf76d696a00764a08242dd967fe3d",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/pillar/zjotnf/usd/zjotnf.usdz.encrypted",
+            "device": 66309,
+            "inode": 392693621,
+            "size": 1249548,
+            "mtime_ns": 1791970523897468870,
+            "ctime_ns": 1791970523897468870
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 935471,
+          "file_count": 8,
+          "category": "pillar",
+          "model": "zjotnf",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/6b474a0b00c1ae027485d86bf72f9112914b41197a2f791082b1324ce543edf0-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/6b474a0b00c1ae027485d86bf72f9112914b41197a2f791082b1324ce543edf0-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/zjotnf.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/6b474a0b00c1ae027485d86bf72f9112914b41197a2f791082b1324ce543edf0-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "44ac5d3a6dbc60939b276c4b282328f3afe307875b23dd337115b0d6cf98faff",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/shower_stall/gqxmqf/usd/gqxmqf.usdz.encrypted",
+          "encrypted_sha256": "89327ce3a4d3ecb6ad700adf8a509c62be2f02cbeb776aba8fd9889fa95bd83b",
+          "encrypted_md5": "2f062fc69b2d425c2a0fdb15dc4cbb32",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/shower_stall/gqxmqf/usd/gqxmqf.usdz.encrypted",
+            "device": 66309,
+            "inode": 392696214,
+            "size": 4398284,
+            "mtime_ns": 1791970536349468346,
+            "ctime_ns": 1791970536349468346
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 3295165,
+          "file_count": 15,
+          "category": "shower_stall",
+          "model": "gqxmqf",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/89327ce3a4d3ecb6ad700adf8a509c62be2f02cbeb776aba8fd9889fa95bd83b-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/89327ce3a4d3ecb6ad700adf8a509c62be2f02cbeb776aba8fd9889fa95bd83b-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/gqxmqf.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/89327ce3a4d3ecb6ad700adf8a509c62be2f02cbeb776aba8fd9889fa95bd83b-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "4a12490be625a197aaabb53cc34d644571360e148a71264d61fa963f5ec94236",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/toilet/obhimx/usd/obhimx.usdz.encrypted",
+          "encrypted_sha256": "b72870aedd6d6e42a4b3c3ba7b85972be8f8782a7da659ed6e6c6adfeec3f625",
+          "encrypted_md5": "1095e11b7364dd250191a4269fb3d2fc",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/toilet/obhimx/usd/obhimx.usdz.encrypted",
+            "device": 66309,
+            "inode": 392757862,
+            "size": 1868620,
+            "mtime_ns": 1791970547909467860,
+            "ctime_ns": 1791970547909467860
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 1399734,
+          "file_count": 8,
+          "category": "toilet",
+          "model": "obhimx",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/b72870aedd6d6e42a4b3c3ba7b85972be8f8782a7da659ed6e6c6adfeec3f625-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/b72870aedd6d6e42a4b3c3ba7b85972be8f8782a7da659ed6e6c6adfeec3f625-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/obhimx.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/b72870aedd6d6e42a4b3c3ba7b85972be8f8782a7da659ed6e6c6adfeec3f625-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "3bc2fb1c5dcc97a9b5f8ce31db0c8477aa2f3e8d9d2f74e16e12324985b4cc34",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/toilet_paper_dispenser/rlccfh/usd/rlccfh.usdz.encrypted",
+          "encrypted_sha256": "3cbf8fa308bfd360e758281b1db4bbe67fc16a3dd09e888a5f28ea6a33c2daa5",
+          "encrypted_md5": "b5ee9848fad765c83c85f4d6b0554ade",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/toilet_paper_dispenser/rlccfh/usd/rlccfh.usdz.encrypted",
+            "device": 66309,
+            "inode": 392757924,
+            "size": 2190244,
+            "mtime_ns": 1791970548273467845,
+            "ctime_ns": 1791970548273467845
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 1640983,
+          "file_count": 8,
+          "category": "toilet_paper_dispenser",
+          "model": "rlccfh",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/3cbf8fa308bfd360e758281b1db4bbe67fc16a3dd09e888a5f28ea6a33c2daa5-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/3cbf8fa308bfd360e758281b1db4bbe67fc16a3dd09e888a5f28ea6a33c2daa5-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/rlccfh.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/3cbf8fa308bfd360e758281b1db4bbe67fc16a3dd09e888a5f28ea6a33c2daa5-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "24653a588ed07ab3d40cd03fa5aa688fa0a2a7293423d15b0bef941b36146028",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/eiepif/usd/eiepif.usdz.encrypted",
+          "encrypted_sha256": "7dc16049b5d333611000aea314f0f506f08d370a3f5ae6d5f6af4d87957703a5",
+          "encrypted_md5": "6076e254f5af3fcec10e2e19552b5b43",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/eiepif/usd/eiepif.usdz.encrypted",
+            "device": 66309,
+            "inode": 392759875,
+            "size": 9753784,
+            "mtime_ns": 1791970560749467319,
+            "ctime_ns": 1791970560749467319
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 7313633,
+          "file_count": 8,
+          "category": "walls",
+          "model": "eiepif",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/7dc16049b5d333611000aea314f0f506f08d370a3f5ae6d5f6af4d87957703a5-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/7dc16049b5d333611000aea314f0f506f08d370a3f5ae6d5f6af4d87957703a5-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/eiepif.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/7dc16049b5d333611000aea314f0f506f08d370a3f5ae6d5f6af4d87957703a5-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "c76ceb2d253bd7cd212b78da665e90dfde5c65cb7cfed5c3cf07c2709f32759f",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/hcdfmx/usd/hcdfmx.usdz.encrypted",
+          "encrypted_sha256": "923354f5a8d0f9b1a55bfa932949549cd056412c2908a5db2123621de1f0a3e3",
+          "encrypted_md5": "ecce612da682f103aa2cdf12f12e9587",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/hcdfmx/usd/hcdfmx.usdz.encrypted",
+            "device": 66309,
+            "inode": 392760331,
+            "size": 5099148,
+            "mtime_ns": 1791970564413467165,
+            "ctime_ns": 1791970564413467165
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 3822564,
+          "file_count": 8,
+          "category": "walls",
+          "model": "hcdfmx",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/923354f5a8d0f9b1a55bfa932949549cd056412c2908a5db2123621de1f0a3e3-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/923354f5a8d0f9b1a55bfa932949549cd056412c2908a5db2123621de1f0a3e3-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/hcdfmx.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/923354f5a8d0f9b1a55bfa932949549cd056412c2908a5db2123621de1f0a3e3-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "98e408cbba272bfd658235ba6a13eda033673ee6725b0343481de0a00b1faa85",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/jothjy/usd/jothjy.usdz.encrypted",
+          "encrypted_sha256": "02e96f80e2ab7335815d88e97837ff039f4b07868782c2393924aa82e75d876b",
+          "encrypted_md5": "ed1cad6571ccb3e04d65ea8feac11685",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/jothjy/usd/jothjy.usdz.encrypted",
+            "device": 66309,
+            "inode": 392760766,
+            "size": 11190860,
+            "mtime_ns": 1791970567861467020,
+            "ctime_ns": 1791970567861467020
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 8391427,
+          "file_count": 8,
+          "category": "walls",
+          "model": "jothjy",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/02e96f80e2ab7335815d88e97837ff039f4b07868782c2393924aa82e75d876b-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/02e96f80e2ab7335815d88e97837ff039f4b07868782c2393924aa82e75d876b-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/jothjy.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/02e96f80e2ab7335815d88e97837ff039f4b07868782c2393924aa82e75d876b-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "981497c82cb45f7588413bc2851399257b77e898aa0b087ab8fb9e77681fa673",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/mafsga/usd/mafsga.usdz.encrypted",
+          "encrypted_sha256": "901c5167d26752a73cc6b80b2053d75592bf1ecfc62f6c8b60fe3336f5c3b85f",
+          "encrypted_md5": "1cb87f91e2f4125d7b03ff95e83ef890",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/mafsga/usd/mafsga.usdz.encrypted",
+            "device": 66309,
+            "inode": 392761150,
+            "size": 1276900,
+            "mtime_ns": 1791970571729466857,
+            "ctime_ns": 1791970571729466857
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 955855,
+          "file_count": 8,
+          "category": "walls",
+          "model": "mafsga",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/901c5167d26752a73cc6b80b2053d75592bf1ecfc62f6c8b60fe3336f5c3b85f-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/901c5167d26752a73cc6b80b2053d75592bf1ecfc62f6c8b60fe3336f5c3b85f-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/mafsga.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/901c5167d26752a73cc6b80b2053d75592bf1ecfc62f6c8b60fe3336f5c3b85f-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "54ccf356d4430d9dbabc472498b1d66a6ce67d1dbbd6b196dec42bca8d98f756",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/mdbihb/usd/mdbihb.usdz.encrypted",
+          "encrypted_sha256": "657bb5ff65f0610b40b7f036591aa4c976cf30cf2435bb202b879c73e4283121",
+          "encrypted_md5": "dd1eb314f84e62d3e40380608620994b",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/mdbihb/usd/mdbihb.usdz.encrypted",
+            "device": 66309,
+            "inode": 392761159,
+            "size": 11805412,
+            "mtime_ns": 1791970571793466855,
+            "ctime_ns": 1791970571793466855
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 8852321,
+          "file_count": 8,
+          "category": "walls",
+          "model": "mdbihb",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/657bb5ff65f0610b40b7f036591aa4c976cf30cf2435bb202b879c73e4283121-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/657bb5ff65f0610b40b7f036591aa4c976cf30cf2435bb202b879c73e4283121-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/mdbihb.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/657bb5ff65f0610b40b7f036591aa4c976cf30cf2435bb202b879c73e4283121-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "4fa1a25acdc5ed7f9a5a433353757156a93a6338f0f043794bc8f315faf1bd95",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/odlitx/usd/odlitx.usdz.encrypted",
+          "encrypted_sha256": "7b33f56dbd90354774297a712c144d805acfc82ff1898a4b6428d8868df92953",
+          "encrypted_md5": "87bd92c104459800d58d6dc0861da617",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/odlitx/usd/odlitx.usdz.encrypted",
+            "device": 66309,
+            "inode": 392761516,
+            "size": 2973048,
+            "mtime_ns": 1791970574981466721,
+            "ctime_ns": 1791970574981466721
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2228048,
+          "file_count": 8,
+          "category": "walls",
+          "model": "odlitx",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/7b33f56dbd90354774297a712c144d805acfc82ff1898a4b6428d8868df92953-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/7b33f56dbd90354774297a712c144d805acfc82ff1898a4b6428d8868df92953-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/odlitx.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/7b33f56dbd90354774297a712c144d805acfc82ff1898a4b6428d8868df92953-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "15d4e5837b4629fd74ed0db5cbc8ae7a3926ee5664f2b616bd82ec69989da20e",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/oronke/usd/oronke.usdz.encrypted",
+          "encrypted_sha256": "adcf4fc73fa85a889e8823c96450d2ed1b5f26e98cc096c39bcd4f8c96e77dd1",
+          "encrypted_md5": "4e333c1ad87386214e0aef7acd1a8a42",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/oronke/usd/oronke.usdz.encrypted",
+            "device": 66309,
+            "inode": 392761609,
+            "size": 1258340,
+            "mtime_ns": 1791970575617466694,
+            "ctime_ns": 1791970575617466694
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 941910,
+          "file_count": 8,
+          "category": "walls",
+          "model": "oronke",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/adcf4fc73fa85a889e8823c96450d2ed1b5f26e98cc096c39bcd4f8c96e77dd1-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/adcf4fc73fa85a889e8823c96450d2ed1b5f26e98cc096c39bcd4f8c96e77dd1-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/oronke.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/adcf4fc73fa85a889e8823c96450d2ed1b5f26e98cc096c39bcd4f8c96e77dd1-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "daa193b88f3a4c8bb33490dc058293ac6fad874cb2f92ef3016d334c2c0324cb",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/uaszec/usd/uaszec.usdz.encrypted",
+          "encrypted_sha256": "c4ed2085636f6036f9c854cb17d22090028b737d4b41a10f1e88d951abdcf4e1",
+          "encrypted_md5": "1acc9370f81e97357af76f8246937b56",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/uaszec/usd/uaszec.usdz.encrypted",
+            "device": 66309,
+            "inode": 392762383,
+            "size": 7213516,
+            "mtime_ns": 1791970581825466432,
+            "ctime_ns": 1791970581825466432
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 5408378,
+          "file_count": 8,
+          "category": "walls",
+          "model": "uaszec",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/c4ed2085636f6036f9c854cb17d22090028b737d4b41a10f1e88d951abdcf4e1-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/c4ed2085636f6036f9c854cb17d22090028b737d4b41a10f1e88d951abdcf4e1-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/uaszec.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/c4ed2085636f6036f9c854cb17d22090028b737d4b41a10f1e88d951abdcf4e1-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "6066707541ba32f9647975f19d02fa1b72a18e24bf86e98b65f030c687bff9af",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/urfnch/usd/urfnch.usdz.encrypted",
+          "encrypted_sha256": "34d70b8fabc3ba42f7ab2bcc77461af977f15921027a93644259470bcbd4edc5",
+          "encrypted_md5": "f2cf1b03c2778aebe98bcc6aa5723c22",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/urfnch/usd/urfnch.usdz.encrypted",
+            "device": 66309,
+            "inode": 392762506,
+            "size": 9608696,
+            "mtime_ns": 1791970582729466394,
+            "ctime_ns": 1791970582729466394
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 7204701,
+          "file_count": 8,
+          "category": "walls",
+          "model": "urfnch",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/34d70b8fabc3ba42f7ab2bcc77461af977f15921027a93644259470bcbd4edc5-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/34d70b8fabc3ba42f7ab2bcc77461af977f15921027a93644259470bcbd4edc5-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/urfnch.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/34d70b8fabc3ba42f7ab2bcc77461af977f15921027a93644259470bcbd4edc5-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "42c6572d1dca71daabdf0e1489051ae105f285f7e053e37bcd2233a0bc2dbc95",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/vtplrx/usd/vtplrx.usdz.encrypted",
+          "encrypted_sha256": "2dbc574e9381d6efdd945d38857880bfa8402835efa353202b78976aedc9c57f",
+          "encrypted_md5": "64bf23f086049865c6350c05569b415b",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/vtplrx/usd/vtplrx.usdz.encrypted",
+            "device": 66309,
+            "inode": 392762731,
+            "size": 7017592,
+            "mtime_ns": 1791970585069466296,
+            "ctime_ns": 1791970585069466296
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 5261454,
+          "file_count": 8,
+          "category": "walls",
+          "model": "vtplrx",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/2dbc574e9381d6efdd945d38857880bfa8402835efa353202b78976aedc9c57f-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/2dbc574e9381d6efdd945d38857880bfa8402835efa353202b78976aedc9c57f-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/vtplrx.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/2dbc574e9381d6efdd945d38857880bfa8402835efa353202b78976aedc9c57f-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "72afa062957cfcba96dec0ec37ede2ba26f92ce9b6f37c1547e8657509c7febb",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/wynpvm/usd/wynpvm.usdz.encrypted",
+          "encrypted_sha256": "a8477307cbaa4a01b8fed7cb9b01ea872a80a432105b1b5dbbacb14866fbd4ef",
+          "encrypted_md5": "de07b3030a70c050b6414bdcb5cc4848",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/wynpvm/usd/wynpvm.usdz.encrypted",
+            "device": 66309,
+            "inode": 392762938,
+            "size": 3585444,
+            "mtime_ns": 1791970586677466228,
+            "ctime_ns": 1791970586677466228
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 2687215,
+          "file_count": 8,
+          "category": "walls",
+          "model": "wynpvm",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/a8477307cbaa4a01b8fed7cb9b01ea872a80a432105b1b5dbbacb14866fbd4ef-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/a8477307cbaa4a01b8fed7cb9b01ea872a80a432105b1b5dbbacb14866fbd4ef-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/wynpvm.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/a8477307cbaa4a01b8fed7cb9b01ea872a80a432105b1b5dbbacb14866fbd4ef-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "557816e6025574daf40be6028e9a2f81913d7ca7bdf041aff3901becdb3fd360",
+          "cache_hit": false
+        },
+        {
+          "encrypted_file": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/ztyvde/usd/ztyvde.usdz.encrypted",
+          "encrypted_sha256": "6c4c1584bbbbf07a9549c40a25af1438ca49926ba29a53998068d5ea30fb8150",
+          "encrypted_md5": "969a05669846d49d01c092f1a5988606",
+          "source_version": {
+            "path": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/walls/ztyvde/usd/ztyvde.usdz.encrypted",
+            "device": 66309,
+            "inode": 392822835,
+            "size": 10387788,
+            "mtime_ns": 1791970590469466069,
+            "ctime_ns": 1791970590469466069
+          },
+          "sdk_asset_utils_sha256": "3f6b9860703fa0c8e1db23d43ecb4fb7b64f4597801655e556f053313339e4da",
+          "decrypt_function_sha256": "cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af",
+          "total_bytes": 7789079,
+          "file_count": 8,
+          "category": "walls",
+          "model": "ztyvde",
+          "available": true,
+          "prepared_dir": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/6c4c1584bbbbf07a9549c40a25af1438ca49926ba29a53998068d5ea30fb8150-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content",
+          "usd_file": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/6c4c1584bbbbf07a9549c40a25af1438ca49926ba29a53998068d5ea30fb8150-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/content/ztyvde.usd",
+          "cache_manifest": "/tmp/show-harness-zhouxinyang/core_revision_20261018/worker_caches/core_gpu5/cpu_prepared_assets/66892fb5e68542838d7fb7f0cbf3c5c2/6c4c1584bbbbf07a9549c40a25af1438ca49926ba29a53998068d5ea30fb8150-cf0b7478d6bc512d052d1b3803bea6bd361d8f5191698d803aca9beba009d7af/cache_manifest.json",
+          "cache_manifest_sha256": "228bacf39a34c359588ee2bce227eb8f10289c9bcb59684569568446ab6b0d74",
+          "cache_hit": false
+        }
+      ],
+      "prepared_asset_count": 35,
+      "cache_hit_count": 0,
+      "unavailable_asset_count": 0,
+      "total_prepared_bytes": 177698665,
+      "timings_s": {
+        "source_verification": 1.0026383167132735,
+        "lock_wait": 0.0012511508539319038,
+        "decryption": 1.1836015237495303,
+        "extraction": 1.6937531819567084,
+        "cache_validation": 0.0,
+        "total": 3.948541596531868
+      },
+      "worker_pid": 3214584,
+      "max_encrypted_bytes": 2147483648,
+      "min_free_bytes": 0
+    },
+    "cpu_workers": 1,
+    "wait_before_native_s": 4.308919374831021,
+    "native_construction_parallel": false
+  }
+}

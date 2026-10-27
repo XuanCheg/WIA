@@ -1,0 +1,170 @@
+kind: category_robot_task
+id: task_ec4c5aaef015a86d4ff66a26
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Spatial Relations/Linear Alignment/Beechwood_0_garden/private_office_0/Beechwood_0_garden__private_office_0.json
+public:
+  objective: Arrange the bottle of vodka, liquid soap bottle, pepper grinder into
+    a collinear arrangement on their starting support. Use their horizontal bounding-box
+    centers. You may leave an already correct arrangement in place.
+  success_criteria: Keep maximum center-to-longest-baseline distance at most min(2
+    cm, 2% of span), equivalent to a normalized angular residual at most atan(0.02).
+    Every center pair must be farther apart than max(3 cm, 5% of the longest span).
+    Object bounding boxes must have at least 5 mm horizontal clearance. Preserve asset
+    scales, release every object, open the gripper, and keep supported objects below
+    0.02 m/s and 0.1 rad/s for 15 consecutive native samples.
+  environment: The original objects and room are retained. A qualified common translation
+    to a support may be used at initialization; formation spacing and object dimensions
+    are preserved.
+  constraints:
+  - Use mounted observations and guarded robot controls.
+  - Preserve the starting support and task objects; no resizing or collapsed overlapping
+    formation.
+  - The original initial-state question and answer remain historical evidence.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    alignment_1:
+      name: obj1
+      category: bottle_of_vodka
+      model: nwegts
+    alignment_2:
+      name: obj2
+      category: liquid_soap_bottle
+      model: hazvbh
+    alignment_3:
+      name: obj3
+      category: pepper_grinder
+      model: tfoogy
+    source_floor:
+      name: floors_kkdimd_0
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.spatial_relations_linear_alignment
+    operation: arrange_released_source_shape
+    binding_keys:
+    - alignment_1
+    - alignment_2
+    - alignment_3
+    - source_floor
+    parameters:
+      task_revision: task_edit_20261018_v1
+      mechanism_contract: &id001
+        preserve:
+        - participating_object_identities
+        - asset_scales
+        - source_reference_camera
+        goal: stable_released_arrangement
+        shape: collinear
+        plane: world_xy
+        initial_layout_policy: common_translation_only
+        source_qa_role: historical_initial_state
+      object_keys:
+      - alignment_1
+      - alignment_2
+      - alignment_3
+      target_shape: collinear
+      source_positions:
+      - - 3.5499393939971924
+        - 18.28238868713379
+        - 0.11890727281570435
+      - - 3.8952038288116455
+        - 18.43871307373047
+        - 0.12353580445051193
+      - - 3.1959056854248047
+        - 18.430301666259766
+        - 0.0634799674153328
+      source_quaternions:
+      - - -9.579816833138466e-07
+        - 1.5587902453262359e-06
+        - 0.48207801580429077
+        - 0.8761283159255981
+      - - -1.3550743460655212e-06
+        - -4.145374987274408e-06
+        - 0.9668752551078796
+        - 0.2552499771118164
+      - - 2.7160276658833027e-06
+        - -3.319582901895046e-07
+        - -0.2849092483520508
+        - 0.9585545063018799
+      source_scales:
+      - 1.0
+      - 1.0
+      - 1.0
+      release_stability_steps: 15
+      completion_items:
+      - id: requested_shape
+      - id: stable_released_support
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: object_physics
+        phase: before_construction
+        binding: alignment_1
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: alignment_1
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: alignment_2
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: alignment_2
+        visual_only: false
+      - operation: object_physics
+        phase: before_construction
+        binding: alignment_3
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: alignment_3
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - alignment_1
+        - alignment_2
+        - alignment_3
+        manipulation_bindings:
+        - alignment_1
+        - alignment_2
+        - alignment_3
+        relocation_policy: rigid_group
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: private_office_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  task_revision: task_edit_20261018_v1
+  mechanism_contract: *id001

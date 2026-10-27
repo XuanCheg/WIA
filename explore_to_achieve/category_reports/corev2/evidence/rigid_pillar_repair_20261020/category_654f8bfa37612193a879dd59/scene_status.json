@@ -1,0 +1,317 @@
+{
+  "scene_id": "tabletop_hall_arch_wood_scene_dict_storage2_1_revised_free_floor_repair_final_settle_coarse_angular_limit_separate_pickup_000__pillar_repair_20261020",
+  "qualification_status": "accepted_minimal_patch",
+  "reason": null,
+  "source_question_unchanged": true,
+  "new_evaluator": false,
+  "run_mode": "benchmark",
+  "review_status": "ready",
+  "native_environment": {
+    "available": true
+  },
+  "initialization_checks": {
+    "post_controller_settle_steps": 120,
+    "target_movable_collidable": true,
+    "supports": {
+      "table": {
+        "name": "support_table_top",
+        "fixed_base": true,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "passed": true
+      },
+      "pickup_support": {
+        "name": "pickup_surface_000_top",
+        "fixed_base": true,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "passed": true
+      }
+    },
+    "supported_objects": {
+      "target": {
+        "name": "obj_containee",
+        "support_binding": "pickup_support",
+        "support_name": "pickup_surface_000_top",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          -31.100000381469727,
+          9.579999923706055,
+          0.5499997735023499
+        ],
+        "aabb_min": [
+          -31.343521118164062,
+          9.378082275390625,
+          0.5497265458106995
+        ],
+        "aabb_max": [
+          -31.16392707824707,
+          9.468278884887695,
+          0.5884818434715271
+        ],
+        "support_surface_z_m": 0.5499997735023499,
+        "bottom_minus_support_top_m": -0.0002732276916503906,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_containee/base_link",
+            "body1": "/World/scene_0/pickup_surface_000_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_containee/base_link",
+            "body1": "/World/scene_0/pickup_surface_000_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_containee/base_link",
+            "body1": "/World/scene_0/pickup_surface_000_top/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "container_2": {
+        "name": "obj_container_2",
+        "support_binding": "table",
+        "support_name": "support_table_top",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          -33.40999984741211,
+          11.75,
+          0.44999977946281433
+        ],
+        "aabb_min": [
+          -33.775150299072266,
+          11.288395881652832,
+          0.4499642848968506
+        ],
+        "aabb_max": [
+          -33.4561882019043,
+          11.45656681060791,
+          0.5181876420974731
+        ],
+        "support_surface_z_m": 0.44999977946281433,
+        "bottom_minus_support_top_m": -3.549456596374512e-05,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_container_2/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_2/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_2/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "container_1": {
+        "name": "obj_container_1",
+        "support_binding": "table",
+        "support_name": "support_table_top",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          -33.40999984741211,
+          11.75,
+          0.44999977946281433
+        ],
+        "aabb_min": [
+          -33.70823669433594,
+          11.530674934387207,
+          0.4499998092651367
+        ],
+        "aabb_max": [
+          -33.484188079833984,
+          11.707428932189941,
+          0.5014626383781433
+        ],
+        "support_surface_z_m": 0.44999977946281433,
+        "bottom_minus_support_top_m": 2.9802322387695312e-08,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          },
+          {
+            "body0": "/World/scene_0/obj_container_1/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          }
+        ],
+        "passed": true
+      },
+      "container_0": {
+        "name": "obj_container_0",
+        "support_binding": "table",
+        "support_name": "support_table_top",
+        "support_surface_mode": "local_raycast",
+        "support_aabb_max": [
+          -33.40999984741211,
+          11.75,
+          0.44999977946281433
+        ],
+        "aabb_min": [
+          -34.00457000732422,
+          11.339988708496094,
+          0.44999971985816956
+        ],
+        "aabb_max": [
+          -33.83740997314453,
+          11.425569534301758,
+          0.48593512177467346
+        ],
+        "support_surface_z_m": 0.44999977946281433,
+        "bottom_minus_support_top_m": -5.960464477539063e-08,
+        "linear_speed_m_s": 0.0,
+        "angular_speed_rad_s": 0.0,
+        "support_footprint_screen": true,
+        "support_contact": true,
+        "contacts": [
+          {
+            "body0": "/World/scene_0/obj_container_0/base_link",
+            "body1": "/World/scene_0/support_table_top/base_link"
+          }
+        ],
+        "passed": true
+      }
+    },
+    "floor_aabb_max_z_m": -2.2351741790771484e-07,
+    "table_leg_floor_gaps_m": {
+      "support_table_leg_1": 0.0,
+      "support_table_leg_2": 0.0,
+      "support_table_leg_3": 0.0,
+      "support_table_leg_4": 0.0,
+      "pickup_surface_000_leg_0": 1.4901161193847656e-08,
+      "pickup_surface_000_leg_1": 1.4901161193847656e-08,
+      "pickup_surface_000_leg_2": 1.4901161193847656e-08,
+      "pickup_surface_000_leg_3": 1.4901161193847656e-08
+    },
+    "table_leg_local_floor_surfaces": {
+      "support_table_leg_1": {
+        "position": [
+          -34.0099983215332,
+          11.289999961853027,
+          -2.2351741790771484e-07
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_hhszec_0/base_link"
+      },
+      "support_table_leg_2": {
+        "position": [
+          -34.0099983215332,
+          11.710000038146973,
+          -2.2351741790771484e-07
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_hhszec_0/base_link"
+      },
+      "support_table_leg_3": {
+        "position": [
+          -33.45000076293945,
+          11.289999961853027,
+          -2.2351741790771484e-07
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_hhszec_0/base_link"
+      },
+      "support_table_leg_4": {
+        "position": [
+          -33.45000076293945,
+          11.710000038146973,
+          -2.2351741790771484e-07
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_hhszec_0/base_link"
+      },
+      "pickup_surface_000_leg_0": {
+        "position": [
+          -31.375001907348633,
+          9.305000305175781,
+          -2.2351741790771484e-07
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_hhszec_0/base_link"
+      },
+      "pickup_surface_000_leg_1": {
+        "position": [
+          -31.375001907348633,
+          9.555000305175781,
+          -2.2351741790771484e-07
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_hhszec_0/base_link"
+      },
+      "pickup_surface_000_leg_2": {
+        "position": [
+          -31.125001907348633,
+          9.305000305175781,
+          -2.2351741790771484e-07
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_hhszec_0/base_link"
+      },
+      "pickup_surface_000_leg_3": {
+        "position": [
+          -31.125001907348633,
+          9.555000305175781,
+          -2.2351741790771484e-07
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rigid_body": "/World/scene_0/floors_hhszec_0/base_link"
+      }
+    },
+    "robot_nonfloor_contacts": [],
+    "furniture_aabb_overlap_candidates": []
+  }
+}

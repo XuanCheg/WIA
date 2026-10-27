@@ -1,0 +1,13 @@
+tasks:
+  - path: ../explore_to_achieve/wia_v1/temporal/tasks/history_a_v1.yaml
+policy:
+  type: show_harness
+  backend: local_http
+  model: YOUR_EXPLICIT_MODEL_NAME
+  base_url: http://127.0.0.1:8000/v1
+  api_key_env: LOCAL_AGENT_API_KEY
+environment:
+  mode: launch
+evaluation:
+  run_mode: diagnostic
+output_dir: ../results/local_http

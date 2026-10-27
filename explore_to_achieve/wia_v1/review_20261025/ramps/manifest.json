@@ -1,0 +1,44 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "entries": [
+    {
+      "document_alias": "T42",
+      "variant_id": "t42_red_release_marker_v1",
+      "label": "T42 red release marker / furnished house",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/ramps/t42_red_release_marker_v1/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/ramps/t42_red_release_marker_v1/scene.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_ramp_floor_v3/tasks/t42_complete_ground_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_ramp_floor_v3/scenes/t42_complete_ground_v3.yaml",
+      "variant": "adapted",
+      "seed": 0,
+      "native_validation_run": false,
+      "physical_success_verified": false
+    },
+    {
+      "document_alias": "T43",
+      "variant_id": "t43_red_release_marker_v1",
+      "label": "T43 red release marker / wood arch hall",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/ramps/t43_red_release_marker_v1/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/ramps/t43_red_release_marker_v1/scene.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/t43_hall_arch_v2.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/t43_hall_arch_v2.yaml",
+      "variant": "adapted",
+      "seed": 0,
+      "native_validation_run": false,
+      "physical_success_verified": false
+    },
+    {
+      "document_alias": "T44",
+      "variant_id": "t44_red_release_marker_v1",
+      "label": "T44 red release marker / wood arch hall",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/ramps/t44_red_release_marker_v1/task.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/ramps/t44_red_release_marker_v1/scene.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/t44_hall_arch_v2.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/t44_hall_arch_v2.yaml",
+      "variant": "adapted",
+      "seed": 0,
+      "native_validation_run": false,
+      "physical_success_verified": false
+    }
+  ]
+}

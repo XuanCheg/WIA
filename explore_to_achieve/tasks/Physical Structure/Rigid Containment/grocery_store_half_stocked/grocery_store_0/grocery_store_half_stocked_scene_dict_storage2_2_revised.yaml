@@ -1,0 +1,24 @@
+kind: rigid_containment_task
+id: tabletop_grocery_store_half_stocked_scene_dict_storage2_2_revised_support_000_answer_and_place
+version: 1
+status: ready
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_2_revised.json
+scene_file: Physical Structure/Rigid Containment/grocery_store_half_stocked/grocery_store_0/grocery_store_half_stocked_scene_dict_storage2_2_revised.yaml
+targets:
+- target
+goal: answer_and_place
+allow_remove_after_verification: true
+public:
+  objective: 'Which container does the soccer ball best fit inside: the wicker basket
+    or the trash can or the petri dish?'
+  success_criteria: Answer the original containment question and complete a real pickup
+    and stable partial insertion for every named target.
+  environment: Retrieve the target objects using the real R1 robot.
+  constraints:
+  - Complete every target subtask before declaring DONE. An object resting entirely
+    on top does not count as inside.
+defaults:
+  seed: 0
+  max_steps: 60

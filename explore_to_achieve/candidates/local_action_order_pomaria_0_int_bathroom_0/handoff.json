@@ -1,0 +1,44 @@
+{
+  "candidate_id": "local_action_order_pomaria_0_int_bathroom_0_original_v1",
+  "source_json": "ESI-Bench/dataset/json_clean/Action Sequencing/Action Order Inference/Pomaria_0_int/bathroom_0/Pomaria_0_int__bathroom_0.json",
+  "source_identity": "Action Sequencing/Action Order Inference/Pomaria_0_int/bathroom_0/Pomaria_0_int__bathroom_0.json",
+  "scene_identity": "local_action_order_pomaria_0_int_bathroom_0_original_scene_v1",
+  "scene_file": "explore_to_achieve/candidates/local_action_order_pomaria_0_int_bathroom_0/scene.yaml",
+  "task_file": null,
+  "category": "Action Sequencing",
+  "subcategory": "Action Order Inference",
+  "scene_model": "Pomaria_0_int",
+  "room": "bathroom_0",
+  "variant": "original",
+  "seed": 0,
+  "reuse_level": "original",
+  "modified_files": [
+    "explore_to_achieve/candidates/local_action_order_pomaria_0_int_bathroom_0/plan.md",
+    "explore_to_achieve/candidates/local_action_order_pomaria_0_int_bathroom_0/scene.yaml",
+    "explore_to_achieve/candidates/local_action_order_pomaria_0_int_bathroom_0/validate.py",
+    "explore_to_achieve/candidates/local_action_order_pomaria_0_int_bathroom_0/handoff.json",
+    "research_log.md"
+  ],
+  "expected_views": [
+    "global_diagonal",
+    "global_overhead",
+    "global_front",
+    "global_back",
+    "global_left",
+    "global_right",
+    "head",
+    "wrist",
+    "scene"
+  ],
+  "known_limitations": [
+    "Native initialization, licensed asset loading and camera framing remain unverified.",
+    "Physical reach, grasping and stacking remain unverified.",
+    "Pending diagnostic capture only; no physical task, evaluator, robot episode or success claim is supplied.",
+    "Human camera views are review evidence and do not become Agent observations."
+  ],
+  "code_commit": "be3144043d87ab2873febc623f63d66f8d263e67",
+  "owner": "scene_builder_a",
+  "parent_candidate_id": null,
+  "physical_task_id": null,
+  "render_config": {}
+}

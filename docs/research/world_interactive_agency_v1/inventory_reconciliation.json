@@ -1,0 +1,181 @@
+{
+  "review_date": "2026-10-23",
+  "code_baseline": "33bada4bb278471b7a925cd8ddfa3d46a19f52fb",
+  "native_experiments_run_by_review": false,
+  "agent_experiments_run_by_review": false,
+  "selected_count": 51,
+  "registry_execution_qualified_count": 0,
+  "proposal_count": 61,
+  "retained_selected_count": 48,
+  "unbuilt_proposal_count": 13,
+  "proposed_family_counts": {
+    "AP": 10,
+    "NT": 8,
+    "GG": 14,
+    "GF": 9,
+    "SR": 12,
+    "TM": 8
+  },
+  "old_scene_audit_family_counts": {
+    "AP": 10,
+    "NT": 8,
+    "GF": 10,
+    "SR": 14,
+    "GG": 11,
+    "TM": 8
+  },
+  "reuse_counts": {
+    "R1": 20,
+    "R2": 10,
+    "R0": 18,
+    "N1": 8,
+    "N2": 5
+  },
+  "family_migrations": [
+    {
+      "task": "T15",
+      "old": "GF",
+      "proposed": "GG"
+    },
+    {
+      "task": "T16",
+      "old": "GF",
+      "proposed": "GG"
+    },
+    {
+      "task": "T17",
+      "old": "GF",
+      "proposed": "GG"
+    },
+    {
+      "task": "D2-1",
+      "old": "SR",
+      "proposed": "GF"
+    },
+    {
+      "task": "D2-2",
+      "old": "SR",
+      "proposed": "GF"
+    }
+  ],
+  "selected_not_in_proposal": [
+    {
+      "candidate_id": "category_6b899eec6ad148ab6135693f",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Metric Comparison/Dimensional Size/Merom_0_garden/playroom_0/corev2__category_6b899eec6ad148ab6135693f.yaml"
+    },
+    {
+      "candidate_id": "category_401dda068f1b176b02d85350",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Metric Comparison/Dimensional Size/Merom_0_garden/sauna_0/corev2__category_401dda068f1b176b02d85350.yaml"
+    },
+    {
+      "candidate_id": "category_1d497c942c21724d36621fd0",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Metric Comparison/Dimensional Size/office_cubicles_right/bathroom_0/corev2__category_1d497c942c21724d36621fd0.yaml"
+    }
+  ],
+  "workbook_sheets_read": {
+    "Explore_to_Achieve_Audit.xlsx": {
+      "Overview": 65,
+      "Tasks": 69,
+      "Criteria": 17
+    },
+    "World_Interactive_Agency_V1_Scene_Audit.xlsx": {
+      "Executive": 13,
+      "Task_Audit_61": 65,
+      "Family_Stats": 18,
+      "Scene_Families": 25,
+      "Metric_Rubric": 15,
+      "Scene_Changes": 14,
+      "Release_Gates": 10,
+      "Sources": 10
+    },
+    "World_Interactive_Agency_V1_Taxonomy_Reuse_Plan.xlsx": {
+      "Overview": 21,
+      "Taxonomy_19": 23,
+      "CoreV2_Reuse_48": 52,
+      "New_Designs_13": 17,
+      "All_61_Map": 65,
+      "Gap_Backlog": 16,
+      "Scene_Shortlist": 25,
+      "Scene_Gates": 15,
+      "Pipeline": 9,
+      "Sources": 10
+    }
+  },
+  "historical_passive_probes": {
+    "T42": {
+      "source_receipt": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_88ce9d62d891ae0ba628a6e9/passive_probe.json",
+      "evidence_scope": "historical_passive_probe_not_robot_execution",
+      "records": {
+        "trial_1": {
+          "arrival_s": null,
+          "final_in_receiver": false,
+          "valid": true
+        },
+        "trial_2": {
+          "arrival_s": null,
+          "final_in_receiver": false,
+          "valid": true
+        },
+        "trial_3": {
+          "arrival_s": 0.8000000417232513,
+          "final_in_receiver": true,
+          "valid": true
+        }
+      },
+      "admissible_trials_0_15_s": [
+        "trial_3"
+      ]
+    },
+    "T43": {
+      "source_receipt": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_75bff6e58684ce3d067bfee5/passive_probe.json",
+      "evidence_scope": "historical_passive_probe_not_robot_execution",
+      "records": {
+        "trial_1": {
+          "arrival_s": null,
+          "final_in_receiver": false,
+          "valid": true
+        },
+        "trial_2": {
+          "arrival_s": 0.6000000312924385,
+          "final_in_receiver": true,
+          "valid": true
+        },
+        "trial_3": {
+          "arrival_s": 0.5000000260770321,
+          "final_in_receiver": true,
+          "valid": true
+        }
+      },
+      "admissible_trials_0_15_s": [
+        "trial_2",
+        "trial_3"
+      ]
+    },
+    "T44": {
+      "source_receipt": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/category_reports/corev2/evidence/redesign_20261020/category_c8b7b9e832f5ee2958b6efe0/passive_probe.json",
+      "evidence_scope": "historical_passive_probe_not_robot_execution",
+      "records": {
+        "trial_1": {
+          "arrival_s": 0.7000000365078449,
+          "final_in_receiver": true,
+          "valid": true
+        },
+        "trial_2": {
+          "arrival_s": 0.6000000312924385,
+          "final_in_receiver": true,
+          "valid": true
+        },
+        "trial_3": {
+          "arrival_s": 0.46666669100522995,
+          "final_in_receiver": true,
+          "valid": true
+        }
+      },
+      "admissible_trials_0_15_s": [
+        "trial_2",
+        "trial_3"
+      ]
+    }
+  },
+  "user_decision": "New reflection-conditioned object manipulation is primary; scene redesign permitted; planning only."
+}

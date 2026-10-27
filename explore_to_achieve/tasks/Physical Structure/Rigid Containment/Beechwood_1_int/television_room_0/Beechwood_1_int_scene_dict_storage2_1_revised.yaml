@@ -1,0 +1,24 @@
+kind: rigid_containment_task
+id: tabletop_Beechwood_1_int_scene_dict_storage2_1_revised_support_000_answer_and_place
+version: 1
+status: ready
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json
+scene_file: Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.yaml
+targets:
+- target
+goal: answer_and_place
+allow_remove_after_verification: true
+public:
+  objective: 'Which container does the granola box best fit inside: the wicker basket
+    or the bucket or the mug?'
+  success_criteria: Answer the original containment question and complete a real pickup
+    and stable partial insertion for every named target.
+  environment: Retrieve the target objects using the real R1 robot.
+  constraints:
+  - Complete every target subtask before declaring DONE. An object resting entirely
+    on top does not count as inside.
+defaults:
+  seed: 0
+  max_steps: 60

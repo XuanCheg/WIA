@@ -1,0 +1,197 @@
+{
+  "schema": "wia_tm2_construction_start_v3",
+  "status": "pending-native-validation",
+  "hypothesis": "An apparatus-clear common construction start avoids the observed spare-table leg collision before source settling; downstream stability remains unproven.",
+  "evidence": "/local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/temporal_a_v2/initialization_constructed.json",
+  "proposal_source": "Native navigation-grid candidate from the v2 interaction receipt.",
+  "scientific_change": "Adapted construction robot pose only, relative to v2.",
+  "construction_start": {
+    "position": [
+      9.4,
+      2.7,
+      -2.0831823348999023e-05
+    ],
+    "yaw_deg": 160.0
+  },
+  "earlier_versions_modified": false,
+  "public_payload": {
+    "task_id": "wia_tm2_matched_history_v3",
+    "task_version": 3,
+    "objective": "Comparing Phase 1 and Phase 2, did the contents of any comparison box change?\n\nPhase 1: freely inspect comparison locations in a read-only survey of at most 10 decisions. Use mounted cameras, base/torso motion and empty arms; preserve all objects and furniture. Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved in this same episode. Phase 2: compare with memory and submit ANSWER: <original option>. Then perform the applicable operation: if an object was added, put the actual added object on the collection and inspection tray; if replaced, put the current replacement on the collection and inspection tray; if moved, return the displaced object to its remembered original container/support; if removed, select the matching category and model by appearance from the public spare inventory and replenish the remembered original location; if unchanged, inspect all comparison locations with informative views and leave the contents in place. No grasp is required for no-change. If several locations changed, complete the applicable operation for each change. You may finish Phase 1 before visiting every location; the phase switches automatically after ten decisions. Survey coverage is recorded but is not a transition or full-success gate. The spare tray contains the complete candidate inventory from the beginning in every event variant. Public spare inventory: spare 1 on the stocked spare tray: shaker; spare 2 on the stocked spare tray: jar of cumin; spare 3 on the stocked spare tray: butter; spare 4 on the stocked spare tray: bottle of lavender oil. The spare table is visible and reachable during both phases. Original answer options: [\"yes\", \"no\"]",
+    "success_criteria": "Use informative observations in both phases, report the correct original comparison answer, and complete the applicable change-dependent operation. Manipulation requires real selection of the history-bound object and stable released placement with native destination support/contact. Preserve all other source contents, spare distractors, containers and furniture. Inspection-only no-change requires informative comparison-location views, never a fabricated pickup.",
+    "environment": "One native reset with the exact source event and same robot/cameras/history throughout. Declared collection/inspection tray and spare-table apparatus are initialized before the survey.",
+    "constraints": [
+      "Phase 1 is bounded to 10 decisions and strictly read-only, including the spare inventory.",
+      "The hidden event delivers no intermediate frames. Use only public guarded controls afterward.",
+      "There is no extra minimum travel distance, arbitrary any-container visit or return-to-start requirement.",
+      "Do not move any source object other than the comparison-selected target; preserve apparatus and distractors."
+    ]
+  },
+  "native_initialization": "PENDING",
+  "native_phase_2_equivalence": "PENDING",
+  "reference_execution": "PENDING",
+  "instances": [
+    {
+      "parent_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_posture_v2/tasks/history_a_v2.yaml",
+      "parent_sha256": "9a65a2dac75ffbf68fac5bfe2957608d3a4bdc991308b403eb42e940ff79defa",
+      "output_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_a_v3.yaml",
+      "sha256": "f293c0d06c976cdef58991b1cb5b00317a3611c10db0b670adf61f58d37bf6f6",
+      "changed_patch_index": 1,
+      "before": {
+        "operation": "robot_pose",
+        "position": [
+          5.800000000000003,
+          2.45,
+          -2.0831823348999023e-05
+        ],
+        "yaw_deg": 35.15573310432805,
+        "head_pitch_deg": 35.0
+      },
+      "after": {
+        "operation": "robot_pose",
+        "position": [
+          9.4,
+          2.7,
+          -2.0831823348999023e-05
+        ],
+        "yaw_deg": 160.0,
+        "head_pitch_deg": 35.0
+      }
+    },
+    {
+      "parent_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_posture_v2/scenes/history_a_v2.yaml",
+      "parent_sha256": "2e3fca2ac211998735cf56665fad11999aca868d4226c49cab8245863bcc5a78",
+      "output_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_a_v3.yaml",
+      "sha256": "25b975cf3c5cea3cc533611f0f1767ecccca41cbf50e380ffbb2637e78a9cc0b",
+      "changed_patch_index": 1,
+      "before": {
+        "operation": "robot_pose",
+        "position": [
+          5.800000000000003,
+          2.45,
+          -2.0831823348999023e-05
+        ],
+        "yaw_deg": 35.15573310432805,
+        "head_pitch_deg": 35.0
+      },
+      "after": {
+        "operation": "robot_pose",
+        "position": [
+          9.4,
+          2.7,
+          -2.0831823348999023e-05
+        ],
+        "yaw_deg": 160.0,
+        "head_pitch_deg": 35.0
+      }
+    },
+    {
+      "parent_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_posture_v2/tasks/history_b_v2.yaml",
+      "parent_sha256": "388b9d6f2d8b99681b1c79066ce2aec78cfdaa38b20c44d90fee557e7af0f885",
+      "output_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_b_v3.yaml",
+      "sha256": "d81a57085094f4460887dcc6d0d19f53d91d06c72a5b9caccc4bca2a45bd1798",
+      "changed_patch_index": 1,
+      "before": {
+        "operation": "robot_pose",
+        "position": [
+          5.800000000000003,
+          2.45,
+          -2.0831823348999023e-05
+        ],
+        "yaw_deg": 35.15573310432805,
+        "head_pitch_deg": 35.0
+      },
+      "after": {
+        "operation": "robot_pose",
+        "position": [
+          9.4,
+          2.7,
+          -2.0831823348999023e-05
+        ],
+        "yaw_deg": 160.0,
+        "head_pitch_deg": 35.0
+      }
+    },
+    {
+      "parent_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_posture_v2/scenes/history_b_v2.yaml",
+      "parent_sha256": "3f4e99246c0c818004c54f05694b156bb43f99a36fe146602e8743f786482f60",
+      "output_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_b_v3.yaml",
+      "sha256": "1048bad99736e7843c47101eeb2dbe84aa7b56af34006dbe8a7a3c3bec15551f",
+      "changed_patch_index": 1,
+      "before": {
+        "operation": "robot_pose",
+        "position": [
+          5.800000000000003,
+          2.45,
+          -2.0831823348999023e-05
+        ],
+        "yaw_deg": 35.15573310432805,
+        "head_pitch_deg": 35.0
+      },
+      "after": {
+        "operation": "robot_pose",
+        "position": [
+          9.4,
+          2.7,
+          -2.0831823348999023e-05
+        ],
+        "yaw_deg": 160.0,
+        "head_pitch_deg": 35.0
+      }
+    },
+    {
+      "parent_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_posture_v2/tasks/history_c_v2.yaml",
+      "parent_sha256": "58646b5a1be9e5ff97028d84e5cf084b2271981dc60d5b0a2dda59b580126dca",
+      "output_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_c_v3.yaml",
+      "sha256": "703eca900ddf4f9c9bb5df5efdc3441e1a28496c92ed2f2521b4976b5de0edd1",
+      "changed_patch_index": 1,
+      "before": {
+        "operation": "robot_pose",
+        "position": [
+          5.800000000000003,
+          2.45,
+          -2.0831823348999023e-05
+        ],
+        "yaw_deg": 35.15573310432805,
+        "head_pitch_deg": 35.0
+      },
+      "after": {
+        "operation": "robot_pose",
+        "position": [
+          9.4,
+          2.7,
+          -2.0831823348999023e-05
+        ],
+        "yaw_deg": 160.0,
+        "head_pitch_deg": 35.0
+      }
+    },
+    {
+      "parent_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_posture_v2/scenes/history_c_v2.yaml",
+      "parent_sha256": "2f42ed0abccbe8f79493f9e6d323846df65a4c526a9bdadfddea05600ff37377",
+      "output_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_c_v3.yaml",
+      "sha256": "e06aed2faf0b53aa567eb72b8d9446e3b194a70dbb54a70f4af53b8a9417a2a7",
+      "changed_patch_index": 1,
+      "before": {
+        "operation": "robot_pose",
+        "position": [
+          5.800000000000003,
+          2.45,
+          -2.0831823348999023e-05
+        ],
+        "yaw_deg": 35.15573310432805,
+        "head_pitch_deg": 35.0
+      },
+      "after": {
+        "operation": "robot_pose",
+        "position": [
+          9.4,
+          2.7,
+          -2.0831823348999023e-05
+        ],
+        "yaw_deg": 160.0,
+        "head_pitch_deg": 35.0
+      }
+    }
+  ]
+}

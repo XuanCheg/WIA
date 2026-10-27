@@ -1,0 +1,234 @@
+kind: category_robot_task
+id: task_ba68b4fd5a239222565074ef
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Physical Dynamics/Stacking & Stability/office_cubicles_right/lobby_0/office_cubicles_right__lobby_0.json
+public:
+  objective: 'Build one stable three-object tower using the can of tomatoes, mixing
+    bowl, tomato sauce jar. Choose a bottom object on the starting support surface.
+    Grasp and lift each of the other two objects at least 5 cm, place one on the bottom
+    and the last on the middle, lower into support contact before opening the gripper,
+    then withdraw and leave the tower untouched for at least one second. You may test
+    another order by physically unstacking and rebuilding. Original auxiliary question:
+    How should you stack can_of_tomatoes, mixing_bowl, tomato_sauce_jar to maximize
+    stability?'
+  success_criteria: All three objects are upright and form a supported tower in any
+    stable order. The bottom touches the starting support surface; each upper touches
+    and rests on its predecessor, with no other support. Both upper objects have real
+    grasp, lift and release evidence. All robot hands are detached and withdrawn;
+    the tower stays still for one continuous second. The original answer is scored
+    separately as auxiliary QA.
+  environment: The original room contains the three original-size objects on accessible
+    starting supports.
+  constraints:
+  - Use only existing guarded base, arm, trunk, wrist and gripper controls.
+  - Keep task object sizes and task supports unchanged. Noncritical native movable
+    furniture may be moved using guarded arm and gripper actions.
+  - Use real pick-and-place; legacy mock grasp and kinematic placement are excluded.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    object_0:
+      name: stack_obj0
+      category: can_of_tomatoes
+      model: ckdouu
+    object_1:
+      name: stack_obj1
+      category: mixing_bowl
+      model: xifive
+    object_2:
+      name: stack_obj2
+      category: tomato_sauce_jar
+      model: krfzqk
+    floor:
+      name: floors_zfaowb_0
+  evaluation:
+    type: category_operation
+    module: core.esi_converters.physical_dynamics_stacking_stability
+    operation: build_released_three_object_stack
+    binding_keys:
+    - object_0
+    - object_1
+    - object_2
+    - floor
+    parameters:
+      original_objects:
+        object_0:
+          name: stack_obj0
+          category: can_of_tomatoes
+          model: ckdouu
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          position:
+          - -5.244593620300293
+          - -13.987441062927246
+          - 0.05598088726401329
+          quaternion_xyzw:
+          - 5.137114555964217e-08
+          - -9.715665783005534e-08
+          - 1.0430748886847141e-07
+          - 1.0000001192092896
+          aabb_min:
+          - -5.287013053894043
+          - -14.029858589172363
+          - -2.1539628505706787e-05
+          aabb_max:
+          - -5.202178955078125
+          - -13.945024490356445
+          - 0.11824704706668854
+        object_1:
+          name: stack_obj1
+          category: mixing_bowl
+          model: xifive
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          position:
+          - -4.975824356079102
+          - -13.987449645996094
+          - 0.05870718136429787
+          quaternion_xyzw:
+          - 6.904522888362408e-05
+          - -1.978622458409518e-05
+          - -9.904761100187898e-07
+          - 1.0000001192092896
+          aabb_min:
+          - -5.127016544342041
+          - -14.116927146911621
+          - -1.0050833225250244e-05
+          aabb_max:
+          - -4.834301471710205
+          - -13.857978820800781
+          - 0.14234575629234314
+        object_2:
+          name: stack_obj2
+          category: tomato_sauce_jar
+          model: krfzqk
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          position:
+          - -4.676246643066406
+          - -13.987439155578613
+          - 0.08938486129045486
+          quaternion_xyzw:
+          - -9.504146873950958e-07
+          - 1.6897101886570454e-06
+          - -9.061390301212668e-06
+          - 1.0000001192092896
+          aabb_min:
+          - -4.7633490562438965
+          - -14.052421569824219
+          - -1.8946826457977295e-05
+          aabb_max:
+          - -4.60723876953125
+          - -13.922467231750488
+          - 0.20525935292243958
+      legacy_accepted_category_orders:
+      - - can_of_tomatoes
+        - tomato_sauce_jar
+        - mixing_bowl
+      - - mixing_bowl
+        - tomato_sauce_jar
+        - can_of_tomatoes
+      task_revision: task_edit_20261018_v1
+      mechanism_contract:
+        preserve:
+        - original_objects
+        - asset_scales
+        - native_grasp_release_history
+        goal: released_tower_after_robot_withdrawal
+        stability_seconds: 1.0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        position:
+        - -4.965554873148601
+        - -13.237443288167318
+        - -1.8946826457977295e-05
+        yaw_deg: -90.0
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 45.0
+      - operation: restore_robot_head_mount
+      - operation: object_physics
+        binding: object_0
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: object_0
+        visual_only: false
+      - operation: object_physics
+        binding: object_1
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: object_1
+        visual_only: false
+      - operation: object_physics
+        binding: object_2
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: object_2
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - object_0
+        - object_1
+        - object_2
+        manipulation_bindings:
+        - object_0
+        - object_1
+        - object_2
+        relocation_policy: independent_groups
+        placement_groups:
+        - - object_0
+        - - object_1
+        - - object_2
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: lobby_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - independent_candidate_support_adaptation_requires_review
+        - source_qa_reference_layout_changed
+        - native_grasp_execution_unverified
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0

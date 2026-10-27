@@ -1,0 +1,16 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "repair_scope": "Capture-only source-role binding: native scene stays on the base source and QA stays on criterion_4. Original task and scene bytes are unchanged. The source-aligned v2 attempt is rejected because the native source preprocessor skips variant filenames.",
+  "entries": [
+    {
+      "document_alias": "T23",
+      "variant_id": "t23_sealed_source_roles_v3",
+      "label": "T23 original scene with separately sealed QA source",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/tasks/rigid_t23_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/scenes/rigid_t23_v1.yaml",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/tasks/rigid_t23_v1.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_family_v1/scenes/rigid_t23_v1.yaml",
+      "variant": "tabletop"
+    }
+  ]
+}

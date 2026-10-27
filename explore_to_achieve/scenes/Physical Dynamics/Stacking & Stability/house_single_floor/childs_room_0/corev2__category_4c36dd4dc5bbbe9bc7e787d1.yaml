@@ -1,0 +1,88 @@
+kind: scene_patch
+id: category_39adb8b7c3109d4fb0566a86
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Physical Dynamics/Stacking & Stability/house_single_floor/childs_room_0/house_single_floor__childs_room_0.json
+target: null
+qualification: null
+bindings:
+  object_0:
+    name: stack_obj0
+    category: paperback_book
+    model: bisnup
+  object_1:
+    name: stack_obj1
+    category: bowl
+    model: jblalf
+  object_2:
+    name: stack_obj2
+    category: lunch_box
+    model: adxzhe
+  floor:
+    name: floors_vcsslq_0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: restore_robot_head_mount
+      - operation: object_physics
+        binding: object_0
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: object_0
+        visual_only: false
+      - operation: object_physics
+        binding: object_1
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: object_1
+        visual_only: false
+      - operation: object_physics
+        binding: object_2
+        visual_only: false
+        fixed_base: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: object_2
+        visual_only: false
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - object_0
+        - object_1
+        - object_2
+        manipulation_bindings:
+        - object_0
+        - object_1
+        - object_2
+        relocation_policy: independent_groups
+        placement_groups:
+        - - object_0
+        - - object_1
+        - - object_2
+        support_bindings: []
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: childs_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - independent_candidate_support_adaptation_requires_review
+        - source_qa_reference_layout_changed
+        - native_grasp_execution_unverified
+seed: 0

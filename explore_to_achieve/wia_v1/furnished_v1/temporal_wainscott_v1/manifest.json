@@ -1,0 +1,1302 @@
+{
+  "schema": "wia_variant_manifest_v1",
+  "artifact_path_base": "absolute",
+  "status": "pending_native_review",
+  "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_design_v1.json",
+  "design_sha256": "fc6cda96a81e7e491894fd96855a8aaf73814b114fd8d95ddc10b3e6117bb4e0",
+  "full_reference_execution": "pending",
+  "native_validation_run": false,
+  "native_geometry_verified": false,
+  "native_visibility_verified": false,
+  "native_shape_verified": false,
+  "native_hand_path_verified": false,
+  "native_gripper_path_verified": false,
+  "native_optics_verified": false,
+  "native_selected_identity_verified": false,
+  "native_non_goal_initialization_verified": false,
+  "physical_success_verified": false,
+  "scientific_controls_verified": false,
+  "continuous_path_certified": false,
+  "entries": [
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_history_a_w_furnished_v1",
+      "label": "T40 history A furnished W",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_a_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_a_v3.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t40_history_a_w_furnished_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t40_history_a_w_furnished_v1.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t40_history_a_w_furnished_v1.json",
+      "scene_model": "Wainscott_0_int",
+      "room": "dining_room_0",
+      "floor_name": "floors_gupykd_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -2.6453999999999995,
+          3.0995999999999997,
+          -0.0647845858760151
+        ],
+        "yaw_deg": 0.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "breakfast_table_zypvuv_0"
+      },
+      "robot_start": {
+        "position": [
+          3.0,
+          5.6,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.3826834323650898,
+          0.9238795325112867
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_w",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "W",
+      "history_variant": "a",
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "breakfast_table_zypvuv_0",
+        "static_aabb_m": [
+          [
+            3.6999712151108257,
+            6.011611064915478,
+            0.009556691044463217
+          ],
+          [
+            5.61012589231963,
+            7.189129473398096,
+            0.7478498822025982
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "interaction_relocation_policy": "vertical_only",
+      "apparatus_translation_world_m": [
+        0.4454,
+        2.0004,
+        0.0
+      ],
+      "native_object_poses": [
+        {
+          "name": "pot_plant_kxmvco_0",
+          "category": "pot_plant",
+          "model": "kxmvco",
+          "position": [
+            6.35,
+            5.8,
+            0.24865143351526287
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0000001192092896
+          ]
+        },
+        {
+          "name": "straight_chair_eospnr_1",
+          "category": "straight_chair",
+          "model": "eospnr",
+          "position": [
+            6.0,
+            7.6,
+            0.5523468255996704
+          ],
+          "orientation": [
+            -1.4901161193847656e-08,
+            -4.266439646016806e-09,
+            0.7071070671081543,
+            -0.7071064710617065
+          ]
+        },
+        {
+          "name": "breakfast_table_zypvuv_0",
+          "category": "breakfast_table",
+          "model": "zypvuv",
+          "position": [
+            4.659745693206787,
+            6.600754737854004,
+            0.6466153860092163
+          ],
+          "orientation": [
+            -3.702437970787287e-05,
+            3.9935490349307656e-05,
+            0.7152172923088074,
+            -0.6989021301269531
+          ]
+        }
+      ],
+      "native_furniture_hook_boundaries": {
+        "adapted": "after_temporal_initialization",
+        "saved_image1": "before_source_restore",
+        "saved_image2": "before_source_restore"
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_design_v1.json",
+      "design_sha256": "fc6cda96a81e7e491894fd96855a8aaf73814b114fd8d95ddc10b3e6117bb4e0",
+      "parent_task_sha256": "f293c0d06c976cdef58991b1cb5b00317a3611c10db0b670adf61f58d37bf6f6",
+      "parent_scene_sha256": "25b975cf3c5cea3cc533611f0f1767ecccca41cbf50e380ffbb2637e78a9cc0b",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_a_v1.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_a_v1.json",
+      "parent_source_sha256": "5cbe09a91dc1ca9824294125c465e650aa1a046b0cfce06101402101cae3edd5",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t40_history_a_w_furnished_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t40_history_a_w_furnished_v1.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t40_history_a_w_furnished_v1.json",
+      "source_sha256": "821d5bfe2b3a3f99c12c3661a889c65768e91110c06580e2bf7ed2dc1e280746",
+      "task_sha256": "8c0b14c74afed0d3fdae94e0d59973f3488ef6a3617feee92da62af85b35b767",
+      "scene_sha256": "0a9464bc5abac3ceb378a28570fa53d4113946c268689ed9837822761e123240",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "wia_tm2_matched_history_v3",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_history_b_w_furnished_v1",
+      "label": "T40 history B furnished W",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_b_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_b_v3.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t40_history_b_w_furnished_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t40_history_b_w_furnished_v1.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t40_history_b_w_furnished_v1.json",
+      "scene_model": "Wainscott_0_int",
+      "room": "dining_room_0",
+      "floor_name": "floors_gupykd_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -2.6453999999999995,
+          3.0995999999999997,
+          -0.0647845858760151
+        ],
+        "yaw_deg": 0.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "breakfast_table_zypvuv_0"
+      },
+      "robot_start": {
+        "position": [
+          3.0,
+          5.6,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.3826834323650898,
+          0.9238795325112867
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_w",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "W",
+      "history_variant": "b",
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "breakfast_table_zypvuv_0",
+        "static_aabb_m": [
+          [
+            3.6999712151108257,
+            6.011611064915478,
+            0.009556691044463217
+          ],
+          [
+            5.61012589231963,
+            7.189129473398096,
+            0.7478498822025982
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "interaction_relocation_policy": "vertical_only",
+      "apparatus_translation_world_m": [
+        0.4454,
+        2.0004,
+        0.0
+      ],
+      "native_object_poses": [
+        {
+          "name": "pot_plant_kxmvco_0",
+          "category": "pot_plant",
+          "model": "kxmvco",
+          "position": [
+            6.35,
+            5.8,
+            0.24865143351526287
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0000001192092896
+          ]
+        },
+        {
+          "name": "straight_chair_eospnr_1",
+          "category": "straight_chair",
+          "model": "eospnr",
+          "position": [
+            6.0,
+            7.6,
+            0.5523468255996704
+          ],
+          "orientation": [
+            -1.4901161193847656e-08,
+            -4.266439646016806e-09,
+            0.7071070671081543,
+            -0.7071064710617065
+          ]
+        },
+        {
+          "name": "breakfast_table_zypvuv_0",
+          "category": "breakfast_table",
+          "model": "zypvuv",
+          "position": [
+            4.659745693206787,
+            6.600754737854004,
+            0.6466153860092163
+          ],
+          "orientation": [
+            -3.702437970787287e-05,
+            3.9935490349307656e-05,
+            0.7152172923088074,
+            -0.6989021301269531
+          ]
+        }
+      ],
+      "native_furniture_hook_boundaries": {
+        "adapted": "after_temporal_initialization",
+        "saved_image1": "before_source_restore",
+        "saved_image2": "before_source_restore"
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_design_v1.json",
+      "design_sha256": "fc6cda96a81e7e491894fd96855a8aaf73814b114fd8d95ddc10b3e6117bb4e0",
+      "parent_task_sha256": "d81a57085094f4460887dcc6d0d19f53d91d06c72a5b9caccc4bca2a45bd1798",
+      "parent_scene_sha256": "1048bad99736e7843c47101eeb2dbe84aa7b56af34006dbe8a7a3c3bec15551f",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_b_v1.json",
+      "parent_source_sha256": "d43c28f070ad1160669144b643bd04de9e33e960d6c1e75a918b29a116354f26",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t40_history_b_w_furnished_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t40_history_b_w_furnished_v1.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t40_history_b_w_furnished_v1.json",
+      "source_sha256": "a4a48b5fef491b6bcdc58f2121c7353c1cbaef9e77f4fa12db653ba831b4fff5",
+      "task_sha256": "e8766ecfddc71cf0d9288cd02eb4f9efd1061a1b60b8510d75e98244e051c056",
+      "scene_sha256": "f7485045c102fc4c4bc46d7b1b07499f1bc448830e710f125fffff04093e5cb9",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "wia_tm2_matched_history_v3",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T40",
+      "variant_id": "t40_history_c_w_furnished_v1",
+      "label": "T40 history C furnished W",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/tasks/history_c_v3.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/temporal_start_v3/scenes/history_c_v3.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t40_history_c_w_furnished_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t40_history_c_w_furnished_v1.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t40_history_c_w_furnished_v1.json",
+      "scene_model": "Wainscott_0_int",
+      "room": "dining_room_0",
+      "floor_name": "floors_gupykd_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -2.6453999999999995,
+          3.0995999999999997,
+          -0.0647845858760151
+        ],
+        "yaw_deg": 0.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "breakfast_table_zypvuv_0"
+      },
+      "robot_start": {
+        "position": [
+          3.0,
+          5.6,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.3826834323650898,
+          0.9238795325112867
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_w",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "W",
+      "history_variant": "c",
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "breakfast_table_zypvuv_0",
+        "static_aabb_m": [
+          [
+            3.6999712151108257,
+            6.011611064915478,
+            0.009556691044463217
+          ],
+          [
+            5.61012589231963,
+            7.189129473398096,
+            0.7478498822025982
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "interaction_relocation_policy": "vertical_only",
+      "apparatus_translation_world_m": [
+        0.4454,
+        2.0004,
+        0.0
+      ],
+      "native_object_poses": [
+        {
+          "name": "pot_plant_kxmvco_0",
+          "category": "pot_plant",
+          "model": "kxmvco",
+          "position": [
+            6.35,
+            5.8,
+            0.24865143351526287
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0000001192092896
+          ]
+        },
+        {
+          "name": "straight_chair_eospnr_1",
+          "category": "straight_chair",
+          "model": "eospnr",
+          "position": [
+            6.0,
+            7.6,
+            0.5523468255996704
+          ],
+          "orientation": [
+            -1.4901161193847656e-08,
+            -4.266439646016806e-09,
+            0.7071070671081543,
+            -0.7071064710617065
+          ]
+        },
+        {
+          "name": "breakfast_table_zypvuv_0",
+          "category": "breakfast_table",
+          "model": "zypvuv",
+          "position": [
+            4.659745693206787,
+            6.600754737854004,
+            0.6466153860092163
+          ],
+          "orientation": [
+            -3.702437970787287e-05,
+            3.9935490349307656e-05,
+            0.7152172923088074,
+            -0.6989021301269531
+          ]
+        }
+      ],
+      "native_furniture_hook_boundaries": {
+        "adapted": "after_temporal_initialization",
+        "saved_image1": "before_source_restore",
+        "saved_image2": "before_source_restore"
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_design_v1.json",
+      "design_sha256": "fc6cda96a81e7e491894fd96855a8aaf73814b114fd8d95ddc10b3e6117bb4e0",
+      "parent_task_sha256": "703eca900ddf4f9c9bb5df5efdc3441e1a28496c92ed2f2521b4976b5de0edd1",
+      "parent_scene_sha256": "e06aed2faf0b53aa567eb72b8d9446e3b194a70dbb54a70f4af53b8a9417a2a7",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_c_v1.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_c_v1.json",
+      "parent_source_sha256": "54bc54baede0a567450b012633b2d497eec3260c787dfc969046403b4bf640d3",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t40_history_c_w_furnished_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t40_history_c_w_furnished_v1.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t40_history_c_w_furnished_v1.json",
+      "source_sha256": "98cc374f36cbb2f82472e7aa6491b1c24d6acaf1baa00563862d061757fb9906",
+      "task_sha256": "0611c48a4b437e03355008fc6c28eb1988533a05627a30358ac99b8e8e92525d",
+      "scene_sha256": "12db44210f46ce09611f45876882b6483cfd669cac5ba8fd9bdd83d97ad8080d",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "wia_tm2_matched_history_v3",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T41",
+      "variant_id": "t41_w_furnished_v1",
+      "label": "T41 furnished W",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_bd0c096bec07a9036cd4bb66.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t41_w_furnished_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t41_w_furnished_v1.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t41_w_furnished_v1.json",
+      "scene_model": "Wainscott_0_int",
+      "room": "dining_room_0",
+      "floor_name": "floors_gupykd_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -2.6453999999999995,
+          3.0995999999999997,
+          -0.0647845858760151
+        ],
+        "yaw_deg": 0.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "breakfast_table_zypvuv_0"
+      },
+      "robot_start": {
+        "position": [
+          3.0,
+          5.6,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.3826834323650898,
+          0.9238795325112867
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_w",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "W",
+      "history_variant": null,
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "breakfast_table_zypvuv_0",
+        "static_aabb_m": [
+          [
+            3.6999712151108257,
+            6.011611064915478,
+            0.009556691044463217
+          ],
+          [
+            5.61012589231963,
+            7.189129473398096,
+            0.7478498822025982
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "interaction_relocation_policy": "vertical_only",
+      "apparatus_translation_world_m": [
+        0.4454,
+        2.0004,
+        0.0
+      ],
+      "native_object_poses": [
+        {
+          "name": "pot_plant_kxmvco_0",
+          "category": "pot_plant",
+          "model": "kxmvco",
+          "position": [
+            6.35,
+            5.8,
+            0.24865143351526287
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0000001192092896
+          ]
+        },
+        {
+          "name": "straight_chair_eospnr_1",
+          "category": "straight_chair",
+          "model": "eospnr",
+          "position": [
+            6.0,
+            7.6,
+            0.5523468255996704
+          ],
+          "orientation": [
+            -1.4901161193847656e-08,
+            -4.266439646016806e-09,
+            0.7071070671081543,
+            -0.7071064710617065
+          ]
+        },
+        {
+          "name": "breakfast_table_zypvuv_0",
+          "category": "breakfast_table",
+          "model": "zypvuv",
+          "position": [
+            4.659745693206787,
+            6.600754737854004,
+            0.6466153860092163
+          ],
+          "orientation": [
+            -3.702437970787287e-05,
+            3.9935490349307656e-05,
+            0.7152172923088074,
+            -0.6989021301269531
+          ]
+        }
+      ],
+      "native_furniture_hook_boundaries": {
+        "adapted": "after_temporal_initialization",
+        "saved_image1": "before_source_restore",
+        "saved_image2": "before_source_restore"
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_design_v1.json",
+      "design_sha256": "fc6cda96a81e7e491894fd96855a8aaf73814b114fd8d95ddc10b3e6117bb4e0",
+      "parent_task_sha256": "3131cab9a3b32a1a583adb842d70625af58469f057ba2e856bf2bcf5232cded2",
+      "parent_scene_sha256": "72f9af84b357126f5c80166bdc05be091ce4667ab96d028fd5aa3ebd51472e72",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_04.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_04.json",
+      "parent_source_sha256": "8cfc13cd0974fd04c29d94313285c74368da80eabde56bd8c26e48b92991ed2e",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t41_w_furnished_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t41_w_furnished_v1.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t41_w_furnished_v1.json",
+      "source_sha256": "15afa85164bf8abbf8a54e738e2031a2dc1765dc691398fed1663b6b49340843",
+      "task_sha256": "6972749ec386a04408c1b4461d32f245bd809f80b47c3ee07c38cb18e7e90ab6",
+      "scene_sha256": "163e3db23101f6a45a8ec243484a5ac81511f899fad4313110e4240bb41bcc24",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_bd0c096bec07a9036cd4bb66",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T45",
+      "variant_id": "t45_w_furnished_v1",
+      "label": "T45 furnished W",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_939a8fa9a40b1fc7e04a5db0.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t45_w_furnished_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t45_w_furnished_v1.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t45_w_furnished_v1.json",
+      "scene_model": "Wainscott_0_int",
+      "room": "dining_room_0",
+      "floor_name": "floors_gupykd_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -2.6453999999999995,
+          3.0995999999999997,
+          -0.0647845858760151
+        ],
+        "yaw_deg": 0.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "breakfast_table_zypvuv_0"
+      },
+      "robot_start": {
+        "position": [
+          3.0,
+          5.6,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.3826834323650898,
+          0.9238795325112867
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_w",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "W",
+      "history_variant": null,
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "breakfast_table_zypvuv_0",
+        "static_aabb_m": [
+          [
+            3.6999712151108257,
+            6.011611064915478,
+            0.009556691044463217
+          ],
+          [
+            5.61012589231963,
+            7.189129473398096,
+            0.7478498822025982
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "interaction_relocation_policy": "vertical_only",
+      "apparatus_translation_world_m": [
+        0.4454,
+        2.0004,
+        0.0
+      ],
+      "native_object_poses": [
+        {
+          "name": "pot_plant_kxmvco_0",
+          "category": "pot_plant",
+          "model": "kxmvco",
+          "position": [
+            6.35,
+            5.8,
+            0.24865143351526287
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0000001192092896
+          ]
+        },
+        {
+          "name": "straight_chair_eospnr_1",
+          "category": "straight_chair",
+          "model": "eospnr",
+          "position": [
+            6.0,
+            7.6,
+            0.5523468255996704
+          ],
+          "orientation": [
+            -1.4901161193847656e-08,
+            -4.266439646016806e-09,
+            0.7071070671081543,
+            -0.7071064710617065
+          ]
+        },
+        {
+          "name": "breakfast_table_zypvuv_0",
+          "category": "breakfast_table",
+          "model": "zypvuv",
+          "position": [
+            4.659745693206787,
+            6.600754737854004,
+            0.6466153860092163
+          ],
+          "orientation": [
+            -3.702437970787287e-05,
+            3.9935490349307656e-05,
+            0.7152172923088074,
+            -0.6989021301269531
+          ]
+        }
+      ],
+      "native_furniture_hook_boundaries": {
+        "adapted": "after_temporal_initialization",
+        "saved_image1": "before_source_restore",
+        "saved_image2": "before_source_restore"
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_design_v1.json",
+      "design_sha256": "fc6cda96a81e7e491894fd96855a8aaf73814b114fd8d95ddc10b3e6117bb4e0",
+      "parent_task_sha256": "1dfb5254d06aab219c89b85e2a7b9451b08b8585133ef5c2df66186a22eb794d",
+      "parent_scene_sha256": "7bd46bd06eb9ff62c99370b5110cfd797172b3795c6236025fac2de89f2e1f3d",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_00.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_00.json",
+      "parent_source_sha256": "7da052c10560bcb33637509e3097effb9195f1f7d65de326fad46f69b65a96a5",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t45_w_furnished_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t45_w_furnished_v1.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t45_w_furnished_v1.json",
+      "source_sha256": "5333ff144a97b39eebe20f5140456226197cad7a1b4b93242af34abbf31abcea",
+      "task_sha256": "813f9f3b3feef7159744b3246050d65168a84d221fea4a8e0820d56b713517c7",
+      "scene_sha256": "8ba71273044c8cb58aacbd8c523f746cfbaa45631aa37e40c71bb8385f957260",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_939a8fa9a40b1fc7e04a5db0",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T46",
+      "variant_id": "t46_w_furnished_v1",
+      "label": "T46 furnished W",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_0498b76051279b8acd7e914e.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_0498b76051279b8acd7e914e.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t46_w_furnished_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t46_w_furnished_v1.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t46_w_furnished_v1.json",
+      "scene_model": "Wainscott_0_int",
+      "room": "dining_room_0",
+      "floor_name": "floors_gupykd_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -2.6453999999999995,
+          3.0995999999999997,
+          -0.0647845858760151
+        ],
+        "yaw_deg": 0.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "breakfast_table_zypvuv_0"
+      },
+      "robot_start": {
+        "position": [
+          3.0,
+          5.6,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.3826834323650898,
+          0.9238795325112867
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_w",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "W",
+      "history_variant": null,
+      "review_role": "primary",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "breakfast_table_zypvuv_0",
+        "static_aabb_m": [
+          [
+            3.6999712151108257,
+            6.011611064915478,
+            0.009556691044463217
+          ],
+          [
+            5.61012589231963,
+            7.189129473398096,
+            0.7478498822025982
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "interaction_relocation_policy": "vertical_only",
+      "apparatus_translation_world_m": [
+        0.4454,
+        2.0004,
+        0.0
+      ],
+      "native_object_poses": [
+        {
+          "name": "pot_plant_kxmvco_0",
+          "category": "pot_plant",
+          "model": "kxmvco",
+          "position": [
+            6.35,
+            5.8,
+            0.24865143351526287
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0000001192092896
+          ]
+        },
+        {
+          "name": "straight_chair_eospnr_1",
+          "category": "straight_chair",
+          "model": "eospnr",
+          "position": [
+            6.0,
+            7.6,
+            0.5523468255996704
+          ],
+          "orientation": [
+            -1.4901161193847656e-08,
+            -4.266439646016806e-09,
+            0.7071070671081543,
+            -0.7071064710617065
+          ]
+        },
+        {
+          "name": "breakfast_table_zypvuv_0",
+          "category": "breakfast_table",
+          "model": "zypvuv",
+          "position": [
+            4.659745693206787,
+            6.600754737854004,
+            0.6466153860092163
+          ],
+          "orientation": [
+            -3.702437970787287e-05,
+            3.9935490349307656e-05,
+            0.7152172923088074,
+            -0.6989021301269531
+          ]
+        }
+      ],
+      "native_furniture_hook_boundaries": {
+        "adapted": "after_temporal_initialization",
+        "saved_image1": "before_source_restore",
+        "saved_image2": "before_source_restore"
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_design_v1.json",
+      "design_sha256": "fc6cda96a81e7e491894fd96855a8aaf73814b114fd8d95ddc10b3e6117bb4e0",
+      "parent_task_sha256": "b4e8b9fee4ff00141e878c6b3157e3e88757d1b67c872e8bf7da5eb42ff9cf2a",
+      "parent_scene_sha256": "2326e1a299a949ee1e712d6451d94f206edaa3b7b4b4194f3e24131e573c62b4",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_02.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_02.json",
+      "parent_source_sha256": "b9f1ad4b77cc2b812250156f6e6489018e2515b6bd08ac754f00ee7f6a10e746",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t46_w_furnished_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t46_w_furnished_v1.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t46_w_furnished_v1.json",
+      "source_sha256": "660111b262f0b1aa504194b181961cf7ac72aa2f0231a7a6f503fe90f6e4b6d1",
+      "task_sha256": "dac6f4b6b73106ff016dd11bccafa7079cbf15f9e018312dfb30f8c0bae8acf4",
+      "scene_sha256": "f4d5962b1c735878c5f89608e2110962e0225df880a835752315561dc27c0d2b",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_0498b76051279b8acd7e914e",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T47",
+      "variant_id": "t47_w_furnished_v1",
+      "label": "T47 furnished W",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_b892978c0400005618c6589c.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_b892978c0400005618c6589c.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t47_w_furnished_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t47_w_furnished_v1.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t47_w_furnished_v1.json",
+      "scene_model": "Wainscott_0_int",
+      "room": "dining_room_0",
+      "floor_name": "floors_gupykd_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -2.6453999999999995,
+          3.0995999999999997,
+          -0.0647845858760151
+        ],
+        "yaw_deg": 0.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "breakfast_table_zypvuv_0"
+      },
+      "robot_start": {
+        "position": [
+          3.0,
+          5.6,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.3826834323650898,
+          0.9238795325112867
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_w",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "W",
+      "history_variant": null,
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "breakfast_table_zypvuv_0",
+        "static_aabb_m": [
+          [
+            3.6999712151108257,
+            6.011611064915478,
+            0.009556691044463217
+          ],
+          [
+            5.61012589231963,
+            7.189129473398096,
+            0.7478498822025982
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "interaction_relocation_policy": "vertical_only",
+      "apparatus_translation_world_m": [
+        0.4454,
+        2.0004,
+        0.0
+      ],
+      "native_object_poses": [
+        {
+          "name": "pot_plant_kxmvco_0",
+          "category": "pot_plant",
+          "model": "kxmvco",
+          "position": [
+            6.35,
+            5.8,
+            0.24865143351526287
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0000001192092896
+          ]
+        },
+        {
+          "name": "straight_chair_eospnr_1",
+          "category": "straight_chair",
+          "model": "eospnr",
+          "position": [
+            6.0,
+            7.6,
+            0.5523468255996704
+          ],
+          "orientation": [
+            -1.4901161193847656e-08,
+            -4.266439646016806e-09,
+            0.7071070671081543,
+            -0.7071064710617065
+          ]
+        },
+        {
+          "name": "breakfast_table_zypvuv_0",
+          "category": "breakfast_table",
+          "model": "zypvuv",
+          "position": [
+            4.659745693206787,
+            6.600754737854004,
+            0.6466153860092163
+          ],
+          "orientation": [
+            -3.702437970787287e-05,
+            3.9935490349307656e-05,
+            0.7152172923088074,
+            -0.6989021301269531
+          ]
+        }
+      ],
+      "native_furniture_hook_boundaries": {
+        "adapted": "after_temporal_initialization",
+        "saved_image1": "before_source_restore",
+        "saved_image2": "before_source_restore"
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_design_v1.json",
+      "design_sha256": "fc6cda96a81e7e491894fd96855a8aaf73814b114fd8d95ddc10b3e6117bb4e0",
+      "parent_task_sha256": "79f8ea2fc71fff1e4fd27bc8060330d7924de14f0547b27e91c364be3e114b13",
+      "parent_scene_sha256": "0c21ae1771404e53c38ee57ee105fa1dd111930036d3aae962613b00bd283910",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_03.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_03.json",
+      "parent_source_sha256": "3e1bd904feb74ef859a8e34c2b0fe2325d5fa47d7a04f8bcae90b1fb507f5106",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t47_w_furnished_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t47_w_furnished_v1.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t47_w_furnished_v1.json",
+      "source_sha256": "3545bf8d4b755727657c910b617b92d35e8292e82c6aa079b71b59f8936a0143",
+      "task_sha256": "0fe903bd909d5ae57d684e527b9ac3e6296a967413215c232f85aae24a5a1c9d",
+      "scene_sha256": "e3971caaa65d3ba28b4b1065604e00ff0cf71d2b3c78c20c113714849bc1b87f",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_b892978c0400005618c6589c",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    },
+    {
+      "document_alias": "T48",
+      "variant_id": "t48_w_furnished_v1",
+      "label": "T48 furnished W",
+      "parent_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_7fd79b0d5819ace319f077c7.yaml",
+      "parent_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Temporal Understanding/Unobserved Change/house_single_floor/redesign_20261020/category_7fd79b0d5819ace319f077c7.yaml",
+      "output_task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t48_w_furnished_v1.yaml",
+      "output_scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t48_w_furnished_v1.yaml",
+      "source_identity": "Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t48_w_furnished_v1.json",
+      "scene_model": "Wainscott_0_int",
+      "room": "dining_room_0",
+      "floor_name": "floors_gupykd_0",
+      "transform": {
+        "origin_m": [
+          7.2954,
+          3.5004,
+          0.0
+        ],
+        "translation_m": [
+          -2.6453999999999995,
+          3.0995999999999997,
+          -0.0647845858760151
+        ],
+        "yaw_deg": 0.0
+      },
+      "support_name_map": {
+        "breakfast_table_rhjoby_0": "breakfast_table_zypvuv_0"
+      },
+      "robot_start": {
+        "position": [
+          3.0,
+          5.6,
+          0.02
+        ],
+        "orientation": [
+          0.0,
+          0.0,
+          0.3826834323650898,
+          0.9238795325112867
+        ]
+      },
+      "apparatus_floor_z_m": 0.0,
+      "matched_group": "temporal_furnished_w",
+      "environment": "A furnished dining room with the original temporal task objects on an existing native table and the inherited physical apparatus.",
+      "configuration": "W",
+      "history_variant": null,
+      "review_role": "control",
+      "native_rgb_equivalence_verified": false,
+      "support_geometry_proposal": {
+        "support_name": "breakfast_table_zypvuv_0",
+        "static_aabb_m": [
+          [
+            3.6999712151108257,
+            6.011611064915478,
+            0.009556691044463217
+          ],
+          [
+            5.61012589231963,
+            7.189129473398096,
+            0.7478498822025982
+          ]
+        ],
+        "bounds_source": "Authored collision mesh bounds transformed by saved root-link pose; not live collision or reachability evidence.",
+        "native_measurement": false,
+        "source_geometry_and_event_semantics_preserved": true
+      },
+      "interaction_relocation_policy": "vertical_only",
+      "apparatus_translation_world_m": [
+        0.4454,
+        2.0004,
+        0.0
+      ],
+      "native_object_poses": [
+        {
+          "name": "pot_plant_kxmvco_0",
+          "category": "pot_plant",
+          "model": "kxmvco",
+          "position": [
+            6.35,
+            5.8,
+            0.24865143351526287
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0000001192092896
+          ]
+        },
+        {
+          "name": "straight_chair_eospnr_1",
+          "category": "straight_chair",
+          "model": "eospnr",
+          "position": [
+            6.0,
+            7.6,
+            0.5523468255996704
+          ],
+          "orientation": [
+            -1.4901161193847656e-08,
+            -4.266439646016806e-09,
+            0.7071070671081543,
+            -0.7071064710617065
+          ]
+        },
+        {
+          "name": "breakfast_table_zypvuv_0",
+          "category": "breakfast_table",
+          "model": "zypvuv",
+          "position": [
+            4.659745693206787,
+            6.600754737854004,
+            0.6466153860092163
+          ],
+          "orientation": [
+            -3.702437970787287e-05,
+            3.9935490349307656e-05,
+            0.7152172923088074,
+            -0.6989021301269531
+          ]
+        }
+      ],
+      "native_furniture_hook_boundaries": {
+        "adapted": "after_temporal_initialization",
+        "saved_image1": "before_source_restore",
+        "saved_image2": "before_source_restore"
+      },
+      "design_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_design_v1.json",
+      "design_sha256": "fc6cda96a81e7e491894fd96855a8aaf73814b114fd8d95ddc10b3e6117bb4e0",
+      "parent_task_sha256": "9f50ff5cc566daaf6377e56984d80a8c4fdd5d69af4e0e829afb242512be9bb0",
+      "parent_scene_sha256": "c0c31854dfe3ff072e900d8d7b845ed41731f86d5579682217e631a5d84dc021",
+      "parent_source_identity": "Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_05.json",
+      "parent_source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_05.json",
+      "parent_source_sha256": "95bf2c4fb0186ae076c70d64315dc2b240ece466fcb832616010aa46d91bd2b9",
+      "task_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/tasks/t48_w_furnished_v1.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v1/scenes/t48_w_furnished_v1.yaml",
+      "source_file": "/local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Temporal Understanding/Unobserved Change/Wainscott_0_int/dining_room_0/t48_w_furnished_v1.json",
+      "source_sha256": "cf35d15481dda36b8cc2b726ed61ebb436065b3179e29a822943795396f78598",
+      "task_sha256": "b5aa3500c0f9882a53d54451b0c254a9a1bc7951ef1ce6b4447312eee58c581c",
+      "scene_sha256": "a42aa656b05e12bb9f906c0f2cfb96891163074033ecd1ac2e3d95b4b934db11",
+      "variant": "adapted",
+      "seed": 0,
+      "task_id": "task_redesign_7fd79b0d5819ace319f077c7",
+      "task_version": 4,
+      "module": "core.esi_converters.temporal_understanding_two_phase",
+      "revision": "task_edit2_temporal_20261018_v1",
+      "full_reference_execution": "pending",
+      "native_validation_run": false,
+      "native_geometry_verified": false,
+      "native_visibility_verified": false,
+      "native_shape_verified": false,
+      "native_hand_path_verified": false,
+      "native_gripper_path_verified": false,
+      "native_optics_verified": false,
+      "native_selected_identity_verified": false,
+      "native_non_goal_initialization_verified": false,
+      "physical_success_verified": false,
+      "scientific_controls_verified": false,
+      "continuous_path_certified": false
+    }
+  ]
+}
