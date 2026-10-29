@@ -26,7 +26,7 @@ from wia.tasks.loader import UniqueLoader, load_scene, load_task
 from wia.tasks.schema import CategoryTaskDefinition, SceneDefinition
 
 OUTPUT_DIR = ROOT / 'explore_to_achieve/wia_v1/review_20261025/rigid_support_v2'
-INITIALIZER = 'core.esi_converters.active_layout'
+INITIALIZER = 'wia.authoring.converters.active_layout'
 REMOVED_PRIMITIVES = {'support_table_top', *(f'support_table_leg_{i}' for i in range(1, 5))}
 NATIVE_FLAGS = ('native_validation_run', 'native_support_verified', 'native_robot_placement_verified',
                 'physical_success_verified', 'physically_qualified', 'legal_robot_reference_verified')
@@ -89,7 +89,7 @@ def revise_definitions(parent_task, parent_scene, design, support, provenance, s
             or parent_task['private']['bindings'] != parent_scene['bindings']
             or parent_task['defaults']['seed'] != parent_scene['seed']):
         raise ValueError('Parent task and scene must have paired patches, bindings and seeds.')
-    if (parent_task['private']['evaluation']['module'] != 'core.esi_converters.rigid_partial_insertion'
+    if (parent_task['private']['evaluation']['module'] != 'wia.authoring.converters.rigid_partial_insertion'
             or parent_task['private']['evaluation']['operation'] != 'pick_release_partial_insert'):
         raise ValueError('Only the unchanged native partial-insertion scorer is supported.')
     task, scene = deepcopy(parent_task), deepcopy(parent_scene)

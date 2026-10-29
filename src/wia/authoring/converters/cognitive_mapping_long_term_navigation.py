@@ -26,7 +26,7 @@ from wia.authoring.converters.cognitive_mapping_visit_reports import (
     REVISED_MAPPING_OPERATIONS, revise_mapping_result, legacy_mapping_config,
     qualify_revised_mapping, SourceAnswerMappingEvaluator)
 
-MODULE = 'core.esi_converters.cognitive_mapping_long_term_navigation'
+MODULE = 'wia.authoring.converters.cognitive_mapping_long_term_navigation'
 REVISED_OPERATION = REVISED_MAPPING_OPERATIONS['Long-Term Navigation']
 LEGACY_OPERATION = 'navigate_from_start_to_destination'
 OPERATION = 'navigation_exploration_arrivals'

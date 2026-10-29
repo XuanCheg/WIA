@@ -1,0 +1,148 @@
+ M README.md
+ M configs/codex_cli.yaml
+ M configs/esi_arm.json
+ M configs/esi_base.json
+ M configs/esi_gripper.json
+ M configs/esi_parameterized.json
+ M configs/esi_parameterized_fine.json
+ M configs/esi_robot_cameras.json
+ M configs/esi_trunk.json
+ M configs/esi_trunk_low_grasp.json
+ M configs/esi_viewer.json
+ M configs/local_http.yaml
+ M configs/openai_chat_completions.yaml
+ M configs/openai_responses.yaml
+ M configs/vllm_chat_completions.yaml
+ M pyproject.toml
+ M research_log.md
+ M src/wia/authoring/commands/__init__.py
+ M src/wia/authoring/commands/_inputs.py
+ M src/wia/authoring/commands/build_wia_control_family_repairs.py
+ M src/wia/authoring/commands/build_wia_cover_variants.py
+ M src/wia/authoring/commands/build_wia_furnished_existing.py
+ M src/wia/authoring/commands/build_wia_furnished_temporal.py
+ M src/wia/authoring/commands/build_wia_history_collection_variants.py
+ M src/wia/authoring/commands/build_wia_ramp_calibration.py
+ D src/wia/authoring/commands/build_wia_registry.py
+ M src/wia/authoring/commands/build_wia_rigid_family.py
+ M src/wia/authoring/commands/build_wia_rigid_native_support_revisions.py
+ M src/wia/authoring/commands/build_wia_rigid_pilot.py
+ M src/wia/authoring/commands/build_wia_room_collection.py
+ M src/wia/authoring/commands/build_wia_temporal_pairs.py
+ M src/wia/authoring/commands/build_wia_temporal_scene_variants.py
+ M src/wia/authoring/commands/build_wia_variant_capture_records.py
+ M src/wia/authoring/commands/build_wia_workstation_capture_records.py
+ M src/wia/authoring/commands/build_wia_workstation_variants.py
+ M src/wia/authoring/commands/design_wia_existing_round.py
+ M src/wia/authoring/commands/design_wia_produce_mirror.py
+ M src/wia/authoring/commands/design_wia_rigid_furnished.py
+ M src/wia/authoring/conversion.py
+ M src/wia/authoring/converters/__init__.py
+ M src/wia/authoring/converters/action_order.py
+ M src/wia/authoring/converters/active_layout.py
+ M src/wia/authoring/converters/cognitive_mapping_connectivity.py
+ M src/wia/authoring/converters/cognitive_mapping_long_term_navigation.py
+ M src/wia/authoring/converters/cognitive_mapping_regional_boundary.py
+ M src/wia/authoring/converters/cognitive_mapping_traversable_passage.py
+ M src/wia/authoring/converters/cognitive_mapping_visit_reports.py
+ M src/wia/authoring/converters/composite_task.py
+ M src/wia/authoring/converters/composition_manipulation.py
+ M src/wia/authoring/converters/composition_mapping.py
+ M src/wia/authoring/converters/deformable_redrape.py
+ M src/wia/authoring/converters/dimensional_size.py
+ M src/wia/authoring/converters/enumerative_perception_category_ambiguity.py
+ M src/wia/authoring/converters/enumerative_perception_counting_w_occlusion.py
+ M src/wia/authoring/converters/enumerative_perception_illumination_variability.py
+ M src/wia/authoring/converters/enumerative_perception_merged_observation.py
+ M src/wia/authoring/converters/enumerative_perception_search.py
+ M src/wia/authoring/converters/enumerative_perception_spatial_segmentation.py
+ M src/wia/authoring/converters/enumerative_perception_structural_enclosure.py
+ M src/wia/authoring/converters/hidden_object_collection.py
+ M src/wia/authoring/converters/inclined_comparison.py
+ M src/wia/authoring/converters/metric_comparison_spatial_distance.py
+ M src/wia/authoring/converters/partial_occlusion.py
+ M src/wia/authoring/converters/perceptual_grounding_view_hallucination.py
+ M src/wia/authoring/converters/physical_dynamics_inclined_plane.py
+ M src/wia/authoring/converters/physical_dynamics_stacking_stability.py
+ M src/wia/authoring/converters/physical_structure_deformable.py
+ M src/wia/authoring/converters/physical_structure_liquid_volume.py
+ M src/wia/authoring/converters/rigid_partial_insertion.py
+ M src/wia/authoring/converters/spatial_relations_geometric_configuration.py
+ M src/wia/authoring/converters/spatial_relations_linear_alignment.py
+ M src/wia/authoring/converters/spatial_relations_physical_contact.py
+ M src/wia/authoring/converters/specular_reflection_correspondence.py
+ M src/wia/authoring/converters/specular_reflection_reflection_authoring.py
+ M src/wia/authoring/converters/specular_reflection_spatial_relations.py
+ M src/wia/authoring/converters/task_edit2_destinations.py
+ M src/wia/authoring/converters/task_edit2_mapping_world.py
+ M src/wia/authoring/converters/temporal_understanding_agent_observation.py
+ M src/wia/authoring/converters/temporal_understanding_two_phase.py
+ M src/wia/authoring/converters/temporal_understanding_unobserved_change.py
+ M src/wia/authoring/converters/wia_background.py
+ M src/wia/authoring/converters/wia_dimensional.py
+ M src/wia/authoring/converters/wia_furnished_layout.py
+ M src/wia/authoring/converters/wia_ground_scene.py
+ M src/wia/authoring/converters/wia_mirror.py
+ M src/wia/authoring/converters/wia_room_collection.py
+ M src/wia/authoring/converters/wia_spatial_tray.py
+ M src/wia/authoring/modules.py
+ M src/wia/cli.py
+ M src/wia/evaluation/runner.py
+ M src/wia/native/esi_category_evaluation.py
+ M src/wia/native/esi_temporal_phases.py
+ M src/wia/policies/show_harness.py
+ M src/wia/resources.py
+ M src/wia/tasks/__init__.py
+ D src/wia/tasks/_compat.py
+ M src/wia/tasks/interaction_anchors.py
+ M src/wia/tasks/interaction_groups.py
+ M src/wia/tasks/interaction_liquid_anchors.py
+ M src/wia/tasks/interaction_setup.py
+ M src/wia/tasks/interaction_supports.py
+ M src/wia/tasks/loader.py
+ M src/wia/tasks/native_retry.py
+ M src/wia/tasks/pickup_policy.py
+ M src/wia/tasks/rigid_qa.py
+ M src/wia/tasks/scene.py
+ M src/wia/tasks/scene_only.py
+ M src/wia/tasks/search_start.py
+ M src/wia/tasks/sources.py
+ M src/wia/tasks/support_sampling.py
+ M src/wia/tasks/tabletop.py
+ M src/wia/tasks/temporal_policy.py
+ M src/wia/tasks/wia_registry.py
+ M tests/test_authoring_commands.py
+ M tests/test_evaluation_entry.py
+ M tests/test_extraction.py
+ M tests/test_optional_harness.py
+?? assets/
+?? configs/hopper_qwen38_27b.yaml
+?? configs/hopper_qwen38_27b_compact_diagnostic.yaml
+?? configs/hopper_qwen38_27b_history_diagnostic.yaml
+?? configs/hopper_qwen38_27b_schema_diagnostic.yaml
+?? configs/hopper_qwen38_27b_sliding_diagnostic.yaml
+?? configs/hopper_qwen38_27b_thinking_diagnostic.yaml
+?? configs/t07_sol_high_batch.yaml
+?? configs/t07_sol_high_debug.yaml
+?? docs/research/interactiveworld_candidates_20261029/
+?? docs/storage_compression_audit_20261028.json
+?? explore_to_achieve/prompts/
+?? explore_to_achieve/wia_v1/release/
+?? provenance/runtime_extraction_20261028.json
+?? provenance/runtime_test_extraction_20261028.json
+?? scripts/clean_hopper_caches.py
+?? scripts/compact_hopper_artifacts.py
+?? scripts/freeze_v1_catalogue.py
+?? scripts/probe_depth_readback.py
+?? scripts/report_hopper_benchmark.py
+?? scripts/run_hopper_benchmark.py
+?? scripts/smoke_release_native.py
+?? src/wia/evaluation/usage.py
+?? src/wia/integrations/
+?? src/wia/runtime/
+?? src/wia/tasks/pickup_edges.py
+?? tests/harness_integration/
+?? tests/test_debug_lifecycle.py
+?? tests/test_release_catalogue.py
+?? tests/test_release_load_policy.py
+?? tests/test_usage.py

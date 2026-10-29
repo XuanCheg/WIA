@@ -69,7 +69,7 @@ def build_definitions():
             'bindings': bindings,
             'evaluation': {
                 'type': 'category_operation',
-                'module': 'core.esi_converters.rigid_partial_insertion',
+                'module': 'wia.authoring.converters.rigid_partial_insertion',
                 'operation': 'pick_release_partial_insert',
                 'binding_keys': list(bindings),
                 'parameters': {

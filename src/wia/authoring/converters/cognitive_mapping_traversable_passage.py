@@ -27,7 +27,7 @@ from wia.authoring.converters.cognitive_mapping_visit_reports import (
     REVISED_MAPPING_OPERATIONS, revise_mapping_result, legacy_mapping_config,
     qualify_revised_mapping, SourceAnswerMappingEvaluator)
 
-MODULE = 'core.esi_converters.cognitive_mapping_traversable_passage'
+MODULE = 'wia.authoring.converters.cognitive_mapping_traversable_passage'
 REVISED_OPERATION = REVISED_MAPPING_OPERATIONS['Traversable Passage']
 EXPLORATION_OPERATION = 'passage_exploration_arrivals'
 LEGACY_OPERATIONS = ('passage_arrival', 'passage_round_trip')
@@ -287,6 +287,8 @@ def measure_native_state(session, parameters):
         'linear_speed_m_s': float(np.linalg.norm(linear)), 'angular_speed_rad_s': float(np.linalg.norm(angular)),
         # New exploration permits supported unlabelled doorway transit. Such
         # cells never establish chassis_region or earn native room visits.
+        'occupancy_valid': bool((root_region in known or parameters.get('arrival_report_required') is True)
+            and floor_matches and floor_supported and up_dot >= parameters['minimum_up_dot']),
         'state_valid': bool((root_region in known or parameters.get('arrival_report_required') is True)
             and floor_matches and floor_supported
             and not nonfloor_contacts and up_dot >= parameters['minimum_up_dot'])}

@@ -1,6 +1,6 @@
 """Scene-only initialization and physical preflight, without a task evaluator.
 
-Run through scripts/run_esi_robot.py --scene-file FILE --variant tabletop.
+Run through src/wia/runtime/commands/run_esi_robot.py --scene-file FILE --variant tabletop.
 """
 from __future__ import annotations
 
@@ -45,7 +45,7 @@ def local_floor_surface(floor_path, hits):
 
 class SceneOnly(ScenePatches):
     def __init__(self, scene):
-        if (scene.definition.target is None or scene.definition.qualification is None) and scene.run_mode != "diagnostic":
+        if (scene.definition.target is None or scene.definition.qualification is None) and scene.run_mode != "diagnostic" and not scene.release_v1:
             raise ValueError("Diagnostic scenes require the capture Worker; no physical qualification is declared.")
         super().__init__(scene, scene.definition.bindings)
         self._settings["camera_size"] = list(scene.definition.runtime.camera_size)
@@ -69,6 +69,12 @@ class SceneOnly(ScenePatches):
                 session.pipeline.og.sim.step()
 
     def qualify(self, session, executor, output, *, observation=None):
+        if self.task.release_v1:
+            result = QualificationResult('loaded_release_v1', None, {
+                'physical_checks_run': False, 'policy': 'fixed_v1_definition',
+                'physical_safety_inferred': False})
+            result.save(output, patches=self.applied)
+            return result
         from wia.native.utils import _array
 
         checks, reason = {}, "scene_precondition_failed"

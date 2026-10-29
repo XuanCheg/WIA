@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Native Scene Editor</title>
+<style>
+html,body{margin:0;height:100%;font:14px system-ui;background:#15191f;color:#e3e8ef}body{display:flex;flex-direction:column}header{padding:12px 16px;background:#222a35}h1{font-size:18px;margin:0 0 10px}.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}input[type=text]{width:min(520px,70vw);padding:8px}button{padding:8px 16px;cursor:pointer}#status{margin:10px 0 0;white-space:pre-wrap}#error{color:#ffb4ab}iframe{border:0;flex:1;min-height:400px;width:100%}details{padding:6px 16px}pre{max-height:180px;overflow:auto;white-space:pre-wrap}small{display:block;color:#bbc5d4;margin-top:9px}
+</style>
+<header>
+<h1>Native Scene Editor</h1>
+<div class="controls">
+<label>Scene ID <input id="scene" type="text" list="ids" placeholder="core_… or category_…" autocomplete="off"></label>
+<datalist id="ids"></datalist>
+<label><input id="sourceOnly" type="checkbox"> Source only</label>
+<button id="load">Load scene</button><button id="save" disabled>Save snapshot</button>
+</div>
+<small>Edit through the native GUI below. Saves create separate exports. Switching a ready scene first saves it; failed saves keep it open. Exports require separate review before benchmark integration.</small>
+<div id="status">No scene loaded.</div><div id="error" role="alert"></div>
+</header>
+<details><summary>Native editor log</summary><pre id="log"></pre></details>
+<iframe id="native" title="Native OmniGibson GUI" src="/novnc/vnc.html?autoconnect=1&amp;resize=scale&amp;path=%2Fwebsockify"></iframe>
+<script>
+const $=id=>document.getElementById(id);let busy=false;
+async function api(path,body){const response=await fetch(path,body===undefined?{}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const data=await response.json();if(!response.ok)throw new Error(data.error||`HTTP ${response.status}`);return data;}
+function show(state){$('status').textContent=`${state.phase||'unknown'}${state.requested_scene_id?' · loading '+state.requested_scene_id:(state.scene_id?' · '+state.scene_id:'')}${state.requested_scene_id?'\nPrevious selection: '+state.scene_id:''}${state.world_available===false?'\nNo active native world is available.':''}${state.pid?' · PID '+state.pid:''}${state.output_dir?'\nExports/session: '+state.output_dir:''}${state.last_save?'\nLast snapshot: '+(state.last_save.export?.export_version||'saved'):''}${state.native_status?.error?'\nNative error: '+state.native_status.error:''}${state.last_load?.error?'\nLoad error: '+state.last_load.error:''}`;$('log').textContent=state.log_tail||'';$('save').disabled=busy||!state.running||!['ready','exported','error'].includes(state.phase);}
+async function refresh(){try{show(await api('/api/state'));}catch(error){$('error').textContent=error.message;}}
+async function load(){if(busy)return;busy=true;$('load').disabled=true;$('error').textContent='';try{show(await api('/api/open',{scene_id:$('scene').value.trim(),source_only:$('sourceOnly').checked}));}catch(error){$('error').textContent=error.message;}finally{busy=false;$('load').disabled=false;await refresh();}}
+$('load').onclick=load;$('scene').onkeydown=event=>{if(event.key==='Enter')load();};$('save').onclick=async()=>{if(busy)return;busy=true;$('save').disabled=true;$('error').textContent='';try{await api('/api/save',{});}catch(error){$('error').textContent=error.message;}finally{busy=false;await refresh();}};
+(async()=>{try{const data=await api('/api/catalogue');for(const row of [...data.core_groups,...data.variants]){const option=document.createElement('option');option.value=row.id;option.label=row.source_identity||row.name||row.id;$('ids').append(option);}}catch(error){$('error').textContent=error.message;}const query=new URLSearchParams(location.search);if(query.has('scene_id')){$('scene').value=query.get('scene_id');await load();}else await refresh();})();
+setInterval(refresh,2000);
+</script>
+</html>

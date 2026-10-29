@@ -17,7 +17,7 @@ from wia.authoring.conversion import ConverterBase
 from wia.tasks.delivery_support import SLOT, BLUE_RGBA, PUBLIC_LABEL
 from wia.tasks.interaction_supports import support_names
 
-MODULE = 'core.esi_converters.task_edit2_destinations'
+MODULE = 'wia.authoring.converters.task_edit2_destinations'
 REVISION = 'task_edit2_20261018_v1'
 
 

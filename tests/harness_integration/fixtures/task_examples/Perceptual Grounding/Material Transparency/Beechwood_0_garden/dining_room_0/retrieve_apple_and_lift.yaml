@@ -1,0 +1,65 @@
+id: retrieve_apple_and_lift
+version: 7
+source:
+  provider: esi
+  json: Perceptual Grounding/Material Transparency/Beechwood_0_garden/dining_room_0/Beechwood_0_garden__dining_room_0__no.json
+public:
+  objective: Use the left gripper to retrieve the apple, lift it at least 5 cm (0.05 m) above its initial height, and keep holding it.
+  success_criteria: The apple must be retrieved and held with at least 5 cm (0.05 m) of lift from its starting height.
+  environment: You are operating an R1 robot in a furnished dining room.
+  constraints:
+    - Use controlled physical interaction. Preserve surrounding objects and furniture.
+requirements:
+  capabilities: [base_translation, base_rotation, ee_translation, gripper, trunk_height]
+private:
+  bindings:
+    target: {name: task_apple, category: apple, model: ymhxqk}
+    container: {name: task_glass_box}
+  evaluation:
+    type: slide_extract_lift
+    target: target
+    container: container
+    slide_joint: lid_slide
+    minimum_open_displacement_m: 0.20
+    rim_height_m: 0.166
+    extraction_clearance_m: 0.005
+    minimum_lift_m: 0.05
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    closed_sliding_box:
+      patches:
+        - operation: robot_pose
+          position: [-4.93, 15.40, 0.1]
+          yaw_deg: 90.0
+          head_pitch_deg: 40.0
+        - operation: add_usd_object
+          name: task_glass_box
+          asset: assets/esi/glass_box_sliding.usda
+          position: [-5.17, 15.90, 0.743912]
+          glass_mesh_names: [glass_floor, glass_front, glass_back, glass_left, glass_right, glass_lid]
+          glass_material:
+            color: [1.0, 1.0, 1.0]
+            ior: 1.45
+            depth_m: 0.1
+            thin_walled: true
+            cast_shadows: false
+          initial_joint_positions_m: {lid_slide: 0.0}
+        - operation: add_dataset_object
+          name: task_apple
+          category: apple
+          model: ymhxqk
+          position: [-5.17, 15.88, 0.7755]
+          scale: 0.75
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 7
+  max_steps: 60
+  wall_timeout_s: 5400.0
+  world_advances_during_inference: true
+  observation_condition: current
+  action_mode: parameterized

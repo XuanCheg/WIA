@@ -56,9 +56,9 @@ def _records(values):
 def original_target_records(task):
     """Read exact source values without assuming missing roots or orientations."""
     evaluation = task['private']['evaluation']
-    if evaluation['module'] == 'core.esi_converters.physical_dynamics_stacking_stability':
+    if evaluation['module'] == 'wia.authoring.converters.physical_dynamics_stacking_stability':
         return {row['name']: deepcopy(row) for row in evaluation['parameters']['original_objects'].values()}
-    if evaluation['module'] != 'core.esi_converters.action_order':
+    if evaluation['module'] != 'wia.authoring.converters.action_order':
         raise ValueError('The main-authored round contains only Action Order and Stacking tasks.')
     source = json.loads(resolve_source(task['source']['json']).read_text())
     metadata = source['metadata_json']

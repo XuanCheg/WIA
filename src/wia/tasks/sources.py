@@ -20,17 +20,3 @@ def resolve_source(identity, *, data_root=None):
         if candidate.is_file():
             return candidate
     raise ValueError('Source must be an existing JSON inside the selected data root.')
-
-
-def relocated_source(path):
-    """Resolve a historical upstream path only when its authored bytes moved locally.
-
-    Callers still verify the recorded hash. Existing files and unrelated missing
-    paths retain their original meaning; raw capture records are never rewritten.
-    """
-    path = Path(path).expanduser().resolve()
-    if not path.is_file() and path.is_relative_to(UPSTREAM_ROOT):
-        target = (AUTHORED_ROOT / path.relative_to(UPSTREAM_ROOT)).resolve()
-        if target.is_relative_to(AUTHORED_ROOT) and target.is_file():
-            return target
-    return path

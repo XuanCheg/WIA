@@ -24,7 +24,7 @@ import numpy as np
 from wia.authoring.conversion import ConverterBase, map_records, original_scene, physical_task
 from wia.authoring.io import sha256, write_json
 
-MODULE = 'core.esi_converters.spatial_relations_linear_alignment'
+MODULE = 'wia.authoring.converters.spatial_relations_linear_alignment'
 OBJECTS = ('alignment_1', 'alignment_2', 'alignment_3')
 OPERATIONS = ('opposite_flank_survey_return', 'endpoint_survey_return', 'parallax_arc_survey_return')
 ARRANGEMENT_OPERATION = 'arrange_released_collinear_objects'

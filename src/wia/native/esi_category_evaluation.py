@@ -1,6 +1,6 @@
 """Private native stack terminal evidence; never supplied to the Agent.
 
-Run through scripts/run_esi_robot.py --task-file a qualified category task.
+Run through src/wia/runtime/commands/run_esi_robot.py --task-file a qualified category task.
 Contact, release and consecutive physics-step stability are measured separately
 from original ESI QA. No object pose is changed by this evaluator.
 """

@@ -16,7 +16,7 @@ import numpy as np
 
 from wia.authoring.converters import hidden_object_collection as collection
 
-MODULE = 'core.esi_converters.wia_room_collection'
+MODULE = 'wia.authoring.converters.wia_room_collection'
 REVISION = 'wia_room_collection_v1'
 ORDERED_OPERATION = 'visit_rooms_and_collect_on_right_hand_tray'
 SEARCH_OPERATION = 'search_and_collect_on_right_hand_tray'
@@ -142,7 +142,7 @@ def configure_scene(config, parameters):
         raise ValueError('Added collection apparatus must not overwrite existing objects.')
     objects.extend(authored)
     import yaml
-    from core.sim.esi_omnigibson import _import_pipeline
+    from wia.runtime.sim.esi_omnigibson import _import_pipeline
     pipeline = _import_pipeline(ESI_ROOT)
     robot = yaml.safe_load((Path(pipeline.og.example_config_path) / 'r1_primitives.yaml').read_text())['robots'][0]
     robot.update(deepcopy(layout['robot_start']), name='robot', grasping_mode='assisted', disable_grasp_handling=False)
@@ -373,7 +373,7 @@ def initialize_scene(session, parameters):
         raise RuntimeError('Collection setup is restricted to explicit initialization.')
     preview_only = parameters.get('unqualified_tray_preview') is True
     rows = validate_layout(parameters['layout'], parameters['operation'])
-    relocations, alignments = [], []
+    relocations, alignments, edge_placements = [], [], []
     added_names = {row['name'] for row in parameters['layout'].get('added_inventory', [])}
     for row in rows:
         obj = _object(session, row)
@@ -391,8 +391,17 @@ def initialize_scene(session, parameters):
         support = session.env.scene.object_registry('name', row['support'])
         if support is None:
             raise ValueError('Declared collection support is missing: ' + row['support'])
-        if row['name'] not in added_names and not row.get('relocation'):
+        if row['name'] not in added_names and not row.get('relocation') and not getattr(session, '_release_edge_policy', False):
             continue
+        if row.get('pickup_edge_margin_m') is not None:
+            from wia.tasks.pickup_edges import place_pickup_near_edge
+            edge_placements.append(place_pickup_near_edge(session, obj, support, row['pickup_edge_margin_m'], row['room'], row.get('pickup_approach_xy_m')))
+            if not hasattr(session, 'pickup_edge_placements'):
+                session.pickup_edge_placements = []
+            session.pickup_edge_placements.append(dict(edge_placements[-1], status='placed'))
+        elif getattr(session, '_release_edge_policy', False):
+            from wia.tasks.pickup_edges import apply_edge_policy
+            edge_placements.extend(apply_edge_policy(session, [obj], supports={obj.name: support.name}))
         mode = row.get('support_alignment_mode', row.get('support_surface_mode', 'aabb_top'))
         surface = _support_surface(obj, support, mode, 'initial_alignment')
         position, quaternion = (collection.array(value) for value in obj.get_position_orientation())
@@ -400,7 +409,7 @@ def initialize_scene(session, parameters):
         obj.set_position_orientation(position=position.tolist(), orientation=quaternion.tolist())
         obj.keep_still()
         alignments.append({'target': obj.name, 'support': support.name, 'mode': mode})
-    from core.sim.esi_collection_setup import initialize_collection_tray
+    from wia.runtime.sim.esi_collection_setup import initialize_collection_tray
     try:
         receipt = initialize_collection_tray(session, parameters)
     except ValueError as error:
@@ -449,6 +458,7 @@ def initialize_scene(session, parameters):
                     and not preview_only)
     result = {**receipt, 'accepted': accepted, 'inventory': inventory, 'explicit_relocations': relocations,
               'inventory_supports': supports, 'support_alignments': alignments,
+              'pickup_edge_placements': edge_placements,
               'robot_initialization': robot_initialization,
               'native_inventory_spawned': False, 'complete_collection_verified': False,
               'native_layout_qualified': False}

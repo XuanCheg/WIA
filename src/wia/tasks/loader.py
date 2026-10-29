@@ -1,4 +1,4 @@
-"""Discover and resolve tasks. Run scripts/run_esi_explore_episode.py --task-file FILE."""
+"""Discover and resolve tasks. Run src/wia/runtime/commands/run_esi_explore_episode.py --task-file FILE."""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -14,7 +14,7 @@ from .schema import CategoryTaskDefinition, RigidContainmentTaskDefinition, Scen
 from .sources import resolve_source
 
 from wia.resources import ROOT, ESI_ROOT
-TASK_ROOT = ROOT / "explore_to_achieve/tasks"
+TASK_ROOT = ROOT / "explore_to_achieve/wia_v1/release/tasks"
 SCENE_ROOT = ROOT / "explore_to_achieve/scenes"
 DATA_ROOT = ESI_ROOT / 'dataset/json_clean'
 
@@ -96,6 +96,10 @@ class LoadedTask:
     run_mode: str = field(default="benchmark", kw_only=True)
 
     @property
+    def release_v1(self):
+        return is_release_v1(self.path)
+
+    @property
     def task_text(self):
         return self.definition.public.task_text()
 
@@ -143,12 +147,23 @@ def source_scene_room(relative_path, raw):
     return tuple(resolved)
 
 
+def is_release_v1(path):
+    """Identify a frozen v1 definition by explicit catalogue membership, without physics."""
+    path = Path(path).resolve()
+    release = ROOT / 'explore_to_achieve/wia_v1/release'
+    if not path.is_relative_to(release):
+        return False
+    catalogue = json.loads((release / 'catalogue.json').read_text())
+    return any(path == (ROOT / row[key]).resolve() for row in catalogue['tasks']
+               for key in ('task_file', 'scene_file'))
+
+
 def load_task(selection, *, task_root=TASK_ROOT, data_root=None, variant=None, seed=None, run_mode="benchmark"):
     if run_mode not in ("benchmark", "diagnostic"):
         raise ValueError("Unknown execution mode.")
     path = select_task(str(selection), task_root=task_root)
     definition = task_definition(yaml.load(path.read_text(encoding="utf-8"), Loader=UniqueLoader))
-    if isinstance(definition, CategoryTaskDefinition) and definition.status != 'ready' and run_mode != 'diagnostic':
+    if isinstance(definition, CategoryTaskDefinition) and definition.status != 'ready' and run_mode != 'diagnostic' and not is_release_v1(path):
         raise ValueError('Category task is pending/discarded; native execution requires qualification and review.')
     if isinstance(definition, RigidContainmentTaskDefinition):
         return load_rigid_task(path, definition, data_root=data_root, variant=variant, seed=seed, run_mode=run_mode)
@@ -180,6 +195,10 @@ class LoadedScene:
     run_mode: str = field(default="benchmark", kw_only=True)
 
     @property
+    def release_v1(self):
+        return is_release_v1(self.path)
+
+    @property
     def task_text(self):
         """Expose the original question alone; source answers remain private."""
         question = json.loads(self.source_path.read_text()).get("question")
@@ -205,9 +224,9 @@ def load_scene(selection, *, data_root=None, variant="tabletop", seed=None, run_
         raise ValueError("Unknown execution mode.")
     path = Path(selection).expanduser().resolve()
     value = yaml.load(path.read_text(), Loader=UniqueLoader)
-    if value.get("status") == "pending" and run_mode != "diagnostic":
+    if value.get("status") == "pending" and run_mode != "diagnostic" and not is_release_v1(path):
         raise ValueError("Scene is pending and must be skipped until conversion is approved: " + str(path))
-    if value.get("status") == "discarded" and run_mode != "diagnostic":
+    if value.get("status") == "discarded" and run_mode != "diagnostic" and not is_release_v1(path):
         raise ValueError("Scene is discarded and cannot run: " + str(path))
     definition = SceneDefinition.model_validate(value)
     if variant not in definition.scene.variants:
@@ -259,6 +278,10 @@ class LoadedRigidTask(LoadedTask):
             "Before DONE, complete every object subtask or report why further progress is impossible. "
             "In the final world_observation, give a container answer, confidence and observed placement outcome "
             "for each object. Report failures honestly."]}
+
+    @property
+    def release_v1(self):
+        return is_release_v1(self.path)
 
     @property
     def task_text(self):

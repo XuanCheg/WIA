@@ -109,7 +109,7 @@ def build_definitions(parent_task, parent_scene, entry, provenance):
         patches.append({'operation': 'category_initialization', 'phase': phase,
                         'module': MODULE, 'parameters': deepcopy(parameters)})
         patches.append({'operation': 'category_initialization', 'phase': phase,
-                        'module': 'core.esi_converters.wia_background', 'parameters': deepcopy(background)})
+                        'module': 'wia.authoring.converters.wia_background', 'parameters': deepcopy(background)})
     task['scene'] = {'policy': 'native_then_minimal_patch_else_skip',
                      'variants': {'original': {'patches': []}, 'adapted': {'patches': patches}}}
     task.update(id=parent_task['id'] + '__' + entry['variant_id'], version=parent_task['version'] + 1,

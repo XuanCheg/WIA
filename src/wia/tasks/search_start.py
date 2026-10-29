@@ -90,7 +90,7 @@ def _context(session, original_world):
         raise ValueError('Actual loaded Search task provenance is unavailable.')
     task.verify_unchanged()
     evaluation = task.definition.private.evaluation
-    if (module_identity(evaluation.module) != 'core.esi_converters.enumerative_perception_search'
+    if (module_identity(evaluation.module) != 'wia.authoring.converters.enumerative_perception_search'
             or digest(evaluation.parameters['world_contract']) != digest(original_world)
             or session.scene_name != original_world['scene_model']
             or session.env.scene.scene_model != original_world['scene_model']):

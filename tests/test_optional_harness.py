@@ -32,3 +32,18 @@ def test_actionable_missing_harness_error(monkeypatch):
     import pytest
     with pytest.raises(RuntimeError, match="editable checkout"):
         module.ShowHarnessExecutor().execute({})
+
+
+def test_installed_dataset_entry_point_dispatches_one_episode(monkeypatch):
+    import pytest
+    pytest.importorskip('showharness')
+    from showharness.datasets import evaluate_dataset
+    import wia.integrations.show_harness as integration
+    calls = []
+    def execute(plan):
+        calls.append(plan)
+        return {'task_success': None, 'model_calls': 0}
+    monkeypatch.setattr(integration, 'execute_plan', execute)
+    plan = {'dataset_owned': True}
+    assert evaluate_dataset('wia', plan) == {'task_success': None, 'model_calls': 0}
+    assert calls == [plan]

@@ -15,7 +15,7 @@ from pathlib import Path
 from wia.authoring.conversion import original_scene, physical_task
 from wia.authoring.io import digest, sha256, write_json
 
-MODULE = 'core.esi_converters.enumerative_perception_search'
+MODULE = 'wia.authoring.converters.enumerative_perception_search'
 REVISION = 'task_edit2_search_20261018_v3'
 RUNTIME_REVISIONS = ('task_edit2_search_20261018_v2', REVISION)
 START_INITIALIZATION = 'initialize_task_edit2_search_start_v1'

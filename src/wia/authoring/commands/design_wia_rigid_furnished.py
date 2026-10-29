@@ -84,7 +84,7 @@ def main():
         patches=[]
         for phase in ['before_construction','after_postprocessing']:
             for module,p in [('active_layout',parameters),('wia_background',ground)]:
-                patches.append({'operation':'category_initialization','phase':phase,'module':'core.esi_converters.'+module,'parameters':deepcopy(p)})
+                patches.append({'operation':'category_initialization','phase':phase,'module':'wia.authoring.converters.'+module,'parameters':deepcopy(p)})
         task['scene']={'policy':'native_then_minimal_patch_else_skip','variants':{'original':{'patches':[]},'tabletop':{'patches':patches}}}
         task['source']={'provider':'esi','json':identity}
         task.update(id=task['id']+'__'+variant,version=task['version']+1,status='pending')

@@ -19,7 +19,7 @@ from wia.tasks.background_policy import legal_background_contact
 from wia.authoring.io import write_json
 
 
-MODULE = 'core.esi_converters.enumerative_perception_counting_w_occlusion'
+MODULE = 'wia.authoring.converters.enumerative_perception_counting_w_occlusion'
 OPERATIONS = ('occluder_side_patrol', 'occluder_side_patrol_return')
 PARAMETERS = {'minimum_standoff_m': 0.55, 'maximum_standoff_m': 1.25,
     'target_side_margin_m': 0.20, 'chassis_anchor_clearance_m': 0.05,

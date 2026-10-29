@@ -25,7 +25,7 @@ from wia.tasks.background_policy import legal_background_contact
 from wia.authoring.io import sha256, write_json
 from wia.tasks.interaction_setup import reference_position, touching_task_support, on_top_task_support
 
-MODULE = 'core.esi_converters.enumerative_perception_category_ambiguity'
+MODULE = 'wia.authoring.converters.enumerative_perception_category_ambiguity'
 QUESTION = re.compile(r'Considering both images, how many objects of category "([^"\n]+)" '
                       r'are present in this scene\?')
 OPERATIONS = ('inventory_return', 'selective_lift')

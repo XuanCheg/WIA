@@ -1,0 +1,424 @@
+kind: category_robot_task
+id: task_ba68b4fd5a239222565074ef__t20_furnished_existing_v1
+version: 3
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/Beechwood_0_garden/kitchen_0/wia_furnished_background_v1.json
+public:
+  objective: 'Retrieve the items from exposed room furniture. Build one stable three-object
+    tower using the can of tomatoes, mixing bowl, tomato sauce jar. Choose a bottom object
+    on the starting support surface. Grasp and lift each of the other two objects at least
+    5 cm, place one on the bottom and the last on the middle, lower into support contact before
+    opening the gripper, then withdraw and leave the tower untouched for at least one second.
+    You may test another order by physically unstacking and rebuilding. Original auxiliary
+    question: How should you stack can_of_tomatoes, mixing_bowl, tomato_sauce_jar to maximize
+    stability?'
+  success_criteria: All three objects are upright and form a supported tower in any stable
+    order. The bottom touches the starting support surface; each upper touches and rests on
+    its predecessor, with no other support. Both upper objects have real grasp, lift and release
+    evidence. All robot hands are detached and withdrawn; the tower stays still for one continuous
+    second. The original answer is scored separately as auxiliary QA.
+  environment: A furnished kitchen with the task items openly dispersed on exposed native
+    furniture surfaces. The items are not deliberately hidden.
+  constraints:
+  - Use only existing guarded base, arm, trunk, wrist and gripper controls.
+  - Keep task object sizes and task supports unchanged. Noncritical native movable furniture
+    may be moved using guarded arm and gripper actions.
+  - Use real pick-and-place; legacy mock grasp and kinematic placement are excluded.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    object_0:
+      name: stack_obj0
+      category: can_of_tomatoes
+      model: ckdouu
+    object_1:
+      name: stack_obj1
+      category: mixing_bowl
+      model: xifive
+    object_2:
+      name: stack_obj2
+      category: tomato_sauce_jar
+      model: krfzqk
+    floor:
+      name: floors_yrwwan_0
+  evaluation:
+    type: category_operation
+    module: wia.authoring.converters.physical_dynamics_stacking_stability
+    operation: build_released_three_object_stack
+    binding_keys:
+    - object_0
+    - object_1
+    - object_2
+    - floor
+    parameters:
+      original_objects:
+        object_0:
+          name: stack_obj0
+          category: can_of_tomatoes
+          model: ckdouu
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          position:
+          - -5.244593620300293
+          - -13.987441062927246
+          - 0.05598088726401329
+          quaternion_xyzw:
+          - 5.137114555964217e-08
+          - -9.715665783005534e-08
+          - 1.0430748886847141e-07
+          - 1.0000001192092896
+          aabb_min:
+          - -5.287013053894043
+          - -14.029858589172363
+          - -2.1539628505706787e-05
+          aabb_max:
+          - -5.202178955078125
+          - -13.945024490356445
+          - 0.11824704706668854
+        object_1:
+          name: stack_obj1
+          category: mixing_bowl
+          model: xifive
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          position:
+          - -4.975824356079102
+          - -13.987449645996094
+          - 0.05870718136429787
+          quaternion_xyzw:
+          - 6.904522888362408e-05
+          - -1.978622458409518e-05
+          - -9.904761100187898e-07
+          - 1.0000001192092896
+          aabb_min:
+          - -5.127016544342041
+          - -14.116927146911621
+          - -1.0050833225250244e-05
+          aabb_max:
+          - -4.834301471710205
+          - -13.857978820800781
+          - 0.14234575629234314
+        object_2:
+          name: stack_obj2
+          category: tomato_sauce_jar
+          model: krfzqk
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          position:
+          - -4.676246643066406
+          - -13.987439155578613
+          - 0.08938486129045486
+          quaternion_xyzw:
+          - -9.504146873950958e-07
+          - 1.6897101886570454e-06
+          - -9.061390301212668e-06
+          - 1.0000001192092896
+          aabb_min:
+          - -4.7633490562438965
+          - -14.052421569824219
+          - -1.8946826457977295e-05
+          aabb_max:
+          - -4.60723876953125
+          - -13.922467231750488
+          - 0.20525935292243958
+      legacy_accepted_category_orders:
+      - - can_of_tomatoes
+        - tomato_sauce_jar
+        - mixing_bowl
+      - - mixing_bowl
+        - tomato_sauce_jar
+        - can_of_tomatoes
+      task_revision: task_edit_20261018_v1
+      mechanism_contract:
+        preserve:
+        - original_objects
+        - asset_scales
+        - native_grasp_release_history
+        goal: released_tower_after_robot_withdrawal
+        stability_seconds: 1.0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.wia_furnished_layout
+        parameters:
+          revision: wia_furnished_layout_v1
+          scene_contract:
+            scene_model: Beechwood_0_garden
+            room: kitchen_0
+          layout:
+            shared_layout_id: wia_furnished_existing_T20
+            scene_model: Beechwood_0_garden
+            rooms:
+            - kitchen_0
+            floor_name: floors_yrwwan_0
+            objects:
+            - type: DatasetObject
+              name: stack_obj0
+              category: can_of_tomatoes
+              model: ckdouu
+              position:
+              - -1.15
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - 5.137114555964217e-08
+              - -9.715665783005534e-08
+              - 1.0430748886847141e-07
+              - 1.0000001192092896
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj1
+              category: mixing_bowl
+              model: xifive
+              position:
+              - -3.73
+              - 14.0
+              - 1.1696108667276748
+              orientation:
+              - 6.904522888362408e-05
+              - -1.978622458409518e-05
+              - -9.904761100187898e-07
+              - 1.0000001192092896
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj2
+              category: tomato_sauce_jar
+              model: krfzqk
+              position:
+              - -2.5
+              - 11.96
+              - 1.1696108667276748
+              orientation:
+              - -9.504146873950958e-07
+              - 1.6897101886570454e-06
+              - -9.061390301212668e-06
+              - 1.0000001192092896
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: stack_obj0
+              support: countertop_tpuwys_0
+            - name: stack_obj1
+              support: countertop_tpuwys_1
+            - name: stack_obj2
+              support: countertop_tpuwys_2
+            robot_start:
+              position:
+              - -1.6
+              - 14.98
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.7071067811865475
+              - 0.7071067811865476
+          source_reference_positions:
+            stack_obj0:
+            - -5.244593620300293
+            - -13.987441062927246
+            - 0.05598088726401329
+            stack_obj1:
+            - -4.975824356079102
+            - -13.987449645996094
+            - 0.05870718136429787
+            stack_obj2:
+            - -4.676246643066406
+            - -13.987439155578613
+            - 0.08938486129045486
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Beechwood_0_garden
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.wia_furnished_layout
+        parameters:
+          revision: wia_furnished_layout_v1
+          scene_contract:
+            scene_model: Beechwood_0_garden
+            room: kitchen_0
+          layout:
+            shared_layout_id: wia_furnished_existing_T20
+            scene_model: Beechwood_0_garden
+            rooms:
+            - kitchen_0
+            floor_name: floors_yrwwan_0
+            objects:
+            - type: DatasetObject
+              name: stack_obj0
+              category: can_of_tomatoes
+              model: ckdouu
+              position:
+              - -1.15
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - 5.137114555964217e-08
+              - -9.715665783005534e-08
+              - 1.0430748886847141e-07
+              - 1.0000001192092896
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj1
+              category: mixing_bowl
+              model: xifive
+              position:
+              - -3.73
+              - 14.0
+              - 1.1696108667276748
+              orientation:
+              - 6.904522888362408e-05
+              - -1.978622458409518e-05
+              - -9.904761100187898e-07
+              - 1.0000001192092896
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj2
+              category: tomato_sauce_jar
+              model: krfzqk
+              position:
+              - -2.5
+              - 11.96
+              - 1.1696108667276748
+              orientation:
+              - -9.504146873950958e-07
+              - 1.6897101886570454e-06
+              - -9.061390301212668e-06
+              - 1.0000001192092896
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: stack_obj0
+              support: countertop_tpuwys_0
+            - name: stack_obj1
+              support: countertop_tpuwys_1
+            - name: stack_obj2
+              support: countertop_tpuwys_2
+            robot_start:
+              position:
+              - -1.6
+              - 14.98
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.7071067811865475
+              - 0.7071067811865476
+          source_reference_positions:
+            stack_obj0:
+            - -5.244593620300293
+            - -13.987441062927246
+            - 0.05598088726401329
+            stack_obj1:
+            - -4.975824356079102
+            - -13.987449645996094
+            - 0.05870718136429787
+            stack_obj2:
+            - -4.676246643066406
+            - -13.987439155578613
+            - 0.08938486129045486
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Beechwood_0_garden
+          disable_grid: false
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  design_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/existing_design_v1.json
+  design_sha256: 1d5f50a50fb791322484d3586dbb52573f88908330db9aaa9c00eb450acca8df
+  parent_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical
+    Dynamics/Stacking & Stability/office_cubicles_right/lobby_0/corev2__category_32485510e87a6ad8f32178d7.yaml
+  parent_task_sha256: 4d2617ea432e6a7f57bb7e7ac843ef691461dcc7a132ebb818a65be0b06fd10d
+  parent_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical
+    Dynamics/Stacking & Stability/office_cubicles_right/lobby_0/corev2__category_32485510e87a6ad8f32178d7.yaml
+  parent_scene_sha256: f19849bdf74a4c86acc23019abf03010e2fa83efa6473dcd06d79dcd39ed4ad7
+  source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Specular
+    Reflection/Correspondence/Beechwood_0_garden/kitchen_0/wia_furnished_background_v1.json
+  source_sha256: 7b678c6e7d95d98df3657e4235c2682f4ce88590aeb458987e691e42aa4877c4
+  source_role: Native background and provenance only; immutable parent task contract retained.
+  contract_revision: wia_furnished_layout_v1
+  document_alias: T20
+  variant_id: t20_furnished_existing_v1
+  label: T20 open-furniture retrieval with retained parent goal
+  scene_contract:
+    scene_model: Beechwood_0_garden
+    room: kitchen_0
+  runtime:
+    reflection_sensor_profile: {}
+    requires_native_visual_discovery: false
+    post_controller_settle_steps: 0
+    trunk_config: configs/esi_trunk.json
+    robot_camera_config: configs/esi_robot_cameras.json
+    viewer_config: configs/esi_viewer.json
+    camera_size:
+    - 512
+    - 512
+    viewer_main_view: global_diagonal
+    debug_cameras: true
+    human_depth_visualizations: true
+    preview_fps: 2.0
+  native_validation_run: false
+  physical_success_verified: false
+  full_reference_execution: deferred_until_user_review
+  parent_evaluator_parameters_preserved: true
+  parent_seed_and_budget_preserved: true

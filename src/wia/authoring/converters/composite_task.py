@@ -1,6 +1,6 @@
 """Measure multiple original native goals in one unchanged scene.
 
-Run through scripts/run_esi_agent.py with a composed category task. CPU checks:
+Run through src/wia/runtime/commands/run_esi_agent.py with a composed category task. CPU checks:
 python -m pytest -q tests/test_composite_task.py
 Original reducers remain private. Completion is latched at an observed action
 boundary, before a later return or another goal changes its terminal position.
@@ -18,7 +18,7 @@ from pathlib import Path
 
 from wia.authoring.io import read_json, write_json
 
-MODULE = 'core.esi_converters.composite_task'
+MODULE = 'wia.authoring.converters.composite_task'
 
 
 def member_config(session, member):
@@ -72,7 +72,7 @@ class CompositeEvaluator:
         if self.questions is None:
             self.questions = mapping_questions(self.members) if all(
                 module_identity(member['evaluation'].get('module', '')).startswith(
-                    'core.esi_converters.cognitive_mapping_') for member in self.members) else []
+                    'wia.authoring.converters.cognitive_mapping_') for member in self.members) else []
         self.answer_sheet = bool(self.questions or config['parameters'].get('answer_sheet'))
         self.responses, self.response_errors = {}, []
         self.episode = 0
@@ -249,7 +249,7 @@ class CompositeEvaluator:
                         'parameters': parameters, 'bindings': member.get('bindings', {}),
                         'item': item['id']}, sort_keys=True)
                     if (self.answer_sheet and module_identity(config['module']) ==
-                            'core.esi_converters.cognitive_mapping_connectivity'
+                            'wia.authoring.converters.cognitive_mapping_connectivity'
                             and (parameters.get('mapping_composition_contract') or {}).get(
                                 'compatibility_verified') is True):
                         # These are the actual inputs read by Connectivity's

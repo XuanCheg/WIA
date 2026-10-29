@@ -139,7 +139,7 @@ def keepalive(session, controller, output, argv):
                     from wia.tasks.schema import SceneDefinition
                     import yaml
 
-                    cameras = importlib.reload(importlib.import_module("scripts.capture_esi_scene_reviews"))
+                    cameras = importlib.reload(importlib.import_module("wia.runtime.commands.capture_esi_scene_reviews"))
                     definition = SceneDefinition.model_validate(yaml.safe_load(candidate.read_text()))
                     placement = replace(selected, definition=definition, path=candidate,
                         file_sha256=sha256(candidate))

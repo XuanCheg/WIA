@@ -21,7 +21,7 @@ QUESTION = re.compile(
     r'Which (?P<task>.+?) is larger: the one near the (?P<ref1>.+?), '
     r'or the one near the (?P<ref2>.+?)\?', re.IGNORECASE)
 MINIMUM_LIFT_M = 0.05
-MODULE = 'core.esi_converters.dimensional_size'
+MODULE = 'wia.authoring.converters.dimensional_size'
 PLACEMENT_OPERATION = 'compare_select_transport_place'
 TASK_REVISION = 'task_edit_20261018_v1'
 

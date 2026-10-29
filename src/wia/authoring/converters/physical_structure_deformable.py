@@ -24,7 +24,7 @@ import numpy as np
 from wia.authoring.conversion import ConverterBase, original_scene, physical_task
 from wia.authoring.io import sha256
 
-MODULE = 'core.esi_converters.physical_structure_deformable'
+MODULE = 'wia.authoring.converters.physical_structure_deformable'
 TASK_REVISION = 'task_edit_20261018_v1'
 MECHANISM_CONTRACT = {'preserve': ['native_cloth_mesh', 'cloth_scale', 'covered_item_identity', 'initial_cover_relation'], 'goal': 'native_cloth_sweep_reveal_then_retrieve', 'rigid_proxy_allowed': False}
 OPERATION = 'sweep_cloth_retrieve_item'

@@ -1,0 +1,5 @@
+Execution status describes the controller outcome, not task success. A completed GRASP command does not prove the requested object is held. Finger width, individual finger joint positions, motor endpoint states and closure fraction measure finger geometry; they do not directly prove acquisition of the target.
+
+`gripper_closure_fraction` ranges from zero at the calibrated open endpoint to one at the calibrated closed endpoint. It is not a holding probability. Neither full closure nor a nonzero opening certifies holding the requested object. Interpret holding estimates and contact information only according to their stated measurement sources.
+
+`target_reached` refers to the controller target, not the overall task objective. For GRASP and RELEASE it refers to the finger motor target. A timeout does not necessarily establish that motion stopped. Examine available stop and recovery status before assuming a failed command can safely be repeated. The supplied backend `feedback_semantics` remain authoritative detailed measurement definitions.

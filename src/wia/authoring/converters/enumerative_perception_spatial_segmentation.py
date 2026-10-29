@@ -21,7 +21,7 @@ from wia.authoring.conversion import ConverterBase, map_records, original_scene,
 from wia.tasks.background_policy import legal_background_contact
 from wia.authoring.io import write_json
 
-MODULE = 'core.esi_converters.enumerative_perception_spatial_segmentation'
+MODULE = 'wia.authoring.converters.enumerative_perception_spatial_segmentation'
 OPERATIONS = ('segmented_access_patrol_return', 'segmented_two_approach_patrol_return')
 PARAMETERS = {
     'minimum_standoff_m': 0.55, 'maximum_standoff_m': 1.25,

@@ -1,0 +1,907 @@
+kind: scene_patch
+id: category_daf9bb38dbe35eb9cb1762d5__t08_furnished_collection_v6
+version: 3
+status: pending
+source:
+  provider: esi
+  json: Cognitive Mapping/Long-Term Navigation/office_cubicles_left/full_scene/t08_furnished_collection_v6.json
+target: null
+qualification: null
+bindings:
+  wia_t08_target_01:
+    name: wia_t08_target_01
+    category: bottle_of_lavender_oil
+    model: csalbx
+  wia_t08_target_02:
+    name: wia_t08_target_02
+    category: bottle_of_orange_juice
+    model: edltwh
+  wia_t08_target_03:
+    name: wia_t08_target_03
+    category: cola_bottle
+    model: oyqdtz
+  wia_t08_target_04:
+    name: wia_t08_target_04
+    category: banana
+    model: znakxm
+  collection_plate:
+    name: collection_plate
+    category: tray
+    model: gsxbym
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.wia_room_collection
+        parameters:
+          revision: wia_room_collection_v1
+          operation: visit_rooms_and_collect_on_right_hand_tray
+          layout:
+            scene_model: office_cubicles_left
+            native_inventory: []
+            added_inventory:
+            - name: wia_t08_target_01
+              category: bottle_of_lavender_oil
+              model: csalbx
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: bathroom_0
+              public_name: lavender oil bottle
+              support: wia_t08_bathroom_side_table
+              position:
+              - -23.0
+              - -12.0
+              - 1.01
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t08_target_02
+              category: bottle_of_orange_juice
+              model: edltwh
+              scale:
+              - 0.7
+              - 0.7
+              - 0.7
+              role: target
+              room: shared_office_0
+              public_name: miniature orange juice bottle
+              support: cubicle_hzalfx_12
+              position:
+              - -18.4
+              - -10.15
+              - 0.9617605547287191
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: wia_t08_target_03
+              category: cola_bottle
+              model: oyqdtz
+              scale:
+              - 0.65
+              - 0.65
+              - 0.65
+              role: target
+              room: corridor_0
+              public_name: miniature cola bottle
+              support: wia_t08_corridor_open_shelf
+              position:
+              - -11.0
+              - 9.6
+              - 1.01
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t08_target_04
+              category: banana
+              model: znakxm
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: conference_hall_0
+              public_name: banana
+              support: wia_t08_conference_side_table
+              position:
+              - -1.0
+              - 12.0
+              - 1.01
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            support_objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_corridor_open_shelf
+              category: shelf
+              position:
+              - -11.0
+              - 9.6
+              - 0.74
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.45
+              - 0.28
+              - 0.04
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_conference_side_table
+              category: coffee_table
+              position:
+              - -1.0
+              - 12.0
+              - 0.74
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.7
+              - 0.5
+              - 0.04
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_side_table_leg_0
+              category: coffee_table
+              position:
+              - -1.31
+              - 11.79
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_side_table_leg_1
+              category: coffee_table
+              position:
+              - -1.31
+              - 12.21
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_side_table_leg_2
+              category: coffee_table
+              position:
+              - -0.69
+              - 11.79
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_side_table_leg_3
+              category: coffee_table
+              position:
+              - -0.69
+              - 12.21
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_bathroom_side_table
+              category: coffee_table
+              position:
+              - -23.0
+              - -12.0
+              - 0.74
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.5
+              - 0.4
+              - 0.04
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_bathroom_side_table_leg_0
+              category: coffee_table
+              position:
+              - -23.21
+              - -12.16
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_bathroom_side_table_leg_1
+              category: coffee_table
+              position:
+              - -23.21
+              - -11.84
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_bathroom_side_table_leg_2
+              category: coffee_table
+              position:
+              - -22.79
+              - -12.16
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_bathroom_side_table_leg_3
+              category: coffee_table
+              position:
+              - -22.79
+              - -11.84
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            route:
+            - bathroom_0
+            - shared_office_0
+            - corridor_0
+            - conference_hall_0
+            plate:
+              name: collection_plate
+              category: tray
+              model: gsxbym
+              right_eef_position_base_m:
+              - 0.4
+              - -0.25
+              - 0.8
+              rim_axis: y
+              rim_penetration_m: 0.025
+              usable_bounds_local_m:
+              - - -0.147
+                - -0.21
+                - -0.0049
+              - - 0.147
+                - 0.21
+                - 0.17
+            robot_start:
+              position:
+              - -23.5
+              - -11.0
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            source_objects_policy: replace_authored_source_objects
+            scene_config:
+              load_room_instances: null
+              load_room_types: null
+              load_object_categories: null
+              not_load_object_categories: null
+            public_environment: Original furnished rooms and doors, with objects on openly exposed supporting
+              surfaces.
+            allow_authored_navigation_inventory: true
+          plate:
+            name: collection_plate
+            category: tray
+            model: gsxbym
+            right_eef_position_base_m:
+            - 0.4
+            - -0.25
+            - 0.8
+            rim_axis: y
+            rim_penetration_m: 0.025
+            usable_bounds_local_m:
+            - - -0.147
+              - -0.21
+              - -0.0049
+            - - 0.147
+              - 0.21
+              - 0.17
+          targets:
+          - wia_t08_target_01
+          - wia_t08_target_02
+          - wia_t08_target_03
+          - wia_t08_target_04
+          distractors: []
+          terminal_dwell_s: 1.0
+          maximum_relative_speed_m_s: 0.03
+          maximum_plate_tilt_deg: 10.0
+          maximum_plate_speed_m_s: 0.03
+          maximum_plate_angular_speed_rad_s: 0.1
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: office_cubicles_left
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.wia_room_collection
+        parameters:
+          revision: wia_room_collection_v1
+          operation: visit_rooms_and_collect_on_right_hand_tray
+          layout:
+            scene_model: office_cubicles_left
+            native_inventory: []
+            added_inventory:
+            - name: wia_t08_target_01
+              category: bottle_of_lavender_oil
+              model: csalbx
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: bathroom_0
+              public_name: lavender oil bottle
+              support: wia_t08_bathroom_side_table
+              position:
+              - -23.0
+              - -12.0
+              - 1.01
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t08_target_02
+              category: bottle_of_orange_juice
+              model: edltwh
+              scale:
+              - 0.7
+              - 0.7
+              - 0.7
+              role: target
+              room: shared_office_0
+              public_name: miniature orange juice bottle
+              support: cubicle_hzalfx_12
+              position:
+              - -18.4
+              - -10.15
+              - 0.9617605547287191
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: wia_t08_target_03
+              category: cola_bottle
+              model: oyqdtz
+              scale:
+              - 0.65
+              - 0.65
+              - 0.65
+              role: target
+              room: corridor_0
+              public_name: miniature cola bottle
+              support: wia_t08_corridor_open_shelf
+              position:
+              - -11.0
+              - 9.6
+              - 1.01
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            - name: wia_t08_target_04
+              category: banana
+              model: znakxm
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              role: target
+              room: conference_hall_0
+              public_name: banana
+              support: wia_t08_conference_side_table
+              position:
+              - -1.0
+              - 12.0
+              - 1.01
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            support_objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_corridor_open_shelf
+              category: shelf
+              position:
+              - -11.0
+              - 9.6
+              - 0.74
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.45
+              - 0.28
+              - 0.04
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_conference_side_table
+              category: coffee_table
+              position:
+              - -1.0
+              - 12.0
+              - 0.74
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.7
+              - 0.5
+              - 0.04
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_side_table_leg_0
+              category: coffee_table
+              position:
+              - -1.31
+              - 11.79
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_side_table_leg_1
+              category: coffee_table
+              position:
+              - -1.31
+              - 12.21
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_side_table_leg_2
+              category: coffee_table
+              position:
+              - -0.69
+              - 11.79
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_side_table_leg_3
+              category: coffee_table
+              position:
+              - -0.69
+              - 12.21
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_bathroom_side_table
+              category: coffee_table
+              position:
+              - -23.0
+              - -12.0
+              - 0.74
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.5
+              - 0.4
+              - 0.04
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_bathroom_side_table_leg_0
+              category: coffee_table
+              position:
+              - -23.21
+              - -12.16
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_bathroom_side_table_leg_1
+              category: coffee_table
+              position:
+              - -23.21
+              - -11.84
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_bathroom_side_table_leg_2
+              category: coffee_table
+              position:
+              - -22.79
+              - -12.16
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_t08_bathroom_side_table_leg_3
+              category: coffee_table
+              position:
+              - -22.79
+              - -11.84
+              - 0.36
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              scale:
+              - 0.04
+              - 0.04
+              - 0.72
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.48
+              - 0.32
+              - 0.18
+              - 1.0
+            route:
+            - bathroom_0
+            - shared_office_0
+            - corridor_0
+            - conference_hall_0
+            plate:
+              name: collection_plate
+              category: tray
+              model: gsxbym
+              right_eef_position_base_m:
+              - 0.4
+              - -0.25
+              - 0.8
+              rim_axis: y
+              rim_penetration_m: 0.025
+              usable_bounds_local_m:
+              - - -0.147
+                - -0.21
+                - -0.0049
+              - - 0.147
+                - 0.21
+                - 0.17
+            robot_start:
+              position:
+              - -23.5
+              - -11.0
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            source_objects_policy: replace_authored_source_objects
+            scene_config:
+              load_room_instances: null
+              load_room_types: null
+              load_object_categories: null
+              not_load_object_categories: null
+            public_environment: Original furnished rooms and doors, with objects on openly exposed supporting
+              surfaces.
+            allow_authored_navigation_inventory: true
+          plate:
+            name: collection_plate
+            category: tray
+            model: gsxbym
+            right_eef_position_base_m:
+            - 0.4
+            - -0.25
+            - 0.8
+            rim_axis: y
+            rim_penetration_m: 0.025
+            usable_bounds_local_m:
+            - - -0.147
+              - -0.21
+              - -0.0049
+            - - 0.147
+              - 0.21
+              - 0.17
+          targets:
+          - wia_t08_target_01
+          - wia_t08_target_02
+          - wia_t08_target_03
+          - wia_t08_target_04
+          distractors: []
+          terminal_dwell_s: 1.0
+          maximum_relative_speed_m_s: 0.03
+          maximum_plate_tilt_deg: 10.0
+          maximum_plate_speed_m_s: 0.03
+          maximum_plate_angular_speed_rad_s: 0.1
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: office_cubicles_left
+          disable_grid: false
+seed: 0
+target_bindings: []

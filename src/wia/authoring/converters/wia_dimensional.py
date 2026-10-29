@@ -1,6 +1,6 @@
 """Read native geometry for the five WIA dimensional review candidates.
 
-Run generated definitions with scripts/check_esi_core_native.py --evaluate;
+Run generated definitions with src/wia/runtime/commands/check_esi_core_native.py --evaluate;
 CPU protocol checks: python -B -m pytest -q -p no:cacheprovider
 tests/test_wia_dimensional_adapter.py. Initialization remains in active_layout.
 This adapter never constructs scenes, changes physics, steps time or supplies
@@ -25,7 +25,7 @@ from wia.tasks.completion import progress
 from wia.tasks.wia_dimensional_scoring import APERTURE_SCORING_VERSION
 from wia.tasks.interaction_setup import array
 
-MODULE = 'core.esi_converters.wia_dimensional'
+MODULE = 'wia.authoring.converters.wia_dimensional'
 REVISION = 'wia_dimensional_v1'
 REVISIONS = (REVISION, 'wia_dimensional_v2', 'wia_dimensional_v3')
 OPERATIONS = ('select_pass_aperture', 'sort_intrinsic_dimension')

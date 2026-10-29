@@ -1,0 +1,3 @@
+The environment is partially observable. A missing or occluded object is not necessarily absent, and a visible object is not necessarily reachable. Distinguish direct observations, measured robot state, model inferences and unresolved uncertainty. Never invent unavailable sensor readings.
+
+Do not assume measurements from different timestamps describe the same world state. Interpret image coordinates, camera geometry, optical depth and robot coordinate frames according to their declared definitions. Previous observations may become stale when the robot or world moves. The newest authorized sensor snapshot is authoritative for this decision, subject to its capture time and observation policy. Historical observations remain historical evidence in the native session.

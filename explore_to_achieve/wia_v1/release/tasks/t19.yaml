@@ -1,0 +1,427 @@
+kind: category_robot_task
+id: task_39adb8b7c3109d4fb0566a86__t19_furnished_existing_v1
+version: 3
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/Merom_0_garden/playroom_0/wia_furnished_background_v1.json
+public:
+  objective: 'Retrieve the items from exposed room furniture. Build one stable three-object
+    tower using the paperback book, bowl, lunch box. Choose a bottom object on the starting
+    support surface. Grasp and lift each of the other two objects at least 5 cm, place one
+    on the bottom and the last on the middle, lower into support contact before opening the
+    gripper, then withdraw and leave the tower untouched for at least one second. You may
+    test another order by physically unstacking and rebuilding. Original auxiliary question:
+    How should you stack bowl, lunch_box, paperback_book to maximize stability?'
+  success_criteria: All three objects are upright and form a supported tower in any stable
+    order. The bottom touches the starting support surface; each upper touches and rests on
+    its predecessor, with no other support. Both upper objects have real grasp, lift and release
+    evidence. All robot hands are detached and withdrawn; the tower stays still for one continuous
+    second. The original answer is scored separately as auxiliary QA.
+  environment: A furnished playroom with the task items openly dispersed on exposed native
+    furniture surfaces. The items are not deliberately hidden.
+  constraints:
+  - Use only existing guarded base, arm, trunk, wrist and gripper controls.
+  - Keep task object sizes and task supports unchanged. Noncritical native movable furniture
+    may be moved using guarded arm and gripper actions.
+  - Use real pick-and-place; legacy mock grasp and kinematic placement are excluded.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    object_0:
+      name: stack_obj0
+      category: paperback_book
+      model: bisnup
+    object_1:
+      name: stack_obj1
+      category: bowl
+      model: jblalf
+    object_2:
+      name: stack_obj2
+      category: lunch_box
+      model: adxzhe
+    floor:
+      name: floors_jrdgxz_0
+  evaluation:
+    type: category_operation
+    module: wia.authoring.converters.physical_dynamics_stacking_stability
+    operation: build_released_three_object_stack
+    binding_keys:
+    - object_0
+    - object_1
+    - object_2
+    - floor
+    parameters:
+      original_objects:
+        object_0:
+          name: stack_obj0
+          category: paperback_book
+          model: bisnup
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          position:
+          - 23.429912567138672
+          - 17.86972427368164
+          - 0.004752142820507288
+          quaternion_xyzw:
+          - -7.123979184342488e-09
+          - -5.460531724565953e-07
+          - 2.793971942693929e-09
+          - 1.0
+          aabb_min:
+          - 23.277280807495117
+          - 17.760114669799805
+          - -9.59029421210289e-06
+          aabb_max:
+          - 23.58248519897461
+          - 17.979652404785156
+          - 0.007988007739186287
+        object_1:
+          name: stack_obj1
+          category: bowl
+          model: jblalf
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          position:
+          - 23.747222900390625
+          - 17.86978530883789
+          - 0.03912317380309105
+          quaternion_xyzw:
+          - 0.0012749484740197659
+          - 7.833373820176348e-05
+          - -5.168320967641193e-06
+          - 0.9999992847442627
+          aabb_min:
+          - 23.662561416625977
+          - 17.784914016723633
+          - -1.0330229997634888e-05
+          aabb_max:
+          - 23.8320255279541
+          - 17.95459747314453
+          - 0.08069856464862823
+        object_2:
+          name: stack_obj2
+          category: lunch_box
+          model: adxzhe
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+          position:
+          - 24.005146026611328
+          - 17.869884490966797
+          - 0.03587300330400467
+          quaternion_xyzw:
+          - 1.1597876437008381e-08
+          - 1.0129588190466166e-07
+          - 1.3369572116062045e-08
+          - 1.0
+          aabb_min:
+          - 23.91202163696289
+          - 17.746517181396484
+          - -2.2795051336288452e-05
+          aabb_max:
+          - 24.098262786865234
+          - 18.00343132019043
+          - 0.07210513949394226
+      legacy_accepted_category_orders:
+      - - bowl
+        - lunch_box
+        - paperback_book
+      - - lunch_box
+        - bowl
+        - paperback_book
+      task_revision: task_edit_20261018_v1
+      mechanism_contract:
+        preserve:
+        - original_objects
+        - asset_scales
+        - native_grasp_release_history
+        goal: released_tower_after_robot_withdrawal
+        stability_seconds: 1.0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.wia_furnished_layout
+        parameters:
+          revision: wia_furnished_layout_v1
+          scene_contract:
+            scene_model: Merom_0_garden
+            room: playroom_0
+          layout:
+            shared_layout_id: wia_furnished_existing_T19
+            scene_model: Merom_0_garden
+            rooms:
+            - playroom_0
+            floor_name: floors_jrdgxz_0
+            objects:
+            - type: DatasetObject
+              name: stack_obj0
+              category: paperback_book
+              model: bisnup
+              position:
+              - -3.02
+              - -10.61
+              - 1.1024741013978911
+              orientation:
+              - -7.123979184342488e-09
+              - -5.460531724565953e-07
+              - 2.793971942693929e-09
+              - 1.0
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj1
+              category: bowl
+              model: jblalf
+              position:
+              - -5.82
+              - -12.72
+              - 1.1191993950803805
+              orientation:
+              - 0.0012749484740197659
+              - 7.833373820176348e-05
+              - -5.168320967641193e-06
+              - 0.9999992847442627
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj2
+              category: lunch_box
+              model: adxzhe
+              position:
+              - -5.82
+              - -10.6
+              - 1.1191993950803805
+              orientation:
+              - 1.1597876437008381e-08
+              - 1.0129588190466166e-07
+              - 1.3369572116062045e-08
+              - 1.0
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: stack_obj0
+              support: bookcase_owvfik_0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: stack_obj1
+              support: countertop_tpuwys_0
+            - name: stack_obj2
+              support: countertop_tpuwys_0
+            robot_start:
+              position:
+              - -4.8
+              - -11.45
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+          source_reference_positions:
+            stack_obj0:
+            - 23.429912567138672
+            - 17.86972427368164
+            - 0.004752142820507288
+            stack_obj1:
+            - 23.747222900390625
+            - 17.86978530883789
+            - 0.03912317380309105
+            stack_obj2:
+            - 24.005146026611328
+            - 17.869884490966797
+            - 0.03587300330400467
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Merom_0_garden
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.wia_furnished_layout
+        parameters:
+          revision: wia_furnished_layout_v1
+          scene_contract:
+            scene_model: Merom_0_garden
+            room: playroom_0
+          layout:
+            shared_layout_id: wia_furnished_existing_T19
+            scene_model: Merom_0_garden
+            rooms:
+            - playroom_0
+            floor_name: floors_jrdgxz_0
+            objects:
+            - type: DatasetObject
+              name: stack_obj0
+              category: paperback_book
+              model: bisnup
+              position:
+              - -3.02
+              - -10.61
+              - 1.1024741013978911
+              orientation:
+              - -7.123979184342488e-09
+              - -5.460531724565953e-07
+              - 2.793971942693929e-09
+              - 1.0
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj1
+              category: bowl
+              model: jblalf
+              position:
+              - -5.82
+              - -12.72
+              - 1.1191993950803805
+              orientation:
+              - 0.0012749484740197659
+              - 7.833373820176348e-05
+              - -5.168320967641193e-06
+              - 0.9999992847442627
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj2
+              category: lunch_box
+              model: adxzhe
+              position:
+              - -5.82
+              - -10.6
+              - 1.1191993950803805
+              orientation:
+              - 1.1597876437008381e-08
+              - 1.0129588190466166e-07
+              - 1.3369572116062045e-08
+              - 1.0
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: stack_obj0
+              support: bookcase_owvfik_0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: stack_obj1
+              support: countertop_tpuwys_0
+            - name: stack_obj2
+              support: countertop_tpuwys_0
+            robot_start:
+              position:
+              - -4.8
+              - -11.45
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+          source_reference_positions:
+            stack_obj0:
+            - 23.429912567138672
+            - 17.86972427368164
+            - 0.004752142820507288
+            stack_obj1:
+            - 23.747222900390625
+            - 17.86978530883789
+            - 0.03912317380309105
+            stack_obj2:
+            - 24.005146026611328
+            - 17.869884490966797
+            - 0.03587300330400467
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Merom_0_garden
+          disable_grid: false
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  design_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/existing_design_v1.json
+  design_sha256: 1d5f50a50fb791322484d3586dbb52573f88908330db9aaa9c00eb450acca8df
+  parent_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Physical
+    Dynamics/Stacking & Stability/house_single_floor/childs_room_0/corev2__category_4c36dd4dc5bbbe9bc7e787d1.yaml
+  parent_task_sha256: 62c0b888410205b35430a823aece6dffa99e757f626e0b2d8f7b75e59e74c501
+  parent_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Physical
+    Dynamics/Stacking & Stability/house_single_floor/childs_room_0/corev2__category_4c36dd4dc5bbbe9bc7e787d1.yaml
+  parent_scene_sha256: 36bb160b6766de362a0e62fcea45be1e17edac34b86dc1a0c9c45d5b6cc0231f
+  source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Specular
+    Reflection/Correspondence/Merom_0_garden/playroom_0/wia_furnished_background_v1.json
+  source_sha256: 1124620e1bdef17a4c35cb50e822261183d759957c26aa3716621733086970ac
+  source_role: Native background and provenance only; immutable parent task contract retained.
+  contract_revision: wia_furnished_layout_v1
+  document_alias: T19
+  variant_id: t19_furnished_existing_v1
+  label: T19 open-furniture retrieval with retained parent goal
+  scene_contract:
+    scene_model: Merom_0_garden
+    room: playroom_0
+  runtime:
+    reflection_sensor_profile: {}
+    requires_native_visual_discovery: false
+    post_controller_settle_steps: 0
+    trunk_config: configs/esi_trunk.json
+    robot_camera_config: configs/esi_robot_cameras.json
+    viewer_config: configs/esi_viewer.json
+    camera_size:
+    - 512
+    - 512
+    viewer_main_view: global_diagonal
+    debug_cameras: true
+    human_depth_visualizations: true
+    preview_fps: 2.0
+  native_validation_run: false
+  physical_success_verified: false
+  full_reference_execution: deferred_until_user_review
+  parent_evaluator_parameters_preserved: true
+  parent_seed_and_budget_preserved: true

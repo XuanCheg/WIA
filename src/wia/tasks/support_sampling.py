@@ -1,6 +1,6 @@
 """Screen private pickup placements on native same-room support surfaces.
 
-Run through scripts/sample_esi_supports.py inside the retained GPU allocation.
+Run through src/wia/runtime/commands/sample_esi_supports.py inside the retained GPU allocation.
 This module never supplies a navigation or manipulation policy to the Agent.
 """
 from __future__ import annotations
@@ -191,7 +191,7 @@ class SupportSampler:
             "navigation_policy": "nearby_stance_with_optional_route_screen", "physical_grasp_verified": False,
             "config": vars(config), "attempts": [], "accepted": [], "fallback_candidates": [], "status": "running"}
         if config.head_camera_diagnostics:
-            from core.sim.esi_head_diagnostics import diagnose_head_camera
+            from wia.runtime.sim.esi_head_diagnostics import diagnose_head_camera
 
             self.report["head_camera_diagnostic"] = diagnose_head_camera(session, self.output / "head_camera",
                 trial_mounts=config.head_camera_trial_mounts)

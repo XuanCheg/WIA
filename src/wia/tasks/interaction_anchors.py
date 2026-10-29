@@ -1,6 +1,6 @@
 """Preserve native lighting and distance anchors during initialization repairs.
 
-Run through scripts/run_esi_capture_worker.py; these hooks never execute actions
+Run through src/wia/runtime/commands/run_esi_capture_worker.py; these hooks never execute actions
 or alter source assets. Readback checks validate each proposed initial layout.
 """
 from __future__ import annotations

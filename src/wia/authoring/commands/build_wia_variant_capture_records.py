@@ -64,7 +64,7 @@ def _modules(value):
     if isinstance(value, dict):
         for key, item in value.items():
             if key in ('module', 'converter_module', 'evaluator_module') and isinstance(item, str):
-                if item.startswith('core.esi_converters.'):
+                if item.startswith('wia.authoring.converters.'):
                     modules.add(item)
             modules.update(_modules(item))
     elif isinstance(value, list):

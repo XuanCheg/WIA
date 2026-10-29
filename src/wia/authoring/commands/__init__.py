@@ -1,4 +1,4 @@
-"""Pure WIA authoring commands. Run: python -m wia.authoring.commands.build_wia_registry --help.
+"""Pure WIA authoring commands. Run: python -m wia.authoring.commands.build_wia_workstation_variants --help.
 
 Historical runtime inventories and calibrations use WIA_ARTIFACT_ROOT, which
 defaults to the WIA checkout's outputs directory. They are loaded on demand and

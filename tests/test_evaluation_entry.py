@@ -35,6 +35,25 @@ def test_dry_run_preserves_task_defaults_and_does_not_write(tmp_path, monkeypatc
     assert not (tmp_path / "results").exists()
 
 
+def test_bounded_history_is_diagnostic_only(tmp_path, monkeypatch):
+    policy = {'type': 'show_harness', 'backend': 'openai_chat_completions',
+              'model': 'explicit', 'history_text_turns': 2}
+    path = config(tmp_path, monkeypatch, policy=policy)
+    with pytest.raises(ValueError, match='history_text_turns requires diagnostic'):
+        prepare(path)
+    path = config(tmp_path, monkeypatch, policy=policy, evaluation={'run_mode': 'diagnostic'})
+    assert prepare(path)['plans'][0]['policy']['history_text_turns'] == 2
+
+
+def test_json_schema_output_is_diagnostic_only(tmp_path, monkeypatch):
+    policy = {'type': 'show_harness', 'backend': 'openai_chat_completions',
+              'model': 'explicit', 'json_schema_output': True}
+    with pytest.raises(ValueError, match='json_schema_output requires diagnostic'):
+        prepare(config(tmp_path, monkeypatch, policy=policy))
+    prepared = prepare(config(tmp_path, monkeypatch, policy=policy, evaluation={'run_mode': 'diagnostic'}))
+    assert prepared['plans'][0]['policy']['json_schema_output'] is True
+
+
 @pytest.mark.parametrize("provider", ["vllm", "compatible"])
 def test_non_openai_launch_requires_explicit_endpoint(tmp_path, monkeypatch, provider):
     policy = {"type": "show_harness", "backend": "openai_chat_completions",

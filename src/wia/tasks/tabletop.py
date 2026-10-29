@@ -1,6 +1,6 @@
 """Generate explicit tabletop scene patches from Rigid Containment metadata.
 
-Run with scripts/generate_esi_tabletop.py; generated layouts still need native
+Run with src/wia/runtime/commands/generate_esi_tabletop.py; generated layouts still need native
 support, clearance, and manipulation qualification before accepting a scene.
 """
 from __future__ import annotations

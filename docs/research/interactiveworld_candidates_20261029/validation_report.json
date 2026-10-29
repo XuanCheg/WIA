@@ -1,0 +1,23 @@
+{
+  "source_tasks": 120,
+  "screen_rows": 120,
+  "unique_screen_ids": 120,
+  "exact_coverage": true,
+  "categories": {
+    "accessibility": 20,
+    "decision": 20,
+    "finding": 20,
+    "guidance": 20,
+    "planning": 20,
+    "prevention": 20
+  },
+  "deep_reviews": 27,
+  "unique_deep_ids": 27,
+  "prototype_count": 8,
+  "missing_local_links": [],
+  "frozen_task_files_changed_since_review_start": [],
+  "simulations_run": false,
+  "semantic_placement_admission": "allowed_by_user; prioritize_by_knowledge_physical_task_coupling",
+  "design_policy": "scientific_question_then_source_scene_redesign_then_classification",
+  "example_specific_integration_proposal_removed": true
+}

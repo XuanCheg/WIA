@@ -25,7 +25,7 @@ from wia.tasks.loader import UniqueLoader, load_scene, load_task, source_scene_r
 from wia.tasks.schema import CategoryTaskDefinition, SceneDefinition, SceneRuntime
 from wia.authoring.commands.build_wia_workstation_variants import NATIVE_FLAGS, _text, _vector, repo_path, sha256
 
-MODULE = 'core.esi_converters.temporal_understanding_two_phase'
+MODULE = 'wia.authoring.converters.temporal_understanding_two_phase'
 OPERATION = 'compare_change_and_restore_or_collect'
 VECTOR_FIELDS = {'position', 'look_target', 'target', 'aabb_min', 'aabb_max'}
 XY_BOX_FIELDS = {'room_bbox_world_xy', 'expanded_bbox_world_xy', 'bbox_world_xy'}

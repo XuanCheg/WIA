@@ -1,6 +1,6 @@
 """Adapt the shared ESI QA protocol to native R1 commands.
 
-Run .venv/bin/python scripts/run_esi_agent.py --scene-file FILE --variant tabletop.
+Run .venv/bin/python src/wia/runtime/commands/run_esi_agent.py --scene-file FILE --variant tabletop.
 """
 from __future__ import annotations
 

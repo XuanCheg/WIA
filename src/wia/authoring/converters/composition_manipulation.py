@@ -26,7 +26,7 @@ CATEGORIES = {
     ('Spatial Relations', 'Linear Alignment'),
     ('Spatial Relations', 'Physical Contact'),
 }
-LIQUID_MODULE = 'core.esi_converters.physical_structure_liquid_volume'
+LIQUID_MODULE = 'wia.authoring.converters.physical_structure_liquid_volume'
 LIQUID_OPERATIONS = ('dock_at_both_containers', 'dock_at_both_and_return')
 CAPACITY_OPERATION = 'report_source_capacity_order'
 COMMON_CHECKS = [
@@ -316,7 +316,7 @@ def repair_definitions(record, task, scene, *, feedback=None):
         'unobstructed_candidate_inspection_requires_review': True}
     for definition in (task, scene):
         for patch in definition['scene']['variants']['adapted']['patches']:
-            if patch.get('operation') == 'category_initialization' and module_identity(patch.get('module')) == 'core.esi_converters.action_order':
+            if patch.get('operation') == 'category_initialization' and module_identity(patch.get('module')) == 'wia.authoring.converters.action_order':
                 patch['parameters']['initialization_review_contract'] = copy.deepcopy(contract)
     constraint = ('Inspect every original candidate and the middle object before selecting the stack; '
         'initial candidates must be separately supported and must not hide beneath or overlap another candidate.')

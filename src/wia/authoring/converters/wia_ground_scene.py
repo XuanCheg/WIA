@@ -1,7 +1,7 @@
 """Register complete-ground loading inside an existing native OmniGibson process.
 
 Use wia_background.configure_scene with mode='complete_ground' before native
-scene construction through scripts/check_esi_core_native.py. Importing this
+scene construction through src/wia/runtime/commands/check_esi_core_native.py. Importing this
 module requires the installed OmniGibson runtime; CPU tests stub its parent API.
  Run: python -m pytest tests/test_extraction.py. """
 from copy import deepcopy

@@ -1,0 +1,3 @@
+This is a new decision in the same episode and native session. Resident instructions and the public task remain in the conversation. The following supplied observation, robot measurements, execution feedback, current capabilities, remaining budget and output schema are authoritative for this decision. Prior observations and commands remain historical evidence; no Python-generated world summary replaces them.
+
+With `initial_view_only`, RGB, depth and camera geometry remain from the initial sensor snapshot and are deliberately frozen; they are not current images. Robot measurements and execution feedback continue updating. A rejected output executes no motion and its retry remains tied to the same logical decision and authorized sensor snapshot.

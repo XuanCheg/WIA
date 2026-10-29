@@ -17,7 +17,7 @@ from wia.tasks.schema import SceneDefinition
 def test_all_task_and_executable_scene_definitions_validate():
     tasks = discover_tasks()
     assert tasks
-    for path in (ROOT / 'explore_to_achieve').rglob('*.yaml'):
+    for path in (ROOT / 'explore_to_achieve/wia_v1/release').rglob('*.yaml'):
         value = yaml.load(path.read_text(), Loader=UniqueLoader)
         if not isinstance(value, dict):
             continue
@@ -43,34 +43,10 @@ for name in ('wia.tasks', 'wia.authoring.converters', 'wia.native'):
     package = importlib.import_module(name)
     for item in pkgutil.iter_modules(package.__path__, name + '.'):
         importlib.import_module(item.name)
-from wia.tasks.wia_registry import _observation_contract
-assert len(_observation_contract(True)['mounted_rgb_views']) == 8
 '''
     subprocess.run([sys.executable, '-I', '-c', script, str(source)], cwd=tmp_path, check=True)
 
 
-def test_legacy_modules_share_identity_and_monkeypatches():
-    provenance = json.loads((ROOT / 'provenance/extraction.json').read_text())
-    harness = Path(provenance['source_repository'])
-    if not (harness / 'core').is_dir():
-        pytest.skip('Legacy Harness checkout is not installed.')
-    sys.path.insert(0, str(harness))
-    try:
-        pairs = [('core.tasks.schema', 'wia.tasks.schema'),
-                 ('core.tasks.loader', 'wia.tasks.loader'),
-                 ('core.esi_category_conversion', 'wia.authoring.conversion'),
-                 ('core.esi_converters.wia_dimensional', 'wia.authoring.converters.wia_dimensional'),
-                 ('core.sim.esi_task_evaluation', 'wia.native.esi_task_evaluation'),
-                 ('core.sim.esi_temporal_phases', 'wia.native.esi_temporal_phases')]
-        for old, canonical in pairs:
-            first, second = importlib.import_module(old), importlib.import_module(canonical)
-            assert first is second
-            marker = object()
-            first._extraction_identity_probe = marker
-            assert second._extraction_identity_probe is marker
-            del first._extraction_identity_probe
-    finally:
-        sys.path.remove(str(harness))
 
 
 def test_configured_resource_roots_are_resolved_without_harness(tmp_path):
@@ -83,21 +59,9 @@ def test_configured_resource_roots_are_resolved_without_harness(tmp_path):
     result = subprocess.run([sys.executable, '-c', script], env=environment, cwd=tmp_path,
                             check=True, capture_output=True, text=True)
     assert result.stdout.splitlines() == [str(tmp_path / 'checkout'), str(tmp_path / 'upstream'),
-        str(tmp_path / 'checkout/explore_to_achieve/tasks'), str(tmp_path / 'upstream/dataset/json_clean')]
+        str(tmp_path / 'checkout/explore_to_achieve/wia_v1/release/tasks'), str(tmp_path / 'upstream/dataset/json_clean')]
 
 
-def test_selected_corev2_tasks_load_from_canonical_roots():
-    rows = json.loads((ROOT / 'explore_to_achieve/lists/corev2.json').read_text())['tasks']
-    assert rows
-    for row in rows:
-        path = ROOT / row['task_file']
-        definition = task_definition(yaml.load(path.read_text(), Loader=UniqueLoader))
-        rigid = definition.kind == 'rigid_containment_task'
-        task = load_task(path, variant=None if rigid else 'adapted', run_mode='diagnostic')
-        task.verify_unchanged()
-        scene = task.scene if rigid else load_scene(ROOT / row['scene_file'], variant='adapted', run_mode='diagnostic')
-        scene.verify_unchanged()
-        assert task.source_path.is_relative_to(ROOT)
 
 
 @pytest.mark.parametrize('session,backend,owner,reasoning', [
@@ -141,88 +105,13 @@ def test_manifest_backend_metadata_preserves_identity(tmp_path, session, backend
             verify_manifest(path, task)
 
 
-@pytest.mark.parametrize('module', ['core.esi_converters.action_order', 'wia.authoring.converters.action_order'])
-def test_schema_preserves_module_identifiers_and_arbitrary_metadata(module):
-    from wia.tasks.schema import CategoryOperationEvaluation, CategoryInitializationPatch
-    raw = {'type': 'category_operation', 'module': module, 'operation': 'fixture',
-           'parameters': {'historical_pointer': 'core.esi_converters.action_order',
-                          'nested': ['wia.authoring.converters.action_order']}}
-    assert CategoryOperationEvaluation.model_validate(raw).model_dump(mode='json') == dict(raw, binding_keys=[])
-    patch = {'operation': 'category_initialization', 'module': module, 'parameters': raw['parameters']}
-    assert CategoryInitializationPatch.model_validate(patch).model_dump(mode='json') == dict(patch, phase='after_postprocessing')
-
-
-def test_standalone_legacy_dynamic_import_preserves_historical_identity(tmp_path):
-    source = Path(importlib.import_module('wia.tasks').__file__).resolve().parents[2]
-    script = '''
-import sys
-from importlib.abc import MetaPathFinder
-sys.path.insert(0, sys.argv[1])
-class RejectHarness(MetaPathFinder):
-    def find_spec(self, fullname, path=None, target=None):
-        if fullname == 'core' or fullname.startswith('core.'):
-            raise AssertionError('Dynamic import requested Harness: ' + fullname)
-sys.meta_path.insert(0, RejectHarness())
-from wia.authoring.modules import import_owned_module
-from wia.native.esi_category_evaluation import owned_category_module
-from wia.authoring.conversion import get_converter
-legacy = 'core.esi_converters.action_order'
-canonical = 'wia.authoring.converters.action_order'
-assert import_owned_module(legacy) is import_owned_module(canonical)
-assert owned_category_module(legacy) is import_owned_module(canonical)
-assert get_converter('Action Sequencing', 'Action Order Inference').category
-assert import_owned_module(legacy).MODULE == legacy
-'''
-    subprocess.run([sys.executable, '-I', '-c', script, str(source)], cwd=tmp_path, check=True)
-
-
-def test_registry_relocation_requires_known_resource_and_matching_hash(tmp_path):
-    from wia.tasks.wia_registry import _relative
-    historical = tmp_path / 'historical'
-    current = tmp_path / 'current'
-    relative = 'explore_to_achieve/tasks/example.yaml'
-    for root in (historical, current):
-        (root / relative).parent.mkdir(parents=True)
-        (root / relative).write_text('same bytes')
-    import hashlib
-    (current / 'provenance').mkdir()
-    (current / 'provenance/extraction.json').write_text(json.dumps({
-        'source_repository': str(historical), 'byte_preserved_resources': [relative],
-        'resource_sha256': {relative: hashlib.sha256(b'same bytes').hexdigest()}}))
-    assert _relative(historical / relative, current) == relative
-    (historical / relative).write_text('modified historical bytes')
-    with pytest.raises(ValueError, match='outside'):
-        _relative(historical / relative, current)
-    with pytest.raises(ValueError, match='outside'):
-        _relative(tmp_path / 'unknown' / relative, current)
 
 
 
-def test_shared_resource_resolver_preserves_unrelated_paths_and_checks_migration_bytes(tmp_path):
-    import hashlib
-    from wia.resources import resolve_migrated_path
-    historical, current = tmp_path / 'historical', tmp_path / 'current'
-    relative = 'explore_to_achieve/tasks/fixture.yaml'
-    for root in (historical, current):
-        (root / relative).parent.mkdir(parents=True)
-        (root / relative).write_bytes(b'original resource')
-    (current / 'provenance').mkdir()
-    (current / 'provenance/extraction.json').write_text(json.dumps({
-        'source_repository': str(historical), 'byte_preserved_resources': [relative],
-        'resource_sha256': {relative: hashlib.sha256(b'original resource').hexdigest()}}))
-    assert resolve_migrated_path(historical / relative, root=current) == current / relative
-    assert resolve_migrated_path(relative, root=current) == current / relative
-    external = tmp_path / 'external/data.json'
-    assert resolve_migrated_path(external, root=current) == external
-    unknown = historical / 'unmigrated/data.json'
-    assert resolve_migrated_path(unknown, root=current) == unknown
-    for changed_root in (historical, current):
-        (changed_root / relative).write_bytes(b'changed bytes')
-        with pytest.raises(ValueError, match='Known migrated resource bytes changed'):
-            resolve_migrated_path(historical / relative, root=current)
-        (changed_root / relative).write_bytes(b'original resource')
-    (historical / relative).unlink()
-    assert resolve_migrated_path(historical / relative, root=current) == current / relative
+
+
+
+
 
 
 @pytest.mark.parametrize('family,module', [

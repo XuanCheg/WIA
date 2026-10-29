@@ -2,7 +2,7 @@
 
 Run on CPU from the repository root with the behavior environment's Python:
 OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 CUDA_VISIBLE_DEVICES='' \
-python -m core.esi_converters.spatial_relations_physical_contact --batch-root PATH
+python -m wia.authoring.converters.spatial_relations_physical_contact --batch-root PATH
 The default selects one seeded final relation. Explicit historical cycle recipes
 remain available. Native hooks only read state; guarded controls perform actions.
 """
@@ -33,7 +33,7 @@ from wia.authoring.conversion import (
 )
 from wia.authoring.io import sha256, write_json
 
-MODULE = 'core.esi_converters.spatial_relations_physical_contact'
+MODULE = 'wia.authoring.converters.spatial_relations_physical_contact'
 OBJECTS = ('obj1', 'obj2')
 OPERATIONS = ('separate_then_contact', 'contact_then_separate')
 FINAL_OPERATION = 'establish_final_relation'

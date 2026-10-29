@@ -1,6 +1,6 @@
 """Measure versioned Rigid partial insertion without changing world state.
 
-Run generated tasks with scripts/check_esi_core_native.py --manipulation
+Run generated tasks with src/wia/runtime/commands/check_esi_core_native.py --manipulation
 --evaluate --serve. CPU checks: python -m pytest -q
 tests/test_wia_rigid_native_adapter.py tests/test_rigid_insertion_scoring.py.
 Native container volume meshes and real target surface witnesses replace the
@@ -20,7 +20,7 @@ from wia.authoring.io import write_json
 from wia.tasks.interaction_setup import array
 from wia.tasks.rigid_insertion_scoring import RigidInsertionProgress
 
-MODULE = 'core.esi_converters.rigid_partial_insertion'
+MODULE = 'wia.authoring.converters.rigid_partial_insertion'
 REVISION = 'wia_rigid_partial_insertion_v1'
 _EMPTY_PAIR_CONTACT_REASON = 'ValueError: Native contact has no pair-specific separation samples.'
 _RETAINED_CONTACT_SOURCE = 'retained_native_contact_for_unchanged_sleeping_pair'

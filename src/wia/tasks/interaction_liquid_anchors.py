@@ -1,6 +1,6 @@
 """Translate the original Liquid Volume pool coherently during initialization.
 
-Run via scripts/run_esi_capture_worker.py. This preserves the source water,
+Run via src/wia/runtime/commands/run_esi_capture_worker.py. This preserves the source water,
 four native pool planes, cached fill positions and volume counts. It performs
 no filling, pouring, robot action or physical-success evaluation.
 """

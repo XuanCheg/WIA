@@ -22,7 +22,7 @@ from wia.authoring.converters.cognitive_mapping_visit_reports import (
     REVISED_MAPPING_OPERATIONS, revise_mapping_result, legacy_mapping_config,
     qualify_revised_mapping, SourceAnswerMappingEvaluator)
 
-MODULE = 'core.esi_converters.cognitive_mapping_connectivity'
+MODULE = 'wia.authoring.converters.cognitive_mapping_connectivity'
 REVISED_OPERATION = REVISED_MAPPING_OPERATIONS['Connectivity']
 SOURCE_EYE_HEIGHT_M = 1.35
 INITIAL_CLEARANCE_M = .1

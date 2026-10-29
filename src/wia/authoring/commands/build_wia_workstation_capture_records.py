@@ -31,9 +31,9 @@ REGISTRY = WIA_ROOT / 'registry.json'
 OUTPUT = ARTIFACT_ROOT / 'wia_v1_20261023/workstation_capture_records.json'
 MANIFESTS = (WIA_ROOT / 'dimensional_v1/manifest.json', WIA_ROOT / 'mirror_v1/manifest.json')
 MANIFEST_CONTRACTS = {
-    'wia_dimensional_manifest_v1': ('core.esi_converters.wia_dimensional',
+    'wia_dimensional_manifest_v1': ('wia.authoring.converters.wia_dimensional',
                                      ('wia_dimensional_v1', 'wia_dimensional_v2')),
-    'wia_mirror_manifest_v1': ('core.esi_converters.wia_mirror', ('wia_mirror_v1', 'wia_mirror_v2')),
+    'wia_mirror_manifest_v1': ('wia.authoring.converters.wia_mirror', ('wia_mirror_v1', 'wia_mirror_v2')),
 }
 ALIASES = ('D1-1', 'D1-2', 'D1-3', 'D2-1', 'D2-2', 'R-C1', 'R-C2', 'R-C3', 'R-A1', 'R-A2', 'R-S1', 'R-S2', 'R-S3')
 SOURCE_IDENTITY = 'Specular Reflection/Correspondence/hall_glass_ceiling/empty_room_0/q_007.json'

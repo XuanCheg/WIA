@@ -1,6 +1,6 @@
 """Initialize native panel PBR and measure WIA mirror-task geometry read-only.
 
-Run generated mirror tasks through scripts/check_esi_core_native.py --evaluate.
+Run generated mirror tasks through src/wia/runtime/commands/check_esi_core_native.py --evaluate.
 CPU checks: python -B -m pytest -q -p no:cacheprovider tests/test_wia_mirror_adapter.py
 Only initialize_scene under the existing initialization flag writes panel PBR.
 Episode measurements never render, move objects/cameras, step physics or expose
@@ -23,7 +23,7 @@ from wia.authoring.io import write_json
 from wia.tasks.completion import progress
 from wia.tasks.wia_mirror_scoring import DESTINATION_REVISION, MirrorProgress, destination_contracts
 
-MODULE = 'core.esi_converters.wia_mirror'
+MODULE = 'wia.authoring.converters.wia_mirror'
 REVISION = 'wia_mirror_v1'
 HOUSEHOLD_REVISION = 'wia_mirror_v3'
 HOUSEHOLD_REVISIONS = (HOUSEHOLD_REVISION, DESTINATION_REVISION)

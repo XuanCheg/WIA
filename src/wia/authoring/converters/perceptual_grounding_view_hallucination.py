@@ -1,6 +1,6 @@
 """Create View Hallucination identification and placement tasks without geometry changes.
 
-Run: python scripts/run_esi_category_campaign.py --help
+Run: python src/wia/runtime/commands/run_esi_category_campaign.py --help
 CategoryConverter.convert_all performs deterministic CPU conversion; native
 capture, qualification and human Review remain the shared runner's concern.
 """

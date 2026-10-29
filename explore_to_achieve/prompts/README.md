@@ -1,0 +1,7 @@
+# Prompt components
+
+[main.md](/scratch/xinyangzhou/models/Show-Harness/explore_to_achieve/prompts/main.md) assembles whitelisted resident instructions and fresh decision inputs. `@include` declares mandatory instructions, `@slot` inserts authorized public data, and `@plugin` declares an optional component whose activation is fixed when the episode assembler is created.
+
+The `world_observation` plugin is enabled by default for native declarative task episodes. Its instructions live in `/scratch/xinyangzhou/models/Show-Harness/explore_to_achieve/prompts/plugins/world_observation.md`. Each response has one executable `command` and a separate public `world_observation` string. Commands retain the same validation schema, bounds, and physical evaluation. The runner writes observations to `episode/world_observations.jsonl`, correlated by step, attempt, action boundary, and snapshot. It does not inject these descriptions into later prompts, public memory, recovery, control, or scoring. The model's own public outputs remain in its native conversation history.
+
+Use `--no-world-observation-log` with `/scratch/xinyangzhou/models/Show-Harness/scripts/run_esi_explore_episode.py` to disable the plugin and restore the original transport envelope. The explicit `--world-observation-log` flag enables it. This choice is recorded in the immutable episode manifest and native session provenance. Programmatic callers can use `PromptAssembler(world_observation=False)`. Legacy free-text agent transports do not use this modular prompt library.

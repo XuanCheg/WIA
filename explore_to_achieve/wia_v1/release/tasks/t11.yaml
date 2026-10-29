@@ -1,0 +1,167 @@
+kind: category_robot_task
+id: wia_regional_t11_v1
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Cognitive Mapping/Regional Boundary/school_gym/full_scene/q_008.json
+public:
+  objective: 'Which room contains the paper towel dispenser? Choose from: gym 0, locker room
+    1, locker room 0, bathroom 0. Inspect each queried anchor using its public description
+    and relate it to the named regions.'
+  success_criteria: 'Report a standalone ANSWER: <room label> line in world_observation, choosing
+    from: gym 0, locker room 1, locker room 0, bathroom 0. Each queried anchor must be identified
+    in delivered robot-camera observations. Room occupancy alone does not establish the anchor
+    relation; no extra room tour is required.'
+  environment: Explore the preserved original building using the robot-mounted observations.
+  constraints:
+  - Preserve original room boundaries, queried anchors and doorway geometry.
+  - Use legal robot controls; door opening requires actual physical interaction.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+private:
+  bindings:
+    anchor_a:
+      name: paper_towel_dispenser_jacqxv_0
+      category: paper_towel_dispenser
+  evaluation:
+    type: category_operation
+    module: wia.authoring.converters.cognitive_mapping_regional_boundary
+    operation: answer_observed_anchor_region_relation
+    binding_keys:
+    - anchor_a
+    parameters:
+      target_regions:
+      - locker_room_1
+      source_task_type: object_in_region
+      anchor_preservation_tolerance_m: 0.02
+      maximum_step_displacement_m: 0.1
+      maximum_stop_speed_m_s: 0.03
+      maximum_stop_angular_speed_rad_s: 0.1
+      floor_idx: 0
+      floor_contact_height_tolerance_m: 0.005
+      minimum_floor_contact_vertical_normal: 0.5
+      stop_samples: 3
+      required_regions:
+      - locker_room_1
+      scoring_version: task_completion_v2
+      required_order: []
+      arrival_report_required: true
+      public_route_required: false
+      public_route_evidence: []
+      source_public_question: null
+      source_verification:
+        assignment_source: expanded_bbox
+        containment_regions:
+        - locker_room_1
+        instance_visible_pixels: 1053
+        semantic_visible_pixels: 1053
+      task_revision: task_edit_20261018_v1
+      source_path: Cognitive Mapping/Regional Boundary/school_gym/full_scene/q_008.json
+      mapping_composition_contract: null
+      legacy_operation: anchor_region_exploration
+      source_qa:
+        question: Which room contains the paper towel dispenser?
+        answer: locker room 1
+        options:
+        - gym 0
+        - locker room 1
+        - locker room 0
+        - bathroom 0
+        scored: true
+      source_door_policy:
+        version: mapping_source_runtime_doors_v1
+        generator: ESI-Bench/src/dataset_generation/task_cognitive_map/batch_cognitivemap_region.py
+        source_policy: exclude_door_and_sliding_door_then_remove_door_named_objects
+        source_trav_map_basename: floor_trav_no_door
+        runtime_policy: retain_native_doors
+        reconciled: null
+        physical_opening_and_crossing_verified: null
+      mechanism_contract:
+        invariants:
+        - original_building_and_region_boundaries
+        - original_task_anchors_and_reference
+        - source_order_and_intentional_revisits
+        required_native_evidence:
+        - source_runtime_door_policy_reconciled
+        - task_relevant_door_qualification
+        - public_anchor_identity_and_delivered_rgb
+        unavailable_is_not_agent_failure: true
+      actual_capability: observed_anchor_region_relation
+      required_anchor_bindings:
+      - anchor_a
+      public_anchor_labels:
+        anchor_a: paper towel dispenser
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: navigation
+        group_bindings: []
+        manipulation_bindings: []
+        relocation_policy: preserve
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: bounded_group
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: null
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  regional_t11_neutral_labels:
+    contract_revision: wia_regional_neutral_labels_v1
+    visibility: private
+    validation_status: pending-native-validation
+    parent_task_file: explore_to_achieve/tasks/Cognitive Mapping/Regional Boundary/school_gym/full_scene/corev2__category_1a55282aea78514f749fe4e0.yaml
+    parent_task_sha256: a200038914e54d57d75e979f16d07038b000a4659ed52c9a6232ead9372f5f06
+    parent_scene_file: explore_to_achieve/scenes/Cognitive Mapping/Regional Boundary/school_gym/full_scene/corev2__category_1a55282aea78514f749fe4e0.yaml
+    parent_scene_sha256: aabaa1d0359c865c6c3ecaac515eeba0a9b2024ea275ab01e026b577649df50b
+    source_file: ESI-Bench/dataset/json_clean/Cognitive Mapping/Regional Boundary/school_gym/full_scene/q_008.json
+    source_sha256: 8b65f54f760090b1f2ddbcf976765deedbf0fafbb7982c6d7d822cf69a43aa81
+    original_source_qa:
+      question: 'Which room does paper_towel_dispenser belong to among these options: gym
+        0, locker room 1 (with paper towel dispenser, pedestal sink, and square light), locker
+        room 0 (with bench, pedestal sink, and square light), bathroom 0?'
+      answer: locker room 1 (with paper towel dispenser, pedestal sink, and square light)
+      options:
+      - gym 0
+      - locker room 1 (with paper towel dispenser, pedestal sink, and square light)
+      - locker room 0 (with bench, pedestal sink, and square light)
+      - bathroom 0
+      scored: true
+    original_to_neutral_option_labels:
+      gym 0: gym 0
+      locker room 1 (with paper towel dispenser, pedestal sink, and square light): locker
+        room 1
+      locker room 0 (with bench, pedestal sink, and square light): locker room 0
+      bathroom 0: bathroom 0
+    neutral_to_original_option_labels:
+      gym 0: gym 0
+      locker room 1: locker room 1 (with paper towel dispenser, pedestal sink, and square
+        light)
+      locker room 0: locker room 0 (with bench, pedestal sink, and square light)
+      bathroom 0: bathroom 0
+    answer_region: locker_room_1
+    option_order_preserved: true
+    native_validation_run: false
+    reference_execution_verified: false
+    change: Remove answer-bearing room descriptions from public choices and match the private
+      answer aliases.

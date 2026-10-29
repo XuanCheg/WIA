@@ -26,7 +26,7 @@ from wia.authoring.conversion import ConverterBase, map_records, original_scene,
 from wia.tasks.background_policy import legal_background_contact
 from wia.authoring.io import sha256, write_json
 
-MODULE = 'core.esi_converters.enumerative_perception_illumination_variability'
+MODULE = 'wia.authoring.converters.enumerative_perception_illumination_variability'
 OPERATIONS = ('two_phase_inventory_return', 'two_phase_single_return')
 PHASES = ('normal', 'changed')
 CHANGED_SCALE = .04

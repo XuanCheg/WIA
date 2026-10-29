@@ -2,7 +2,7 @@
 
 Run CPU batching with OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2
 /local_home2/zhouxinyang/miniconda3/envs/behavior/bin/python -m
-core.esi_converters.specular_reflection_spatial_relations --assignment ASSIGNMENT.json
+wia.authoring.converters.specular_reflection_spatial_relations --assignment ASSIGNMENT.json
 
 Native hooks only read state. Existing guarded controls perform every action.
 Source answers require qualified native optics; historical navigation remains explicit.
@@ -28,7 +28,7 @@ from wia.authoring.conversion import (
 from wia.authoring.io import write_json
 from wia.tasks.interaction_setup import array as native_array, verified_repaired_start
 
-MODULE = 'core.esi_converters.specular_reflection_spatial_relations'
+MODULE = 'wia.authoring.converters.specular_reflection_spatial_relations'
 OPERATIONS = ('nearer_object_approach', 'nearer_object_approach_return', 'pair_approach_return')
 ANSWER_OPERATION = 'answer_reflected_spatial_relation'
 ACTION_OPERATION = 'answer_and_verify_reflected_spatial_relation'

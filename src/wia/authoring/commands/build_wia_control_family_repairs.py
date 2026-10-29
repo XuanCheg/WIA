@@ -106,7 +106,7 @@ def layouts(task):
 def dimensional_layout(task):
     patches = task['scene']['variants']['adapted']['patches']
     if (len(patches) != 2 or {p['phase'] for p in patches} != {'before_construction', 'after_postprocessing'}
-            or any(p['module'] != 'core.esi_converters.active_layout' for p in patches)
+            or any(p['module'] != 'wia.authoring.converters.active_layout' for p in patches)
             or patches[0]['parameters'] != patches[1]['parameters']):
         raise ValueError('Dimensional initialization copies must match exactly.')
     result = layouts(task)[0]
@@ -242,7 +242,7 @@ def tray_audit(row, task):
         plate = deepcopy(parameters['plate'])
         return {**row, 'source_identity': task['source']['json'],
             'evaluation_module': task['private']['evaluation']['module'],
-            'initializer': 'core.sim.esi_collection_setup.initialize_collection_tray',
+            'initializer': 'wia.runtime.sim.esi_collection_setup.initialize_collection_tray',
             'initializer_hooks': [{'module': p['module'], 'phase': p['phase']} for p in selected],
             'plate': plate, 'robot_start': parameters['layout']['robot_start'],
             'limits': {k: v for k, v in parameters.items() if k.startswith('maximum_') or k == 'terminal_dwell_s'},

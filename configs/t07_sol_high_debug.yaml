@@ -1,0 +1,32 @@
+{
+  "tasks": [
+    {
+      "path": "../explore_to_achieve/wia_v1/release/tasks/t07.yaml",
+      "variant": "adapted",
+      "seed": 0
+    }
+  ],
+  "policy": {
+    "type": "show_harness",
+    "backend": "codex_cli",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "model_timeout": null,
+    "codex_executable": "/home/zhouxinyang/.local/bin/codex"
+  },
+  "environment": {
+    "mode": "launch",
+    "gpu": 0,
+    "port": 8700,
+    "python": "/local_home2/zhouxinyang/miniconda3/envs/behavior/bin/python",
+    "recording_hz": 5.0,
+    "preview_fps": 0
+  },
+  "evaluation": {
+    "run_mode": "diagnostic",
+    "timeout": null,
+    "max_steps": 300,
+    "execution_mode": "debug"
+  },
+  "output_dir": "../outputs/t07_sol_high_debug"
+}

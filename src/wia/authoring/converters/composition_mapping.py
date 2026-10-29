@@ -15,7 +15,7 @@ import json
 from pathlib import Path
 
 
-MODULE_PREFIX = 'core.esi_converters.cognitive_mapping_'
+MODULE_PREFIX = 'wia.authoring.converters.cognitive_mapping_'
 OPERATIONS = {
     'Connectivity': ('connectivity', 'region_exploration_arrivals'),
     'Long-Term Navigation': ('long_term_navigation', 'navigation_exploration_arrivals'),

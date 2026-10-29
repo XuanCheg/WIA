@@ -23,7 +23,7 @@ import numpy as np
 from wia.authoring.conversion import ROOT, ConverterBase, map_records, original_scene, physical_task
 
 
-MODULE = 'core.esi_converters.partial_occlusion'
+MODULE = 'wia.authoring.converters.partial_occlusion'
 LEGACY_RULE_REVISION = 'partial_occlusion_annotation_retrieval_20261015_r3'
 RULE_REVISION = 'partial_occlusion_identify_place_20261018_v1'
 TASK_REVISION = 'task_edit_20261018_v1'

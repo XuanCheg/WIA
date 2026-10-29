@@ -185,7 +185,7 @@ def build_definitions(alias, *, output_dir=DEFAULT_OUTPUT):
         'source': deepcopy(task_original['source']), 'public': public,
         'requirements': {'capabilities': list(CAPABILITIES)},
         'private': {'bindings': deepcopy(scene['bindings']), 'evaluation': {
-            'type': 'category_operation', 'module': 'core.esi_converters.rigid_partial_insertion',
+            'type': 'category_operation', 'module': 'wia.authoring.converters.rigid_partial_insertion',
             'operation': 'pick_release_partial_insert', 'binding_keys': list(scene['bindings']),
             'parameters': parameters}},
         'scene': deepcopy(scene['scene']),

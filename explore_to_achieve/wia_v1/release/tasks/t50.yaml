@@ -1,0 +1,570 @@
+kind: category_robot_task
+id: task_redesign_fb64ed932434e097adc84053
+version: 5
+status: pending
+source:
+  provider: esi
+  json: Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json
+public:
+  objective: The hand towel covers a tomato and a plain bun. Gently move the hand towel to
+    expose and identify the tomato without moving either covered item. Then grasp the tomato
+    and place it on the blue-rimmed delivery tray. Leave the plain bun on its starting support.
+  success_criteria: Reveal the tomato through genuine hand-driven hand towel motion before
+    grasping it. Lift it at least 5 cm and hold it for 0.25 seconds, then release it stably
+    on the delivery tray. Keep the plain bun on its original support.
+  environment: The covered items start under a hand towel on an accessible support, with a
+    separate delivery tray.
+  constraints:
+  - Use only existing guarded base, arm, trunk and gripper controls.
+  - Push or sweep with small hand motions; never remove, teleport or resize the hand towel.
+  - Keep the original room assets and floor geometry unchanged.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    item:
+      name: cover_small_item_render_item_0834926443
+      category: beefsteak_tomato
+      model: ogpans
+    cloth:
+      name: cover_small_item_render_cloth_0834926443
+      category: hand_towel
+      model: klevhj
+    floor:
+      name: floors_hhszec_0
+      category: floors
+    covered_bun:
+      name: covered_bun
+      category: hamburger_bun
+      model: fqxumh
+    cloth_delivery_table:
+      name: cloth_delivery_table
+      category: object
+    cloth_delivery_table_leg_0:
+      name: cloth_delivery_table_leg_0
+      category: object
+    cloth_delivery_table_leg_1:
+      name: cloth_delivery_table_leg_1
+      category: object
+    cloth_delivery_table_leg_2:
+      name: cloth_delivery_table_leg_2
+      category: object
+    cloth_delivery_table_leg_3:
+      name: cloth_delivery_table_leg_3
+      category: object
+    cloth_delivery_tray:
+      name: cloth_delivery_tray
+      category: object
+    cloth_delivery_rim_0:
+      name: cloth_delivery_rim_0
+      category: object
+    cloth_delivery_rim_1:
+      name: cloth_delivery_rim_1
+      category: object
+    cloth_delivery_rim_2:
+      name: cloth_delivery_rim_2
+      category: object
+    cloth_delivery_rim_3:
+      name: cloth_delivery_rim_3
+      category: object
+  evaluation:
+    type: category_operation
+    module: wia.authoring.converters.deformable_redrape
+    operation: uncover_select_and_deliver
+    binding_keys:
+    - item
+    - cloth
+    - floor
+    - covered_bun
+    - cloth_delivery_table
+    - cloth_delivery_table_leg_0
+    - cloth_delivery_table_leg_1
+    - cloth_delivery_table_leg_2
+    - cloth_delivery_table_leg_3
+    - cloth_delivery_tray
+    - cloth_delivery_rim_0
+    - cloth_delivery_rim_1
+    - cloth_delivery_rim_2
+    - cloth_delivery_rim_3
+    parameters:
+      source_item_xy:
+      - -36.65
+      - 12.35
+      floor_height_estimate_m: -0.0
+      task_revision: task_edit2_deformable_20261018_v1
+      mechanism_contract:
+        preserve:
+        - native_cloth_dynamics
+        - authored_initial_cloth_scale
+        - covered_item_identity
+        - initial_cover_relation
+        goal: native_cloth_sweep_reveal_then_retrieve
+        rigid_proxy_allowed: false
+      source_identity: Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json
+      source_sha256: d7bfd45c7ecc136f920b85f68e4d235195e8d554cb52ff533c7df0942029dfb5
+      deformable_cover:
+        schema: task_edit2_deformable_20261018_v1
+        source_identity: Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json
+        source_sha256: d7bfd45c7ecc136f920b85f68e4d235195e8d554cb52ff533c7df0942029dfb5
+        bindings:
+          item:
+            name: cover_small_item_render_item_0834926443
+            category: beefsteak_tomato
+            model: ogpans
+          cloth:
+            name: cover_small_item_render_cloth_0834926443
+            category: hand_towel
+            model: klevhj
+        world_mesh_before_physics_required: true
+        settled_cloth_root_is_rigid_invariant: false
+        native_mesh_cover_and_support_required: true
+        rigid_proxy_allowed: false
+        actual_sweep_grasp_and_lift_pending: true
+      protected_extra_keys:
+      - covered_bun
+      destination_key: cloth_delivery_tray
+      placement_relation: on_top
+      release_stability_steps: 15
+      maximum_release_speed_m_s: 0.02
+      maximum_release_angular_speed_rad_s: 0.1
+      cover_revision: full_cover_redrape_v1
+      authored_cloth_scale_multiplier: 2.5
+      authored_cloth_asset:
+        name: cover_small_item_render_cloth_0834926443
+        category: hand_towel
+        model: klevhj
+      parent_source_cloth_asset:
+        name: cover_small_item_render_cloth_0834926443
+        category: paper_towel
+        model: mdcnha
+      requires_native_visual_discovery: true
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.deformable_redrape
+        parameters:
+          cloth_name: cover_small_item_render_cloth_0834926443
+          item_names:
+          - cover_small_item_render_item_0834926443
+          - covered_bun
+          item_asset:
+            name: cover_small_item_render_item_0834926443
+            category: beefsteak_tomato
+            model: ogpans
+          cloth_asset:
+            name: cover_small_item_render_cloth_0834926443
+            category: hand_towel
+            model: klevhj
+          source_item_xy:
+          - -36.65
+          - 12.35
+          floor_height_m: -0.0
+          cloth_mass_kg: 0.15
+          cloth_drop_xy_offset_m:
+          - 0.0
+          - 0.0
+          robot_clearance_xy_m:
+          - -37.949999999999996
+          - 12.35
+          cloth_scale_multiplier: 2.5
+          settle_steps: 600
+          cloth_drop_clearance_m: 0.012
+      - operation: add_dataset_object
+        name: covered_bun
+        category: hamburger_bun
+        model: fqxumh
+        position:
+        - -36.55
+        - 12.35
+        - 0.06
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        scale:
+        - 1.0
+        - 1.0
+        - 1.0
+      - operation: add_primitive
+        name: cloth_delivery_table
+        position:
+        - -36.65
+        - 11.3
+        - 0.695
+        dimensions_m:
+        - 0.6
+        - 0.5
+        - 0.05
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.35
+        - 0.28
+        - 0.18
+        - 1.0
+      - operation: add_primitive
+        name: cloth_delivery_table_leg_0
+        position:
+        - -36.89
+        - 11.110000000000001
+        - 0.33499999999999996
+        dimensions_m:
+        - 0.04
+        - 0.04
+        - 0.6699999999999999
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.45
+        - 0.35
+        - 0.22
+        - 1.0
+      - operation: add_primitive
+        name: cloth_delivery_table_leg_1
+        position:
+        - -36.89
+        - 11.49
+        - 0.33499999999999996
+        dimensions_m:
+        - 0.04
+        - 0.04
+        - 0.6699999999999999
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.45
+        - 0.35
+        - 0.22
+        - 1.0
+      - operation: add_primitive
+        name: cloth_delivery_table_leg_2
+        position:
+        - -36.41
+        - 11.110000000000001
+        - 0.33499999999999996
+        dimensions_m:
+        - 0.04
+        - 0.04
+        - 0.6699999999999999
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.45
+        - 0.35
+        - 0.22
+        - 1.0
+      - operation: add_primitive
+        name: cloth_delivery_table_leg_3
+        position:
+        - -36.41
+        - 11.49
+        - 0.33499999999999996
+        dimensions_m:
+        - 0.04
+        - 0.04
+        - 0.6699999999999999
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.45
+        - 0.35
+        - 0.22
+        - 1.0
+      - operation: add_primitive
+        name: cloth_delivery_tray
+        position:
+        - -36.65
+        - 11.3
+        - 0.73
+        dimensions_m:
+        - 0.5
+        - 0.4
+        - 0.02
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.15
+        - 0.3
+        - 0.9
+        - 1.0
+      - operation: add_primitive
+        name: cloth_delivery_rim_0
+        position:
+        - -36.894999999999996
+        - 11.3
+        - 0.76
+        dimensions_m:
+        - 0.01
+        - 0.4
+        - 0.06
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.15
+        - 0.3
+        - 0.9
+        - 1.0
+      - operation: add_primitive
+        name: cloth_delivery_rim_1
+        position:
+        - -36.405
+        - 11.3
+        - 0.76
+        dimensions_m:
+        - 0.01
+        - 0.4
+        - 0.06
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.15
+        - 0.3
+        - 0.9
+        - 1.0
+      - operation: add_primitive
+        name: cloth_delivery_rim_2
+        position:
+        - -36.65
+        - 11.105
+        - 0.76
+        dimensions_m:
+        - 0.5
+        - 0.01
+        - 0.06
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.15
+        - 0.3
+        - 0.9
+        - 1.0
+      - operation: add_primitive
+        name: cloth_delivery_rim_3
+        position:
+        - -36.65
+        - 11.495000000000001
+        - 0.76
+        dimensions_m:
+        - 0.5
+        - 0.01
+        - 0.06
+        quaternion_xyzw:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        rgba:
+        - 0.15
+        - 0.3
+        - 0.9
+        - 1.0
+      - operation: add_existing_r1
+      - operation: robot_pose
+        position:
+        - -35.949999999999996
+        - 12.35
+        - -0.0
+        yaw_deg: 180.0
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 45.0
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: item
+        visual_only: false
+      - operation: object_physics
+        phase: after_postprocessing
+        binding: cloth
+        visual_only: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.deformable_redrape
+        parameters:
+          cloth_name: cover_small_item_render_cloth_0834926443
+          item_names:
+          - cover_small_item_render_item_0834926443
+          - covered_bun
+          item_asset:
+            name: cover_small_item_render_item_0834926443
+            category: beefsteak_tomato
+            model: ogpans
+          cloth_asset:
+            name: cover_small_item_render_cloth_0834926443
+            category: hand_towel
+            model: klevhj
+          source_item_xy:
+          - -36.65
+          - 12.35
+          floor_height_m: -0.0
+          cloth_mass_kg: 0.15
+          cloth_drop_xy_offset_m:
+          - 0.0
+          - 0.0
+          robot_clearance_xy_m:
+          - -37.949999999999996
+          - 12.35
+          cloth_scale_multiplier: 2.5
+          settle_steps: 600
+          cloth_drop_clearance_m: 0.012
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - item
+        - cloth
+        - covered_bun
+        manipulation_bindings:
+        - item
+        relocation_policy: rigid_group
+        layout_parameters:
+          deformable_cover:
+            schema: task_edit2_deformable_20261018_v1
+            source_identity: Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json
+            source_sha256: d7bfd45c7ecc136f920b85f68e4d235195e8d554cb52ff533c7df0942029dfb5
+            bindings:
+              item:
+                name: cover_small_item_render_item_0834926443
+                category: beefsteak_tomato
+                model: ogpans
+              cloth:
+                name: cover_small_item_render_cloth_0834926443
+                category: hand_towel
+                model: klevhj
+            world_mesh_before_physics_required: true
+            settled_cloth_root_is_rigid_invariant: false
+            native_mesh_cover_and_support_required: true
+            rigid_proxy_allowed: false
+            actual_sweep_grasp_and_lift_pending: true
+          deformable_source_parameters:
+            source_item_xy:
+            - -36.65
+            - 12.35
+            floor_height_estimate_m: -0.0
+            task_revision: task_edit2_deformable_20261018_v1
+            mechanism_contract:
+              preserve:
+              - native_cloth_mesh
+              - cloth_scale
+              - covered_item_identity
+              - initial_cover_relation
+              goal: native_cloth_sweep_reveal_then_retrieve
+              rigid_proxy_allowed: false
+            source_identity: Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json
+            source_sha256: d7bfd45c7ecc136f920b85f68e4d235195e8d554cb52ff533c7df0942029dfb5
+            deformable_cover:
+              schema: task_edit2_deformable_20261018_v1
+              source_identity: Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json
+              source_sha256: d7bfd45c7ecc136f920b85f68e4d235195e8d554cb52ff533c7df0942029dfb5
+              bindings:
+                item:
+                  name: cover_small_item_render_item_0834926443
+                  category: beefsteak_tomato
+                  model: ogpans
+                cloth:
+                  name: cover_small_item_render_cloth_0834926443
+                  category: hand_towel
+                  model: klevhj
+              world_mesh_before_physics_required: true
+              settled_cloth_root_is_rigid_invariant: false
+              native_mesh_cover_and_support_required: true
+              rigid_proxy_allowed: false
+              actual_sweep_grasp_and_lift_pending: true
+        controller_initial_trunk_joint_positions_rad:
+        - 0.6981317007977318
+        - -1.3962634015954636
+        - -0.6981317007977318
+        - 0.0
+        placement_groups: []
+        support_bindings:
+        - item
+        support_preferences: {}
+        support_search: measured_surfaces
+        allow_fallback_table: true
+        anchor_policy: none
+        source_camera_policy: preserve
+        fixed_reference_evidence: {}
+        source_region: empty_room_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes:
+        - covered_pair_accessible_support_requires_review
+        - native_cloth_cover_after_translation_unverified
+        - source_qa_reference_layout_changed
+        - native_full_cloth_footprint_required
+        - native_mesh_translation_and_settled_cover_pending
+qualification:
+  on_failure: skip
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  design_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/cover_design_v2.json
+  design_sha256: 773fe1db26ea6da298b8a49593dd4b3e0ba20762b920c8913621591f6bf6783f
+  parent_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/covers/tasks/t50_diverse_cover_v1.yaml
+  parent_task_sha256: 8ec7e1d7cecfc011cdcd90f9ea2c50aecfe15bc9a45fddbbb4fc89b8072b60c8
+  parent_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/covers/scenes/t50_diverse_cover_v1.yaml
+  parent_scene_sha256: 949dd8a0cfcf93440434b187831833c1fbf9003d23ba385f4861b95b4fb931dc
+  source_identity: Physical Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json
+  source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
+    Structure/Deformable/hall_arch_wood/empty_room_0/q_000.json
+  source_sha256: d7bfd45c7ecc136f920b85f68e4d235195e8d554cb52ff533c7df0942029dfb5
+  source_builder_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/src/active_explore/tasks/physical_structure/deformable.py
+  source_builder_sha256: 946dd2f1901561497c89f44dcb9deee623351ff709fd022e9a9f7f907327556b
+  source_bootstrap_object_inventory: empty
+  source_postprocess_owner: wia.authoring.converters.deformable_redrape
+  source_postprocess_policy: existing_joint_world_override
+  document_alias: T50
+  variant_id: t50_light_hand_towel_v2
+  label: T50 native hand towel, reduced declared mass
+  public_cover_label: hand towel
+  initialized_cloth_asset_override:
+    name: cover_small_item_render_cloth_0834926443
+    category: hand_towel
+    model: klevhj
+  full_reference_execution: pending
+  native_validation_run: false
+  physical_success_verified: false

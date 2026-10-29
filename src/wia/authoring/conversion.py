@@ -1,6 +1,6 @@
 """Category converter contracts and deterministic CPU batching.
 
-Run: python scripts/run_esi_category_campaign.py --help
+Run: python src/wia/runtime/commands/run_esi_category_campaign.py --help
 Converters own rules, never edit source JSON or manually edit generated YAML.
 """
 from __future__ import annotations
@@ -15,7 +15,7 @@ import traceback
 
 import yaml
 
-from wia.authoring.modules import canonical_module_name, import_owned_module, legacy_module_name
+from wia.authoring.modules import canonical_module_name, import_owned_module
 from wia.authoring.io import digest, read_json, sha256, write_json
 from wia.tasks.schema import SceneDefinition
 
@@ -107,7 +107,7 @@ class ConverterBase:
                 continue
             record = {'original_source': str(source.path), 'source_identity': source.relative_path,
                 'big_task': source.big_task, 'small_task': source.small_task,
-                'converter_version': self.version, 'converter_module': legacy_module_name(type(self).__module__),
+                'converter_version': self.version, 'converter_module': type(self).__module__,
                 'candidate_id': candidate_id, 'scene_file': None, 'task_file': None,
                 'reuse_level': 'L1', 'change_summary': [], 'goal_predicate': None,
                 'qa_preserved': True, 'limitations': [], 'status': 'conversion_failed',
@@ -237,10 +237,10 @@ def sample_records(manifest, *, count=5, seed=0, previous_failures=()):
 
 
 CONVERTERS = {
-    ('Action Sequencing', 'Action Order Inference'): 'core.esi_converters.action_order:ActionOrderConverter',
-    ('Perceptual Grounding', 'Partial Occlusion'): 'core.esi_converters.partial_occlusion:PartialOcclusionConverter',
-    ('Metric Comparison', 'Dimensional Size'): 'core.esi_converters.dimensional_size:DimensionalSizeConverter',
-    ('Temporal Understanding', 'Unobserved Change'): 'core.esi_converters.temporal_understanding_two_phase:CategoryConverter',
+    ('Action Sequencing', 'Action Order Inference'): 'wia.authoring.converters.action_order:ActionOrderConverter',
+    ('Perceptual Grounding', 'Partial Occlusion'): 'wia.authoring.converters.partial_occlusion:PartialOcclusionConverter',
+    ('Metric Comparison', 'Dimensional Size'): 'wia.authoring.converters.dimensional_size:DimensionalSizeConverter',
+    ('Temporal Understanding', 'Unobserved Change'): 'wia.authoring.converters.temporal_understanding_two_phase:CategoryConverter',
 }
 
 

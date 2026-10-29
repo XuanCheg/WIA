@@ -22,7 +22,7 @@ from wia.authoring.conversion import ConverterBase, original_scene, physical_tas
 from wia.tasks.interaction_setup import array as native_array, verified_repaired_start
 
 
-MODULE = 'core.esi_converters.specular_reflection_correspondence'
+MODULE = 'wia.authoring.converters.specular_reflection_correspondence'
 OPERATIONS = ('correspondence_approach', 'correspondence_approach_return')
 ANSWER_OPERATION = 'answer_reflection_correspondence'
 ACTION_OPERATION = 'answer_and_verify_reflection_correspondence'

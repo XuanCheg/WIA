@@ -53,5 +53,25 @@
       "yaw_deg": 180.0,
       "focal_length": 6.3
     }
-  ]
+  ],
+  "render_resolution": [
+    1024,
+    576
+  ],
+  "optics_source": "Galaxea R1 published camera FOV; equivalent pinhole approximation, not factory RGB/depth calibration or lens distortion",
+  "optics_source_url": "https://github.com/userguide-galaxea/product_user_guide/blob/galaxea/main/docs/en/Guide/R1/R1_Autonomous_Navigation_System_Usage_Tutorial.md",
+  "camera_fov_deg": {
+    "head": [
+      110.0,
+      70.0
+    ],
+    "wrist": [
+      87.0,
+      58.0
+    ],
+    "chassis": [
+      118.0,
+      62.0
+    ]
+  }
 }

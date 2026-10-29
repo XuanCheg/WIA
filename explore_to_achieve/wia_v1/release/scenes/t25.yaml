@@ -1,0 +1,298 @@
+kind: scene_patch
+id: wia_rigid_t25_v1_scene__t25_furnished_native_support_v1__awake_contact_v2
+version: 4
+status: pending
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/Merom_0_garden/playroom_0/t25_furnished_native_support_v1.json
+target: null
+bindings:
+  target:
+    name: obj_containee
+    category: banana
+    model: znakxm
+  container_2:
+    name: obj_container_2
+    category: wicker_basket
+    model: jqfftz
+  container_1:
+    name: obj_container_1
+    category: tupperware
+    model: mkstwr
+  container_0:
+    name: obj_container_0
+    category: bowl
+    model: byzaxy
+  table:
+    name: countertop_tpuwys_0
+    category: countertop
+    model: tpuwys
+  pickup_support:
+    name: bookcase_owvfik_0
+    category: bookcase
+    model: owvfik
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    tabletop:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.active_layout
+        parameters:
+          revision: wia_furnished_rigid_layout_v1
+          layout:
+            shared_layout_id: t25_furnished_native_support_v1
+            scene_model: Merom_0_garden
+            rooms:
+            - playroom_0
+            floor_name: floors_jrdgxz_0
+            objects:
+            - type: DatasetObject
+              name: obj_containee
+              category: banana
+              model: znakxm
+              position:
+              - -3.02
+              - -10.61
+              - 1.1024741013978911
+              orientation:
+              - 6.494810804724693e-07
+              - 1.2593809515237808e-06
+              - -0.05854220688343048
+              - 0.998285174369812
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_0
+              category: bowl
+              model: byzaxy
+              position:
+              - -5.82
+              - -11.8
+              - 1.1191993950803805
+              orientation:
+              - 0.0003229005402968168
+              - 0.003126484598275809
+              - 1.1255167094640558e-05
+              - 0.9999950603391095
+              scale:
+              - 0.5459178917593811
+              - 0.27949668238233843
+              - 0.2650372420818137
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_1
+              category: tupperware
+              model: mkstwr
+              position:
+              - -5.82
+              - -11.15
+              - 1.1191993950803805
+              orientation:
+              - 0.07903956640824547
+              - -0.19056954719292873
+              - -0.24059849257284885
+              - 0.948445232997853
+              scale:
+              - 1.089512783869568
+              - 0.5578015436773667
+              - 0.37826611553269435
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_2
+              category: wicker_basket
+              model: jqfftz
+              position:
+              - -5.82
+              - -10.6
+              - 1.1191993950803805
+              orientation:
+              - -0.16187102170775114
+              - 0.029060768171091475
+              - -0.005212663375990422
+              - 0.9863701497030025
+              scale:
+              - 1.011809469467461
+              - 0.5179295399061828
+              - 0.2371256964833768
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: obj_containee
+              support: bookcase_owvfik_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: obj_container_0
+              support: countertop_tpuwys_0
+            - name: obj_container_1
+              support: countertop_tpuwys_0
+            - name: obj_container_2
+              support: countertop_tpuwys_0
+            robot_start:
+              position:
+              - -4.8
+              - -11.45
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Merom_0_garden
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.active_layout
+        parameters:
+          revision: wia_furnished_rigid_layout_v1
+          layout:
+            shared_layout_id: t25_furnished_native_support_v1
+            scene_model: Merom_0_garden
+            rooms:
+            - playroom_0
+            floor_name: floors_jrdgxz_0
+            objects:
+            - type: DatasetObject
+              name: obj_containee
+              category: banana
+              model: znakxm
+              position:
+              - -3.02
+              - -10.61
+              - 1.1024741013978911
+              orientation:
+              - 6.494810804724693e-07
+              - 1.2593809515237808e-06
+              - -0.05854220688343048
+              - 0.998285174369812
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_0
+              category: bowl
+              model: byzaxy
+              position:
+              - -5.82
+              - -11.8
+              - 1.1191993950803805
+              orientation:
+              - 0.0003229005402968168
+              - 0.003126484598275809
+              - 1.1255167094640558e-05
+              - 0.9999950603391095
+              scale:
+              - 0.5459178917593811
+              - 0.27949668238233843
+              - 0.2650372420818137
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_1
+              category: tupperware
+              model: mkstwr
+              position:
+              - -5.82
+              - -11.15
+              - 1.1191993950803805
+              orientation:
+              - 0.07903956640824547
+              - -0.19056954719292873
+              - -0.24059849257284885
+              - 0.948445232997853
+              scale:
+              - 1.089512783869568
+              - 0.5578015436773667
+              - 0.37826611553269435
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_container_2
+              category: wicker_basket
+              model: jqfftz
+              position:
+              - -5.82
+              - -10.6
+              - 1.1191993950803805
+              orientation:
+              - -0.16187102170775114
+              - 0.029060768171091475
+              - -0.005212663375990422
+              - 0.9863701497030025
+              scale:
+              - 1.011809469467461
+              - 0.5179295399061828
+              - 0.2371256964833768
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: obj_containee
+              support: bookcase_owvfik_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: obj_container_0
+              support: countertop_tpuwys_0
+            - name: obj_container_1
+              support: countertop_tpuwys_0
+            - name: obj_container_2
+              support: countertop_tpuwys_0
+            robot_start:
+              position:
+              - -4.8
+              - -11.45
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Merom_0_garden
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.wia_contact_awake_initialization
+        parameters:
+          revision: wia_contact_awake_initialization_v1
+          expected_scene: Merom_0_garden
+          object_names:
+          - obj_containee
+          sleep_threshold: 0.0
+qualification: null
+runtime:
+  post_controller_settle_steps: 120
+  trunk_config: configs/esi_trunk_low_grasp.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0
+seed: 0
+target_bindings: []

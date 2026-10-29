@@ -29,7 +29,7 @@ from wia.authoring.conversion import ROOT, ConverterBase, original_scene, physic
 from wia.authoring.io import sha256, write_json
 
 
-MODULE = 'core.esi_converters.physical_structure_liquid_volume'
+MODULE = 'wia.authoring.converters.physical_structure_liquid_volume'
 OPERATIONS = ('dock_at_both_containers', 'dock_at_both_and_return')
 CAPACITY_OPERATION = 'report_source_capacity_order'
 TASK_REVISION = 'task_edit_20261018_v1'

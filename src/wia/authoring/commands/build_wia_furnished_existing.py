@@ -28,7 +28,7 @@ from wia.tasks.loader import UniqueLoader, load_scene, load_task, source_scene_r
 from wia.tasks.schema import CategoryTaskDefinition, SceneDefinition, SceneRuntime
 from wia.tasks.sources import resolve_source
 
-SUPPORTED_MODULES = {'core.esi_converters.action_order', 'core.esi_converters.physical_dynamics_stacking_stability'}
+SUPPORTED_MODULES = {'wia.authoring.converters.action_order', 'wia.authoring.converters.physical_dynamics_stacking_stability'}
 
 
 def repo_path(value):
@@ -101,7 +101,7 @@ def translate_definitions(parent_task, parent_scene, entry, provenance):
         patches.append({'operation': 'category_initialization', 'phase': phase,
                         'module': MODULE, 'parameters': deepcopy(parameters)})
         patches.append({'operation': 'category_initialization', 'phase': phase,
-                        'module': 'core.esi_converters.wia_background', 'parameters': deepcopy(background)})
+                        'module': 'wia.authoring.converters.wia_background', 'parameters': deepcopy(background)})
     task['scene'] = {'policy': 'native_then_minimal_patch_else_skip',
                      'variants': {'original': {'patches': []}, 'adapted': {'patches': patches}}}
     task.update(id=parent_task['id'] + '__' + entry['variant_id'], version=parent_task['version'] + 1,

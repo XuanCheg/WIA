@@ -4,7 +4,7 @@ import json
 import os
 from pathlib import Path
 
-from wia.resources import ROOT, resolve_migrated_path
+from wia.resources import ROOT, resolve_resource_path
 
 ARTIFACT_ROOT = Path(os.environ.get("WIA_ARTIFACT_ROOT", ROOT / "outputs")).expanduser().resolve()
 
@@ -13,7 +13,7 @@ def project_path(path, *, root=ROOT):
     """Resolve project paths and explicitly redirected historical output inputs."""
     path = Path(path)
     if path.is_absolute():
-        return resolve_migrated_path(path, root=root).resolve()
+        return resolve_resource_path(path, root=root).resolve()
     if path.parts and path.parts[0] == "outputs" and os.environ.get("WIA_ARTIFACT_ROOT"):
         return ARTIFACT_ROOT.joinpath(*path.parts[1:]).resolve()
     return (root / path).resolve()

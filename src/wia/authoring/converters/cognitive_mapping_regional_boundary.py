@@ -1,6 +1,6 @@
 """Preserve Regional Boundary scenes and measure native room visits and reports.
 
-Run: python scripts/run_esi_category_campaign.py --help
+Run: python src/wia/runtime/commands/run_esi_category_campaign.py --help
 CategoryConverter.convert_all performs CPU generation. Native qualification and
 episode hooks read the actual robot, anchors and private room map without writes.
 """
@@ -28,7 +28,7 @@ from wia.authoring.converters.cognitive_mapping_visit_reports import (
     REVISED_MAPPING_OPERATIONS, revise_mapping_result, legacy_mapping_config,
     qualify_revised_mapping, SourceAnswerMappingEvaluator)
 
-MODULE = 'core.esi_converters.cognitive_mapping_regional_boundary'
+MODULE = 'wia.authoring.converters.cognitive_mapping_regional_boundary'
 REVISED_OPERATION = REVISED_MAPPING_OPERATIONS['Regional Boundary']
 EXPLORATION_OPERATION = 'anchor_region_exploration'
 GENERATOR = ESI_ROOT / 'src/dataset_generation/task_cognitive_map/batch_cognitivemap_region.py'

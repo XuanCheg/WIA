@@ -1,7 +1,7 @@
 """Run one original Unobserved Change episode across two real scene states.
 
 Use a temporal_understanding_two_phase category task through run_esi_robot.py.
-For a native continuity check run scripts/check_esi_temporal_phases.py with an
+For a native continuity check run src/wia/runtime/commands/check_esi_temporal_phases.py with an
 existing pending scene. Only TemporalPhaseController.advance mutates content;
 qualification and the evaluator read measured state without acting or stepping.
 """
@@ -20,7 +20,7 @@ from wia.authoring.io import write_json
 from wia.tasks.interaction_setup import array, _robot_contact_check
 from wia.authoring.converters.temporal_understanding_two_phase import physical_target_keys
 
-MODULE = 'core.esi_converters.temporal_understanding_two_phase'
+MODULE = 'wia.authoring.converters.temporal_understanding_two_phase'
 OPERATION = 'observe_two_phase_change'
 PHYSICAL_OPERATION = 'compare_change_and_restore_or_collect'
 

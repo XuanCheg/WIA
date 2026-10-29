@@ -1,6 +1,6 @@
 """Initialize a fully draped native cloth before the existing support relocation.
 
-Run native checks with scripts/check_esi_core_native.py and a versioned task
+Run native checks with src/wia/runtime/commands/check_esi_core_native.py and a versioned task
 containing this initializer. No reset or particle editing is allowed in episodes.
 """
 from __future__ import annotations
@@ -153,7 +153,7 @@ def _legacy_config(config):
 
 def initial_cover_evidence(session, cloth, items):
     """Measure projected mesh coverage and target pixels in enabled mounted cameras."""
-    from core.sim.esi_visual_evidence import _labels, _mask_statistics
+    from wia.runtime.sim.esi_visual_evidence import _labels, _mask_statistics
     _, triangles = _mesh(cloth)
     coverage = {item.name: projected_cover(triangles, *[_array(v) for v in item.aabb]) for item in items}
     pixels, errors = {}, {}
@@ -178,7 +178,7 @@ def initial_cover_evidence(session, cloth, items):
 def side_cover_evidence(session, cloth, items):
     """Check side, elevated and top views without moving actors or Agent cameras."""
     from omnigibson.sensors import VisionSensor
-    from core.sim.esi_review_cameras import _render
+    from wia.runtime.sim.esi_review_cameras import _render
     sensor = getattr(session, '_category_review_sensor', None)
     if sensor is None:
         sensor = VisionSensor(relative_prim_path='/human_cameras/category_review', name='category_review',

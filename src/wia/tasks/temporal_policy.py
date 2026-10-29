@@ -18,6 +18,8 @@ def survey_action_allowed(action):
     token = action if isinstance(action, str) else getattr(action, 'action', None)
     if isinstance(action, dict):
         token = action.get('action')
+    from core.action_units import arm_primitive
+    token = arm_primitive(token)
     return isinstance(token, str) and (token.startswith(('BASE_', 'MV_', 'ROTATE_', 'TRUNK_')) or token == 'DONE')
 
 

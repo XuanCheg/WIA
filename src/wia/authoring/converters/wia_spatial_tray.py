@@ -1,6 +1,6 @@
 """Read native retrieve-and-arrange tray evidence; place only at initialization.
 
-Run initialization review with scripts/check_esi_core_native.py using an authored
+Run initialization review with src/wia/runtime/commands/check_esi_core_native.py using an authored
 spatial-tray definition. Run CPU validation with python -B -m pytest -q
 -p no:cacheprovider tests/test_wia_spatial_tray.py. No helper in this module
 launches a reference policy, manipulation, navigation or simulation process.
@@ -24,7 +24,7 @@ from wia.authoring.io import write_json
 from wia.tasks.interaction_setup import array
 from wia.tasks.wia_spatial_tray_scoring import REVISION, SpatialTrayProgress, validate_parameters
 
-MODULE = 'core.esi_converters.wia_spatial_tray'
+MODULE = 'wia.authoring.converters.wia_spatial_tray'
 OPERATION = 'retrieve_arrange_in_tray'
 ERRORS = (AttributeError, ValueError, RuntimeError, TypeError, KeyError, IndexError, AssertionError, ImportError)
 

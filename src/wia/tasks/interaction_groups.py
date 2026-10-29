@@ -1,6 +1,6 @@
 """Place meaningful task groups on separate measured supports before controls.
 
-Run via scripts/run_esi_capture_worker.py. CPU fixtures can run with
+Run via src/wia/runtime/commands/run_esi_capture_worker.py. CPU fixtures can run with
 python -m pytest -q tests/test_accessible_shared_groups.py. Each group reuses
 the existing native support/contact/stance checks; no runtime action is issued.
 """

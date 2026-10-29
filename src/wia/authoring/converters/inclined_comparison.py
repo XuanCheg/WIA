@@ -1,6 +1,6 @@
 """Measure controlled ramp trials followed by an unused-spare delivery.
 
-Run generated candidates with scripts/check_esi_core_native.py --evaluate.
+Run generated candidates with src/wia/runtime/commands/check_esi_core_native.py --evaluate.
 This evaluator reads native contacts, motion and time; it never moves objects.
 """
 from __future__ import annotations
@@ -16,7 +16,7 @@ from wia.authoring.converters.physical_dynamics_inclined_plane import _array, _p
 from wia.authoring.io import write_json
 from wia.tasks.interaction_setup import array as native_array
 
-MODULE = 'core.esi_converters.inclined_comparison'
+MODULE = 'wia.authoring.converters.inclined_comparison'
 
 
 def qualified_fastest(records, candidates, tolerance_s=.15):

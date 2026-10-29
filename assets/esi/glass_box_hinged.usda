@@ -1,0 +1,633 @@
+#usda 1.0
+(
+    defaultPrim = "GlassBox"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+def Xform "GlassBox" {
+    def Scope "Looks" {
+        def Material "Glass" {
+            token outputs:surface.connect = </GlassBox/Looks/Glass/Shader.outputs:surface>
+            def Shader "Shader" {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.82, 0.94, 0.98)
+                float inputs:opacity = 0.15
+                float inputs:roughness = 0.06
+                float inputs:ior = 1.45
+                token outputs:surface
+            }
+        }
+        def Material "Frame" {
+            token outputs:surface.connect = </GlassBox/Looks/Frame/Shader.outputs:surface>
+            def Shader "Shader" {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.10, 0.27, 0.32)
+                float inputs:metallic = 0.35
+                float inputs:roughness = 0.3
+                token outputs:surface
+            }
+        }
+        def Material "Handle" {
+            token outputs:mdl:surface.connect = </GlassBox/Looks/Handle/Shader.outputs:out>
+            def Shader "Shader" {
+                uniform token info:id = "OmniPBR"
+                uniform token info:implementationSource = "sourceAsset"
+                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                color3f inputs:diffuse_color_constant = (0.16, 0.25, 0.28)
+                float inputs:metallic_constant = 0.2
+                float inputs:reflection_roughness_constant = 0.4
+                bool inputs:enable_opacity = false
+                token outputs:out
+            }
+        }
+    }
+    def Xform "base_link" (prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]) {
+        bool physics:rigidBodyEnabled = true
+        float physics:mass = 2
+        def Mesh "collision_glass_floor" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0, 0, 0.003)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.180000, -0.140000, -0.003000), (0.180000, -0.140000, -0.003000), (0.180000, 0.140000, -0.003000), (-0.180000, 0.140000, -0.003000), (-0.180000, -0.140000, 0.003000), (0.180000, -0.140000, 0.003000), (0.180000, 0.140000, 0.003000), (-0.180000, 0.140000, 0.003000)]
+            float3[] extent = [(-0.18, -0.14, -0.003), (0.18, 0.14, 0.003)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+            bool physics:collisionEnabled = true
+            token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.001
+            float physxCollision:restOffset = 0
+
+            rel material:binding = </GlassBox/Looks/Glass>
+        }
+        def Mesh "glass_floor" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0, 0, 0.003)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.180000, -0.140000, -0.003000), (0.180000, -0.140000, -0.003000), (0.180000, 0.140000, -0.003000), (-0.180000, 0.140000, -0.003000), (-0.180000, -0.140000, 0.003000), (0.180000, -0.140000, 0.003000), (0.180000, 0.140000, 0.003000), (-0.180000, 0.140000, 0.003000)]
+            float3[] extent = [(-0.18, -0.14, -0.003), (0.18, 0.14, 0.003)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+
+            rel material:binding = </GlassBox/Looks/Glass>
+        }
+        def Mesh "collision_glass_front" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0, -0.137, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.180000, -0.003000, -0.080000), (0.180000, -0.003000, -0.080000), (0.180000, 0.003000, -0.080000), (-0.180000, 0.003000, -0.080000), (-0.180000, -0.003000, 0.080000), (0.180000, -0.003000, 0.080000), (0.180000, 0.003000, 0.080000), (-0.180000, 0.003000, 0.080000)]
+            float3[] extent = [(-0.18, -0.003, -0.08), (0.18, 0.003, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+            bool physics:collisionEnabled = true
+            token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.001
+            float physxCollision:restOffset = 0
+
+            rel material:binding = </GlassBox/Looks/Glass>
+        }
+        def Mesh "glass_front" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0, -0.137, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.180000, -0.003000, -0.080000), (0.180000, -0.003000, -0.080000), (0.180000, 0.003000, -0.080000), (-0.180000, 0.003000, -0.080000), (-0.180000, -0.003000, 0.080000), (0.180000, -0.003000, 0.080000), (0.180000, 0.003000, 0.080000), (-0.180000, 0.003000, 0.080000)]
+            float3[] extent = [(-0.18, -0.003, -0.08), (0.18, 0.003, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+
+            rel material:binding = </GlassBox/Looks/Glass>
+        }
+        def Mesh "collision_glass_back" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0, 0.137, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.180000, -0.003000, -0.080000), (0.180000, -0.003000, -0.080000), (0.180000, 0.003000, -0.080000), (-0.180000, 0.003000, -0.080000), (-0.180000, -0.003000, 0.080000), (0.180000, -0.003000, 0.080000), (0.180000, 0.003000, 0.080000), (-0.180000, 0.003000, 0.080000)]
+            float3[] extent = [(-0.18, -0.003, -0.08), (0.18, 0.003, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+            bool physics:collisionEnabled = true
+            token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.001
+            float physxCollision:restOffset = 0
+
+            rel material:binding = </GlassBox/Looks/Glass>
+        }
+        def Mesh "glass_back" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0, 0.137, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.180000, -0.003000, -0.080000), (0.180000, -0.003000, -0.080000), (0.180000, 0.003000, -0.080000), (-0.180000, 0.003000, -0.080000), (-0.180000, -0.003000, 0.080000), (0.180000, -0.003000, 0.080000), (0.180000, 0.003000, 0.080000), (-0.180000, 0.003000, 0.080000)]
+            float3[] extent = [(-0.18, -0.003, -0.08), (0.18, 0.003, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+
+            rel material:binding = </GlassBox/Looks/Glass>
+        }
+        def Mesh "collision_glass_left" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (-0.177, 0, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.003000, -0.134000, -0.080000), (0.003000, -0.134000, -0.080000), (0.003000, 0.134000, -0.080000), (-0.003000, 0.134000, -0.080000), (-0.003000, -0.134000, 0.080000), (0.003000, -0.134000, 0.080000), (0.003000, 0.134000, 0.080000), (-0.003000, 0.134000, 0.080000)]
+            float3[] extent = [(-0.003, -0.134, -0.08), (0.003, 0.134, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+            bool physics:collisionEnabled = true
+            token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.001
+            float physxCollision:restOffset = 0
+
+            rel material:binding = </GlassBox/Looks/Glass>
+        }
+        def Mesh "glass_left" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (-0.177, 0, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.003000, -0.134000, -0.080000), (0.003000, -0.134000, -0.080000), (0.003000, 0.134000, -0.080000), (-0.003000, 0.134000, -0.080000), (-0.003000, -0.134000, 0.080000), (0.003000, -0.134000, 0.080000), (0.003000, 0.134000, 0.080000), (-0.003000, 0.134000, 0.080000)]
+            float3[] extent = [(-0.003, -0.134, -0.08), (0.003, 0.134, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+
+            rel material:binding = </GlassBox/Looks/Glass>
+        }
+        def Mesh "collision_glass_right" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0.177, 0, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.003000, -0.134000, -0.080000), (0.003000, -0.134000, -0.080000), (0.003000, 0.134000, -0.080000), (-0.003000, 0.134000, -0.080000), (-0.003000, -0.134000, 0.080000), (0.003000, -0.134000, 0.080000), (0.003000, 0.134000, 0.080000), (-0.003000, 0.134000, 0.080000)]
+            float3[] extent = [(-0.003, -0.134, -0.08), (0.003, 0.134, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+            bool physics:collisionEnabled = true
+            token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.001
+            float physxCollision:restOffset = 0
+
+            rel material:binding = </GlassBox/Looks/Glass>
+        }
+        def Mesh "glass_right" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0.177, 0, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.003000, -0.134000, -0.080000), (0.003000, -0.134000, -0.080000), (0.003000, 0.134000, -0.080000), (-0.003000, 0.134000, -0.080000), (-0.003000, -0.134000, 0.080000), (0.003000, -0.134000, 0.080000), (0.003000, 0.134000, 0.080000), (-0.003000, 0.134000, 0.080000)]
+            float3[] extent = [(-0.003, -0.134, -0.08), (0.003, 0.134, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+
+            rel material:binding = </GlassBox/Looks/Glass>
+        }
+        def Mesh "collision_corner_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (-0.177, -0.137, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.005000, -0.005000, -0.080000), (0.005000, -0.005000, -0.080000), (0.005000, 0.005000, -0.080000), (-0.005000, 0.005000, -0.080000), (-0.005000, -0.005000, 0.080000), (0.005000, -0.005000, 0.080000), (0.005000, 0.005000, 0.080000), (-0.005000, 0.005000, 0.080000)]
+            float3[] extent = [(-0.005, -0.005, -0.08), (0.005, 0.005, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+            bool physics:collisionEnabled = true
+            token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.001
+            float physxCollision:restOffset = 0
+
+            rel material:binding = </GlassBox/Looks/Frame>
+        }
+        def Mesh "corner_0" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (-0.177, -0.137, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.005000, -0.005000, -0.080000), (0.005000, -0.005000, -0.080000), (0.005000, 0.005000, -0.080000), (-0.005000, 0.005000, -0.080000), (-0.005000, -0.005000, 0.080000), (0.005000, -0.005000, 0.080000), (0.005000, 0.005000, 0.080000), (-0.005000, 0.005000, 0.080000)]
+            float3[] extent = [(-0.005, -0.005, -0.08), (0.005, 0.005, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+
+            rel material:binding = </GlassBox/Looks/Frame>
+        }
+        def Mesh "collision_corner_1" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0.177, -0.137, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.005000, -0.005000, -0.080000), (0.005000, -0.005000, -0.080000), (0.005000, 0.005000, -0.080000), (-0.005000, 0.005000, -0.080000), (-0.005000, -0.005000, 0.080000), (0.005000, -0.005000, 0.080000), (0.005000, 0.005000, 0.080000), (-0.005000, 0.005000, 0.080000)]
+            float3[] extent = [(-0.005, -0.005, -0.08), (0.005, 0.005, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+            bool physics:collisionEnabled = true
+            token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.001
+            float physxCollision:restOffset = 0
+
+            rel material:binding = </GlassBox/Looks/Frame>
+        }
+        def Mesh "corner_1" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0.177, -0.137, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.005000, -0.005000, -0.080000), (0.005000, -0.005000, -0.080000), (0.005000, 0.005000, -0.080000), (-0.005000, 0.005000, -0.080000), (-0.005000, -0.005000, 0.080000), (0.005000, -0.005000, 0.080000), (0.005000, 0.005000, 0.080000), (-0.005000, 0.005000, 0.080000)]
+            float3[] extent = [(-0.005, -0.005, -0.08), (0.005, 0.005, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+
+            rel material:binding = </GlassBox/Looks/Frame>
+        }
+        def Mesh "collision_corner_2" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (-0.177, 0.137, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.005000, -0.005000, -0.080000), (0.005000, -0.005000, -0.080000), (0.005000, 0.005000, -0.080000), (-0.005000, 0.005000, -0.080000), (-0.005000, -0.005000, 0.080000), (0.005000, -0.005000, 0.080000), (0.005000, 0.005000, 0.080000), (-0.005000, 0.005000, 0.080000)]
+            float3[] extent = [(-0.005, -0.005, -0.08), (0.005, 0.005, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+            bool physics:collisionEnabled = true
+            token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.001
+            float physxCollision:restOffset = 0
+
+            rel material:binding = </GlassBox/Looks/Frame>
+        }
+        def Mesh "corner_2" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (-0.177, 0.137, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.005000, -0.005000, -0.080000), (0.005000, -0.005000, -0.080000), (0.005000, 0.005000, -0.080000), (-0.005000, 0.005000, -0.080000), (-0.005000, -0.005000, 0.080000), (0.005000, -0.005000, 0.080000), (0.005000, 0.005000, 0.080000), (-0.005000, 0.005000, 0.080000)]
+            float3[] extent = [(-0.005, -0.005, -0.08), (0.005, 0.005, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+
+            rel material:binding = </GlassBox/Looks/Frame>
+        }
+        def Mesh "collision_corner_3" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0.177, 0.137, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.005000, -0.005000, -0.080000), (0.005000, -0.005000, -0.080000), (0.005000, 0.005000, -0.080000), (-0.005000, 0.005000, -0.080000), (-0.005000, -0.005000, 0.080000), (0.005000, -0.005000, 0.080000), (0.005000, 0.005000, 0.080000), (-0.005000, 0.005000, 0.080000)]
+            float3[] extent = [(-0.005, -0.005, -0.08), (0.005, 0.005, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+            bool physics:collisionEnabled = true
+            token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.001
+            float physxCollision:restOffset = 0
+
+            rel material:binding = </GlassBox/Looks/Frame>
+        }
+        def Mesh "corner_3" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0.177, 0.137, 0.086)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.005000, -0.005000, -0.080000), (0.005000, -0.005000, -0.080000), (0.005000, 0.005000, -0.080000), (-0.005000, 0.005000, -0.080000), (-0.005000, -0.005000, 0.080000), (0.005000, -0.005000, 0.080000), (0.005000, 0.005000, 0.080000), (-0.005000, 0.005000, 0.080000)]
+            float3[] extent = [(-0.005, -0.005, -0.08), (0.005, 0.005, 0.08)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+
+            rel material:binding = </GlassBox/Looks/Frame>
+        }
+
+        def PhysicsRevoluteJoint "lid_hinge" (prepend apiSchemas = ["PhysxJointAPI", "PhysicsJointStateAPI:angular"]) {
+            rel physics:body0 = </GlassBox/base_link>
+            rel physics:body1 = </GlassBox/lid_link>
+            uniform token physics:axis = "X"
+            point3f physics:localPos0 = (0, 0.14, 0.170)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (0, 0, 0, 1)
+            quatf physics:localRot1 = (0, 0, 0, 1)
+            float physics:lowerLimit = 0
+            float physics:upperLimit = 110
+            float physxJoint:jointFriction = 0.20
+            bool physics:collisionEnabled = false
+            float state:angular:physics:position = 0
+            float state:angular:physics:velocity = 0
+        }
+    }
+    def Xform "lid_link" (prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]) {
+        bool physics:rigidBodyEnabled = true
+        float physics:mass = 0.07
+        double3 xformOp:translate = (0, 0.14, 0.170)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+        def Mesh "collision_glass_lid" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0, -0.14, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.180000, -0.140000, -0.003000), (0.180000, -0.140000, -0.003000), (0.180000, 0.140000, -0.003000), (-0.180000, 0.140000, -0.003000), (-0.180000, -0.140000, 0.003000), (0.180000, -0.140000, 0.003000), (0.180000, 0.140000, 0.003000), (-0.180000, 0.140000, 0.003000)]
+            float3[] extent = [(-0.18, -0.14, -0.003), (0.18, 0.14, 0.003)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+            bool physics:collisionEnabled = true
+            token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.001
+            float physxCollision:restOffset = 0
+
+            rel material:binding = </GlassBox/Looks/Glass>
+        }
+        def Mesh "glass_lid" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0, -0.14, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.180000, -0.140000, -0.003000), (0.180000, -0.140000, -0.003000), (0.180000, 0.140000, -0.003000), (-0.180000, 0.140000, -0.003000), (-0.180000, -0.140000, 0.003000), (0.180000, -0.140000, 0.003000), (0.180000, 0.140000, 0.003000), (-0.180000, 0.140000, 0.003000)]
+            float3[] extent = [(-0.18, -0.14, -0.003), (0.18, 0.14, 0.003)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+
+            rel material:binding = </GlassBox/Looks/Glass>
+        }
+        def Mesh "collision_lid_front_rail" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0, -0.275, 0.002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.180000, -0.005000, -0.005000), (0.180000, -0.005000, -0.005000), (0.180000, 0.005000, -0.005000), (-0.180000, 0.005000, -0.005000), (-0.180000, -0.005000, 0.005000), (0.180000, -0.005000, 0.005000), (0.180000, 0.005000, 0.005000), (-0.180000, 0.005000, 0.005000)]
+            float3[] extent = [(-0.18, -0.005, -0.005), (0.18, 0.005, 0.005)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+            bool physics:collisionEnabled = true
+            token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.001
+            float physxCollision:restOffset = 0
+
+            rel material:binding = </GlassBox/Looks/Frame>
+        }
+        def Mesh "lid_front_rail" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0, -0.275, 0.002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.180000, -0.005000, -0.005000), (0.180000, -0.005000, -0.005000), (0.180000, 0.005000, -0.005000), (-0.180000, 0.005000, -0.005000), (-0.180000, -0.005000, 0.005000), (0.180000, -0.005000, 0.005000), (0.180000, 0.005000, 0.005000), (-0.180000, 0.005000, 0.005000)]
+            float3[] extent = [(-0.18, -0.005, -0.005), (0.18, 0.005, 0.005)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+
+            rel material:binding = </GlassBox/Looks/Frame>
+        }
+        def Mesh "collision_lid_back_rail" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0, -0.005, 0.002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.180000, -0.005000, -0.005000), (0.180000, -0.005000, -0.005000), (0.180000, 0.005000, -0.005000), (-0.180000, 0.005000, -0.005000), (-0.180000, -0.005000, 0.005000), (0.180000, -0.005000, 0.005000), (0.180000, 0.005000, 0.005000), (-0.180000, 0.005000, 0.005000)]
+            float3[] extent = [(-0.18, -0.005, -0.005), (0.18, 0.005, 0.005)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+            bool physics:collisionEnabled = true
+            token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.001
+            float physxCollision:restOffset = 0
+
+            rel material:binding = </GlassBox/Looks/Frame>
+        }
+        def Mesh "lid_back_rail" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0, -0.005, 0.002)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.180000, -0.005000, -0.005000), (0.180000, -0.005000, -0.005000), (0.180000, 0.005000, -0.005000), (-0.180000, 0.005000, -0.005000), (-0.180000, -0.005000, 0.005000), (0.180000, -0.005000, 0.005000), (0.180000, 0.005000, 0.005000), (-0.180000, 0.005000, 0.005000)]
+            float3[] extent = [(-0.18, -0.005, -0.005), (0.18, 0.005, 0.005)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = false
+
+            rel material:binding = </GlassBox/Looks/Frame>
+        }
+
+        def PhysicsRevoluteJoint "handle_hinge" (prepend apiSchemas = ["PhysxJointAPI", "PhysicsJointStateAPI:angular"]) {
+            rel physics:body0 = </GlassBox/lid_link>
+            rel physics:body1 = </GlassBox/handle_link>
+            uniform token physics:axis = "X"
+            point3f physics:localPos0 = (0, -0.225, 0.008)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+            float physics:lowerLimit = -60
+            float physics:upperLimit = 60
+            float physxJoint:jointFriction = 0.02
+            bool physics:collisionEnabled = false
+            float state:angular:physics:position = 0
+            float state:angular:physics:velocity = 0
+        }
+    }
+    def Xform "handle_link" (prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]) {
+        bool physics:rigidBodyEnabled = true
+        float physics:mass = 0.01
+        double3 xformOp:translate = (0, -0.085, 0.178)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+        def Mesh "collision_handle_bar" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0, 0, 0.085)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.040000, 0.010000, 0.000000), (-0.040000, 0.009239, 0.003827), (-0.040000, 0.007071, 0.007071), (-0.040000, 0.003827, 0.009239), (-0.040000, 0.000000, 0.010000), (-0.040000, -0.003827, 0.009239), (-0.040000, -0.007071, 0.007071), (-0.040000, -0.009239, 0.003827), (-0.040000, -0.010000, 0.000000), (-0.040000, -0.009239, -0.003827), (-0.040000, -0.007071, -0.007071), (-0.040000, -0.003827, -0.009239), (-0.040000, -0.000000, -0.010000), (-0.040000, 0.003827, -0.009239), (-0.040000, 0.007071, -0.007071), (-0.040000, 0.009239, -0.003827), (0.040000, 0.010000, 0.000000), (0.040000, 0.009239, 0.003827), (0.040000, 0.007071, 0.007071), (0.040000, 0.003827, 0.009239), (0.040000, 0.000000, 0.010000), (0.040000, -0.003827, 0.009239), (0.040000, -0.007071, 0.007071), (0.040000, -0.009239, 0.003827), (0.040000, -0.010000, 0.000000), (0.040000, -0.009239, -0.003827), (0.040000, -0.007071, -0.007071), (0.040000, -0.003827, -0.009239), (0.040000, -0.000000, -0.010000), (0.040000, 0.003827, -0.009239), (0.040000, 0.007071, -0.007071), (0.040000, 0.009239, -0.003827)]
+            float3[] extent = [(-0.04, -0.01, -0.01), (0.04, 0.01, 0.01)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,16,17,18,0,3,2,16,18,19,0,4,3,16,19,20,0,5,4,16,20,21,0,6,5,16,21,22,0,7,6,16,22,23,0,8,7,16,23,24,0,9,8,16,24,25,0,10,9,16,25,26,0,11,10,16,26,27,0,12,11,16,27,28,0,13,12,16,28,29,0,14,13,16,29,30,0,15,14,16,30,31,0,1,17,0,17,16,1,2,18,1,18,17,2,3,19,2,19,18,3,4,20,3,20,19,4,5,21,4,21,20,5,6,22,5,22,21,6,7,23,6,23,22,7,8,24,7,24,23,8,9,25,8,25,24,9,10,26,9,26,25,10,11,27,10,27,26,11,12,28,11,28,27,12,13,29,12,29,28,13,14,30,13,30,29,14,15,31,14,31,30,15,0,16,15,16,31]
+            normal3f[] normals = [(-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, -0.0, 0.0), (-1.0, -0.0, 0.0), (-1.0, -0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.9807852804032304, 0.19509032201612814), (0.0, 0.9807852804032304, 0.19509032201612814), (0.0, 0.9807852804032304, 0.19509032201612814), (-0.0, 0.9807852804032304, 0.19509032201612814), (-0.0, 0.9807852804032304, 0.19509032201612814), (-0.0, 0.9807852804032304, 0.19509032201612814), (0.0, 0.8314696123025451, 0.5555702330196023), (0.0, 0.8314696123025451, 0.5555702330196023), (0.0, 0.8314696123025451, 0.5555702330196023), (-0.0, 0.8314696123025451, 0.5555702330196023), (-0.0, 0.8314696123025451, 0.5555702330196023), (-0.0, 0.8314696123025451, 0.5555702330196023), (0.0, 0.5555702330196025, 0.831469612302545), (0.0, 0.5555702330196025, 0.831469612302545), (0.0, 0.5555702330196025, 0.831469612302545), (-0.0, 0.5555702330196025, 0.831469612302545), (-0.0, 0.5555702330196025, 0.831469612302545), (-0.0, 0.5555702330196025, 0.831469612302545), (0.0, 0.19509032201612814, 0.9807852804032304), (0.0, 0.19509032201612814, 0.9807852804032304), (0.0, 0.19509032201612814, 0.9807852804032304), (-0.0, 0.19509032201612814, 0.9807852804032304), (-0.0, 0.19509032201612814, 0.9807852804032304), (-0.0, 0.19509032201612814, 0.9807852804032304), (0.0, -0.19509032201612814, 0.9807852804032304), (0.0, -0.19509032201612814, 0.9807852804032304), (0.0, -0.19509032201612814, 0.9807852804032304), (0.0, -0.19509032201612814, 0.9807852804032304), (0.0, -0.19509032201612814, 0.9807852804032304), (0.0, -0.19509032201612814, 0.9807852804032304), (0.0, -0.5555702330196023, 0.8314696123025453), (0.0, -0.5555702330196023, 0.8314696123025453), (0.0, -0.5555702330196023, 0.8314696123025453), (0.0, -0.5555702330196023, 0.8314696123025453), (0.0, -0.5555702330196023, 0.8314696123025453), (0.0, -0.5555702330196023, 0.8314696123025453), (0.0, -0.831469612302545, 0.5555702330196025), (0.0, -0.831469612302545, 0.5555702330196025), (0.0, -0.831469612302545, 0.5555702330196025), (0.0, -0.831469612302545, 0.5555702330196025), (0.0, -0.831469612302545, 0.5555702330196025), (0.0, -0.831469612302545, 0.5555702330196025), (0.0, -0.9807852804032304, 0.19509032201612814), (0.0, -0.9807852804032304, 0.19509032201612814), (0.0, -0.9807852804032304, 0.19509032201612814), (0.0, -0.9807852804032304, 0.19509032201612814), (0.0, -0.9807852804032304, 0.19509032201612814), (0.0, -0.9807852804032304, 0.19509032201612814), (0.0, -0.9807852804032304, -0.19509032201612814), (0.0, -0.9807852804032304, -0.19509032201612814), (0.0, -0.9807852804032304, -0.19509032201612814), (0.0, -0.9807852804032304, -0.19509032201612814), (0.0, -0.9807852804032304, -0.19509032201612814), (0.0, -0.9807852804032304, -0.19509032201612814), (0.0, -0.8314696123025453, -0.555570233019602), (0.0, -0.8314696123025453, -0.555570233019602), (0.0, -0.8314696123025453, -0.555570233019602), (0.0, -0.8314696123025453, -0.555570233019602), (0.0, -0.8314696123025453, -0.555570233019602), (0.0, -0.8314696123025453, -0.555570233019602), (0.0, -0.5555702330196023, -0.8314696123025451), (0.0, -0.5555702330196023, -0.8314696123025451), (0.0, -0.5555702330196023, -0.8314696123025451), (0.0, -0.5555702330196023, -0.8314696123025451), (0.0, -0.5555702330196023, -0.8314696123025451), (0.0, -0.5555702330196023, -0.8314696123025451), (0.0, -0.19509032201612883, -0.9807852804032304), (0.0, -0.19509032201612883, -0.9807852804032304), (0.0, -0.19509032201612883, -0.9807852804032304), (0.0, -0.19509032201612883, -0.9807852804032304), (0.0, -0.19509032201612883, -0.9807852804032304), (0.0, -0.19509032201612883, -0.9807852804032304), (0.0, 0.1950903220161284, -0.9807852804032304), (0.0, 0.1950903220161284, -0.9807852804032304), (0.0, 0.1950903220161284, -0.9807852804032304), (0.0, 0.1950903220161284, -0.9807852804032304), (0.0, 0.1950903220161284, -0.9807852804032304), (0.0, 0.1950903220161284, -0.9807852804032304), (0.0, 0.5555702330196022, -0.8314696123025452), (0.0, 0.5555702330196022, -0.8314696123025452), (0.0, 0.5555702330196022, -0.8314696123025452), (0.0, 0.5555702330196022, -0.8314696123025452), (0.0, 0.5555702330196022, -0.8314696123025452), (0.0, 0.5555702330196022, -0.8314696123025452), (0.0, 0.831469612302545, -0.5555702330196025), (0.0, 0.831469612302545, -0.5555702330196025), (0.0, 0.831469612302545, -0.5555702330196025), (0.0, 0.831469612302545, -0.5555702330196025), (0.0, 0.831469612302545, -0.5555702330196025), (0.0, 0.831469612302545, -0.5555702330196025), (0.0, 0.9807852804032304, -0.19509032201612872), (0.0, 0.9807852804032304, -0.19509032201612872), (0.0, 0.9807852804032304, -0.19509032201612872), (0.0, 0.9807852804032304, -0.19509032201612872), (0.0, 0.9807852804032304, -0.19509032201612872), (0.0, 0.9807852804032304, -0.19509032201612872)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = true
+            bool physics:collisionEnabled = true
+            token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.001
+            float physxCollision:restOffset = 0
+
+            rel material:binding = </GlassBox/Looks/Handle>
+        }
+        def Mesh "handle_bar" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0, 0, 0.085)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.040000, 0.010000, 0.000000), (-0.040000, 0.009239, 0.003827), (-0.040000, 0.007071, 0.007071), (-0.040000, 0.003827, 0.009239), (-0.040000, 0.000000, 0.010000), (-0.040000, -0.003827, 0.009239), (-0.040000, -0.007071, 0.007071), (-0.040000, -0.009239, 0.003827), (-0.040000, -0.010000, 0.000000), (-0.040000, -0.009239, -0.003827), (-0.040000, -0.007071, -0.007071), (-0.040000, -0.003827, -0.009239), (-0.040000, -0.000000, -0.010000), (-0.040000, 0.003827, -0.009239), (-0.040000, 0.007071, -0.007071), (-0.040000, 0.009239, -0.003827), (0.040000, 0.010000, 0.000000), (0.040000, 0.009239, 0.003827), (0.040000, 0.007071, 0.007071), (0.040000, 0.003827, 0.009239), (0.040000, 0.000000, 0.010000), (0.040000, -0.003827, 0.009239), (0.040000, -0.007071, 0.007071), (0.040000, -0.009239, 0.003827), (0.040000, -0.010000, 0.000000), (0.040000, -0.009239, -0.003827), (0.040000, -0.007071, -0.007071), (0.040000, -0.003827, -0.009239), (0.040000, -0.000000, -0.010000), (0.040000, 0.003827, -0.009239), (0.040000, 0.007071, -0.007071), (0.040000, 0.009239, -0.003827)]
+            float3[] extent = [(-0.04, -0.01, -0.01), (0.04, 0.01, 0.01)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,16,17,18,0,3,2,16,18,19,0,4,3,16,19,20,0,5,4,16,20,21,0,6,5,16,21,22,0,7,6,16,22,23,0,8,7,16,23,24,0,9,8,16,24,25,0,10,9,16,25,26,0,11,10,16,26,27,0,12,11,16,27,28,0,13,12,16,28,29,0,14,13,16,29,30,0,15,14,16,30,31,0,1,17,0,17,16,1,2,18,1,18,17,2,3,19,2,19,18,3,4,20,3,20,19,4,5,21,4,21,20,5,6,22,5,22,21,6,7,23,6,23,22,7,8,24,7,24,23,8,9,25,8,25,24,9,10,26,9,26,25,10,11,27,10,27,26,11,12,28,11,28,27,12,13,29,12,29,28,13,14,30,13,30,29,14,15,31,14,31,30,15,0,16,15,16,31]
+            normal3f[] normals = [(-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, -0.0, 0.0), (-1.0, -0.0, 0.0), (-1.0, -0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.9807852804032304, 0.19509032201612814), (0.0, 0.9807852804032304, 0.19509032201612814), (0.0, 0.9807852804032304, 0.19509032201612814), (-0.0, 0.9807852804032304, 0.19509032201612814), (-0.0, 0.9807852804032304, 0.19509032201612814), (-0.0, 0.9807852804032304, 0.19509032201612814), (0.0, 0.8314696123025451, 0.5555702330196023), (0.0, 0.8314696123025451, 0.5555702330196023), (0.0, 0.8314696123025451, 0.5555702330196023), (-0.0, 0.8314696123025451, 0.5555702330196023), (-0.0, 0.8314696123025451, 0.5555702330196023), (-0.0, 0.8314696123025451, 0.5555702330196023), (0.0, 0.5555702330196025, 0.831469612302545), (0.0, 0.5555702330196025, 0.831469612302545), (0.0, 0.5555702330196025, 0.831469612302545), (-0.0, 0.5555702330196025, 0.831469612302545), (-0.0, 0.5555702330196025, 0.831469612302545), (-0.0, 0.5555702330196025, 0.831469612302545), (0.0, 0.19509032201612814, 0.9807852804032304), (0.0, 0.19509032201612814, 0.9807852804032304), (0.0, 0.19509032201612814, 0.9807852804032304), (-0.0, 0.19509032201612814, 0.9807852804032304), (-0.0, 0.19509032201612814, 0.9807852804032304), (-0.0, 0.19509032201612814, 0.9807852804032304), (0.0, -0.19509032201612814, 0.9807852804032304), (0.0, -0.19509032201612814, 0.9807852804032304), (0.0, -0.19509032201612814, 0.9807852804032304), (0.0, -0.19509032201612814, 0.9807852804032304), (0.0, -0.19509032201612814, 0.9807852804032304), (0.0, -0.19509032201612814, 0.9807852804032304), (0.0, -0.5555702330196023, 0.8314696123025453), (0.0, -0.5555702330196023, 0.8314696123025453), (0.0, -0.5555702330196023, 0.8314696123025453), (0.0, -0.5555702330196023, 0.8314696123025453), (0.0, -0.5555702330196023, 0.8314696123025453), (0.0, -0.5555702330196023, 0.8314696123025453), (0.0, -0.831469612302545, 0.5555702330196025), (0.0, -0.831469612302545, 0.5555702330196025), (0.0, -0.831469612302545, 0.5555702330196025), (0.0, -0.831469612302545, 0.5555702330196025), (0.0, -0.831469612302545, 0.5555702330196025), (0.0, -0.831469612302545, 0.5555702330196025), (0.0, -0.9807852804032304, 0.19509032201612814), (0.0, -0.9807852804032304, 0.19509032201612814), (0.0, -0.9807852804032304, 0.19509032201612814), (0.0, -0.9807852804032304, 0.19509032201612814), (0.0, -0.9807852804032304, 0.19509032201612814), (0.0, -0.9807852804032304, 0.19509032201612814), (0.0, -0.9807852804032304, -0.19509032201612814), (0.0, -0.9807852804032304, -0.19509032201612814), (0.0, -0.9807852804032304, -0.19509032201612814), (0.0, -0.9807852804032304, -0.19509032201612814), (0.0, -0.9807852804032304, -0.19509032201612814), (0.0, -0.9807852804032304, -0.19509032201612814), (0.0, -0.8314696123025453, -0.555570233019602), (0.0, -0.8314696123025453, -0.555570233019602), (0.0, -0.8314696123025453, -0.555570233019602), (0.0, -0.8314696123025453, -0.555570233019602), (0.0, -0.8314696123025453, -0.555570233019602), (0.0, -0.8314696123025453, -0.555570233019602), (0.0, -0.5555702330196023, -0.8314696123025451), (0.0, -0.5555702330196023, -0.8314696123025451), (0.0, -0.5555702330196023, -0.8314696123025451), (0.0, -0.5555702330196023, -0.8314696123025451), (0.0, -0.5555702330196023, -0.8314696123025451), (0.0, -0.5555702330196023, -0.8314696123025451), (0.0, -0.19509032201612883, -0.9807852804032304), (0.0, -0.19509032201612883, -0.9807852804032304), (0.0, -0.19509032201612883, -0.9807852804032304), (0.0, -0.19509032201612883, -0.9807852804032304), (0.0, -0.19509032201612883, -0.9807852804032304), (0.0, -0.19509032201612883, -0.9807852804032304), (0.0, 0.1950903220161284, -0.9807852804032304), (0.0, 0.1950903220161284, -0.9807852804032304), (0.0, 0.1950903220161284, -0.9807852804032304), (0.0, 0.1950903220161284, -0.9807852804032304), (0.0, 0.1950903220161284, -0.9807852804032304), (0.0, 0.1950903220161284, -0.9807852804032304), (0.0, 0.5555702330196022, -0.8314696123025452), (0.0, 0.5555702330196022, -0.8314696123025452), (0.0, 0.5555702330196022, -0.8314696123025452), (0.0, 0.5555702330196022, -0.8314696123025452), (0.0, 0.5555702330196022, -0.8314696123025452), (0.0, 0.5555702330196022, -0.8314696123025452), (0.0, 0.831469612302545, -0.5555702330196025), (0.0, 0.831469612302545, -0.5555702330196025), (0.0, 0.831469612302545, -0.5555702330196025), (0.0, 0.831469612302545, -0.5555702330196025), (0.0, 0.831469612302545, -0.5555702330196025), (0.0, 0.831469612302545, -0.5555702330196025), (0.0, 0.9807852804032304, -0.19509032201612872), (0.0, 0.9807852804032304, -0.19509032201612872), (0.0, 0.9807852804032304, -0.19509032201612872), (0.0, 0.9807852804032304, -0.19509032201612872), (0.0, 0.9807852804032304, -0.19509032201612872), (0.0, 0.9807852804032304, -0.19509032201612872)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = true
+
+            rel material:binding = </GlassBox/Looks/Handle>
+        }
+        def Mesh "collision_handle_left_post" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (-0.029, 0, 0.0395)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.008000, -0.010000, -0.039500), (0.008000, -0.010000, -0.039500), (0.008000, 0.010000, -0.039500), (-0.008000, 0.010000, -0.039500), (-0.008000, -0.010000, 0.039500), (0.008000, -0.010000, 0.039500), (0.008000, 0.010000, 0.039500), (-0.008000, 0.010000, 0.039500)]
+            float3[] extent = [(-0.008, -0.01, -0.0395), (0.008, 0.01, 0.0395)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = true
+            bool physics:collisionEnabled = true
+            token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.001
+            float physxCollision:restOffset = 0
+
+            rel material:binding = </GlassBox/Looks/Handle>
+        }
+        def Mesh "handle_left_post" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (-0.029, 0, 0.0395)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.008000, -0.010000, -0.039500), (0.008000, -0.010000, -0.039500), (0.008000, 0.010000, -0.039500), (-0.008000, 0.010000, -0.039500), (-0.008000, -0.010000, 0.039500), (0.008000, -0.010000, 0.039500), (0.008000, 0.010000, 0.039500), (-0.008000, 0.010000, 0.039500)]
+            float3[] extent = [(-0.008, -0.01, -0.0395), (0.008, 0.01, 0.0395)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = true
+
+            rel material:binding = </GlassBox/Looks/Handle>
+        }
+        def Mesh "collision_handle_right_post" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0.029, 0, 0.0395)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.008000, -0.010000, -0.039500), (0.008000, -0.010000, -0.039500), (0.008000, 0.010000, -0.039500), (-0.008000, 0.010000, -0.039500), (-0.008000, -0.010000, 0.039500), (0.008000, -0.010000, 0.039500), (0.008000, 0.010000, 0.039500), (-0.008000, 0.010000, 0.039500)]
+            float3[] extent = [(-0.008, -0.01, -0.0395), (0.008, 0.01, 0.0395)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = true
+            bool physics:collisionEnabled = true
+            token physics:approximation = "convexHull"
+            float physxCollision:contactOffset = 0.001
+            float physxCollision:restOffset = 0
+
+            rel material:binding = </GlassBox/Looks/Handle>
+        }
+        def Mesh "handle_right_post" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        ) {
+            double3 xformOp:translate = (0.029, 0, 0.0395)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            point3f[] points = [(-0.008000, -0.010000, -0.039500), (0.008000, -0.010000, -0.039500), (0.008000, 0.010000, -0.039500), (-0.008000, 0.010000, -0.039500), (-0.008000, -0.010000, 0.039500), (0.008000, -0.010000, 0.039500), (0.008000, 0.010000, 0.039500), (-0.008000, 0.010000, 0.039500)]
+            float3[] extent = [(-0.008, -0.01, -0.0395), (0.008, 0.01, 0.0395)]
+            int[] faceVertexCounts = [3,3,3,3,3,3,3,3,3,3,3,3]
+            int[] faceVertexIndices = [0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,1,2,6,1,6,5,2,3,7,2,7,6,3,0,4,3,4,7]
+            normal3f[] normals = [(0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, -1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, 0.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (0.0, -1.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (0.0, 1.0, -0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (-1.0, 0.0, 0.0)] (interpolation = "faceVarying")
+            uniform token subdivisionScheme = "none"
+            uniform token orientation = "rightHanded"
+            bool doubleSided = true
+
+            rel material:binding = </GlassBox/Looks/Handle>
+        }
+    }
+}

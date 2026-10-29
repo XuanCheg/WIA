@@ -1,6 +1,6 @@
 """Propose user-authorized simple supports after existing furniture is exhausted.
 
-Run through scripts/run_esi_capture_worker.py. Geometry proposals alone do not
+Run through src/wia/runtime/commands/run_esi_capture_worker.py. Geometry proposals alone do not
 certify support, floor contact, robot access, articulation, IK or graspability.
 Only the new table primitives are resized; source assets retain their geometry.
 """

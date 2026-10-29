@@ -1,0 +1,48 @@
+kind: scene_patch
+id: category_21244d7272667f4b89c2fad3
+version: 2
+status: pending
+source:
+  provider: esi
+  json: Perceptual Grounding/Material Transparency/restaurant_hotel/lobby_0/restaurant_hotel__lobby_0.json
+target: null
+qualification: null
+bindings:
+  obj_container:
+    name: obj_container
+    category: round_bottom_flask
+    model: injdmj
+  obj_small:
+    name: obj_small
+    category: dice
+    model: rcgtzz
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - obj_container
+        - obj_small
+        manipulation_bindings:
+        - obj_small
+        relocation_policy: preserve
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: bounded_group
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: lobby_0
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+seed: 0

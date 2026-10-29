@@ -31,7 +31,7 @@ from wia.tasks.interaction_setup import (
 )
 
 
-MODULE = 'core.esi_converters.physical_dynamics_inclined_plane'
+MODULE = 'wia.authoring.converters.physical_dynamics_inclined_plane'
 TASK_REVISION = 'task_edit_20261018_v1'
 MECHANISM_CONTRACT = {'preserve': ['source_ramp_pose', 'ramp_scale', 'friction', 'trial_outcome_reference'], 'goal': 'native_supported_release_and_observed_motion', 'intended_motion': ['sliding', 'rolling', 'runoff'], 'safety_context': 'Intended post-release ramp motion is not automatically an accidental drop.'}
 QUESTION = re.compile(r'Do you think the (.+?) will stay stable \(not slide\) when placed on the slope\?')

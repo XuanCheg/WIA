@@ -1,0 +1,325 @@
+{
+  "method": "First 24 PNG and 8 NPY from existing campaign; in-memory compression only; originals unchanged",
+  "measurements": [
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/model_images/chassis_right_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 921879,
+      "after_bytes": 34007,
+      "wall_time_s": 0.04893031530082226
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/model_images/chassis_left_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 855213,
+      "after_bytes": 29620,
+      "wall_time_s": 0.04061103705316782
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/model_images/chassis_rear_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 787088,
+      "after_bytes": 25594,
+      "wall_time_s": 0.039964198134839535
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/model_images/chassis_front_right_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 778286,
+      "after_bytes": 24807,
+      "wall_time_s": 0.04108875710517168
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/model_images/initial_overview_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 1214764,
+      "after_bytes": 43231,
+      "wall_time_s": 0.042645037174224854
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/model_images/chassis_front_left_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 847690,
+      "after_bytes": 31165,
+      "wall_time_s": 0.035504959523677826
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/model_images/wrist_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 1034577,
+      "after_bytes": 35020,
+      "wall_time_s": 0.03825845755636692
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/model_images/right_wrist_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 1049292,
+      "after_bytes": 37083,
+      "wall_time_s": 0.0390092683956027
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/model_images/agentview_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 842658,
+      "after_bytes": 29493,
+      "wall_time_s": 0.03586382977664471
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/before/chassis_right_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 921879,
+      "after_bytes": 34007,
+      "wall_time_s": 0.03703424800187349
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/before/chassis_left_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 855213,
+      "after_bytes": 29620,
+      "wall_time_s": 0.0364318797364831
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/before/chassis_rear_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 787088,
+      "after_bytes": 25594,
+      "wall_time_s": 0.0343091394752264
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/before/chassis_front_right_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 778286,
+      "after_bytes": 24807,
+      "wall_time_s": 0.03589591849595308
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/before/initial_overview_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 1214764,
+      "after_bytes": 43231,
+      "wall_time_s": 0.037676309235394
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/before/chassis_front_left_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 847690,
+      "after_bytes": 31165,
+      "wall_time_s": 0.03621597774326801
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/before/wrist_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 1034577,
+      "after_bytes": 35020,
+      "wall_time_s": 0.03879075776785612
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/before/right_wrist_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 1049292,
+      "after_bytes": 37083,
+      "wall_time_s": 0.0388284781947732
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/before/agentview_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 842658,
+      "after_bytes": 29493,
+      "wall_time_s": 0.035248189233243465
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/after/chassis_right_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 835631,
+      "after_bytes": 27714,
+      "wall_time_s": 0.03638186864554882
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/after/chassis_left_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 867994,
+      "after_bytes": 30052,
+      "wall_time_s": 0.036596909165382385
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/after/chassis_rear_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 801615,
+      "after_bytes": 26480,
+      "wall_time_s": 0.03471281845122576
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/after/chassis_front_right_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 831850,
+      "after_bytes": 30991,
+      "wall_time_s": 0.03560103941708803
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/after/initial_overview_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 1214764,
+      "after_bytes": 43231,
+      "wall_time_s": 0.03734951838850975
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/after/chassis_front_left_rgb.png",
+      "kind": "png_to_preview",
+      "native_size": [
+        1024,
+        1024
+      ],
+      "before_bytes": 794272,
+      "after_bytes": 28011,
+      "wall_time_s": 0.03530582971870899
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/before/head_depth_m.npy",
+      "kind": "npy_to_gzip",
+      "before_bytes": 4194432,
+      "after_bytes": 2910491,
+      "wall_time_s": 0.21671038307249546
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/before/wrist_depth_m.npy",
+      "kind": "npy_to_gzip",
+      "before_bytes": 4194432,
+      "after_bytes": 2568024,
+      "wall_time_s": 0.281790473498404
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/after/head_depth_m.npy",
+      "kind": "npy_to_gzip",
+      "before_bytes": 4194432,
+      "after_bytes": 2905720,
+      "wall_time_s": 0.21788023225963116
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0023/after/wrist_depth_m.npy",
+      "kind": "npy_to_gzip",
+      "before_bytes": 4194432,
+      "after_bytes": 2553507,
+      "wall_time_s": 0.28694515116512775
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0012/before/head_depth_m.npy",
+      "kind": "npy_to_gzip",
+      "before_bytes": 4194432,
+      "after_bytes": 3507888,
+      "wall_time_s": 0.16288523003458977
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0012/before/wrist_depth_m.npy",
+      "kind": "npy_to_gzip",
+      "before_bytes": 4194432,
+      "after_bytes": 3190935,
+      "wall_time_s": 0.18932764139026403
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0012/after/head_depth_m.npy",
+      "kind": "npy_to_gzip",
+      "before_bytes": 4194432,
+      "after_bytes": 3464433,
+      "wall_time_s": 0.16614191886037588
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/hopper_benchmark_20261028_thinking_sliding50k/job_002_t22/run/trial_0000/step_0012/after/wrist_depth_m.npy",
+      "kind": "npy_to_gzip",
+      "before_bytes": 4194432,
+      "after_bytes": 3156276,
+      "wall_time_s": 0.18734069168567657
+    }
+  ]
+}

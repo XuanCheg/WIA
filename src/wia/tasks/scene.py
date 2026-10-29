@@ -207,6 +207,8 @@ class ScenePatches:
     def apply_after_postprocessing(self, session):
         if not self._before_applied or self._after_applied:
             raise RuntimeError("Postprocessing patches must run exactly once after construction.")
+        session._release_edge_policy = bool(getattr(self.task, 'release_v1', False)
+            or getattr(session, '_capture_release_edge_policy', False))
         for item in self._realized:
             if item['operation'] == 'prepare_category_interaction':
                 from .interaction_setup import initialize_interaction
@@ -297,6 +299,27 @@ class ScenePatches:
                 values["orientation"] = torch.tensor(item["quaternion_xyzw"], dtype=torch.float32)
             obj.set_position_orientation(**values)
             self.applied.append(copy.deepcopy(item))
+        if session._release_edge_policy:
+            from .pickup_edges import apply_edge_policy, refresh_edge_references, settle_edge_policy
+            names = list(dict.fromkeys([binding.name for binding in self.bindings.values()]
+                + list(getattr(session, 'task_object_names', ()))
+                + list(getattr(session, 'task_state', {}).get('dynamic_object_names', ()))
+                + list(getattr(session, 'postprocess', {}).get('dynamic_object_names', ()))))
+            objects = [session.env.scene.object_registry('name', name) for name in names]
+            session._category_initialization_active = True
+            try:
+                placements = apply_edge_policy(session, objects)
+                settle_edge_policy(session, placements)
+                session._edge_placement_bounds = {}
+                refresh_edge_references(getattr(session, 'category_interaction_setup', {}), placements, session)
+                for applied in self.applied:
+                    refresh_edge_references(applied.get('initialization_evidence'), placements, session)
+            finally:
+                session._category_initialization_active = False
+            self.applied.append({'operation': 'current_support_edge_policy',
+                'initialization_evidence': {'schema': 'pickup_edge_policy_v2',
+                    'margin_m': .03, 'placements': copy.deepcopy(session.pickup_edge_placements),
+                    'physical_grasp_verified': False}})
         self._after_applied = True
 
 
@@ -305,6 +328,12 @@ class DeclarativeScene(ScenePatches):
         super().__init__(task, task.definition.private.bindings)
 
     def qualify(self, session, executor, output, *, observation=None):
+        if self.task.release_v1:
+            result = QualificationResult('loaded_release_v1', None, {
+                'physical_checks_run': False, 'policy': 'fixed_v1_definition',
+                'physical_safety_inferred': False})
+            result.save(output, patches=self.applied)
+            return result
         from wia.native.utils import _array
         from wia.native.esi_visibility import PrivateVisibilityCheck
         checks = {}
@@ -329,7 +358,7 @@ class DeclarativeScene(ScenePatches):
                 reason = "unsupported_robot_capabilities"
                 raise ValueError("Required capabilities are unavailable.")
             composite = (definition.private.evaluation.type == 'category_operation'
-                and module_identity(definition.private.evaluation.module) == 'core.esi_converters.composite_task'
+                and module_identity(definition.private.evaluation.module) == 'wia.authoring.converters.composite_task'
                 and definition.private.evaluation.operation == 'composite_goals')
             bound, unavailable = {}, []
             for key, binding in definition.private.bindings.items():

@@ -144,7 +144,9 @@ def settled_native_state(session, measured, *, minimum_up_dot=.95):
     up_dot = float(1 - 2 * (x*x + y*y))
     return {**measured, 'linear_speed_m_s': float(np.linalg.norm(linear)),
         'angular_speed_rad_s': float(np.linalg.norm(angular)), 'up_dot': up_dot,
-        'state_valid': bool(measured['state_valid'] and up_dot >= minimum_up_dot)}
+        'state_valid': bool(measured['state_valid'] and up_dot >= minimum_up_dot),
+        'occupancy_valid': bool(measured.get('floor_contact', measured['state_valid'])
+                                and up_dot >= minimum_up_dot)}
 
 
 class NativeVisitReportEvaluator:
@@ -197,6 +199,14 @@ class NativeVisitReportEvaluator:
     def _additional_checks(self, measured):
         return {}
 
+    def _task_faults(self):
+        # Contact/pose safety history remains visible but does not erase factual
+        # room visits. Measurement, continuity and task-invariant faults remain.
+        return self.faults - {'native_floor_contact_or_pose_failed', 'native_nonfloor_contact'}
+
+    def _occupancy_valid(self, measured):
+        return measured.get('occupancy_valid', measured['state_valid'])
+
     def _settled(self, measured):
         return (measured['linear_speed_m_s'] <= self.maximum_speed
                 and measured['angular_speed_rad_s'] <= self.maximum_angular_speed)
@@ -223,7 +233,9 @@ class NativeVisitReportEvaluator:
 
     def _read_boundary(self):
         measured = self._measure_native()
-        if not measured['state_valid']:
+        if measured.get('nonfloor_contacts'):
+            self.faults.add('native_nonfloor_contact')
+        if not self._occupancy_valid(measured):
             self.faults.add('native_floor_contact_or_pose_failed')
         displacement = float(np.linalg.norm(np.asarray(measured['position']) - self.previous))
         if displacement > self.controller.config.translation_tolerance_m:
@@ -231,7 +243,7 @@ class NativeVisitReportEvaluator:
         checks = self._additional_checks(measured)
         if not all(checks.values()):
             self.faults.add('native_category_invariant_failed')
-        if (not measured['state_valid'] or not self._settled(measured)
+        if (not self._occupancy_valid(measured) or not self._settled(measured)
                 or measured['chassis_region'] != self.sample_region):
             self.consecutive, self.stable_region = 0, None
         return measured, checks
@@ -256,15 +268,17 @@ class NativeVisitReportEvaluator:
             limit = min(limit, self.parameters['maximum_step_displacement_m'])
         if elapsed <= 0 or distance > limit:
             self.faults.add('motion_clock_or_continuity_failed')
-        if not measured['state_valid']:
+        if measured.get('nonfloor_contacts'):
+            self.faults.add('native_nonfloor_contact')
+        if not self._occupancy_valid(measured):
             self.faults.add('native_floor_contact_or_pose_failed')
         if not all(extra_checks.values()):
             self.faults.add('native_category_invariant_failed')
         self.samples += 1
         self.travel_m += distance
         region = measured['chassis_region']
-        eligible = (measured['state_valid'] and self._settled(measured)
-                    and region is not None and not self.faults)
+        eligible = (self._occupancy_valid(measured) and self._settled(measured)
+                    and region is not None and not self._task_faults())
         if eligible:
             self.consecutive = self.consecutive + 1 if region == self.sample_region else 1
         else:
@@ -299,7 +313,7 @@ class NativeVisitReportEvaluator:
             reason = 'native_arrival_measurement_unavailable'
         elif not isinstance(room_name, str) or not room_name:
             reason = 'invalid_agent_room_claim'
-        elif self.faults or not measured['state_valid']:
+        elif self._task_faults() or not self._occupancy_valid(measured):
             reason = 'native_trajectory_or_current_state_invalid'
         elif measured['chassis_region'] != room_name:
             reason = 'claim_does_not_match_current_native_room'
@@ -348,6 +362,7 @@ class NativeVisitReportEvaluator:
             'required_agent_room_set_reported': self.required.issubset(self.reported),
             'source_requested_order_proven': self.order_stage == len(self.required_order),
             'continuous_safe_native_trajectory': not self.faults,
+            'task_trajectory_evidence_valid': not self._task_faults(),
             'current_native_state_valid': bool(measured is not None and measured['state_valid']), **additional}
         definitions = ([(f'step:{index}:{room}', room) for index, room in enumerate(self.required_order)]
                        if self.required_order else [(f'room:{room}', room) for room in sorted(self.required)])
@@ -363,13 +378,17 @@ class NativeVisitReportEvaluator:
         row = {'schema': self.schema, 'episode': self.episode,
             'snapshot_id': observation.snapshot_id, 'action_step': observation.action_step,
             'action': action, 'operation': self.config['operation'],
-            'task_success': bool(all(checks.values())), 'checks': checks, 'native_state': measured,
+            'task_success': bool(all(value for key, value in checks.items()
+                if key not in ('continuous_safe_native_trajectory', 'current_native_state_valid'))),
+            'checks': checks, 'native_state': measured,
             'scoring_version': 'task_completion_v2', 'evaluation_validity': validity,
             'completion_items': items, 'completed_goals': completed, 'total_goals': len(items),
             'completion_score': score, 'score_percent': None if score is None else 100. * score,
             'diagnostic_completion_lower_bound': completed / len(items) if items else None,
             'constraints_satisfied': constraints_satisfied,
             'continuous_constraints_satisfied': constraints_satisfied,
+            'task_constraints_satisfied': bool(not self._task_faults() and all(additional.values())),
+            'safety_affects_task_success': False,
             'measurement_errors': list(self.measurement_errors),
             'required_regions': sorted(self.required), 'visited_regions': sorted(self.visited),
             'reported_regions': sorted(self.reported), 'required_order': self.required_order,
@@ -515,8 +534,16 @@ def legacy_mapping_config(config):
 
 
 def mapping_qualification(session, config):
-    """Read episode-bound native receipts, never certify from source labels."""
+    """Select trusted release definitions or reviewed episode-bound prerequisites."""
     p = config['parameters']
+    task = getattr(session, 'loaded_task', None)
+    if (getattr(task, 'release_v1', False)
+            and task.definition.source.json_path == p['source_path']):
+        # The loader already trusts fixed-v1 definitions. This is not evidence
+        # of physical qualification or of actions completed in this episode.
+        return {'accepted': True, 'checks': {'fixed_v1_definition': True},
+            'policy': 'fixed_v1_definition', 'physical_checks_run': False,
+            'receipt': {}, 'doors': {}, 'evaluation_validity': 'complete'}
     episode_id = getattr(session, 'episode_id', None)
     receipt = deepcopy(getattr(session, 'mapping_qualification', {}).get(p['source_path'], {}))
     checks = {'current_episode_bound': episode_id is not None and receipt.get('episode_id') == episode_id,
@@ -671,7 +698,7 @@ class SourceAnswerMappingEvaluator:
         if not valid:
             for item in items:
                 item['evaluation_validity'] = 'unavailable'
-        if p.get('reachability_answer'):
+        if p.get('reachability_answer') and proof.get('policy') != 'fixed_v1_definition':
             semantic_checks = {'source_answer_verified', 'source_unreachability_verified',
                 'native_graph_reachable_is_false', 'operable_doors_considered', 'reachability_evidence'}
             common_valid = (row['evaluation_validity'] == 'complete' and all(value is True
@@ -681,6 +708,7 @@ class SourceAnswerMappingEvaluator:
                         else semantic_checks - {'source_answer_verified'})
                 item['evaluation_validity'] = 'valid' if common_valid and all(
                     proof['checks'].get(key) is True for key in keys) else 'unavailable'
+        if p.get('reachability_answer'):
             row['reachability_response'] = self.reachability_response
             row['reachability_answer_correct'] = reachable_correct
         row.update(schema='private_revised_mapping_v1', operation=self.config['operation'],
@@ -688,7 +716,7 @@ class SourceAnswerMappingEvaluator:
             completion_items=items, evaluation_validity='complete' if valid else 'unavailable',
             answer=self.answer, answer_correct=bool(correct), mapping_qualification=proof,
             observed_anchor_evidence=deepcopy(self.anchor_evidence), route_answer_stage=self.route_stage,
-            task_success=bool(valid and row['constraints_satisfied'] and all(item['completed'] for item in items)))
+            task_success=bool(valid and row['task_constraints_satisfied'] and all(item['completed'] for item in items)))
         from wia.tasks.completion import progress
         row.update(progress(row))
         (self.output / 'state.json').write_text(json.dumps(row, indent=2, allow_nan=False) + '\n')

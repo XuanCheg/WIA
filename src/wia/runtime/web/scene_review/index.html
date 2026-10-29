@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scene Review · Show-Harness</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./"><span class="brand-mark">S</span><span>SHOW-HARNESS <small>Scene review</small></span></a>
+    <div class="top-actions"><span id="save-state" role="status">Loading task list…</span><a class="button quiet" href="api/reviews.csv" download>Export CSV ↗</a></div>
+  </header>
+  <section class="intro">
+    <div><p class="eyebrow">ESI TASK REVIEW</p><h1 id="intro-title">Review completed tasks.</h1><p id="intro-description" class="subtitle">Browse task names and robot objectives. Select a task to open its images.</p></div>
+    <div id="stats" class="stats"></div>
+  </section>
+  <section class="toolbar" aria-label="Scene filters">
+    <label class="scope-control" for="review-scope">Show<select id="review-scope"><option value="all">Core source entries</option><option value="completed">Completed captures</option><option value="diagnostics">Pending captures and diagnostics</option><option value="additional" hidden>Additional prototypes</option></select></label>
+    <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path></svg><input id="search" type="search" placeholder="Search task, scene or objective…" aria-label="Search tasks"></label>
+    <select id="conversion-filter" class="hidden" aria-label="Capture status"><option value="all">All capture states</option><option value="ready">Ready · rendered</option><option value="pending">Incomplete · not rendered</option></select>
+    <select id="decision-filter" aria-label="Review decision"><option value="all">All reviews</option><option value="merged_reviewed">Merged previously reviewed sources</option><option value="unreviewed">Unreviewed</option><option value="approved">Approved</option><option value="needs_fix">Needs repair</option><option value="skipped">Skipped</option></select>
+    <label class="flag-filter"><input id="flag-filter" type="checkbox"> Has warning</label>
+    <select id="version-filter" class="hidden" aria-label="Converter version"><option value="all">All converter versions</option></select>
+    <select id="reuse-filter" class="hidden" aria-label="Reuse level"><option value="all">All reuse levels</option><option>L1</option><option>L2</option><option>L3</option><option value="original">Original</option><option value="lightweight_adaptation">Light adaptation</option></select>
+    <select id="failure-filter" class="hidden" aria-label="Failure stage"><option value="all">All failure stages</option></select>
+    <select id="warning-filter" aria-label="Warning"><option value="all">All warnings</option><option value="any">Has warning</option></select>
+    <select id="scene-filter" aria-label="Scene model"><option value="all">All scene models</option></select>
+    <select id="sort-filter" aria-label="Sort order"><option value="attention">Unreviewed first</option><option value="source">Source</option><option value="scene">Scene model</option></select>
+    <div class="mode-switch"><button id="grid-mode" class="active" type="button">Task list</button><button id="detail-mode" type="button" disabled>Inspect</button></div>
+    <button id="retry-catalogue" class="button quiet" type="button">Refresh list</button>
+  </section>
+  <div id="capture-progress" class="capture-progress" role="status"></div>
+  <div id="error" class="error hidden" role="alert"></div>
+  <div class="category-workspace">
+  <aside class="category-nav" aria-label="Big Task / Small Task navigation"><h2 id="category-nav-title">Core tasks</h2><button id="all-categories" class="button quiet">All categories</button><div id="category-tree"></div></aside>
+  <main>
+    <div id="category-heading" class="category-heading"></div>
+    <div class="pagination"><button id="page-prev" class="button quiet">← Previous page</button><span id="page-label"></span><button id="page-next" class="button quiet">Next page →</button></div>
+    <section id="overview" aria-label="Task overview"><div class="section-heading"><span id="result-count"></span><span>Select a task to inspect · ← → navigate · 1 / 2 / 3 review</span></div><div id="cards" class="task-groups"></div></section>
+    <section id="inspection" class="inspection hidden" aria-label="Scene inspection">
+      <aside class="scene-list"><div class="list-heading">TASKS <span id="list-count"></span></div><div id="scene-list"></div></aside>
+      <div class="detail">
+        <div id="detail-status" class="detail-status hidden" role="status"></div>
+        <div id="detail-content" class="hidden">
+        <div class="detail-header"><div><p id="detail-room" class="eyebrow"></p><h2 id="detail-title"></h2><div id="detail-badges" class="badges"></div></div><div class="navigation"><button id="previous" class="button quiet" aria-label="Previous scene">←</button><span id="position"></span><button id="next" class="button quiet" aria-label="Next scene">→</button></div></div>
+        <section id="version-panel" class="version-panel hidden" aria-label="Task version selection">
+          <label for="task-version">Task version<select id="task-version" aria-describedby="version-context"></select></label>
+          <p id="version-context"></p>
+        </section>
+        <div class="native-editor-entry">
+          <span>Scene ID: <code id="scene-id"></code></span>
+          <button id="copy-scene-id" class="button quiet" type="button">Copy ID</button>
+          <a id="open-native-editor" class="button" target="_blank" rel="noopener">Open in OmniGibson ↗</a>
+        </div>
+        <div class="detail-columns">
+          <div class="visual-column">
+            <div id="camera-groups" class="camera-groups" aria-label="Camera groups"></div>
+            <div id="hero" class="hero"></div><div id="view-tabs" class="view-tabs" aria-label="Camera views"></div>
+            <div id="global-grid" class="global-grid hidden" aria-label="Global camera overview"></div>
+            <p id="preview-caption" class="caption"></p>
+            <div class="question-panel"><p class="eyebrow">ORIGINAL ESI QUESTION</p><p id="question"></p></div>
+            <div class="question-panel"><p class="eyebrow">ORIGINAL ESI ANSWER</p><p id="original-esi-answer"></p></div>
+            <div class="question-panel" id="robot-operation-panel"><p class="eyebrow">ROBOT OPERATION</p><p id="robot-objective"></p><p class="eyebrow">SUCCESS CRITERIA</p><p id="robot-success"></p></div>
+            <section id="execution-progress-panel" class="question-panel hidden"><p class="eyebrow">TASK EXECUTION</p><div id="execution-progress" class="execution-progress"></div></section>
+            <section id="composite-goals-panel" class="question-panel hidden"><p class="eyebrow">COMPOSITE GOALS</p><div id="composite-goals"></div></section>
+            <div class="object-panel"><div><p class="eyebrow">PICKUP TARGET</p><div id="target"></div></div><div><p class="eyebrow">CANDIDATE CONTAINERS</p><div id="containers"></div></div></div>
+          </div>
+          <aside class="review-panel">
+            <p class="eyebrow">YOUR REVIEW</p><h3>Is this layout usable?</h3>
+            <div class="decision-buttons">
+              <button data-decision="approved" class="decision approve"><span>✓ Approve layout</span><kbd>1</kbd></button>
+              <button data-decision="needs_fix" class="decision repair"><span>↗ Needs repair</span><kbd>2</kbd></button>
+              <button data-decision="skipped" class="decision skip"><span>— Skip for now</span><kbd>3</kbd></button>
+              <button data-decision="unreviewed" class="reset">Clear decision</button>
+            </div>
+            <label class="notes-label" for="notes">Notes</label><textarea id="notes" rows="5" placeholder="Object too low, arm clearance, obscured container…"></textarea>
+            <section id="review-checks-panel" class="review-checks-panel hidden"><h4>Review checks</h4><p class="caption">Optional inspection notes. Checks do not gate layout approval.</p><div id="review-checks"></div></section>
+            <p class="caption">Decisions and notes save automatically. You can approve any version; capture and execution status are tracked separately.</p>
+            <div id="failure" class="failure hidden"></div>
+            <details class="live-panel"><summary>Inspect with GUMI</summary><p>Run the launch command in a GPU terminal, then open GUMI.</p><button id="copy-command" class="button">Copy launch command</button><a id="gumi-link" href="/gumi/" target="_blank" rel="noopener" class="button quiet">Open GUMI ↗</a></details>
+            <details class="provenance"><summary>Scene details</summary><div id="provenance"></div></details>
+          </aside>
+        </div>
+        </div>
+      </div>
+    </section>
+    <div id="empty" class="empty hidden"><h2>No tasks match.</h2><p>Adjust the search or filters, or return as more captures finish.</p></div>
+  </main>
+  </div>
+  <footer><span id="review-location"></span><span>Human review · original questions and scene files preserved</span></footer>
+  <dialog id="lightbox"><button id="close-lightbox" aria-label="Close enlarged image">×</button><img alt="Enlarged scene camera view"><p></p></dialog>
+  <script src="app.js"></script>
+</body>
+</html>

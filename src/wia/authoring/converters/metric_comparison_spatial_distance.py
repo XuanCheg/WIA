@@ -178,7 +178,7 @@ def resolve_fixed_distance_reference(session, source_evidence, *, position_toler
         return None, evidence
 
 
-MODULE = 'core.esi_converters.metric_comparison_spatial_distance'
+MODULE = 'wia.authoring.converters.metric_comparison_spatial_distance'
 
 
 class CategoryConverter(ConverterBase):
@@ -238,8 +238,8 @@ class CategoryConverter(ConverterBase):
         return {'eligible': True, 'reason': 'original_candidates_and_public_comparison_preserved'}
 
     def convert(self, source, context):
-        result = self.convert_legacy(source, context)
-        if context.config.get('operation') == 'legacy_grasp_lift' or result['task_definition'] is None:
+        result = self._convert_geometry(source, context)
+        if result['task_definition'] is None:
             return result
         evidence = result['source_distance_evidence']
         if evidence.get('saved_aabb_centre_order_agrees') is not True or evidence.get('recorded_centre_order_agrees') is not True:
@@ -257,7 +257,7 @@ class CategoryConverter(ConverterBase):
             public_report='Report the category of the closer candidate before grasping or moving either candidate.',
             reference_evidence=evidence)
 
-    def convert_legacy(self, source, context):
+    def _convert_geometry(self, source, context):
         raw, payload = source.raw, source.payload
         objects = map_records(payload['objects'])
         bindings = {binding: {'name': info.get('name') or source_key,

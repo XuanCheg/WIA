@@ -15,7 +15,7 @@ import json
 from wia.authoring.converters.composite_task import CompositeEvaluator
 from wia.authoring.io import write_json
 
-MODULE = 'core.esi_converters.task_edit2_mapping_world'
+MODULE = 'wia.authoring.converters.task_edit2_mapping_world'
 REVISION = 'task_edit2_mapping_world_20261018_v1'
 MEASUREMENTS = {
     'geometry': ('loaded_rooms', 'object_aabbs', 'boundary_identity'),

@@ -22,7 +22,6 @@ import yaml
 from wia.resources import ROOT
 
 from wia.authoring.conversion import ConversionContext, SourceInstance, map_records
-from wia.authoring.modules import legacy_module_name
 from wia.authoring.converters.temporal_understanding_two_phase import CategoryConverter, PHYSICAL_OPERATION
 from wia.tasks.interaction_setup import prepare_definitions
 from wia.tasks.schema import CategoryTaskDefinition, SceneDefinition
@@ -251,7 +250,7 @@ def build_package():
         'baseline_scene_file': BASE_SCENE.relative_to(ROOT).as_posix(),
         'baseline_source_file': BASE_SOURCE.relative_to(ROOT).as_posix(),
         'butter_donor_source_file': BUTTER_SOURCE.relative_to(ROOT).as_posix(),
-        'converter_module': legacy_module_name(CategoryConverter.__module__), 'converter_operation': PHYSICAL_OPERATION,
+        'converter_module': CategoryConverter.__module__, 'converter_operation': PHYSICAL_OPERATION,
         'seed': 0, 'encounter_policy': encounter,
         'encounter_threshold_basis': 'Preserved selected T40 baseline; not newly calibrated.',
         'public_payload_equal': True, 'common_public_payload': full_public_payloads[0],

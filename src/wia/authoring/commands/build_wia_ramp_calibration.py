@@ -42,7 +42,7 @@ def ramp_hooks(definition):
     """Locate exactly the existing before/after active-layout material hooks."""
     hooks = [patch for variant in definition['scene']['variants'].values()
              for patch in variant['patches'] if patch.get('operation') == 'category_initialization'
-             and patch.get('module') == 'core.esi_converters.active_layout']
+             and patch.get('module') == 'wia.authoring.converters.active_layout']
     if len(hooks) != 2 or {hook['phase'] for hook in hooks} != {'before_construction', 'after_postprocessing'}:
         raise ValueError('The T42 baseline must retain exactly its two active-layout initialization hooks.')
     return hooks
@@ -54,7 +54,7 @@ def baseline_definitions():
     SceneDefinition.model_validate(scene)
     evaluation = task['private']['evaluation']
     if (evaluation['module'], evaluation['operation']) != (
-            'core.esi_converters.inclined_comparison', 'controlled_trials_then_spare_delivery'):
+            'wia.authoring.converters.inclined_comparison', 'controlled_trials_then_spare_delivery'):
         raise ValueError('The T42 baseline evaluator has changed; review the calibration contract.')
     parameters = evaluation['parameters']
     if {key: parameters[key] for key in ORIGINAL_FRICTION} != ORIGINAL_FRICTION:

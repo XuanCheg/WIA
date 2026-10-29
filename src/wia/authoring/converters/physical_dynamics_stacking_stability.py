@@ -30,7 +30,7 @@ from wia.tasks.interaction_setup import (
 )
 
 
-MODULE = 'core.esi_converters.physical_dynamics_stacking_stability'
+MODULE = 'wia.authoring.converters.physical_dynamics_stacking_stability'
 TASK_REVISION = 'task_edit_20261018_v1'
 MECHANISM_CONTRACT = {'preserve': ['original_objects', 'asset_scales', 'native_grasp_release_history'], 'goal': 'released_tower_after_robot_withdrawal', 'stability_seconds': 1.0}
 OPERATION = 'build_released_three_object_stack'

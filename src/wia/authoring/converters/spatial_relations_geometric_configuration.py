@@ -26,7 +26,7 @@ import numpy as np
 from wia.authoring.conversion import ConverterBase, map_records, original_scene, physical_task
 from wia.authoring.io import sha256, write_json
 
-MODULE = 'core.esi_converters.spatial_relations_geometric_configuration'
+MODULE = 'wia.authoring.converters.spatial_relations_geometric_configuration'
 VERTICES = ('vertex_1', 'vertex_2', 'vertex_3')
 OPERATIONS = ('triangle_circuit_return', 'ordered_vertex_survey_return')
 ARRANGEMENT_OPERATION = 'arrange_released_source_shape'

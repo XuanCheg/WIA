@@ -2,7 +2,7 @@
 
 Run on CPU from the repository root with the behavior environment's Python:
 OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 python -m
-core.esi_converters.temporal_understanding_agent_observation --batch-root DIR
+wia.authoring.converters.temporal_understanding_agent_observation --batch-root DIR
 
 Native initialization restores only the existing R1's saved episode start.
 Qualification/evaluation read native state and never issue robot actions.
@@ -30,7 +30,7 @@ from wia.authoring.io import sha256, write_json
 from wia.tasks.interaction_setup import (
     array as native_array, reference_position, support_contact_paths, verified_repaired_start)
 
-MODULE = 'core.esi_converters.temporal_understanding_agent_observation'
+MODULE = 'wia.authoring.converters.temporal_understanding_agent_observation'
 OPERATION = 'observe_objects_and_return'
 RETRIEVAL_OPERATION = 'observe_retrieve_and_return'
 CATEGORY = ('Temporal Understanding', 'Agent Observation')

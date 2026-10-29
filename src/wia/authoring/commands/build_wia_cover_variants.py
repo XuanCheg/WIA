@@ -29,9 +29,9 @@ from wia.authoring.commands._inputs import project_path
 from wia.tasks.loader import UniqueLoader, load_scene, load_task
 from wia.tasks.schema import CategoryTaskDefinition, SceneDefinition, SceneRuntime
 
-INITIALIZER = 'core.esi_converters.deformable_redrape'
+INITIALIZER = 'wia.authoring.converters.deformable_redrape'
 CONTRACTS = {
-    ('core.esi_converters.physical_structure_deformable', 'sweep_cloth_retrieve_item'),
+    ('wia.authoring.converters.physical_structure_deformable', 'sweep_cloth_retrieve_item'),
     (INITIALIZER, 'uncover_select_and_deliver'),
 }
 NATIVE_FLAGS = ('native_validation_run', 'physical_success_verified')

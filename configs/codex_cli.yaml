@@ -1,6 +1,6 @@
 # Diagnostic example; choose a ready task for benchmark mode.
 tasks:
-  - path: ../explore_to_achieve/wia_v1/temporal/tasks/history_a_v1.yaml
+  - path: ../explore_to_achieve/wia_v1/release/tasks/t40.yaml
 policy:
   type: show_harness
   backend: codex_cli

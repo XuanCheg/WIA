@@ -14,6 +14,9 @@ harness = ["showharness[harness]>=0.1.0"]
 simulator = ["requests>=2", "Pillow>=9"]
 test = ["pytest>=7"]
 
+[project.entry-points."showharness.datasets"]
+wia = "wia.integrations.show_harness:WIADatasetAdapter"
+
 [project.scripts]
 wia = "wia.cli:main"
 

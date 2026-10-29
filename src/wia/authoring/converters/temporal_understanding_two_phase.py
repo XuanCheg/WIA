@@ -17,7 +17,7 @@ from wia.authoring.converters import temporal_understanding_unobserved_change as
 from wia.tasks.temporal_policy import SURVEY_DEFAULTS, survey_policy
 
 
-MODULE = 'core.esi_converters.temporal_understanding_two_phase'
+MODULE = 'wia.authoring.converters.temporal_understanding_two_phase'
 OPERATION = 'observe_two_phase_change'
 WARNING_CODES = ('external_source_phase_transition', 'native_temporal_execution_unverified')
 CAPABILITIES = ('base_translation', 'base_rotation', 'ee_translation', 'ee_rotation', 'trunk_height', 'gripper')

@@ -28,11 +28,11 @@ from wia.tasks.schema import CategoryTaskDefinition, SceneDefinition, SceneRunti
 from wia.tasks.sources import resolve_source
 
 CONTRACTS = {
-    'core.esi_converters.wia_dimensional': ('wia_dimensional_v3', 'core.esi_converters.active_layout'),
-    'core.esi_converters.wia_mirror': ('wia_mirror_v2', 'core.esi_converters.wia_mirror'),
-    'core.esi_converters.inclined_comparison': ('controlled_ramp_comparison_v1', 'core.esi_converters.active_layout'),
+    'wia.authoring.converters.wia_dimensional': ('wia_dimensional_v3', 'wia.authoring.converters.active_layout'),
+    'wia.authoring.converters.wia_mirror': ('wia_mirror_v2', 'wia.authoring.converters.wia_mirror'),
+    'wia.authoring.converters.inclined_comparison': ('controlled_ramp_comparison_v1', 'wia.authoring.converters.active_layout'),
 }
-RAMP_MODULE = 'core.esi_converters.inclined_comparison'
+RAMP_MODULE = 'wia.authoring.converters.inclined_comparison'
 RAMP_PARAMETERS = {'revision', 'candidate_pairs', 'ramp_dimensions_m', 'orientation_free_keys',
     'release_local_x_m', 'trial_duration_s', 'arrival_tie_tolerance_s', 'safe_bounds_m',
     'apparatus_keys', 'trial_support_keys', 'static_friction', 'dynamic_friction'}

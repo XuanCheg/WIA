@@ -3,7 +3,7 @@
 Run CPU conversion with bounded threads:
 OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 \
 /local_home2/zhouxinyang/miniconda3/envs/behavior/bin/python -m \
-core.esi_converters.specular_reflection_reflection_authoring --assignment ASSIGNMENT.json
+wia.authoring.converters.specular_reflection_reflection_authoring --assignment ASSIGNMENT.json
 
 Native qualification hooks only read state; the explicit action-variant scene
 initializer aligns the robot before the episode. All episode actions remain
@@ -35,7 +35,7 @@ from wia.tasks.interaction_setup import (
     array as native_array, reference_position, support_contact_paths, verified_repaired_start)
 from wia.native.esi_task_evaluation import GraspLiftEvaluator
 
-MODULE = "core.esi_converters.specular_reflection_reflection_authoring"
+MODULE = "wia.authoring.converters.specular_reflection_reflection_authoring"
 OPERATION = "mirror_survey_round_trip"
 LIFT_OPERATION = "discover_and_lift_reflected_prop"
 ANSWER_OPERATION = "answer_direct_or_reflected_appearance"
@@ -397,7 +397,7 @@ def build_reflection_observation(source, context, *, module, operation, camera, 
 
 def build_reflection_action(source, context, *, module, operation, camera, mirror, props):
     """Version an initial answer followed by an informative legal second view."""
-    from core.sim.esi_reflection import (original_reference_provenance, ACTION_PROFILE_VERSION,
+    from wia.runtime.sim.esi_reflection import (original_reference_provenance, ACTION_PROFILE_VERSION,
         INITIALIZATION_REVISION, INITIALIZATION_OPERATION)
     result = build_reflection_observation(source, context, module=module, operation=operation,
         camera=camera, mirror=mirror, props=props)
@@ -483,8 +483,8 @@ def build_reflection_action(source, context, *, module, operation, camera, mirro
             'Require a legal second viewpoint with synchronized informative feature/identity evidence.',
             'Retain separate bounded/unrestricted variants and the one-world-metre horizontal head limit.'])
     observation_operation = {MODULE: ANSWER_OPERATION,
-        'core.esi_converters.specular_reflection_correspondence': 'answer_reflection_correspondence',
-        'core.esi_converters.specular_reflection_spatial_relations': 'answer_reflected_spatial_relation'}[module]
+        'wia.authoring.converters.specular_reflection_correspondence': 'answer_reflection_correspondence',
+        'wia.authoring.converters.specular_reflection_spatial_relations': 'answer_reflected_spatial_relation'}[module]
     result['available_operation_recipes'].append(observation_operation)
     result['observation_only_alternative'] = {'operation': observation_operation,
         'task_revision': TASK_REVISION, 'retained': True,
@@ -500,7 +500,7 @@ def initialize_scene(session, parameters):
     Completion means the native alignment routine returned. Pose, optics,
     floor support and original-image equivalence remain separate measured gates.
     """
-    from core.sim.esi_reflection import (align_initial_robot, profile_from_definition,
+    from wia.runtime.sim.esi_reflection import (align_initial_robot, profile_from_definition,
         reflection_profile_sha256, ACTION_PROFILE_VERSION, INITIALIZATION_REVISION, INITIALIZATION_OPERATION)
     if getattr(session, '_reflection_scene_initialization_attempted', False):
         raise RuntimeError('Reflection initialization cannot run twice.')
@@ -557,7 +557,7 @@ def initialize_scene(session, parameters):
 
 def qualify_reflection_action(session, executor, config, bound):
     """Require source pixels and exact reset/task/controller/sensor equivalence."""
-    from core.sim.esi_reflection import reflection_equivalence_identity
+    from wia.runtime.sim.esi_reflection import reflection_equivalence_identity
     result = _qualify_observation(session, executor, config, bound)
     checks = dict(result.get('checks', {}))
     receipt = getattr(session, 'reflection_qualification', {}).get('original_source_view_equivalence', {})
@@ -593,8 +593,8 @@ def qualify_reflection_action(session, executor, config, bound):
 
 def _observation_parameters(session, config):
     supported = {MODULE: (ANSWER_OPERATION, ACTION_OPERATION),
-        'core.esi_converters.specular_reflection_correspondence': ('answer_reflection_correspondence', 'answer_and_verify_reflection_correspondence'),
-        'core.esi_converters.specular_reflection_spatial_relations': ('answer_reflected_spatial_relation', 'answer_and_verify_reflected_spatial_relation')}
+        'wia.authoring.converters.specular_reflection_correspondence': ('answer_reflection_correspondence', 'answer_and_verify_reflection_correspondence'),
+        'wia.authoring.converters.specular_reflection_spatial_relations': ('answer_reflected_spatial_relation', 'answer_and_verify_reflected_spatial_relation')}
     if (module_identity(config.get('module')) not in supported or config.get('operation') not in supported.get(module_identity(config.get('module')), ())
             or config.get('type') != 'category_operation'
             or (config.get('scene'), config.get('room')) != (session.scene_name, session.room_name)):
@@ -830,7 +830,7 @@ class ReflectionVerificationEvaluator(ReflectionObservationEvaluator):
                 self.faults.add('post_start_simulator_state_setter')
             if not motion['legal_viewpoint']:
                 self.faults.add('illegal_native_viewpoint')
-            from core.sim.esi_reflection import reflection_equivalence_identity
+            from wia.runtime.sim.esi_reflection import reflection_equivalence_identity
             if reflection_equivalence_identity(self.session, self.config, self.controller) != self.qualification.get('equivalence_receipt', {}).get('identity'):
                 self.faults.add('qualified_optics_or_sensor_configuration_changed')
             self.last_motion, self.previous_head = motion, deepcopy(self.state)

@@ -29,8 +29,8 @@ from wia.tasks.schema import CategoryTaskDefinition, SceneDefinition, resolve_ep
 from wia.tasks.wia_history_collection import OPERATION, validate_collection_parameters
 
 DEFAULT_OUTPUT = ROOT / 'explore_to_achieve/wia_v1/review_20261025/history_collection_v2'
-INITIALIZER = 'core.esi_converters.active_layout'
-MODULE = 'core.esi_converters.temporal_understanding_agent_observation'
+INITIALIZER = 'wia.authoring.converters.active_layout'
+MODULE = 'wia.authoring.converters.temporal_understanding_agent_observation'
 ASSETS = (
     ('hamburger', 'fyswch', 'hamburgers with filling', 'hamburger with filling'),
     ('hamburger_bun', 'fqxumh', 'plain buns', 'plain bun'),

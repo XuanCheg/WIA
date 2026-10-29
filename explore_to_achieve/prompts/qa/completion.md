@@ -1,0 +1,3 @@
+Answer the original question when the available evidence is sufficient. On your final decision, return the DONE command and state your answer explicitly in the world_observation string, followed by a brief description of the observed evidence and any remaining uncertainty. This is a public answer, not a reasoning trace.
+
+Robot actions are available for inspection or exploration; completion does not require physically placing an object. There is no physical success evaluator in this question-answering episode. DONE ends the attempt and the runner records your answer without certifying its correctness.

@@ -1,0 +1,488 @@
+{
+  "schema": "pickup_edge_policy_v2",
+  "scope": "All released task and scene initializations",
+  "margin_m": 0.03,
+  "native_validation": {
+    "t07_prior_policy": "passed_all_six; retained raw evidence",
+    "all_scenes": "not_yet_validated",
+    "physical_grasp_verified": false,
+    "d2-1": {
+      "status": "passed_all_three",
+      "evidence": "/local_home2/zhouxinyang/models/WIA/outputs/edges_final_d2-1_20261029T155909/pickup_edge_verification.json",
+      "maximum_horizontal_settle_drift_m": 1.1483759478370949e-05
+    },
+    "t26": {
+      "status": "passed_all_three_initial_supports_before_bounds_cache_fix",
+      "evidence": "/local_home2/zhouxinyang/models/WIA/outputs/all_edges_t26_20261029T155256/pickup_edge_verification.json"
+    },
+    "t15": {
+      "status": "passed_both_original_supports_with_surface_search",
+      "evidence": "/local_home2/zhouxinyang/models/WIA/outputs/edges_final_t15_20261029T160822/pickup_edge_verification.json",
+      "maximum_horizontal_settle_drift_m": 4.0910849721530246e-05
+    },
+    "t07_current_manual": {
+      "status": "six_targets_placed_in_both_reloaded_manual_scenes",
+      "evidence": [
+        "/local_home2/zhouxinyang/models/WIA/outputs/manual_edges_g2_20261029T155756/edge_reload_summary.json",
+        "/local_home2/zhouxinyang/models/WIA/outputs/manual_edges_g3_20261029T155756/edge_reload_summary.json"
+      ]
+    }
+  },
+  "tasks": {
+    "d1-1": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "d1-2": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "d1-3": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "d2-1": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "d2-2": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "r-a1": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "r-a2": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "r-c1": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "r-c2": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "r-c3": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "r-s1": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "r-s2": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "r-s3": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t01": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t02": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t03": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t04": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t05": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t06": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t07": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted",
+        "unqualified_tray_preview"
+      ]
+    },
+    "t08": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t09": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t10": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t11": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t15": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t16": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t17": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t18": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t19": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t20": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t21": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t22": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "tabletop"
+      ]
+    },
+    "t23": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "tabletop"
+      ]
+    },
+    "t24": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "tabletop"
+      ]
+    },
+    "t25": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "tabletop"
+      ]
+    },
+    "t26": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t27": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t28": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t29": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t30": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t31": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t32": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t33": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t34": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t35": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t36": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t37": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t38": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t39": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t40": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted",
+        "saved_image1",
+        "saved_image2"
+      ]
+    },
+    "t41": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted",
+        "saved_image1",
+        "saved_image2"
+      ]
+    },
+    "t42": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t43": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t44": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t45": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted",
+        "saved_image1",
+        "saved_image2"
+      ]
+    },
+    "t46": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted",
+        "saved_image1",
+        "saved_image2"
+      ]
+    },
+    "t47": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted",
+        "saved_image1",
+        "saved_image2"
+      ]
+    },
+    "t48": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted",
+        "saved_image1",
+        "saved_image2"
+      ]
+    },
+    "t49": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t50": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    },
+    "t51": {
+      "status": "policy_enabled",
+      "variants": [
+        "original",
+        "adapted"
+      ]
+    }
+  },
+  "placement_rule": "Preserve support, room, orientation, scale and the authored along-edge coordinate. Move only perpendicular to a current support edge.",
+  "exceptions": [
+    "Fixed apparatus, visual-only objects and currently held objects stay in place.",
+    "Optically constrained mirror layouts retain their original geometry.",
+    "Related overlapping or touching movable props translate together; incompatible support groups remain unchanged.",
+    "Objects without a current non-floor support or a valid single-axis supported edge proposal stay in place with an explicit reason."
+  ],
+  "runtime_hook": "wia.tasks.scene.ScenePatches.apply_after_postprocessing",
+  "surface_edge_search": {
+    "method": "Search inward from unsupported AABB edges along the same horizontal axis; stop at the first native-supported padded footprint.",
+    "step_fraction": 0.05,
+    "same_surface_height_tolerance_m": 0.03,
+    "fallback_footprint_padding_m": 0.03,
+    "activation": "Only when no direct AABB-edge proposal succeeds; verified direct-edge placements retain priority."
+  }
+}

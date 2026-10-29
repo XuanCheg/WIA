@@ -1,6 +1,6 @@
 """Apply human review, target sizing and separate pickup-support construction.
 
-Run through scripts/convert_esi_rigid_catalog.py --dry-run --review-file FILE.
+Run through src/wia/runtime/commands/convert_esi_rigid_catalog.py --dry-run --review-file FILE.
 These CPU recipes do not certify navigation, support contact or physical grasp.
 """
 from __future__ import annotations

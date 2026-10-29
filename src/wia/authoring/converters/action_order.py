@@ -36,7 +36,7 @@ _OBJECT_BINDINGS = {
     'top_candidate_0': 'obj_C_correct',
     'top_candidate_1': 'obj_C_wrong',
 }
-MODULE = 'core.esi_converters.action_order'
+MODULE = 'wia.authoring.converters.action_order'
 OPERATION = 'ordered_grasp_lift_stack'
 TASK_REVISION = 'task_edit_20261018_v1'
 MECHANISM_CONTRACT = {'goal': 'execute_supplied_support_order', 'preserve': ['original_candidates', 'asset_scales', 'intermediate_stable_support'], 'inference_claimed': False}
@@ -295,7 +295,7 @@ class ActionOrderConverter(ConverterBase):
             'room': raw['room'], 'bindings': bindings, 'interaction_policy': interaction_policy,
             'source_provenance': {'source_json': source.relative_path,
                 'builder': 'ESI-Bench/src/active_explore/tasks/action_sequencing/action_order_inference.py',
-                'historical_adapter': 'core/sim/esi_action_order_tabletop.py',
+                'historical_adapter': 'src/wia/runtime/sim/esi_action_order_tabletop.py',
                 'rule_revision': RULE_REVISION}}
         patches.insert(len(bindings), {'operation': 'category_initialization',
             'phase': 'before_construction', 'module': MODULE, 'parameters': initialization})

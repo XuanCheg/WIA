@@ -14,7 +14,7 @@ import numpy as np
 from wia.authoring.converters import active_layout
 from wia.tasks.interaction_setup import array
 
-MODULE = 'core.esi_converters.wia_furnished_layout'
+MODULE = 'wia.authoring.converters.wia_furnished_layout'
 REVISION = 'wia_furnished_layout_v1'
 
 

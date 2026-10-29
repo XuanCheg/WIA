@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 import yaml
 
 from wia import __version__
+from wia.evaluation.usage import usage_report, aggregate_usage
 from wia.policies import available_policies, create_executor
 
 BACKENDS = {
@@ -20,11 +21,11 @@ BACKENDS = {
 }
 POLICY_KEYS = {"type", "backend", "model", "base_url", "api_key_env", "provider",
                "max_output_tokens", "temperature", "reasoning_effort", "chat_template_kwargs",
-               "codex_executable", "model_timeout", "structured_output"}
+               "codex_executable", "model_timeout", "structured_output", "history_text_turns", "json_schema_output", "image_max_edge", "sliding_window_tokens"}
 EVAL_KEYS = {"max_steps", "timeout", "action_mode", "world", "observation_condition", "run_mode",
-             "world_observation_log", "max_invalid_retries", "max_recoverable_failures", "snapshot_cache"}
+             "world_observation_log", "max_invalid_retries", "max_recoverable_failures", "snapshot_cache", "execution_mode"}
 ENV_KEYS = {"mode", "gpu", "port", "python", "data_root", "url", "episode_manifest", "evaluation_file",
-            "record", "preview_fps", "debug_cameras", "keep_simulator", "macro_execution"}
+            "record", "preview_fps", "recording_hz", "debug_cameras", "keep_simulator", "macro_execution"}
 
 
 def _mapping(value, name):
@@ -61,7 +62,7 @@ def _validate_numbers(policy, evaluation):
             raise ValueError(f"Invalid {key}: {evaluation[key]}")
 
 
-def prepare(config_path):
+def prepare(config_path, *, execution_mode=None):
     """Read/validate without importing Harness, starting scenes or writing output."""
     config_path = Path(config_path).expanduser().resolve()
     from wia.tasks.loader import UniqueLoader
@@ -97,10 +98,34 @@ def prepare(config_path):
             raise ValueError("chat_template_kwargs requires Chat Completions provider=vllm.")
     environment = _mapping(config.get("environment", {}), "environment")
     evaluation = _mapping(config.get("evaluation", {}), "evaluation")
+    if execution_mode is not None:
+        evaluation["execution_mode"] = execution_mode
+    evaluation.setdefault("execution_mode", "batch")
+    if evaluation["execution_mode"] not in ("debug", "batch"):
+        raise ValueError("evaluation.execution_mode must be debug or batch.")
+    if evaluation["execution_mode"] == "debug":
+        evaluation.setdefault("run_mode", "diagnostic")
     if policy_type == "show_harness":
         _known(environment, ENV_KEYS, "environment")
         _known(evaluation, EVAL_KEYS, "evaluation")
         _validate_numbers(policy, evaluation)
+        if 'sliding_window_tokens' in policy:
+            window = policy['sliding_window_tokens']
+            if (policy['backend'] != 'openai_chat_completions' or policy.get('provider') != 'vllm'
+                    or evaluation.get('run_mode') != 'diagnostic' or type(window) is not int
+                    or window <= policy.get('max_output_tokens', 1024) + 2048
+                    or policy.get('history_text_turns') is not None):
+                raise ValueError('sliding_window_tokens requires diagnostic vllm, full-turn history and sufficient context.')
+        if "history_text_turns" in policy:
+            if (policy["backend"] != "openai_chat_completions" or evaluation.get("run_mode") != "diagnostic"
+                    or type(policy["history_text_turns"]) is not int or policy["history_text_turns"] < 0):
+                raise ValueError("history_text_turns requires diagnostic Chat Completions and a nonnegative integer.")
+        if "json_schema_output" in policy and (type(policy["json_schema_output"]) is not bool
+                or policy["backend"] != "openai_chat_completions" or evaluation.get("run_mode") != "diagnostic"):
+            raise ValueError("json_schema_output requires diagnostic Chat Completions and a boolean.")
+        if "image_max_edge" in policy and (type(policy["image_max_edge"]) is not int or policy["image_max_edge"] <= 0
+                or policy["backend"] != "openai_chat_completions" or evaluation.get("run_mode") != "diagnostic"):
+            raise ValueError("image_max_edge requires diagnostic Chat Completions and a positive integer.")
     mode = environment.get("mode", "launch")
     if mode not in ("launch", "attach"):
         raise ValueError("environment.mode must be launch or attach.")
@@ -113,7 +138,7 @@ def prepare(config_path):
         raise ValueError("vllm and compatible providers require an explicit base_url.")
     if policy_type == "show_harness":
         ignored = ({"url", "episode_manifest", "evaluation_file"} if mode == "launch" else
-                   {"gpu", "port", "python", "record", "preview_fps", "debug_cameras", "keep_simulator", "macro_execution"}) & environment.keys()
+                   {"gpu", "port", "python", "record", "preview_fps", "recording_hz", "debug_cameras", "keep_simulator", "macro_execution"}) & environment.keys()
         if ignored:
             raise ValueError(f"Environment fields unsupported in {mode}: {', '.join(sorted(ignored))}")
     for key in ("data_root", "episode_manifest", "evaluation_file"):
@@ -127,7 +152,11 @@ def prepare(config_path):
     tasks = config.get("tasks")
     if not isinstance(tasks, list) or not tasks:
         raise ValueError("tasks must be a nonempty list of task selections.")
-    from wia.tasks.loader import select_task, task_definition
+    if evaluation["execution_mode"] == "debug" and (len(tasks) != 1 or mode != "launch"):
+        raise ValueError("Debug requires one launched task; use its live resume control for continuation.")
+    if evaluation["execution_mode"] == "batch" and environment.get("keep_simulator"):
+        raise ValueError("Batch evaluation cannot keep a simulator; use debug mode.")
+    from wia.tasks.loader import is_release_v1, select_task, task_definition
     plans = []
     attach_urls, attach_manifests = set(), set()
     for index, selection in enumerate(tasks):
@@ -139,7 +168,7 @@ def prepare(config_path):
         task_path = candidate if candidate.is_file() else select_task(selection["path"])
         definition = task_definition(yaml.load(task_path.read_text(), Loader=UniqueLoader))
         defaults = definition.defaults.model_dump(mode="json")
-        effective = {"max_steps": defaults["max_steps"], "timeout": defaults["wall_timeout_s"],
+        effective = {"max_steps": defaults["max_steps"], "timeout": None,
                      "action_mode": defaults["action_mode"],
                      "world": "run" if defaults["world_advances_during_inference"] else "pause",
                      "observation_condition": defaults["observation_condition"], "run_mode": "benchmark", **evaluation}
@@ -154,11 +183,21 @@ def prepare(config_path):
             raise ValueError("Containment tasks require the approved tabletop variant.")
         if not rigid and hasattr(definition, "scene") and task["variant"] not in definition.scene.variants:
             raise ValueError("Task variant is not declared by this task.")
-        if rigid and getattr(definition, "status", None) != "ready":
+        if rigid and getattr(definition, "status", None) != "ready" and not is_release_v1(task_path):
             raise ValueError("Containment task must be ready before execution.")
-        if getattr(definition, "kind", None) == "category_robot_task" and getattr(definition, "status", None) != "ready" and effective["run_mode"] != "diagnostic":
+        if (getattr(definition, "kind", None) == "category_robot_task"
+                and getattr(definition, "status", None) != "ready"
+                and effective["run_mode"] != "diagnostic" and not is_release_v1(task_path)):
             raise ValueError("Pending/discarded category task requires diagnostic mode.")
         episode_env = dict(environment)
+        if mode == "launch" and policy_type == "show_harness":
+            episode_env.setdefault("record", effective["execution_mode"] == "debug")
+            episode_env.setdefault("recording_hz", 5.0)
+            if type(episode_env["record"]) is not bool:
+                raise ValueError("environment.record must be a boolean.")
+            hz = episode_env["recording_hz"]
+            if isinstance(hz, bool) or not isinstance(hz, (int, float)) or not math.isfinite(hz) or hz <= 0:
+                raise ValueError("environment.recording_hz must be finite and positive.")
         if policy_type == "show_harness" and mode == "launch" and set(selection) & {"url", "episode_manifest", "evaluation_file"}:
             raise ValueError("Per-task attach settings cannot be used in launch mode.")
         if mode == "attach" and policy_type == "show_harness":
@@ -185,7 +224,7 @@ def prepare(config_path):
                 if canonical != policy["backend"]:
                     raise ValueError("Attach backend metadata differs from selected backend.")
                 if policy["backend"] != "codex_cli":
-                    for field in ("base_url", "api_key_env", "provider", "max_output_tokens", "temperature", "chat_template_kwargs"):
+                    for field in ("base_url", "api_key_env", "provider", "max_output_tokens", "temperature", "chat_template_kwargs", "history_text_turns", "json_schema_output", "image_max_edge", "sliding_window_tokens"):
                         if field in policy and policy[field] != metadata.get(field):
                             raise ValueError(f"Attach {field} differs from immutable backend metadata.")
                         if metadata.get(field) is not None:
@@ -265,7 +304,7 @@ def summarize(summary):
             "completion_score": summary.get("completion_score"), "score_percent": summary.get("score_percent"),
             "agent_decisions": summary.get("agent_decisions"), "executed_actions": summary.get("executed_actions"),
             "model_calls": summary.get("model_calls"), "timings": summary.get("timings"),
-            "usage": usage, "cost": summary.get("cost"),
+            "usage": usage, "token_accounting": usage_report(summary), "cost": summary.get("cost"),
             "model_logs": summary.get("model_logs")}
 
 
@@ -294,6 +333,7 @@ def run(prepared):
         results.append({"index": plan["index"], "task": plan["task"], "output_dir": plan["output_dir"], **result})
         counts = {status: sum(item["status"] == status for item in results) for status in sorted({item["status"] for item in results})}
         aggregate = {"schema": "wia_results_v1", "trials": results, "counts": counts,
+                     "token_accounting": aggregate_usage(results),
                      "cost": sum(item["cost"] for item in results) if all(isinstance(item.get("cost"), (int, float)) for item in results) else None}
         (output / "results.json").write_text(json.dumps(aggregate, indent=2, allow_nan=False) + "\n")
     return aggregate

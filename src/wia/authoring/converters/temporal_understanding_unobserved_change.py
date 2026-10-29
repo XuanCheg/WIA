@@ -26,7 +26,7 @@ import numpy as np
 from wia.authoring.conversion import ROOT, ConverterBase, map_records, original_scene, physical_task
 from wia.authoring.io import sha256, write_json
 
-MODULE = 'core.esi_converters.temporal_understanding_unobserved_change'
+MODULE = 'wia.authoring.converters.temporal_understanding_unobserved_change'
 SOURCE_BUILDER = ESI_ROOT / 'src/active_explore/tasks/temporal_understanding/unobserved_change.py'
 REPLAY = ESI_ROOT / 'src/passive_gt/unobserved_regeneration.py'
 PRODUCER = ESI_ROOT / 'src/dataset_generation/task_counting/batch_counting_merge.py'

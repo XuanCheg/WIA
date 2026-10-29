@@ -1,6 +1,6 @@
 """Screen and repair category interaction layouts during initialization only.
 
-Run through scripts/run_esi_capture_worker.py after the user resumes rendering.
+Run through src/wia/runtime/commands/run_esi_capture_worker.py after the user resumes rendering.
 Pure geometry helpers can be checked with tests/test_esi_interaction_setup.py.
 Height, aperture and chassis screens never certify an executed grasp or IK path.
 """
@@ -739,7 +739,7 @@ def initialize_interaction(session, bindings, policy):
     if getattr(session, 'reflection_sensor_profile', None):
         # Source head alignment owns the robot start. Generic nearest-object
         # stance search would change the meaning of the optical question.
-        from core.sim.esi_reflection import align_initial_robot
+        from wia.runtime.sim.esi_reflection import align_initial_robot
         align_initial_robot(session)
         evidence = {'schema': REVISION, 'accepted': True, 'relocated': False,
             'group_translation_m': [0., 0., 0.], 'object_names': [],

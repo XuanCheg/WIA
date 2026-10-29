@@ -27,7 +27,7 @@ from wia.authoring.conversion import ROOT, ConverterBase, map_records, original_
 from wia.tasks.background_policy import legal_background_contact
 from wia.authoring.io import sha256, write_json
 
-MODULE = 'core.esi_converters.enumerative_perception_structural_enclosure'
+MODULE = 'wia.authoring.converters.enumerative_perception_structural_enclosure'
 OPERATIONS = ('inspect_all_enclosures', 'inspect_any_enclosure')
 SOURCE_COMMON = ESI_ROOT / 'src/active_explore/tasks/enumerative_perception/common.py'
 SOURCE_GENERATOR = ESI_ROOT / 'src/dataset_generation/task_counting/batch_counting_merge.py'

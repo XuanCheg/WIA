@@ -160,7 +160,7 @@ def build(alias, seed):
     for k in ('table_key', 'destinations', 'fixture_keys', 'destination_contracts'):
         init[k] = deepcopy(p[k])
     patches = [{'operation': 'category_initialization', 'phase': phase,
-                'module': 'core.esi_converters.wia_mirror', 'parameters': deepcopy(init)}
+                'module': 'wia.authoring.converters.wia_mirror', 'parameters': deepcopy(init)}
                for phase in ('before_construction', 'after_postprocessing')]
     task['scene'] = {'policy': 'native_then_minimal_patch_else_skip', 'variants': {'original': {'patches': []}, 'adapted': {'patches': patches}}}
     goal = 'Identify the real produce item corresponding to the reflection inside the red outline in the initial head-camera view. '

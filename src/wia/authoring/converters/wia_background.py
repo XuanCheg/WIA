@@ -1,6 +1,6 @@
 """Restore declared background loading and report native measurements.
 
-Run through category_initialization patches in scripts/check_esi_core_native.py.
+Run through category_initialization patches in src/wia/runtime/commands/check_esi_core_native.py.
 CPU checks: python -B -m pytest -q -p no:cacheprovider tests/test_wia_background.py
 configure_scene either clears room filters or opts into complete ground loading;
 initialize_scene optionally changes the existing Kit viewport grid setting.

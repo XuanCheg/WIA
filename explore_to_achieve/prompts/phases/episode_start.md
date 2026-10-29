@@ -1,0 +1,1 @@
+This is the first decision of a new episode. The resident instructions, full public task, environment, episode policy, robot/action/tool contracts and initial authorized observation below apply to this attempt. Use the attached robot RGB images and supplied measured state. Return one command now; there is no separate initialization action or model turn.

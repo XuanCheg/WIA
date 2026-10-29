@@ -15,7 +15,7 @@ import json
 import numpy as np
 from scipy.spatial.transform import Rotation
 
-MODULE = "core.esi_converters.hidden_object_collection"
+MODULE = "wia.authoring.converters.hidden_object_collection"
 REVISION = "hidden_collection_20261020_v1"
 OPERATION = "find_and_collect_on_right_hand_plate"
 
@@ -118,7 +118,7 @@ def configure_scene(config, parameters):
         "primitive_type": "Cube", "scale": [.25, .36, .04], "position": [100., 100., .8],
         "fixed_base": True, "visual_only": False})
     import yaml
-    from core.sim.esi_omnigibson import _import_pipeline
+    from wia.runtime.sim.esi_omnigibson import _import_pipeline
     pipeline = _import_pipeline(ESI_ROOT)
     robot_config = yaml.safe_load(
         (Path(pipeline.og.example_config_path) / "r1_primitives.yaml").read_text())["robots"][0]
@@ -142,7 +142,7 @@ def postprocess_joint_world(session, parameters):
 
 
 def initialize_scene(session, parameters):
-    from core.sim.esi_collection_setup import initialize_collection_tray
+    from wia.runtime.sim.esi_collection_setup import initialize_collection_tray
     receipt = initialize_collection_tray(session, parameters)
     supports = {}
     for item in parameters["layout"]["inventory"]:

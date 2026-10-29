@@ -1,0 +1,18 @@
+tasks:
+  - path: ../explore_to_achieve/wia_v1/release/tasks/t40.yaml
+policy:
+  type: show_harness
+  backend: openai_chat_completions
+  model: Qwen/Qwen3.8-27B
+  provider: vllm
+  base_url: http://127.0.0.1:8000/v1
+  api_key_env: VLLM_API_KEY
+  max_output_tokens: 4096
+  chat_template_kwargs:
+    enable_thinking: false
+  json_schema_output: true
+environment:
+  mode: launch
+evaluation:
+  run_mode: diagnostic
+output_dir: ../outputs/hopper_qwen38_27b_schema_diagnostic

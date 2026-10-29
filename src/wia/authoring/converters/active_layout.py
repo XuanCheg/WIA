@@ -1,6 +1,6 @@
 """Construct explicit native layouts for the October task redesign.
 
-Run a generated scene with scripts/check_esi_core_native.py. All placement
+Run a generated scene with src/wia/runtime/commands/check_esi_core_native.py. All placement
 setters are confined to initialization; evaluators and episodes only read state.
 """
 from __future__ import annotations
@@ -115,7 +115,7 @@ def configure_scene(config, parameters):
             if obj['name'] in materials:
                 obj['link_physics_materials'] = {'base_link': deepcopy(materials[obj['name']])}
     import yaml
-    from core.sim.esi_omnigibson import _import_pipeline
+    from wia.runtime.sim.esi_omnigibson import _import_pipeline
     pipeline = _import_pipeline(ESI_ROOT)
     robot = yaml.safe_load(
         (Path(pipeline.og.example_config_path) / 'r1_primitives.yaml').read_text())['robots'][0]
@@ -484,8 +484,18 @@ def initialize_scene(session, parameters):
         obj.keep_still()
         if contract == 'fixed_mount':
             fixed_mount_snapshots[obj.name] = _fixed_mount_snapshot(obj)
+    if getattr(session, '_release_edge_policy', False):
+        from wia.tasks.pickup_edges import apply_edge_policy
+        supported = layout.get('supported_items', [])
+        edge_objects = [session.env.scene.object_registry('name', row['name']) for row in supported]
+        apply_edge_policy(session, edge_objects,
+            supports={row['name']: row['support'] for row in supported},
+            protected_reason='optical_relation_requires_original_geometry'
+                if parameters.get('mirror_material') else None)
     for _ in range(90):
         og.sim.step()
+    if getattr(session, '_release_edge_policy', False):
+        session._edge_placement_bounds = {}
     _finalize_initial_gripper_state(session, gripper_receipt)
     _finalize_native_object_poses(session, native_pose_receipts)
     receipts = {}
@@ -541,6 +551,8 @@ def initialize_scene(session, parameters):
         all(x['accepted'] for x in receipts.values()) and robot['floor_supported'] and robot['collision_free']),
         'supported_items': receipts, 'robot': robot,
         'validation_scope': 'Native initial support and floor contacts; route and manipulation remain unverified.'}
+    if getattr(session, '_release_edge_policy', False):
+        result['pickup_edge_placements'] = list(getattr(session, 'pickup_edge_placements', []))
     if fixed_mount_snapshots:
         result['validation_scope'] = ('Native dynamic supports, explicitly fixed mount geometry and pose stability, '
             'and robot floor contacts. Fixed mounts do not certify gravity-supported contact. '

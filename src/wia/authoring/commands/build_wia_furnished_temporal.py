@@ -30,7 +30,7 @@ from wia.authoring.commands import build_wia_temporal_scene_variants as legacy
 from wia.authoring.commands.build_wia_workstation_variants import NATIVE_FLAGS, _text, _vector, repo_path, sha256
 
 MODULE = legacy.MODULE
-NATIVE_FURNITURE_MODULE = 'core.esi_converters.wia_native_furniture'
+NATIVE_FURNITURE_MODULE = 'wia.authoring.converters.wia_native_furniture'
 POINT_FIELDS = {'position', 'look_target', 'target', 'world_position_m', 'eye_m'}
 DIRECTION_FIELDS = {'linear_velocity', 'angular_velocity', 'linear_velocity_m_s', 'angular_velocity_rad_s',
                     'direction', 'normal', 'up', 'forward', 'world_direction'}
