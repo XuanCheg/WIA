@@ -9,7 +9,7 @@ from PIL import Image
 from core.agent.decision import ModelError
 
 
-def deepseek_budget(payload):
+def estimate_multimodal_input(payload):
     """Use UTF-8 bytes and padded 16px image patches, not a provider tokenizer count."""
     content = deepcopy({'messages': payload['messages'], 'tools': payload.get('tools', [])})
     vision = 0
@@ -27,10 +27,15 @@ def deepseek_budget(payload):
             vision += math.ceil(width/16)*math.ceil(height/16)*4 + 1024
             part['image_url']['url'] = '[image accounted separately]'
     text = len(json.dumps(content, ensure_ascii=False).encode('utf-8'))
-    reserve = payload.get('max_tokens', payload.get('max_completion_tokens', 0))
-    result = {'method': 'utf8_bytes_plus_4_tokens_per_16px_patch_plus_1024_per_image',
+    return {'method': 'utf8_bytes_plus_4_tokens_per_16px_patch_plus_1024_per_image',
         'exact_token_count': False, 'text_estimate': text, 'image_estimate': vision,
-        'input_estimate': text+vision, 'output_reservation': reserve,
-        'safety_margin': 8192, 'context_limit': 1000000}
-    result['within_budget'] = text+vision+reserve+8192 <= 1000000
+        'input_estimate': text+vision}
+
+
+def deepseek_budget(payload):
+    """Retain the pinned model's existing reservation and safety margin."""
+    result = estimate_multimodal_input(payload)
+    reserve = payload.get('max_tokens', payload.get('max_completion_tokens', 0))
+    result.update(output_reservation=reserve, safety_margin=8192, context_limit=1000000)
+    result['within_budget'] = result['input_estimate']+reserve+8192 <= 1000000
     return result

@@ -58,13 +58,13 @@ def add_backend_arguments(parser):
     parser.add_argument("--max-perception-rounds", type=int, help="Previous-result-notes policy: perception rounds per decision (default 4); note reads remain unlimited.")
     parser.add_argument("--history-recent-moves", type=int, help="ShowHarness state policy: recent executed actions (default 3).")
     parser.add_argument("--history-text-turns", type=int,
-                        help="Diagnostic Chat Completions only: replay this many public final outputs, omitting older images/prompts/tools.")
+                        help="Diagnostic: replay this many public final outputs, omitting older images/prompts/tools.")
     parser.add_argument("--json-schema-output", action="store_true",
-                        help="Diagnostic Chat Completions only: request server-side JSON Schema constrained decoding.")
+                        help="Diagnostic: request server-side JSON Schema constrained decoding.")
     parser.add_argument("--image-max-edge", type=int,
-                        help="Diagnostic Chat Completions only: resize model RGB while preserving native depth and calibration.")
+                        help="Diagnostic: resize model RGB while preserving native depth and calibration.")
     parser.add_argument('--sliding-window-tokens', type=int,
-                        help='Diagnostic vLLM: bound complete history turns using the serving tokenizer; pin the initial turn.')
+                        help='Diagnostic: bound complete history turns; pin the initial turn. Use a serving tokenizer when available, otherwise an explicit conservative estimate.')
     parser.add_argument("--local-base-url", help="Legacy local HTTP base URL alias")
     parser.add_argument("--local-api-key-env", default="LOCAL_AGENT_API_KEY")
     parser.add_argument("--no-local-structured-output", action="store_true")
@@ -78,19 +78,16 @@ def validate_backend_arguments(args):
     history_turns = getattr(args, "history_text_turns", None)
     image_edge = getattr(args, "image_max_edge", None)
     window = getattr(args, 'sliding_window_tokens', None)
-    if window is not None and (backend != 'openai_chat_completions' or args.provider != 'vllm'
-            or getattr(args, 'run_mode', None) != 'diagnostic' or window <= (args.max_output_tokens or 1024) + 2048
+    if window is not None and (getattr(args, 'run_mode', None) != 'diagnostic' or window <= (args.max_output_tokens or 1024) + 2048
             or history_turns is not None):
-        raise ValueError('--sliding-window-tokens requires diagnostic vllm and sufficient context with full-turn history.')
-    if image_edge is not None and (image_edge <= 0 or backend != "openai_chat_completions"
-                                  or getattr(args, "run_mode", None) != "diagnostic"):
-        raise ValueError("--image-max-edge requires diagnostic Chat Completions and a positive integer.")
-    if getattr(args, "json_schema_output", False) and (backend != "openai_chat_completions"
-            or getattr(args, "run_mode", None) != "diagnostic"):
-        raise ValueError("--json-schema-output requires diagnostic Chat Completions.")
-    if history_turns is not None and (backend != "openai_chat_completions" or history_turns < 0
+        raise ValueError('--sliding-window-tokens requires diagnostic mode and sufficient context with full-turn history.')
+    if image_edge is not None and (image_edge <= 0 or getattr(args, "run_mode", None) != "diagnostic"):
+        raise ValueError("--image-max-edge requires diagnostic mode and a positive integer.")
+    if getattr(args, "json_schema_output", False) and (getattr(args, "run_mode", None) != "diagnostic"):
+        raise ValueError("--json-schema-output requires diagnostic mode.")
+    if history_turns is not None and (history_turns < 0
                                      or getattr(args, "run_mode", None) != "diagnostic"):
-        raise ValueError("--history-text-turns requires diagnostic Chat Completions and a nonnegative integer.")
+        raise ValueError("--history-text-turns requires diagnostic mode and a nonnegative integer.")
     if backend == "codex_cli" and any(getattr(args, key, None) is not None for key in
             ("base_url", "api_key_env", "provider", "max_output_tokens", "temperature", "chat_template_kwargs")):
         raise ValueError("HTTP API options do not configure Codex CLI.")
@@ -184,13 +181,40 @@ def create_declarative_session(args, *, public_task, policy, output, assembler, 
                     kwargs["image_max_edge"] = args.image_max_edge
                 if getattr(args, 'sliding_window_tokens', None) is not None:
                     kwargs['sliding_window_tokens'] = args.sliding_window_tokens
-    if (backend == 'openai_chat_completions'
-            and kwargs.get('base_url', '').rstrip('/') == 'https://ai-gateway.vercel.sh/v1'):
-        from wia.runtime.agent.vercel_session import VercelChatSession
-        return VercelChatSession(history_policy=getattr(args, 'history_policy', None) or
-            os.environ.get('WIA_GATEWAY_HISTORY_POLICY') or None,
+    context_policy = (getattr(args, 'history_policy', None) or os.environ.get('WIA_HISTORY_POLICY')
+                      or os.environ.get('WIA_GATEWAY_HISTORY_POLICY') or None)
+    gateway = kwargs.get('base_url', '').rstrip('/') == 'https://ai-gateway.vercel.sh/v1'
+    context_requested = context_policy is not None or any(getattr(args, key, None) is not None
+        for key in ('history_text_turns', 'sliding_window_tokens', 'history_recent_moves', 'max_perception_rounds',
+                    'image_max_edge')) or getattr(args, 'json_schema_output', False)
+    from wia.runtime.agent.history_policy import validate_history_policy
+    validate_history_policy({**vars(args), 'backend': backend, 'history_policy': context_policy})
+    if backend in ('openai_chat_completions', 'openai_responses', 'local_http') and (gateway or context_requested):
+        from wia.runtime.agent.context_session import ContextChatSession
+        session_type = ContextChatSession
+        if backend == 'openai_responses':
+            from wia.runtime.agent.responses_context import ResponsesContextSession
+            session_type = ResponsesContextSession
+            if gateway:
+                from wia.runtime.agent.vercel_session import VercelResponsesSession
+                session_type = VercelResponsesSession
+        elif kwargs.get('base_url', '').rstrip('/') == 'https://ai-gateway.vercel.sh/v1':
+            from wia.runtime.agent.vercel_session import VercelChatSession
+            session_type = VercelChatSession
+        if backend == 'local_http':
+            # Preserve the legacy local model's numerical generation defaults.
+            kwargs.update(provider='vllm', max_output_tokens=args.max_output_tokens or 1024,
+                temperature=0 if args.temperature is None else args.temperature,
+                chat_template_kwargs=args.chat_template_kwargs or {'enable_thinking': False})
+        for field in ('history_text_turns', 'image_max_edge', 'sliding_window_tokens', 'json_schema_output'):
+            value = getattr(args, field, None)
+            if value is not None:
+                kwargs[field] = value
+        session = session_type(history_policy=context_policy,
             history_recent_moves=getattr(args, 'history_recent_moves', None),
             max_perception_rounds=getattr(args, 'max_perception_rounds', None), **kwargs)
+        session.backend = backend
+        return session
     return create_session(backend, **kwargs)
 
 

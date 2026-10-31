@@ -38,7 +38,8 @@ def describe(label, value):
 
 class PromptAssembler:
     def __init__(self, root=PROMPT_ROOT, *, world_observation=True, task_mode="physical", qa_protocol=None,
-                 wia_history_condition="full", debug_reachability=False):
+                 wia_history_condition="full", debug_reachability=False, cache_prefix_layout=False):
+        self.cache_prefix_layout = cache_prefix_layout
         if task_mode not in ("physical", "original_qa") or task_mode == "original_qa" and not world_observation:
             raise ValueError("Original QA requires world-observation output for its final answer.")
         self.task_mode = task_mode
@@ -147,6 +148,8 @@ class PromptAssembler:
                 "qa_protocol": self.qa_protocol.provenance() if self.qa_protocol is not None else None}
         if not self.initial_overview_required:
             value['wia_history_condition'] = self.wia_history_condition
+        if self.cache_prefix_layout:
+            value['cache_prompt_layout'] = 'static_prefix_v1'
         return value
 
     def _validate_history_projection(self, request, episode_configuration):
@@ -292,6 +295,8 @@ class PromptAssembler:
                 PrimitiveResolution(**setting["resolution"]), MacroLimits(**setting["limits"]))
         output = {"response_schema": request.structured_schema, "validation_schema": request.schema,
                   "one_command": True, "retry_feedback": request.feedback}
+        if self.cache_prefix_layout:
+            output.pop("retry_feedback")
         output_text = describe("Exact structured output contract", output)
         if request.world_observation_log:
             output_text += ('\nReturn {"command":{...one valid action command...},'
@@ -317,7 +322,9 @@ class PromptAssembler:
         else:
             output_text += '\nReturn {"action":ACTION} with no other fields.'
         resident = self.render("resident", {"ROBOT_PROFILE": self.components["robots/r1.md"],
-            "ACTION_INTERFACE": self.components[f"actions/{request.action_mode}.md"] + "\n\n" + describe("Actual action capabilities", capabilities),
+            "ACTION_INTERFACE": self.components[f"actions/{request.action_mode}.md"] +
+                ("\n\nCurrent action capabilities and limits are supplied in the system context for this decision."
+                 if self.cache_prefix_layout else "\n\n" + describe("Actual action capabilities", capabilities)),
             "PERCEPTION_TOOLS": (self.components["tools/native_depth.md"] if depth_access(sensor)["available"]
                                  else "No model tools are authorized; native depth is unavailable.")
                 + self._overview_instruction()})
@@ -326,6 +333,28 @@ class PromptAssembler:
             resident += "\n\n" + debug_prompt
         state = {"snapshot_id": obs.snapshot_id, "captured_at": obs.captured_at,
                  "robot_state": current["robot_state"], "action_history": current["action_history"]}
+        if self.cache_prefix_layout:
+            # Rebuild from current inputs: never freeze changing schemas or capabilities.
+            recovery = capabilities['action_context'].pop('recovery', None)
+            policy = {k: v for k, v in episode_configuration.items() if k != 'episode_id'}
+            resident += '\n\n' + '\n\n'.join((output_text,
+                describe('Public task', public_task), describe('Episode policy', policy),
+                describe('Current action capabilities', capabilities)))
+            phase = 'episode_start' if first_turn else 'decision_step'
+            prompt = self.components[f'phases/{phase}.md'] + '\n\n' + '\n\n'.join((
+                describe('Episode identity', episode_configuration['episode_id']),
+                describe('Current action recovery context (action_context.recovery; null means absent)', recovery),
+                describe('Authorized sensor observation', sensor_data),
+                describe('Current measured robot state', state),
+                describe('Last execution feedback', current['last_action_feedback']),
+                describe('Output validation feedback', request.feedback),
+                describe('Remaining decision budget', request.steps_remaining)))
+            if self.task_mode == 'physical':
+                prompt += (f"\nThis episode permits {episode_configuration['max_steps']} decisions; "
+                    f"{request.steps_remaining} remain including this decision. "
+                    "Use this budget, not a default from another benchmark or an earlier episode.")
+            return replace(request, assembled_prompt=prompt, resident_prompt=resident,
+                           prompt_phase=phase, decision_step=step)
         if first_turn:
             task = {key: value for key, value in public_task.items() if key != "environment"}
             phase = "episode_start"

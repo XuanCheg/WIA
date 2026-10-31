@@ -16,12 +16,16 @@ def validate_history_policy(policy):
         raise ValueError('Unknown history_policy: ' + str(mode))
     if recent is not None and (mode != 'showharness_state' or type(recent) is not int or recent < 0):
         raise ValueError('history_recent_moves requires showharness_state and a nonnegative integer.')
+    backend = policy.get('backend')
+    if backend:
+        from core.agent.backend_registry import available_backends
+        capability = available_backends().get(backend)
+        controlled = mode not in (None, 'full') or any(policy.get(k) is not None for k in
+            ('history_text_turns', 'sliding_window_tokens', 'image_max_edge')) or policy.get('json_schema_output', False)
+        if capability and capability.history_owner != 'harness' and controlled:
+            raise ValueError('Selected context policy requires client-owned history; this backend owns history natively.')
     if mode is None:
         return
-    if policy.get('backend') != 'openai_chat_completions':
-        raise ValueError('history_policy requires openai_chat_completions.')
-    if mode in ('current_sensors_full_text', 'current_sensors_recent2_notes', 'showharness_state') and str(policy.get('base_url', '')).rstrip('/') != 'https://ai-gateway.vercel.sh/v1':
-        raise ValueError('This history policy currently requires the Vercel Gateway transport.')
     for name, owner in (('history_text_turns', 'recent_text'), ('sliding_window_tokens', 'sliding_window')):
         value = policy.get(name)
         if mode == owner and value is None:

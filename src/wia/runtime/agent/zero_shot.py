@@ -18,7 +18,7 @@ from core.observations import AgentObservation
 from core.episode_archive import EpisodeArchive
 from core.feedback_semantics import CONTINUABLE_MOTION_ERRORS
 
-from wia.runtime.agent.vercel_session import InvalidToolDecision
+from wia.runtime.agent.context_session import InvalidToolDecision
 
 from core.agent.decision import DecisionAgent, DecisionInput, ModelError, final_text_only, parse_action, unpack_memory_decision
 from core.agent.image_inputs import image_inputs

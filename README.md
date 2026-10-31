@@ -185,10 +185,10 @@ Batch mode rejects `keep_simulator`; debug accepts exactly one launched task.
 Always choose a fresh output directory before launching either preset. Existing
 resident processes must load the updated native code before using debug retention.
 
-### API context policies
+### Context policies
 
 Set `policy.history_policy` in evaluation YAML or use `--history-policy`.
-Explicit configuration overrides `WIA_GATEWAY_HISTORY_POLICY`; omitted settings
+Explicit configuration overrides `WIA_HISTORY_POLICY` (with `WIA_GATEWAY_HISTORY_POLICY` as a legacy alias); omitted settings
 preserve existing legacy behavior.
 
 | Policy | History sent with current observations |
@@ -196,11 +196,24 @@ preserve existing legacy behavior.
 | `full` | Complete conversation, including historical images/tools |
 | `current_sensors_full_text` | All historical text and returned reasoning; old images/depth omitted; historical RGB recall available |
 | `current_sensors_last_result_notes` | Only the immediately previous final public action/output; persistent notes and historical RGB recall available |
-| `recent_text` | Last N public outputs (`history_text_turns: N`, diagnostic Chat Completions) |
-| `sliding_window` | Token-budgeted complete turns, initial/current turns pinned (`sliding_window_tokens: N`, diagnostic vLLM only) |
+| `recent_text` | Last N public outputs (`history_text_turns: N`, diagnostic mode) |
+| `sliding_window` | Token-budgeted complete turns, initial/current turns pinned (`sliding_window_tokens: N`, diagnostic mode) |
 | `showharness_state` | Fresh task/rules/current state and bounded executed actions (`history_recent_moves: 3` by default) |
 
-The current-sensor and ShowHarness-state policies require Vercel Gateway.
+These policies belong to the shared context engine, not to a model vendor, Gateway,
+or API dialect. Direct Chat Completions, Responses, and local HTTP sessions use the
+same policy and tool budgets; adapters only encode requests and routing options.
+Native CLI sessions own their history internally and cannot yet apply client-side
+projections; unsupported history ownership is rejected instead of silently ignoring
+the policy. Sliding windows use the serving tokenizer when available (vLLM), otherwise
+a logged UTF-8/image-patch estimate, not an exact provider token count.
+
+Last-result/notes and fresh-state requests place resident instructions, output schemas,
+task/policy and current action definitions before dynamic observations. Recovery guidance
+stays with current measurements. Prefixes are rebuilt every decision so changed limits
+are never frozen. Tool catalogs remain stable after the perception cap; prohibited calls
+are rejected locally before dispatch. Request logs include prefix/catalog fingerprints.
+These structural checks do not establish cache hit rates or task quality on a provider.
 `current_sensors_recent2_notes` is accepted as a compatibility alias for
 `current_sensors_last_result_notes`; it no longer replays two complete turns.
 Historical experiment artifacts retain their original recorded semantics.
@@ -260,3 +273,50 @@ started agent processes; running Python agents are not hot-patched.
 ### v0.2 release suite
 
 The [three-part release guide](/local_home2/zhouxinyang/models/WIA/docs/releases/v0.2/README.md) describes the independent dataset, cleaned evaluation code and ShowHarnessExplore snapshot. Set `WIA_DATASET_ROOT` for an external dataset package; code resources remain under `WIA_ROOT`. Default discovery follows the selected catalogue, so archived YAML files are not added to the active list. Build reproducible local archives with `python scripts/build_release_v02.py --output-dir dist/v0.2` using a fresh output directory.
+
+### Parallel bench entry and terminal billing
+
+Use the same entry point for any configured model and supported HTTP transport:
+
+```bash
+python -m wia bench --config configs/bench_deepseek_60.yaml --gpus 0,1,2,3 --output outputs/my_fresh_bench
+python -m wia bench --config configs/bench_deepseek_60.yaml --workers 4 --gpus auto --dry-run
+```
+
+The supervisor checks model capabilities and official routing on Gateway, selects only
+idle GPUs, checks independent ports, and starts one serial worker per GPU. Each native
+scene launch rechecks the selected device. Tasks keep their original variants, seeds,
+limits and scoring. Existing jobs are never displaced. Auto-GPU dry runs use placeholder
+indices and do not contact a provider, inspect GPUs or start a simulator.
+
+The deep59 convenience script loads the key from `~/apikey_vercel.key` (or
+`WIA_API_KEY_FILE`) without printing it, configures the existing simulator environment,
+and starts a persistent `codex-gpu:bench-deepseek-*` tmux terminal:
+
+```bash
+bash scripts/bench_deepseek_4gpu.sh --dry-run
+bash scripts/bench_deepseek_4gpu.sh
+# Optional explicit physical device selection:
+bash scripts/bench_deepseek_4gpu.sh --gpus 0,1,2,3
+```
+
+Defaults are all 60 tasks in the release catalogue, seed 0, 64 decisions, diagnostic
+batch execution, no recording, current sensors with the previous result and notes,
+exact `deepseek/deepseek-v4.1-flash-1017`, official DeepSeek only, automatic caching,
+and user-approved `low` reasoning for this debug bench (the model does not declare medium),
+and a 384,000-token output reservation. `WIA_PYTHON`, `WIA_RUNTIME_LIBS`,
+`OMNIGIBSON_DATA_PATH`, `VK_ICD_FILENAMES` and `WIA_GPUS` override server defaults.
+Use a fresh output directory; existing results are not overwritten.
+
+The parent terminal prints a bench progress bar and aggregate input, cached, output,
+reasoning tokens and receipt-reported USD cost. Worker logs include every successful
+API response's latency and billing receipt, including responses later rejected as
+invalid decisions. Cached input is a subset of input; reasoning is a subset of output.
+Missing counts/costs remain explicitly unknown; prices are not inferred from a model
+name or a promotion. HTTP failures with no usage receipt cannot establish a final bill.
+
+Artifacts include `bench_plan.json` (GPU UUID mapping and preflight metadata),
+`worker_NN.log`, per-worker effective configs and trial results, per-episode
+`api_usage.jsonl`, and the combined `results.json`. A worker crash creates explicit
+missing-trial failures and a nonzero exit status. No paid probe or GPU execution is
+performed by `--dry-run`.

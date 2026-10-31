@@ -12,6 +12,13 @@ def main(argv=None):
     debug = commands.add_parser("debug", help="Debug one task with recording and blocking scene retention")
     debug.add_argument("--config", required=True)
     debug.add_argument("--dry-run", action="store_true")
+    bench = commands.add_parser('bench', help='Run a task suite across independent GPU workers')
+    bench.add_argument('--config', required=True)
+    bench.add_argument('--gpus', default='auto', help='Comma-separated physical indices, or auto')
+    bench.add_argument('--workers', type=int, default=4)
+    bench.add_argument('--port-base', type=int, default=8800)
+    bench.add_argument('--output')
+    bench.add_argument('--dry-run', action='store_true')
     control = commands.add_parser("debug-control", help="Resume or close a retained debug trial")
     control.add_argument("--trial", required=True)
     control.add_argument("--action", choices=("resume", "close"), required=True)
@@ -31,8 +38,19 @@ def main(argv=None):
         else:
             from .evaluation import prepare, run
             prepared = prepare(args.config, execution_mode="debug" if args.command == "debug" else None)
-            result = prepared if args.dry_run else run(prepared)
+            if args.command == 'bench':
+                from pathlib import Path
+                from .evaluation.bench import launch
+                if args.output:
+                    prepared['output_dir'] = str(Path(args.output).expanduser().resolve())
+                gpus = None if args.gpus == 'auto' else [int(x) for x in args.gpus.split(',')]
+                result = launch(prepared, gpus=gpus, worker_count=args.workers,
+                                port_base=args.port_base, dry_run=args.dry_run)
+            else:
+                result = prepared if args.dry_run else run(prepared)
             print(json.dumps(result, indent=2, allow_nan=False))
+            if not args.dry_run and any(result.get('worker_exit_codes', [])):
+                return 1
             if not args.dry_run and any(item["status"] not in ("completed_success", "completed_unsuccessful") for item in result["trials"]):
                 return 1
     except (ValueError, OSError, RuntimeError, ImportError) as error:

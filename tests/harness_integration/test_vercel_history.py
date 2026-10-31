@@ -2,6 +2,7 @@
 import asyncio
 from copy import deepcopy
 import json
+import pytest
 
 from core.agent.decision import DecisionInput
 from wia.runtime.agent.vercel_session import VercelChatSession
@@ -176,11 +177,11 @@ def test_showharness_state_rebuilds_each_decision(tmp_path, monkeypatch):
     assert len(prepared[-1].observation.action_history) == 1
     assert [images(x['payload']['messages']) for x in seen] == [9, 4, 4]
     for request in seen:
-        assert len(request['payload']['messages']) == 1
+        assert [m['role'] for m in request['payload']['messages']] == ['system', 'user']
         assert 'Old reasoning sentinel' not in json.dumps(request['payload'])
         assert not any(t['function']['name'] == 'read_historical_rgb' for t in request['payload']['tools'])
-    last = seen[-1]['payload']['messages'][0]['content'][0]['text']
-    assert session.public_task['objective'] in last
+    last = seen[-1]['payload']['messages'][-1]['content'][0]['text']
+    assert session.public_task['objective'] in seen[-1]['payload']['messages'][0]['content']
     assert 'at most 1 recent executed actions' in last
     assert session.provenance()['history_recent_moves'] == 1
     assert 'Old reasoning sentinel' in (tmp_path / 'gateway_assistant_messages.jsonl').read_text()
@@ -311,7 +312,8 @@ def test_perception_round_cap_batches_resets_and_keeps_note_reads(tmp_path, monk
     assert result['agent_decisions'] == 2 and result['termination_reason'] == 'model_done'
     names = lambda index: {t['function']['name'] for t in seen[index]['payload']['tools']}
     assert 'read_rgb_camera' in names(0) and 'read_historical_rgb' in names(0)
-    assert names(1) == names(2) == names(3) == names(5) == {'episode_note'}
+    assert all(names(i) == names(0) for i in range(6))
+    assert 'episode_note' in names(0)
     assert 'read_rgb_camera' in names(4)
     assert 'Perception round budget exhausted' in json.dumps(seen[1]['payload']['messages'])
     assert 'Use at most 1 perception-tool rounds' in seen[0]['payload']['messages'][0]['content']
@@ -331,5 +333,67 @@ def test_perception_after_cap_is_invalid_and_next_decision_resets(tmp_path, monk
     result = asyncio.run(run_episode(env, session, tmp_path, max_steps=2))
     assert len(result['invalid_decisions']) == 1 and result['agent_decisions'] == 2
     assert env.calls == ['BASE_FWD']
-    assert 'read_rgb_camera' not in {t['function']['name'] for t in seen[1]['payload']['tools']}
+    assert seen[0]['payload']['tools'] == seen[1]['payload']['tools']
     assert 'read_rgb_camera' in {t['function']['name'] for t in seen[2]['payload']['tools']}
+
+
+@pytest.mark.parametrize('provider', ['openai', 'anthropic', 'deepseek', 'moonshotai', 'alibaba'])
+def test_cache_prefix_is_static_and_provider_neutral(tmp_path, monkeypatch, provider):
+    env, session = session_fixture(tmp_path, session_type=VercelChatSession,
+        provider='compatible', history_policy='current_sensors_last_result_notes')
+    session.model = provider + '/transport-test-fixture'
+    seen = mock_http(monkeypatch, [chat_reply('{"action":"BASE_FWD"}'),
+                                   chat_reply('{"action":"DONE"}')])
+    result = asyncio.run(run_episode(env, session, tmp_path, max_steps=2))
+    assert result['termination_reason'] == 'model_done'
+    first, second = [x['payload'] for x in seen]
+    assert first['messages'][0] == second['messages'][0]
+    prefix = first['messages'][0]['content']
+    assert 'Exact structured output contract' in prefix
+    assert 'Current measured robot state' not in prefix
+    assert 'Actual action capabilities' not in prefix
+    assert 'retry_feedback' not in prefix
+    for payload in (first, second):
+        current = payload['messages'][-1]['content'][0]['text']
+        assert 'Exact structured output contract' not in current
+        assert 'Current action capabilities' in prefix
+        assert 'camera_geometry' in current
+        assert 'Last execution feedback' in current
+        assert payload['providerOptions']['gateway'] == {'only': [provider], 'caching': 'auto'}
+    assert first['tools'] == second['tools']
+    assert [images(p['messages']) for p in (first, second)] == [9, 4]
+    events = [json.loads(x) for x in (tmp_path/'gateway_requests.jsonl').read_text().splitlines()]
+    assert events[0]['system_prefix_sha256'] == events[1]['system_prefix_sha256']
+    assert events[0]['tool_catalog_sha256'] == events[1]['tool_catalog_sha256']
+
+
+def test_cache_layout_preserves_measurements_and_refreshes_contract(tmp_path):
+    from copy import copy
+    from dataclasses import replace
+    env, session = fixture(tmp_path)
+    request = depth_request(env, session)
+    original = session.assembler.build(request, session.public_task,
+        session.episode_configuration, first_turn=True)
+    assembler = copy(session.assembler)
+    assembler.cache_prefix_layout = True
+    optimized = assembler.build(request, session.public_task,
+        session.episode_configuration, first_turn=True)
+    def section(prompt, label):
+        return json.JSONDecoder().raw_decode(prompt.split(label + ':\n', 1)[1])[0]
+    assert section(original.assembled_prompt, 'Initial authorized sensor observation') == section(
+        optimized.assembled_prompt, 'Authorized sensor observation')
+    assert section(original.resident_prompt, 'Actual action capabilities') == section(
+        optimized.resident_prompt, 'Current action capabilities')
+    changed = assembler.build(replace(request, feedback='Retry feedback sentinel'),
+        session.public_task, session.episode_configuration, first_turn=False)
+    assert changed.resident_prompt == optimized.resident_prompt
+    assert 'Retry feedback sentinel' in changed.assembled_prompt
+    recovering = assembler.build(replace(request, action_context={
+        **(request.action_context or {}), 'recovery': {'reason': 'Blocked motion sentinel'}}),
+        session.public_task, session.episode_configuration, first_turn=False)
+    assert recovering.resident_prompt == optimized.resident_prompt
+    assert 'Blocked motion sentinel' in recovering.assembled_prompt
+    changed = assembler.build(replace(request, available_actions=('DONE',)),
+        session.public_task, session.episode_configuration, first_turn=False)
+    assert section(changed.resident_prompt, 'Current action capabilities')['available_actions'] == ['DONE']
+    assert not session.assembler.cache_prefix_layout

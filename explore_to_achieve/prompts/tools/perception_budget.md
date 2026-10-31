@@ -12,7 +12,9 @@ when a concrete missing measurement can change the next action. Once the evidenc
 sufficient, return the required final action JSON immediately; saying that you will
 move or writing a note does not execute an action.
 
-After the perception budget is exhausted, perception tools are unavailable. Use the
+After the perception budget is exhausted, further perception calls are prohibited
+and rejected before execution. Their definitions remain visible for a stable tool
+catalog; visibility does not grant permission to exceed the budget. Use the
 available evidence to submit a valid next action, including a cautious observation-
 improving movement when appropriate. Do not invent measurements or report success
 without evidence. episode_note remains available; note reads do not consume perception

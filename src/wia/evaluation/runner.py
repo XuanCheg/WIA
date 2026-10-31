@@ -113,21 +113,20 @@ def prepare(config_path, *, execution_mode=None):
         validate_history_policy(policy)
         if 'sliding_window_tokens' in policy:
             window = policy['sliding_window_tokens']
-            if (policy['backend'] != 'openai_chat_completions' or policy.get('provider') != 'vllm'
-                    or evaluation.get('run_mode') != 'diagnostic' or type(window) is not int
+            if (evaluation.get('run_mode') != 'diagnostic' or type(window) is not int
                     or window <= policy.get('max_output_tokens', 1024) + 2048
                     or policy.get('history_text_turns') is not None):
-                raise ValueError('sliding_window_tokens requires diagnostic vllm, full-turn history and sufficient context.')
+                raise ValueError('sliding_window_tokens requires diagnostic mode, full-turn history and sufficient context.')
         if "history_text_turns" in policy:
-            if (policy["backend"] != "openai_chat_completions" or evaluation.get("run_mode") != "diagnostic"
+            if (evaluation.get("run_mode") != "diagnostic"
                     or type(policy["history_text_turns"]) is not int or policy["history_text_turns"] < 0):
-                raise ValueError("history_text_turns requires diagnostic Chat Completions and a nonnegative integer.")
+                raise ValueError("history_text_turns requires diagnostic mode and a nonnegative integer.")
         if "json_schema_output" in policy and (type(policy["json_schema_output"]) is not bool
-                or policy["backend"] != "openai_chat_completions" or evaluation.get("run_mode") != "diagnostic"):
-            raise ValueError("json_schema_output requires diagnostic Chat Completions and a boolean.")
+                 or evaluation.get("run_mode") != "diagnostic"):
+            raise ValueError("json_schema_output requires diagnostic mode and a boolean.")
         if "image_max_edge" in policy and (type(policy["image_max_edge"]) is not int or policy["image_max_edge"] <= 0
-                or policy["backend"] != "openai_chat_completions" or evaluation.get("run_mode") != "diagnostic"):
-            raise ValueError("image_max_edge requires diagnostic Chat Completions and a positive integer.")
+                 or evaluation.get("run_mode") != "diagnostic"):
+            raise ValueError("image_max_edge requires diagnostic mode and a positive integer.")
     mode = environment.get("mode", "launch")
     if mode not in ("launch", "attach"):
         raise ValueError("environment.mode must be launch or attach.")
@@ -338,5 +337,7 @@ def run(prepared):
         aggregate = {"schema": "wia_results_v1", "trials": results, "counts": counts,
                      "token_accounting": aggregate_usage(results),
                      "cost": sum(item["cost"] for item in results) if all(isinstance(item.get("cost"), (int, float)) for item in results) else None}
-        (output / "results.json").write_text(json.dumps(aggregate, indent=2, allow_nan=False) + "\n")
+        temporary = output / 'results.json.tmp'
+        temporary.write_text(json.dumps(aggregate, indent=2, allow_nan=False) + "\n")
+        temporary.replace(output / 'results.json')
     return aggregate
