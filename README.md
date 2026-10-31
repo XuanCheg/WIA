@@ -320,3 +320,5 @@ Artifacts include `bench_plan.json` (GPU UUID mapping and preflight metadata),
 `api_usage.jsonl`, and the combined `results.json`. A worker crash creates explicit
 missing-trial failures and a nonzero exit status. No paid probe or GPU execution is
 performed by `--dry-run`.
+
+For the current launch audit, protocol risks and a complete archived T07 input/output walkthrough, see [formal evaluation readiness](/local_home2/zhouxinyang/models/WIA/docs/FORMAL_EVALUATION_READINESS_20261031.md).

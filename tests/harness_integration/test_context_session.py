@@ -96,3 +96,24 @@ def test_gateway_responses_composes_routing_and_context(tmp_path, monkeypatch):
     assert seen[0]['url'].endswith('/responses')
     assert seen[0]['payload']['providerOptions']['gateway'] == {'only': ['openai'], 'caching': 'auto'}
     assert (tmp_path/'gateway_routing.jsonl').exists()
+
+
+def test_failed_transport_is_counted_as_unknown_billing(tmp_path, monkeypatch):
+    from core.agent.decision import ModelError
+    from wia.evaluation.telemetry import totals
+    env, session = session_fixture(tmp_path, session_type=ContextChatSession,
+        history_policy='current_sensors_last_result_notes')
+
+    async def fail(*args):
+        raise ModelError('API model request failed or timed out.')
+
+    monkeypatch.setattr(session, '_send_payload', fail)
+    result = asyncio.run(run_episode(env, session, tmp_path, max_steps=1))
+    assert result['termination_reason'] == 'model_error'
+    records = [json.loads(line) for line in (tmp_path/'api_usage.jsonl').read_text().splitlines()]
+    assert len(records) == 1 and records[0]['status'] == 'error'
+    accounting = totals(records)
+    assert accounting['requests'] == 1
+    assert accounting['cost_usd'] == {'known_sum': 0, 'missing_requests': 1}
+    assert accounting['input_tokens']['missing_requests'] == 1
+    assert env.calls == []

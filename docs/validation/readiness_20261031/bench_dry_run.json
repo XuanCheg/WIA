@@ -1,0 +1,2438 @@
+{
+  "schema": "wia_bench_plan_v1",
+  "workers": [
+    {
+      "schema": "wia_evaluation_v1",
+      "wia_version": "0.2.0",
+      "config_path": "/local_home2/zhouxinyang/models/WIA/configs/bench_deepseek_60.yaml",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00",
+      "plans": [
+        {
+          "index": 0,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t01.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "dd977e20fa7b6df49ab4c6a4881d41c71ecac4539715652c21cf4ebd423a636b"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 0,
+            "port": 8800
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00/trial_0000"
+        },
+        {
+          "index": 4,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t06.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "92165605b0e0e591a620f76bb95e22b7f981c732fc7b259efa155de80368daef"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 0,
+            "port": 8800
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00/trial_0004"
+        },
+        {
+          "index": 8,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t10.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "9f0a5c26a6362784ecf20157067aa192dfe50ed6c587bff468ac5eebb1da8e6c"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 0,
+            "port": 8800
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00/trial_0008"
+        },
+        {
+          "index": 12,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t17.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "cfe47910a284e44ea7e9ade0af64d0a3b24d360d4cde3fe7af068372821a2c3a"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 0,
+            "port": 8800
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00/trial_0012"
+        },
+        {
+          "index": 16,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t23.yaml",
+            "seed": 0,
+            "variant": "tabletop",
+            "sha256": "d489bae4dfa4f7d4b4be7ed1f891a5b03daf08d3faffdf85b7121056bce3e1ea"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 0,
+            "port": 8800
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00/trial_0016"
+        },
+        {
+          "index": 20,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t28.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "f4346ea5a08925eea8ca4f98a657877cb27811cecb310c6fec5ca014a8298ef2"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 0,
+            "port": 8800
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00/trial_0020"
+        },
+        {
+          "index": 24,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t35.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "7ae598bea38c685bf3d6ec22458d54e06e684e67820c6740ab064e7c50bb0ddd"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 0,
+            "port": 8800
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00/trial_0024"
+        },
+        {
+          "index": 28,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t41.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "98201319166f47faba6e293e9301b1310d75b0cfbf055edbe425c8fd23f0f816"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 0,
+            "port": 8800
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00/trial_0028"
+        },
+        {
+          "index": 32,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t45.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "47b780dbccd1365d434194872327da6a00acc1492febc196db302d5d32ce7cb0"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 0,
+            "port": 8800
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00/trial_0032"
+        },
+        {
+          "index": 36,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t49.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "2479e06fe43ebdbd0594a6b2eaa5073bb21a37b73b7f26a978e3f9ca758961e0"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 0,
+            "port": 8800
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00/trial_0036"
+        },
+        {
+          "index": 40,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/r-c3.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "4ab644526ba6e8c2b192f6d3fb0df2f5b1ba27739ba0bb2dc9f641fed86ee912"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 0,
+            "port": 8800
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00/trial_0040"
+        },
+        {
+          "index": 44,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/r-a1.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "10c941a5c0272a8e3eb50a7c1b0ae518802639b6239b18cfee695bfca18992cc"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 0,
+            "port": 8800
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00/trial_0044"
+        },
+        {
+          "index": 48,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h3_03.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "12cf1daf03adb596c63267d530dbfeea621a733c9c8df31e95b51466dc080e89"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 0,
+            "port": 8800
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "pause",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00/trial_0048"
+        },
+        {
+          "index": 52,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m2_01.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "a878ce5784c5623b615d1fd2e4a8c535c9bc70a5758f64a237012559df8cb10c"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 0,
+            "port": 8800
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "pause",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00/trial_0052"
+        },
+        {
+          "index": 56,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/candidates/household_geometry_20261031/tasks/gf2_2.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "f48e12678bca34a420552f7e76ec9d666b7d939af2b5bbccd6cfe7e8fe4ac28a"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 0,
+            "port": 8800
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "pause",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_00/trial_0056"
+        }
+      ]
+    },
+    {
+      "schema": "wia_evaluation_v1",
+      "wia_version": "0.2.0",
+      "config_path": "/local_home2/zhouxinyang/models/WIA/configs/bench_deepseek_60.yaml",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01",
+      "plans": [
+        {
+          "index": 1,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t02.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "56dbeba3df5d724d1f4c1d5d38fb6aac9a2765782d32af00b6705437bc87f62a"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 1,
+            "port": 8801
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01/trial_0001"
+        },
+        {
+          "index": 5,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t07.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "005f4624dd4188565819fd7b97737b8c90637d0ae466f4fae960cfd3a82633ed"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 1,
+            "port": 8801
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01/trial_0005"
+        },
+        {
+          "index": 9,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t11.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "9db438020136eb63cd0843c59cbcd32446ffbb5910a2644c72519f3574da6609"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 1,
+            "port": 8801
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01/trial_0009"
+        },
+        {
+          "index": 13,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t18.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "e1ef3fdfb9aa634d039b93b935a60f210c4c790e6dd3b11d6627fa76289c609c"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 1,
+            "port": 8801
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01/trial_0013"
+        },
+        {
+          "index": 17,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t24.yaml",
+            "seed": 0,
+            "variant": "tabletop",
+            "sha256": "84d2dbfb1229c1e2644d0bbe6af6aeb9f6dbc5cc1411500d84d037ccda0215b1"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 1,
+            "port": 8801
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01/trial_0017"
+        },
+        {
+          "index": 21,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t30.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "8af9023eb956fe42f5781b6f839d72c6c683fa4138300828210a4b982af23fd3"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 1,
+            "port": 8801
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01/trial_0021"
+        },
+        {
+          "index": 25,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t36.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "db5be70772d4a5892a7e207f8944b24003a65ef6ece154dad770453f034a7c21"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 1,
+            "port": 8801
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01/trial_0025"
+        },
+        {
+          "index": 29,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t42.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "40f201c9fcdfc12017ee200f7e67611f3a88d6f84b036e94053fe470042590b0"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 1,
+            "port": 8801
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01/trial_0029"
+        },
+        {
+          "index": 33,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t46.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "77cad336cc4eb381924ac50f586375b78b340fd7bfed8e7a9b34dd803d74ec59"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 1,
+            "port": 8801
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01/trial_0033"
+        },
+        {
+          "index": 37,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t50.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "7f506bccd9f5cb19ce2b9e647d41cbac3856a9a13cef7290d9c0b0f1ec36febf"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 1,
+            "port": 8801
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01/trial_0037"
+        },
+        {
+          "index": 41,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/r-s1.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "150ca017f23ba751665a370a5c2abe933e87aa7a506ad83ebd3cbc3d95fc8ad0"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 1,
+            "port": 8801
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01/trial_0041"
+        },
+        {
+          "index": 45,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/r-a2.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "f00611f72bb5bf48420356bc3b992ff03c8e35e58eaa5ddbc053bde6a706ff0d"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 1,
+            "port": 8801
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01/trial_0045"
+        },
+        {
+          "index": 49,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h4_02.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "d889ed60356128d5a7d0d4eaca8b9598f3bf626643f3a23d97dad06dd9f15e75"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 1,
+            "port": 8801
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "pause",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01/trial_0049"
+        },
+        {
+          "index": 53,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m3_01.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "9cae0977cdfeddc6e049a21888c0b53cb7996ea302338e8cdc754ff914296510"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 1,
+            "port": 8801
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "pause",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01/trial_0053"
+        },
+        {
+          "index": 57,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/candidates/household_geometry_20261031/tasks/gf3_1.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "9af5f62b01bacbf6bc9953f0d262da58dbdc21efac8e059b395f02c71f6fcae7"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 1,
+            "port": 8801
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "pause",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_01/trial_0057"
+        }
+      ]
+    },
+    {
+      "schema": "wia_evaluation_v1",
+      "wia_version": "0.2.0",
+      "config_path": "/local_home2/zhouxinyang/models/WIA/configs/bench_deepseek_60.yaml",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02",
+      "plans": [
+        {
+          "index": 2,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t04.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "e52f18635ba1588806e353227cd707ac3d2d85765dd8de6deb7081a406b71bbe"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 2,
+            "port": 8802
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02/trial_0002"
+        },
+        {
+          "index": 6,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t08.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "69feaa04c6f9e7db72a68c6dd88e201d47e1041de81c9eed64825f194bbbd7f6"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 2,
+            "port": 8802
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02/trial_0006"
+        },
+        {
+          "index": 10,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t15.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "113bf5ee2823a4633eff3aab5f40eaf13b60d6c7c663018cd323b58a0f8ef76b"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 2,
+            "port": 8802
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02/trial_0010"
+        },
+        {
+          "index": 14,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t21.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "a609394515acdc1edba7835e767506772f2cb003de0e8489df1127f9f58cf088"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 2,
+            "port": 8802
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02/trial_0014"
+        },
+        {
+          "index": 18,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t25.yaml",
+            "seed": 0,
+            "variant": "tabletop",
+            "sha256": "ff7dbef4c3e56c35354f41faa1d6d5188c42bb26dc8eb9737289c3db43f840ce"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 2,
+            "port": 8802
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02/trial_0018"
+        },
+        {
+          "index": 22,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t32.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "f4ec6a0c3be945255668440c469ab1cbb6f1443cfdd1f225426e117613fe4b2d"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 2,
+            "port": 8802
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02/trial_0022"
+        },
+        {
+          "index": 26,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t38.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "46b16d785298c867dee99014c1a9b32519d8e8aa9283541efbea1647015d9cfa"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 2,
+            "port": 8802
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02/trial_0026"
+        },
+        {
+          "index": 30,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t43.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "d1ff4b9c481dcea4d6ef1fd251d391b4886f1962ebc5ef2dadcffbe422574c98"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 2,
+            "port": 8802
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02/trial_0030"
+        },
+        {
+          "index": 34,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t47.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "1e48898ad60ea12b2bfee48ec3743802c80ee451378c8cb49697696c72dffca9"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 2,
+            "port": 8802
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02/trial_0034"
+        },
+        {
+          "index": 38,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/r-c1.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "6c909a91d7f978504059c4f0afa45febeb26339053a82105ce7fc15176e23b73"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 2,
+            "port": 8802
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02/trial_0038"
+        },
+        {
+          "index": 42,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/r-s2.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "3f72aa3537b250c7d5263d8d740b034b4ec30498548d1d72000e1a8bcecc745b"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 2,
+            "port": 8802
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02/trial_0042"
+        },
+        {
+          "index": 46,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h1_02.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "bb0479af5cdcb3451ca36fb295fd6a7eaa7c12ea7c0a7e9dcda213505d5142ac"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 2,
+            "port": 8802
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "pause",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02/trial_0046"
+        },
+        {
+          "index": 50,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h5_02.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "4b771466c61b173e5041ae9b19dbd781ae2ab766659cca560f17e49bbf3faf48"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 2,
+            "port": 8802
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "pause",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02/trial_0050"
+        },
+        {
+          "index": 54,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m4_02.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "86965ec24ca7bf6eacd7e61decbca24e36c0fc2a268ce78bad19ddb021619422"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 2,
+            "port": 8802
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "pause",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02/trial_0054"
+        },
+        {
+          "index": 58,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/candidates/household_geometry_20261031/tasks/gf3_2.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "45d190f61a2393845a9f11756e65dcd7055b6c218fd30ad9a1611ae8b4e9d20f"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 2,
+            "port": 8802
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "pause",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_02/trial_0058"
+        }
+      ]
+    },
+    {
+      "schema": "wia_evaluation_v1",
+      "wia_version": "0.2.0",
+      "config_path": "/local_home2/zhouxinyang/models/WIA/configs/bench_deepseek_60.yaml",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03",
+      "plans": [
+        {
+          "index": 3,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t05.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "892dec3d480e6e6f37d9dec559884f4769fb85576564e2657257873699904028"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 3,
+            "port": 8803
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03/trial_0003"
+        },
+        {
+          "index": 7,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t09.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "ca04316d73c7f6a17563a6d57f7bbfc52863dbea652aefd09a06fdc23b8b0913"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 3,
+            "port": 8803
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03/trial_0007"
+        },
+        {
+          "index": 11,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t16.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "5bb64747b6790c6b292bebfee7834fbd7e0bac8d7c911547e1c5621e348579e4"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 3,
+            "port": 8803
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03/trial_0011"
+        },
+        {
+          "index": 15,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t22.yaml",
+            "seed": 0,
+            "variant": "tabletop",
+            "sha256": "1c63a0afaec03fc947eda1b7faa82b2129536423024ccce146ff29d271d5bc9e"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 3,
+            "port": 8803
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03/trial_0015"
+        },
+        {
+          "index": 19,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t26.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "1de88ec271e1ed8496216ad9389a46610d98980e1448e7d5d1f57722f9c96cf9"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 3,
+            "port": 8803
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03/trial_0019"
+        },
+        {
+          "index": 23,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t33.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "36c091a03ad6e4a78bfcdc8c1d7271e30765f5929d624ede78c0ac51e6887f0b"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 3,
+            "port": 8803
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03/trial_0023"
+        },
+        {
+          "index": 27,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t40.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "9a97886277d6c3343e16a1eec0ca436104280a762e2758b63d3b6a1fbe62128f"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 3,
+            "port": 8803
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03/trial_0027"
+        },
+        {
+          "index": 31,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t44.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "a0fd95c2595c31a8d48c8d7329bb0c4460ff0ca725853921f7c277d2aa132f7d"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 3,
+            "port": 8803
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03/trial_0031"
+        },
+        {
+          "index": 35,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t48.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "e328b75e73743667687ef7c9bc29ab637d028daa568b21aa6b948df9da2b2f93"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 3,
+            "port": 8803
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03/trial_0035"
+        },
+        {
+          "index": 39,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/r-c2.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "fa12997894cfeb4c37cf1cc5a3210bd603423a08b4e15a90ea7289511298bde0"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 3,
+            "port": 8803
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03/trial_0039"
+        },
+        {
+          "index": 43,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/r-s3.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "83cf1d8a09ab81a29dc060387d2af295e62ed284477f9162da606c8eb006d314"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 3,
+            "port": 8803
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03/trial_0043"
+        },
+        {
+          "index": 47,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h2_02.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "803ea3ae2415dd38f2fafc969c4e03f6b1edaae41349e7065258d66c3c349842"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 3,
+            "port": 8803
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "pause",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03/trial_0047"
+        },
+        {
+          "index": 51,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m1_01.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "afd23030a336d0ebe34598c38dfff21b3c99c3b9a6ae1699d699b93d913565c3"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 3,
+            "port": 8803
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "pause",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03/trial_0051"
+        },
+        {
+          "index": 55,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/candidates/household_geometry_20261031/tasks/gf2_1.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "b765f2f98d8fefcca8caa0e1b709376ca58596209ba9417afa53fb23ceeaa9a0"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 3,
+            "port": 8803
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "pause",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03/trial_0055"
+        },
+        {
+          "index": 59,
+          "task": {
+            "path": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t52.yaml",
+            "seed": 0,
+            "variant": "adapted",
+            "sha256": "750155bc6e0cbf597719ee2286b0b7b6bef95794758226f7662763026e4d367a"
+          },
+          "policy": {
+            "type": "show_harness",
+            "backend": "openai_chat_completions",
+            "provider": "compatible",
+            "model": "deepseek/deepseek-v4.1-flash-1017",
+            "base_url": "https://ai-gateway.vercel.sh/v1",
+            "api_key_env": "AI_GATEWAY_API_KEY",
+            "reasoning_effort": "low",
+            "max_output_tokens": 384000,
+            "model_timeout": 1800,
+            "history_policy": "current_sensors_last_result_notes",
+            "max_perception_rounds": 4
+          },
+          "environment": {
+            "mode": "launch",
+            "preview_fps": 0,
+            "record": false,
+            "recording_hz": 5.0,
+            "gpu": 3,
+            "port": 8803
+          },
+          "evaluation": {
+            "max_steps": 64,
+            "timeout": null,
+            "action_mode": "parameterized",
+            "world": "run",
+            "observation_condition": "current",
+            "run_mode": "diagnostic",
+            "execution_mode": "batch"
+          },
+          "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/deepseek_60task_bench/worker_03/trial_0059"
+        }
+      ]
+    }
+  ],
+  "note": "Dry run only; auto GPU indices are placeholders. Live checks occur before execution."
+}

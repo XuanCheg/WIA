@@ -293,6 +293,12 @@ class ContextChatSession(ChatCompletionsEpisodeSession):
             with (self.output / f'{self.log_prefix}_errors.jsonl').open('a') as log:
                 log.write(json.dumps({'decision': self.turn_count + 1, 'error': str(error),
                     'http_status': getattr(response, 'status_code', None), 'body': body[:16000]}) + '\n')
+            from wia.evaluation.telemetry import receipt
+            billing = receipt(None, model=self.model, decision=self.turn_count + 1,
+                              seconds=time.monotonic() - started)
+            billing.update(status='error', http_status=getattr(response, 'status_code', None))
+            with (self.output / 'api_usage.jsonl').open('a') as log:
+                log.write(json.dumps(billing, allow_nan=False) + '\n')
             raise
         from wia.evaluation.telemetry import receipt, totals, format_totals
         billing = receipt(data.get('usage'), model=self.model, decision=self.turn_count + 1,

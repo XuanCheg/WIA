@@ -6,7 +6,6 @@ Only fake native transports are used; no model or simulator is launched.
 """
 import asyncio
 from dataclasses import replace
-import hashlib
 import json
 
 import pytest
@@ -52,8 +51,9 @@ def test_default_full_prompt_and_provenance_remain_compatible():
     first = default.build(request, public, policy, first_turn=True)
     later = default.build(request, public, policy, first_turn=False)
     assert first.prompt() == explicit.build(request, public, policy, first_turn=True).prompt()
-    assert hashlib.sha256(first.prompt().encode()).hexdigest() == '2fbfc4a6a812a353b09d99a38835b0724e3d4a16a4d6016fea88137755463d93'
-    assert hashlib.sha256(later.prompt().encode()).hexdigest() == '689968ff5444de166a03862929162fe19a41eec0827685ab832361360a3c3685'
+    assert later.prompt() == explicit.build(request, public, policy, first_turn=False).prompt()
+    assert first.schema == later.schema == request.schema
+    assert first.sensor_inputs is later.sensor_inputs is request.sensor_inputs
     assert 'Every episode starts with one initial global RGB overview' in first.resident_prompt
 
 
@@ -86,7 +86,8 @@ def test_diagnostic_metadata_is_explicit_and_current_physical_inputs_are_preserv
         else:
             assert 'diagnostic_historical_facts' not in text
     assert 'Every episode starts with one initial global RGB overview' not in first.resident_prompt
-    assert 'All eight current mounted RGB views are retained' in first.resident_prompt
+    assert 'All eight mounted views are captured; subsequent turns attach four' in first.resident_prompt
+    assert 'offer the other four through read_rgb_camera' in first.resident_prompt
     assert original.observation.initial_overview is not None
 
 

@@ -18,11 +18,17 @@ def validate_history_policy(policy):
         raise ValueError('history_recent_moves requires showharness_state and a nonnegative integer.')
     backend = policy.get('backend')
     if backend:
-        from core.agent.backend_registry import available_backends
-        capability = available_backends().get(backend)
+        # Built-in configuration validation must work without optional Harness imports.
+        owners = {'codex': 'native', 'codex_cli': 'native', 'local_http': 'harness',
+                  'openai_chat_completions': 'harness', 'openai_responses': 'harness'}
+        owner = owners.get(backend)
+        if backend not in owners:
+            from core.agent.backend_registry import available_backends
+            capability = available_backends().get(backend)
+            owner = capability.history_owner if capability else None
         controlled = mode not in (None, 'full') or any(policy.get(k) is not None for k in
             ('history_text_turns', 'sliding_window_tokens', 'image_max_edge')) or policy.get('json_schema_output', False)
-        if capability and capability.history_owner != 'harness' and controlled:
+        if owner is not None and owner != 'harness' and controlled:
             raise ValueError('Selected context policy requires client-owned history; this backend owns history natively.')
     if mode is None:
         return

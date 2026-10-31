@@ -1,5 +1,7 @@
 # WIA v0.2 输入、提示词、工具、上下文与评分核对
 
+Current implementation update: shared HTTP context policies now apply across transports, and perception schemas remain visible at the cap with local enforcement. See [formal evaluation readiness](/local_home2/zhouxinyang/models/WIA/docs/FORMAL_EVALUATION_READINESS_20261031.md) for current behavior and a complete archived episode. The following protocol review retains its earlier snapshot.
+
 这份文档说明 2026-10-31 工作区的实际实现，供人工检查。主集现有 60 个任务别名：原 59 个任务加 T52「物体初始已在容器内」。T15–T17 的任务和场景定义保持不变。扩展集、暂时移除的 D 系列和未选变体不计入主集。
 
 先明确三点：`DONE` 只结束尝试，成功由私有评分器判断；可达性检查和截图不等于完成任务；当前评测入口没有实现跨任务加权总分。本文后面的建议汇总公式还没有写入评分器。

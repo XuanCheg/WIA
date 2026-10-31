@@ -15,6 +15,10 @@ import wia, wia.contracts, wia.environments
 from wia.cli import main
 assert main(['backends']) == 0
 assert main(['tasks']) == 0
+from wia.evaluation.runner import prepare
+from wia.resources import ROOT
+assert prepare(ROOT / 'configs/codex_cli.yaml')['plans']
+assert prepare(ROOT / 'configs/bench_deepseek_60.yaml')['plans']
 try:
     main(['--help'])
 except SystemExit as error:
