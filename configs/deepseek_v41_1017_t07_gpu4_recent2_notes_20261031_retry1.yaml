@@ -1,0 +1,36 @@
+{
+  "tasks": [
+    {
+      "path": "../explore_to_achieve/wia_v1/release/tasks/t07.yaml",
+      "variant": "adapted",
+      "seed": 0
+    }
+  ],
+  "policy": {
+    "type": "show_harness",
+    "backend": "openai_chat_completions",
+    "provider": "compatible",
+    "model": "deepseek/deepseek-v4.1-flash-1017",
+    "base_url": "https://ai-gateway.vercel.sh/v1",
+    "api_key_env": "AI_GATEWAY_API_KEY",
+    "reasoning_effort": "high",
+    "max_output_tokens": 384000,
+    "model_timeout": 1800,
+    "history_policy": "current_sensors_recent2_notes"
+  },
+  "environment": {
+    "mode": "launch",
+    "gpu": 4,
+    "port": 8744,
+    "python": "/local_home2/zhouxinyang/miniconda3/envs/behavior/bin/python",
+    "preview_fps": 0,
+    "record": false
+  },
+  "evaluation": {
+    "run_mode": "diagnostic",
+    "execution_mode": "batch",
+    "timeout": null,
+    "max_steps": 64
+  },
+  "output_dir": "../outputs/deepseek_v41_1017_t07_gpu4_recent2_notes_20261031_retry1"
+}

@@ -1,0 +1,35 @@
+{
+  "tasks": [
+    {
+      "path": "../explore_to_achieve/wia_v1/release/tasks/t07.yaml",
+      "variant": "adapted",
+      "seed": 0
+    }
+  ],
+  "policy": {
+    "type": "show_harness",
+    "backend": "openai_chat_completions",
+    "provider": "compatible",
+    "model": "alibaba/qwen3.5-plus",
+    "base_url": "https://ai-gateway.vercel.sh/v1",
+    "api_key_env": "AI_GATEWAY_API_KEY",
+    "reasoning_effort": "high",
+    "max_output_tokens": 64000,
+    "model_timeout": 1800
+  },
+  "environment": {
+    "mode": "launch",
+    "gpu": 4,
+    "port": 8744,
+    "python": "/local_home2/zhouxinyang/miniconda3/envs/behavior/bin/python",
+    "preview_fps": 0,
+    "record": false
+  },
+  "evaluation": {
+    "run_mode": "diagnostic",
+    "execution_mode": "batch",
+    "timeout": null,
+    "max_steps": 64
+  },
+  "output_dir": "../outputs/qwen35plus_t07_gpu4_64steps_20261030"
+}
