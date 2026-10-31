@@ -37,6 +37,7 @@ class ContextChatSession(ChatCompletionsEpisodeSession):
         self._global_context = None
         self._notes = []
         self._note_chars = 0
+        self._note_budget_decision = None
         self.state_only = mode == "showharness_state"
         self.history_recent_moves = 3 if history_recent_moves is None else history_recent_moves
         current_sensors_only = mode == "current_sensors_full_text" or self.recent_notes
@@ -92,7 +93,9 @@ class ContextChatSession(ChatCompletionsEpisodeSession):
             self._perception_rounds = 0
             self._perception_notice_sent = False
             self._reasoning_by_index.clear()
-            self._note_chars = 0
+            if self._note_budget_decision != request.decision_step:
+                self._note_chars = 0
+                self._note_budget_decision = request.decision_step
             self._turn_start = len(self.request_history())
         self._decision_usage = {}
         self._last_transport_payload = self._last_transport_response = None

@@ -544,6 +544,11 @@ def mapping_qualification(session, config):
         return {'accepted': True, 'checks': {'fixed_v1_definition': True},
             'policy': 'fixed_v1_definition', 'physical_checks_run': False,
             'receipt': {}, 'doors': {}, 'evaluation_validity': 'complete'}
+    from wia.tasks.release_policy import fixed_release_evaluation
+    if fixed_release_evaluation(session, config):
+        return {'accepted': True, 'checks': {'fixed_v1_declared_member': True},
+            'policy': 'fixed_v1_definition', 'physical_checks_run': False,
+            'receipt': {}, 'doors': {}, 'evaluation_validity': 'complete'}
     episode_id = getattr(session, 'episode_id', None)
     receipt = deepcopy(getattr(session, 'mapping_qualification', {}).get(p['source_path'], {}))
     checks = {'current_episode_bound': episode_id is not None and receipt.get('episode_id') == episode_id,

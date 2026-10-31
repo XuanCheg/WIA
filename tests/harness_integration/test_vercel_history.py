@@ -245,11 +245,58 @@ def test_previous_result_notes_eviction_budget_and_global_prompt(tmp_path, monke
                                     {'decision_step': 2, 'text': 'next'}]
     events = [json.loads(x) for x in (tmp_path/'note_tool_calls.jsonl').read_text().splitlines()]
     assert events[0]['result']['remaining_write_characters'] == 0
-    assert not events[1]['result']['ok']
+    assert events[1]['result']['ok'] and events[1]['result']['truncated']
+    assert events[1]['result']['accepted_characters'] == 0
+    assert events[1]['result']['remaining_write_characters'] == 0
+    assert 'next decision' in events[1]['result']['message']
     assert len((tmp_path/'episode_notes.jsonl').read_text().splitlines()) == 2
     assert 'reason-step-one' in (tmp_path/'gateway_assistant_messages.jsonl').read_text()
     assert len(session._recent_turns) == 1
     assert session.provenance()['history_projection'] == 'previous_public_result_only'
+
+
+def test_note_truncation_uses_remaining_unicode_budget(tmp_path):
+    from types import SimpleNamespace
+    from wia.runtime.agent.episode_notes import run_note
+    session = SimpleNamespace(output=tmp_path, _notes=[], _note_chars=0, _current_decision_step=1)
+    first = run_note(session, {'operation':'append', 'text':'界' * 120})
+    second = run_note(session, {'operation':'append', 'text':'测试' * 10})
+    assert first['ok'] and not first['truncated']
+    assert second['ok'] and second['truncated'] and second['accepted_characters'] == 8
+    assert second['note']['text'] == '测试' * 4
+    assert second['remaining_write_characters'] == 0
+    exhausted = run_note(session, {'operation':'append', 'text':'x'})
+    assert exhausted['ok'] and exhausted['truncated'] and exhausted['note'] is None
+    assert len(session._notes) == 2
+    assert run_note(session, {'operation':'read'})['notes'] == session._notes
+    # The session resets this counter once per decision, preserving prior notes.
+    session._note_chars, session._current_decision_step = 0, 2
+    next_step = run_note(session, {'operation':'append', 'text':'z' * 200})
+    assert next_step['ok'] and next_step['truncated'] and next_step['accepted_characters'] == 128
+    assert next_step['note']['decision_step'] == 2
+
+
+def test_note_budget_is_shared_by_retries_of_one_decision(tmp_path, monkeypatch):
+    from dataclasses import replace
+    from core.agent.decision import ModelError
+    env, session = session_fixture(tmp_path, session_type=VercelChatSession,
+        provider='compatible', history_policy='current_sensors_last_result_notes')
+    session.model = 'alibaba/qwen3.5-plus'
+    def note(identifier):
+        return chat_reply(None, tool_calls=[{'id':identifier, 'type':'function', 'function': {
+            'name':'episode_note', 'arguments':json.dumps({'operation':'append', 'text':'x' * 100})}}])
+    illegal = {'id':'bad', 'type':'function', 'function':{'name':'command', 'arguments':'{}'}}
+    mock_http(monkeypatch, [note('first'), chat_reply(None, tool_calls=[illegal]),
+        note('retry'), chat_reply('{"action":"DONE"}'), note('next'), chat_reply('{"action":"DONE"}')])
+    request = replace(depth_request(env, session), decision_step=1)
+    with pytest.raises(ModelError):
+        asyncio.run(session.decide(request))
+    asyncio.run(session.decide(request))
+    asyncio.run(session.decide(replace(request, decision_step=2)))
+    events = [json.loads(line) for line in (tmp_path/'note_tool_calls.jsonl').read_text().splitlines()]
+    assert [e['result']['accepted_characters'] for e in events] == [100, 28, 100]
+    assert events[1]['result']['ok'] and events[1]['result']['truncated']
+    assert session.provenance()['request_accounting']['tool_calls']['failed']['total'] == 0
 
 
 def test_recent_notes_invalid_turn_and_recall_outside_window(tmp_path, monkeypatch):

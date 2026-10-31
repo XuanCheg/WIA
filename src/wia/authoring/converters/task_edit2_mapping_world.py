@@ -66,6 +66,11 @@ def joint_world_qualification(session, controller, config):
     This API supplies no graph, room, doorway, or answer truth of its own.
     """
     try:
+        from wia.tasks.release_policy import fixed_release_evaluation
+        if fixed_release_evaluation(session, config):
+            return {'accepted': True, 'evaluation_validity': 'complete', 'reason': None,
+                    'policy': 'fixed_v1_definition', 'physical_checks_run': False,
+                    'contract_sha256': digest(config['parameters']['mapping_joint_world_contract'])}
         contract = config['parameters']['mapping_joint_world_contract']
         if contract['revision'] != REVISION:
             raise ValueError('Unknown canonical-world revision.')

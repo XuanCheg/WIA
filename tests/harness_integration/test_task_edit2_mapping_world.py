@@ -106,6 +106,35 @@ def test_zero_native_doors_requires_explicit_measured_zero_and_retention_evidenc
     assert not world.joint_world_qualification(native.session, native.controller, native.config)['accepted']
 
 
+@pytest.mark.parametrize('alias', ['t05', 't06'])
+def test_fixed_release_joint_world_and_every_declared_member_use_definition_policy(alias):
+    from wia.resources import ROOT
+    from wia.tasks.loader import load_task
+    from wia.tasks.release_policy import fixed_release_evaluation
+    from wia.authoring.converters.cognitive_mapping_visit_reports import mapping_qualification
+    task = load_task(ROOT / f'explore_to_achieve/wia_v1/release/tasks/{alias}.yaml', variant='adapted')
+    session = NS(loaded_task=task)
+    config = task.definition.private.evaluation.model_dump()
+    config.update(scene=task.scene_name, room=task.room_name, bindings={})
+    result = world.joint_world_qualification(session, None, config)
+    assert result['accepted'] and result['policy'] == 'fixed_v1_definition'
+    assert result['physical_checks_run'] is False
+    assert 'native_receipt_sha256' not in result
+    for member in config['parameters']['members']:
+        child = deepcopy(member['evaluation'])
+        child.update(scene=task.scene_name, room=task.room_name, bindings={})
+        child['parameters']['mapping_composition_contract'] = {'compatibility_verified': True}
+        proof = mapping_qualification(session, child)
+        assert proof['accepted'] and proof['policy'] == 'fixed_v1_definition'
+        assert not proof['physical_checks_run']
+        modified = deepcopy(child)
+        modified['parameters']['source_qa']['answer'] = 'tampered'
+        assert not fixed_release_evaluation(session, modified)
+    changed = deepcopy(config)
+    changed['parameters']['members'].pop()
+    assert not world.joint_world_qualification(session, None, changed)['accepted']
+
+
 class Child:
     def __init__(self, controller, config):
         self.controller, self.config, self.answer, self.calls = controller, config, None, []
@@ -127,6 +156,31 @@ class Child:
                  'completed': self.controller.physical, 'evaluation_validity': 'valid'},
                 {'id': 'source_relation_answer', 'kind': 'answer_requirement',
                  'completed': answer, 'evaluation_validity': 'valid'}]}
+
+
+def test_real_release_joint_reducer_scores_answers_without_inventing_visits(tmp_path, monkeypatch):
+    from wia.resources import ROOT
+    from wia.tasks.loader import load_task
+    task = load_task(ROOT/'explore_to_achieve/wia_v1/release/tasks/t05.yaml', variant='adapted')
+    config = task.definition.private.evaluation.model_dump()
+    config.update(scene=task.scene_name, room=task.room_name, bindings={})
+    session = NS(loaded_task=task, scene_name=task.scene_name, room_name=task.room_name,
+                 env=NS(scene=NS(object_registry=lambda *args: None)))
+    controller = NS(physical=False)
+    monkeypatch.setattr(runtime, 'create_category_operation_evaluator',
+                        lambda session, controller, config, output: Child(controller, config))
+    evaluator = world.create_evaluator(session, controller, config, tmp_path)
+    observation = NS(snapshot_id=1, action_step=0)
+    initial = evaluator.begin_episode(observation)
+    assert initial['evaluation_validity'] == 'complete' and initial['score_percent'] == 0
+    import json
+    answers = {m['public_id']:m['evaluation']['parameters']['source_qa']['answer']
+               for m in config['parameters']['members']}
+    evaluator.report_answer(json.dumps(answers), observation)
+    row = evaluator.record(observation)
+    assert row['evaluation_validity'] == 'complete' and row['score_percent'] == 100
+    assert not row['task_success']  # Correct answers do not fabricate native visits.
+    assert row['mapping_joint_world_qualification']['physical_checks_run'] is False
 
 
 def test_one_boundary_sheet_shared_visit_and_live_proof_revocation(native, monkeypatch, tmp_path):

@@ -646,6 +646,14 @@ def _native_hands(robot):
     return rows
 
 
+def _native_speeds(obj):
+    """Fixed kinematic supports have no dynamic velocity API in OmniGibson 3.7."""
+    if getattr(obj, 'fixed_base', False) and getattr(obj, 'kinematic_only', False):
+        return 0., 0.
+    return (float(np.linalg.norm(_array(obj.get_linear_velocity(), (3,)))),
+            float(np.linalg.norm(_array(obj.get_angular_velocity(), (3,)))))
+
+
 def _native_measure(session, objects, p, controller=None):
     """Only native readback; construction labels, observations and QA are unused."""
     from omnigibson.object_states import OnTop, Touching
@@ -662,8 +670,7 @@ def _native_measure(session, objects, p, controller=None):
         low, high = (_array(value, (3,)) for value in obj.aabb)
         if not np.linalg.norm(quaternion) or np.any(high <= low):
             raise ValueError('Native object geometry is unavailable.')
-        linear = float(np.linalg.norm(_array(obj.get_linear_velocity(), (3,))))
-        angular = float(np.linalg.norm(_array(obj.get_angular_velocity(), (3,))))
+        linear, angular = _native_speeds(obj)
         contacts = [{'body0': str(row.body0), 'body1': str(row.body1)} for row in obj.contact_list()]
         if any(not row['body0'] or not row['body1'] for row in contacts):
             raise ValueError('Native contact body identity is unavailable.')
@@ -682,10 +689,11 @@ def _native_measure(session, objects, p, controller=None):
             # Native contacts identify possible original scene supports, not a guessed floor height.
             if contact_with(other) and bool(obj.states[OnTop].get_value(other)) and bool(
                     obj.states[Touching].get_value(other)):
-                support_linear = float(np.linalg.norm(_array(other.get_linear_velocity(), (3,))))
-                support_angular = float(np.linalg.norm(_array(other.get_angular_velocity(), (3,))))
+                support_linear, support_angular = _native_speeds(other)
                 supports.append({'name': other.name, 'linear_speed_m_s': support_linear,
                     'angular_speed_rad_s': support_angular,
+                    'velocity_source': ('native_fixed_kinematic' if getattr(other, 'fixed_base', False)
+                        and getattr(other, 'kinematic_only', False) else 'native_dynamic_velocity'),
                     'stable': support_linear <= p['maximum_linear_speed_m_s'] and
                         support_angular <= p['maximum_angular_speed_rad_s']})
         native[key] = {'name': obj.name, 'position': position.tolist(), 'bottom_z_m': float(low[2]),
@@ -694,7 +702,8 @@ def _native_measure(session, objects, p, controller=None):
             'robot_contact': bool(obj.states[Touching].get_value(robot)) or contact_with(robot),
             'relations': relations, 'external_supports': supports,
             'native_contacts': contacts}
-    released = all(row['released'] for row in hands.values())
+    detached = all(row['released'] for row in hands.values())
+    released = detached
     gripper = None
     acquired_key = None
     if controller is not None:
@@ -710,7 +719,7 @@ def _native_measure(session, objects, p, controller=None):
         if (hand['holding'] and hand['constraint_active'] and not hand['release_pending'] and
                 all(row['released'] for other_arm, row in hands.items() if other_arm != arm)):
             acquired_key = next((key for key, obj in objects.items() if obj.name == hand['object_name']), None)
-    return {'objects': native, 'hands': hands, 'all_released': bool(released),
+    return {'objects': native, 'hands': hands, 'all_detached': bool(detached), 'all_released': bool(released),
         'gripper': gripper, 'acquired_key': acquired_key}
 
 
@@ -772,6 +781,10 @@ class OrderedStackEvaluator:
     def _read(self):
         try:
             value = _native_measure(self.session, self.objects, self.parameters, self.controller)
+            # Final-state scoring can recover from a transient read failure.
+            # Historical manipulation scoring must retain gaps in its evidence.
+            if self.parameters.get('manipulation_revision') == FINAL_STATE_REVISION:
+                self.measurement_error = None
             self.last = value
             return value
         except Exception as error:
@@ -861,7 +874,7 @@ class OrderedStackEvaluator:
         self.last = None
         initial = self._read()
         self.initial = initial
-        self.initial_eligible = bool(initial and initial['all_released'] and
+        self.initial_eligible = bool(initial and initial['all_detached'] and
             all(row['stable'] and not row['robot_contact'] and _external_support(initial, key)
                 for key, row in initial['objects'].items()) and
             not any(_supported(initial, 'middle', base) and (not self.parameters['top_keys'] or

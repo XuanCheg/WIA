@@ -241,7 +241,9 @@ use an immutable snapshot and do not refresh the world.
 
 `episode_note({"operation":"append","text":"..."})` appends episode-local memory.
 Successful writes total at most 128 Unicode code points per decision, including whitespace;
-oversized writes are rejected without truncation. `episode_note({"operation":"read"})`
+oversized writes are truncated to the remaining allowance and return a successful
+result that tells the Agent how much text was saved. A zero allowance saves no text.
+The cumulative 128-character allowance resets at each decision. `episode_note({"operation":"read"})`
 returns all notes without size/count limits. Notes are not injected automatically.
 Note-only calls do not consume perception rounds; reads remain available after the
 perception limit. Thus this is not a hard cap on all API rounds or context size.

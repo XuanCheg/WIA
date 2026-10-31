@@ -114,6 +114,55 @@ def test_action_missing_native_measurement_revokes_completed_stack(tmp_path, nat
     assert result['stable_controller_duration_s'] == 0.
 
 
+def test_fixed_kinematic_support_needs_no_dynamic_velocity_api(tmp_path, native_types):
+    trial = final_order(tmp_path, native_types)
+    trial.table.fixed_base = trial.table.kinematic_only = True
+    def unavailable():
+        raise AttributeError("'RigidKinematicPrim' object has no attribute 'get_linear_velocity'")
+    trial.table.get_linear_velocity = trial.table.get_angular_velocity = unavailable
+    initial = trial.evaluator.begin_episode(trial.observation)
+    assert initial['evaluation_validity'] == 'complete'
+    assert initial['native_state']['objects']['middle']['external_supports'][0]['velocity_source'] == 'native_fixed_kinematic'
+    trial.support('middle', [trial.objects['base_candidate_0']])
+    trial.step(6)
+    assert trial.result()['task_success'] is True
+    # An unknown dynamic velocity must never be silently interpreted as stationary.
+    trial.table.kinematic_only = False
+    assert trial.result()['evaluation_validity'] == 'unavailable'
+
+
+def test_initial_unheld_hands_do_not_require_fully_open_gripper(tmp_path, native_types):
+    trial = final_order(tmp_path, native_types)
+    original = trial.controller.debug_gripper_state
+    opened = [False]
+    trial.controller.debug_gripper_state = lambda: {**original(), 'gripper_open': opened[0]}
+    initial = trial.evaluator.begin_episode(trial.observation)
+    assert initial['evaluation_validity'] == 'complete'
+    assert initial['native_state']['all_detached'] is True
+    assert initial['native_state']['all_released'] is False
+    trial.support('middle', [trial.objects['base_candidate_0']])
+    trial.step(6)
+    assert not trial.result()['task_success']  # Terminal release still requires an open gripper.
+    opened[0] = True
+    trial.step(6)
+    assert trial.result()['task_success']
+
+
+def test_transient_measurement_failure_recovers_after_fresh_readback(tmp_path, native_types):
+    trial = final_order(tmp_path, native_types)
+    trial.support('middle', [trial.objects['base_candidate_0']])
+    trial.step(6)
+    assert trial.result()['task_success']
+    original = trial.objects['middle'].get_linear_velocity
+    trial.objects['middle'].get_linear_velocity = lambda: [float('nan'), 0., 0.]
+    assert trial.result()['evaluation_validity'] == 'unavailable'
+    trial.objects['middle'].get_linear_velocity = original
+    assert trial.result()['evaluation_validity'] == 'complete'
+    assert not trial.result()['task_success']  # Lost stability evidence must be earned again.
+    trial.step(6)
+    assert trial.result()['task_success']
+
+
 def test_action_final_mode_retains_initial_incomplete_scene_requirement(tmp_path, native_types):
     trial = final_order(tmp_path, native_types)
     trial.support('middle', [trial.objects['base_candidate_0']])
