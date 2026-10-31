@@ -59,6 +59,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
                         help="Default: outputs/esi_debug/<UTC run-id>.")
     parser.add_argument("--capture-agent-observation", action="store_true",
                         help="Export final allowlisted AgentObservation JSON plus all enabled native RGB PNGs; no model.")
+    parser.add_argument('--validate-scorer', action='store_true', help='Run a no-action native scoring diagnostic; no model.')
+    parser.add_argument('--validation-sequence', type=Path, help='Execute a fixed diagnostic command sequence after loading; no model.')
     parser.add_argument("--evaluation-config", type=Path,
                         help="Private scene-bound grasp/lift evaluator; writes local files, never Agent/MCP state.")
     tasks = parser.add_mutually_exclusive_group()
@@ -804,6 +806,11 @@ def main(argv: list[str] | None = None, *, initial_observation_capture=None) -> 
 
                 run_manipulation_checks(session, controller, output, json.loads(args.demo_config.read_text()),
                                         executor=executor)
+        if args.validate_scorer or args.validation_sequence:
+            from wia.runtime.sim.esi_scene_validation import run as validate_scene
+            sequence = (json.loads(args.validation_sequence.read_text()) if args.validation_sequence
+                        else {'schema': 'wia_native_scene_sequence_v1', 'actions': []})
+            validate_scene(session, executor, output, sequence)
         if args.capture_agent_observation:
             path = session.capture_agent_observation().save(output / "agent_observation")
             print(f"[observation] saved allowlisted AgentObservation: {path}", flush=True)

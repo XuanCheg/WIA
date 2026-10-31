@@ -23,6 +23,8 @@ def main():
     parser.add_argument('--gpu', type=int, required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--actions', action='store_true')
+    parser.add_argument('--scorer', action='store_true', help='Begin a no-action episode and validate native score availability.')
+    parser.add_argument('--timeout', type=float, default=600, help='Native diagnostic wall deadline in seconds.')
     args = parser.parse_args()
     query = subprocess.check_output(['nvidia-smi', '--query-gpu=index,uuid,utilization.gpu,memory.used',
                                     '--format=csv,noheader,nounits'], text=True)
@@ -64,21 +66,27 @@ def main():
         command.append('--validate-base')
     else:
         command += ['--web', '--host', '127.0.0.1', '--port', str(9800 + args.gpu), '--web-duration-s', '1']
+    if args.scorer:
+        command.append('--validate-scorer')
     receipt = {'schema': 'release_native_smoke_v1', 'task': args.task, 'gpu': gpu, 'command': command,
                'pid': os.getpid(), 'model_calls': 0, 'VK_ICD_FILENAMES': env['VK_ICD_FILENAMES'], 'LD_LIBRARY_PATH': env['LD_LIBRARY_PATH'], 'cache': str(cache), 'started': time.time()}
     (output / 'smoke.json').write_text(json.dumps(receipt, indent=2) + '\n')
     try:
         with (output / 'native.log').open('w') as log:
-            result = subprocess.run(command, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=600)
+            result = subprocess.run(command, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=args.timeout)
         receipt['returncode'] = result.returncode
     except subprocess.TimeoutExpired:
         receipt.update(returncode=None, error='native smoke deadline exceeded')
     receipt['wall_time_s'] = time.time() - receipt['started']
     receipt['task_status'] = json.loads((output / 'task_status.json').read_text()) if (output / 'task_status.json').exists() else None
     receipt['observation_saved'] = (output / 'agent_observation/observation.json').is_file()
+    if args.scorer:
+        receipt['scorer_validation'] = (json.loads((output/'scorer_validation.json').read_text())
+                                        if (output/'scorer_validation.json').exists() else None)
     (output / 'smoke.json').write_text(json.dumps(receipt, indent=2) + '\n')
     print(json.dumps(receipt, indent=2), flush=True)
-    return 0 if receipt.get('returncode') == 0 and receipt['observation_saved'] else 1
+    return 0 if (receipt.get('returncode') == 0 and receipt['observation_saved']
+                 and (not args.scorer or (receipt['scorer_validation'] or {}).get('evaluation_validity') == 'complete')) else 1
 
 
 if __name__ == '__main__':
