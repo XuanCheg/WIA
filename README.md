@@ -344,18 +344,19 @@ performed by `--dry-run`.
 
 For the current launch audit, protocol risks and a complete archived T07 input/output walkthrough, see [formal evaluation readiness](/local_home2/zhouxinyang/models/WIA/docs/FORMAL_EVALUATION_READINESS_20261031.md).
 
-To inspect all 60 scenes serially without a model, run the fixed native diagnostic
+To inspect all 60 scenes without a model, run the fixed native diagnostic
 in an existing persistent terminal:
 
 ```bash
-python scripts/check_all_scenes.py --gpu 4 --output outputs/my_fresh_scene_sweep
+python scripts/check_all_scenes.py --gpus 4,5,6,7 --output outputs/my_fresh_scene_sweep
 ```
 
 The [fixed sequence](/local_home2/zhouxinyang/models/WIA/configs/native_scene_validation.json)
 runs after each scene loads: base left/right 5-degree turns, forward/back 0.05 m
 translations, working-arm up/down 0.02 m moves, GRASP and RELEASE. Initial and
 per-action checks read RGB, native depth pixels/regions and private scores. This
-does not solve tasks or call model APIs. A blocked motion is retained as an action
+does not solve tasks or call model APIs. Four workers each check 15 scenes serially;
+use `--gpu 4` for a single serial worker. A blocked motion is retained as an action
 outcome rather than treated as a scorer failure. The sweep reuses one simulator,
 continues after failed scenes, and writes incremental `results.json`, per-scene
 `scorer_validation.json`, simulator logs and lifecycle receipts. `--dry-run`

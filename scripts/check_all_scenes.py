@@ -1,7 +1,7 @@
 """Load release scenes serially and execute one fixed native sequence, without a model.
 
 Run in an existing persistent terminal:
-  /local_home2/zhouxinyang/miniconda3/envs/behavior/bin/python scripts/check_all_scenes.py --gpu 4 --output outputs/scene_checks_RUN
+  /local_home2/zhouxinyang/miniconda3/envs/behavior/bin/python scripts/check_all_scenes.py --gpus 4,5,6,7 --output outputs/scene_checks_RUN
 Use --dry-run to inspect the ordered task list and commands without accessing GPUs.
 """
 from __future__ import annotations
@@ -12,6 +12,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import signal
 import sys
 import time
 
@@ -25,9 +26,90 @@ from wia.runtime.scene_capture_resident import RendererLogMonitor
 from wia.tasks.loader import load_task
 
 
+def parallel_sweep(args, plans, aliases, sequence):
+    """Give each physical GPU one serial shard, retaining task settings/order."""
+    gpus = [int(value) for value in args.gpus.split(',')]
+    if not gpus or len(gpus) != len(set(gpus)):
+        raise ValueError('GPU indices must be distinct.')
+    groups = [[aliases[p['task']['path']] for p in plans[index::len(gpus)]] for index in range(len(gpus))]
+    preview = {'schema': 'wia_parallel_scene_sweep_v1', 'model_calls': 0, 'sequence': sequence,
+               'workers': [{'gpu': gpu, 'tasks': group} for gpu, group in zip(gpus, groups) if group]}
+    if args.dry_run:
+        print(json.dumps(preview, indent=2))
+        return 0
+    devices = idle_devices()
+    if any(not any(d['index'] == gpu and d['idle'] for d in devices) for gpu in gpus):
+        raise RuntimeError('Every selected GPU must be idle; existing owners will not be displaced.')
+    output = args.output.resolve()
+    output.mkdir(parents=True, exist_ok=False)
+    report = {**preview, 'pid': os.getpid(), 'results': [], 'completed': False,
+              'started_at': datetime.now(timezone.utc).isoformat()}
+    processes, logs = [], []
+    order = {aliases[p['task']['path']]: index for index, p in enumerate(plans)}
+    try:
+        for index, worker in enumerate(report['workers']):
+            directory = output/f'worker_{index:02d}'
+            log = (output/f'worker_{index:02d}.log').open('w')
+            logs.append(log)
+            command = [sys.executable, '-u', str(Path(__file__).resolve()), '--gpu', str(worker['gpu']),
+                '--output', str(directory), '--config', str(args.config), '--sequence', str(args.sequence),
+                '--scene-timeout', str(args.scene_timeout), '--tasks', *worker['tasks']]
+            process = subprocess.Popen(command, cwd=ROOT, stdout=log, stderr=subprocess.STDOUT,
+                                       start_new_session=True)
+            processes.append(process)
+            worker.update(pid=process.pid, output_dir=str(directory), log=str(output/f'worker_{index:02d}.log'))
+            print(f'[sweep] worker={index} gpu={worker["gpu"]} pid={process.pid} scenes={len(worker["tasks"])}', flush=True)
+        last_refresh = 0
+        while True:
+            active = sum(p.poll() is None for p in processes)
+            now = time.monotonic()
+            if now-last_refresh >= 30 or not active:
+                results = []
+                complete = True
+                for index, worker in enumerate(report['workers']):
+                    path = Path(worker['output_dir'])/'results.json'
+                    if path.exists():
+                        value = json.loads(path.read_text())
+                        results.extend({**r, 'index': order[r['task']], 'worker': index, 'gpu': worker['gpu']}
+                                       for r in value['results'])
+                        complete = complete and value.get('completed', False)
+                    else:
+                        complete = False
+                report.update(results=sorted(results, key=lambda r: r['index']),
+                              completed=not active and complete)
+                write_json(output/'results.json', report)
+                passed = sum(r['status'] == 'passed' for r in results)
+                print(f'[sweep] checked={len(results)}/{len(plans)} passed={passed} issues={len(results)-passed} active={active}', flush=True)
+                last_refresh = now
+            if not active:
+                break
+            time.sleep(1)
+    except KeyboardInterrupt:
+        report['interrupted'] = True
+        for process in processes:
+            if process.poll() is None:
+                os.killpg(process.pid, signal.SIGINT)
+    finally:
+        for process in processes:
+            try:
+                process.wait(timeout=90)
+            except subprocess.TimeoutExpired:
+                # A native world can be expensive to discard; retain its ownership
+                # and report it rather than terminating an unrelated process.
+                report.setdefault('cleanup_pending_pids', []).append(process.pid)
+        report['worker_exit_codes'] = [process.poll() for process in processes]
+        report['finished_at'] = datetime.now(timezone.utc).isoformat()
+        write_json(output/'results.json', report)
+        for log in logs:
+            log.close()
+    return int(not report['completed'] or any(r['status'] != 'passed' for r in report['results']))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--gpu', type=int, required=True)
+    devices = parser.add_mutually_exclusive_group(required=True)
+    devices.add_argument('--gpu', type=int, help='One serial GPU worker.')
+    devices.add_argument('--gpus', help='Comma-separated physical indices for parallel serial workers.')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--config', type=Path, default=ROOT/'configs/bench_deepseek_60.yaml')
     parser.add_argument('--sequence', type=Path, default=ROOT/'configs/native_scene_validation.json')
@@ -44,6 +126,8 @@ def main():
     sequence = json.loads(args.sequence.read_text())
     if not plans or args.scene_timeout <= 0:
         parser.error('Select at least one task and a positive scene timeout.')
+    if args.gpus:
+        return parallel_sweep(args, plans, aliases, sequence)
     preview = {'schema': 'wia_scene_sweep_plan_v1', 'gpu': args.gpu, 'model_calls': 0,
                'loading': 'serial', 'persistent_simulator': True, 'sequence': sequence,
                'tasks': [aliases[p['task']['path']] for p in plans]}

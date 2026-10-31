@@ -41,6 +41,10 @@ def run(session, executor, output, sequence):
             item['evaluation'] = {key: value.get(key) for key in
                 ('schema', 'evaluation_validity', 'score_percent', 'task_success', 'failure_stage',
                  'failure_reason', 'measurement_error', 'checks', 'mapping_joint_world_qualification')}
+            native = value.get('native_result') or {}
+            item['evaluation']['native_details'] = {key: native.get(key) for key in
+                ('schema', 'checks', 'measurement_error', 'failure_stage', 'failure_reason',
+                 'mapping_joint_world_qualification')}
             report['evaluation_validity'] = value.get('evaluation_validity')
             if value.get('evaluation_validity') != 'complete':
                 report['errors'].append({'stage': label, 'error': 'score_unavailable',
