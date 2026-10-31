@@ -478,6 +478,10 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                     metadata = model_metadata(reply.metadata)
                     received_at = timestamp()
                     trace.response(raw, metadata, at=received_at)
+                    world_observation = metadata.get('world_observation')
+                    if isinstance(world_observation, str):
+                        print(f"step={step} attempt={attempt+1} world_observation="
+                              + json.dumps(world_observation, ensure_ascii=False), flush=True)
                     response_logged = True
                     entry.update(raw_output=raw, model_metadata=metadata, received_at=received_at)
                     if reply.metadata.get("output_normalization"):
@@ -818,6 +822,10 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                         timings[key] = timings.get(key, 0.) + value
                 metadata = model_metadata(reply.metadata)
                 trace.response(final_text_only(reply.raw_text), metadata, at=timestamp())
+                world_observation = metadata.get('world_observation')
+                if isinstance(world_observation, str):
+                    print(f"step={forced_step} attempt=1 world_observation="
+                          + json.dumps(world_observation, ensure_ascii=False), flush=True)
                 parsed = qa_protocol.parse(metadata.get("qa_response"), DONE_ATOM)
                 if parsed["parsed_container"] is None:
                     raise ModelError("The upstream forced final selection must name a container.")

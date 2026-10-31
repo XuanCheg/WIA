@@ -1126,3 +1126,7 @@ Validation: 105 scoped evaluation, catalogue, bench, optional-import, CLI-forwar
 ## 2026-10-31 — User-managed bench terminal
 
 Removed automatic tmux session/window creation and the foreground re-entry flag from the bench convenience script at the user's request. It now execs the bench supervisor directly in the caller's terminal, including a user-created tmux pane. Updated the launch instructions and their stale 64-decision wording to the accepted per-task default. Shell syntax and an actual 60-task dry-run passed, including T52=10; the script contains no tmux commands. No live terminal/process, native scene, task definition or model request was changed.
+
+## 2026-10-31 — Public world observations in agent.log
+
+Added flushed stdout lines containing decision step, attempt and the exact JSON-escaped public world_observation, including forced final selections. Native launch already redirects agent stdout into agent.log. Existing structured world_observations.jsonl, model inputs, actions and scoring remain unchanged. A mocked two-decision HTTP episode verified both stdout records, exact newline round-trip, one physical action and the existing two structured observation records. No GPU or paid API call was made.
