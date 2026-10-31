@@ -2556,6 +2556,7 @@ qualification:
   on_failure: skip
   initial_visibility: none
 defaults:
+  max_steps: 153
   seed: 0
 repair:
   background_revision: complete_ground_v3

@@ -560,6 +560,7 @@ qualification:
   support: null
   initial_visibility: none
 defaults:
+  max_steps: 120
   seed: 0
 repair:
   design_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/spatial_design_v1.json

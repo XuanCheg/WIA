@@ -221,3 +221,27 @@ def test_attach_uses_scene_manifest_fields_and_policy(tmp_path, monkeypatch):
     path.write_text(yaml.safe_dump(data))
     with pytest.raises(ValueError, match="reasoning_effort"):
         prepare(path)
+
+
+@pytest.mark.parametrize('configured,override,expected', [(-1, None, 17), (64, -1, 17), (-1, 23, 23), (64, 23, 23)])
+def test_task_budget_sentinel_and_global_override(tmp_path, monkeypatch, configured, override, expected):
+    path = config(tmp_path, monkeypatch, evaluation={'max_steps': configured})
+    result = prepare(path, max_steps=override)
+    assert result['plans'][0]['evaluation']['max_steps'] == expected
+    assert not (tmp_path/'results').exists()
+
+
+@pytest.mark.parametrize('value', [0, -2, True])
+def test_invalid_global_step_override_is_rejected(tmp_path, monkeypatch, value):
+    with pytest.raises(ValueError, match='max_steps'):
+        prepare(config(tmp_path, monkeypatch), max_steps=value)
+
+
+@pytest.mark.parametrize('arguments,expected', [([], 17), (['--max-steps', '-1'], 17), (['--max-steps', '31'], 31)])
+def test_bench_cli_task_default_and_explicit_global_cap(tmp_path, monkeypatch, capsys, arguments, expected):
+    from wia.cli import main
+    path = config(tmp_path, monkeypatch, evaluation={'max_steps': 64})
+    assert main(['bench', '--config', str(path), '--dry-run', *arguments]) == 0
+    result = json.loads(capsys.readouterr().out)
+    plans = [p for w in result['workers'] for p in w['plans']]
+    assert len(plans) == 1 and plans[0]['evaluation']['max_steps'] == expected

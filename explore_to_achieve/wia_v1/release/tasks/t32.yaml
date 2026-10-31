@@ -515,7 +515,7 @@ qualification:
   initial_visibility: none
 defaults:
   seed: 0
-  max_steps: 240
+  max_steps: 81
   wall_timeout_s: 14400.0
 repair:
   design_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/spatial_support_design_v3.json

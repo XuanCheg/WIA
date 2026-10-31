@@ -264,7 +264,7 @@
     "run_mode": "diagnostic",
     "execution_mode": "batch",
     "timeout": null,
-    "max_steps": 64
+    "max_steps": -1
   },
   "output_dir": "../outputs/deepseek_60task_bench"
 }

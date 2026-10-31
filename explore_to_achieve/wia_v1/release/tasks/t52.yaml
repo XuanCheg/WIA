@@ -103,6 +103,7 @@ qualification:
   target_movable_collidable: true
   initial_visibility: none
 defaults:
+  max_steps: 10
   seed: 0
 repair:
   document_alias: T52

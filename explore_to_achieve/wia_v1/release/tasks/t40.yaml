@@ -4785,6 +4785,7 @@ qualification:
   on_failure: skip
   initial_visibility: none
 defaults:
+  max_steps: 58
   seed: 0
 repair:
   contract_revision: wia_tm2_matched_history_v1

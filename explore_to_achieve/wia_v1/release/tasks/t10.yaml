@@ -125,4 +125,5 @@ qualification:
   on_failure: skip
   initial_visibility: none
 defaults:
+  max_steps: 76
   seed: 0

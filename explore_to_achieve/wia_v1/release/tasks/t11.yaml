@@ -124,6 +124,7 @@ qualification:
   on_failure: skip
   initial_visibility: none
 defaults:
+  max_steps: 52
   seed: 0
 repair:
   regional_t11_neutral_labels:

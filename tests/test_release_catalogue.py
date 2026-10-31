@@ -21,3 +21,24 @@ def test_all_preferred_release_tasks_load_with_canonical_adapters():
         scene.verify_unchanged()
     with pytest.raises(ValueError, match='canonical WIA'):
         import_owned_module('core.esi_converters.action_order')
+
+
+def test_accepted_per_task_budgets_resolve_before_sharding():
+    from wia.evaluation.runner import prepare
+    from wia.evaluation.bench import shards
+    config = ROOT/'configs/bench_deepseek_60.yaml'
+    prepared = prepare(config)
+    by_file = {Path(p['task']['path']).stem: p for p in prepared['plans']}
+    assert by_file['t52']['evaluation']['max_steps'] == 10
+    assert by_file['t07']['evaluation']['max_steps'] == 290
+    assert by_file['t08']['evaluation']['max_steps'] == 342
+    assert by_file['t04']['evaluation']['max_steps'] == 32
+    assert all(type(p['evaluation']['max_steps']) is int and p['evaluation']['max_steps'] > 0
+               for p in prepared['plans'])
+    workers = shards(prepared, [0, 1, 2, 3], 18880)
+    assert [len(w['plans']) for w in workers] == [15]*4
+    caps = {p['index']:p['evaluation']['max_steps'] for w in workers for p in w['plans']}
+    assert caps == {p['index']:p['evaluation']['max_steps'] for p in prepared['plans']}
+    globally = prepare(config, max_steps=64)
+    assert len(globally['plans']) == 60
+    assert {p['evaluation']['max_steps'] for p in globally['plans']} == {64}

@@ -750,7 +750,7 @@ qualification:
   initial_visibility: none
 defaults:
   seed: 101
-  max_steps: 240
+  max_steps: 76
   world_advances_during_inference: true
   observation_condition: current
   action_mode: parameterized

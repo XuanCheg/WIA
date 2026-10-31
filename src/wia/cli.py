@@ -19,6 +19,9 @@ def main(argv=None):
     bench.add_argument('--port-base', type=int, default=8800)
     bench.add_argument('--output')
     bench.add_argument('--dry-run', action='store_true')
+    for command_parser in (evaluation, debug, bench):
+        command_parser.add_argument('--max-steps', type=int, default=-1 if command_parser is bench else None,
+            help='-1 uses each task budget; a positive value overrides all selected tasks (bench default: -1).')
     control = commands.add_parser("debug-control", help="Resume or close a retained debug trial")
     control.add_argument("--trial", required=True)
     control.add_argument("--action", choices=("resume", "close"), required=True)
@@ -37,7 +40,8 @@ def main(argv=None):
             print("\n".join(map(str, discover_tasks())))
         else:
             from .evaluation import prepare, run
-            prepared = prepare(args.config, execution_mode="debug" if args.command == "debug" else None)
+            prepared = prepare(args.config, execution_mode="debug" if args.command == "debug" else None,
+                               max_steps=args.max_steps)
             if args.command == 'bench':
                 from pathlib import Path
                 from .evaluation.bench import launch

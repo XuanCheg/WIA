@@ -222,6 +222,7 @@ qualification:
   on_failure: skip
   initial_visibility: none
 defaults:
+  max_steps: 75
   seed: 0
 repair:
   final_state_revision:

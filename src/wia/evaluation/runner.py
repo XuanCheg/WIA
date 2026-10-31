@@ -48,6 +48,8 @@ def _path(value, base):
 def _validate_numbers(policy, evaluation):
     for key in ("max_steps", "max_output_tokens", "max_invalid_retries", "max_recoverable_failures"):
         value = evaluation.get(key, policy.get(key))
+        if key == "max_steps" and type(value) is int and value == -1:
+            continue
         if value is not None and (type(value) is not int or value < (0 if "retries" in key or "failures" in key else 1)):
             raise ValueError(f"{key} has an invalid integer value.")
     for key, value in (("timeout", evaluation.get("timeout")), ("model_timeout", policy.get("model_timeout"))):
@@ -62,7 +64,7 @@ def _validate_numbers(policy, evaluation):
             raise ValueError(f"Invalid {key}: {evaluation[key]}")
 
 
-def prepare(config_path, *, execution_mode=None):
+def prepare(config_path, *, execution_mode=None, max_steps=None):
     """Read/validate without importing Harness, starting scenes or writing output."""
     config_path = Path(config_path).expanduser().resolve()
     from wia.tasks.loader import UniqueLoader
@@ -98,6 +100,10 @@ def prepare(config_path, *, execution_mode=None):
             raise ValueError("chat_template_kwargs requires Chat Completions provider=vllm.")
     environment = _mapping(config.get("environment", {}), "environment")
     evaluation = _mapping(config.get("evaluation", {}), "evaluation")
+    if max_steps is not None:
+        if type(max_steps) is not int or max_steps != -1 and max_steps < 1:
+            raise ValueError("max_steps must be -1 (task default) or a positive integer.")
+        evaluation["max_steps"] = max_steps
     if execution_mode is not None:
         evaluation["execution_mode"] = execution_mode
     evaluation.setdefault("execution_mode", "batch")
@@ -169,10 +175,12 @@ def prepare(config_path, *, execution_mode=None):
         task_path = candidate if candidate.is_file() else select_task(selection["path"])
         definition = task_definition(yaml.load(task_path.read_text(), Loader=UniqueLoader))
         defaults = definition.defaults.model_dump(mode="json")
+        episode_evaluation = {key: value for key, value in evaluation.items()
+                              if key != "max_steps" or value != -1}
         effective = {"max_steps": defaults["max_steps"], "timeout": None,
                      "action_mode": defaults["action_mode"],
                      "world": "run" if defaults["world_advances_during_inference"] else "pause",
-                     "observation_condition": defaults["observation_condition"], "run_mode": "benchmark", **evaluation}
+                     "observation_condition": defaults["observation_condition"], "run_mode": "benchmark", **episode_evaluation}
         rigid = getattr(definition, "kind", None) == "rigid_containment_task"
         selected = release_entry(task_path)
         default_variant = selected['variant'] if selected else ("tabletop" if rigid else "original")
@@ -243,7 +251,7 @@ def prepare(config_path, *, execution_mode=None):
             pairs = {"max_steps": "max_steps", "timeout": "wall_timeout_s", "action_mode": "action_mode",
                      "world": "world_mode", "observation_condition": "observation_condition"}
             for key, manifest_key in pairs.items():
-                if key in evaluation and evaluation[key] != manifest[manifest_key]:
+                if key in episode_evaluation and episode_evaluation[key] != manifest[manifest_key]:
                     raise ValueError(f"Attach {key} differs from immutable episode_manifest.")
                 effective[key] = manifest[manifest_key]
             if policy["model"] != manifest.get("model_name"):

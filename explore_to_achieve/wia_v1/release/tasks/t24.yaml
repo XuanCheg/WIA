@@ -349,7 +349,7 @@ qualification:
   initial_visibility: none
 defaults:
   seed: 0
-  max_steps: 60
+  max_steps: 73
   wall_timeout_s: 5400.0
   world_advances_during_inference: true
   observation_condition: current

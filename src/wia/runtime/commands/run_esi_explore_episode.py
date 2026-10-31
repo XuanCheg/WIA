@@ -172,7 +172,8 @@ def main(argv=None):
     parser.add_argument("--world", choices=("run", "pause"))
     parser.add_argument("--memory", choices=("none", "model_notes"), default="none")
     parser.add_argument("--observation-condition", choices=("current", "initial_view_only"))
-    parser.add_argument("--max-steps", type=int)
+    parser.add_argument("--max-steps", type=int, default=-1,
+                        help="-1 uses the task default; a positive value overrides it.")
     parser.add_argument("--timeout", type=episode_timeout, default=argparse.SUPPRESS,
                         help="Overall episode seconds, or 'none' for no episode deadline.")
     parser.add_argument("--action-mode", choices=("fixed", "parameterized"))
@@ -238,7 +239,7 @@ def main(argv=None):
         args.seed = task.seed
         args.world = args.world or ("run" if defaults.world_advances_during_inference else "pause")
         args.observation_condition = args.observation_condition or defaults.observation_condition
-        args.max_steps = args.max_steps if args.max_steps is not None else defaults.max_steps
+        args.max_steps = defaults.max_steps if args.max_steps == -1 else args.max_steps
         args.timeout = getattr(args, "timeout", None)
         args.action_mode = args.action_mode or defaults.action_mode
         episode_manifest = build_episode_manifest(task, args)
@@ -247,7 +248,7 @@ def main(argv=None):
             parser.error("Legacy configs require an explicit --seed.")
         args.world = args.world or "run"
         args.observation_condition = args.observation_condition or "current"
-        args.max_steps = args.max_steps if args.max_steps is not None else 60
+        args.max_steps = 60 if args.max_steps == -1 else args.max_steps
         args.timeout = getattr(args, "timeout", None)
         args.action_mode = args.action_mode or "parameterized"
     import math

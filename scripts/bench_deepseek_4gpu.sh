@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run the 60-task debug bench. Usage: bash scripts/bench_deepseek_4gpu.sh [--dry-run] [--gpus 0,1,2,3]
+# Run the 60-task bench. Usage: bash scripts/bench_deepseek_4gpu.sh [--dry-run] [--gpus 0,1,2,3] [--max-steps -1|N]
 set -euo pipefail
 set +x
 WIA_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -26,4 +26,4 @@ export OMNIGIBSON_DATA_PATH="${OMNIGIBSON_DATA_PATH:-/local_home2/zhouxinyang/da
 export VK_ICD_FILENAMES="${VK_ICD_FILENAMES:-$WIA_ROOT/configs/esi_vulkan_egl.json}"
 export OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 PYTHONUNBUFFERED=1
 "$WIA_PYTHON" -m wia bench --config configs/bench_deepseek_60.yaml --workers 4 \
-    --gpus "${WIA_GPUS:-auto}" --output "outputs/deepseek_bench_$(date +%Y%m%d_%H%M%S)" "$@"
+    --gpus "${WIA_GPUS:-auto}" --max-steps -1 --output "outputs/deepseek_bench_$(date +%Y%m%d_%H%M%S)" "$@"

@@ -540,6 +540,7 @@ qualification:
   on_failure: skip
   initial_visibility: none
 defaults:
+  max_steps: 54
   seed: 0
 repair:
   design_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/cover_design_v2.json

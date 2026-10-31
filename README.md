@@ -365,3 +365,30 @@ or ramp definition was changed by this statistics/retry update. Budget calibrati
 will optimize measured quality against API cost before setting a cap around
 `ceil(1.3 * optimal_steps)`; the earlier large engineering recommendations have
 not been applied.
+
+### Per-task decision caps
+
+The accepted geometric budgets are stored in each selected task's
+`defaults.max_steps`. T52 has an explicit 10-decision cap. T42–T44 retain their
+previous task defaults. The estimator and its ordinary-grasp/tray-placement
+assumptions are reproducible with `python scripts/estimate_decision_budgets.py
+--output /absolute/output`; T52's user override is included in that output.
+
+The bench CLI and `scripts/bench_deepseek_4gpu.sh` default to `--max-steps -1`:
+each trial resolves its own task budget before sharding and native launch.
+A positive CLI value overrides every selected task, including T52. Zero and values
+below -1 are rejected. For example:
+
+```bash
+bash scripts/bench_deepseek_4gpu.sh --dry-run
+bash scripts/bench_deepseek_4gpu.sh --dry-run --max-steps 64
+```
+
+`wia eval` and `wia debug` also accept `--max-steps -1|N`; if omitted, they retain
+the evaluation config's existing override behavior. YAML `evaluation.max_steps:
+-1` inherits task defaults, while a positive YAML value remains a global override
+unless the CLI overrides it. The bench CLI's default -1 explicitly selects task
+budgets even if an older config contains a positive global value. The native
+episode launcher likewise defaults to -1 and resolves it before manifest creation.
+Every effective plan/manifest contains the resolved positive integer. Existing
+attach episodes retain their immutable prepared manifest budget.

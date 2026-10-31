@@ -308,6 +308,7 @@ qualification:
   initial_visibility: none
   target_movable_collidable: true
 defaults:
+  max_steps: 72
   seed: 0
 repair:
   manipulation_revision: support_transfer_v1
