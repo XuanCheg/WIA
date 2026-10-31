@@ -1,0 +1,65 @@
+{
+  "schema": "inactive_native_texture_cache_cleanup_v1",
+  "time": "2026-10-31T15:44:38.515353+00:00",
+  "scope": "Only inactive prior-sweep ov/texturecache directories; raw observations, logs, scores and receipts retained.",
+  "free_before": 251618070528,
+  "paths": [
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_20261031_212148/worker_00/resident_000/appdata/xdg_cache/ov/texturecache",
+      "files": 13359,
+      "allocated_bytes": 12887879680
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_20261031_212148/worker_00/resident_001/appdata/xdg_cache/ov/texturecache",
+      "files": 8531,
+      "allocated_bytes": 6859059200
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_20261031_212148/worker_00/resident_002/appdata/xdg_cache/ov/texturecache",
+      "files": 19832,
+      "allocated_bytes": 31408750592
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_20261031_212148/worker_01/resident_000/appdata/xdg_cache/ov/texturecache",
+      "files": 20247,
+      "allocated_bytes": 24705904640
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_20261031_212148/worker_01/resident_001/appdata/xdg_cache/ov/texturecache",
+      "files": 11957,
+      "allocated_bytes": 17930899456
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_20261031_212148/worker_01/resident_002/appdata/xdg_cache/ov/texturecache",
+      "files": 19330,
+      "allocated_bytes": 24630661120
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_20261031_212148/worker_02/resident_000/appdata/xdg_cache/ov/texturecache",
+      "files": 22637,
+      "allocated_bytes": 36428484608
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_20261031_212148/worker_02/resident_001/appdata/xdg_cache/ov/texturecache",
+      "files": 17048,
+      "allocated_bytes": 25293479936
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_20261031_212148/worker_03/resident_000/appdata/xdg_cache/ov/texturecache",
+      "files": 22249,
+      "allocated_bytes": 25265123328
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_20261031_212148/worker_03/resident_001/appdata/xdg_cache/ov/texturecache",
+      "files": 5371,
+      "allocated_bytes": 12320239616
+    },
+    {
+      "path": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_20261031_212148/worker_03/resident_002/appdata/xdg_cache/ov/texturecache",
+      "files": 16789,
+      "allocated_bytes": 23761956864
+    }
+  ],
+  "free_after": 493129003008,
+  "removed_allocated_bytes": 241492439040
+}

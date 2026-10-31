@@ -134,7 +134,7 @@ class SpatialTrayProgress:
             if key in self.p['targets'] and self._inside(row):
                 self._initial_errors.append(key + ':initially_inside_destination')
         grasp = sample.get('grasp', {})
-        if grasp.get('released') is not True or grasp.get('held_names') != []:
+        if grasp.get('detached', grasp.get('released')) is not True or grasp.get('held_names') != []:
             self._initial_errors.append('initial_aggregate_hands_not_released')
         if self._initial_errors:
             self._current['available'] = False

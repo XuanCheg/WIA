@@ -214,6 +214,8 @@ def main():
                 check = record['validation'] or {}
                 record['status'] = ('passed' if receipt.get('scene_exit_code') == 0 and check.get('completed')
                     and not check.get('errors') else 'issues_found')
+                if record['status'] == 'passed' and check.get('evaluation_validity') != 'complete':
+                    record['status'] = 'incomplete_coverage'
                 if not receipt.get('reusable'):
                     stop_service(control)
                     generation += 1

@@ -294,6 +294,9 @@ indices and do not contact a provider, inspect GPUs or start a simulator.
 Bench defaults to one persistent simulator process per GPU worker. Each task
 rebuilds its world, controllers, sensors and evaluator while retaining the Kit
 application. Services are closed when the suite finishes or is interrupted.
+To bound the renderer allocations observed in long sweeps, a worker recycles its
+owned process after four scenes. `WIA_RESIDENT_MAX_SCENES` changes this bound;
+zero disables periodic recycling. This mitigation makes no GPU occupancy query.
 Resident services run as worker-owned subprocesses and create no tmux sessions
 or windows. Use `--no-persistent-simulator` to select fresh simulators instead.
 
@@ -359,7 +362,13 @@ does not solve tasks or call model APIs. Four workers each check 15 scenes seria
 use `--gpu 4` for a single serial worker. A blocked motion is retained as an action
 outcome rather than treated as a scorer failure. The sweep reuses one simulator,
 continues after failed scenes, and writes incremental `results.json`, per-scene
-`scorer_validation.json`, simulator logs and lifecycle receipts. `--dry-run`
+`scorer_validation.json`, simulator logs and lifecycle receipts.
+The sequence also requests the existing public phase transition before a
+non-survey command in a temporal task and submits DONE after the last command.
+Intermediate partial/pending states are recorded as pending coverage. A final
+non-complete state is reported as `incomplete_coverage`, not a passed score check.
+
+`--dry-run`
 prints the plan; `--tasks t01 t02` selects a subset; `--scene-timeout` sets the
 diagnostic load/sequence watchdog (default: 1200 seconds).
 

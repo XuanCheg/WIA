@@ -516,7 +516,7 @@ def test_missing_collision_geometry_remains_unavailable_and_non_cube_is_not_acce
 
 def test_grasp_requires_native_identity_and_constraint_and_release_checks_both_arms(native):
     initial, raw = adapter._grasp(native.session, native.controller)
-    assert initial == {'available': True, 'held_names': [], 'released': True}
+    assert initial == {'available': True, 'held_names': [], 'released': True, 'detached': True}
     assert raw['all_grippers_open'] is False  # Only the public working aperture must be open.
     native.robot._ag_obj_in_hand['left'] = native.target
     native.readings['left'] = 1
@@ -534,6 +534,16 @@ def test_grasp_requires_native_identity_and_constraint_and_release_checks_both_a
     native.readings['right'] = 0
     unavailable, _ = adapter._grasp(native.session, native.controller)
     assert unavailable['available'] is False and unavailable['released'] is False
+
+
+def test_initial_empty_partly_open_grippers_are_detached_but_not_terminally_released(native):
+    native.robot.positions[:2] = .03
+    sample, _ = adapter._grasp(native.session, native.controller)
+    assert sample['available'] and sample['detached'] and not sample['released']
+    assert adapter.qualify_operation(native.session, native.controller, native.config, native.objects)['checks']['initial_hands_released']
+    native.robot._ag_obj_constraints['right'] = object()
+    sample, _ = adapter._grasp(native.session, native.controller)
+    assert not sample.get('detached', False)
 
 
 def test_unavailable_control_guard_is_not_invented_invalid_and_explicit_setter_is_invalid(native):

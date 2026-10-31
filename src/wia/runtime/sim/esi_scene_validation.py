@@ -13,7 +13,7 @@ def run(session, executor, output, sequence):
     output = Path(output)
     report = {'schema': 'wia_native_scene_validation_v1', 'model_calls': 0,
               'benchmark_score': False, 'sequence': deepcopy(sequence), 'observations': [],
-              'actions': [], 'errors': [], 'started_at': time.time()}
+              'actions': [], 'events': [], 'pending_coverage': [], 'errors': [], 'started_at': time.time()}
     path = output/'scorer_validation.json'
     def save():
         report['elapsed_s'] = time.time()-report['started_at']
@@ -44,9 +44,16 @@ def run(session, executor, output, sequence):
             native = value.get('native_result') or {}
             item['evaluation']['native_details'] = {key: native.get(key) for key in
                 ('schema', 'checks', 'measurement_error', 'failure_stage', 'failure_reason',
-                 'mapping_joint_world_qualification')}
+                 'mapping_joint_world_qualification', 'phase')}
             report['evaluation_validity'] = value.get('evaluation_validity')
-            if value.get('evaluation_validity') != 'complete':
+            validity = value.get('evaluation_validity')
+            phase = getattr(getattr(session, 'temporal_phase_controller', None), 'phase', None)
+            pending = validity in ('pending_done', 'partial') or (
+                phase == 'phase_1' and validity == 'unavailable'
+                and not native.get('measurement_error') and not native.get('failure_reason'))
+            if pending:
+                report['pending_coverage'].append({'stage': label, 'validity': validity, 'phase': phase})
+            elif validity != 'complete':
                 report['errors'].append({'stage': label, 'error': 'score_unavailable',
                                          'evaluation': item['evaluation']})
         except Exception as error:
@@ -63,6 +70,16 @@ def run(session, executor, output, sequence):
             started = time.monotonic()
             record = {'index': index, 'command': payload}
             try:
+                phase = getattr(getattr(session, 'temporal_phase_controller', None), 'phase', None)
+                if phase == 'phase_1':
+                    from wia.tasks.temporal_policy import survey_action_allowed
+                    if not survey_action_allowed(payload['action']):
+                        boundary = source.boundary_observation
+                        receipt = source.report_temporal('phase_1_complete', None,
+                            snapshot_id=boundary.snapshot_id, action_step=boundary.action_step)
+                        report['events'].append({'event': 'phase_1_complete', 'before_action': index,
+                                                 'receipt': receipt})
+                        capture('phase_2_start', source.boundary_observation)
                 command = ParameterizedAction.from_payload(payload, executor.available_actions)
                 result = executor.execute_macro(command, resolution=executor.primitive_resolution,
                                                 limits=executor.macro_limits)
@@ -76,6 +93,14 @@ def run(session, executor, output, sequence):
             record['elapsed_s'] = time.monotonic()-started
             report['actions'].append(record)
             save()
+        done = getattr(source, 'report_done', None)
+        if callable(done):
+            boundary = source.boundary_observation
+            try:
+                receipt = done(snapshot_id=boundary.snapshot_id, action_step=boundary.action_step)
+                report['events'].append({'event': 'DONE', 'receipt': receipt})
+            except Exception as error:
+                report['errors'].append({'stage': 'DONE', 'error': f'{type(error).__name__}: {error}'})
         capture('final', source.boundary_observation)
         report['completed'] = True
     except Exception as error:

@@ -143,12 +143,19 @@ class ResidentEpisodeClient:
                     raise RuntimeError('Resident service exited while clearing its previous scene.')
             if service.get('state') != 'IDLE':
                 raise RuntimeError('Resident simulator is not reusable: ' + str(service))
+            maximum = int(os.environ.get('WIA_RESIDENT_MAX_SCENES', '4'))
+            if maximum > 0 and service.get('completed_scenes', 0) >= maximum:
+                emit('simulator_recycling', pid=service['pid'], completed_scenes=service['completed_scenes'],
+                     reason='bounded_renderer_lifetime', max_scenes=maximum)
+                stop_service(self.control)
+                return self.ensure(quiet=quiet)
             if not quiet:
                 emit('simulator_reused', pid=service['pid'], completed_scenes=service.get('completed_scenes', 0))
             return
         started = time.monotonic()
         emit('simulator_initializing', control_dir=str(self.control))
         self.control.mkdir(parents=True, exist_ok=True)
+        (self.control / 'stop_service.json').unlink(missing_ok=True)
         for name in ('requests', 'responses'):
             (self.control / name).mkdir(exist_ok=True)
         (self.control / 'gpu.json').write_text(json.dumps(self.gpu, indent=2) + '\n')

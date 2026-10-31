@@ -20,6 +20,43 @@ import time
 import numpy as np
 
 
+def release_variant_preprocess(task, module_name, question_path, state):
+    """Honor an exact released source variant excluded only by the upstream filename filter."""
+    if (state.get('skip_reason') == 'storage_active_single_only_skips_variant_json'
+            and module_name == 'tasks.physical_structure.rigid_containment'
+            and getattr(task, 'release_v1', False)
+            and Path(question_path).resolve() == Path(task.source_path).resolve()):
+        task.verify_unchanged()
+        return {**{key: value for key, value in state.items() if key != 'skip_reason'},
+                'preprocess_policy': 'exact_fixed_release_variant', 'source_path': str(question_path)}
+    return state
+
+
+def reconcile_resident_timing(og, env_config, defaults):
+    """Rebuild only an empty simulator at the next environment's declared native rates."""
+    if not getattr(og, '_wia_resident_episode', False) or og.sim is None:
+        return None
+    config = {**defaults, **env_config.get('env', {})}
+    desired = {name: 1. / float(config[field]) for name, field in
+               (('physics_dt', 'physics_frequency'), ('rendering_dt', 'rendering_frequency'),
+                ('sim_step_dt', 'action_frequency'))}
+    actual = {'physics_dt': og.sim.initial_physics_dt, 'rendering_dt': og.sim.initial_rendering_dt,
+              'sim_step_dt': og.sim.get_sim_step_dt()}
+    if actual == desired:
+        return None
+    if og.sim.scenes:
+        raise RuntimeError('Cannot change simulator timing while a scene is loaded.')
+    application = og.app
+    from wia.runtime.commands.run_esi_capture_service import discard_whole_stage
+    with discard_whole_stage(og):
+        og.clear(**desired)
+    if og.app is not application or og.sim.scenes:
+        raise RuntimeError('Timing reconciliation changed the application or retained a scene.')
+    receipt = {'previous': actual, 'requested': desired, 'application_preserved': True}
+    print('[resident-simulator-timing] ' + json.dumps(receipt), flush=True)
+    return receipt
+
+
 class MeshGeometryCache:
     """Reuse native triangulation and exact-frame volume/COM results.
 

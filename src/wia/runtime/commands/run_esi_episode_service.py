@@ -12,6 +12,7 @@ from wia.resources import ESI_ROOT as WIA_ESI_ROOT
 
 import argparse
 import gc
+import faulthandler
 import importlib
 import json
 import os
@@ -43,6 +44,7 @@ def main():
     from wia.runtime.commands.run_esi_capture_service import install_lifecycle, native_log, reset_discarded_sensor_graphs, discard_whole_stage
     import wia.runtime.commands.run_esi_robot as run_esi_robot
     pipeline = _import_pipeline(WIA_ESI_ROOT)
+    pipeline.og._wia_resident_episode = True
     from omnigibson.macros import gm
     keys = ('USE_GPU_DYNAMICS', 'ENABLE_FLATCACHE', 'ENABLE_OBJECT_STATES', 'ENABLE_TRANSITION_RULES', 'USE_ENCRYPTED_ASSETS')
     defaults = {key: bool(gm[key]) for key in keys}
@@ -110,6 +112,7 @@ def main():
                 atomic_json(control / 'service.json', {**response, 'state': 'SCENE_RUNNING', 'pid': os.getpid()})
                 code = 1
                 with native_log(output / 'simulator.log'):
+                    faulthandler.dump_traceback_later(600, repeat=False)
                     try:
                         response['native_macro_profile'] = reset_macros(profile)
                         if request.get('camera_sync_diagnostic'):
@@ -131,6 +134,7 @@ def main():
                         response.update(reusable=False, error=f'{type(error).__name__}: {error}')
                         traceback.print_exc()
                     finally:
+                        faulthandler.cancel_dump_traceback_later()
                         active['request_id'] = None
                         response['scene_exit_code'] = code
                         atomic_json(output / 'persistent_scene_receipt.json', response)

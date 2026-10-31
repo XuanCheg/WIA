@@ -209,6 +209,9 @@ class ESISession:
             ) from exc
         config = SimpleNamespace(json_root=self.json_root, robot="R1")
         self.task_state = pipeline.task_preprocess(module, self.payload, self.question_path, config)
+        from wia.runtime.sim.esi_loading import release_variant_preprocess
+        self.task_state = release_variant_preprocess(getattr(self, 'loaded_task', None),
+            module.__name__, self.question_path, self.task_state)
         if self.task_state.get("skip_reason"):
             raise RuntimeError(f"ESI preprocess skipped question: {self.task_state['skip_reason']}")
         self.scene_name, self.room_name = module.scene_room(self.payload)
@@ -235,6 +238,11 @@ class ESISession:
         print(f"[esi] question: {self.question_path}\n[esi] task: {module.__name__}", flush=True)
         print(f"[esi] scene: {self.scene_name}\n[esi] room: {self.room_name}", flush=True)
         print("[esi] creating OmniGibson environment...", flush=True)
+        from wia.runtime.sim.esi_loading import reconcile_resident_timing
+        from omnigibson.macros import gm
+        self.resident_timing_receipt = reconcile_resident_timing(pipeline.og, env_config, {
+            'physics_frequency': gm.DEFAULT_PHYSICS_FREQ, 'rendering_frequency': gm.DEFAULT_RENDERING_FREQ,
+            'action_frequency': gm.DEFAULT_SIM_STEP_FREQ})
         self.env = pipeline.og.Environment(configs=env_config)
         # The installed OmniGibson learning/eval.py documents at least three
         # renders to flush physical / USD changes through camera annotators.

@@ -71,6 +71,19 @@ def retrieved(kind='shape'):
     return scorer
 
 
+def test_initial_detached_hands_do_not_require_terminal_aperture():
+    value = sample(initial=True)
+    value['grasp'].update(detached=True, released=False)
+    scorer = SpatialTrayProgress(parameters())
+    initial = scorer.begin(value)
+    assert initial['evaluation_validity'] == 'complete'
+    assert not initial['task_success']
+    current = sample(.1)
+    current['grasp'].update(detached=True, released=False)
+    scorer.update(current)
+    assert not scorer.result()['task_success']
+
+
 def stable_result(scorer, value=None):
     value = sample(.4) if value is None else deepcopy(value)
     scorer.update(value)

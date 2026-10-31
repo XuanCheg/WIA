@@ -311,10 +311,12 @@ def _grasp(session, controller):
                     available = False
                 else:
                     held.append(actual.name)
-        released = bool(available and raw.get('gripper_open') is True and arms and all(
+        detached = bool(available and arms and all(
             row.get('holding') is False and row.get('constraint_active') is False
             and row.get('release_pending') is False and row.get('object_name') is None for row in arms.values()))
-        return {'available': bool(available), 'held_names': sorted(set(held)), 'released': released}, raw
+        released = detached and raw.get('gripper_open') is True
+        return {'available': bool(available), 'held_names': sorted(set(held)),
+                'released': released, 'detached': detached}, raw
     except ERRORS as error:
         return {'available': False, 'held_names': [], 'released': False}, {
             'aggregate': raw, 'measurement_error': f'{type(error).__name__}: {error}'}
@@ -472,7 +474,7 @@ def _qualification(session, config, objects, sample):
               'native_initial_contacts_available': all(row['robot_contact'] is False
                   and row['linear_speed_m_s'] is not None and row['angular_speed_rad_s'] is not None
                   for row in sample['targets'].values()),
-              'initial_hands_released': sample['grasp']['available'] is True and sample['grasp']['released'] is True,
+              'initial_hands_released': sample['grasp']['available'] is True and sample['grasp'].get('detached', sample['grasp']['released']) is True,
               'initial_control_guard': sample['control_valid'] is True,
               'native_time_available': sample['native_time_s'] is not None}
     if config['operation'] == 'select_pass_aperture':

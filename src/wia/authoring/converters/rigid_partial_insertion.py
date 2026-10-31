@@ -18,7 +18,7 @@ import numpy as np
 
 from wia.authoring.io import write_json
 from wia.tasks.interaction_setup import array
-from wia.tasks.rigid_insertion_scoring import RigidInsertionProgress
+from wia.tasks.rigid_insertion_scoring import RigidInsertionProgress, FINAL_STATE_SCORING_VERSION
 
 MODULE = 'wia.authoring.converters.rigid_partial_insertion'
 REVISION = 'wia_rigid_partial_insertion_v1'
@@ -393,7 +393,10 @@ def qualify_operation(session, controller, config, bound):
         tolerance = p['initial_support_tolerance_m']
         if tolerance == 0:
             raise ValueError('initial_support_tolerance_m must be positive for native support rays.')
-        checks.update(explicit_revision=p.get('scorer_version') == REVISION,
+        supported_revisions = {REVISION}
+        if p.get('manipulation_revision') == 'final_state_v1':
+            supported_revisions.add(FINAL_STATE_SCORING_VERSION)
+        checks.update(explicit_revision=p.get('scorer_version') in supported_revisions,
                       bound_objects_exist=all(obj is not None for obj in bound.values()),
                       declared_supports_complete=set(supports) == set(required) and
                           all(value in bound and bound[value] is not None for value in supports.values()),
@@ -402,8 +405,7 @@ def qualify_operation(session, controller, config, bound):
         grasp = _aggregate_grasp(session.robot, getattr(controller, 'controller', controller))
         checks['initial_hands_empty_released'] = bool(grasp['available'] and
             grasp['holding'] is False and grasp['object_name'] is None and
-            grasp['constraint_active'] is False and grasp['release_pending'] is False and
-            grasp['gripper_open'] is True)
+            grasp['constraint_active'] is False and grasp['release_pending'] is False)
         for key in required:
             row = {'available': False, 'passed': False}
             try:

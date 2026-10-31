@@ -233,6 +233,19 @@ def test_two_arm_readback_allows_inactive_half_open_empty_hand(native):
     assert native.contact_calls[-1][1]['row_prim_paths'] == ['/World/item/body']
 
 
+def test_final_revision_initial_empty_hand_does_not_require_full_open(native):
+    supported_initial_state(native)
+    native.robot.joint_positions[:2] = .02
+    native.config['parameters'].update(manipulation_revision='final_state_v1', minimum_lift_m=None,
+                                      scorer_version='rigid_insertion_final_state_v1')
+    result = module.qualify_operation(native.session, native.controller, native.config, native.objects)
+    assert result['checks']['explicit_revision']
+    assert result['checks']['initial_hands_empty_released']
+    assert module._aggregate_grasp(native.robot, native.controller)['gripper_open'] is False
+    native.config['parameters']['scorer_version'] = 'unknown_revision'
+    assert not module.qualify_operation(native.session, native.controller, native.config, native.objects)['checks']['explicit_revision']
+
+
 def test_final_state_adapter_accepts_zero_lift_insertion_and_keeps_qa_separate(native, tmp_path):
     native.config['parameters'].update(manipulation_revision='final_state_v1', minimum_lift_m=None)
     native.evaluator = module.RigidPartialInsertionEvaluator(
