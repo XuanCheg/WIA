@@ -73,6 +73,8 @@ def test_dry_run_does_not_access_gpus_or_network(tmp_path, monkeypatch):
     monkeypatch.setattr(bench, 'gateway_preflight', forbidden)
     result = bench.launch(prepared(tmp_path), dry_run=True)
     assert len(result['workers']) == 4
+    assert result['persistent_simulator'] is True
+    assert result['log_interval_s'] == 30
     assert not (tmp_path/'bench').exists()
 
 
@@ -95,6 +97,8 @@ def test_supervisor_accounts_for_crashed_worker(tmp_path, monkeypatch, skip_gpu_
         count = 0
         def __init__(self, command, **kwargs):
             assert kwargs['env']['CUDA_VISIBLE_DEVICES'] == f'GPU-{Process.count}'
+            assert kwargs['env']['WIA_RESIDENT_CONTROL_DIR'].endswith(f'resident_{Process.count:02d}')
+            assert kwargs['env']['WIA_BENCH_EVENTS'].endswith(f'worker_{Process.count:02d}_events.jsonl')
             if skip_gpu_check:
                 assert kwargs['env']['WIA_SKIP_GPU_CHECK'] == '1'
             self.pid = 100 + Process.count
@@ -147,3 +151,134 @@ def test_native_scene_query_obeys_script_opt_out(monkeypatch, skip):
     assert devices[0][1].strip() == 'GPU-four'
     assert eligible == ([4] if skip else [])
     assert observed_skip is skip
+
+
+def test_lifecycle_tail_preserves_partial_record(tmp_path, monkeypatch, capsys):
+    from wia.runtime.lifecycle_log import emit, read_events
+    path = tmp_path/'events.jsonl'
+    monkeypatch.setenv('WIA_BENCH_EVENTS', str(path))
+    monkeypatch.setenv('WIA_BENCH_GPU', '3')
+    emit('scene_loading', task='T52')
+    records, offset = read_events(path, 0)
+    assert records[0]['gpu'] == '3' and records[0]['task'] == 'T52'
+    with path.open('a') as stream:
+        stream.write('{"event":"scene_ready"')
+    assert read_events(path, offset) == ([], offset)
+    with path.open('a') as stream:
+        stream.write('}\n')
+    records, final = read_events(path, offset)
+    assert records == [{'event':'scene_ready'}] and final > offset
+    assert 'scene_loading' in capsys.readouterr().out
+
+
+def test_progress_refresh_is_throttled_but_events_are_immediate(tmp_path, monkeypatch, capsys):
+    monkeypatch.setenv('WIA_SKIP_GPU_CHECK', '1')
+    monkeypatch.setattr(bench, 'inventory_devices', lambda: [{'index':0, 'uuid':'GPU-0'}])
+    monkeypatch.setattr(bench, 'gateway_preflight', lambda policy: None)
+    clock = [0]
+    monkeypatch.setattr(bench.time, 'monotonic', lambda: clock[0])
+    def sleep(seconds):
+        assert seconds == 1
+        clock[0] += seconds
+        if clock[0] == 2:
+            (tmp_path/'bench/worker_00_events.jsonl').write_text(
+                json.dumps({'time':'now','event':'scene_ready','gpu':0})+'\n')
+    monkeypatch.setattr(bench.time, 'sleep', sleep)
+    class Process:
+        pid = 100
+        returncode = 0
+        def __init__(self, command, **kwargs):
+            assert 'WIA_RESIDENT_CONTROL_DIR' not in kwargs['env']
+        def poll(self):
+            return 0 if clock[0] >= 32 else None
+    monkeypatch.setattr(bench.subprocess, 'Popen', Process)
+    bench.launch(prepared(tmp_path, 1), gpus=[0], worker_count=1,
+                 persistent_simulator=False, port_base=18890)
+    output = capsys.readouterr().err
+    assert output.count('[bench #') + output.count('[bench -') == 3  # Initial, 30s, final.
+    assert output.count('scene_ready') == 1
+
+
+def test_native_profiles_load_all_tasks_without_gpu_imports():
+    from wia.evaluation import prepare
+    from wia.resources import ROOT
+    from wia.runtime.resident_episode import task_profiles
+    value = prepare(ROOT/'configs/bench_deepseek_60.yaml')
+    profiles = task_profiles(value['plans'])
+    assert len(profiles) == 60
+    assert {row['native_module'] for row in profiles.values() if row['gpu_dynamics']} == {
+        'tasks.physical_structure.deformable'}
+    assert all(Path(path).is_absolute() for path in profiles)
+
+
+def test_resident_service_is_child_process_and_reused(tmp_path, monkeypatch):
+    from wia.runtime import resident_episode as resident
+    control = tmp_path/'resident'
+    monkeypatch.setenv('WIA_RESIDENT_TASK_PROFILES', str(tmp_path/'profiles.json'))
+    state = [None]
+    monkeypatch.setattr(resident, 'read_service', lambda path: state[0])
+    launched = []
+    class Process:
+        pid = 123
+        def __init__(self, command, **kwargs):
+            assert 'tmux' not in command
+            assert kwargs['env']['CUDA_VISIBLE_DEVICES'] == 'GPU-fixture'
+            assert kwargs['start_new_session'] is True
+            state[0] = {'state':'IDLE', 'pid':self.pid, 'completed_scenes':0}
+            launched.append(command)
+    monkeypatch.setattr(resident.subprocess, 'Popen', Process)
+    client = resident.ResidentEpisodeClient(control, {'uuid':'GPU-fixture'}, {}, 'python')
+    client.ensure()
+    client.ensure()
+    assert len(launched) == 1
+
+
+def test_stop_service_rejects_unrelated_pid(tmp_path, monkeypatch):
+    from wia.runtime import resident_episode as resident
+    (tmp_path/'process.json').write_text(json.dumps({'pid':123}))
+    monkeypatch.setattr(resident, 'read_service', lambda path: None)
+    monkeypatch.setattr(resident, 'process_matches', lambda path, pid: False)
+    def forbidden(*args):
+        raise AssertionError('Unrelated processes must never be signaled')
+    monkeypatch.setattr(resident.os, 'kill', forbidden)
+    resident.stop_service(tmp_path)
+
+
+def test_owned_service_starts_and_stops_without_tmux_or_cuda(tmp_path, monkeypatch):
+    import sys
+    from wia.runtime import resident_episode as resident
+    script = tmp_path/'src/wia/runtime/commands/run_esi_episode_service.py'
+    script.parent.mkdir(parents=True)
+    script.write_text('''"""CPU service fixture. Run through ResidentEpisodeClient in pytest."""
+import argparse, json, os, time
+from pathlib import Path
+parser = argparse.ArgumentParser()
+parser.add_argument('--control-dir', type=Path)
+parser.add_argument('--task-profiles')
+args = parser.parse_args()
+(args.control_dir/'service.json').write_text(json.dumps({'pid':os.getpid(), 'state':'IDLE'}))
+while not (args.control_dir/'stop_service.json').exists():
+    time.sleep(.01)
+''')
+    monkeypatch.setattr(resident, 'WIA_RUNTIME_ROOT', tmp_path)
+    monkeypatch.setenv('WIA_RESIDENT_TASK_PROFILES', str(tmp_path/'profiles.json'))
+    processes = []
+    original = resident.subprocess.Popen
+    def popen(*args, **kwargs):
+        process = original(*args, **kwargs)
+        processes.append(process)
+        return process
+    monkeypatch.setattr(resident.subprocess, 'Popen', popen)
+    control = tmp_path/'control'
+    client = resident.ResidentEpisodeClient(control, {'uuid':'GPU-fixture'}, {}, sys.executable)
+    try:
+        client.ensure()
+        assert resident.read_service(control)['pid'] == processes[0].pid
+        resident.stop_service(control, timeout=2)
+        assert processes[0].wait(timeout=5) == 0
+        assert resident.read_service(control) is None
+    finally:
+        for process in processes:
+            if process.poll() is None:
+                process.kill()
+                process.wait()

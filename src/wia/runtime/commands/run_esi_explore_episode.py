@@ -305,7 +305,8 @@ def main(argv=None):
     if resident_control:
         gpu.update(persistent_simulator=True, resident_control_dir=resident_control)
     state_path.write_text(json.dumps(gpu, indent=2) + '\n')
-    subprocess.run(['tmux', 'new-session', '-d', '-s', 'codex-gpu'], capture_output=True)
+    if not resident_control:
+        subprocess.run(['tmux', 'new-session', '-d', '-s', 'codex-gpu'], capture_output=True)
     target = ('resident:' + resident_control if resident_control else subprocess.check_output(
         ['tmux', 'new-window', '-d', '-P', '-F', '#{session_name}:#{window_id}',
          '-t', 'codex-gpu', '-n', 'repair-' + output.name[-24:]], text=True).strip())
@@ -410,14 +411,24 @@ def main(argv=None):
         pass
     save_status("initializing")
     resident_client = None
+    from wia.runtime.lifecycle_log import emit
+    scene_started = time.monotonic()
+    lifecycle = {'task': task.definition.id if task is not None else output.name,
+                 'output_dir': str(output)}
     from wia.runtime.scene_capture_resident import RendererLogMonitor
     renderer_monitor = RendererLogMonitor(output / 'simulator.log')
     if resident_control:
-        from wia.runtime.resident_episode import ResidentEpisodeClient
+        from wia.runtime.resident_episode import ResidentEpisodeClient, read_service
         resident_client = ResidentEpisodeClient(resident_control, gpu, environment, args.python)
+        resident_client.ensure()
+        first_world = read_service(resident_control).get('completed_scenes', 0) == 0
+        scene_started = time.monotonic()
+        emit('scene_loading', **lifecycle)
         resident_client.submit(native[3:], output)
         save_status('initializing', persistent_simulator=True, resident_control_dir=resident_control)
     else:
+        emit('simulator_initializing', **lifecycle)
+        emit('scene_loading', **lifecycle)
         subprocess.run(["tmux", "send-keys", "-t", target, "-l", "source " + shlex.quote(str(output/"start.sh"))], check=True)
         subprocess.run(["tmux", "send-keys", "-t", target, "Enter"], check=True)
     recording = False
@@ -461,6 +472,10 @@ def main(argv=None):
                 pass
             time.sleep(2)
         native_ready = True
+        if resident_control and first_world:
+            emit('simulator_initialized', **lifecycle, elapsed_s=round(time.monotonic()-scene_started, 2))
+        emit('scene_ready', **lifecycle, elapsed_s=round(time.monotonic()-scene_started, 2),
+             persistent_simulator=bool(resident_control))
         if args.preview_fps > 0:
             verify_human_preview(url, output)
         if args.record:
@@ -539,6 +554,7 @@ def main(argv=None):
             current_gpu['service']['gumi']['control_owner'] = 'agent'
             state_path.write_text(json.dumps(current_gpu, indent=2) + '\n')
         save_status("agent_running")
+        emit('agent_running', **lifecycle)
         with (output/"agent.log").open("w") as stream:
             completed = subprocess.run(agent, cwd=ROOT, stdout=stream, stderr=subprocess.STDOUT)
         finished_deadline = time.monotonic()+5
@@ -557,7 +573,9 @@ def main(argv=None):
                     evaluation_validity=summary.get('evaluation_validity'),
                     completion_score=summary.get('completion_score'), score_percent=summary.get('score_percent'))
         rollout_completed = True
+        emit('agent_completed', **lifecycle, termination_reason=summary.get('termination_reason'))
     except BaseException as error:
+        emit('scene_failed', **lifecycle, error=str(error))
         save_status("interrupted" if isinstance(error, KeyboardInterrupt) else "failed", error=str(error))
         raise
     finally:
@@ -607,6 +625,7 @@ def main(argv=None):
         if gateway_log is not None:
             gateway_log.close()
         if not retained and not (output/"native_exit_code.txt").exists():
+            emit('scene_clearing', **lifecycle)
             if resident_client is not None:
                 resident_client.stop_scene()
             else:
@@ -614,6 +633,15 @@ def main(argv=None):
         deadline = time.monotonic()+120
         while not retained and not (output/"native_exit_code.txt").exists() and time.monotonic() < deadline:
             time.sleep(1)
+        if not retained and resident_client is not None:
+            from wia.runtime.resident_episode import read_service
+            while time.monotonic() < deadline:
+                service = read_service(resident_control)
+                if service is None or service.get('state') != 'SCENE_RUNNING':
+                    break
+                time.sleep(.2)
+        if not retained:
+            emit('scene_cleared' if (output/"native_exit_code.txt").exists() else 'scene_clear_timeout', **lifecycle)
         save_status("finished", simulator_retained=retained,
                     native_exit_code=(output/"native_exit_code.txt").read_text().strip()
                     if (output/"native_exit_code.txt").exists() else None)

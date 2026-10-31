@@ -7,7 +7,7 @@ name = "wia"
 version = "0.2.0"
 description = "World Interactive Agency: model-independent embodied evaluation"
 requires-python = ">=3.10"
-dependencies = ["numpy>=1.24", "PyYAML>=6", "pydantic>=2"]
+dependencies = ["numpy>=1.24", "PyYAML>=6", "pydantic>=2", "tqdm>=4.64"]
 
 [project.optional-dependencies]
 harness = ["showharness[harness]>=0.1.0"]

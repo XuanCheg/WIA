@@ -289,6 +289,12 @@ scene launch rechecks the selected device. Tasks keep their original variants, s
 limits and scoring. Existing jobs are never displaced. Auto-GPU dry runs use placeholder
 indices and do not contact a provider, inspect GPUs or start a simulator.
 
+Bench defaults to one persistent simulator process per GPU worker. Each task
+rebuilds its world, controllers, sensors and evaluator while retaining the Kit
+application. Services are closed when the suite finishes or is interrupted.
+Resident services run as worker-owned subprocesses and create no tmux sessions
+or windows. Use `--no-persistent-simulator` to select fresh simulators instead.
+
 The deep59 convenience script loads the key from `~/apikey_vercel.key` (or
 `WIA_API_KEY_FILE`) without printing it, configures the existing simulator environment,
 and runs in the current terminal. It sets `WIA_SKIP_GPU_CHECK=1`: the supervisor and
@@ -314,7 +320,13 @@ and a 384,000-token output reservation. `WIA_PYTHON`, `WIA_RUNTIME_LIBS`,
 `OMNIGIBSON_DATA_PATH`, `VK_ICD_FILENAMES` and `WIA_GPUS` override server defaults.
 Use a fresh output directory; existing results are not overwritten.
 
-The parent terminal prints a bench progress bar and aggregate input, cached, output,
+The parent terminal uses a single tqdm progress bar, refreshed every 30 seconds
+by default (`--log-interval 30`). Redirected output receives plain progress lines
+at the same interval. Simulator initialization, service readiness, scene loading
+and readiness with elapsed time, Agent start/completion, and scene clearing are
+reported immediately. These events do not add waits or pause physics. Full live
+results are saved to disk; the terminal prints their path after completion.
+The bar includes aggregate input, cached, output,
 reasoning tokens and receipt-reported USD cost. Worker logs include every successful
 API response's latency and billing receipt, including responses later rejected as
 invalid decisions. Cached input is a subset of input; reasoning is a subset of output.
@@ -322,7 +334,8 @@ Missing counts/costs remain explicitly unknown; prices are not inferred from a m
 name or a promotion. HTTP failures with no usage receipt cannot establish a final bill.
 
 Artifacts include `bench_plan.json` (GPU UUID mapping and preflight metadata),
-`worker_NN.log`, per-worker effective configs and trial results, per-episode
+`worker_NN.log`, `worker_NN_events.jsonl` (timestamped lifecycle events),
+`resident_NN/service.log`, per-worker effective configs and trial results, per-episode
 `api_usage.jsonl`, and the combined `results.json`. A worker crash creates explicit
 missing-trial failures and a nonzero exit status. No paid probe or GPU execution is
 performed by `--dry-run`.

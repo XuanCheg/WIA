@@ -13,14 +13,96 @@ import signal
 import subprocess
 import time
 import uuid
+import ast
+import runpy
+
+from .lifecycle_log import emit
+
+
+def task_profiles(plans):
+    """Resolve native profiles without importing Kit or any GPU task module."""
+    from wia.resources import ESI_ROOT
+    from wia.tasks.loader import load_task
+    registry = runpy.run_path(str(ESI_ROOT / 'src/active_explore/tasks/_registry.py'))
+    profiles = {}
+    for plan in plans:
+        spec = plan['task']
+        task = load_task(spec['path'], variant=spec['variant'], seed=spec['seed'],
+                         run_mode=plan['evaluation']['run_mode'])
+        module = registry['module_for_payload'](json.loads(task.source_path.read_text()))
+        if module is None:
+            raise ValueError(f'Cannot resolve native resident profile: {task.path}')
+        source = ESI_ROOT / 'src/active_explore' / (module.replace('.', '/') + '.py')
+        macros = {}
+        def visit(statements):
+            for node in statements:
+                if isinstance(node, ast.With):
+                    visit(node.body)
+                elif isinstance(node, ast.Assign) and isinstance(node.value, ast.Constant):
+                    for target in node.targets:
+                        if (isinstance(target, ast.Attribute) and isinstance(target.value, ast.Name)
+                                and target.value.id == 'gm' and isinstance(node.value.value, bool)):
+                            macros[target.attr] = node.value.value
+        visit(ast.parse(source.read_text()).body)
+        profiles[str(task.path)] = {'native_module': module,
+            'gpu_dynamics': macros.get('USE_GPU_DYNAMICS', False), 'macro_overrides': macros}
+    return profiles
+
+
+def process_matches(control, pid):
+    try:
+        proc = Path(f'/proc/{pid}')
+        command = (proc / 'cmdline').read_bytes().decode(errors='replace')
+        return (proc.stat().st_uid == os.getuid() and 'run_esi_episode_service.py' in command
+                and str(Path(control).resolve()) in command)
+    except FileNotFoundError:
+        return False
+
+
+def stop_service(control, timeout=30):
+    """Stop only the verified worker-owned service, including after interruption."""
+    control = Path(control)
+    service = read_service(control)
+    if service is None:
+        try:
+            service = json.loads((control / 'process.json').read_text())
+            if not process_matches(control, service['pid']):
+                return
+        except (FileNotFoundError, ValueError, KeyError):
+            return
+        # Startup has no service.json yet; terminate the verified owned child directly.
+        try:
+            os.kill(service['pid'], signal.SIGTERM)
+        except ProcessLookupError:
+            return
+    emit('simulator_stopping', pid=service['pid'])
+    (control / 'stop_service.json').write_text('{}\n')
+    if service.get('state') == 'SCENE_RUNNING':
+        client = ResidentEpisodeClient(control, {}, {}, '')
+        client.request_id = service['request_id']
+        client.stop_scene()
+    deadline = time.monotonic() + timeout
+    while process_matches(control, service['pid']) and time.monotonic() < deadline:
+        time.sleep(.2)
+    for sig in (signal.SIGTERM, signal.SIGKILL):
+        if not process_matches(control, service['pid']):
+            break
+        try:
+            os.kill(service['pid'], sig)
+        except ProcessLookupError:
+            break
+        deadline = time.monotonic() + 5
+        while process_matches(control, service['pid']) and time.monotonic() < deadline:
+            time.sleep(.2)
+    if process_matches(control, service['pid']):
+        raise RuntimeError('Owned resident simulator failed to exit.')
+    emit('simulator_stopped', pid=service['pid'])
 
 
 def read_service(control):
     try:
         value = json.loads((Path(control) / 'service.json').read_text())
-        proc = Path(f'/proc/{value["pid"]}')
-        command = (proc / 'cmdline').read_bytes().decode(errors='replace')
-        if proc.stat().st_uid != os.getuid() or 'run_esi_episode_service.py' not in command or str(Path(control)) not in command:
+        if not process_matches(control, value['pid']):
             return None
         return value
     except (FileNotFoundError, ValueError, KeyError):
@@ -50,9 +132,22 @@ class ResidentEpisodeClient:
         self.gpu, self.environment, self.python = gpu, environment, python
         self.request_id = None
 
-    def ensure(self):
-        if read_service(self.control) is not None:
+    def ensure(self, *, quiet=False):
+        service = read_service(self.control)
+        if service is not None:
+            deadline = time.monotonic() + 120
+            while service.get('state') == 'SCENE_RUNNING' and time.monotonic() < deadline:
+                time.sleep(.2)
+                service = read_service(self.control)
+                if service is None:
+                    raise RuntimeError('Resident service exited while clearing its previous scene.')
+            if service.get('state') != 'IDLE':
+                raise RuntimeError('Resident simulator is not reusable: ' + str(service))
+            if not quiet:
+                emit('simulator_reused', pid=service['pid'], completed_scenes=service.get('completed_scenes', 0))
             return
+        started = time.monotonic()
+        emit('simulator_initializing', control_dir=str(self.control))
         self.control.mkdir(parents=True, exist_ok=True)
         for name in ('requests', 'responses'):
             (self.control / name).mkdir(exist_ok=True)
@@ -60,8 +155,6 @@ class ResidentEpisodeClient:
         root = WIA_RUNTIME_ROOT
         command = [self.python, '-u', str(root / 'src/wia/runtime/commands/run_esi_episode_service.py'),
                    '--control-dir', str(self.control), '--task-profiles', os.environ['WIA_RESIDENT_TASK_PROFILES']]
-        target = subprocess.check_output(['tmux', 'new-window', '-d', '-P', '-F', '#{session_name}:#{window_id}',
-            '-t', 'codex-gpu', '-n', f'resident-episode-gpu{self.gpu["physical_index"]}'], text=True).strip()
         appdata = self.control / 'appdata'
         (appdata / 'native_tmp').mkdir(parents=True, exist_ok=True)
         env = dict(self.environment, CUDA_VISIBLE_DEVICES=self.gpu['uuid'], CUDA_DEVICE_ORDER='PCI_BUS_ID',
@@ -72,17 +165,28 @@ class ResidentEpisodeClient:
         script.write_text(''.join(f'export {key}={shlex.quote(value)}\n' for key, value in env.items()) +
             f'export OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2\ncd {shlex.quote(str(root))}\n' +
             shlex.join(command) + f' >{shlex.quote(str(self.control / "service.log"))} 2>&1\n')
-        (self.control / 'tmux_target.txt').write_text(target + '\n')
-        subprocess.run(['tmux', 'send-keys', '-t', target, '-l', 'source ' + shlex.quote(str(script))], check=True)
-        subprocess.run(['tmux', 'send-keys', '-t', target, 'Enter'], check=True)
+        with (self.control / 'service.log').open('a') as log:
+            process = subprocess.Popen(command, cwd=root, env={**os.environ, **env,
+                'OMP_NUM_THREADS': '2', 'OPENBLAS_NUM_THREADS': '2', 'MKL_NUM_THREADS': '2'},
+                stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
+        (self.control / 'process.json').write_text(json.dumps({'pid': process.pid}) + '\n')
         deadline = time.monotonic() + 120
         while read_service(self.control) is None:
+            if process.poll() is not None:
+                raise RuntimeError('Resident episode service exited during startup; inspect service.log.')
             if time.monotonic() >= deadline:
+                process.terminate()
+                try:
+                    process.wait(timeout=10)
+                except subprocess.TimeoutExpired:
+                    process.kill()
+                    process.wait()
                 raise RuntimeError('Resident episode service did not become ready; inspect service.log.')
             time.sleep(.5)
+        emit('simulator_service_ready', pid=process.pid, elapsed_s=round(time.monotonic()-started, 2))
 
     def submit(self, native_argv, output):
-        self.ensure()
+        self.ensure(quiet=True)
         self.request_id = uuid.uuid4().hex
         path = self.control / 'requests' / (self.request_id + '.json')
         temporary = path.with_suffix('.tmp')
@@ -97,7 +201,7 @@ class ResidentEpisodeClient:
 
     def stop_scene(self):
         path = self.control / 'stop_scene.json'
-        temporary = path.with_suffix('.tmp')
+        temporary = path.with_suffix('.' + uuid.uuid4().hex + '.tmp')
         temporary.write_text(json.dumps({'request_id': self.request_id}) + '\n')
         temporary.replace(path)
 

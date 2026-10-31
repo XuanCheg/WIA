@@ -19,6 +19,10 @@ def main(argv=None):
     bench.add_argument('--port-base', type=int, default=8800)
     bench.add_argument('--output')
     bench.add_argument('--dry-run', action='store_true')
+    bench.add_argument('--log-interval', type=float, default=30,
+                       help='Progress refresh interval in seconds (default: 30). Lifecycle events are immediate.')
+    bench.add_argument('--persistent-simulator', action=argparse.BooleanOptionalAction, default=True,
+                       help='Keep one simulator per worker across tasks (default: enabled).')
     for command_parser in (evaluation, debug, bench):
         command_parser.add_argument('--max-steps', type=int, default=-1 if command_parser is bench else None,
             help='-1 uses each task budget; a positive value overrides all selected tasks (bench default: -1).')
@@ -49,10 +53,14 @@ def main(argv=None):
                     prepared['output_dir'] = str(Path(args.output).expanduser().resolve())
                 gpus = None if args.gpus == 'auto' else [int(x) for x in args.gpus.split(',')]
                 result = launch(prepared, gpus=gpus, worker_count=args.workers,
-                                port_base=args.port_base, dry_run=args.dry_run)
+                                port_base=args.port_base, dry_run=args.dry_run,
+                                log_interval=args.log_interval, persistent_simulator=args.persistent_simulator)
             else:
                 result = prepared if args.dry_run else run(prepared)
-            print(json.dumps(result, indent=2, allow_nan=False))
+            if args.command == 'bench' and not args.dry_run:
+                print(f'Bench finished: {len(result["trials"])} trials; results: {Path(prepared["output_dir"]) / "results.json"}')
+            else:
+                print(json.dumps(result, indent=2, allow_nan=False))
             if not args.dry_run and any(result.get('worker_exit_codes', [])):
                 return 1
             if not args.dry_run and any(item["status"] not in ("completed_success", "completed_unsuccessful") for item in result["trials"]):

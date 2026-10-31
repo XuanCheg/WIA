@@ -10,6 +10,7 @@ import socket
 import subprocess
 import sys
 import time
+import math
 from urllib.request import urlopen
 
 from .runner import run
@@ -125,13 +126,17 @@ def snapshot(output, workers):
     return trials, totals(records)
 
 
-def launch(prepared, *, gpus=None, worker_count=4, port_base=8800, dry_run=False):
+def launch(prepared, *, gpus=None, worker_count=4, port_base=8800, dry_run=False,
+           log_interval=30, persistent_simulator=True):
     skip_gpu_check = os.environ.get('WIA_SKIP_GPU_CHECK') == '1'
     if worker_count < 1:
         raise ValueError('Worker count must be positive.')
+    if not math.isfinite(log_interval) or log_interval <= 0:
+        raise ValueError('Log interval must be finite and positive.')
     if dry_run:
         workers = shards(prepared, gpus if gpus is not None else list(range(worker_count)), port_base)
         return {'schema': 'wia_bench_plan_v1', 'workers': workers,
+                'persistent_simulator': persistent_simulator, 'log_interval_s': log_interval,
                 'gpu_idle_check': not skip_gpu_check,
                 'note': ('Dry run only; auto GPU indices are placeholders. Device identities resolve at execution; GPU occupancy checks are disabled.'
                          if skip_gpu_check else 'Dry run only; auto GPU indices are placeholders. Live checks occur before execution.')}
@@ -170,9 +175,16 @@ def launch(prepared, *, gpus=None, worker_count=4, port_base=8800, dry_run=False
           file=sys.stderr, flush=True)
     output.mkdir(parents=True, exist_ok=False)
     (output/'bench_plan.json').write_text(json.dumps({'workers': workers, 'devices': selected,
+        'persistent_simulator': persistent_simulator, 'log_interval_s': log_interval,
         'gpu_idle_check': not skip_gpu_check,
         'model_preflight': list(receipts.values())}, indent=2) + '\n')
     processes, logs = [], []
+    from tqdm import tqdm
+    from wia.runtime.lifecycle_log import read_events, format_event
+    terminal = sys.stderr.isatty()
+    bar = tqdm(total=len(prepared['plans']), desc='bench', unit='task', dynamic_ncols=True,
+               mininterval=log_interval, disable=not terminal)
+    offsets = {}
     started = time.monotonic()
     try:
         for index, worker in enumerate(workers):
@@ -187,25 +199,52 @@ def launch(prepared, *, gpus=None, worker_count=4, port_base=8800, dry_run=False
             log = (output/f'worker_{index:02d}.log').open('w')
             logs.append(log)
             env = {**os.environ, 'PYTHONUNBUFFERED': '1', 'CUDA_VISIBLE_DEVICES': device['uuid'],
+                   'WIA_BENCH_EVENTS': str((output/f'worker_{index:02d}_events.jsonl').resolve()),
+                   'WIA_BENCH_GPU': str(gpu),
                    'OMP_NUM_THREADS': '2', 'MKL_NUM_THREADS': '2', 'OPENBLAS_NUM_THREADS': '2'}
+            # A run owns its services; never inherit an unrelated resident owner.
+            env.pop('WIA_RESIDENT_CONTROL_DIR', None)
+            env.pop('WIA_RESIDENT_TASK_PROFILES', None)
+            if persistent_simulator:
+                env['WIA_RESIDENT_CONTROL_DIR'] = str((output/f'resident_{index:02d}').resolve())
+                env['WIA_RESIDENT_TASK_PROFILES'] = str((output/f'resident_{index:02d}_profiles.json').resolve())
             process = subprocess.Popen([sys.executable, '-m', 'wia.evaluation.bench', '--worker', str(path)],
                 stdout=log, stderr=subprocess.STDOUT, env=env, start_new_session=True)
             processes.append(process)
             print(f"[bench] worker={index} pid={process.pid} physical_gpu={gpu} uuid={device['uuid']} "
                   f"log={log.name}", file=sys.stderr, flush=True)
+        last_refresh = -math.inf
         while True:
-            trials, accounting = snapshot(output, workers)
             active = sum(p.poll() is None for p in processes)
-            print(progress(len(trials), len(prepared['plans']), active, accounting), file=sys.stderr, flush=True)
+            for index in range(len(workers)):
+                path = output/f'worker_{index:02d}_events.jsonl'
+                events, offsets[index] = read_events(path, offsets.get(index, 0))
+                for event in events:
+                    tqdm.write(format_event(event), file=sys.stderr)
+            now = time.monotonic()
+            if now - last_refresh >= log_interval or not active:
+                trials, accounting = snapshot(output, workers)
+                if terminal:
+                    bar.n = len(trials)
+                    bar.set_postfix_str(f'active={active} ' + format_totals(accounting), refresh=False)
+                    bar.refresh()
+                else:
+                    print(progress(len(trials), len(prepared['plans']), active, accounting), file=sys.stderr, flush=True)
+                last_refresh = now
             if not active:
                 break
-            time.sleep(5)
+            time.sleep(1)
     except BaseException:
         for process in processes:
             if process.poll() is None:
                 os.killpg(process.pid, signal.SIGINT)
         raise
     finally:
+        if persistent_simulator:
+            from wia.runtime.resident_episode import stop_service
+            for index in range(len(workers)):
+                stop_service(output/f'resident_{index:02d}')
+        bar.close()
         for log in logs:
             log.close()
     completed = {t['index'] for t in trials}
@@ -225,7 +264,18 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--worker', required=True)
     args = parser.parse_args()
-    result = run(json.loads(Path(args.worker).read_text()))
+    prepared = json.loads(Path(args.worker).read_text())
+    control = os.environ.get('WIA_RESIDENT_CONTROL_DIR')
+    try:
+        if control:
+            from wia.runtime.resident_episode import task_profiles
+            Path(os.environ['WIA_RESIDENT_TASK_PROFILES']).write_text(
+                json.dumps(task_profiles(prepared['plans']), indent=2) + '\n')
+        result = run(prepared)
+    finally:
+        if control:
+            from wia.runtime.resident_episode import stop_service
+            stop_service(control)
     return int(any(t['status'] not in ('completed_success', 'completed_unsuccessful') for t in result['trials']))
 
 

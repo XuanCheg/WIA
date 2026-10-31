@@ -51,7 +51,9 @@ def main():
         for module in sorted({row['native_module'] for row in profiles.values()}):
             importlib.import_module(module)
     def reset_macros(profile):
-        values = dict(defaults, USE_GPU_DYNAMICS=profile['gpu_dynamics'])
+        values = dict(defaults, USE_GPU_DYNAMICS=profile['gpu_dynamics'],
+                      **{key: value for key, value in profile.get('macro_overrides', {}).items()
+                         if key != 'USE_GPU_DYNAMICS'})
         changed = any(bool(getattr(gm, key)) != value for key, value in values.items())
         with gm.unlocked():
             for key, value in values.items():
