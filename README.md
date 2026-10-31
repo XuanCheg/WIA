@@ -291,7 +291,7 @@ indices and do not contact a provider, inspect GPUs or start a simulator.
 
 The deep59 convenience script loads the key from `~/apikey_vercel.key` (or
 `WIA_API_KEY_FILE`) without printing it, configures the existing simulator environment,
-and starts a persistent `codex-gpu:bench-deepseek-*` tmux terminal:
+and runs in the current terminal. Create or attach your own tmux session before invoking it:
 
 ```bash
 bash scripts/bench_deepseek_4gpu.sh --dry-run
@@ -300,7 +300,7 @@ bash scripts/bench_deepseek_4gpu.sh
 bash scripts/bench_deepseek_4gpu.sh --gpus 0,1,2,3
 ```
 
-Defaults are all 60 tasks in the release catalogue, seed 0, 64 decisions, diagnostic
+Defaults are all 60 tasks in the release catalogue, seed 0, per-task decision caps, diagnostic
 batch execution, no recording, current sensors with the previous result and notes,
 exact `deepseek/deepseek-v4.1-flash-1017`, official DeepSeek only, automatic caching,
 and user-approved `low` reasoning for this debug bench (the model does not declare medium),
