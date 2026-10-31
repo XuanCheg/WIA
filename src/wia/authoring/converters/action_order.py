@@ -43,6 +43,7 @@ MECHANISM_CONTRACT = {'goal': 'execute_supplied_support_order', 'preserve': ['or
 RULE_REVISION = 'measured_independent_candidate_supports_v3'
 INITIALIZATION = 'measured_rigid_row_startup_v2'
 SUPPORT_TRANSFER_REVISION = 'support_transfer_v1'
+FINAL_STATE_REVISION = 'final_state_v1'
 
 
 def _public_roles(question):
@@ -601,14 +602,15 @@ def _validate_operation(session, config, bound=None):
             set(config['binding_keys']) != set(keys) or len(set(keys)) != len(keys)):
         raise ValueError('Bind every original candidate without selecting a private answer.')
     manipulation_revision = p.get('manipulation_revision')
-    if manipulation_revision not in (None, SUPPORT_TRANSFER_REVISION):
+    if manipulation_revision not in (None, SUPPORT_TRANSFER_REVISION, FINAL_STATE_REVISION):
         raise ValueError('Unsupported ordered-stack manipulation revision.')
     support_transfer = manipulation_revision == SUPPORT_TRANSFER_REVISION
-    if support_transfer and ('minimum_lift_m' not in p or p['minimum_lift_m'] is not None):
-        raise ValueError('Support transfer requires an explicit null minimum_lift_m.')
+    no_lift_threshold = support_transfer or manipulation_revision == FINAL_STATE_REVISION
+    if no_lift_threshold and ('minimum_lift_m' not in p or p['minimum_lift_m'] is not None):
+        raise ValueError('Support transfer and final state require an explicit null minimum_lift_m.')
     # These are declared task thresholds, not native feasibility measurements.
     if any(p.get(key) != value for key, value in {
-            'minimum_lift_m': None if support_transfer else 0.05, 'minimum_stability_duration_s': 0.5,
+            'minimum_lift_m': None if no_lift_threshold else 0.05, 'minimum_stability_duration_s': 0.5,
             'maximum_linear_speed_m_s': 0.02, 'maximum_angular_speed_rad_s': 0.1}.items()):
         raise ValueError('Unsupported ordered-stack threshold revision.')
     names = config['bindings']
@@ -820,6 +822,18 @@ class OrderedStackEvaluator:
             and history['release_step'] > history['separation_step'] >= history['acquired_step'])
 
     def _final_pair(self, measured):
+        if self.parameters.get('manipulation_revision') == FINAL_STATE_REVISION:
+            for base in self.parameters['base_keys']:
+                if not self._base_structural(measured, base):
+                    continue
+                if not self.parameters['top_keys']:
+                    if self._stable_clear(measured, ['middle', base]):
+                        return base, None
+                for top in self.parameters['top_keys']:
+                    if (_only_stack_support(measured, top, 'middle') and
+                            self._stable_clear(measured, ['middle', base, top])):
+                        return base, top
+            return None
         if self.middle_placement is None or not self._manipulation_released('middle'):
             return None
         base = self.middle_placement['base']
@@ -861,6 +875,12 @@ class OrderedStackEvaluator:
         self.sample_count += 1
         measured = self._read()
         if measured is None or self.measurement_error or not self.initial_eligible:
+            return
+        if self.parameters.get('manipulation_revision') == FINAL_STATE_REVISION:
+            pair = self._final_pair(measured)
+            if pair is None or pair != self.final_pair:
+                self.final_since = self.sample_count if pair else None
+            self.final_pair = pair
             return
         self._invalidate_credits(measured)
         acquired = measured['acquired_key']
@@ -919,7 +939,8 @@ class OrderedStackEvaluator:
         if not self.active:
             return None
         measured = self._read()
-        if measured is not None:
+        final_state = self.parameters.get('manipulation_revision') == FINAL_STATE_REVISION
+        if measured is not None and not final_state:
             self._invalidate_credits(measured)
         pair = self._final_pair(measured) if measured is not None else None
         if pair != self.final_pair or pair is None:
@@ -928,13 +949,14 @@ class OrderedStackEvaluator:
         support_transfer = self.parameters.get('manipulation_revision') == SUPPORT_TRANSFER_REVISION
         manipulation_check = 'middle_grasp_support_transfer_release' if support_transfer else 'middle_grasp_lift_release'
         checks = {'initial_incomplete_supported_scene': self.initial_eligible,
-            'native_measurement_available': self.measurement_error is None,
-            manipulation_check: self._manipulation_released('middle'),
-            'ordered_middle_placement': self.middle_placement is not None,
-            'selected_native_support_order': pair is not None,
+            'native_measurement_available': self.measurement_error is None}
+        if not final_state:
+            checks.update({manipulation_check: self._manipulation_released('middle'),
+                'ordered_middle_placement': self.middle_placement is not None})
+        checks.update({'selected_native_support_order': pair is not None,
             'released_and_stable_duration': self.final_since is not None and
-                self._elapsed(self.final_since) + 1e-12 >= self.parameters['minimum_stability_duration_s']}
-        if self.parameters['top_keys']:
+                self._elapsed(self.final_since) + 1e-12 >= self.parameters['minimum_stability_duration_s']})
+        if self.parameters['top_keys'] and not final_state:
             checks['top_grasp_after_middle_placement'] = bool(pair and pair[1] and
                 self.histories[pair[1]]['acquired_step'] > self.middle_placement['step'])
         value = {'schema': 'private_ordered_stack_support_transfer_v1' if support_transfer else
@@ -964,6 +986,16 @@ class OrderedStackEvaluator:
         if support_transfer:
             value.update(manipulation_revision=SUPPORT_TRANSFER_REVISION,
                 manipulation_check='native_acquired_support_separation_then_release')
+        if final_state:
+            for key in ('histories', 'middle_placement', 'events'):
+                value.pop(key)
+            value.update(schema='private_ordered_stack_final_state_v1',
+                task_revision=self.parameters.get('task_revision', FINAL_STATE_REVISION),
+                manipulation_revision=FINAL_STATE_REVISION, measured_capability='released_final_support_order',
+                manipulation_check='native_final_support_order_without_manipulation_history',
+                completion_items=[{'id': 'released_final_stack', 'kind': 'terminal_condition',
+                    'completed': value['task_success'],
+                    'evaluation_validity': 'valid' if available else 'unavailable'}])
         from wia.tasks.completion import progress
         value.update(progress(value))
         (self.output / 'state.json').write_text(json.dumps(value, indent=2, allow_nan=False) + '\n')

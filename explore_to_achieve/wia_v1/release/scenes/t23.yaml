@@ -141,7 +141,7 @@ scene:
         name: multi_extra1
         category: spray_can
         model: tehmzy
-        position: &id001
+        position:
         - 1.2841908931732178
         - -3.61431884765625
         - 0.7129917740821838
@@ -149,7 +149,7 @@ scene:
         - 2.377927188609682
         - 3.9291335261541596
         - 0.8267473512744551
-        quaternion_xyzw: &id002
+        quaternion_xyzw:
         - -0.00023748460807837546
         - 0.0002709553809836507
         - -5.457750376081094e-07
@@ -159,7 +159,7 @@ scene:
         name: multi_extra2
         category: colored_pencil
         model: zisrpq
-        position: &id003
+        position:
         - 1.509343147277832
         - -3.8347322940826416
         - 0.5636064410209656
@@ -167,7 +167,7 @@ scene:
         - 0.6264114665310713
         - 20.477167312575247
         - 25.935455051409946
-        quaternion_xyzw: &id004
+        quaternion_xyzw:
         - 0.04827207326889038
         - 0.06616578996181488
         - 0.0006534624844789505
@@ -175,16 +175,30 @@ scene:
       - operation: object_pose
         phase: after_postprocessing
         binding: extra1
-        position: *id001
-        quaternion_xyzw: *id002
+        position:
+        - 1.2841908931732178
+        - -3.61431884765625
+        - 0.7129917740821838
+        quaternion_xyzw:
+        - -0.00023748460807837546
+        - 0.0002709553809836507
+        - -5.457750376081094e-07
+        - 0.9999999403953552
         jitter_xy_m:
         - 0.0
         - 0.0
       - operation: object_pose
         phase: after_postprocessing
         binding: extra2
-        position: *id003
-        quaternion_xyzw: *id004
+        position:
+        - 1.509343147277832
+        - -3.8347322940826416
+        - 0.5636064410209656
+        quaternion_xyzw:
+        - 0.04827207326889038
+        - 0.06616578996181488
+        - 0.0006534624844789505
+        - 0.9966400861740112
         jitter_xy_m:
         - 0.0
         - 0.0

@@ -1,0 +1,609 @@
+kind: category_robot_task
+id: task_417c33b7f9da9058fd795848__t28_furnished_tray_v3
+version: 4
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/Beechwood_0_garden/kitchen_0/wia_furnished_background_v1.json
+public:
+  objective: Find the jar of sugar, thyme shaker, vinegar bottle on open furniture surfaces. Bring them
+    to the blue-grey tray on the counter. Arrange their centers into isosceles.
+  success_criteria: Leave every original target fully inside the usable tray deck, in the requested relation,
+    with actual nonpenetrating deck support. Leave hands empty, open and clear and the objects stable
+    for at least 0.5 seconds. No minimum lift height, travel distance or prior grasp is required.
+  environment: A furnished kitchen. Target objects are on exposed surfaces and are not deliberately hidden.
+  constraints:
+  - Use lawful robot controls and mounted observations.
+  - Keep the tray and its supporting furniture fixed.
+  - The tray is a fixed destination on furniture, not a hand-held collection tray.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    vertex_1:
+      name: obj1
+      category: jar_of_sugar
+      model: vrmrci
+    initial_support_0:
+      name: countertop_tpuwys_0
+    vertex_2:
+      name: obj2
+      category: thyme_shaker
+      model: kuuwti
+    initial_support_1:
+      name: countertop_tpuwys_0
+    vertex_3:
+      name: obj3
+      category: vinegar_bottle
+      model: ykysuc
+    initial_support_2:
+      name: countertop_tpuwys_2
+    deck:
+      name: wia_tray_deck
+    rim_w:
+      name: wia_tray_rim_w
+    rim_e:
+      name: wia_tray_rim_e
+    rim_s:
+      name: wia_tray_rim_s
+    rim_n:
+      name: wia_tray_rim_n
+    tray_table:
+      name: countertop_tpuwys_1
+  evaluation:
+    type: category_operation
+    module: wia.authoring.converters.wia_spatial_tray
+    operation: retrieve_arrange_in_tray
+    binding_keys:
+    - vertex_1
+    - initial_support_0
+    - vertex_2
+    - initial_support_1
+    - vertex_3
+    - initial_support_2
+    - deck
+    - rim_w
+    - rim_e
+    - rim_s
+    - rim_n
+    - tray_table
+    parameters:
+      revision: wia_spatial_tray_v1
+      scene_contract:
+        scene_model: Beechwood_0_garden
+        room: kitchen_0
+      targets:
+        vertex_1: obj1
+        vertex_2: obj2
+        vertex_3: obj3
+      initial_supports:
+        vertex_1: initial_support_0
+        vertex_2: initial_support_1
+        vertex_3: initial_support_2
+      tray:
+        deck_key: deck
+        table_support_key: tray_table
+        rim_keys:
+        - rim_w
+        - rim_e
+        - rim_s
+        - rim_n
+        mounting_mode: fixed_fixture_on_native_table
+        usable_world_xy_m:
+        - - -3.9499999999999997
+          - 12.97
+        - - -3.5100000000000002
+          - 14.13
+        deck_top_world_z_m: 0.8896108667276748
+      goal_relation:
+        kind: shape
+        shape: isosceles
+      scoring:
+        minimum_lift_m: null
+        minimum_displacement_m: null
+        stability_duration_s: 0.5
+        maximum_linear_speed_m_s: 0.02
+        maximum_angular_speed_rad_s: 0.1
+        max_sample_gap_s: 0.1
+        fixture_position_tolerance_m: 0.002
+        fixture_angle_tolerance_rad: 0.01
+        deck_height_tolerance_m: 0.015
+        maximum_bottom_gap_m: 0.015
+        penetration_tolerance_m: 0.001
+        minimum_separation_m: 0.05
+        manipulation_revision: final_state_v1
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.wia_spatial_tray
+        parameters:
+          revision: wia_spatial_tray_v1
+          scene_contract:
+            scene_model: Beechwood_0_garden
+            room: kitchen_0
+          layout:
+            shared_layout_id: wia_furnished_T28_v3
+            scene_model: Beechwood_0_garden
+            rooms:
+            - kitchen_0
+            floor_name: floors_yrwwan_0
+            objects:
+            - type: DatasetObject
+              name: obj1
+              category: jar_of_sugar
+              model: vrmrci
+              position:
+              - -0.95
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - -7.206806913018227e-06
+              - -0.0003121694317087531
+              - 0.6686335206031799
+              - 0.7435922026634216
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj2
+              category: thyme_shaker
+              model: kuuwti
+              position:
+              - -0.25
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - -0.0009973074775189161
+              - -0.00036772838211618364
+              - -0.7033123970031738
+              - 0.7108803391456604
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj3
+              category: vinegar_bottle
+              model: ykysuc
+              position:
+              - -2.2
+              - 11.96
+              - 1.1696108667276748
+              orientation:
+              - -9.745126590132713e-07
+              - -7.552007446065545e-07
+              - 0.9295969605445862
+              - 0.3685777485370636
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_deck
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 1.2
+              - 0.02
+              position:
+              - -3.73
+              - 13.55
+              - 0.8796108667276747
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_w
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.2
+              - 0.036
+              position:
+              - -3.9619999999999997
+              - 13.55
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_e
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.2
+              - 0.036
+              position:
+              - -3.498
+              - 13.55
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_s
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 0.016
+              - 0.036
+              position:
+              - -3.73
+              - 12.958
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_n
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 0.016
+              - 0.036
+              position:
+              - -3.73
+              - 14.142000000000001
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            supported_items:
+            - name: obj1
+              support: countertop_tpuwys_0
+            - name: obj2
+              support: countertop_tpuwys_0
+            - name: obj3
+              support: countertop_tpuwys_2
+            robot_start:
+              position:
+              - -1.6
+              - 14.98
+              - 0.02
+              orientation:
+              - 0
+              - 0
+              - -0.7071067811865475
+              - 0.7071067811865476
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.wia_spatial_tray
+        parameters:
+          revision: wia_spatial_tray_v1
+          scene_contract:
+            scene_model: Beechwood_0_garden
+            room: kitchen_0
+          layout:
+            shared_layout_id: wia_furnished_T28_v3
+            scene_model: Beechwood_0_garden
+            rooms:
+            - kitchen_0
+            floor_name: floors_yrwwan_0
+            objects:
+            - type: DatasetObject
+              name: obj1
+              category: jar_of_sugar
+              model: vrmrci
+              position:
+              - -0.95
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - -7.206806913018227e-06
+              - -0.0003121694317087531
+              - 0.6686335206031799
+              - 0.7435922026634216
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj2
+              category: thyme_shaker
+              model: kuuwti
+              position:
+              - -0.25
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - -0.0009973074775189161
+              - -0.00036772838211618364
+              - -0.7033123970031738
+              - 0.7108803391456604
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj3
+              category: vinegar_bottle
+              model: ykysuc
+              position:
+              - -2.2
+              - 11.96
+              - 1.1696108667276748
+              orientation:
+              - -9.745126590132713e-07
+              - -7.552007446065545e-07
+              - 0.9295969605445862
+              - 0.3685777485370636
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_deck
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 1.2
+              - 0.02
+              position:
+              - -3.73
+              - 13.55
+              - 0.8796108667276747
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_w
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.2
+              - 0.036
+              position:
+              - -3.9619999999999997
+              - 13.55
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_e
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.2
+              - 0.036
+              position:
+              - -3.498
+              - 13.55
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_s
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 0.016
+              - 0.036
+              position:
+              - -3.73
+              - 12.958
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_n
+              category: tray
+              size: 1.0
+              scale:
+              - 0.48
+              - 0.016
+              - 0.036
+              position:
+              - -3.73
+              - 14.142000000000001
+              - 0.9076108667276748
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            supported_items:
+            - name: obj1
+              support: countertop_tpuwys_0
+            - name: obj2
+              support: countertop_tpuwys_0
+            - name: obj3
+              support: countertop_tpuwys_2
+            robot_start:
+              position:
+              - -1.6
+              - 14.98
+              - 0.02
+              orientation:
+              - 0
+              - 0
+              - -0.7071067811865475
+              - 0.7071067811865476
+qualification:
+  on_failure: skip
+  target_movable_collidable: true
+  support: null
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  design_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/furnished_v1/spatial_design_v3.json
+  design_sha256: 50672d709152b3d9442c2190ac208b2f7fcffebcb469ac0acb1322d32849b59c
+  parent_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/tasks/Spatial
+    Relations/Geometric Configuration/Beechwood_0_garden/kitchen_0/corev2__category_1bb95023d01fbe5c29601ab3.yaml
+  parent_task_sha256: 001e5b22eac23cd6307ef4fe835d685417178eb2db59e23efb92955835ea38f5
+  parent_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/scenes/Spatial
+    Relations/Geometric Configuration/Beechwood_0_garden/kitchen_0/corev2__category_1bb95023d01fbe5c29601ab3.yaml
+  parent_scene_sha256: 03bf57ceaa46c13011ad1c1f79d2334985af6e5a16627957dfef3196725800de
+  source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/sources/json_clean/Specular
+    Reflection/Correspondence/Beechwood_0_garden/kitchen_0/wia_furnished_background_v1.json
+  source_sha256: 7b678c6e7d95d98df3657e4235c2682f4ce88590aeb458987e691e42aa4877c4
+  contract_revision: wia_spatial_tray_v1
+  document_alias: T28
+  variant_id: t28_furnished_tray_v3
+  label: T28 open-surface retrieval and tray arrangement v3 (native-reviewed support revision)
+  scene_contract:
+    scene_model: Beechwood_0_garden
+    room: kitchen_0
+  runtime:
+    reflection_sensor_profile: {}
+    requires_native_visual_discovery: false
+    post_controller_settle_steps: 0
+    trunk_config: configs/esi_trunk.json
+    robot_camera_config: configs/esi_robot_cameras.json
+    viewer_config: configs/esi_viewer.json
+    camera_size:
+    - 512
+    - 512
+    viewer_main_view: global_diagonal
+    debug_cameras: true
+    human_depth_visualizations: true
+    preview_fps: 2.0
+  native_validation_run: false
+  native_visibility_verified: false
+  manipulation_verified: false
+  full_reference_execution: deferred_until_user_review
+  final_state_revision:
+    revision: final_state_v1
+    date: '2026-10-30'
+    parent_task_sha256: 1556db59011fd336a6940ab01ca6fc350a0d1262a3fe6fbeb68f824e42f9af6f
+    parent_scene_sha256: 414bad9a64a79e5255a18a14640f561b2b9bb72ab7be77b7352a76dc584d792d
+    parent_source_task_file: explore_to_achieve/wia_v1/furnished_v1/spatial_v3/tasks/t28__t28_furnished_tray_v3.yaml
+    parent_source_scene_file: explore_to_achieve/wia_v1/furnished_v1/spatial_v3/scenes/t28__t28_furnished_tray_v3.yaml
+    scene_geometry_changed: false
+    native_execution_verified: false
+    scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.

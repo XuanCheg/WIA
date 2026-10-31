@@ -333,9 +333,20 @@ def _merge_supplements(updates, supplements, identities, root):
     return merged, paths
 
 
+def validate_excluded_aliases(value, known_aliases):
+    """Validate explicit temporary visibility exclusions without altering evidence."""
+    if not isinstance(value, list) or any(not isinstance(alias, str) for alias in value):
+        raise ValueError('temporarily_excluded_aliases must be a list of strings.')
+    if len(value) != len(set(value)):
+        raise ValueError('temporarily_excluded_aliases must not contain duplicate aliases.')
+    if unknown := set(value) - set(known_aliases):
+        raise ValueError('Temporary exclusions name unknown document aliases: ' + ', '.join(sorted(unknown)))
+    return list(value)
+
+
 def build_snapshot(registry=DEFAULT_REGISTRY, evidence=DEFAULT_EVIDENCE, *, supplements=(),
                    project_root=ROOT, generated_at=None):
-    """Read only declared files and return all proposals plus explicit extra rows."""
+    """Validate all declared evidence, then return the nonexcluded review rows."""
     root = Path(project_root).resolve()
     registry_path, evidence_path = _safe_path(registry, root), _safe_path(evidence, root)
     registry_data = json.loads(registry_path.read_text(encoding='utf-8'))
@@ -364,23 +375,34 @@ def build_snapshot(registry=DEFAULT_REGISTRY, evidence=DEFAULT_EVIDENCE, *, supp
     for row in rows:
         if len({variant['id'] for variant in row['variants']}) != len(row['variants']):
             raise ValueError(f'Variant ids must be unique within row {row["id"]}.')
+    excluded_aliases = validate_excluded_aliases(evidence_data.get('temporarily_excluded_aliases', []),
+                                                (row['document_alias'] for row in rows))
+    excluded = set(excluded_aliases)
+    rows = [row for row in rows if row['document_alias'] not in excluded]
+    active_sources = [row for row in rows if row['proposal_membership']]
+    active_extras = [row for row in rows if not row['proposal_membership']]
     snapshot = {
         'schema': SCHEMA,
         'generated_at': generated_at or datetime.now(timezone.utc).isoformat(),
         'title': evidence_data.get('title', 'World Interactive Agency Review'),
         'summary': {
-            'proposal_count': len(source_rows), 'row_count': len(rows), 'extra_row_count': len(extras),
+            'proposal_count': len(active_sources), 'row_count': len(rows), 'extra_row_count': len(active_extras),
             'authored_variant_count': sum(variant['id'] not in RESERVED_VARIANTS
                                           for row in rows for variant in row['variants']),
             'rows_with_images_count': sum(any(variant['images'] for variant in row['variants']) for row in rows),
             'reference_success_row_count': sum(row['status'] == 'reference_verified' for row in rows),
             'unbuilt_row_count': sum(row['implementation_state'] == 'unbuilt' for row in rows),
-            'registry_unbuilt_row_count': sum(row.get('implementation_state') == 'unbuilt' for row in source_rows),
-            'family_counts': dict(sorted(Counter(row.get('primary_family') for row in source_rows).items())),
-            'extra_family_counts': dict(sorted(Counter(row.get('primary_family') for row in extras).items())),
+            'registry_unbuilt_row_count': sum(row['registry_implementation_state'] == 'unbuilt' for row in active_sources),
+            'family_counts': dict(sorted(Counter(row.get('primary_family') for row in active_sources).items(),
+                                         key=lambda item: (item[0] is not None, item[0] or ''))),
+            'extra_family_counts': dict(sorted(Counter(row.get('primary_family') for row in active_extras).items(),
+                                               key=lambda item: (item[0] is not None, item[0] or ''))),
+            'active_family_counts': dict(sorted(Counter(row.get('primary_family') for row in rows).items(),
+                                                key=lambda item: (item[0] is not None, item[0] or ''))),
         },
         'rows': rows,
         'provenance': {'registry': _portable(registry_path, root), 'curation': _portable(evidence_path, root),
+                       'temporarily_excluded_aliases': excluded_aliases,
                        'status_source': 'Explicit human curation; defaults describe definitions only.',
                        'native_results_interpreted': False, 'images_are_success_evidence': False,
                        'native_experiments_run': False, 'final_release_selected': False},

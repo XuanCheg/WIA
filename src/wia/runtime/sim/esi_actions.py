@@ -93,14 +93,6 @@ def create_r1_executor(controller) -> ActionExecutor:
             from wia.tasks.temporal_policy import survey_action_allowed
             if not survey_action_allowed(action):
                 raise ValueError('Phase 1 forbids object interaction.')
-            state = controller.debug_gripper_state()
-            if state.get('holding') or state.get('constraint_active'):
-                raise ValueError('Phase 1 requires empty arms.')
-            if controller.capabilities.right_gripper:
-                with controller._select_arm("right"):
-                    right = controller.debug_gripper_state()
-                if right.get("holding") or right.get("constraint_active"):
-                    raise ValueError("Phase 1 requires empty arms.")
     def execute(action, **kwargs):
         guard(action)
         public_action_begin(controller, action)

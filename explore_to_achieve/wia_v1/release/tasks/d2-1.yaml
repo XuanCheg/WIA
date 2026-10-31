@@ -1,26 +1,22 @@
 kind: category_robot_task
 id: wia_dimensional_d2_1_v2
-version: 4
+version: 5
 status: pending
 source:
   provider: esi
   json: Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json
 public:
-  objective: Sort all three grey blocks by their longest physical edge, irrespective of their
-    current orientation. Place the shortest on blue, the middle one on yellow, and the longest
-    on purple. Grasp, lift, release and withdraw for every block.
-  success_criteria: Use a real robot grasp to lift each required block at least 5 cm. Finish
-    with every required block supported on its assigned pad, released without robot contact,
-    and stable for at least 0.5 seconds with linear speed at most 0.02 m/s and angular speed
-    at most 0.1 rad/s. Leave the working hand empty and open, withdraw all robot hands from
-    the placed blocks, and declare DONE.
-  environment: The shared hall workstation with grey blocks and blue, yellow, purple and cyan
-    pads.
+  objective: Sort all three grey blocks by their longest physical edge, irrespective of their current
+    orientation. Place the shortest on blue, the middle one on yellow, and the longest on purple.
+  success_criteria: Finish with every required block supported on its assigned pad, released without robot
+    contact, and stable for at least 0.5 seconds with linear speed at most 0.02 m/s and angular speed
+    at most 0.1 rad/s. Leave the working hand empty and open, withdraw all robot hands from the placed
+    blocks, and declare DONE. No minimum lift height or prior grasp is required.
+  environment: The shared hall workstation with grey blocks and blue, yellow, purple and cyan pads.
   constraints:
   - Preserve all block dimensions and all fixed tables, legs, pads and frames.
   - Use the existing guarded public robot controls and the observed block shapes and pad colors.
-  - Compare each block by its intrinsic longest physical edge, independent of its current
-    orientation. Complete a genuine grasp, lift and released placement for every block.
+  - Compare each block by its intrinsic longest physical edge, independent of its current orientation.
 requirements:
   capabilities:
   - base_translation
@@ -96,7 +92,7 @@ private:
       - pad_1
       - pad_2
       scoring:
-        minimum_lift_m: 0.05
+        minimum_lift_m: null
         stability_duration_s: 0.5
         maximum_linear_speed_m_s: 0.02
         maximum_angular_speed_rad_s: 0.1
@@ -106,8 +102,9 @@ private:
         dimension_relative_tolerance: 1.0e-05
         aperture_clearance_margin_m: 0.001
         minimum_assignment_gap_m: 0.015
-        threshold_status: Explicit provisional development contract; native calibration and
-          legal reference execution deferred until user review.
+        threshold_status: Explicit provisional development contract; native calibration and legal reference
+          execution deferred until user review.
+        manipulation_revision: final_state_v1
       unselected_position_tolerance_m: 0.02
       fixture_keys:
       - table
@@ -133,10 +130,8 @@ private:
         - 0.05
         - 0.05
       completion_items:
-      - id: grasp_lift
-        kind: historical_checkpoint
       - id: assignment
-        kind: historical_checkpoint
+        kind: terminal_condition
       - id: stable_placement
         kind: terminal_condition
       scene_contract:
@@ -828,8 +823,8 @@ repair:
   contract_revision: wia_dimensional_v3
   design_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/pilot_design.json
   design_sha256: fec2caff232d498df8b1b6aa8ff91cc143ad576be02508aa63a4165efba0ac31
-  source_role: background_loader_only; original optical inventory and QA are replaced explicitly
-    by active_layout; no original optical answer is reused
+  source_role: background_loader_only; original optical inventory and QA are replaced explicitly by active_layout;
+    no original optical answer is reused
   budget_status: Explicit provisional 240-decision development budget.
   runtime:
     reflection_sensor_profile: {}
@@ -876,3 +871,13 @@ repair:
   physical_success_verified: false
   scientific_controls_verified: false
   continuous_path_certified: false
+  final_state_revision:
+    revision: final_state_v1
+    date: '2026-10-30'
+    parent_task_sha256: fad4e615cb19a25e4f869e1cea5309a432d94fe41dbc66012643201322582898
+    parent_scene_sha256: 20c6427b6b596f6130e4c95837dcee735c73668ed6f7994eac2b82ac7a0076b6
+    parent_source_task_file: explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d2_1_seed101_v2_hall_arch_v1.yaml
+    parent_source_scene_file: explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d2_1_seed101_v2_hall_arch_v1.yaml
+    scene_geometry_changed: false
+    native_execution_verified: false
+    scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.

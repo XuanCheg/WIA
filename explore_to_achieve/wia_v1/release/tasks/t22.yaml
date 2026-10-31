@@ -1,34 +1,30 @@
 kind: category_robot_task
 id: wia_rigid_t22_family_v1
-version: 4
+version: 7
 status: pending
 source:
   provider: esi
   json: Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json
 public:
-  objective: 'Which container does the gift box best fit inside: the large packing box or
-    the medium packing box or the small packing box? For every named object, perform a real
-    robot grasp, lift it at least 5 cm, and partially insert it into the container selected
-    for that object. Release it and withdraw the robot hands at least 2 cm clear.'
-  success_criteria: 'Answer the original containment question for every named object. For
-    each object, complete an actual grasp and a lift of at least 5 cm, then release it partially
-    inside its selected container while touching that container. With no robot contact or
-    support, and the robot hands at least 2 cm clear, maintain this state for at least 0.5
-    seconds with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. An object
-    resting entirely on top does not count as inside. Finish with empty hands and the working
-    gripper open. Submit ANSWER: <container label> and declare DONE.'
-  environment: The gift box is exposed on the left upholstered armchair (sofa seat). The three
-    packing boxes remain on the native white table. Retrieve the target using the real R1
-    robot.
+  objective: 'Which container does the gift box best fit inside: the large packing box or the medium packing
+    box or the small packing box? Place each named object partially inside its selected container. Leave
+    it released and withdraw the robot hands at least 2 cm clear.'
+  success_criteria: 'Answer the original containment question for every named object. For each object,
+    verify partial insertion into its selected container with actual container contact and no interpenetration.
+    With empty open hands, no robot support or contact and hands at least 2 cm clear, maintain this state
+    for at least 0.5 seconds with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. An
+    object resting entirely on top does not count. No minimum lift height or prior grasp is required.
+    Targets may be verified sequentially and removed after verification to free a shared container. Finish
+    with empty open hands. Submit ANSWER: <container label> and declare DONE.'
+  environment: The gift box is exposed on the left upholstered armchair (sofa seat). The three packing
+    boxes remain on the native white table. Retrieve the target using the real R1 robot.
   constraints:
-  - Complete every target subtask before declaring DONE. An object resting entirely on top
-    does not count as inside.
+  - Complete every target subtask before declaring DONE. An object resting entirely on top does not count
+    as inside.
   - Use the existing guarded public robot controls and visible object/container labels.
-  - Preserve all asset scales and keep every container within 2 cm and 0.05 radians of its
-    starting pose.
-  - Targets may be verified sequentially. An object may be removed after its released, stable
-    partial insertion has been completely verified, to free a shared container. Simultaneous
-    packing is not required.
+  - Preserve all asset scales and keep every container within 2 cm and 0.05 radians of its starting pose.
+  - Targets may be verified sequentially. An object may be removed after its released, stable partial
+    insertion has been completely verified, to free a shared container. Simultaneous packing is not required.
 requirements:
   capabilities:
   - base_translation
@@ -75,7 +71,7 @@ private:
     - table
     - pickup_support
     parameters:
-      scorer_version: wia_rigid_partial_insertion_v1
+      scorer_version: rigid_insertion_final_state_v1
       targets:
       - target
       containers:
@@ -83,12 +79,12 @@ private:
       - container_1
       - container_2
       expected_containers:
-        target: container_1
+        target: container_0
       target_labels:
         target: gift box
       expected_answers:
-        target: medium packing box
-      minimum_lift_m: 0.05
+        target: small packing box
+      minimum_lift_m: null
       stability_duration_s: 0.5
       maximum_linear_speed_m_s: 0.02
       maximum_angular_speed_rad_s: 0.1
@@ -108,6 +104,7 @@ private:
       initial_support_tolerance_m: 0.015
       maximum_initial_linear_speed_m_s: 0.02
       maximum_initial_angular_speed_rad_s: 0.1
+      manipulation_revision: final_state_v1
 scene:
   policy: native_then_minimal_patch_else_skip
   variants:
@@ -116,6 +113,10 @@ scene:
       initial_visibility: null
     tabletop:
       patches:
+      - operation: object_scale
+        phase: before_construction
+        binding: target
+        multiplier: 0.4
       - operation: robot_pose
         phase: before_construction
         position:
@@ -307,8 +308,8 @@ repair:
     scene_source_identity: Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json
     scene_source_sha256: f3757c9769c92c0b6daabbb575d5795e71ea9d6c20bcbe955b8257366cbca0d6
     original_qa_id: '2061'
-    original_question: 'Which container does the gift box best fit inside: the large packing
-      box or the medium packing box or the small packing box?'
+    original_question: 'Which container does the gift box best fit inside: the large packing box or the
+      medium packing box or the small packing box?'
     original_answer: medium packing box
     answer_type: choice
     original_options:
@@ -317,12 +318,10 @@ repair:
     - small packing box
     verified_answer_by_public_label:
       gift box: medium packing box
-    verification_basis: Original QA answer and named source target_container/idx metadata;
-      no AABB inference.
+    verification_basis: Original QA answer and named source target_container/idx metadata; no AABB inference.
   parameters_provisional: true
   parameters_calibrated: false
-  threshold_basis: Explicit common provisional Rigid family criteria; native calibration is
-    pending.
+  threshold_basis: Explicit common provisional Rigid family criteria; native calibration is pending.
   native_validation_run: false
   physically_qualified: false
   legal_robot_reference_verified: false
@@ -345,11 +344,10 @@ repair:
     name: breakfast_table_skczfi_1
     category: breakfast_table
     model: skczfi
-  repair_reason: Apply the user review request to relocate only the gift box from the white
-    table to the left upholstered armchair (sofa seat). Preserve all three packing boxes and
-    their native white-table support, the robot start, source identities, scales, rotations,
-    insertion scoring, support modes, synchronization, thresholds and budgets. Native validation
-    remains pending.
+  repair_reason: Apply the user review request to relocate only the gift box from the white table to the
+    left upholstered armchair (sofa seat). Preserve all three packing boxes and their native white-table
+    support, the robot start, source identities, scales, rotations, insertion scoring, support modes,
+    synchronization, thresholds and budgets. Native validation remains pending.
   full_reference_execution: pending
   native_support_verified: false
   native_robot_placement_verified: false
@@ -360,3 +358,49 @@ repair:
     name: armchair_bslhmj_0
     category: armchair
     model: bslhmj
+  final_state_revision:
+    revision: final_state_v1
+    date: '2026-10-30'
+    parent_task_sha256: 090a7ca5b07b0b22da003a60039747740d102ada3effc98b7704c5c54607a50d
+    parent_scene_sha256: 17875e8ba96e5ab84126c98a313b56c1a3dbf741903be83f8dc09b41eeff1f1f
+    parent_source_task_file: explore_to_achieve/wia_v1/review_20261025/t22_left_sofa_v3/task.yaml
+    parent_source_scene_file: explore_to_achieve/wia_v1/review_20261025/t22_left_sofa_v3/scene.yaml
+    scene_geometry_changed: false
+    native_execution_verified: false
+    scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.
+  user_review_access_v1:
+    alias: T22
+    selected_variant: tabletop
+    reason: The release catalogue selected original, which has no initialization patches, instead of the
+      authored tabletop chair/table initialization. Select tabletop and preserve every authored pose,
+      support, scale, evaluation predicate and the final_state_v1 sequential-insertion contract. Native
+      initialization and robot access validation are pending.
+    native_validation_status: pending
+    native_validation_run: false
+    physical_success_verified: false
+  review_gift_scale_20261031:
+    uniform_scale_ratio: 0.4
+    expected_container_change:
+      before: container_1
+      after: container_0
+    expected_answer_change:
+      before: medium packing box
+      after: small packing box
+    evidence:
+      basis: Main-authored revision following the user request to uniformly shrink the gift box.
+      native_measured_dimensions_before_m:
+      - 0.244474411
+      - 0.186240673
+      - 0.286185741
+      predicted_dimensions_after_m:
+      - 0.0977897644
+      - 0.0744962692
+      - 0.11447429640000001
+      gripper_pinch_proxy_width_m: 0.1
+      grasp_and_insertion_verified: false
+      support_reseating: Existing active_layout local_raycast alignment retained unchanged.
+      variant_scope: All non-original variants; selected tabletop has the revised semantics.
+      original_variant: Empty patches retained as the schema-required native baseline.
+    native_validation_status: pending
+    native_validation_run: false
+    physical_success_verified: false

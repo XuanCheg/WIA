@@ -122,6 +122,154 @@ def checkpoints(result):
     return {item['id']: item['completed'] for item in result['completion_items']}
 
 
+def final_parameters(operation='sort_intrinsic_dimension'):
+    p = parameters(operation)
+    p['scoring'].update(manipulation_revision='final_state_v1', minimum_lift_m=None)
+    return p
+
+
+def final_aperture_ready():
+    p = final_parameters('select_pass_aperture')
+    p['aperture']['z_min_m'] = -.01
+    s = sample(p)
+    progress = DimensionalProgress(p)
+    progress.begin(deepcopy(s))
+    rotation = np.array([[0., 0., 1.], [0., 1., 0.], [-1., 0., 0.]])
+    move(s, 'c0', [-.3, 0., .03], rotation=rotation)
+    tick(progress, s)
+    return progress, s, rotation
+
+
+def final_pass_and_place(progress, s, rotation):
+    for x in (-.04, .08, .2):
+        move(s, 'c0', [x, 0., .03], rotation=rotation)
+        tick(progress, s)
+    set_pad(s, 'c0', 'pad_0')
+    tick(progress, s)
+    return dwell(progress, s)
+
+
+@pytest.mark.parametrize('operation', ['sort_intrinsic_dimension', 'select_pass_aperture'])
+def test_final_state_is_opt_in_and_requires_explicit_null_lift(operation):
+    for revision, lift in ((None, None), ('unknown', None), ('final_state_v1', .05), ('final_state_v1', 0.)):
+        p = parameters(operation)
+        p['scoring'].update(manipulation_revision=revision, minimum_lift_m=lift)
+        with pytest.raises(ValueError):
+            DimensionalProgress(p)
+    p = final_parameters(operation)
+    del p['scoring']['minimum_lift_m']
+    with pytest.raises(ValueError):
+        DimensionalProgress(p)
+
+
+def test_final_sort_accepts_correct_released_assignment_without_pickup_or_lift():
+    p = final_parameters()
+    s = sample(p)
+    progress = DimensionalProgress(p)
+    progress.begin(s)
+    for key, pad in progress.result()['expected_assignment'].items():
+        set_pad(s, key, pad)
+    tick(progress, s)
+    result = dwell(progress, s)
+    assert result['task_success']
+    assert checkpoints(result) == {'assignment': True, 'stable_placement': True}
+    assert result['scoring_version'] == 'wia_dimensional_final_state_v1'
+    assert result['manipulation_revision'] == 'final_state_v1'
+    assert all(not state['grasp_seen'] and not state['lift_seen'] and state['maximum_held_lift_m'] is None
+               for state in result['per_target'].values())
+
+
+@pytest.mark.parametrize('failure', ['wrong_assignment', 'only_top', 'held', 'robot_contact', 'unstable',
+    'unavailable', 'fixture', 'dimensions', 'identity'])
+def test_final_sort_preserves_assignment_release_stability_and_native_validity(failure):
+    p = final_parameters()
+    s = sample(p)
+    progress = DimensionalProgress(p)
+    progress.begin(deepcopy(s))
+    for key, pad in progress.result()['expected_assignment'].items():
+        set_pad(s, key, pad)
+    row = s['targets']['c0']
+    if failure == 'wrong_assignment':
+        set_pad(s, 'c0', 'pad_2')
+    elif failure == 'only_top':
+        row['destinations']['pad_0']['footprint_inside'] = False
+    elif failure == 'held':
+        s['grasp'].update(held_names=['block_0'], released=False)
+    elif failure == 'robot_contact':
+        row['robot_contact'] = True
+    elif failure == 'unstable':
+        row['angular_speed_rad_s'] = 1.
+    elif failure == 'unavailable':
+        row['destinations']['pad_0']['touching'] = None
+    elif failure == 'fixture':
+        s['fixtures_valid'] = False
+    elif failure == 'dimensions':
+        row['dimensions_m'][0] *= 1.1
+    else:
+        row['object_name'] = 'wrong_identity'
+    result = dwell(progress, s, 10)
+    assert not result['task_success']
+
+
+def test_final_aperture_accepts_sampled_zero_lift_passage_without_grasp_only_at_done():
+    progress, s, rotation = final_aperture_ready()
+    pending = final_pass_and_place(progress, s, rotation)
+    assert_pending_done(pending)
+    result = progress.declare_done()
+    assert result['task_success'] and result['selected_candidate'] == 'c0'
+    assert checkpoints(result) == {'passage': True, 'stable_placement': True}
+    state = result['per_target']['c0']
+    assert not state['grasp_seen'] and not state['lift_seen']
+    assert state['measured']['lowest_z_m'] == state['baseline_lowest_z_m']
+    assert state['path']['completed_evidence']['sampled_passage']
+    assert not result['continuous_path_certified']
+    assert result['scoring_version'] == 'wia_dimensional_final_state_v1'
+    s['control_valid'] = False
+    assert tick(progress, s) == result
+
+
+@pytest.mark.parametrize('failure', ['around_frame', 'front_back_jump', 'unsafe_adjacent_union', 'sample_gap', 'unavailable'])
+def test_final_aperture_requires_actual_uninterrupted_passage(failure):
+    progress, s, rotation = final_aperture_ready()
+    if failure == 'around_frame':
+        move(s, 'c0', [-.3, .3, .03], rotation=rotation)
+        tick(progress, s)
+        move(s, 'c0', [.2, .3, .03], rotation=rotation)
+    elif failure == 'front_back_jump':
+        move(s, 'c0', [.2, 0., .03], rotation=rotation)
+    elif failure == 'unsafe_adjacent_union':
+        move(s, 'c0', [-.3, 0., .25], rotation=rotation)
+        tick(progress, s)
+        move(s, 'c0', [-.04, 0., .03], rotation=rotation)
+    else:
+        move(s, 'c0', [-.04, 0., .03], rotation=rotation)
+        if failure == 'unavailable':
+            s['geometry_valid'] = None
+        tick(progress, s, delta=.25 if failure == 'sample_gap' else DT)
+        s['geometry_valid'] = True
+        move(s, 'c0', [.08, 0., .03], rotation=rotation)
+        tick(progress, s)
+        move(s, 'c0', [.2, 0., .03], rotation=rotation)
+    tick(progress, s)
+    set_pad(s, 'c0', 'pad_0')
+    dwell(progress, s, 10)
+    result = progress.declare_done()
+    assert not result['task_success'] and not checkpoints(result)['passage']
+
+
+def test_final_aperture_done_cannot_combine_passage_and_placement_across_candidates():
+    progress, s, rotation = final_aperture_ready()
+    for x in (-.04, .08, .2):
+        move(s, 'c0', [x, 0., .03], rotation=rotation)
+        tick(progress, s)
+    set_pad(s, 'c1', 'pad_0')
+    dwell(progress, s, 10)
+    result = progress.declare_done()
+    assert result['selected_candidate'] == 'c0'
+    assert checkpoints(result) == {'passage': True, 'stable_placement': False}
+    assert not result['task_success']
+
+
 def test_sort_requires_all_original_grasps_lifts_and_simultaneous_released_stability():
     p, s = parameters(), sample(parameters())
     progress = DimensionalProgress(p)

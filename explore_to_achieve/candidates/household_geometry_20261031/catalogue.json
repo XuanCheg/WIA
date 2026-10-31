@@ -1,0 +1,58 @@
+{
+  "schema": "wia_household_geometry_candidates_v1",
+  "release_admitted": false,
+  "tasks": [
+    {
+      "alias": "GF2-1",
+      "id": "wia_household_gf2_1_v1",
+      "task_id": "wia_household_gf2_1_v1",
+      "task_file": "explore_to_achieve/candidates/household_geometry_20261031/tasks/gf2_1.yaml",
+      "scene_file": "explore_to_achieve/candidates/household_geometry_20261031/scenes/gf2_1.yaml",
+      "variant": "adapted",
+      "family": "GF",
+      "subclass": "GF-2",
+      "title": "Lay a juice carton into a low pantry cubby",
+      "origin": "household_geometry",
+      "physical_success_verified": false
+    },
+    {
+      "alias": "GF2-2",
+      "id": "wia_household_gf2_2_v1",
+      "task_id": "wia_household_gf2_2_v1",
+      "task_file": "explore_to_achieve/candidates/household_geometry_20261031/tasks/gf2_2.yaml",
+      "scene_file": "explore_to_achieve/candidates/household_geometry_20261031/scenes/gf2_2.yaml",
+      "variant": "adapted",
+      "family": "GF",
+      "subclass": "GF-2",
+      "title": "Turn a cutting board into a narrow drying slot",
+      "origin": "household_geometry",
+      "physical_success_verified": false
+    },
+    {
+      "alias": "GF3-1",
+      "id": "wia_household_gf3_1_v1",
+      "task_id": "wia_household_gf3_1_v1",
+      "task_file": "explore_to_achieve/candidates/household_geometry_20261031/tasks/gf3_1.yaml",
+      "scene_file": "explore_to_achieve/candidates/household_geometry_20261031/scenes/gf3_1.yaml",
+      "variant": "adapted",
+      "family": "GF",
+      "subclass": "GF-3",
+      "title": "Match cucumber lengths to produce compartments",
+      "origin": "household_geometry",
+      "physical_success_verified": false
+    },
+    {
+      "alias": "GF3-2",
+      "id": "wia_household_gf3_2_v1",
+      "task_id": "wia_household_gf3_2_v1",
+      "task_file": "explore_to_achieve/candidates/household_geometry_20261031/tasks/gf3_2.yaml",
+      "scene_file": "explore_to_achieve/candidates/household_geometry_20261031/scenes/gf3_2.yaml",
+      "variant": "adapted",
+      "family": "GF",
+      "subclass": "GF-3",
+      "title": "Match spice-jar heights to shelf compartments",
+      "origin": "household_geometry",
+      "physical_success_verified": false
+    }
+  ]
+}

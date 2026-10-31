@@ -22,7 +22,7 @@ from wia.authoring.converters.rigid_partial_insertion import (
 )
 from wia.authoring.io import write_json
 from wia.tasks.completion import progress
-from wia.tasks.wia_dimensional_scoring import APERTURE_SCORING_VERSION
+from wia.tasks.wia_dimensional_scoring import APERTURE_SCORING_VERSION, FINAL_STATE_SCORING_VERSION
 from wia.tasks.interaction_setup import array
 
 MODULE = 'wia.authoring.converters.wia_dimensional'
@@ -97,12 +97,19 @@ def _config(session, config):
         raise ValueError('All candidate dimensions must be explicitly proposed.')
     for value in p['candidate_dimensions_m'].values():
         _vector(value, 3, positive=True)
+    manipulation_revision = p['scoring'].get('manipulation_revision')
+    if manipulation_revision not in (None, 'final_state_v1'):
+        raise ValueError('Unsupported dimensional manipulation_revision.')
+    if manipulation_revision == 'final_state_v1' and p['scoring']['minimum_lift_m'] is not None:
+        raise ValueError('final_state_v1 requires minimum_lift_m to be explicitly None.')
     for key in ('minimum_lift_m', 'stability_duration_s', 'maximum_linear_speed_m_s',
                 'maximum_angular_speed_rad_s', 'max_sample_gap_s', 'fixture_position_tolerance_m',
                 'fixture_angle_tolerance_rad', 'dimension_relative_tolerance',
                 'aperture_clearance_margin_m', 'minimum_assignment_gap_m'):
         value = p['scoring'][key]
-        if isinstance(value, bool) or not np.isfinite(value) or value <= 0:
+        if key == 'minimum_lift_m' and manipulation_revision == 'final_state_v1':
+            continue
+        if value is None or isinstance(value, bool) or not np.isfinite(value) or value <= 0:
             raise ValueError('All dimensional scoring thresholds must be explicit finite positive values.')
     if config['operation'] == 'sort_intrinsic_dimension':
         value = p['unselected_position_tolerance_m']
@@ -559,11 +566,16 @@ class DimensionalEvaluator:
             return None
         if self._terminal_record is not None:
             return deepcopy(self._terminal_record)
+        fallback_version = (FINAL_STATE_SCORING_VERSION
+            if self.p['scoring'].get('manipulation_revision') == 'final_state_v1'
+            else APERTURE_SCORING_VERSION if self.requires_done_declaration else self.p['revision'])
         measured = (self.scorer.result() if self.scorer is not None else {
-            'schema': APERTURE_SCORING_VERSION if self.requires_done_declaration else self.p['revision'],
+            'schema': fallback_version,
             'evaluation_validity': 'unavailable', 'physical_success': False,
             'task_success': False, 'completion_items': [{'id': 'native_dimensional_evidence',
                 'completed': False, 'evaluation_validity': 'unavailable', 'kind': 'terminal_condition'}]})
+        if self.p['scoring'].get('manipulation_revision') is not None:
+            measured['manipulation_revision'] = self.p['scoring']['manipulation_revision']
         qualified = self.initial_qualification['accepted'] is True
         result = {**deepcopy(measured), 'schema': self.p['revision'], 'snapshot_id': observation.snapshot_id,
             'action_step': observation.action_step, 'action': action,

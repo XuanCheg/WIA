@@ -1,0 +1,897 @@
+kind: scene_patch
+id: wia_household_gf3_1_v1_scene
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/restaurant_hotel/kitchen_0/household_gf3_1.json
+bindings:
+  deck:
+    name: hg_gf3_1_deck
+  native_support:
+    name: commercial_kitchen_table_bwlfnu_0
+  item_0:
+    name: hg_gf3_1_item_0
+    category: cucumber
+    model: wcvwye
+  item_1:
+    name: hg_gf3_1_item_1
+    category: cucumber
+    model: wcvwye
+  item_2:
+    name: hg_gf3_1_item_2
+    category: cucumber
+    model: wcvwye
+  bin_0_floor:
+    name: hg_gf3_1_bin_0_floor
+  bin_0_left:
+    name: hg_gf3_1_bin_0_left
+  bin_0_right:
+    name: hg_gf3_1_bin_0_right
+  bin_0_back:
+    name: hg_gf3_1_bin_0_back
+  bin_1_floor:
+    name: hg_gf3_1_bin_1_floor
+  bin_1_left:
+    name: hg_gf3_1_bin_1_left
+  bin_1_right:
+    name: hg_gf3_1_bin_1_right
+  bin_1_back:
+    name: hg_gf3_1_bin_1_back
+  bin_2_floor:
+    name: hg_gf3_1_bin_2_floor
+  bin_2_left:
+    name: hg_gf3_1_bin_2_left
+  bin_2_right:
+    name: hg_gf3_1_bin_2_right
+  bin_2_back:
+    name: hg_gf3_1_bin_2_back
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.active_layout
+        parameters:
+          revision: wia_household_fit_v1
+          layout:
+            shared_layout_id: household_gf3_1_20261031
+            scene_model: restaurant_hotel
+            rooms:
+            - kitchen_0
+            floor_name: floors_ykbuit_0
+            objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_deck
+              category: table
+              size: 1.0
+              scale:
+              - 0.45
+              - 1.6
+              - 0.016
+              position:
+              - 4.46
+              - -0.088
+              - 0.885
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.42
+              - 0.36
+              - 1.0
+            - type: DatasetObject
+              name: hg_gf3_1_item_0
+              category: cucumber
+              model: wcvwye
+              scale:
+              - 1.5555415086455127
+              - 1.5555415086455127
+              - 1.5555415086455127
+              position:
+              - 4.301054961070638
+              - -0.47642653297987086
+              - 1.1401316586853212
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: hg_gf3_1_item_1
+              category: cucumber
+              model: wcvwye
+              scale:
+              - 0.9333249051873075
+              - 0.9333249051873075
+              - 0.9333249051873075
+              position:
+              - 4.300632976642382
+              - 0.0021440802120774698
+              - 1.1412789952111928
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: hg_gf3_1_item_2
+              category: cucumber
+              model: wcvwye
+              scale:
+              - 1.24443320691641
+              - 1.24443320691641
+              - 1.24443320691641
+              position:
+              - 4.30084396885651
+              - 0.4828587736161033
+              - 1.140705326948257
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_0_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.15699999999999958
+              - 0.204
+              - 0.008
+              position:
+              - 4.5925
+              - -0.48
+              - 0.897
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.12
+              - 0.38
+              - 0.9
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_0_left
+              category: object
+              size: 1.0
+              scale:
+              - 0.15699999999999958
+              - 0.012
+              - 0.11
+              position:
+              - 4.5925
+              - -0.576
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_0_right
+              category: object
+              size: 1.0
+              scale:
+              - 0.15699999999999958
+              - 0.012
+              - 0.11
+              position:
+              - 4.5925
+              - -0.384
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_0_back
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.204
+              - 0.11
+              position:
+              - 4.671
+              - -0.48
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_1_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.19699999999999962
+              - 0.204
+              - 0.008
+              position:
+              - 4.5725
+              - 0.0
+              - 0.897
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.75
+              - 0.15
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_1_left
+              category: object
+              size: 1.0
+              scale:
+              - 0.19699999999999962
+              - 0.012
+              - 0.11
+              position:
+              - 4.5725
+              - -0.096
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_1_right
+              category: object
+              size: 1.0
+              scale:
+              - 0.19699999999999962
+              - 0.012
+              - 0.11
+              position:
+              - 4.5725
+              - 0.096
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_1_back
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.204
+              - 0.11
+              position:
+              - 4.671
+              - 0.0
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_2_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.23699999999999966
+              - 0.204
+              - 0.008
+              position:
+              - 4.5525
+              - 0.48
+              - 0.897
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.28
+              - 0.8
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_2_left
+              category: object
+              size: 1.0
+              scale:
+              - 0.23699999999999966
+              - 0.012
+              - 0.11
+              position:
+              - 4.5525
+              - 0.384
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_2_right
+              category: object
+              size: 1.0
+              scale:
+              - 0.23699999999999966
+              - 0.012
+              - 0.11
+              position:
+              - 4.5525
+              - 0.576
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_2_back
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.204
+              - 0.11
+              position:
+              - 4.671
+              - 0.48
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            supported_items:
+            - name: hg_gf3_1_deck
+              support: commercial_kitchen_table_bwlfnu_0
+              support_contract: fixed_mount
+              support_surface_mode: local_raycast
+            - name: hg_gf3_1_item_0
+              support: hg_gf3_1_deck
+            - name: hg_gf3_1_item_1
+              support: hg_gf3_1_deck
+            - name: hg_gf3_1_item_2
+              support: hg_gf3_1_deck
+            synchronize_authored_poses_before_alignment: true
+            robot_start:
+              position:
+              - 3.58
+              - -0.088
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            initial_gripper_state: open
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.active_layout
+        parameters:
+          revision: wia_household_fit_v1
+          layout:
+            shared_layout_id: household_gf3_1_20261031
+            scene_model: restaurant_hotel
+            rooms:
+            - kitchen_0
+            floor_name: floors_ykbuit_0
+            objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_deck
+              category: table
+              size: 1.0
+              scale:
+              - 0.45
+              - 1.6
+              - 0.016
+              position:
+              - 4.46
+              - -0.088
+              - 0.885
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.42
+              - 0.36
+              - 1.0
+            - type: DatasetObject
+              name: hg_gf3_1_item_0
+              category: cucumber
+              model: wcvwye
+              scale:
+              - 1.5555415086455127
+              - 1.5555415086455127
+              - 1.5555415086455127
+              position:
+              - 4.301054961070638
+              - -0.47642653297987086
+              - 1.1401316586853212
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: hg_gf3_1_item_1
+              category: cucumber
+              model: wcvwye
+              scale:
+              - 0.9333249051873075
+              - 0.9333249051873075
+              - 0.9333249051873075
+              position:
+              - 4.300632976642382
+              - 0.0021440802120774698
+              - 1.1412789952111928
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: hg_gf3_1_item_2
+              category: cucumber
+              model: wcvwye
+              scale:
+              - 1.24443320691641
+              - 1.24443320691641
+              - 1.24443320691641
+              position:
+              - 4.30084396885651
+              - 0.4828587736161033
+              - 1.140705326948257
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.7071067811865475
+              - 0.7071067811865476
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_0_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.15699999999999958
+              - 0.204
+              - 0.008
+              position:
+              - 4.5925
+              - -0.48
+              - 0.897
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.12
+              - 0.38
+              - 0.9
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_0_left
+              category: object
+              size: 1.0
+              scale:
+              - 0.15699999999999958
+              - 0.012
+              - 0.11
+              position:
+              - 4.5925
+              - -0.576
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_0_right
+              category: object
+              size: 1.0
+              scale:
+              - 0.15699999999999958
+              - 0.012
+              - 0.11
+              position:
+              - 4.5925
+              - -0.384
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_0_back
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.204
+              - 0.11
+              position:
+              - 4.671
+              - -0.48
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_1_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.19699999999999962
+              - 0.204
+              - 0.008
+              position:
+              - 4.5725
+              - 0.0
+              - 0.897
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.75
+              - 0.15
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_1_left
+              category: object
+              size: 1.0
+              scale:
+              - 0.19699999999999962
+              - 0.012
+              - 0.11
+              position:
+              - 4.5725
+              - -0.096
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_1_right
+              category: object
+              size: 1.0
+              scale:
+              - 0.19699999999999962
+              - 0.012
+              - 0.11
+              position:
+              - 4.5725
+              - 0.096
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_1_back
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.204
+              - 0.11
+              position:
+              - 4.671
+              - 0.0
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_2_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.23699999999999966
+              - 0.204
+              - 0.008
+              position:
+              - 4.5525
+              - 0.48
+              - 0.897
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.65
+              - 0.28
+              - 0.8
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_2_left
+              category: object
+              size: 1.0
+              scale:
+              - 0.23699999999999966
+              - 0.012
+              - 0.11
+              position:
+              - 4.5525
+              - 0.384
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_2_right
+              category: object
+              size: 1.0
+              scale:
+              - 0.23699999999999966
+              - 0.012
+              - 0.11
+              position:
+              - 4.5525
+              - 0.576
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_1_bin_2_back
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.204
+              - 0.11
+              position:
+              - 4.671
+              - 0.48
+              - 0.9560000000000001
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            supported_items:
+            - name: hg_gf3_1_deck
+              support: commercial_kitchen_table_bwlfnu_0
+              support_contract: fixed_mount
+              support_surface_mode: local_raycast
+            - name: hg_gf3_1_item_0
+              support: hg_gf3_1_deck
+            - name: hg_gf3_1_item_1
+              support: hg_gf3_1_deck
+            - name: hg_gf3_1_item_2
+              support: hg_gf3_1_deck
+            synchronize_authored_poses_before_alignment: true
+            robot_start:
+              position:
+              - 3.58
+              - -0.088
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            initial_gripper_state: open
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+seed: 7
+runtime:
+  preview_fps: 0.0
+  camera_size:
+  - 512
+  - 512

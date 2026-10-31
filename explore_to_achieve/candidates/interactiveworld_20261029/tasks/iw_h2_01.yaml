@@ -1,0 +1,117 @@
+kind: category_robot_task
+id: iw_h2_01
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Action Sequencing/Action Order Inference/restaurant_hotel/kitchen_0/iw_h2_01.json
+public:
+  objective: Clear the outlined work area by storing its obstruction in the yellow storage area, deliver
+    the apple to the blue receiving area, and leave the work area clear. The work area may be disturbed
+    after delivery; inspect its final condition and repair only if necessary.
+  success_criteria: Actual stable released placement, meaningful process evidence and preservation are
+    required. Scene screenshots alone do not certify task completion.
+  environment: Derived restaurant_hotel kitchen_0 with source-context inventory.
+  constraints:
+  - Use only public robot sensors and legal physical controls.
+  - Preserve resident contents and protected furniture.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - gripper
+  - ee_rotation
+  - trunk_height
+private:
+  bindings:
+    item_01:
+      name: item_01
+    item_02:
+      name: item_02
+  evaluation:
+    type: category_operation
+    module: wia.authoring.converters.interactiveworld_candidates
+    operation: H2
+    binding_keys:
+    - item_01
+    - item_02
+    parameters: &id001
+      prototype: H2
+      source_task: ORCHESTRATE-112022
+      source_file: /local_home2/zhouxinyang/models/InteractiveWorld/benchmark/tasks/taskpacks/planning/ORCHESTRATE-112022.taskpack.json
+      source_sha256: ce09a510e5e66defe0019d49814db2f509285474bf37dbaf29dae47a69ea1aea
+      scene_model: restaurant_hotel
+      room: kitchen_0
+      fixture: commercial_kitchen_table_bwlfnu_0
+      objects:
+      - name: item_01
+        category: apple
+        model: agveuv
+        slot: 1
+        offset:
+        - 0
+        - 0
+        size:
+        - 0.075
+        - 0.075
+        - 0.075
+        fixed: false
+      - name: item_02
+        category: null
+        model: null
+        slot: 0
+        offset:
+        - 0
+        - 0
+        size:
+        - 0.09
+        - 0.065
+        - 0.06
+        fixed: false
+      regions:
+        work: 0
+        delivery: 2
+        storage: 3
+      contract:
+        payload: item_01
+        obstruction: item_02
+        work_region: work
+        delivery: delivery
+        storage: storage
+        protected: []
+        disturbance: false
+      objective: Clear the outlined work area by storing its obstruction in the yellow storage area, deliver
+        the apple to the blue receiving area, and leave the work area clear. The work area may be disturbed
+        after delivery; inspect its final condition and repair only if necessary.
+      condition:
+        disturbance: false
+      id: iw_h2_01
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+qualification:
+  on_failure: skip
+  target_movable_collidable: true
+  initial_visibility: none
+defaults:
+  seed: 7
+  max_steps: 120
+  wall_timeout_s: 5400.0
+  world_advances_during_inference: false
+  observation_condition: current
+  action_mode: parameterized

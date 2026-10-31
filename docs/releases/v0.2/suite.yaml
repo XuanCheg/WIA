@@ -1,0 +1,70 @@
+tasks:
+  - path: T01
+  - path: T02
+  - path: T04
+  - path: T05
+  - path: T06
+  - path: T07
+  - path: T08
+  - path: T09
+  - path: T10
+  - path: T11
+  - path: T15
+  - path: T16
+  - path: T17
+  - path: T18
+  - path: T21
+  - path: T22
+  - path: T23
+  - path: T24
+  - path: T25
+  - path: T26
+  - path: T28
+  - path: T30
+  - path: T32
+  - path: T33
+  - path: T35
+  - path: T36
+  - path: T38
+  - path: T40
+  - path: T41
+  - path: T42
+  - path: T43
+  - path: T44
+  - path: T45
+  - path: T46
+  - path: T47
+  - path: T48
+  - path: T49
+  - path: T50
+  - path: R-C1
+  - path: R-C2
+  - path: R-C3
+  - path: R-S1
+  - path: R-S2
+  - path: R-S3
+  - path: R-A1
+  - path: R-A2
+  - path: iw_h1_02
+  - path: iw_h2_02
+  - path: iw_h3_03
+  - path: iw_h4_02
+  - path: iw_h5_02
+  - path: iw_m1_01
+  - path: iw_m2_01
+  - path: iw_m3_01
+  - path: iw_m4_02
+  - path: GF2-1
+  - path: GF2-2
+  - path: GF3-1
+  - path: GF3-2
+  - path: T52
+policy:
+  type: show_harness
+  backend: codex_cli
+  model: YOUR_EXPLICIT_MODEL_NAME
+environment:
+  mode: launch
+evaluation:
+  run_mode: benchmark
+output_dir: ../results/main_60

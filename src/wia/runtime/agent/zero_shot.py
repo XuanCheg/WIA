@@ -18,6 +18,8 @@ from core.observations import AgentObservation
 from core.episode_archive import EpisodeArchive
 from core.feedback_semantics import CONTINUABLE_MOTION_ERRORS
 
+from wia.runtime.agent.vercel_session import InvalidToolDecision
+
 from core.agent.decision import DecisionAgent, DecisionInput, ModelError, final_text_only, parse_action, unpack_memory_decision
 from core.agent.image_inputs import image_inputs
 from core.agent.depth_inputs import depth_access
@@ -158,6 +160,7 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                "max_steps": max_steps, "max_invalid_retries": max_invalid_retries,
                "task_success": None, "model_declared_done": False, "executed_actions": [],
                "termination_reason": "max_steps"}
+    summary['extra_output_field_policy'] = 'ignore_unknown_fields_validate_known_values'
     summary.update(action_mode=action_mode, agent_decisions=0, model_calls=0, macro_actions=0,
                    primitive_actions=0, primitive_actions_known=True,
                    physics_steps=0, physics_steps_known=True,
@@ -224,6 +227,11 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
         summary["qa_protocol"] = qa_protocol.provenance()
         summary["qa_history"] = qa_history
     summary["model_logs"] = trace.files
+    if 'candidate_observation_history' in summary['initialization']:
+        summary['initialization'] = {
+            key: value for key, value in summary['initialization'].items()
+            if key != 'candidate_observation_history'}
+        summary['initialization']['candidate_history_file'] = str(output / 'candidate_observation_history.json')
     (output / "run.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     summary['observation_coverage'] = list(resume_summary.get('observation_coverage', [])) if resume_summary else []
     def observation_coverage(value, stage):
@@ -240,6 +248,10 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
         summary['observation_coverage'].append(row)
         return row
     record = None
+    restore_candidate_history = None
+    consume_invalid_step = getattr(agent, "invalid_decision_consumes_step", False)
+    pending_invalid_feedback = None
+    summary["invalid_decisions"] = list(resume_summary.get("invalid_decisions", [])) if resume_summary else []
     recovery, consecutive_failures = None, 0
     temporal_feedback = None
     pending_phase_observation = None
@@ -257,6 +269,21 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
         if hasattr(agent, "attach_input_logger"):
             agent.attach_input_logger(trace.depth_response)
         observation = await environment.observe()
+        candidate_history = (getattr(environment, 'initialization', None) or {}).get('candidate_observation_history')
+        if candidate_history is not None:
+            from wia.runtime.agent.candidate_history import decode_history, attach_history_images
+            if getattr(agent, 'image_max_edge', None) is not None:
+                raise ValueError('Candidate event history requires unmodified native image resolution.')
+            frames = decode_history(candidate_history, observation)
+            history_file = output / 'candidate_observation_history.json'
+            history_file.write_text(json.dumps(candidate_history, indent=2) + '\n')
+            restore_candidate_history, history_metadata = attach_history_images(agent, frames)
+            environment.initialization.pop('candidate_observation_history', None)
+            environment.initialization['candidate_history_file'] = str(history_file)
+            environment.action_context = dict(getattr(environment, 'action_context', None) or {},
+                candidate_history_frames=history_metadata,
+                candidate_history_instruction='The attached chronological head-camera frames show an authored event before this decision. They are historical observations, not current views. No robot action was executed during that event.')
+            summary['candidate_history_frames'] = history_metadata
         if observation.initial_overview_status != 'legacy_unavailable':
             overview = observation.require_initial_overview()
             summary['initial_overview_input'] = {'required': True, 'status': 'available',
@@ -324,7 +351,7 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                       "observation": str(before.relative_to(output)), "attempts": [],
                       "parsed_action": None, "action_result": None, "next_observation": None,
                       "termination_reason": None}
-            feedback = None
+            feedback, pending_invalid_feedback = pending_invalid_feedback, None
             action = None
             command = None
             before_snapshot, before_step = observation.snapshot_id, observation.action_step
@@ -332,7 +359,7 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
             phase_1_decision = decision_phase == 'phase_1'
             # Each invalid model decision consumes one survey/episode slot.
             # Transport retries remain bounded by the provider timeout policy.
-            for attempt in range(1 if phase_1_decision else max_invalid_retries + 1):
+            for attempt in range(1 if phase_1_decision or consume_invalid_step else max_invalid_retries + 1):
                 entry = {"attempt": attempt + 1, "requested_at": timestamp()}
                 trace.set_stamp(step, attempt + 1, observation)
                 response_logged = False
@@ -343,7 +370,7 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                         phase = getattr(environment, 'temporal_phase', None)
                         context.update(temporal_episode=True, temporal_phase=phase,
                             phase_1_decisions_remaining=max(0, temporal_policy['phase_1_max_decisions'] - summary['phase_1_decisions']),
-                            temporal_instruction=('Phase 1 permits guarded base, torso and empty-arm survey motion only. No grasping, pushing, opening or furniture movement. '
+                            temporal_instruction=('Phase 1 permits base and torso survey motion only. Arm and gripper commands are disabled; incidental navigation contact is recorded without ending the survey. '
                                 'Keep this episode and its earlier observations. '
                                 'When Phase 1 inspection is complete, output a standalone PHASE1_COMPLETE '
                                 'line in world_observation with command DONE to advance; plain DONE also requests transition. '
@@ -445,12 +472,16 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                         summary['temporal_transitions'][-1]['final_phase_1_delivered'] = True
                         summary['temporal_transitions'][-1]['delivery_model_call'] = summary['model_calls']
                         pending_phase_observation = None
+                    from wia.runtime.agent.output_normalization import normalize_extra_fields
+                    reply = normalize_extra_fields(request, reply)
                     raw = final_text_only(reply.raw_text)
                     metadata = model_metadata(reply.metadata)
                     received_at = timestamp()
                     trace.response(raw, metadata, at=received_at)
                     response_logged = True
                     entry.update(raw_output=raw, model_metadata=metadata, received_at=received_at)
+                    if reply.metadata.get("output_normalization"):
+                        entry["output_normalization"] = reply.metadata["output_normalization"]
                     note = None
                     if memory_mode == "model_notes":
                         raw, note, note_error = unpack_memory_decision(raw)
@@ -466,6 +497,20 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                         parsed_qa = qa_protocol.parse(metadata.get("qa_response"), action)
                         entry["qa_response"] = parsed_qa
                     entry["parse_error"] = None
+                    normalization = reply.metadata.get('output_normalization')
+                    if normalization:
+                        accept_output = getattr(agent, 'accept_normalized_output', None)
+                        if callable(accept_output):
+                            accept_output(normalization['normalized_output'])
+                        fields = normalization['ignored_fields']
+                        notice = ('Previous decision accepted after ignoring extra output fields: '
+                            + ', '.join(fields) + '. Only the validated command was selected; '
+                            'refer to current execution feedback for its outcome. Omit these extra fields next time.')
+                        pending_invalid_feedback = notice
+                        entry['ignored_output_fields'] = fields
+                        entry['normalization_feedback'] = notice
+                        summary.setdefault('output_normalizations', []).append({'step': step,
+                            'ignored_fields': fields, 'feedback': notice})
                     if note:
                         update = {"action_step": observation.action_step, "snapshot_id": model_observation.snapshot_id,
                                   "decision_step": step, "text": note}
@@ -479,6 +524,14 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                     entry.update(parse_error=feedback, received_at=timestamp())
                     if not response_logged:
                         trace.request_error(error, status="request_error", at=entry["received_at"])
+                    trace.validation(feedback, at=entry["received_at"])
+                except InvalidToolDecision as error:
+                    coverage["delivered_to_agent"] = True
+                    coverage["delivery_model_call"] = summary["model_calls"]
+                    action = command = None
+                    feedback = str(error)
+                    entry.update(parse_error=feedback, invalid_tool_decision=True, received_at=timestamp())
+                    trace.request_error(error, status="invalid_decision", at=entry["received_at"])
                     trace.validation(feedback, at=entry["received_at"])
                 except ModelError as error:
                     entry.update(model_error=str(error), received_at=timestamp())
@@ -503,7 +556,17 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                 if action is None:
                     temporal_feedback = 'Invalid or prohibited survey decision consumed one budget slot; no action executed.'
             if action is None:
-                if not phase_1_decision:
+                if consume_invalid_step:
+                    if not phase_1_decision:
+                        summary["agent_decisions"] += 1
+                    pending_invalid_feedback = (feedback or 'Invalid decision.') + (
+                        ' One decision step was consumed; no robot action was executed. Correct the next decision.')
+                    record['invalid_decision_feedback'] = pending_invalid_feedback
+                    summary['invalid_decisions'].append({'step': step, 'feedback': pending_invalid_feedback})
+                    observation = await environment.observe()
+                    record['next_observation'] = str(archive.save(observation, directory / 'after').relative_to(output))
+                    trace.observation(observation, phase='after_invalid_decision')
+                elif not phase_1_decision:
                     summary["termination_reason"] = "invalid_output"
             else:
                 if not phase_1_decision:
@@ -772,6 +835,8 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
     except Exception as error:
         summary.update(termination_reason="runtime_error", error=str(error))
     finally:
+        if restore_candidate_history is not None:
+            restore_candidate_history()
         if hasattr(agent, "close"):
             try:
                 await agent.close()

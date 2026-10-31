@@ -6,6 +6,7 @@ The synthetic sensor returns stale pixels until nine render boundaries pass.
 from types import SimpleNamespace
 
 import numpy as np
+import pytest
 
 from wia.runtime.scene_capture_adapters import capture_loaded_views
 
@@ -22,10 +23,11 @@ def test_capture_drains_late_render_products_without_physics_or_mount_changes():
     assert np.all(views['global_diagonal'] == 9)
 
 
-def test_two_phase_human_preview_acquires_fresh_native_phase_frames_without_motion():
+@pytest.mark.parametrize('access_inventory', [False, True])
+def test_two_phase_human_preview_acquires_fresh_native_phase_frames_without_motion(monkeypatch, access_inventory):
     from types import SimpleNamespace as NS
     renders = []
-    controller = NS(phase='phase_1', prepared_boundary=None, transition=None)
+    controller = NS(phase='phase_1', prepared_boundary=None, transition=None, parameters={})
     def advance():
         assert controller.prepared_boundary == (1, 0)
         controller.phase = 'phase_2'
@@ -43,9 +45,21 @@ def test_two_phase_human_preview_acquires_fresh_native_phase_frames_without_moti
         pipeline=NS(og=NS(sim=NS(render=lambda: renders.append(True)))),
         invalidate_camera_cache=lambda: None, _sensor_rgb=lambda sensor: np.zeros((4, 4, 3), np.uint8),
         temporal_phase_controller=controller, observation_source=NS(capture=capture))
+    def diagnostics(current):
+        assert current is session and controller.phase == 'phase_2'
+        assert captures == [1, 2] and len(renders) == 18
+        return ({'schema': 'wia_initial_access_review_diagnostics_v1', 'inventory': {'id': 'fixture'}}
+                if access_inventory else None)
+    monkeypatch.setattr('wia.runtime.wia_capture_diagnostics.capture_initial_review_diagnostics', diagnostics)
     views, _ = capture_loaded_views(session, NS(), ['phase_1_head', 'phase_1_wrist',
         'phase_2_head', 'phase_2_wrist', 'phase_2_global_diagonal'])
     assert captures == [1, 2] and len(renders) == 18
     assert np.all(views['phase_1_head'] == 1) and np.all(views['phase_2_head'] == 2)
     assert session.temporal_capture_evidence['robot_actions'] == 0
     assert session.temporal_capture_evidence['mounted_view_coverage_requires_review'] is True
+    if access_inventory:
+        evidence = session.temporal_capture_evidence['access_review_diagnostics']
+        assert evidence['capture_phase'] == 'phase_2' and evidence['snapshot_id'] == 2
+        assert evidence['action_step'] == 0 and evidence['inventory']['id'] == 'fixture'
+    else:
+        assert 'access_review_diagnostics' not in session.temporal_capture_evidence

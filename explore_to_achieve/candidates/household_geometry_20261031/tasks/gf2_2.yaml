@@ -1,0 +1,917 @@
+kind: category_robot_task
+id: wia_household_gf2_2_v1
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/restaurant_hotel/kitchen_0/household_gf2_2.json
+public:
+  objective: Move the upright cutting board from its wide pickup stand into the narrow blue drying slot. Turn the
+    board to match the slot, pass it through the front mouth, and leave the whole board inside, supported on the
+    slot floor. The top of the board is exposed for handling at the pickup stand.
+  success_criteria: The object must cross the front mouth from the outside through measured intermediate positions
+    before its final placement. Routing over or around the mouth does not count. Leave every required item on its
+    assigned compartment floor, entirely within its usable interior, released without robot contact and stable for
+    at least 0.5 seconds. Keep linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. Finish with empty
+    hands, the working gripper open and all hands at least 2 cm clear of the items. No minimum lift height or prior
+    grasp is required. Declare DONE.
+  environment: A kitchen preparation table with ordinary household items and physical storage compartments.
+  constraints:
+  - Use public robot sensors and legal physical controls.
+  - Preserve object size and shape and the fixed storage apparatus.
+  - Ordinary movable background furniture may be repositioned when needed.
+  - Sliding and reorientation are allowed; the robot hand need not enter a narrow opening.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    deck:
+      name: hg_gf2_2_deck
+    native_support:
+      name: commercial_kitchen_table_bwlfnu_0
+    pickup_floor:
+      name: hg_gf2_2_pickup_floor
+    pickup_guide_a:
+      name: hg_gf2_2_pickup_guide_a
+    pickup_guide_b:
+      name: hg_gf2_2_pickup_guide_b
+    item_0:
+      name: hg_gf2_2_item_0
+      category: cutting_board
+      model: aibvew
+    bin_0_floor:
+      name: hg_gf2_2_bin_0_floor
+    bin_0_left:
+      name: hg_gf2_2_bin_0_left
+    bin_0_right:
+      name: hg_gf2_2_bin_0_right
+    bin_0_back:
+      name: hg_gf2_2_bin_0_back
+    bin_0_roof:
+      name: hg_gf2_2_bin_0_roof
+    bin_0_mouth_left:
+      name: hg_gf2_2_bin_0_mouth_left
+    bin_0_mouth_right:
+      name: hg_gf2_2_bin_0_mouth_right
+    bin_0_mouth_roof:
+      name: hg_gf2_2_bin_0_mouth_roof
+    bin_0_mouth_floor:
+      name: hg_gf2_2_bin_0_mouth_floor
+  evaluation:
+    type: category_operation
+    module: wia.authoring.converters.wia_household_fit
+    operation: select_pass_aperture
+    binding_keys:
+    - deck
+    - native_support
+    - pickup_floor
+    - pickup_guide_a
+    - pickup_guide_b
+    - item_0
+    - bin_0_floor
+    - bin_0_left
+    - bin_0_right
+    - bin_0_back
+    - bin_0_roof
+    - bin_0_mouth_left
+    - bin_0_mouth_right
+    - bin_0_mouth_roof
+    - bin_0_mouth_floor
+    parameters:
+      revision: wia_household_fit_v1
+      operation: select_pass_aperture
+      candidates:
+        item_0: hg_gf2_2_item_0
+      candidate_assets:
+        item_0:
+          category: cutting_board
+          model: aibvew
+          scale:
+          - 1.0
+          - 1.0
+          - 1.0
+      candidate_dimensions_m:
+        item_0:
+        - 0.23035547935153744
+        - 0.16483472778900632
+        - 0.020009382292907885
+      destinations:
+      - bin_0_floor
+      destination_interiors:
+        bin_0_floor:
+          floor: bin_0_floor
+          left: bin_0_left
+          right: bin_0_right
+          back: bin_0_back
+          roof: bin_0_roof
+      fixture_keys:
+      - deck
+      - pickup_floor
+      - pickup_guide_a
+      - pickup_guide_b
+      - bin_0_floor
+      - bin_0_left
+      - bin_0_right
+      - bin_0_back
+      - bin_0_roof
+      - bin_0_mouth_left
+      - bin_0_mouth_right
+      - bin_0_mouth_roof
+      - bin_0_mouth_floor
+      scene_contract:
+        scene_model: restaurant_hotel
+        room: kitchen_0
+      scoring:
+        minimum_lift_m: null
+        stability_duration_s: 0.5
+        maximum_linear_speed_m_s: 0.02
+        maximum_angular_speed_rad_s: 0.1
+        max_sample_gap_s: 0.1
+        fixture_position_tolerance_m: 0.002
+        fixture_angle_tolerance_rad: 0.01
+        dimension_relative_tolerance: 1.0e-05
+        aperture_clearance_margin_m: 0.001
+        minimum_assignment_gap_m: 0.015
+        manipulation_revision: final_state_v1
+        threshold_status: Explicit development thresholds; native access and legal physical completion remain separate.
+        aperture_floor_contact_tolerance_m: 0.003
+      unselected_position_tolerance_m: 0.02
+      upright_axes: {}
+      completion_items:
+      - id: passage
+        kind: historical_checkpoint
+      - id: stable_placement
+        kind: terminal_condition
+      aperture_bindings:
+        lower_side: bin_0_mouth_left
+        upper_side: bin_0_mouth_right
+        roof: bin_0_mouth_roof
+        floor: bin_0_mouth_floor
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.active_layout
+        parameters:
+          revision: wia_household_fit_v1
+          layout:
+            shared_layout_id: household_gf2_2_20261031
+            scene_model: restaurant_hotel
+            rooms:
+            - kitchen_0
+            floor_name: floors_ykbuit_0
+            objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_deck
+              category: table
+              size: 1.0
+              scale:
+              - 0.45
+              - 1.6
+              - 0.016
+              position:
+              - 4.46
+              - -0.088
+              - 0.885
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.42
+              - 0.36
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_pickup_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.07
+              - 0.28
+              - 0.012
+              position:
+              - 4.31
+              - -0.43
+              - 0.899
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_pickup_guide_a
+              category: object
+              size: 1.0
+              scale:
+              - 0.01
+              - 0.28
+              - 0.065
+              position:
+              - 4.2924999999999995
+              - -0.43
+              - 0.9375
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_pickup_guide_b
+              category: object
+              size: 1.0
+              scale:
+              - 0.01
+              - 0.28
+              - 0.065
+              position:
+              - 4.3275
+              - -0.43
+              - 0.9375
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: DatasetObject
+              name: hg_gf2_2_item_0
+              category: cutting_board
+              model: aibvew
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - 4.310003237752256
+              - -0.42991049381776875
+              - 1.1429999926313137
+              orientation:
+              - 0.5
+              - 0.4999999999999999
+              - 0.5
+              - 0.5000000000000001
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.2639999999999998
+              - 0.079
+              - 0.008
+              position:
+              - 4.5489999999999995
+              - 0.25
+              - 0.897
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba: &id001
+              - 0.12
+              - 0.38
+              - 0.9
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_left
+              category: object
+              size: 1.0
+              scale:
+              - 0.2639999999999998
+              - 0.012
+              - 0.205
+              position:
+              - 4.5489999999999995
+              - 0.2165
+              - 1.0035
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_right
+              category: object
+              size: 1.0
+              scale:
+              - 0.2639999999999998
+              - 0.012
+              - 0.205
+              position:
+              - 4.5489999999999995
+              - 0.28350000000000003
+              - 1.0035
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_back
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.079
+              - 0.205
+              position:
+              - 4.681
+              - 0.25
+              - 1.0035
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_roof
+              category: object
+              size: 1.0
+              scale:
+              - 0.2759999999999998
+              - 0.079
+              - 0.012
+              position:
+              - 4.5489999999999995
+              - 0.25
+              - 1.112
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_mouth_left
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.012
+              - 0.205
+              position:
+              - 4.411
+              - 0.2165
+              - 1.0035
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_mouth_right
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.012
+              - 0.205
+              position:
+              - 4.411
+              - 0.28350000000000003
+              - 1.0035
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_mouth_roof
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.079
+              - 0.012
+              position:
+              - 4.411
+              - 0.25
+              - 1.112
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_mouth_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.03
+              - 0.079
+              - 0.008
+              position:
+              - 4.414
+              - 0.25
+              - 0.897
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba: *id001
+            supported_items:
+            - name: hg_gf2_2_deck
+              support: commercial_kitchen_table_bwlfnu_0
+              support_contract: fixed_mount
+              support_surface_mode: local_raycast
+            - name: hg_gf2_2_item_0
+              support: hg_gf2_2_pickup_floor
+            synchronize_authored_poses_before_alignment: true
+            robot_start:
+              position:
+              - 3.58
+              - -0.088
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            initial_gripper_state: open
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.active_layout
+        parameters:
+          revision: wia_household_fit_v1
+          layout:
+            shared_layout_id: household_gf2_2_20261031
+            scene_model: restaurant_hotel
+            rooms:
+            - kitchen_0
+            floor_name: floors_ykbuit_0
+            objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_deck
+              category: table
+              size: 1.0
+              scale:
+              - 0.45
+              - 1.6
+              - 0.016
+              position:
+              - 4.46
+              - -0.088
+              - 0.885
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.42
+              - 0.36
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_pickup_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.07
+              - 0.28
+              - 0.012
+              position:
+              - 4.31
+              - -0.43
+              - 0.899
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_pickup_guide_a
+              category: object
+              size: 1.0
+              scale:
+              - 0.01
+              - 0.28
+              - 0.065
+              position:
+              - 4.2924999999999995
+              - -0.43
+              - 0.9375
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_pickup_guide_b
+              category: object
+              size: 1.0
+              scale:
+              - 0.01
+              - 0.28
+              - 0.065
+              position:
+              - 4.3275
+              - -0.43
+              - 0.9375
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: DatasetObject
+              name: hg_gf2_2_item_0
+              category: cutting_board
+              model: aibvew
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              position:
+              - 4.310003237752256
+              - -0.42991049381776875
+              - 1.1429999926313137
+              orientation:
+              - 0.5
+              - 0.4999999999999999
+              - 0.5
+              - 0.5000000000000001
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.2639999999999998
+              - 0.079
+              - 0.008
+              position:
+              - 4.5489999999999995
+              - 0.25
+              - 0.897
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba: &id002
+              - 0.12
+              - 0.38
+              - 0.9
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_left
+              category: object
+              size: 1.0
+              scale:
+              - 0.2639999999999998
+              - 0.012
+              - 0.205
+              position:
+              - 4.5489999999999995
+              - 0.2165
+              - 1.0035
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_right
+              category: object
+              size: 1.0
+              scale:
+              - 0.2639999999999998
+              - 0.012
+              - 0.205
+              position:
+              - 4.5489999999999995
+              - 0.28350000000000003
+              - 1.0035
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_back
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.079
+              - 0.205
+              position:
+              - 4.681
+              - 0.25
+              - 1.0035
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_roof
+              category: object
+              size: 1.0
+              scale:
+              - 0.2759999999999998
+              - 0.079
+              - 0.012
+              position:
+              - 4.5489999999999995
+              - 0.25
+              - 1.112
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_mouth_left
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.012
+              - 0.205
+              position:
+              - 4.411
+              - 0.2165
+              - 1.0035
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_mouth_right
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.012
+              - 0.205
+              position:
+              - 4.411
+              - 0.28350000000000003
+              - 1.0035
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_mouth_roof
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.079
+              - 0.012
+              position:
+              - 4.411
+              - 0.25
+              - 1.112
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf2_2_bin_0_mouth_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.03
+              - 0.079
+              - 0.008
+              position:
+              - 4.414
+              - 0.25
+              - 0.897
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba: *id002
+            supported_items:
+            - name: hg_gf2_2_deck
+              support: commercial_kitchen_table_bwlfnu_0
+              support_contract: fixed_mount
+              support_surface_mode: local_raycast
+            - name: hg_gf2_2_item_0
+              support: hg_gf2_2_pickup_floor
+            synchronize_authored_poses_before_alignment: true
+            robot_start:
+              position:
+              - 3.58
+              - -0.088
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            initial_gripper_state: open
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+qualification:
+  on_failure: skip
+  initial_visibility: none
+  target_movable_collidable: true
+defaults:
+  seed: 7
+  max_steps: 180
+  wall_timeout_s: 5400.0
+  world_advances_during_inference: false
+  observation_condition: current
+  action_mode: parameterized

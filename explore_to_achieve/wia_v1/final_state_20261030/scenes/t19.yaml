@@ -1,0 +1,271 @@
+kind: scene_patch
+id: category_39adb8b7c3109d4fb0566a86__t19_furnished_existing_v1
+version: 3
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/Merom_0_garden/playroom_0/wia_furnished_background_v1.json
+target: null
+qualification: null
+bindings:
+  object_0:
+    name: stack_obj0
+    category: paperback_book
+    model: bisnup
+  object_1:
+    name: stack_obj1
+    category: bowl
+    model: jblalf
+  object_2:
+    name: stack_obj2
+    category: lunch_box
+    model: adxzhe
+  floor:
+    name: floors_jrdgxz_0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.wia_furnished_layout
+        parameters:
+          revision: wia_furnished_layout_v1
+          scene_contract:
+            scene_model: Merom_0_garden
+            room: playroom_0
+          layout:
+            shared_layout_id: wia_furnished_existing_T19
+            scene_model: Merom_0_garden
+            rooms:
+            - playroom_0
+            floor_name: floors_jrdgxz_0
+            objects:
+            - type: DatasetObject
+              name: stack_obj0
+              category: paperback_book
+              model: bisnup
+              position:
+              - -3.02
+              - -10.61
+              - 1.1024741013978911
+              orientation:
+              - -7.123979184342488e-09
+              - -5.460531724565953e-07
+              - 2.793971942693929e-09
+              - 1.0
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj1
+              category: bowl
+              model: jblalf
+              position:
+              - -5.82
+              - -12.72
+              - 1.1191993950803805
+              orientation:
+              - 0.0012749484740197659
+              - 7.833373820176348e-05
+              - -5.168320967641193e-06
+              - 0.9999992847442627
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj2
+              category: lunch_box
+              model: adxzhe
+              position:
+              - -5.82
+              - -10.6
+              - 1.1191993950803805
+              orientation:
+              - 1.1597876437008381e-08
+              - 1.0129588190466166e-07
+              - 1.3369572116062045e-08
+              - 1.0
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: stack_obj0
+              support: bookcase_owvfik_0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: stack_obj1
+              support: countertop_tpuwys_0
+            - name: stack_obj2
+              support: countertop_tpuwys_0
+            robot_start:
+              position:
+              - -4.8
+              - -11.45
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+          source_reference_positions:
+            stack_obj0:
+            - 23.429912567138672
+            - 17.86972427368164
+            - 0.004752142820507288
+            stack_obj1:
+            - 23.747222900390625
+            - 17.86978530883789
+            - 0.03912317380309105
+            stack_obj2:
+            - 24.005146026611328
+            - 17.869884490966797
+            - 0.03587300330400467
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Merom_0_garden
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.wia_furnished_layout
+        parameters:
+          revision: wia_furnished_layout_v1
+          scene_contract:
+            scene_model: Merom_0_garden
+            room: playroom_0
+          layout:
+            shared_layout_id: wia_furnished_existing_T19
+            scene_model: Merom_0_garden
+            rooms:
+            - playroom_0
+            floor_name: floors_jrdgxz_0
+            objects:
+            - type: DatasetObject
+              name: stack_obj0
+              category: paperback_book
+              model: bisnup
+              position:
+              - -3.02
+              - -10.61
+              - 1.1024741013978911
+              orientation:
+              - -7.123979184342488e-09
+              - -5.460531724565953e-07
+              - 2.793971942693929e-09
+              - 1.0
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj1
+              category: bowl
+              model: jblalf
+              position:
+              - -5.82
+              - -12.72
+              - 1.1191993950803805
+              orientation:
+              - 0.0012749484740197659
+              - 7.833373820176348e-05
+              - -5.168320967641193e-06
+              - 0.9999992847442627
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: stack_obj2
+              category: lunch_box
+              model: adxzhe
+              position:
+              - -5.82
+              - -10.6
+              - 1.1191993950803805
+              orientation:
+              - 1.1597876437008381e-08
+              - 1.0129588190466166e-07
+              - 1.3369572116062045e-08
+              - 1.0
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: stack_obj0
+              support: bookcase_owvfik_0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: stack_obj1
+              support: countertop_tpuwys_0
+            - name: stack_obj2
+              support: countertop_tpuwys_0
+            robot_start:
+              position:
+              - -4.8
+              - -11.45
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+          source_reference_positions:
+            stack_obj0:
+            - 23.429912567138672
+            - 17.86972427368164
+            - 0.004752142820507288
+            stack_obj1:
+            - 23.747222900390625
+            - 17.86978530883789
+            - 0.03912317380309105
+            stack_obj2:
+            - 24.005146026611328
+            - 17.869884490966797
+            - 0.03587300330400467
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Merom_0_garden
+          disable_grid: false
+seed: 0
+target_bindings: []
+runtime:
+  reflection_sensor_profile: {}
+  requires_native_visual_discovery: false
+  post_controller_settle_steps: 0
+  trunk_config: configs/esi_trunk.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0

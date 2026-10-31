@@ -5,6 +5,10 @@ Run after activating BEHAVIOR in the retained interactive terminal:
 python src/wia/runtime/commands/run_esi_capture_worker.py --queue-root QUEUE --worker-id worker0 --gpu-slot 0
 Use --execution-mode local for a standalone server, with one worker per GPU slot.
 Add --persistent-simulator to retain the native engine across compatible jobs.
+Queue capture_retention.json can opt selected GPU UUIDs into retaining the last
+completed world until eligible queued work needs the GPU. Retention has no
+elapsed-time limit; explicit worker stops and failures can still end it. Existing
+cancellation and timeout handling before capture completion remains unchanged.
 No Agent episodes are run. Supervisors can share a queue across all idle GPUs.
 """
 from __future__ import annotations
@@ -42,6 +46,24 @@ def process_ticks(pid):
 
 def owned_process_alive(pid, start_ticks):
     return bool(start_ticks and process_ticks(pid) == str(start_ticks))
+
+
+def fresh_gpu_available(gpu):
+    """Recheck a fresh-process worker's device before claiming another job."""
+    try:
+        clients = subprocess.check_output(['nvidia-smi', '--query-compute-apps=pid,gpu_uuid',
+            '--format=csv,noheader,nounits'], text=True, timeout=10)
+        rows = subprocess.check_output(['nvidia-smi', '--query-gpu=uuid,utilization.gpu,memory.used,memory.free',
+            '--format=csv,noheader,nounits'], text=True, timeout=10)
+        values = next(line.split(',') for line in rows.splitlines()
+                      if line.split(',')[0].strip() == gpu['uuid'])
+        utilization, used, free = map(lambda value: int(value.strip()), values[1:])
+        occupied = any(line.split(',')[1].strip() == gpu['uuid'] for line in clients.splitlines() if line.strip())
+        if gpu.get('shared_gpu'):
+            return free >= gpu['shared_gpu_min_free_mib']
+        return not occupied and utilization == 0 and used <= 512
+    except (OSError, ValueError, IndexError, KeyError, StopIteration, subprocess.SubprocessError):
+        return False
 
 
 def vulkan_devices():
@@ -334,7 +356,82 @@ def cleanup_native_tmp(appdata, process, *, owner=None):
     return result
 
 
-def capture_job(queue, claim, gpu, *, stopping=lambda: False):
+def queue_retention_gpu(queue, gpu):
+    """Apply a UUID-fenced, opt-in policy to this capture without changing inputs."""
+    if gpu.get('retain_world'):
+        return gpu  # Explicit --retain-world keeps its existing indefinite behavior.
+    policy_path = queue.root / 'capture_retention.json'
+    policy = read_json(policy_path, {})
+    if (policy.get('state') != 'ENABLED' or policy.get('mode') != 'retain_last_world'
+            or not gpu.get('uuid') or gpu['uuid'] not in policy.get('gpu_uuids', ())):
+        return gpu
+    return {**gpu, 'retain_world': True, 'queue_retention': {
+        'mode': 'retain_last_world', 'policy_file': str(policy_path),
+        'gpu_uuid': gpu['uuid'], 'close_trigger': 'eligible_queued_work',
+        'retained_timeout_s': None, 'pre_completion_timeout_and_cancel_unchanged': True,
+        'explicit_worker_stop_and_failures_can_end_retention': True}}
+
+
+def eligible_queued_job(queue, owner, *, job_id=None, candidate_prefix=None, pilot_control=None):
+    """Read claim eligibility without claiming or releasing the retained GPU.
+
+    Mirror CaptureQueue.claim's pause, runtime, sample and candidate fences. A
+    paused pilot must have an explicit job selection, just as a normal claim does.
+    This observation cannot reserve work against another supervisor's later claim.
+    """
+    selected_jobs = [job_id] if job_id else None
+    if pilot_control:
+        pilot = read_json(pilot_control, {})
+        if pilot.get('mode') != 'campaign':
+            if (pilot.get('mode') != 'pilot' or pilot.get('worker_id') != owner.get('id')
+                    or pilot.get('gpu_uuid') != owner.get('uuid')):
+                return None
+            selected_jobs = pilot.get('job_ids', ())
+    pause = read_json(queue.root / 'capture_pause.json', {})
+    pilot = pause.get('authorized_pilot', {})
+    pool = pause.get('authorized_gpu_pool', {})
+    allowed_pool = (pool.get('state') == 'RUNNING' and owner.get('uuid') is not None
+                    and owner.get('uuid') in pool.get('gpu_uuids', ()))
+    if pause.get('state') == 'PAUSED_BY_USER' and not allowed_pool:
+        if (selected_jobs is None or pilot.get('state') != 'RUNNING'
+                or owner.get('id') != pilot.get('worker_id')
+                or owner.get('uuid') != pilot.get('gpu_uuid')):
+            return None
+        selected_jobs = [job for job in selected_jobs if job in pilot.get('job_ids', ())]
+    runtime = read_json(queue.root / 'capture_runtime_policy.json', {}).get('allowed_code_commits')
+    sample_gate = read_json(queue.root / 'capture_sample_gate.json', {})
+    paths = ((queue.root / 'queued').glob('*.json') if selected_jobs is None else
+             [queue.root / 'queued' / f'{job}.json' for job in selected_jobs])
+    for path in sorted(paths):
+        if not path.is_file() or (queue.root / 'claimed' / path.name).exists():
+            continue
+        try:
+            if (queue.status(path.stem) or {}).get('state') != 'QUEUED':
+                continue
+            manifest = queue.manifest(path.stem)  # Validate the accepted manifest, too.
+        except (OSError, ValueError):
+            continue
+        if runtime and manifest.get('code_commit') not in runtime:
+            continue
+        if candidate_prefix and not manifest.get('candidate_id', '').startswith(candidate_prefix):
+            continue
+        if (sample_gate.get('state') == 'ONE_PER_CATEGORY_AWAITING_REVIEW'
+                and manifest.get('candidate_id') not in sample_gate.get('selected_candidate_ids', ())):
+            continue
+        return path.stem
+    return None
+
+
+def capture_job(queue, claim, gpu, *, stopping=lambda: False, job_id=None,
+                candidate_prefix=None, pilot_control=None):
+    """Capture, then retain an opted-in world without an automatic residency timeout.
+
+    Existing worker stops/failures and pre-completion cancel/timeout behavior still
+    apply. Queue continuation closes only through the native exact-snapshot request
+    protocol; no next claim is acquired while this native process remains alive.
+    """
+    selected_job_id = job_id
+    gpu = queue_retention_gpu(queue, gpu)
     job_id = claim["job_id"]
     try:
         manifest = queue.manifest(job_id)
@@ -396,6 +493,7 @@ def capture_job(queue, claim, gpu, *, stopping=lambda: False):
     began = time.monotonic()
     interrupted, timed_out, cancelled = False, False, False
     retained = False
+    retention_close_request = None
     process = None
     native_tmp_owner = reserve_native_tmp(appdata, job_id)
     try:
@@ -420,6 +518,22 @@ def capture_job(queue, claim, gpu, *, stopping=lambda: False):
                             write_json(output / "preview_complete.json", receipt)
                             queue.finish(claim, output / "preview_complete.json")
                             retained = True
+                    if retained and gpu.get('queue_retention') and retention_close_request is None:
+                        pending = eligible_queued_job(queue, {**claim['worker'], 'uuid': gpu['uuid']},
+                            job_id=selected_job_id, candidate_prefix=candidate_prefix,
+                            pilot_control=pilot_control)
+                        world = read_json(output / 'retained_world.json', {})
+                        if (pending and world.get('state') == 'RETAINED'
+                                and world.get('pid') == process.pid and world.get('job_id') == job_id
+                                and world.get('capture_signature') == manifest['capture_signature']):
+                            retention_close_request = output / 'retained_requests' / f'queue_resume_{uuid.uuid4().hex}.json'
+                            write_json(retention_close_request, {'operation': 'close', 'job_id': job_id,
+                                'capture_signature': manifest['capture_signature'], 'native_pid': process.pid,
+                                'reason': 'eligible_queued_work', 'pending_job_id': pending,
+                                'requested_at': time.time()})
+                            receipt.update(retention_close_request=str(retention_close_request),
+                                           retention_close_reason='eligible_queued_work')
+                            write_json(output / 'preview_complete.json', receipt)
                     if not retained:
                         queue.heartbeat(claim)
                     write_json(queue.root / "workers" / f"{claim['worker']['id']}.json", {
@@ -501,6 +615,8 @@ def main(argv=None):
     parser.add_argument("--gpu-slot", type=int, required=True)
     parser.add_argument('--allow-shared-gpu', action='store_true',
                         help='Explicitly allow existing GPU clients when sufficient free memory remains.')
+    parser.add_argument('--wait-for-idle-gpu', action='store_true',
+                        help='Start a CPU-only fresh-process supervisor and wait for an idle GPU before claiming work.')
     parser.add_argument('--shared-gpu-min-free-mib', type=int, default=8192,
                         help='Required free memory before an explicitly shared worker starts.')
     parser.add_argument('--persistent-simulator', action='store_true',
@@ -560,7 +676,9 @@ def main(argv=None):
     contexts = subprocess.check_output(["nvidia-smi", "--query-compute-apps=pid,gpu_uuid",
         "--format=csv,noheader,nounits"], text=True)
     occupied = [line for line in contexts.splitlines() if line.split(",")[1].strip() == gpu["uuid"]]
-    if occupied and not args.allow_shared_gpu:
+    if args.wait_for_idle_gpu and (args.persistent_simulator or args.allow_shared_gpu):
+        parser.error('--wait-for-idle-gpu is only for exclusive fresh-process workers.')
+    if occupied and not args.allow_shared_gpu and not args.wait_for_idle_gpu:
         parser.error("The assigned GPU already has native/CUDA processes; retain them and select a free owned slot.")
     if args.allow_shared_gpu:
         memory = subprocess.check_output(['nvidia-smi', '--query-gpu=uuid,memory.free',
@@ -608,6 +726,10 @@ def main(argv=None):
                 last_recovery = time.monotonic()
             write_json(status_path, {**owner, **(resident.worker_state() if resident else {'state': 'IDLE'}),
                                      "heartbeat": time.time()})
+            if resident is None and not fresh_gpu_available(gpu):
+                write_json(status_path, {**owner, 'state': 'WAITING_FOR_IDLE_GPU', 'heartbeat': time.time()})
+                time.sleep(10)
+                continue
             pilot = read_json(args.pilot_control, {}) if args.pilot_control else None
             if pilot is not None and pilot.get('mode') != 'campaign':
                 if (pilot.get('mode') != 'pilot' or pilot.get('worker_id') != args.worker_id
@@ -642,7 +764,8 @@ def main(argv=None):
                             queue.release(claim)
                             queue.retry(claim['job_id'])
                             continue
-                    capture_job(queue, claim, gpu, stopping=lambda: stop[0])
+                    capture_job(queue, claim, gpu, stopping=lambda: stop[0], job_id=args.job_id,
+                                candidate_prefix=args.candidate_prefix, pilot_control=args.pilot_control)
             except Exception as error:
                 # Preserve this claim if owned-process termination was uncertain.
                 write_json(status_path, {**owner, "state": "ERROR", "error": str(error),

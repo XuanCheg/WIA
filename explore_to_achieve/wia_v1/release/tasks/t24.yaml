@@ -1,36 +1,31 @@
 kind: category_robot_task
 id: wia_rigid_t24_family_v1__t24_furnished_native_support_v1
-version: 8
+version: 9
 status: pending
 source:
   provider: esi
   json: Physical Structure/Rigid Containment/house_single_floor/utility_room_0/t24_furnished_native_support_v1.json
 public:
-  objective: 'Find the target on the exposed furniture surface and inspect the containers
-    distributed along the other counter. Which container does the first aid kit best
-    fit inside: the packing box or the mug or the tote? For every named object, perform
-    a real robot grasp, lift it at least 5 cm, and partially insert it into the container
-    selected for that object. Release it and withdraw the robot hands at least 2 cm
-    clear.'
-  success_criteria: 'Answer the original containment question for every named object.
-    For each object, complete an actual grasp and a lift of at least 5 cm, then release
-    it partially inside its selected container while touching that container. With
-    no robot contact or support, and the robot hands at least 2 cm clear, maintain
-    this state for at least 0.5 seconds with linear speed at most 0.02 m/s and angular
-    speed at most 0.1 rad/s. An object resting entirely on top does not count as inside.
-    Finish with empty hands and the working gripper open. Submit ANSWER: <container
-    label> and declare DONE.'
-  environment: A furnished utility room. The target and containers occupy separate
-    native furniture surfaces; none is deliberately hidden.
+  objective: 'Find the target on the exposed furniture surface and inspect the containers distributed
+    along the other counter. Which container does the first aid kit best fit inside: the packing box or
+    the mug or the tote? Place each named object partially inside its selected container. Leave it released
+    and withdraw the robot hands at least 2 cm clear.'
+  success_criteria: 'Answer the original containment question for every named object. For each object,
+    verify partial insertion into its selected container with actual container contact and no interpenetration.
+    With empty open hands, no robot support or contact and hands at least 2 cm clear, maintain this state
+    for at least 0.5 seconds with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. An
+    object resting entirely on top does not count. No minimum lift height or prior grasp is required.
+    Targets may be verified sequentially and removed after verification to free a shared container. Finish
+    with empty open hands. Submit ANSWER: <container label> and declare DONE.'
+  environment: A furnished utility room. The target and containers occupy separate native furniture surfaces;
+    none is deliberately hidden.
   constraints:
-  - Complete every target subtask before declaring DONE. An object resting entirely
-    on top does not count as inside.
+  - Complete every target subtask before declaring DONE. An object resting entirely on top does not count
+    as inside.
   - Use the existing guarded public robot controls and visible object/container labels.
-  - Preserve all asset scales and keep every container within 2 cm and 0.05 radians
-    of its starting pose.
-  - Targets may be verified sequentially. An object may be removed after its released,
-    stable partial insertion has been completely verified, to free a shared container.
-    Simultaneous packing is not required.
+  - Preserve all asset scales and keep every container within 2 cm and 0.05 radians of its starting pose.
+  - Targets may be verified sequentially. An object may be removed after its released, stable partial
+    insertion has been completely verified, to free a shared container. Simultaneous packing is not required.
 requirements:
   capabilities:
   - base_translation
@@ -77,7 +72,7 @@ private:
     - table
     - pickup_support
     parameters:
-      scorer_version: wia_rigid_partial_insertion_v1
+      scorer_version: rigid_insertion_final_state_v1
       targets:
       - target
       containers:
@@ -90,7 +85,7 @@ private:
         target: first aid kit
       expected_answers:
         target: packing box
-      minimum_lift_m: 0.05
+      minimum_lift_m: null
       stability_duration_s: 0.5
       maximum_linear_speed_m_s: 0.02
       maximum_angular_speed_rad_s: 0.1
@@ -110,6 +105,7 @@ private:
       initial_support_tolerance_m: 0.015
       maximum_initial_linear_speed_m_s: 0.02
       maximum_initial_angular_speed_rad_s: 0.1
+      manipulation_revision: final_state_v1
 scene:
   policy: native_then_minimal_patch_else_skip
   variants:
@@ -394,8 +390,8 @@ repair:
     scene_source_identity: Physical Structure/Rigid Containment/Ihlen_1_int/living_room_0/Ihlen_1_int_scene_dict_storage2_1_revised.json
     scene_source_sha256: 1a9bddbf21c57eb6dc37022c21727a45b45f0efde31bdb75df008238d1757035
     original_qa_id: '2089'
-    original_question: 'Which container does the first aid kit best fit inside: the
-      packing box or the mug or the tote?'
+    original_question: 'Which container does the first aid kit best fit inside: the packing box or the
+      mug or the tote?'
     original_answer: '[{"_key":"first aid kit","value":"packing box"}]'
     answer_type: sequence
     original_options:
@@ -404,12 +400,10 @@ repair:
     - tote
     verified_answer_by_public_label:
       first aid kit: packing box
-    verification_basis: Original QA answer and named source target_container/idx metadata;
-      no AABB inference.
+    verification_basis: Original QA answer and named source target_container/idx metadata; no AABB inference.
   parameters_provisional: true
   parameters_calibrated: false
-  threshold_basis: Explicit common provisional Rigid family criteria; native calibration
-    is pending.
+  threshold_basis: Explicit common provisional Rigid family criteria; native calibration is pending.
   native_validation_run: false
   physically_qualified: false
   legal_robot_reference_verified: false
@@ -430,32 +424,27 @@ repair:
     debug_cameras: true
     human_depth_visualizations: true
     preview_fps: 2.0
-  repair_reason: 'V3 restores the existing native coffee_table_gcollb_0 as the pickup
-    support. The v2 target settled on that native table above the invented pickup
-    tabletop. Remove the five invented pickup-support primitives and align the target
-    bottom to the measured native table top during initialization only. Retain measured
-    container bottom alignment, all container transforms, original asset scales, public
-    criteria, QA and insertion scorer. Scene review is pending; actual operability
-    and public-control references are deferred until user review. V4 opts only the
-    target supported item into bound local upward-surface ray measurement during initialization
-    alignment and support receipt. The native table global AABB maximum is retained
-    as diagnostic evidence; the local measured support height determines its bottom
-    gap. Original touching, footprint, speed, gap thresholds, all object transforms,
-    insertion scoring and runtime are unchanged. Actual operability remains deferred
-    until user review. V5 explicitly separates target alignment from support measurement:
-    restore the V3 AABB-top initial placement, retain the existing 90 settling steps,
-    and measure the final target support gap with a bound local upward-surface ray.
-    The V4 initial local-ray failure remains preserved; its cause is unverified. No
-    missing-hit fallback is allowed. Geometry, original thresholds, insertion scoring
-    and runtime remain unchanged; actual operability remains deferred until user review.
-    V6 keeps V5 geometry, AABB-top initial alignment and all 90 initialization settling
-    steps unchanged. Final support measurement now casts from above the bound support
-    AABB high Z plus 0.10 m to below its low Z minus 0.10 m; nonfinite or at-most-1e-6
-    m hit distances cannot provide surface evidence. The actual selected positive
-    distance, endpoints and hit position are retained privately. This excludes zero-distance
-    inside-origin hits from support validation without fallback or threshold changes.
-    V5 nominal acceptance remains historical; native support validation and actual
-    operability are not claimed.'
+  repair_reason: 'V3 restores the existing native coffee_table_gcollb_0 as the pickup support. The v2
+    target settled on that native table above the invented pickup tabletop. Remove the five invented pickup-support
+    primitives and align the target bottom to the measured native table top during initialization only.
+    Retain measured container bottom alignment, all container transforms, original asset scales, public
+    criteria, QA and insertion scorer. Scene review is pending; actual operability and public-control
+    references are deferred until user review. V4 opts only the target supported item into bound local
+    upward-surface ray measurement during initialization alignment and support receipt. The native table
+    global AABB maximum is retained as diagnostic evidence; the local measured support height determines
+    its bottom gap. Original touching, footprint, speed, gap thresholds, all object transforms, insertion
+    scoring and runtime are unchanged. Actual operability remains deferred until user review. V5 explicitly
+    separates target alignment from support measurement: restore the V3 AABB-top initial placement, retain
+    the existing 90 settling steps, and measure the final target support gap with a bound local upward-surface
+    ray. The V4 initial local-ray failure remains preserved; its cause is unverified. No missing-hit fallback
+    is allowed. Geometry, original thresholds, insertion scoring and runtime remain unchanged; actual
+    operability remains deferred until user review. V6 keeps V5 geometry, AABB-top initial alignment and
+    all 90 initialization settling steps unchanged. Final support measurement now casts from above the
+    bound support AABB high Z plus 0.10 m to below its low Z minus 0.10 m; nonfinite or at-most-1e-6 m
+    hit distances cannot provide surface evidence. The actual selected positive distance, endpoints and
+    hit position are retained privately. This excludes zero-distance inside-origin hits from support validation
+    without fallback or threshold changes. V5 nominal acceptance remains historical; native support validation
+    and actual operability are not claimed.'
   parent_task_sha256: 04d321e8f8dc27c861ad0992dccb8771db7860ffcb127e2185b0b59e8abd4704
   parent_scene_sha256: 0b4dd55b7c277a8826925dca71c65040e8b2234ba4103353ec5eee9e94227873
   original_qa_source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
@@ -463,3 +452,13 @@ repair:
   original_qa_source_sha256: 1a9bddbf21c57eb6dc37022c21727a45b45f0efde31bdb75df008238d1757035
   full_reference_execution: deferred_until_user_review
   original_support_v6_hold_preserved: true
+  final_state_revision:
+    revision: final_state_v1
+    date: '2026-10-30'
+    parent_task_sha256: 42c1aab96fabb3e7c622f95ee6b3f350a8b6fb9cd8226b1254792e149b105976
+    parent_scene_sha256: 925483c562d7689116b56ada8ad7e007f54011f833fdbb02c81caf7f494508a5
+    parent_source_task_file: explore_to_achieve/wia_v1/furnished_v1/rigid/t24_furnished_native_support_v1/task.yaml
+    parent_source_scene_file: explore_to_achieve/wia_v1/furnished_v1/rigid/t24_furnished_native_support_v1/scene.yaml
+    scene_geometry_changed: false
+    native_execution_verified: false
+    scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.

@@ -203,7 +203,11 @@ class CaptureQueue:
         pause = read_json(self.root / 'capture_pause.json', {})
         if pause.get('state') == 'PAUSED_BY_USER':
             pilot = pause.get('authorized_pilot', {})
-            if not (job_id and pilot.get('state') == 'RUNNING'
+            pool = pause.get('authorized_gpu_pool', {})
+            allowed_pool = (pool.get('state') == 'RUNNING'
+                            and worker.get('uuid') in pool.get('gpu_uuids', ())
+                            and worker.get('uuid') is not None)
+            if not allowed_pool and not (job_id and pilot.get('state') == 'RUNNING'
                     and worker.get('id') == pilot.get('worker_id')
                     and worker.get('uuid') == pilot.get('gpu_uuid')
                     and job_id in pilot.get('job_ids', ())):

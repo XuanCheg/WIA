@@ -1,0 +1,84 @@
+kind: scene_patch
+id: iw_h5_02
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Action Sequencing/Action Order Inference/grocery_store_cafe/grocery_store_0/iw_h5_02.json
+bindings:
+  item_01:
+    name: item_01
+  item_02:
+    name: item_02
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: &id001
+          prototype: H5
+          source_task: ASK-30000
+          source_file: /local_home2/zhouxinyang/models/InteractiveWorld/benchmark/tasks/taskpacks/decision/ASK-30000.taskpack.json
+          source_sha256: c54d45d214fc7abd7c6e03b082ddfb283acc9fe489e715c1e446fd06590c677b
+          scene_model: grocery_store_cafe
+          room: grocery_store_0
+          fixture: breakfast_table_ylykeh_0
+          objects:
+          - name: item_01
+            category: can_of_cat_food
+            model: omiuox
+            slot: 0
+            offset:
+            - 0
+            - 0
+            size:
+            - 0.065
+            - 0.065
+            - 0.06
+            fixed: false
+          - name: item_02
+            category: can_of_dog_food
+            model: rgwfxq
+            slot: 1
+            offset:
+            - 0
+            - 0
+            size:
+            - 0.065
+            - 0.065
+            - 0.08
+            fixed: false
+          regions:
+            primary: 1
+            fallback: 2
+          contract:
+            payload: item_01
+            resident: item_02
+            primary: primary
+            fallback: fallback
+            protected:
+            - item_02
+            primary_available: false
+          objective: Deliver the cat-food can to the blue primary receiving area if it contains no resident
+            item. If any resident occupies that area, use the yellow fallback area. This is a stock-separation
+            rule, not a claim that the primary is geometrically full. Preserve the resident item.
+          condition:
+            primary_available: false
+          id: iw_h5_02
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+seed: 7
+runtime:
+  preview_fps: 0.0
+  camera_size:
+  - 512
+  - 512

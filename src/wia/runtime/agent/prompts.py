@@ -276,6 +276,14 @@ class PromptAssembler:
         if sensor.perception is not None and sensor.perception.point_cloud_m is not None:
             sensor_data["perception_point_cloud_m"] = sensor.perception.point_cloud_m.tolist()
         context = dict(request.action_context or {})
+        if context.get('candidate_history_frames'):
+            sensor_data['attached_images_in_order'] = [{
+                'name': f"candidate_history_{frame['index']:02}_agentview_rgb",
+                'label': 'Historical native head camera frame from an authored event before the first decision',
+                'shape': list(sensor.agentview_rgb.shape), 'transform': 'identity',
+                'snapshot_id': frame['snapshot_id'], 'captured_at': frame['captured_at'],
+                'simulation_time_s': frame['simulation_time_s'], 'sha256': frame['sha256']
+            } for frame in context['candidate_history_frames']] + sensor_data['attached_images_in_order']
         capabilities = {"available_actions": list(request.available_actions), "action_mode": request.action_mode,
                         "action_context": context}
         if request.action_mode == "parameterized":

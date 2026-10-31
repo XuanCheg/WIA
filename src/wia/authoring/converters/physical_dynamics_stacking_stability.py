@@ -34,6 +34,7 @@ MODULE = 'wia.authoring.converters.physical_dynamics_stacking_stability'
 TASK_REVISION = 'task_edit_20261018_v1'
 MECHANISM_CONTRACT = {'preserve': ['original_objects', 'asset_scales', 'native_grasp_release_history'], 'goal': 'released_tower_after_robot_withdrawal', 'stability_seconds': 1.0}
 OPERATION = 'build_released_three_object_stack'
+FINAL_STATE_REVISION = 'final_state_v1'
 OBJECT_KEYS = ('object_0', 'object_1', 'object_2')
 MINIMUM_LIFT_M = .05
 STABILITY_SECONDS = 1.
@@ -200,7 +201,10 @@ def _native_config(session, config):
             config.get('operation') != OPERATION or config.get('scene') != session.scene_name or
             config.get('room') != session.room_name or set(config.get('bindings', {})) != {*OBJECT_KEYS, 'floor'}):
         raise ValueError('Stack operation requires its original scene and four native bindings.')
-    return config['parameters']
+    parameters = config['parameters']
+    if parameters.get('manipulation_revision') not in (None, FINAL_STATE_REVISION):
+        raise ValueError('Unsupported tower manipulation revision.')
+    return parameters
 
 
 def _pose(obj):
@@ -266,7 +270,7 @@ def qualify_operation(session, executor, config, bound):
             original = parameters['original_objects'][key]
             obj = bound[key]
             checks[key + '_movable_collidable'] = not row['visual_only'] and not row['fixed_base']
-            checks[key + '_identity_scale_preserved'] = (obj.name == original['name'] and
+            checks[key + '_identity_scale_preserved'] = bool(obj.name == original['name'] and
                 obj.category == original['category'] and obj.model == original['model'] and
                 np.max(np.abs(np.asarray(row['scale']) - original['scale'])) <= 1e-5)
             checks[key + '_initial_pose_preserved'] = bool(
@@ -360,8 +364,9 @@ class StackOperationEvaluator:
                 continue
             if touching[(middle, 'task_support')] or touching[(top, 'task_support')]:
                 continue
-            if not all(key in self.lifted and self.released.get(key) == lower
-                       for key, lower in ((middle, bottom), (top, middle))):
+            if (getattr(self, 'parameters', {}).get('manipulation_revision') != FINAL_STATE_REVISION and
+                    not all(key in self.lifted and self.released.get(key) == lower
+                       for key, lower in ((middle, bottom), (top, middle)))):
                 continue
             # No robot, furniture, wall, floor support of an upper object, or
             # unrelated body may prop up the completed tower.
@@ -376,9 +381,63 @@ class StackOperationEvaluator:
             orders.append((bottom, middle, top))
         return orders
 
-    def _update(self):
+    def _update_final(self, *, advance):
+        """Inspect final native support; only controller callbacks add dwell samples."""
+        try:
+            rows, on_top, touching, gripper, (now, dt) = self.measure()
+        except Exception as error:
+            self.trace, self.trace_order = [], None
+            if self.last is None:
+                raise
+            self.last = {**self.last, 'measurement_error': f'{type(error).__name__}: {error}',
+                'measured_order': None, 'stability_duration_s': 0., 'stability_samples': 0,
+                'criteria': {**self.last['criteria'], 'native_measurement_available': False,
+                    'native_contact_order_upright_stationary_unheld': False,
+                    'continuous_native_stability_window': False}, 'task_success': False}
+            return self.last
+        if self.last_time is not None and now < self.last_time - 1e-9:
+            raise ValueError('Native simulation clock moved backwards within the episode.')
+        orders = self._terminal_orders(rows, on_top, touching, gripper)
+        order = orders[0] if len(orders) == 1 else None
+        gap = now - self.last_time if self.last_time is not None else 0.
+        restart = order != self.trace_order or gap > MAXIMUM_SAMPLE_GAP_S + 1e-7
+        if self.trace and not restart:
+            first = self.trace[0]['objects']
+            restart = any(np.linalg.norm(np.asarray(row['position']) - first[key]['position']) > MAXIMUM_DRIFT_M or
+                (Rotation.from_quat(row['quaternion_xyzw']).inv() * Rotation.from_quat(
+                    first[key]['quaternion_xyzw'])).magnitude() > MAXIMUM_ROTATION_RAD
+                for key, row in rows.items())
+        if order is None or restart:
+            self.trace, self.trace_order = [], None
+        if advance and (self.last_time is None or now > self.last_time + 1e-9):
+            if order is not None:
+                self.trace_order = order
+                if not self.trace or self.trace[-1]['time_s'] - self.trace[0]['time_s'] < STABILITY_SECONDS - 1e-7:
+                    self.trace.append({'time_s': now, 'objects': rows})
+            self.last_time = now
+        duration = self.trace[-1]['time_s'] - self.trace[0]['time_s'] if self.trace else 0.
+        criteria = {'native_initial_preconditions': self.preconditions['accepted'],
+            'native_measurement_available': True,
+            'native_contact_order_upright_stationary_unheld': order is not None,
+            'continuous_native_stability_window': duration >= STABILITY_SECONDS - 1e-7 and
+                len(self.trace) >= MINIMUM_STABILITY_SAMPLES,
+            'original_scales_preserved': all(np.max(np.abs(np.asarray(rows[key]['scale']) -
+                self.parameters['original_objects'][key]['scale'])) <= 1e-5 for key in OBJECT_KEYS)}
+        categories = [self.parameters['original_objects'][key]['category'] for key in order] if order else None
+        self.last = {'native_objects': rows, 'native_gripper': gripper, 'time_s': now, 'sim_step_dt_s': dt,
+            'native_relations': [{'upper': upper, 'lower': lower, 'on_top': value,
+                'touching': touching[(upper, lower)]} for (upper, lower), value in on_top.items()],
+            'measured_order': list(order) if order else None, 'measurement_error': None,
+            'stability_duration_s': duration, 'stability_samples': len(self.trace), 'criteria': criteria,
+            'auxiliary_original_order_match': categories in self.parameters['legacy_accepted_category_orders']
+                if categories else None, 'task_success': bool(all(criteria.values()))}
+        return self.last
+
+    def _update(self, *, advance=True):
         if self.initial is None:
             return None
+        if self.parameters.get('manipulation_revision') == FINAL_STATE_REVISION:
+            return self._update_final(advance=advance)
         rows, on_top, touching, gripper, (now, dt) = self.measure()
         # record() and the control callback can see the same native step.
         if self.last_time is not None and now <= self.last_time + 1e-9:
@@ -454,7 +513,8 @@ class StackOperationEvaluator:
         self._update()
 
     def record(self, observation, *, action):
-        value = self._update()
+        final_state = self.parameters.get('manipulation_revision') == FINAL_STATE_REVISION
+        value = self._update(advance=not final_state)
         if value is None:
             return None
         record = {**value, 'schema': 'private_real_stack_v1', 'episode': self.episode,
@@ -468,6 +528,16 @@ class StackOperationEvaluator:
                 'evaluation_validity': 'valid' if available else 'unavailable'},
                 {'id': 'withdrawn_stable_tower', 'kind': 'terminal_condition', 'completed': value['task_success'],
                  'evaluation_validity': 'valid' if available else 'unavailable'}])
+        if final_state:
+            available = available and value['criteria']['native_measurement_available']
+            record.update(schema='private_final_stack_v1',
+                task_revision=self.parameters.get('task_revision', FINAL_STATE_REVISION),
+                manipulation_revision=FINAL_STATE_REVISION,
+                measured_capability='released_final_tower',
+                evaluation_validity='complete' if available else 'unavailable',
+                completion_items=[{'id': 'withdrawn_stable_tower', 'kind': 'terminal_condition',
+                    'completed': value['task_success'],
+                    'evaluation_validity': 'valid' if available else 'unavailable'}])
         from wia.tasks.completion import progress
         record.update(progress(record))
         write_json(self.output / 'state.json', record)

@@ -1,35 +1,30 @@
 kind: category_robot_task
 id: wia_ramp_material_calibration_v1__t42_red_release_marker_v1
-version: 5
+version: 6
 status: pending
 source:
   provider: esi
   json: Physical Dynamics/Inclined Plane/house_single_floor/living_room_0/redesign_sphere_v2_from_childs_room_0.json
 public:
-  objective: 'Compare how a bowl, an avocado and a spherical ball travel down the
-    ramp. The candidate table contains one trial item and one unused matching spare
-    of each type. Use the items on the yellow mat for trials and preserve those on
-    the green mat as spares. Test each trial item separately: grasp it, place it over
-    the red release mark on the ramp in its initial resting orientation, release without
-    a push and observe three seconds. Recover trial items to the candidate table after
-    observing them so the runway is clear. Then select the unused spare matching the
-    fastest successful trial and deliver it through the ramp into the blue receiving
-    tray.'
-  success_criteria: Record a controlled trial for all three types. Choose an unused
-    spare of a type that reached and stayed in the receiver fastest; trials within
-    0.15 seconds of the best arrival time are tied. Release that spare through the
-    same ramp and leave it stationary in the receiving tray.
-  environment: An elevated ramp, a contained runway, an open-entry receiving tray
-    and a separate six-item supply table.
+  objective: 'Compare how a bowl, an avocado and a spherical ball travel down the ramp. The candidate
+    table contains one trial item and one unused matching spare of each type. Use the items on the yellow
+    mat for trials and preserve those on the green mat as spares. Test each trial item separately: grasp
+    it, place it over the red release mark on the ramp in its initial resting orientation, release without
+    a push and observe three seconds. Recover trial items to the candidate table after observing them
+    so the runway is clear. Then select the unused spare matching the fastest successful trial and deliver
+    it through the ramp into the blue receiving tray.'
+  success_criteria: Record a controlled trial for all three types. Choose an unused spare of a type that
+    reached and stayed in the receiver fastest; trials within 0.15 seconds of the best arrival time are
+    tied. Release that spare through the same ramp and leave it stationary in the receiving tray.
+  environment: An elevated ramp, a contained runway, an open-entry receiving tray and a separate six-item
+    supply table.
   constraints:
-  - "Release each object in its trial item\u2019s initial resting orientation (within\
-    \ 20 degrees; ball orientation is unrestricted), with its centre within 2.5 cm\
-    \ of the ramp centreline and the point halfway between the upper edge and ramp\
-    \ centre. The object must contact the top face while held, with linear speed at\
-    \ most 0.05 m/s and angular speed at most 0.2 rad/s."
-  - Keep ramp angle and materials unchanged. Do not push released items, move the
-    apparatus or place items directly in the receiver. Keep the runway clear between
-    trials.
+  - "Release each object in its trial item\u2019s initial resting orientation (within 20 degrees; ball\
+    \ orientation is unrestricted), with its centre within 2.5 cm of the ramp centreline and the point\
+    \ halfway between the upper edge and ramp centre. The object must contact the top face while held,\
+    \ with linear speed at most 0.05 m/s and angular speed at most 0.2 rad/s."
+  - Keep ramp angle and materials unchanged. Do not push released items, move the apparatus or place items
+    directly in the receiver. Keep the runway clear between trials.
   - Picking a spare ends the trial stage. Preserve all unused spares.
 requirements:
   capabilities:
@@ -801,6 +796,7 @@ scene:
               - 0.0
               - 0.5736971923032635
               - 0.8190674767950149
+            synchronize_authored_poses_before_alignment: true
       - operation: category_initialization
         phase: after_postprocessing
         module: wia.authoring.converters.active_layout
@@ -1391,6 +1387,7 @@ scene:
               - 0.0
               - 0.5736971923032635
               - 0.8190674767950149
+            synchronize_authored_poses_before_alignment: true
       - operation: category_initialization
         phase: before_construction
         module: wia.authoring.converters.wia_background
@@ -1437,16 +1434,13 @@ repair:
   parent_background_task_sha256: cd324cab9adeaac2ad4addf727a2db6664d630a19c2b0fe1ae316fa18e087df7
   parent_background_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/background_family_v2/scenes/t42_complete_ground_v2.yaml
   parent_background_scene_sha256: a669103639e591414f4027c014344f2cb2ff128a13755bdf486b751ef643033d
-  repair_reason: V3 changes only the active_layout robot-floor binding to floors_uzsntg_0
-    for the unchanged shared robot start [14, 2, 0.02]. The main-agent native T42
-    V2 initialization receipt reports contact with that floor; the former restored
-    source-floor binding covers a different region. Both active layout hooks now name
-    the same native robot-support floor. Complete-ground loading, all apparatus poses/assets/scales/friction,
-    QA, scorer, budget, runtime and seed remain unchanged. Native validation of this
-    revision and actual operability remain unverified; public-control reference execution
-    is deferred until user review.
+  repair_reason: V3 changes only the active_layout robot-floor binding to floors_uzsntg_0 for the unchanged
+    shared robot start [14, 2, 0.02]. The main-agent native T42 V2 initialization receipt reports contact
+    with that floor; the former restored source-floor binding covers a different region. Both active layout
+    hooks now name the same native robot-support floor. Complete-ground loading, all apparatus poses/assets/scales/friction,
+    QA, scorer, budget, runtime and seed remain unchanged. Native validation of this revision and actual
+    operability remain unverified; public-control reference execution is deferred until user review.
   reference_execution_status: deferred_until_user_review
   variant_id: t42_red_release_marker_v1
   full_reference_execution: pending
-  revision_scope: Release marker color only; two selected native backgrounds across
-    three proposals.
+  revision_scope: Release marker color only; two selected native backgrounds across three proposals.

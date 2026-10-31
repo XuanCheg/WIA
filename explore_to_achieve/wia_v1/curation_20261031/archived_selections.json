@@ -1,0 +1,324 @@
+{
+  "revision": "representative_mechanisms_20261031",
+  "active_count": 65,
+  "original_active_count": 56,
+  "new_active_count": 9,
+  "archived_count": 15,
+  "definitions_captures_reviews_retained": true,
+  "representatives": [
+    {
+      "alias": "iw_h1_02",
+      "prototype": "H1",
+      "family": "GG",
+      "subclass": "GG-4",
+      "title": "Inspect and replace a rejected package",
+      "selection_reason": "Keep the rejection branch; archive the acceptable-original control."
+    },
+    {
+      "alias": "iw_h2_02",
+      "prototype": "H2",
+      "family": "AP",
+      "subclass": "AP-4",
+      "title": "Restore a disturbed workspace",
+      "selection_reason": "Keep the disturbance branch; archive the no-disturbance control."
+    },
+    {
+      "alias": "iw_h3_03",
+      "prototype": "H3",
+      "family": "AP",
+      "subclass": "AP-4",
+      "title": "Replenish stock after progress is undone",
+      "selection_reason": "Keep reversed progress; archive the static-deficit and already-complete controls."
+    },
+    {
+      "alias": "iw_h4_02",
+      "prototype": "H4",
+      "family": "SR",
+      "subclass": "SR-1",
+      "title": "Clear only the space needed",
+      "selection_reason": "Keep the central-blocker layout; archive the alternative blocker layout."
+    },
+    {
+      "alias": "iw_h5_02",
+      "prototype": "H5",
+      "family": "GG",
+      "subclass": "GG-4",
+      "title": "Choose an eligible receiving area",
+      "selection_reason": "Keep the unavailable-primary branch; archive the available-primary control."
+    },
+    {
+      "alias": "iw_m1_01",
+      "prototype": "M1",
+      "family": "TM",
+      "subclass": "TM-1",
+      "title": "Sort cleaning tools by observed use",
+      "selection_reason": "Keep one tool identity; archive the matched identity-swap control."
+    },
+    {
+      "alias": "iw_m2_01",
+      "prototype": "M2",
+      "family": "AP",
+      "subclass": "AP-5",
+      "title": "Allocate shared stock to exact orders",
+      "selection_reason": "Keep orders 4 and 3: largest-first allocation to order A can fail; archive the 5-and-3 quantity change."
+    },
+    {
+      "alias": "iw_m3_01",
+      "prototype": "M3",
+      "family": "GG",
+      "subclass": "GG-4",
+      "title": "Choose storage from observed contents",
+      "selection_reason": "Keep one content assignment; archive the matched contents-swap control."
+    },
+    {
+      "alias": "iw_m4_02",
+      "prototype": "M4",
+      "family": "AP",
+      "subclass": "AP-5",
+      "title": "Schedule jobs across shared stations",
+      "selection_reason": "Keep the 24-second station-B job; archive the 8-second duration control."
+    }
+  ],
+  "archived": [
+    {
+      "alias": "D1-1",
+      "reason": "Temporarily removed at user request; newer mechanisms supersede the intended coverage.",
+      "selection": {
+        "alias": "D1-1",
+        "family": "GF",
+        "variant_id": "d1_1_seed101_v2_hall_train_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/d1-1.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/review_access_20261030/tasks/d1-1.yaml",
+        "source_task_file_sha256": "fee43a958c47362955d6cde27d31e581958c09471f8d97ed29ef5bc8f87937d4",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/d1-1.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/review_access_20261030/scenes/d1-1.yaml",
+        "source_scene_file_sha256": "a0d3380395f77535bb95b30692b487a132912959f1055f9712cdec8bd1ffe15f",
+        "task_id": "wia_dimensional_d1_1_v2",
+        "variant": "adapted"
+      }
+    },
+    {
+      "alias": "D1-2",
+      "reason": "Temporarily removed at user request; newer mechanisms supersede the intended coverage.",
+      "selection": {
+        "alias": "D1-2",
+        "family": "GF",
+        "variant_id": "d1_2_seed101_v2_hall_arch_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/d1-2.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/review_access_20261030/tasks/d1-2.yaml",
+        "source_task_file_sha256": "91eac71e8dcade9a58c50e4c78b1de60515b102eddba043309b54c49fb76aca3",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/d1-2.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/review_access_20261030/scenes/d1-2.yaml",
+        "source_scene_file_sha256": "6de9eea83b7a40eb835b92d66e4c3578d96bc93a9ee83b98447844cf9fcbe817",
+        "task_id": "wia_dimensional_d1_2_v2",
+        "variant": "adapted"
+      }
+    },
+    {
+      "alias": "D1-3",
+      "reason": "Temporarily removed at user request; newer mechanisms supersede the intended coverage.",
+      "selection": {
+        "alias": "D1-3",
+        "family": "GF",
+        "variant_id": "d1_3_seed101_v2_hall_train_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/d1-3.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/review_access_20261030/tasks/d1-3.yaml",
+        "source_task_file_sha256": "9545d7d3da79d2e2568b31ed6d9867e6ee4caa60e8d085af1d7c7df18df1fd74",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/d1-3.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/review_access_20261030/scenes/d1-3.yaml",
+        "source_scene_file_sha256": "fe73fa83d95123791d322f22ff2ada794d344a7cba52fbe057b3b6470f3cf643",
+        "task_id": "wia_dimensional_d1_3_v2",
+        "variant": "adapted"
+      }
+    },
+    {
+      "alias": "D2-1",
+      "reason": "Temporarily removed at user request; newer mechanisms supersede the intended coverage.",
+      "selection": {
+        "alias": "D2-1",
+        "family": "GF",
+        "variant_id": "d2_1_seed101_v2_hall_arch_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/d2-1.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/final_state_20261030/tasks/d2-1.yaml",
+        "source_task_file_sha256": "4fad52b021f8c31dbbbb7a9d0e4a256e0ece0e989e82da65fe3799e6638630a3",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/d2-1.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/final_state_20261030/scenes/d2-1.yaml",
+        "source_scene_file_sha256": "20c6427b6b596f6130e4c95837dcee735c73668ed6f7994eac2b82ac7a0076b6",
+        "task_id": "wia_dimensional_d2_1_v2",
+        "variant": "adapted"
+      }
+    },
+    {
+      "alias": "D2-2",
+      "reason": "Temporarily removed at user request; newer mechanisms supersede the intended coverage.",
+      "selection": {
+        "alias": "D2-2",
+        "family": "GF",
+        "variant_id": "d2_2_seed101_v2_hall_train_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/d2-2.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/final_state_20261030/tasks/d2-2.yaml",
+        "source_task_file_sha256": "e6aeca2e7ff1fac6cf1b99cce996c5ba15aef1e23c53e51fce27cd0bd0451b16",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/d2-2.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/final_state_20261030/scenes/d2-2.yaml",
+        "source_scene_file_sha256": "1c7499393a3fdc602ed5a01f7cbdaf0db5fd4f320d09cf675fc409722111182f",
+        "task_id": "wia_dimensional_d2_2_v2",
+        "variant": "adapted"
+      }
+    },
+    {
+      "alias": "iw_h1_01",
+      "reason": "Counterfactual or parameter-only variant archived to retain one active representative per mechanism.",
+      "selection": {
+        "id": "iw_h1_01",
+        "prototype": "H1",
+        "condition": {
+          "defective": false
+        },
+        "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h1_01.yaml",
+        "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h1_01.yaml",
+        "variant": "adapted",
+        "source_task": "GUIDE-87017"
+      }
+    },
+    {
+      "alias": "iw_h2_01",
+      "reason": "Counterfactual or parameter-only variant archived to retain one active representative per mechanism.",
+      "selection": {
+        "id": "iw_h2_01",
+        "prototype": "H2",
+        "condition": {
+          "disturbance": false
+        },
+        "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h2_01.yaml",
+        "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h2_01.yaml",
+        "variant": "adapted",
+        "source_task": "ORCHESTRATE-112022"
+      }
+    },
+    {
+      "alias": "iw_h3_01",
+      "reason": "Counterfactual or parameter-only variant archived to retain one active representative per mechanism.",
+      "selection": {
+        "id": "iw_h3_01",
+        "prototype": "H3",
+        "condition": {
+          "initial_stock": 1,
+          "progress": "remaining"
+        },
+        "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h3_01.yaml",
+        "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h3_01.yaml",
+        "variant": "adapted",
+        "source_task": "ASK-99600"
+      }
+    },
+    {
+      "alias": "iw_h3_02",
+      "reason": "Counterfactual or parameter-only variant archived to retain one active representative per mechanism.",
+      "selection": {
+        "id": "iw_h3_02",
+        "prototype": "H3",
+        "condition": {
+          "initial_stock": 2,
+          "progress": "retained"
+        },
+        "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h3_02.yaml",
+        "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h3_02.yaml",
+        "variant": "adapted",
+        "source_task": "ASK-99600"
+      }
+    },
+    {
+      "alias": "iw_h4_01",
+      "reason": "Counterfactual or parameter-only variant archived to retain one active representative per mechanism.",
+      "selection": {
+        "id": "iw_h4_01",
+        "prototype": "H4",
+        "condition": {
+          "blocker_layout": 0
+        },
+        "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h4_01.yaml",
+        "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h4_01.yaml",
+        "variant": "adapted",
+        "source_task": "NARRATE-12802"
+      }
+    },
+    {
+      "alias": "iw_h5_01",
+      "reason": "Counterfactual or parameter-only variant archived to retain one active representative per mechanism.",
+      "selection": {
+        "id": "iw_h5_01",
+        "prototype": "H5",
+        "condition": {
+          "primary_available": true
+        },
+        "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h5_01.yaml",
+        "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h5_01.yaml",
+        "variant": "adapted",
+        "source_task": "ASK-30000"
+      }
+    },
+    {
+      "alias": "iw_m1_02",
+      "reason": "Counterfactual or parameter-only variant archived to retain one active representative per mechanism.",
+      "selection": {
+        "id": "iw_m1_02",
+        "prototype": "M1",
+        "condition": {
+          "used_tool": "item_02"
+        },
+        "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m1_02.yaml",
+        "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_m1_02.yaml",
+        "variant": "adapted",
+        "source_task": "WATCH-28002"
+      }
+    },
+    {
+      "alias": "iw_m2_02",
+      "reason": "Counterfactual or parameter-only variant archived to retain one active representative per mechanism.",
+      "selection": {
+        "id": "iw_m2_02",
+        "prototype": "M2",
+        "condition": {
+          "orders": {
+            "order_a": 5,
+            "order_b": 3
+          }
+        },
+        "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m2_02.yaml",
+        "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_m2_02.yaml",
+        "variant": "adapted",
+        "source_task": "GUIDE-24003"
+      }
+    },
+    {
+      "alias": "iw_m3_02",
+      "reason": "Counterfactual or parameter-only variant archived to retain one active representative per mechanism.",
+      "selection": {
+        "id": "iw_m3_02",
+        "prototype": "M3",
+        "condition": {
+          "eligible_unit": "unit_b"
+        },
+        "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m3_02.yaml",
+        "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_m3_02.yaml",
+        "variant": "adapted",
+        "source_task": "GUIDE-14018"
+      }
+    },
+    {
+      "alias": "iw_m4_01",
+      "reason": "Counterfactual or parameter-only variant archived to retain one active representative per mechanism.",
+      "selection": {
+        "id": "iw_m4_01",
+        "prototype": "M4",
+        "condition": {
+          "duration_c": 8.0
+        },
+        "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m4_01.yaml",
+        "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_m4_01.yaml",
+        "variant": "adapted",
+        "source_task": "ORCHESTRATE-44001"
+      }
+    }
+  ]
+}

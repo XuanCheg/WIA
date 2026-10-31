@@ -34,3 +34,15 @@ def harness_runtime_sources():
             if path.is_file() and path.suffix in {'.py', '.json', '.yaml', '.yml', '.html', '.js', '.md'}:
                 sources['harness/' + str(path.relative_to(harness_root))] = path
     return sources
+
+
+def execution_resource_environment():
+    """Pass split-package roots explicitly into existing persistent terminals."""
+    import os
+    from wia.resources import ESI_ROOT, DATASET_ROOT
+    from showharness.resources import ROOT as harness_root
+    return {'WIA_ROOT': str(ROOT), 'WIA_ESI_ROOT': str(ESI_ROOT),
+            'WIA_DATASET_ROOT': str(DATASET_ROOT) if os.environ.get('WIA_DATASET_ROOT') else '',
+            'SHOWHARNESS_ROOT': str(harness_root),
+            'PYTHONPATH': os.pathsep.join(filter(None, (str(ROOT / 'src'), str(harness_root),
+                                                       os.environ.get('PYTHONPATH'))))}

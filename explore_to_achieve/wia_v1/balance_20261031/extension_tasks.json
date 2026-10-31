@@ -1,0 +1,225 @@
+{
+  "revision": "mechanism_balanced_household_20261031",
+  "parent_selection_count": 65,
+  "active_count": 59,
+  "extension_count": 10,
+  "previous_archive": "explore_to_achieve/wia_v1/curation_20261031/archived_selections.json",
+  "definitions_captures_reviews_retained": true,
+  "archived": [
+    {
+      "selection": {
+        "alias": "T03",
+        "family": "AP",
+        "variant_id": "t03_furnished_existing_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t03.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/final_state_20261030/tasks/t03.yaml",
+        "source_task_file_sha256": "6fae69cc09981f2986fa6b045acd982fd924d2424154344557cbf2436cc48112",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t03.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/final_state_20261030/scenes/t03.yaml",
+        "source_scene_file_sha256": "519bcdd00a50a03b136803777e349ef903d9ab58888fbe51c4ff38b9f328d6c1",
+        "task_id": "task_147bd86f8823841d197cd225__t03_furnished_existing_v1",
+        "variant": "adapted",
+        "origin": "original",
+        "subclass": "AP-1"
+      },
+      "reason": "Third fixed support-order stack; preserve curved-object transfer as an extension rather than weighting the same specified structure three times.",
+      "covered_by": [
+        "T01",
+        "T02"
+      ]
+    },
+    {
+      "selection": {
+        "alias": "T19",
+        "family": "AP",
+        "variant_id": "t19_furnished_existing_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t19.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/final_state_20261030/tasks/t19.yaml",
+        "source_task_file_sha256": "cd98499f6c52afe9a6f2e5c4c6760afb0c62529dc816dd5b5657b1beb3b4b110",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t19.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/final_state_20261030/scenes/t19.yaml",
+        "source_scene_file_sha256": "657cb4807cadecaef40f34f4ab8a76a91284bedb862ee87581d3fe654fab260a",
+        "task_id": "task_39adb8b7c3109d4fb0566a86__t19_furnished_existing_v1",
+        "variant": "adapted",
+        "origin": "original",
+        "subclass": "AP-2"
+      },
+      "reason": "Additional three-object stable tower; cylindrical and broad rectangular construction remain in the core.",
+      "covered_by": [
+        "T18",
+        "T21"
+      ]
+    },
+    {
+      "selection": {
+        "alias": "T20",
+        "family": "AP",
+        "variant_id": "t20_furnished_existing_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t20.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/final_state_20261030/tasks/t20.yaml",
+        "source_task_file_sha256": "8a67f82de8a3f4c9174c394c8d589ab9a875f8e434af4e962a3ac89bddb9435c",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t20.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/final_state_20261030/scenes/t20.yaml",
+        "source_scene_file_sha256": "78d2e8a46c62f332dd102494d4433ea36329e268c82b5a85ae3433e82f3b394d",
+        "task_id": "task_ba68b4fd5a239222565074ef__t20_furnished_existing_v1",
+        "variant": "adapted",
+        "origin": "original",
+        "subclass": "AP-2"
+      },
+      "reason": "Additional three-object stable tower with another can/bowl/jar set; keep as asset-transfer extension.",
+      "covered_by": [
+        "T18",
+        "T21"
+      ]
+    },
+    {
+      "selection": {
+        "alias": "T27",
+        "family": "SR",
+        "variant_id": "t27_furnished_tray_v2",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t27.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/final_state_20261030/tasks/t27.yaml",
+        "source_task_file_sha256": "72228650e158e4b12eeb0f3a64da684b3d7a5dc033772e1e480372bedd065d01",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t27.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/final_state_20261030/scenes/t27.yaml",
+        "source_scene_file_sha256": "b21e051c592eed86b9b55df33fbadb47a8a2453e9b021175110e2bef2d720fec",
+        "task_id": "task_d2add00d1f465e2aa1155a1e__t27_furnished_tray_v2",
+        "variant": "adapted",
+        "origin": "original",
+        "subclass": "SR-1"
+      },
+      "reason": "Same three-object equilateral relation; asset and furniture transfer retained as an extension.",
+      "covered_by": [
+        "T26"
+      ]
+    },
+    {
+      "selection": {
+        "alias": "T29",
+        "family": "SR",
+        "variant_id": "t29_furnished_tray_v2",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t29.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/final_state_20261030/tasks/t29.yaml",
+        "source_task_file_sha256": "e1fd1e0ed6dd2b455f03a81a3d2403103cb1b839f03ae74a1b54946a905988d0",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t29.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/final_state_20261030/scenes/t29.yaml",
+        "source_scene_file_sha256": "25711fafaa929694de91fc7890a016ee83b3ac473440f556ee184fd8c536516f",
+        "task_id": "task_0fad358cbbe7a47ff184f3bc__t29_furnished_tray_v2",
+        "variant": "adapted",
+        "origin": "original",
+        "subclass": "SR-1"
+      },
+      "reason": "Third equilateral arrangement; retain isosceles, collinear and selective-clearing mechanisms separately.",
+      "covered_by": [
+        "T26"
+      ]
+    },
+    {
+      "selection": {
+        "alias": "T31",
+        "family": "SR",
+        "variant_id": "t31_furnished_tray_v4",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t31.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/final_state_20261030/tasks/t31.yaml",
+        "source_task_file_sha256": "5fd7e8aad30639934564cdab485a36d5be92ad98984fe5c1acfe0768897e7ac3",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t31.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/final_state_20261030/scenes/t31.yaml",
+        "source_scene_file_sha256": "c31577f1cb6b6537d459c8e20fb1cf3e876d87a042184c94a81c33d6f0f69741",
+        "task_id": "task_9802122d5b6e6d856a7c6635__t31_furnished_tray_v4",
+        "variant": "adapted",
+        "origin": "original",
+        "subclass": "SR-2"
+      },
+      "reason": "Same two-object separation rule; large violin/backpack geometry adds motor burden rather than a new relation.",
+      "covered_by": [
+        "T32"
+      ]
+    },
+    {
+      "selection": {
+        "alias": "T34",
+        "family": "SR",
+        "variant_id": "t34_furnished_tray_v3",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t34.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/final_state_20261030/tasks/t34.yaml",
+        "source_task_file_sha256": "12122f62e5d4913a6fdd988b5183eb0995741734200ccb07bb25f720391949d5",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t34.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/final_state_20261030/scenes/t34.yaml",
+        "source_scene_file_sha256": "2aa52e573d090abcabe6c80dba2327ca5d8b5f88d9f15e52ba67b57e47b68b92",
+        "task_id": "task_56e6670ea7ed5120ffbf7899__t34_furnished_tray_v3",
+        "variant": "adapted",
+        "origin": "original",
+        "subclass": "SR-2"
+      },
+      "reason": "Third separation instance; keep the opposite contact relation T33.",
+      "covered_by": [
+        "T32"
+      ]
+    },
+    {
+      "selection": {
+        "alias": "T37",
+        "family": "GG",
+        "variant_id": "t37_furnished_collection_v4",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t37.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/t37_support_20261030/t37.task.yaml",
+        "source_task_file_sha256": "a92271994e219382fa235ca331ab9b12222ebf763f3c6ae3a58895a39bb22d22",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t37.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/t37_support_20261030/t37.scene.yaml",
+        "source_scene_file_sha256": "ab388b7ecc64e4e025231f7d68ba5e184f123c5b9c4c5b2467b6929b54f1f32c",
+        "task_id": "task_hidden_collection_d1156faa040aacc20c70b3ce__t37_furnished_collection_v4",
+        "variant": "adapted",
+        "origin": "original",
+        "subclass": "GG-1"
+      },
+      "reason": "Third three-object category collection instance; preserve one-room and two-room collection in core. Access repairs remain archived.",
+      "covered_by": [
+        "T35",
+        "T36"
+      ]
+    },
+    {
+      "selection": {
+        "alias": "T39",
+        "family": "TM",
+        "variant_id": "t39_historical_multi_collection_v3",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t39.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/review_20261025/history_collection_v3/tasks/t39_historical_multi_collection_v3.yaml",
+        "source_task_file_sha256": "1516b5db882ca465fac8a5a521379fc767c8d61c24f3259fe6b2f2ee508de8b4",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t39.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/review_20261025/history_collection_v3/scenes/t39_historical_multi_collection_v3.yaml",
+        "source_scene_file_sha256": "5f8a40c71eaf1bca9f06a7559ad2ff273e0b1d8135c09bdac9b6c5882aa98e7b",
+        "task_id": "task_redesign_ebb26cc29316e397864246bd__t39_historical_multi_collection_v3",
+        "variant": "adapted",
+        "origin": "original",
+        "subclass": "TM-1"
+      },
+      "reason": "All evaluator parameters equal T38, including nine targets, earliest-per-category query rule and seed 7; retain environment transfer as an extension.",
+      "covered_by": [
+        "T38"
+      ]
+    },
+    {
+      "selection": {
+        "alias": "T51",
+        "family": "GG",
+        "variant_id": "t51_diverse_cover_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t51.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/review_20261025/covers/tasks/t51_diverse_cover_v1.yaml",
+        "source_task_file_sha256": "80aeb92c103a5532f649cba5815fbd63aad68a030e4fedc36f8e7d6b8f33208c",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t51.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/review_20261025/covers/scenes/t51_diverse_cover_v1.yaml",
+        "source_scene_file_sha256": "c64ce5cb61fbcf111ce58dfc9fc8964fbcaffe6b445f4231a442391116b809da",
+        "task_id": "task_redesign_e2b21727ae8a25c6b7b860d5",
+        "variant": "adapted",
+        "origin": "original",
+        "subclass": "GG-2"
+      },
+      "reason": "Second single-covered-item sweep-and-hold protocol; retain simple uncovering and distractor-aware selective delivery.",
+      "covered_by": [
+        "T49",
+        "T50"
+      ]
+    }
+  ]
+}

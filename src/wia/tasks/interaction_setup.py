@@ -104,6 +104,81 @@ def group_translation(bounds, support_bounds, xy, surface_z, *, margin=.03):
     return delta
 
 
+def _reviewed_group_request(policy):
+    """Resolve exactly one explicit root placement for the current local group."""
+    parameters = policy.get('layout_parameters', {})
+    if 'reviewed_group_placements_v1' not in parameters:
+        return None
+    placements = parameters['reviewed_group_placements_v1']
+    if not isinstance(placements, dict):
+        raise ValueError('Reviewed group placements must be a binding-to-placement mapping.')
+    requests = {}
+    for binding, placement in placements.items():
+        if not isinstance(binding, str) or not binding or not isinstance(placement, dict):
+            raise ValueError('Reviewed group placements require binding keys and placement mappings.')
+        support = placement.get('support_name')
+        if not isinstance(support, str) or not support.strip():
+            raise ValueError('Reviewed group placement requires a nonempty native support name.')
+        xy = array(placement.get('root_xy_m'))
+        if xy.shape != (2,):
+            raise ValueError('Reviewed group placement requires exactly two finite root XY coordinates.')
+        requests[binding] = {'binding': binding, 'support_name': support, 'root_xy_m': xy.tolist()}
+    matches = [request for binding, request in requests.items() if binding in policy['group_bindings']]
+    if len(matches) != 1:
+        raise ValueError('Reviewed group placements require exactly one matching binding for each local group.')
+    return matches[0]
+
+
+def _reviewed_group_translation(bounds, support_bounds, root_position, root_xy, surface_z):
+    """Convert a native root target into the load-bearing AABB-centre proposal."""
+    low = np.minimum.reduce([array(box[0]) for box in bounds.values()])
+    high = np.maximum.reduce([array(box[1]) for box in bounds.values()])
+    centre_xy = (low[:2] + high[:2]) / 2
+    translation_xy = array(root_xy) - array(root_position)[:2]
+    return group_translation(bounds, support_bounds, centre_xy + translation_xy, surface_z)
+
+
+def _reviewed_root_xy_measurement(obj, request):
+    """Measure the settled native root without certifying reach or grasp."""
+    xy = array(obj.get_position_orientation()[0])[:2]
+    error = float(np.linalg.norm(xy - array(request['root_xy_m'])))
+    return {'binding': request['binding'], 'object_name': obj.name,
+        'support_name': request['support_name'], 'requested_root_xy_m': request['root_xy_m'],
+        'measured_root_xy_m': xy.tolist(), 'root_xy_error_m': error,
+        'maximum_root_xy_error_m': .015, 'accepted': error <= .015}
+
+
+def _check_assembled_reviewed_groups(session, result):
+    """Remeasure reviewed roots after later groups and final anchors have settled."""
+    if not result['accepted']:
+        return result
+    failed = []
+    for group in result['per_group']:
+        receipt = group['evidence']
+        request = receipt.get('reviewed_group_placement')
+        if request is None:
+            continue
+        obj = session.env.scene.object_registry('name', request['object_name'])
+        try:
+            measurement = _reviewed_root_xy_measurement(obj, request)
+        except (ValueError, RuntimeError, AttributeError, TypeError) as error:
+            measurement = {'accepted': False, 'reason': f'{type(error).__name__}: {error}',
+                'maximum_root_xy_error_m': .015}
+        receipt['reviewed_group_placement_final_measurement'] = measurement
+        result.setdefault('reviewed_group_placement_final_measurements', {})[request['binding']] = measurement
+        if not measurement['accepted']:
+            receipt.update(accepted=False, failure_stage='final_reviewed_group_root_xy',
+                reason='The assembled native root does not retain the reviewed XY placement.')
+            failed.extend(receipt['object_names'])
+    if failed:
+        result.update(accepted=False, failure_stage='final_reviewed_group_root_xy',
+            reason='The assembled native roots do not retain the reviewed XY placements within 0.015 m.',
+            unrepaired_object_names=sorted(set(result.get('unrepaired_object_names', ())) | set(failed)),
+            partial_accessible_layout=any(group['evidence']['accepted'] for group in result['per_group']))
+        result['warning_codes'].append('interaction_layout_requires_review')
+    return result
+
+
 def _independent_candidate_clearance(scene, bounds, policy):
     """Read previous native footprints without imposing a within-group gap."""
     minimum = policy.get('_independent_group_minimum_xy_gap_m')
@@ -530,6 +605,7 @@ def _comparison_candidates(session, group, bounds, policy, floor_z, target, evid
     from .comparison_support_layout import comparison_support_layouts
     from .relation_support_layout import relation_support_layouts
     scene = session.env.scene
+    reviewed = _reviewed_group_request(policy)
     names = {obj.name for obj in group.values()}
     comparison = policy['relocation_policy'] == 'comparison_pairs'
     relational = policy['relocation_policy'] == 'relation_group'
@@ -544,6 +620,11 @@ def _comparison_candidates(session, group, bounds, policy, floor_z, target, evid
     preferences = set(policy.get('_preferred_support_names', ()))
     supports.sort(key=lambda obj: obj.name not in preferences)
     evidence['support_search'] = []
+    if reviewed is not None:
+        supports = [support for support in supports if support.name == reviewed['support_name']]
+        if not supports:
+            evidence['support_search'].append({'support': reviewed['support_name'], 'candidate_layouts': 0,
+                'rejections': {'requested_native_support_unavailable': 1}, 'surface_heights_m': []})
     for support in supports:
         trace = {'support': support.name, 'candidate_layouts': 0, 'rejections': {},
                  'surface_heights_m': []}
@@ -569,7 +650,16 @@ def _comparison_candidates(session, group, bounds, policy, floor_z, target, evid
         if not heights:
             reject('no_measured_upward_surface_in_height_window')
         for z in heights:
-            if policy.get('_inclined_envelope'):
+            if reviewed is not None:
+                try:
+                    root = group[reviewed['binding']]
+                    delta = _reviewed_group_translation(bounds, (low, high), positions[root.name],
+                        reviewed['root_xy_m'], z)
+                    layouts = [{'translations': {obj.name: delta.copy() for obj in group.values()},
+                        'bounds': {name: (a + delta, b + delta) for name, (a, b) in bounds.items()}}]
+                except ValueError:
+                    layouts = []
+            elif policy.get('_inclined_envelope'):
                 layouts = list(inclined_support_layouts(bounds, (low, high), z, policy['_inclined_envelope']))
             elif policy['relocation_policy'] in ('shared_tabletop', 'seeded_geometry'):
                 from .shared_tabletop import tabletop_layouts
@@ -772,7 +862,10 @@ def _initialize_policy(session, bindings, policy):
         policy.setdefault('_allow_dynamic_background_settling', True)
     if policy.get('placement_groups') and policy['relocation_policy'] in ('independent_groups', 'vertical_only'):
         from .interaction_groups import initialize_groups
-        return initialize_groups(session, bindings, policy, _initialize_single)
+        result = initialize_groups(session, bindings, policy, _initialize_single)
+        if 'reviewed_group_placements_v1' in policy.get('layout_parameters', {}):
+            _check_assembled_reviewed_groups(session, result)
+        return result
     return _initialize_single(session, bindings, policy)
 
 
@@ -792,6 +885,12 @@ def _initialize_single(session, bindings, policy):
     restore = None
     anchors, robot, group, region = None, None, {}, policy.get('source_region')
     try:
+        if 'reviewed_group_placements_v1' in policy.get('layout_parameters', {}):
+            evidence['reviewed_group_placements_v1'] = copy.deepcopy(
+                policy['layout_parameters']['reviewed_group_placements_v1'])
+        reviewed = _reviewed_group_request(policy)
+        if reviewed is not None:
+            evidence['reviewed_group_placement'] = copy.deepcopy(reviewed)
         import torch
         from omnigibson.utils.sampling_utils import raytest
         from omnigibson.utils.usd_utils import PoseAPI
@@ -812,6 +911,8 @@ def _initialize_single(session, bindings, policy):
         group = {key: scene.object_registry('name', bindings[key].name) for key in policy['group_bindings']}
         if any(obj is None for obj in group.values()):
             raise ValueError('A declared original interaction group member is unavailable.')
+        if reviewed is not None:
+            evidence['reviewed_group_placement']['object_name'] = group[reviewed['binding']].name
         names = [obj.name for obj in group.values()]
         pending_names = set(policy.get('_pending_group_names', ()))
         evidence['object_names'] = names
@@ -918,7 +1019,7 @@ def _initialize_single(session, bindings, policy):
         if policy['mode'] == 'articulation':
             evidence['warning_codes'].append('handle_geometry_requires_native_link_height_measurement')
         revised_tabletop = policy['relocation_policy'] in ('shared_tabletop', 'seeded_geometry')
-        if revised_tabletop or apparatus_receipt is not None or deformable_receipt is not None:
+        if revised_tabletop or apparatus_receipt is not None or deformable_receipt is not None or reviewed is not None:
             low_height = True
         pair_layout = policy['relocation_policy'] == 'comparison_pairs'
         if low_height and policy['relocation_policy'] not in ('rigid_group', 'comparison_pairs', 'relation_group', 'vertical_only', 'shared_tabletop', 'seeded_geometry'):
@@ -932,8 +1033,8 @@ def _initialize_single(session, bindings, policy):
         target = (np.mean([box[0] / 2 + box[1] / 2 for box in framing.values()], axis=0)
             if framing else np.r_[world.mean(axis=0), floor_z + .65])
         candidates = [(None, None, np.zeros(3))]
-        structured_layout = pair_layout or relation_layout or revised_tabletop
-        measured_layout = structured_layout or policy.get('support_search') == 'measured_surfaces'
+        structured_layout = (pair_layout or relation_layout or revised_tabletop) and reviewed is None
+        measured_layout = structured_layout or reviewed is not None or policy.get('support_search') == 'measured_surfaces'
         if low_height and measured_layout:
             candidates = _comparison_candidates(session, group, placement_bounds, policy, floor_z, target, evidence)
         elif low_height:
@@ -975,7 +1076,7 @@ def _initialize_single(session, bindings, policy):
                             continue
             if not candidates:
                 raise ValueError('No existing same-room support fits the unchanged group at a suitable height.')
-        if low_height and policy.get('allow_fallback_table'):
+        if low_height and policy.get('allow_fallback_table') and reviewed is None:
             from itertools import chain
             candidates = chain(candidates, support_candidates(session, group, placement_bounds, policy,
                                                                world, floor_z, target, evidence))
@@ -1176,10 +1277,16 @@ def _initialize_single(session, bindings, policy):
                 checks['independent_groups_horizontal_clearance'] = measured_clearance['accepted']
                 after = height_screen(_interaction_bounds(group, policy, floor_z), floor_z,
                     policy['minimum_grasp_height_m'], policy['maximum_grasp_height_m'])
+                if reviewed is not None:
+                    reviewed_measurement = _reviewed_root_xy_measurement(group[reviewed['binding']], reviewed)
+                    checks['reviewed_root_xy_retained'] = reviewed_measurement['accepted']
+                    evidence['reviewed_group_placement_measurement'] = reviewed_measurement
                 attempt = {'support': support.name if support else None, 'translation_m': None if structured_layout else camera_delta.tolist(),
                     'robot_position_m': array(robot.get_position_orientation()[0]).tolist(), 'checks': checks,
                     'robot_quaternion_xyzw': array(robot.get_position_orientation()[1]).tolist(),
                     'height_screen': after}
+                if reviewed is not None:
+                    attempt['reviewed_group_placement_measurement'] = reviewed_measurement
                 if retained_index is not None and index == retained_index:
                     attempt['retained_valid_source_stance_proposal'] = retained_source
                 if native_stance_fallback is not None:
@@ -1229,6 +1336,7 @@ def _initialize_single(session, bindings, policy):
                             'native_local_floor_measurement_available', 'native_stance_proposal_position_retained',
                             'native_stance_upright')))
                         or not checks['task_group_geometry_preserved'] or not background_valid
+                        or not checks.get('reviewed_root_xy_retained', True)
                         or not checks['independent_groups_do_not_interpenetrate']
                         or not checks['independent_groups_horizontal_clearance']) or (
                         any(not row['within_height_window'] for row in after.values())) or (
@@ -1363,6 +1471,7 @@ def interaction_failure_reasons(evidence):
         'background_geometry_preserved': 'background_restore_drift',
         'task_group_geometry_preserved': 'task_dependency_group_changed',
         'previous_groups_preserved': 'previous_task_group_changed',
+        'reviewed_root_xy_retained': 'reviewed_group_root_xy_drift',
         'independent_groups_horizontal_clearance': 'independent_group_clearance_failed'}
     for index, attempt in enumerate(evidence.get('attempts', [])):
         for key, code in mapping.items():

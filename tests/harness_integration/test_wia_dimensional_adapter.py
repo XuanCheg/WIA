@@ -247,6 +247,32 @@ def test_v2_unavailable_aperture_receipt_cannot_report_the_v1_schema(native):
     assert result['native_evaluation_validity'] == 'unavailable' and result['task_success'] is False
 
 
+@pytest.mark.parametrize('aperture_available', [True, False])
+def test_final_state_adapter_threads_revision_and_preserves_schema_when_native_aperture_unavailable(
+        native, aperture_available):
+    native.config['parameters']['scoring'].update(manipulation_revision='final_state_v1', minimum_lift_m=None)
+    if not aperture_available:
+        native.objects['aperture_roof'].mesh.collision_enabled = False
+    instance = evaluator(native)
+    result = instance.begin_episode(native.observation)
+    assert result['physical_scorer_schema'] == result['physical_scorer_version'] == 'wia_dimensional_final_state_v1'
+    assert result['manipulation_revision'] == 'final_state_v1'
+    assert result['pure_parameters']['scoring']['minimum_lift_m'] is None
+    assert result['evaluation_validity'] == 'pending_done'
+    assert not result['task_success']
+    if aperture_available:
+        assert instance.scorer.manipulation_revision == 'final_state_v1'
+    else:
+        assert instance.scorer is None and result['native_evaluation_validity'] == 'unavailable'
+
+
+@pytest.mark.parametrize('revision,lift', [(None, None), ('unknown', None), ('final_state_v1', .05)])
+def test_final_state_adapter_rejects_unversioned_null_lift_and_unknown_revision(native, revision, lift):
+    native.config['parameters']['scoring'].update(manipulation_revision=revision, minimum_lift_m=lift)
+    with pytest.raises(ValueError):
+        evaluator(native)
+
+
 @pytest.mark.parametrize('field,value', [('upright', False), ('upright', None),
                                        ('upright_measurement_available', False),
                                        ('upright_measurement_available', None)])

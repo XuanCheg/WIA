@@ -23,6 +23,9 @@ class NativeIKGuard:
         _main_thread()
         self.controller, self.config = controller, config
         self.original_compute = controller.compute_control
+        while (isinstance(getattr(self.original_compute, "__self__", None), NativeIKGuard)
+               and getattr(self.original_compute, "__func__", None) is NativeIKGuard.compute_control):
+            self.original_compute = self.original_compute.__self__.original_compute
         self.indices = _array(controller.dof_idx).astype(int)
         self.lower, self.upper = [np.asarray(_array(x)[self.indices], dtype=float)
                                  for x in limits["position"]]
@@ -74,12 +77,17 @@ class NativeIKGuard:
         """Solve a local pose correction inside joint-position and velocity bounds."""
         task = self.controller.task_name
         required = (f"{task}_pos_relative", f"{task}_quat_relative")
-        if not all(key in state for key in required) or not all(key in goal for key in ("target_pos", "target_ori_mat")):
+        try:
+            current_position = state[required[0]]
+            current_quaternion = state[required[1]]
+            target_position = goal["target_pos"]
+            target_orientation = goal["target_ori_mat"]
+        except KeyError:
             return None
         q = np.asarray(_array(current), dtype=float)
-        position_error = _array(goal["target_pos"]) - _array(state[required[0]])
-        current_rotation = Rotation.from_quat(_array(state[required[1]])).as_matrix()
-        rotation_error = Rotation.from_matrix(_array(goal["target_ori_mat"]) @ current_rotation.T).as_rotvec()
+        position_error = _array(target_position) - _array(current_position)
+        current_rotation = Rotation.from_quat(_array(current_quaternion)).as_matrix()
+        rotation_error = Rotation.from_matrix(_array(target_orientation) @ current_rotation.T).as_rotvec()
         weight = np.array([1., 1., 1., .2, .2, .2])
         error = np.r_[position_error, rotation_error] * weight
         matrix = np.asarray(jac, dtype=float) * weight[:, None]

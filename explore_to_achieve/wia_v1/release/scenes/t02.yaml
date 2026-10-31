@@ -63,7 +63,7 @@ scene:
       - operation: category_initialization
         phase: before_construction
         module: wia.authoring.converters.action_order
-        parameters: &id001
+        parameters:
           operation: measured_rigid_row_startup_v2
           scene_model: house_single_floor
           room: dining_room_0
@@ -144,7 +144,64 @@ scene:
       - operation: category_initialization
         phase: after_postprocessing
         module: wia.authoring.converters.action_order
-        parameters: *id001
+        parameters:
+          operation: measured_rigid_row_startup_v2
+          scene_model: house_single_floor
+          room: dining_room_0
+          bindings:
+            middle:
+              name: obj_fixed
+              category: gift_box
+              model: pnprrx
+            base_candidate_0:
+              name: obj_A_correct
+              category: cutting_board
+              model: aibvew
+            base_candidate_1:
+              name: obj_A_wrong
+              category: cutting_board
+              model: aibvew
+            top_candidate_0:
+              name: obj_C_correct
+              category: softball
+              model: erhbze
+            top_candidate_1:
+              name: obj_C_wrong
+              category: softball
+              model: erhbze
+          interaction_policy:
+            mode: manipulation
+            group_bindings:
+            - middle
+            - base_candidate_0
+            - base_candidate_1
+            - top_candidate_0
+            - top_candidate_1
+            manipulation_bindings:
+            - middle
+            - base_candidate_0
+            - base_candidate_1
+            - top_candidate_0
+            - top_candidate_1
+            relocation_policy: independent_groups
+            source_region: dining_room_0
+            placement_groups:
+            - - middle
+            - - base_candidate_0
+            - - base_candidate_1
+            - - top_candidate_0
+            - - top_candidate_1
+            source_camera_policy: preserve
+            support_search: measured_surfaces
+            allow_fallback_table: true
+            minimum_grasp_height_m: 0.35
+            maximum_grasp_height_m: 1.1
+            maximum_stance_distance_m: 0.85
+          source_provenance:
+            source_json: Action Sequencing/Action Order Inference/house_single_floor/dining_room_0/house_single_floor__dining_room_0.json
+            builder: ESI-Bench/src/active_explore/tasks/action_sequencing/action_order_inference.py
+            historical_adapter: core/sim/esi_action_order_tabletop.py
+            rule_revision: measured_independent_candidate_supports_v3
       - operation: prepare_category_interaction
         phase: after_postprocessing
         mode: manipulation

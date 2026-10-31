@@ -1,0 +1,71 @@
+{
+  "alias": "T22",
+  "previous_selection": {
+    "alias": "T22",
+    "family": "GF",
+    "variant_id": "t22_left_sofa_v3",
+    "task_file": "explore_to_achieve/wia_v1/release/tasks/t22.yaml",
+    "source_task_file": "explore_to_achieve/wia_v1/review_access_20261030/tasks/t22.yaml",
+    "source_task_file_sha256": "439ce769dbe6e98a3cdde3f58574d60a08230adaeb57b08363fc43c0ca725750",
+    "scene_file": "explore_to_achieve/wia_v1/release/scenes/t22.yaml",
+    "source_scene_file": "explore_to_achieve/wia_v1/review_access_20261030/scenes/t22.yaml",
+    "source_scene_file_sha256": "6698d6f13c35f22e7e8df4661f9ece201d57e298b74cefc2c959eb333dd3e94d",
+    "task_id": "wia_rigid_t22_family_v1",
+    "variant": "tabletop",
+    "origin": "original",
+    "subclass": "GF-1"
+  },
+  "changes": {
+    "revision": "review_gift_scale_20261031",
+    "uniform_scale_ratio": 0.4,
+    "expected_container_change": {
+      "before": "container_1",
+      "after": "container_0"
+    },
+    "expected_answer_change": {
+      "before": "medium packing box",
+      "after": "small packing box"
+    },
+    "evidence": {
+      "basis": "Main-authored revision following the user request to uniformly shrink the gift box.",
+      "native_measured_dimensions_before_m": [
+        0.244474411,
+        0.186240673,
+        0.286185741
+      ],
+      "predicted_dimensions_after_m": [
+        0.0977897644,
+        0.0744962692,
+        0.11447429640000001
+      ],
+      "gripper_pinch_proxy_width_m": 0.1,
+      "grasp_and_insertion_verified": false,
+      "support_reseating": "Existing active_layout local_raycast alignment retained unchanged.",
+      "variant_scope": "All non-original variants; selected tabletop has the revised semantics.",
+      "original_variant": "Empty patches retained as the schema-required native baseline."
+    },
+    "native_validation_status": "pending",
+    "native_validation_run": false,
+    "physical_success_verified": false,
+    "versions": {
+      "task": {
+        "before": 6,
+        "after": 7
+      },
+      "scene": {
+        "before": 5,
+        "after": 6
+      }
+    },
+    "variant_scales": [
+      {
+        "variant": "tabletop",
+        "previous_target_scale_patch_count": 0,
+        "previous_target_multipliers": [],
+        "effective_multiplier_before": 1,
+        "effective_multiplier_after": 0.4,
+        "scale_ratio": 0.4
+      }
+    ]
+  }
+}

@@ -319,6 +319,8 @@ def main(argv=None):
     (cache / 'native_tmp').mkdir(exist_ok=True)
     environment = {key: os.environ[key] for key in ('LD_LIBRARY_PATH', 'OMNIGIBSON_DATA_PATH',
         'VK_ICD_FILENAMES') if key in os.environ}
+    from wia.runtime.resources import execution_resource_environment
+    environment.update(execution_resource_environment())
     environment.update(CUDA_DEVICE_ORDER='PCI_BUS_ID', OMNIGIBSON_GPU_ID='0', OMNIGIBSON_HEADLESS='1',
         OMNI_KIT_ACCEPT_EULA='YES', OMNIGIBSON_APPDATA_PATH=str(cache),
         XDG_CACHE_HOME=str(cache / 'xdg_cache'), CUDA_CACHE_PATH=str(cache / 'cuda_cache'),

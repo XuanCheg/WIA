@@ -1,0 +1,147 @@
+kind: category_robot_task
+id: iw_m4_01
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Action Sequencing/Action Order Inference/restaurant_diner/kitchen_0/iw_m4_01.json
+public:
+  objective: 'Process and deliver all three jobs as early as possible using two exclusive stations and
+    one robot. Elapsed simulation time is the scheduling cost. Potato and pear use station A; apple uses
+    station B. A job must remain released and supported in its station for its stated duration before
+    delivery to the blue area. Early removal resets processing. Use simulation time; model waits pause
+    the world. Processing is a timed state machine, not cooking. Durations: potato=12 s, pear=4 s, apple=8.0
+    s. Deadline=120 simulation seconds. The 2-second abstract handling cost is a planning lower bound,
+    not a measured controller time.'
+  success_criteria: Actual stable released placement, meaningful process evidence and preservation are
+    required. Scene screenshots alone do not certify task completion.
+  environment: Derived restaurant_diner kitchen_0 with source-context inventory.
+  constraints:
+  - Use only public robot sensors and legal physical controls.
+  - Preserve resident contents and protected furniture.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - gripper
+  - ee_rotation
+  - trunk_height
+private:
+  bindings:
+    item_01:
+      name: item_01
+    item_02:
+      name: item_02
+    item_03:
+      name: item_03
+  evaluation:
+    type: category_operation
+    module: wia.authoring.converters.interactiveworld_candidates
+    operation: M4
+    binding_keys:
+    - item_01
+    - item_02
+    - item_03
+    parameters: &id001
+      prototype: M4
+      source_task: ORCHESTRATE-44001
+      source_file: /local_home2/zhouxinyang/models/InteractiveWorld/benchmark/tasks/taskpacks/planning/ORCHESTRATE-44001.taskpack.json
+      source_sha256: 4e5755d678002eec75805f310005d63eb6f1ef222775473c793304f021788cec
+      scene_model: restaurant_diner
+      room: kitchen_0
+      fixture: commercial_kitchen_table_vxvtec_0
+      objects:
+      - name: item_01
+        category: potato
+        model: bpwohr
+        slot: 0
+        offset:
+        - -0.15
+        - 0
+        size:
+        - 0.075
+        - 0.06
+        - 0.05
+        fixed: false
+      - name: item_02
+        category: pear
+        model: vjqkwh
+        slot: 0
+        offset:
+        - 0
+        - 0
+        size:
+        - 0.065
+        - 0.065
+        - 0.09
+        fixed: false
+      - name: item_03
+        category: apple
+        model: agveuv
+        slot: 0
+        offset:
+        - 0.15
+        - 0
+        size:
+        - 0.075
+        - 0.075
+        - 0.075
+        fixed: false
+      regions:
+        station_a: 1
+        station_b: 2
+        delivery: 3
+      contract:
+        jobs:
+          item_01:
+            station: station_a
+            duration_s: 12.0
+          item_02:
+            station: station_a
+            duration_s: 4.0
+          item_03:
+            station: station_b
+            duration_s: 8.0
+        delivery_region: delivery
+        deadline_s: 120.0
+        handling_s: 2.0
+        protected: []
+        duration_c: 8.0
+      objective: Process and deliver all three jobs as early as possible using two exclusive stations
+        and one robot. Elapsed simulation time is the scheduling cost. Potato and pear use station A;
+        apple uses station B. A job must remain released and supported in its station for its stated duration
+        before delivery to the blue area. Early removal resets processing. Use simulation time; model
+        waits pause the world. Processing is a timed state machine, not cooking.
+      timed_process: true
+      condition:
+        duration_c: 8.0
+      id: iw_m4_01
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+qualification:
+  on_failure: skip
+  target_movable_collidable: true
+  initial_visibility: none
+defaults:
+  seed: 7
+  max_steps: 120
+  wall_timeout_s: 5400.0
+  world_advances_during_inference: false
+  observation_condition: current
+  action_mode: parameterized

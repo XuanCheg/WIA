@@ -1,6 +1,6 @@
 kind: scene_patch
 id: scene_redesign_75bff6e58684ce3d067bfee5__t43_hall_arch_v2__t43_red_release_marker_v1
-version: 4
+version: 5
 status: pending
 source:
   provider: esi
@@ -682,6 +682,7 @@ scene:
               - 0.5736971923032635
               - 0.8190674767950149
             shared_layout_id: wia_ramp_workstation__t43_hall_arch_v2
+            synchronize_authored_poses_before_alignment: true
       - operation: category_initialization
         phase: after_postprocessing
         module: wia.authoring.converters.active_layout
@@ -1273,4 +1274,5 @@ scene:
               - 0.5736971923032635
               - 0.8190674767950149
             shared_layout_id: wia_ramp_workstation__t43_hall_arch_v2
+            synchronize_authored_poses_before_alignment: true
 seed: 0

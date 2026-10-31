@@ -511,7 +511,8 @@ class RigidPartialInsertionEvaluator:
         self.scorer = RigidInsertionProgress(self.targets, self.p['containers'],
             **{key: self.p[key] for key in ('minimum_lift_m', 'stability_duration_s',
                 'maximum_linear_speed_m_s', 'maximum_angular_speed_rad_s', 'max_sample_gap_s')},
-            expected_containers=self.p['expected_containers'])
+            expected_containers=self.p['expected_containers'],
+            manipulation_revision=self.p.get('manipulation_revision'))
         self.active = False
         self.answer, self.initial, self.measurement_error = {}, {}, None
         self.initial_qualification = None

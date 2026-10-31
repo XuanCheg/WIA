@@ -14,6 +14,8 @@ import numpy as np
 
 REVISION = 'wia_spatial_tray_v1'
 SCORING_VERSION = 'wia_spatial_tray_progress_v2'
+FINAL_STATE_REVISION = 'final_state_v1'
+FINAL_STATE_SCORING_VERSION = 'wia_spatial_tray_final_state_progress_v1'
 THRESHOLDS = (
     'minimum_lift_m', 'minimum_displacement_m', 'stability_duration_s',
     'maximum_linear_speed_m_s', 'maximum_angular_speed_rad_s', 'max_sample_gap_s',
@@ -70,11 +72,19 @@ def validate_parameters(parameters):
     if bounds is None or np.any(bounds[1] <= bounds[0]) or _number(tray.get('deck_top_world_z_m')) is None:
         raise ValueError('Explicit positive usable_world_xy_m bounds and deck_top_world_z_m are required.')
     scoring = p.get('scoring', {})
-    if any(_number(scoring.get(key)) is None or scoring[key] <= 0 for key in THRESHOLDS):
+    revision = scoring.get('manipulation_revision')
+    if 'manipulation_revision' in scoring and revision != FINAL_STATE_REVISION:
+        raise ValueError('Unsupported spatial-tray manipulation_revision.')
+    final_state = revision == FINAL_STATE_REVISION
+    history_thresholds = ('minimum_lift_m', 'minimum_displacement_m') if final_state else ()
+    if any(key not in scoring or scoring[key] is not None for key in history_thresholds):
+        raise ValueError('Final-state spatial-tray history thresholds must be explicitly null.')
+    if any(_number(scoring.get(key)) is None or scoring[key] <= 0
+           for key in THRESHOLDS if key not in history_thresholds):
         raise ValueError('Every spatial-tray scoring threshold must be explicit, finite and positive.')
     # Existing shape classification is reused verbatim. These upper/lower limits
     # likewise prevent weakening the historical contact and release tolerances.
-    if (scoring['minimum_lift_m'] < .05 or scoring['minimum_separation_m'] < .05
+    if ((not final_state and scoring['minimum_lift_m'] < .05) or scoring['minimum_separation_m'] < .05
             or scoring['maximum_linear_speed_m_s'] > .02
             or scoring['maximum_angular_speed_rad_s'] > .1
             or scoring['penetration_tolerance_m'] > .001
@@ -98,11 +108,12 @@ def validate_parameters(parameters):
 
 
 class SpatialTrayProgress:
-    """Require measured acquisition, movement and simultaneous terminal dwell."""
+    """Reduce the declared manipulation contract and simultaneous terminal dwell."""
 
     def __init__(self, parameters):
         self.p = validate_parameters(parameters)
         self.scoring = self.p['scoring']
+        self.final_state = self.scoring.get('manipulation_revision') == FINAL_STATE_REVISION
         self._begun = False
 
     def begin(self, sample):
@@ -190,6 +201,19 @@ class SpatialTrayProgress:
             if (row.get('name') != name or low is None or high is None or position is None
                     or np.any(high <= low)):
                 errors.append(key + ':native_identity_or_geometry_unavailable')
+            scale_valid = True
+            if self.final_state:
+                scale = _vector(row.get('scale'), (3,))
+                initial_scale = _vector(self._initial.get('targets', {}).get(key, {}).get('scale'), (3,))
+                if scale is None or np.any(scale <= 0):
+                    errors.append(key + ':native_scale_unavailable')
+                    scale_valid = False
+                elif initial_scale is None or np.any(initial_scale <= 0):
+                    errors.append(key + ':initial_native_scale_unavailable')
+                    scale_valid = False
+                elif not np.array_equal(scale, initial_scale):
+                    self._violations.add(key + ':asset_scale_changed')
+                    scale_valid = False
             for field in ('linear_speed_m_s', 'angular_speed_rad_s'):
                 if _number(row.get(field)) is None or row[field] < 0:
                     errors.append(key + ':' + field + '_unavailable')
@@ -209,12 +233,14 @@ class SpatialTrayProgress:
                 state = self._states[key]
                 previous = state['maximum_displacement_m']
                 state['maximum_displacement_m'] = distance if previous is None else max(previous, distance)
-                state['moved'] |= distance >= self.scoring['minimum_displacement_m']
+                if not self.final_state:
+                    state['moved'] |= distance >= self.scoring['minimum_displacement_m']
                 if grasp_valid and name in held and low is not None and initial_low is not None:
                     lift = float(low[2] - initial_low[2])
                     previous = state['maximum_held_lift_m']
                     state['maximum_held_lift_m'] = lift if previous is None else max(previous, lift)
-                    state['acquired'] |= lift >= self.scoring['minimum_lift_m']
+                    if not self.final_state:
+                        state['acquired'] |= lift >= self.scoring['minimum_lift_m']
             gap_z = None if low is None else float(low[2] - self.p['tray']['deck_top_world_z_m'])
             checks[key] = {
                 'wholly_inside_usable_xy': self._inside(row),
@@ -229,6 +255,9 @@ class SpatialTrayProgress:
                     and row['linear_speed_m_s'] <= self.scoring['maximum_linear_speed_m_s']
                     and row['angular_speed_rad_s'] <= self.scoring['maximum_angular_speed_rad_s']),
             }
+            if self.final_state:
+                checks[key]['asset_scale_preserved'] = scale_valid
+                checks[key]['original_identity_preserved'] = row.get('name') == name
         relation = {'available': False, 'satisfied': False}
         try:
             relation = self._relation(sample, rows)
@@ -241,7 +270,7 @@ class SpatialTrayProgress:
         available = bool(not errors and not self._initial_errors)
         terminal = bool(available and not self._violations and released and not held
             and relation.get('satisfied') is True and all(all(value.values()) for value in checks.values())
-            and all(state['acquired'] and state['moved'] for state in self._states.values()))
+            and (self.final_state or all(state['acquired'] and state['moved'] for state in self._states.values())))
         if not terminal or initial:
             self._dwell_start, self._stable_duration = None, 0.
         else:
@@ -257,13 +286,19 @@ class SpatialTrayProgress:
     def result(self):
         current = self._current
         stable = bool(current.get('terminal_valid') and self._stable_duration >= self.scoring['stability_duration_s'])
-        checkpoints = [('retrieve_all', all(state['acquired'] and state['moved'] for state in self._states.values())),
+        first = ('targets_on_tray', bool(current.get('terminal_checks'))
+                 and all(all(value for key, value in checks.items() if key != 'stationary')
+                         for checks in current['terminal_checks'].values())) if self.final_state else (
+                 'retrieve_all', all(state['acquired'] and state['moved'] for state in self._states.values()))
+        checkpoints = [first,
                        ('declared_relation', current.get('declared_relation', {}).get('satisfied') is True),
                        ('stable_released_tray_placement', stable)]
         validity = 'invalid' if self._violations else 'complete' if current.get('available') else 'unavailable'
         score = sum(done for _, done in checkpoints) / len(checkpoints) if validity == 'complete' else None
         success = bool(validity == 'complete' and all(done for _, done in checkpoints))
-        return deepcopy({'schema': SCORING_VERSION, 'scoring_version': SCORING_VERSION,
+        version = FINAL_STATE_SCORING_VERSION if self.final_state else SCORING_VERSION
+        revision = {'manipulation_revision': FINAL_STATE_REVISION} if self.final_state else {}
+        return deepcopy({'schema': version, 'scoring_version': version, **revision,
             'evaluation_validity': validity, 'task_success': success, 'physical_success': success,
             'completion_items': [{'id': key, 'completed': bool(done),
                 'kind': 'historical_checkpoint' if key == 'retrieve_all' else 'terminal_condition'}

@@ -1,0 +1,114 @@
+kind: category_robot_task
+id: task_2ee1eb5e9d6cc0ae2d839d9e
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Perceptual Grounding/Material Transparency/office_large/meeting_room_1/office_large__meeting_room_1.json
+public:
+  objective: Place the whiskey stone inside its original hingeless jar and release it stably. If it is
+    already inside, leave it there and verify the final state.
+  success_criteria: The original small object is released, contacts its original container, satisfies
+    the native inside relation and stays stable for 15 consecutive physics steps. An already satisfied
+    state permits a no-op.
+  environment: The source inside/outside initial state, original container, object and dimensions are
+    retained.
+  constraints:
+  - Use mounted observations and legal robot controls.
+  - Do not extract an already-contained object merely to insert it again.
+  - A visual overlap alone does not establish containment.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - gripper
+private:
+  bindings:
+    obj_container:
+      name: obj_container
+      category: hingeless_jar
+      model: waousd
+    obj_small:
+      name: obj_small
+      category: whiskey_stone
+      model: hllvwu
+  evaluation:
+    type: category_operation
+    module: wia.authoring.converters.perceptual_grounding_material_transparency
+    operation: insert_or_verify_inside
+    binding_keys:
+    - obj_container
+    - obj_small
+    parameters:
+      task_revision: task_edit_20261018_v1
+      placement_relation: inside
+      release_stability_steps: 15
+      maximum_release_speed_m_s: 0.02
+      maximum_release_angular_speed_rad_s: 0.1
+      expected_identity: ''
+      completion_item_ids:
+      - stable_inside
+      mechanism_contract:
+        preserved_relations:
+        - original inside/outside reset
+        - same small object and original container
+        - original asset scales and opening geometry
+        required_native_evidence:
+        - initial native relation
+        - independent interior geometry
+        - opening, fit and gripper clearance
+        - stable released relation
+        native_operation_verified: false
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: robot_pose
+        position:
+        - -12.6
+        - 2.1
+        - 0.01
+        yaw_deg: -45.6
+        head_pitch_deg: 45.0
+      - operation: prepare_category_interaction
+        phase: after_postprocessing
+        mode: manipulation
+        group_bindings:
+        - obj_container
+        - obj_small
+        manipulation_bindings:
+        - obj_small
+        relocation_policy: preserve
+        layout_parameters: {}
+        controller_initial_trunk_joint_positions_rad: null
+        placement_groups: []
+        support_bindings: []
+        support_preferences: {}
+        support_search: bounded_group
+        allow_fallback_table: false
+        anchor_policy: none
+        source_camera_policy: translate_with_group
+        fixed_reference_evidence: {}
+        source_region: meeting_room_1
+        minimum_grasp_height_m: 0.35
+        maximum_grasp_height_m: 1.1
+        maximum_stance_distance_m: 0.85
+        warning_codes: []
+qualification:
+  on_failure: skip
+  target_movable_collidable: true
+  initial_visibility: none
+defaults:
+  seed: 0
+repair:
+  document_alias: T52
+  revision: already_contained_control_20261031
+  source_initial_answer: 'yes'
+  source_geometry_preserved: true
+  native_verification_at_definition_time: pending
+  robot_start: A measured room corner; object and container source geometry remains unchanged.
+  scope: An additional already-contained branch; T15, T16 and T17 are unchanged.

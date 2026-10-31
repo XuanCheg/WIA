@@ -1,0 +1,136 @@
+kind: category_robot_task
+id: iw_h3_01
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Action Sequencing/Action Order Inference/restaurant_asian/kitchen_0/iw_h3_01.json
+public:
+  objective: Leave at least two mugs in the blue stocked area. Inspect the current inventory and add only
+    the remaining deficit from the yellow supply area. Preserve mugs already stocked. If the target is
+    met, leave all mugs in place. Past placements do not establish current stock.
+  success_criteria: Actual stable released placement, meaningful process evidence and preservation are
+    required. Scene screenshots alone do not certify task completion.
+  environment: Derived restaurant_asian kitchen_0 with source-context inventory.
+  constraints:
+  - Use only public robot sensors and legal physical controls.
+  - Preserve resident contents and protected furniture.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - gripper
+  - ee_rotation
+  - trunk_height
+private:
+  bindings:
+    item_01:
+      name: item_01
+    item_02:
+      name: item_02
+    item_03:
+      name: item_03
+  evaluation:
+    type: category_operation
+    module: wia.authoring.converters.interactiveworld_candidates
+    operation: H3
+    binding_keys:
+    - item_01
+    - item_02
+    - item_03
+    parameters: &id001
+      prototype: H3
+      source_task: ASK-99600
+      source_file: /local_home2/zhouxinyang/models/InteractiveWorld/benchmark/tasks/taskpacks/decision/ASK-99600.taskpack.json
+      source_sha256: 69479362d8430e3740461629e49e7258f7fac82fd73b93dfbff2c7545ac55c66
+      scene_model: restaurant_asian
+      room: kitchen_0
+      fixture: commercial_kitchen_table_nisnrl_0
+      objects:
+      - name: item_01
+        category: mug
+        model: dhnxww
+        slot: 0
+        offset:
+        - -0.13
+        - 0
+        size:
+        - 0.085
+        - 0.085
+        - 0.09
+        fixed: false
+      - name: item_02
+        category: mug
+        model: dhnxww
+        slot: 1
+        offset:
+        - -0.13
+        - 0
+        size:
+        - 0.085
+        - 0.085
+        - 0.09
+        fixed: false
+      - name: item_03
+        category: mug
+        model: dhnxww
+        slot: 1
+        offset:
+        - 0.13
+        - 0
+        size:
+        - 0.085
+        - 0.085
+        - 0.09
+        fixed: false
+      regions:
+        stock: 0
+        supply: 1
+      contract:
+        stock:
+        - item_01
+        - item_02
+        - item_03
+        target_count: 2
+        semantics: minimum
+        stock_region: stock
+        supply_region: supply
+        protected: []
+        initial_stock: 1
+        progress: remaining
+      objective: Leave at least two mugs in the blue stocked area. Inspect the current inventory and add
+        only the remaining deficit from the yellow supply area. Preserve mugs already stocked. If the
+        target is met, leave all mugs in place. Past placements do not establish current stock.
+      condition:
+        initial_stock: 1
+        progress: remaining
+      id: iw_h3_01
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+qualification:
+  on_failure: skip
+  target_movable_collidable: true
+  initial_visibility: none
+defaults:
+  seed: 7
+  max_steps: 120
+  wall_timeout_s: 5400.0
+  world_advances_during_inference: false
+  observation_condition: current
+  action_mode: parameterized

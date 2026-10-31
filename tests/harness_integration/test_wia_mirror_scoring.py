@@ -402,3 +402,154 @@ def test_actual_first_grasp_freezes_report_even_when_unrelated_current_measureme
     result = dwell(progress, s)
     assert result['physical_success'] and not result['task_success']
     assert result['report']['frozen_value'] == 'direct'
+
+
+def final_state_parameters(operation='mirror_select_deliver', **kwargs):
+    p = parameters(operation, **kwargs)
+    p['scoring'].update(manipulation_revision='final_state_v1', minimum_lift_m=None,
+                        minimum_required_motion_m=None)
+    ids = ['selected_original_at_destination', 'stable_placement']
+    if operation == 'classify_appearance_deliver':
+        ids.insert(0, 'appearance_report')
+    elif operation == 'mirror_reconfigure':
+        ids.insert(1, 'reconfiguration')
+        p.pop('requires_both_objects_moved')
+    p['completion_items'] = [{'id': key} for key in ids]
+    return p
+
+
+def test_final_state_delivery_succeeds_without_acquisition_or_lift_and_states_terminal_checks():
+    progress, s = start(final_state_parameters())
+    put(progress, s)
+    result = dwell(progress, s)
+    assert result['task_success'] and result['physical_success']
+    assert result['schema'] == 'wia_mirror_final_state_progress_v1'
+    assert result['manipulation_revision'] == 'final_state_v1'
+    assert stages(result) == {'selected_original_at_destination': True, 'stable_placement': True}
+    assert all(row['kind'] == 'terminal_condition' for row in result['completion_items'])
+    assert not result['per_target']['c0']['grasp_seen'] and not result['per_target']['c0']['lift_seen']
+    assert result['committed_candidate'] is None
+
+
+@pytest.mark.parametrize('mode,pad', [('direct', 'yellow'), ('reflected', 'blue')])
+def test_final_state_appearance_uses_latest_valid_report_including_after_delivery(mode, pad):
+    progress, s = start(final_state_parameters('classify_appearance_deliver', mode=mode))
+    progress.report_answer('direct' if mode == 'reflected' else 'reflected')
+    pick(progress, s)
+    put(progress, s, pad=pad)
+    result = dwell(progress, s)
+    assert result['physical_success'] and not result['task_success']
+    before = (result['native_time_s'], result['stable_duration_s'])
+    result = progress.report_answer('ANSWER: ' + mode)
+    assert result['task_success'] and result['report']['latest_valid'] == mode
+    assert result['report']['history'][-1]['after_first_grasp']
+    assert (result['native_time_s'], result['stable_duration_s']) == before
+    assert progress.report_answer('ambiguous invalid text')['task_success']
+    assert not progress.report_answer('direct' if mode == 'reflected' else 'reflected')['task_success']
+
+
+@pytest.mark.parametrize('relation', ['selected_farther', 'selected_nearer', 'reverse_initial_distance_order'])
+def test_final_state_spatial_requires_goal_relation_without_pickup_or_arbitrary_motion(relation):
+    p = final_state_parameters('mirror_reconfigure', relation=relation)
+    progress, s = start(p)
+    x = .05 if relation == 'selected_nearer' else 1.2
+    put(progress, s, pad='table', xyz=[x, 0., .06])
+    result = dwell(progress, s)
+    assert result['task_success'] and stages(result)['reconfiguration']
+    assert not any(row['grasp_seen'] or row['lift_seen'] for row in result['per_target'].values())
+    assert result['current']['required_motion_satisfied'] is None
+    if relation == 'reverse_initial_distance_order':
+        assert result['per_target']['c1']['xy_displacement_m'] == 0.
+    move(s, 'c0', [.8 if relation == 'selected_nearer' else .2, 0., .06])
+    result = tick(progress, s)
+    assert not result['task_success'] and not stages(result)['reconfiguration']
+
+
+def test_final_state_spatial_accepts_small_motion_that_really_changes_the_goal_relation():
+    p = final_state_parameters('mirror_reconfigure')
+    p['distance_gap_m'] = .01
+    s, progress = sample(p), MirrorProgress(p)
+    move(s, 'c0', [.79, 0., .06])
+    progress.begin(s)
+    put(progress, s, pad='table', xyz=[.82, 0., .06])
+    result = dwell(progress, s)
+    assert result['task_success']
+    assert result['per_target']['c0']['xy_displacement_m'] == pytest.approx(.03)
+
+
+def test_final_state_unselected_protection_is_current_and_wrong_grasp_history_can_recover():
+    progress, s = start(final_state_parameters())
+    initial_unselected = deepcopy(s['targets']['c1'])
+    result = pick(progress, s, 'c1')
+    assert result['evaluation_validity'] == 'complete'
+    assert not result['current']['unselected_objects_preserved']
+    put(progress, s)
+    assert not dwell(progress, s)['task_success']
+    s['targets']['c1'] = initial_unselected
+    result = tick(progress, s)
+    assert result['current']['unselected_objects_preserved'] and result['stable_duration_s'] == 0.
+    result = dwell(progress, s)
+    assert result['task_success'] and not result['constraint_violations']
+    assert result['per_target']['c1']['grasp_seen']
+
+
+@pytest.mark.parametrize('failure', ['wrong_original', 'wrong_branch', 'held', 'robot_support', 'moving',
+                                    'outside', 'unavailable', 'identity'])
+def test_final_state_mirror_terminal_counterexamples(failure):
+    progress, s = start(final_state_parameters('classify_appearance_deliver', mode='direct'))
+    progress.report_answer('direct')
+    put(progress, s, key='c1' if failure == 'wrong_original' else 'c0',
+        pad='blue' if failure == 'wrong_branch' else 'yellow')
+    row = s['targets']['c0']
+    if failure == 'held':
+        s['grasp'].update(held_names=['native_0'], released=False)
+    elif failure == 'robot_support':
+        row['robot_contact'] = True
+    elif failure == 'moving':
+        row['linear_speed_m_s'] = .021
+    elif failure == 'outside':
+        row['destinations']['yellow']['footprint_inside'] = False
+    elif failure == 'unavailable':
+        row['destinations']['yellow']['touching'] = None
+    elif failure == 'identity':
+        row['object_name'] = 'replacement'
+    result = dwell(progress, s)
+    assert not result['task_success'] and not result['physical_success']
+    if failure in ('unavailable', 'identity'):
+        assert result['evaluation_validity'] == 'unavailable' and result['completion_score'] is None
+    if failure == 'identity':
+        assert not stages(result)['selected_original_at_destination']
+
+
+@pytest.mark.parametrize('failure', ['clock', 'gap', 'anchor', 'optical', 'dimensions', 'control', 'fixture'])
+def test_final_state_mirror_keeps_native_truth_clock_geometry_and_control_guards(failure):
+    p = final_state_parameters('mirror_reconfigure')
+    s, progress = sample(p), MirrorProgress(p)
+    if failure == 'optical':
+        s['optical_selection']['accepted'] = False
+    progress.begin(s)
+    put(progress, s, pad='table', xyz=[1.2, 0., .06])
+    dwell(progress, s)
+    if failure == 'clock':
+        s['native_time_s'] = -1.
+    elif failure == 'gap':
+        s['native_time_s'] += 1.
+    elif failure == 'anchor':
+        s['anchor_centroid_m'][0] = .003
+    elif failure == 'dimensions':
+        s['targets']['c0']['dimensions_m'][0] *= 1.01
+    elif failure in ('control', 'fixture'):
+        s['control_valid' if failure == 'control' else 'fixtures_valid'] = False
+    result = tick(progress, s)
+    assert not result['task_success']
+    assert result['evaluation_validity'] == ('unavailable' if failure in ('gap', 'optical') else 'invalid')
+
+
+@pytest.mark.parametrize('change', [
+    {'manipulation_revision': 'unknown'}, {'manipulation_revision': None},
+    {'minimum_lift_m': .05}, {'minimum_required_motion_m': .05}])
+def test_final_state_mirror_requires_explicit_supported_revision_and_null_history_thresholds(change):
+    p = final_state_parameters()
+    p['scoring'].update(change)
+    with pytest.raises(ValueError):
+        MirrorProgress(p)

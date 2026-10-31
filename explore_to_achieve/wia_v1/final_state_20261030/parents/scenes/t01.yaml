@@ -1,0 +1,373 @@
+kind: scene_patch
+id: category_b470365e157235d5f65aac6c__support_transfer_v1__t01_furnished_existing_v1
+version: 4
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/Beechwood_0_garden/kitchen_0/wia_furnished_background_v1.json
+target: null
+qualification: null
+bindings:
+  middle:
+    name: obj_fixed
+    category: wicker_basket
+    model: tsjvyu
+  base_candidate_0:
+    name: obj_A_correct
+    category: pizza_box
+    model: hvaucj
+  base_candidate_1:
+    name: obj_A_wrong
+    category: pizza_box
+    model: hvaucj
+  top_candidate_0:
+    name: obj_C_correct
+    category: lemon
+    model: dsacfa
+  top_candidate_1:
+    name: obj_C_wrong
+    category: lemon
+    model: dsacfa
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.wia_furnished_layout
+        parameters:
+          revision: wia_furnished_layout_v1
+          scene_contract:
+            scene_model: Beechwood_0_garden
+            room: kitchen_0
+          layout:
+            shared_layout_id: wia_furnished_existing_T01
+            scene_model: Beechwood_0_garden
+            rooms:
+            - kitchen_0
+            floor_name: floors_yrwwan_0
+            objects:
+            - type: DatasetObject
+              name: obj_fixed
+              category: wicker_basket
+              model: tsjvyu
+              position:
+              - -1.15
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - 0.00020672453683800995
+              - -0.00025485927471891046
+              - -7.157213985919952e-07
+              - 1.0000001192092896
+              scale:
+              - 0.5
+              - 0.5
+              - 0.5
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_A_correct
+              category: pizza_box
+              model: hvaucj
+              position:
+              - -3.73
+              - 14.0
+              - 1.1696108667276748
+              orientation:
+              - -7.802009349688888e-07
+              - 1.3279321137815714e-05
+              - 4.287558112991974e-07
+              - 1.0000001192092896
+              scale:
+              - 0.7373815765896378
+              - 0.7373815765896378
+              - 0.7373815765896378
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_A_wrong
+              category: pizza_box
+              model: hvaucj
+              position:
+              - -2.5
+              - 11.96
+              - 1.1696108667276748
+              orientation:
+              - -1.2187520042061806e-06
+              - 2.076386590488255e-05
+              - 1.6522244550287724e-07
+              - 1.0000001192092896
+              scale:
+              - 0.4571887491248964
+              - 0.4571887491248964
+              - 0.4571887491248964
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_C_correct
+              category: lemon
+              model: dsacfa
+              position:
+              - -0.35
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - -0.086679607629776
+              - 0.17074477672576904
+              - -0.009833233430981636
+              - 0.9814459681510925
+              scale:
+              - 1.5676430225490114
+              - 1.5676430225490114
+              - 1.5676430225490114
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_C_wrong
+              category: lemon
+              model: dsacfa
+              position:
+              - -1.95
+              - 11.96
+              - 1.1696108667276748
+              orientation:
+              - -0.109947070479393
+              - 0.16526144742965698
+              - -0.006264340132474899
+              - 0.9800822734832764
+              scale:
+              - 1.0242529064190258
+              - 1.0242529064190258
+              - 1.0242529064190258
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: obj_fixed
+              support: countertop_tpuwys_0
+            - name: obj_A_correct
+              support: countertop_tpuwys_1
+            - name: obj_A_wrong
+              support: countertop_tpuwys_2
+            - name: obj_C_correct
+              support: countertop_tpuwys_0
+            - name: obj_C_wrong
+              support: countertop_tpuwys_2
+            robot_start:
+              position:
+              - -1.6
+              - 14.98
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.7071067811865475
+              - 0.7071067811865476
+          source_reference_positions:
+            obj_fixed:
+            - 2.316042423248291
+            - -11.263289451599121
+            - 0.09201844781637192
+            obj_A_correct:
+            - 1.5219632387161255
+            - -11.480606079101562
+            - 0.0024277111515402794
+            obj_A_wrong:
+            - 3.106523275375366
+            - -11.046906471252441
+            - 0.0015036218101158738
+            obj_C_correct:
+            - 2.7391905784606934
+            - -11.1430025100708
+            - 0.05124829337000847
+            obj_C_wrong:
+            - 1.9596294164657593
+            - -11.35621166229248
+            - 0.033283960074186325
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Beechwood_0_garden
+          disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.wia_furnished_layout
+        parameters:
+          revision: wia_furnished_layout_v1
+          scene_contract:
+            scene_model: Beechwood_0_garden
+            room: kitchen_0
+          layout:
+            shared_layout_id: wia_furnished_existing_T01
+            scene_model: Beechwood_0_garden
+            rooms:
+            - kitchen_0
+            floor_name: floors_yrwwan_0
+            objects:
+            - type: DatasetObject
+              name: obj_fixed
+              category: wicker_basket
+              model: tsjvyu
+              position:
+              - -1.15
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - 0.00020672453683800995
+              - -0.00025485927471891046
+              - -7.157213985919952e-07
+              - 1.0000001192092896
+              scale:
+              - 0.5
+              - 0.5
+              - 0.5
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_A_correct
+              category: pizza_box
+              model: hvaucj
+              position:
+              - -3.73
+              - 14.0
+              - 1.1696108667276748
+              orientation:
+              - -7.802009349688888e-07
+              - 1.3279321137815714e-05
+              - 4.287558112991974e-07
+              - 1.0000001192092896
+              scale:
+              - 0.7373815765896378
+              - 0.7373815765896378
+              - 0.7373815765896378
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_A_wrong
+              category: pizza_box
+              model: hvaucj
+              position:
+              - -2.5
+              - 11.96
+              - 1.1696108667276748
+              orientation:
+              - -1.2187520042061806e-06
+              - 2.076386590488255e-05
+              - 1.6522244550287724e-07
+              - 1.0000001192092896
+              scale:
+              - 0.4571887491248964
+              - 0.4571887491248964
+              - 0.4571887491248964
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_C_correct
+              category: lemon
+              model: dsacfa
+              position:
+              - -0.35
+              - 15.85
+              - 1.1696108667276748
+              orientation:
+              - -0.086679607629776
+              - 0.17074477672576904
+              - -0.009833233430981636
+              - 0.9814459681510925
+              scale:
+              - 1.5676430225490114
+              - 1.5676430225490114
+              - 1.5676430225490114
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj_C_wrong
+              category: lemon
+              model: dsacfa
+              position:
+              - -1.95
+              - 11.96
+              - 1.1696108667276748
+              orientation:
+              - -0.109947070479393
+              - 0.16526144742965698
+              - -0.006264340132474899
+              - 0.9800822734832764
+              scale:
+              - 1.0242529064190258
+              - 1.0242529064190258
+              - 1.0242529064190258
+              fixed_base: false
+              visual_only: false
+            supported_items:
+            - name: obj_fixed
+              support: countertop_tpuwys_0
+            - name: obj_A_correct
+              support: countertop_tpuwys_1
+            - name: obj_A_wrong
+              support: countertop_tpuwys_2
+            - name: obj_C_correct
+              support: countertop_tpuwys_0
+            - name: obj_C_wrong
+              support: countertop_tpuwys_2
+            robot_start:
+              position:
+              - -1.6
+              - 14.98
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - -0.7071067811865475
+              - 0.7071067811865476
+          source_reference_positions:
+            obj_fixed:
+            - 2.316042423248291
+            - -11.263289451599121
+            - 0.09201844781637192
+            obj_A_correct:
+            - 1.5219632387161255
+            - -11.480606079101562
+            - 0.0024277111515402794
+            obj_A_wrong:
+            - 3.106523275375366
+            - -11.046906471252441
+            - 0.0015036218101158738
+            obj_C_correct:
+            - 2.7391905784606934
+            - -11.1430025100708
+            - 0.05124829337000847
+            obj_C_wrong:
+            - 1.9596294164657593
+            - -11.35621166229248
+            - 0.033283960074186325
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.wia_background
+        parameters:
+          revision: wia_background_v1
+          mode: complete_ground
+          expected_scene: Beechwood_0_garden
+          disable_grid: false
+seed: 0
+runtime:
+  reflection_sensor_profile: {}
+  requires_native_visual_discovery: false
+  post_controller_settle_steps: 0
+  trunk_config: configs/esi_trunk.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0
+target_bindings: []

@@ -1,32 +1,30 @@
 kind: category_robot_task
 id: wia_rigid_t25_v1__t25_furnished_native_support_v1__awake_contact_v2
-version: 4
+version: 5
 status: pending
 source:
   provider: esi
   json: Physical Structure/Rigid Containment/Merom_0_garden/playroom_0/t25_furnished_native_support_v1.json
 public:
-  objective: 'Find the target on the exposed furniture surface and inspect the containers
-    distributed along the other counter. Which container does the banana best fit
-    inside: the wicker basket or the bowl or the tupperware? Grasp the banana with
-    the robot, lift it at least 5 cm, and partially insert it into your chosen container.
-    Release it and withdraw the gripper at least 2 cm clear of the banana.'
-  success_criteria: 'Answer the original containment question and complete a real
-    grasp, a lift of at least 5 cm, and stable partial insertion into the chosen container.
-    After release, keep the banana partially inside with the gripper at least 2 cm
-    clear for at least 0.5 seconds, with linear speed at most 0.02 m/s and angular
-    speed at most 0.1 rad/s. An object resting entirely on top does not count as inside.
-    Submit ANSWER: <container label> and declare DONE.'
-  environment: A furnished playroom. The target and containers occupy separate native
-    furniture surfaces; none is deliberately hidden.
+  objective: 'Find the target on the exposed furniture surface and inspect the containers distributed
+    along the other counter. Which container does the banana best fit inside: the wicker basket or the
+    bowl or the tupperware? Place each named object partially inside its selected container. Leave it
+    released and withdraw the robot hands at least 2 cm clear.'
+  success_criteria: 'Answer the original containment question for every named object. For each object,
+    verify partial insertion into its selected container with actual container contact and no interpenetration.
+    With empty open hands, no robot support or contact and hands at least 2 cm clear, maintain this state
+    for at least 0.5 seconds with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. An
+    object resting entirely on top does not count. No minimum lift height or prior grasp is required.
+    Targets may be verified sequentially and removed after verification to free a shared container. Finish
+    with empty open hands. Submit ANSWER: <container label> and declare DONE.'
+  environment: A furnished playroom. The target and containers occupy separate native furniture surfaces;
+    none is deliberately hidden.
   constraints:
-  - Complete every target subtask before declaring DONE. An object resting entirely
-    on top does not count as inside.
+  - Complete every target subtask before declaring DONE. An object resting entirely on top does not count
+    as inside.
   - Use the existing guarded robot controls and visible container labels.
-  - Preserve all asset scales and keep every container within 2 cm and 0.05 radians
-    of its starting pose.
-  - The banana may be removed after its released, stable partial insertion has been
-    verified.
+  - Preserve all asset scales and keep every container within 2 cm and 0.05 radians of its starting pose.
+  - The banana may be removed after its released, stable partial insertion has been verified.
 requirements:
   capabilities:
   - base_translation
@@ -73,7 +71,7 @@ private:
     - table
     - pickup_support
     parameters:
-      scorer_version: wia_rigid_partial_insertion_v1
+      scorer_version: rigid_insertion_final_state_v1
       targets:
       - target
       containers:
@@ -86,7 +84,7 @@ private:
         target: banana
       expected_answers:
         target: tupperware
-      minimum_lift_m: 0.05
+      minimum_lift_m: null
       stability_duration_s: 0.5
       maximum_linear_speed_m_s: 0.02
       maximum_angular_speed_rad_s: 0.1
@@ -106,6 +104,7 @@ private:
       initial_support_tolerance_m: 0.015
       maximum_initial_linear_speed_m_s: 0.02
       maximum_initial_angular_speed_rad_s: 0.2
+      manipulation_revision: final_state_v1
 scene:
   policy: native_then_minimal_patch_else_skip
   variants:
@@ -399,3 +398,13 @@ repair:
   physical_success_verified: false
   full_reference_execution: deferred_until_user_review
   original_support_v6_hold_preserved: false
+  final_state_revision:
+    revision: final_state_v1
+    date: '2026-10-30'
+    parent_task_sha256: cb22edf604fce61987a3d5503cc4d25d322c8989282c02cc830e43f32846eee1
+    parent_scene_sha256: 936f12e0f679f6ace60ac1146ffa2d3828c9be13de2bceeeb57e3f87435781b4
+    parent_source_task_file: explore_to_achieve/wia_v1/review_20261025/t25_awake_contact_v2/task.yaml
+    parent_source_scene_file: explore_to_achieve/wia_v1/review_20261025/t25_awake_contact_v2/scene.yaml
+    scene_geometry_changed: false
+    native_execution_verified: false
+    scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.

@@ -233,6 +233,36 @@ def test_two_arm_readback_allows_inactive_half_open_empty_hand(native):
     assert native.contact_calls[-1][1]['row_prim_paths'] == ['/World/item/body']
 
 
+def test_final_state_adapter_accepts_zero_lift_insertion_and_keeps_qa_separate(native, tmp_path):
+    native.config['parameters'].update(manipulation_revision='final_state_v1', minimum_lift_m=None)
+    native.evaluator = module.RigidPartialInsertionEvaluator(
+        native.session, native.controller, native.config, tmp_path)
+    supported_initial_state(native)
+    native.evaluator.begin_episode(native.observation)
+    native.target.contacts = []
+    native.target.position[:] = [0., 0., .2]
+    native.target.touching['container'] = True
+    step(native, 1.)
+    result = step(native, 1.5)
+    assert result['physical_success']
+    assert not result['per_target']['item']['grasp_seen']
+    assert not result['per_target']['item']['lift_seen']
+    assert result['per_target']['item']['baseline_lowest_z_m'] == .2
+    receipt = native.evaluator.record(native.observation)
+    assert receipt['physical_success'] and not receipt['task_success']
+    assert receipt['physical_scorer_schema'] == 'rigid_insertion_final_state_v1'
+    assert receipt['manipulation_revision'] == 'final_state_v1'
+    native.evaluator.answer = {'item': 'medium container'}
+    assert native.evaluator.record(native.observation)['task_success']
+
+
+@pytest.mark.parametrize('revision,lift', [(None, None), ('unknown', None), ('final_state_v1', .05)])
+def test_adapter_rejects_unversioned_null_lift_and_unknown_manipulation_modes(native, tmp_path, revision, lift):
+    native.config['parameters'].update(manipulation_revision=revision, minimum_lift_m=lift)
+    with pytest.raises(ValueError):
+        module.RigidPartialInsertionEvaluator(native.session, native.controller, native.config, tmp_path)
+
+
 @pytest.mark.parametrize('initial_problem', ['unsupported', 'unavailable'])
 def test_initial_qualification_failure_cannot_be_repaired_by_later_reducer_success(
         native, monkeypatch, initial_problem):

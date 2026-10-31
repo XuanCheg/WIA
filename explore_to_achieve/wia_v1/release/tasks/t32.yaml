@@ -1,18 +1,17 @@
 kind: category_robot_task
 id: task_3c0c7a96f845e249e88a5045__t32_furnished_tray_v3
-version: 4
+version: 5
 status: pending
 source:
   provider: esi
   json: Specular Reflection/Correspondence/Merom_0_garden/playroom_0/wia_furnished_background_v1.json
 public:
-  objective: Find the vase, trophy on open furniture surfaces. Bring them to the blue-grey
-    tray on the counter. Leave the two objects separated by at least 5 cm.
-  success_criteria: Retrieve each target with a genuine grasp and at least 5 cm lift, then
-    release all targets entirely on the tray deck in the requested relation. Leave hands clear
-    and objects stable for at least 0.5 seconds.
-  environment: A furnished playroom. Target objects are on exposed surfaces and are not deliberately
-    hidden.
+  objective: Find the vase, trophy on open furniture surfaces. Bring them to the blue-grey tray on the
+    counter. Leave the two objects separated by at least 5 cm.
+  success_criteria: Leave every original target fully inside the usable tray deck, in the requested relation,
+    with actual nonpenetrating deck support. Leave hands empty, open and clear and the objects stable
+    for at least 0.5 seconds. No minimum lift height, travel distance or prior grasp is required.
+  environment: A furnished playroom. Target objects are on exposed surfaces and are not deliberately hidden.
   constraints:
   - Use lawful robot controls and mounted observations.
   - Keep the tray and its supporting furniture fixed.
@@ -99,8 +98,8 @@ private:
         - obj2
         relation: separated
       scoring:
-        minimum_lift_m: 0.05
-        minimum_displacement_m: 0.05
+        minimum_lift_m: null
+        minimum_displacement_m: null
         stability_duration_s: 0.5
         maximum_linear_speed_m_s: 0.02
         maximum_angular_speed_rad_s: 0.1
@@ -111,6 +110,7 @@ private:
         maximum_bottom_gap_m: 0.015
         penetration_tolerance_m: 0.001
         minimum_separation_m: 0.05
+        manipulation_revision: final_state_v1
 scene:
   policy: native_then_minimal_patch_else_skip
   variants:
@@ -554,3 +554,13 @@ repair:
   native_visibility_verified: false
   manipulation_verified: false
   full_reference_execution: deferred_until_user_review
+  final_state_revision:
+    revision: final_state_v1
+    date: '2026-10-30'
+    parent_task_sha256: 39ed8e4bc4804d4723a71b11c40005fe98f40fc61eee2bf6688ab43a44c303c7
+    parent_scene_sha256: 188cbf4c2af3120f7201e0179322ecd4b736a9eea94d21282099b212d9966790
+    parent_source_task_file: explore_to_achieve/wia_v1/furnished_v1/spatial_support_v3/tasks/t32__t32_furnished_tray_v3.yaml
+    parent_source_scene_file: explore_to_achieve/wia_v1/furnished_v1/spatial_support_v3/scenes/t32__t32_furnished_tray_v3.yaml
+    scene_geometry_changed: false
+    native_execution_verified: false
+    scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.

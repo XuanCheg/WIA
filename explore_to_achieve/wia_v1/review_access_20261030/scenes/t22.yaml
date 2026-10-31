@@ -1,0 +1,215 @@
+kind: scene_patch
+id: wia_rigid_t22_family_v1_scene__t22_left_sofa_v3
+version: 5
+status: pending
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json
+target: target
+bindings:
+  target:
+    name: obj_containee
+    category: gift_box
+    model: pnprrx
+  container_2:
+    name: obj_container_2
+    category: packing_box
+    model: cjhskr
+  container_1:
+    name: obj_container_1
+    category: packing_box
+    model: cjhskr
+  container_0:
+    name: obj_container_0
+    category: packing_box
+    model: cjhskr
+  table:
+    name: breakfast_table_skczfi_1
+    category: breakfast_table
+    model: skczfi
+  pickup_support:
+    name: armchair_bslhmj_0
+    category: armchair
+    model: bslhmj
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+      initial_visibility: null
+    tabletop:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - -3.4
+        - 0.85
+        - 0.1
+        yaw_deg: 90.0
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_0
+        position:
+        - -4.0
+        - 2.18
+        - 0.8449220665386521
+        candidates: []
+        quaternion_xyzw:
+        - -1.0589354688759913e-05
+        - 8.725466482639917e-06
+        - 2.1133562065910046e-07
+        - 0.9999999999058437
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_1
+        position:
+        - -3.48
+        - 2.18
+        - 0.883001536934694
+        candidates: []
+        quaternion_xyzw:
+        - -1.0681792081226006e-05
+        - 8.778271738712513e-06
+        - -8.00719039911206e-09
+        - 0.9999999999044207
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_2
+        position:
+        - -2.94
+        - 2.18
+        - 0.9192032971075379
+        candidates: []
+        quaternion_xyzw:
+        - -1.0733043920535927e-05
+        - 8.81807122210578e-06
+        - -1.6399642707916547e-07
+        - 0.9999999999035083
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: target
+        position:
+        - -5.057117366790772
+        - 1.279439353942871
+        - 0.5573
+        candidates: []
+        quaternion_xyzw:
+        - -4.0523591451346874e-06
+        - -1.56510213855654e-06
+        - 1.6803096514195204e-07
+        - 1.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.active_layout
+        parameters:
+          revision: t22_left_sofa_v3
+          layout:
+            objects:
+            - name: obj_container_0
+              position:
+              - -4.0
+              - 2.18
+              - 0.8449220665386521
+              orientation:
+              - -1.0589354688759913e-05
+              - 8.725466482639917e-06
+              - 2.1133562065910046e-07
+              - 0.9999999999058437
+            - name: obj_container_1
+              position:
+              - -3.48
+              - 2.18
+              - 0.883001536934694
+              orientation:
+              - -1.0681792081226006e-05
+              - 8.778271738712513e-06
+              - -8.00719039911206e-09
+              - 0.9999999999044207
+            - name: obj_container_2
+              position:
+              - -2.94
+              - 2.18
+              - 0.9192032971075379
+              orientation:
+              - -1.0733043920535927e-05
+              - 8.81807122210578e-06
+              - -1.6399642707916547e-07
+              - 0.9999999999035083
+            - name: obj_containee
+              position:
+              - -5.057117366790772
+              - 1.279439353942871
+              - 0.5573
+              orientation:
+              - -4.0523591451346874e-06
+              - -1.56510213855654e-06
+              - 1.6803096514195204e-07
+              - 1.0
+            supported_items:
+            - name: obj_container_0
+              support: breakfast_table_skczfi_1
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: obj_container_1
+              support: breakfast_table_skczfi_1
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: obj_container_2
+              support: breakfast_table_skczfi_1
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: obj_containee
+              support: armchair_bslhmj_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            floor_name: floors_gjpvfd_0
+            synchronize_authored_poses_before_alignment: true
+      initial_visibility: null
+qualification:
+  on_failure: skip
+  support: table
+  supported_objects:
+  - target
+  - container_2
+  - container_1
+  - container_0
+  object_supports:
+    target: pickup_support
+  support_surface_mode: local_raycast
+  support_tolerance_m: 0.015
+  maximum_linear_speed_m_s: 0.02
+  maximum_angular_speed_rad_s: 0.1
+  require_support_contact: true
+  reject_robot_contacts: true
+  screen_furniture_overlap: true
+  settle_steps: 30
+runtime:
+  trunk_config: configs/esi_trunk_low_grasp.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0
+seed: 0

@@ -3,6 +3,30 @@
 
 const $ = (id) => document.getElementById(id);
 const FAMILIES = ["AP", "NT", "GF", "SR", "GG", "TM"];
+const SUBCLASSES = {
+  "AP-1": "Specified-structure Construction",
+  "AP-2": "Stability-Constrained Construction",
+  "AP-3": "Experiment-to-Action Dynamics",
+  "AP-4": "Closed-loop Recovery & Adaptation",
+  "NT-1": "Connectivity & Topology Verification",
+  "NT-2": "Ordered Multi-region Navigation",
+  "NT-3": "Semantic Region Grounding",
+  "GF-1": "Containment & Affordance Selection",
+  "GF-2": "Dimension-constrained Insertion",
+  "GF-3": "Metric Sorting & Assignment",
+  "SR-1": "Geometric Arrangement & Alignment",
+  "SR-2": "Contact & Separation Regulation",
+  "SR-3": "Reflection-grounded Reconfiguration",
+  "GG-1": "Active Search & Physical Collection",
+  "GG-2": "Occlusion Removal & Retrieval",
+  "GG-3": "Mirror-grounded Target Selection",
+  "GG-4": "Appearance-conditioned Object Handling",
+  "TM-1": "Episodic Observation-to-Action",
+  "TM-2": "Unobserved Change & Contingent Action",
+  "AP-5": "Resource-constrained Planning"
+};
+const FAMILY_NAMES = {AP: "Action planning", NT: "Navigation & topology", GF: "Geometric feasibility", SR: "Spatial reasoning", GG: "Goal grounding", TM: "Temporal memory"};
+const naturalOrder = new Intl.Collator("en", {numeric: true, sensitivity: "base"});
 const DECISIONS = {approved: "Design / layout OK", needs_fix: "Needs changes", skipped: "Skipped", unreviewed: "Unreviewed"};
 const state = {rows: [], total: 0, page: 0, pageSize: 100, scene: null,
   draft: {decision: "unreviewed", notes: ""}, saved: {decision: "unreviewed", notes: "", revision: 0},
@@ -52,24 +76,48 @@ async function request(url, options = {}) {
 }
 
 function renderStats(payload) {
-  const summary = payload.summary && typeof payload.summary === "object" ? payload.summary : {};
-  const progress = summary.proposal_progress || {};
-  const counts = [];
-  const known = [["total", "Original proposals"], ["definitions_available", "Definition available"],
-    ["with_images", "With images"], ["without_images", "Awaiting images"],
-    ["awaiting_image_review", "Ready for image review"], ["with_layout_approval", "At least one layout approval"],
-    ["reference_verified", "Reference verified"]];
-  for (const [key, label] of known) {
-    if (Number.isInteger(progress[key]) && progress[key] >= 0) counts.push([progress[key], label]);
-  }
-  $("stats").replaceChildren(...counts.map(([count, label]) => {
+  const summary = payload.summary || {};
+  $("candidate-count").textContent = countLabel(summary.extra_row_count, "task");
+  const reviews = summary.review_counts || {};
+  const counts = [[summary.row_count, "Active tasks"], [reviews.unreviewed || 0, "Unreviewed"],
+    [reviews.needs_fix || 0, "Needs changes"], [reviews.approved || 0, "Layout OK"]];
+  $("stats").replaceChildren(...counts.filter(([value]) => Number.isInteger(value)).map(([count, label]) => {
     const item = node("div", "stat");
     item.append(node("strong", "", String(count)), node("span", "", label));
     return item;
   }));
-  $("progress-context").textContent = counts.length
-    ? "Original proposals only. Layout approval means at least one current version is approved; it does not certify all versions or native success."
-    : "Original proposal progress is unavailable in this snapshot.";
+  $("progress-context").textContent = "Current-version decisions · " + countLabel(summary.rows_with_images_count, "task with images", "tasks with images") + ".";
+  renderFamilyNavigation(summary);
+  const secondary = Number($("scope-filter").value !== "all") + Number(!!$("status-filter").value)
+    + Number(!!$("review-filter").value) + Number(["with_images", "without_images", "reference_verified"].includes(state.readiness));
+  $("filter-count").textContent = secondary ? "· " + secondary + " active" : "";
+}
+
+function renderFamilyNavigation(summary) {
+  const counts = summary.active_family_counts || {};
+  $("family-nav").replaceChildren(...["", ...FAMILIES].map((family) => {
+    const button = node("button", "family-choice" + (family === $("family-filter").value ? " active" : ""));
+    button.type = "button";
+    button.dataset.family = family;
+    button.title = family ? FAMILY_NAMES[family] : "All active categories";
+    button.setAttribute("aria-pressed", String(family === $("family-filter").value));
+    button.append(node("span", "", family || "All categories"));
+    const count = family ? counts[family] : summary.row_count;
+    if (Number.isInteger(count)) button.append(node("span", "family-count", String(count)));
+    button.addEventListener("click", () => { $("family-filter").value = family; state.page = 0; loadCatalogue(); updateQueueControls(); });
+    return button;
+  }));
+}
+
+function taskTitle(row) {
+  const title = plain(row.title, "Untitled task");
+  const prefix = row.document_alias + " / ";
+  return title.startsWith(prefix) ? title.slice(prefix.length) : title;
+}
+
+function decisionBadge(decision) {
+  const labels = {approved: "Layout OK", needs_fix: "Needs changes", skipped: "Skipped", unreviewed: "Unreviewed"};
+  return node("span", "badge review-badge " + (labels[decision] ? decision : "unreviewed"), labels[decision] || "Unreviewed");
 }
 
 function statusOptions() {
@@ -90,8 +138,10 @@ function statusOptions() {
 function badge(text) { return node("span", "badge", text); }
 
 function orderedRows() {
-  const other = [...new Set(state.rows.map((row) => row.primary_family || "Other"))].filter((family) => !FAMILIES.includes(family));
-  return [...FAMILIES, ...other].flatMap((family) => state.rows.filter((row) => (row.primary_family || "Other") === family));
+  const rank = (family) => FAMILIES.includes(family) ? FAMILIES.indexOf(family) : FAMILIES.length;
+  return [...state.rows].sort((a, b) => rank(a.primary_family) - rank(b.primary_family)
+    || naturalOrder.compare(a.primary_subclass || "", b.primary_subclass || "")
+    || naturalOrder.compare(a.document_alias || a.id, b.document_alias || b.id));
 }
 
 function queueVariant(row) {
@@ -104,41 +154,43 @@ function queueVariant(row) {
 function renderRows() {
   const list = $("task-list");
   list.replaceChildren();
-  const other = [...new Set(state.rows.map((row) => row.primary_family || "Other"))].filter((family) => !FAMILIES.includes(family));
-  for (const family of [...FAMILIES, ...other]) {
-    const rows = state.rows.filter((row) => (row.primary_family || "Other") === family);
-    if (!rows.length) continue;
+  const sorted = orderedRows();
+  for (const family of [...new Set(sorted.map((row) => row.primary_family || "Other"))]) {
+    const rows = sorted.filter((row) => (row.primary_family || "Other") === family);
     const group = node("section", "family-group");
-    const heading = node("h3", "family-heading", family);
-    heading.append(node("span", "", rows.length + " on this page"));
+    const heading = node("h3", "family-heading", family + " · " + (FAMILY_NAMES[family] || "Other tasks"));
+    heading.append(node("span", "", String(rows.length)));
     group.append(heading);
+    let subclass;
     for (const row of rows) {
+      if (row.primary_subclass !== subclass) {
+        subclass = row.primary_subclass;
+        group.append(node("h4", "subclass-heading", [subclass, SUBCLASSES[subclass]].filter(Boolean).join(" · ") || "Other tasks"));
+      }
       const button = node("button", "task-row" + (state.scene && row.id === state.scene.id ? " selected" : ""));
       button.type = "button";
+      button.dataset.taskId = row.id;
       if (state.scene && row.id === state.scene.id) button.setAttribute("aria-current", "true");
-      button.append(node("span", "row-alias", plain(row.document_alias, row.id)),
-        node("strong", "", plain(row.title, "Untitled task")),
-        node("span", "row-subclass", plain(row.primary_subclass, "Subclass not supplied")));
-      const statuses = node("div", "row-status");
-      statuses.append(badge(row.image_count > 0 ? "Images ready" : "Awaiting images"));
-      if (row.image_count > 0) statuses.append(badge(countLabel(row.image_variant_count, "version with images", "versions with images")));
-      if (row.status && !["definition_only", "unbuilt", "proposal"].includes(row.status)) statuses.append(badge("Research: " + pretty(row.status)));
-      if (row.has_definition === false) statuses.append(badge("Definition pending"));
-      if (row.unreviewed_image_variant_count > 0) statuses.append(badge(row.unreviewed_image_variant_count + " image version(s) to review"));
-      if (row.needs_fix_variant_count > 0) statuses.append(badge(row.needs_fix_variant_count + " version(s) need changes"));
-      const decision = row.decision || reviewOf(row).decision;
-      const reviewLabel = "Default version: " + (DECISIONS[decision] || "Unreviewed") + (row.review_stale ? " · Earlier review is stale" : "");
-      button.append(statuses, node("span", "row-review", reviewLabel));
+      const line = node("div", "row-heading");
+      line.append(node("span", "row-alias", plain(row.document_alias, row.id)), decisionBadge(row.decision || reviewOf(row).decision));
+      button.append(line, node("strong", "", taskTitle(row)));
+      const meta = node("div", "row-meta");
+      meta.append(node("span", "", row.default_image_count > 0 ? "Images ready" : row.image_count > 0 ? "Other version has images" : "Awaiting images"));
+      if (reviewOf(row).notes) meta.append(node("span", "has-notes", "Has notes"));
+      if (row.review_stale) meta.append(node("span", "", "Updated evidence"));
+      if (row.unreviewed_image_variant_count > 1) meta.append(node("span", "", row.unreviewed_image_variant_count + " versions to review"));
+      button.append(meta);
       button.addEventListener("click", () => openScene(row.id, queueVariant(row)));
       group.append(button);
     }
     list.append(group);
   }
-  if (!state.rows.length) list.append(node("p", "notice", "No tasks match these filters. Pending and unbuilt tasks are included when they match."));
+  if (!state.rows.length) list.append(node("p", "notice", "No matching tasks. Reset the filters to see the active set."));
   $("page-label").textContent = "Page " + (state.page + 1) + " / " + Math.max(1, Math.ceil(state.total / state.pageSize));
   $("page-prev").disabled = state.page === 0;
   $("page-next").disabled = (state.page + 1) * state.pageSize >= state.total;
-  const index = orderedRows().findIndex((row) => state.scene && row.id === state.scene.id);
+  document.querySelector(".pagination").classList.toggle("hidden", state.total <= state.pageSize);
+  const index = sorted.findIndex((row) => state.scene && row.id === state.scene.id);
   if (index >= 0) state.queueAnchor = {index, signature: state.rowsSignature};
   updateQueueControls();
 }
@@ -165,7 +217,7 @@ async function loadCatalogue(automatic = false) {
     renderStats(payload);
     statusOptions();
     renderRows();
-    $("list-status").textContent = state.total + " matches · " + ($("scope-filter").value === "original" ? "original proposals" : $("scope-filter").value === "extra" ? "additional proposals" : "all proposals");
+    $("list-status").textContent = countLabel(state.total, "task");
     $("snapshot-date").textContent = payload.generated_at ? "Catalogue snapshot: " + plain(payload.generated_at) : "Catalogue snapshot time not supplied";
     notice("catalogue-error", "");
     return true;
@@ -272,6 +324,8 @@ function imageContext(image) {
 function images() { return state.scene && Array.isArray(state.scene.images) ? state.scene.images : []; }
 
 function defaultImage(available) {
+  const overview = available.find((image) => viewName(image).replace(/^phase_[12]_/, "") === "object_overview");
+  if (overview) return overview;
   const heads = available.filter((image) => ["head", "head_rgb", "agentview_rgb"].includes(viewName(image).replace(/^phase_[12]_/, "")));
   const rank = (image) => /phase[ _-]?2|released|release[ _-]?state/.test(imageWords(image)) ? 3
     : /initial/.test(imageWords(image)) ? 0 : /phase[ _-]?1/.test(imageWords(image)) ? 1 : 2;
@@ -368,7 +422,8 @@ function renderImages(preserve = false) {
   const available = images();
   if (!preserve) {
     state.imageId = null;
-    state.imageGroup = available.some(isAgentImage) || !available.length ? "robot" : "auxiliary";
+    state.imageGroup = available.some((image) => viewName(image).replace(/^phase_[12]_/, "") === "object_overview")
+      ? "auxiliary" : available.some(isAgentImage) || !available.length ? "robot" : "auxiliary";
     state.compareEnabled = false;
     state.compareId = null;
   }
@@ -378,8 +433,7 @@ function renderImages(preserve = false) {
     button.classList.toggle("active", active);
     button.setAttribute("aria-pressed", String(active));
   }
-  $("images-context").textContent = plain(selectedVariant().label, state.scene.selected_variant_id || "No version selected")
-    + " · " + countLabel(available.length, "recorded image") + " · only chosen views are loaded";
+  $("images-context").textContent = countLabel(available.length, "recorded view");
   $("view-tabs").replaceChildren();
   $("view-select").replaceChildren();
   for (const image of visible) {
@@ -424,7 +478,7 @@ function updateQueueControls() {
   const index = orderedRows().findIndex((row) => state.scene && row.id === state.scene.id);
   $("queue-context").textContent = index < 0
     ? "Selected task is outside this filtered queue · " + state.total + " matches"
-    : "Filtered queue · " + state.total + " tasks · " + (state.readiness === "awaiting_review" ? "opens the next unreviewed image version" : "previous / next task");
+    : "Task " + (state.page * state.pageSize + index + 1) + " of " + state.total + " in this queue";
 }
 
 async function moveQueue(direction) {
@@ -474,7 +528,7 @@ function updateReviewControls() {
   $("variant-select").disabled = busy || !(state.scene && state.scene.variants && state.scene.variants.length);
   $("refresh-detail").disabled = busy;
   $("save-review").disabled = disabled || !dirty();
-  $("save-review").textContent = state.saving ? "Saving…" : "Save review";
+  $("save-review").textContent = state.saving ? "Saving…" : "Save";
   $("save-next").disabled = disabled || (!dirty() && state.draft.decision === "unreviewed");
   $("save-next").textContent = state.saving ? "Saving…" : "Save and next →";
   $("save-state").textContent = state.saving ? "Saving review…" : dirty() ? "Unsaved changes" : "No unsaved changes";
@@ -499,8 +553,17 @@ function renderVariantOptions() {
     option.value = "";
     $("variant-select").append(option);
   } else $("variant-select").value = state.scene.selected_variant_id;
+  $("current-version-label").textContent = variants[0] && state.scene.selected_variant_id === variants[0].id
+    ? "Current · " + countLabel(variants.length, "version") : plain(selectedVariant().label, "No version");
   $("variant-context").textContent = variants.length ? countLabel(variants.length, "declared version") + " · images and feedback belong to each version"
     : "No declared version · feedback saving is unavailable";
+}
+
+function renderDetailBadges() {
+  const scene = state.scene;
+  $("detail-badges").replaceChildren(decisionBadge(scene.decision || reviewOf(scene).decision),
+    badge(countLabel(images().length, "recorded view")));
+  if (scene.variants[0] && scene.selected_variant_id !== scene.variants[0].id) $("detail-badges").append(badge("Earlier version"));
 }
 
 function renderDetail(preserveImages = false) {
@@ -509,10 +572,8 @@ function renderDetail(preserveImages = false) {
   $("welcome").classList.add("hidden");
   $("detail-content").classList.remove("hidden");
   $("detail-family").textContent = [scene.document_alias, scene.primary_family, scene.primary_subclass].filter(Boolean).join(" / ");
-  $("detail-title").textContent = plain(scene.title, "Untitled task");
-  $("detail-badges").replaceChildren(badge("Selected version: " + pretty(variant.status)),
-    badge("Row implementation: " + pretty(scene.implementation_state)),
-    badge(scene.proposal_membership === true ? "Original proposal" : scene.proposal_membership === false ? "Additional proposal" : "Proposal set not supplied"));
+  $("detail-title").textContent = taskTitle(scene);
+  renderDetailBadges();
   renderVariantOptions();
   renderProse("objective", variant.objective, "No public objective supplied for this version.");
   renderProse("row-summary", scene.summary, "No row summary supplied yet.");
@@ -565,6 +626,7 @@ async function saveReview() {
     state.scene.decision = state.saved.decision;
     Object.assign(selectedVariantMeta(), {decision: state.saved.decision, review_stale: false});
     renderVariantOptions();
+    renderDetailBadges();
     $("review-revision").textContent = "Review revision: " + plain(state.saved.revision);
     $("stale-review").classList.add("hidden");
     notice("review-feedback", "Review saved. This records human design feedback only.");
@@ -643,8 +705,16 @@ async function openScene(id, variantId, refresh = false, options = {}) {
     if ($("image-dialog").open) $("image-dialog").close();
     renderDetail(refresh && sameVersion);
     renderRows();
+    const selectedRow = $("task-list").querySelector(".task-row.selected");
+    if (selectedRow && !refresh) {
+      const bounds = selectedRow.getBoundingClientRect();
+      const viewport = $("task-list").getBoundingClientRect();
+      if (bounds.top < viewport.top) $("task-list").scrollTop += bounds.top - viewport.top;
+      else if (bounds.bottom > viewport.bottom) $("task-list").scrollTop += bounds.bottom - viewport.bottom;
+    }
     writeSceneLink();
-    if (!refresh) { $("detail-title").tabIndex = -1; $("detail-title").focus({preventScroll: true}); }
+    if (!refresh) { $("detail-title").tabIndex = -1; $("detail-title").focus({preventScroll: true});
+      if (window.matchMedia("(max-width: 760px)").matches) $("detail").scrollIntoView({behavior: "smooth", block: "start"}); }
     return true;
   } catch (error) {
     notice("detail-status", "Could not refresh the detail. " + error.message + " Existing notes and evidence are kept.", "error");
@@ -653,19 +723,41 @@ async function openScene(id, variantId, refresh = false, options = {}) {
   finally { state.detailBusy = false; updateReviewControls(); }
 }
 
+function setReadiness(readiness) {
+  state.readiness = readiness;
+  for (const item of document.querySelectorAll("[data-readiness]")) {
+    const active = item.dataset.readiness === readiness;
+    item.classList.toggle("active", active);
+    item.setAttribute("aria-pressed", String(active));
+  }
+}
+
 let searchTimer;
 $("search").addEventListener("input", () => {
   clearTimeout(searchTimer);
   searchTimer = setTimeout(() => { state.page = 0; loadCatalogue(); }, 300);
 });
 for (const id of ["family-filter", "status-filter", "review-filter", "scope-filter"]) $(id).addEventListener("change", () => { state.page = 0; loadCatalogue(); updateQueueControls(); });
+$("reset-filters").addEventListener("click", () => {
+  clearTimeout(searchTimer);
+  for (const id of ["search", "family-filter", "status-filter", "review-filter"]) $(id).value = "";
+  $("scope-filter").value = "all";
+  setReadiness("all");
+  state.page = 0;
+  loadCatalogue();
+  updateQueueControls();
+});
+$("show-candidates").addEventListener("click", () => {
+  clearTimeout(searchTimer);
+  $("scope-filter").value = "extra";
+  for (const id of ["search", "family-filter", "status-filter", "review-filter"]) $(id).value = "";
+  setReadiness("all");
+  state.page = 0;
+  loadCatalogue();
+  updateQueueControls();
+});
 for (const button of document.querySelectorAll("[data-readiness]")) button.addEventListener("click", () => {
-  state.readiness = button.dataset.readiness;
-  for (const item of document.querySelectorAll("[data-readiness]")) {
-    const active = item === button;
-    item.classList.toggle("active", active);
-    item.setAttribute("aria-pressed", String(active));
-  }
+  setReadiness(button.dataset.readiness);
   state.page = 0;
   loadCatalogue();
   updateQueueControls();
@@ -744,6 +836,8 @@ document.addEventListener("keydown", (event) => {
     if (!$(direction > 0 ? "queue-next" : "queue-prev").disabled) { event.preventDefault(); moveQueue(direction); }
   }
 });
+const initialScope = new URLSearchParams(window.location.search).get("scope");
+$("scope-filter").value = ["original", "extra", "all"].includes(initialScope) ? initialScope : "all";
 updateReviewControls();
 loadCatalogue().then(() => { const link = sceneLink(); if (link) openScene(link.id, link.variant); });
 setInterval(() => { if (!document.hidden) loadCatalogue(true); }, 15000);

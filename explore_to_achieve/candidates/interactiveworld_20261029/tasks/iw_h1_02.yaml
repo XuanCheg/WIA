@@ -1,0 +1,122 @@
+kind: category_robot_task
+id: iw_h1_02
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Action Sequencing/Action Order Inference/restaurant_hotel/kitchen_0/iw_h1_02.json
+public:
+  objective: Inspect the underside of the left package. A green acceptance mark permits delivery; a red
+    mark requires quarantine and replacement from the spare supply. Deliver one acceptable package to
+    the blue receiving area. Keep an acceptable original and preserve the spare; quarantine only a rejected
+    original.
+  success_criteria: Actual stable released placement, meaningful process evidence and preservation are
+    required. Scene screenshots alone do not certify task completion.
+  environment: Derived restaurant_hotel kitchen_0 with source-context inventory.
+  constraints:
+  - Use only public robot sensors and legal physical controls.
+  - Preserve resident contents and protected furniture.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - gripper
+  - ee_rotation
+  - trunk_height
+private:
+  bindings:
+    item_01:
+      name: item_01
+    item_02:
+      name: item_02
+  evaluation:
+    type: category_operation
+    module: wia.authoring.converters.interactiveworld_candidates
+    operation: H1
+    binding_keys:
+    - item_01
+    - item_02
+    parameters: &id001
+      prototype: H1
+      source_task: GUIDE-87017
+      source_file: /local_home2/zhouxinyang/models/InteractiveWorld/benchmark/tasks/taskpacks/planning/GUIDE-87017.taskpack.json
+      source_sha256: ad7fa530b29bf043fe3b8cff8765584be18995be901d8d1278c70b01cd38e77b
+      scene_model: restaurant_hotel
+      room: kitchen_0
+      fixture: commercial_kitchen_table_bwlfnu_0
+      objects:
+      - name: item_01
+        category: null
+        model: null
+        slot: 0
+        offset:
+        - -0.15
+        - 0
+        size:
+        - 0.09
+        - 0.065
+        - 0.05
+        fixed: false
+        package: true
+      - name: item_02
+        category: null
+        model: null
+        slot: 0
+        offset:
+        - 0.15
+        - 0
+        size:
+        - 0.09
+        - 0.065
+        - 0.05
+        fixed: false
+        package: true
+      regions:
+        delivery: 1
+        quarantine: 2
+      contract:
+        selected: item_01
+        spares:
+        - item_02
+        compatible:
+        - item_02
+        delivery: delivery
+        quarantine: quarantine
+        protected: []
+        defective: true
+      objective: Inspect the underside of the left package. A green acceptance mark permits delivery;
+        a red mark requires quarantine and replacement from the spare supply. Deliver one acceptable package
+        to the blue receiving area. Keep an acceptable original and preserve the spare; quarantine only
+        a rejected original.
+      condition:
+        defective: true
+      id: iw_h1_02
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+qualification:
+  on_failure: skip
+  target_movable_collidable: true
+  initial_visibility: none
+defaults:
+  seed: 7
+  max_steps: 120
+  wall_timeout_s: 5400.0
+  world_advances_during_inference: false
+  observation_condition: current
+  action_mode: parameterized

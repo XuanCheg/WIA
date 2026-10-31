@@ -22,7 +22,7 @@ from wia.authoring.converters.spatial_relations_physical_contact import _contact
 from wia.authoring.converters.wia_dimensional import _control, _grasp
 from wia.authoring.io import write_json
 from wia.tasks.interaction_setup import array
-from wia.tasks.wia_spatial_tray_scoring import REVISION, SpatialTrayProgress, validate_parameters
+from wia.tasks.wia_spatial_tray_scoring import FINAL_STATE_REVISION, REVISION, SpatialTrayProgress, validate_parameters
 
 MODULE = 'wia.authoring.converters.wia_spatial_tray'
 OPERATION = 'retrieve_arrange_in_tray'
@@ -210,13 +210,24 @@ def _preserved(row, initial, scoring):
                 and angle <= scoring['fixture_angle_tolerance_rad']
                 and np.allclose(array(row['aabb_max']) - array(row['aabb_min']),
                                 array(initial['aabb_max']) - array(initial['aabb_min']), rtol=0.,
-                                atol=scoring['fixture_position_tolerance_m']))
+                                atol=scoring['fixture_position_tolerance_m'])
+                and (scoring.get('manipulation_revision') != FINAL_STATE_REVISION
+                     or np.array_equal(row['scale'], initial['scale'])))
+
+
+def _scale(obj):
+    """Read the native scale rather than inferring it from a rotated AABB."""
+    scale = array(obj.scale)
+    if scale.shape != (3,) or np.any(scale <= 0):
+        raise ValueError('Native object scale must have three positive finite components.')
+    return scale.tolist()
 
 
 def _measure(session, controller, config, bound, baseline=None):
     from omnigibson.object_states import OnTop
     p, errors = config['parameters'], []
     tray, scoring = p['tray'], p['scoring']
+    final_state = scoring.get('manipulation_revision') == FINAL_STATE_REVISION
     grasp, raw_grasp = _grasp(session, controller)
     control_valid, control = _control(session, controller)
     if control_valid and control.get('available') is not True:
@@ -239,6 +250,8 @@ def _measure(session, controller, config, bound, baseline=None):
         row = {}
         try:
             row = _fixture_snapshot(bound[key])
+            if final_state:
+                row['scale'] = _scale(bound[key])
             valid = not row['visual_only']
             if key in [tray['deck_key'], *tray['rim_keys']]:
                 valid &= row['fixed_base']
@@ -279,6 +292,8 @@ def _measure(session, controller, config, bound, baseline=None):
         obj = bound[key]
         try:
             row.update(_snapshot(obj))
+            if final_state:
+                row['scale'] = _scale(obj)
             row['dynamic_collidable'] = not row['visual_only'] and not row['fixed_base']
         except ERRORS as error:
             row['measurement_errors'].append(f'geometry: {type(error).__name__}: {error}')

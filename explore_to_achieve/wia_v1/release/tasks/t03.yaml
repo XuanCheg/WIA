@@ -1,25 +1,24 @@
 kind: category_robot_task
 id: task_147bd86f8823841d197cd225__t03_furnished_existing_v1
-version: 3
+version: 4
 status: pending
 source:
   provider: esi
   json: Specular Reflection/Correspondence/house_single_floor/utility_room_0/wia_furnished_background_v1.json
 public:
-  objective: Retrieve the items from exposed room furniture. Follow this supplied order. Choose
-    one pizza box as the base for B (the casserole). Grasp B, lift it at least 5 cm, then
-    place and release it on the chosen base until stable. Then choose one pear, grasp and
-    lift it at least 5 cm, and place and release it on top of B until the whole stack is stable.
-  success_criteria: Either original candidate of each category is acceptable when the chosen
-    objects genuinely form the requested support order after the ordered grasp, lift and placement
-    operations. The freestanding stack must remain in supporting contact with low motion for
-    at least 0.5 seconds after release.
-  environment: A furnished utility room with the task items openly dispersed on exposed native
-    furniture surfaces. The items are not deliberately hidden.
+  objective: Build a stable stack with the casserole called B supported by either original pizza box.
+    Place either original pear on top of B. You may complete the stack anywhere on a stable supporting
+    surface. The chosen base may remain where it starts.
+  success_criteria: The selected original objects must form the requested support order, with each upper
+    object supported only by its predecessor and the base supported by a stable surface. Leave the stack
+    released, clear of robot contact, and stable for at least 0.5 seconds. Success depends on the final
+    structure; there is no minimum lift height, required grasp history, intermediate placement checkpoint
+    or prescribed action order.
+  environment: A furnished utility room with the task items openly dispersed on exposed native furniture
+    surfaces. The items are not deliberately hidden.
   constraints:
-  - Use robot motion and gripper interaction to move objects.
-  - Finish placing B before grasping the chosen top object.
-  - Recover unsuccessful placements with robot grasping and retry as needed.
+  - Use guarded public robot controls to arrange the objects.
+  - Preserve all original object sizes.
   - Leave all grippers released and clear of the finished stack.
 requirements:
   capabilities:
@@ -67,18 +66,19 @@ private:
       top_keys:
       - top_candidate_0
       - top_candidate_1
-      minimum_lift_m: 0.05
+      minimum_lift_m: null
       minimum_stability_duration_s: 0.5
       maximum_linear_speed_m_s: 0.02
       maximum_angular_speed_rad_s: 0.1
-      task_revision: task_edit_20261018_v1
+      task_revision: wia_stack_final_state_20261030_v1
       mechanism_contract:
-        goal: execute_supplied_support_order
+        goal: achieve_declared_final_support_order
         preserve:
         - original_candidates
         - asset_scales
-        - intermediate_stable_support
+        - released_stable_support
         inference_claimed: false
+      manipulation_revision: final_state_v1
 scene:
   policy: native_then_minimal_patch_else_skip
   variants:
@@ -451,3 +451,13 @@ repair:
   full_reference_execution: deferred_until_user_review
   parent_evaluator_parameters_preserved: true
   parent_seed_and_budget_preserved: true
+  final_state_revision:
+    revision: final_state_v1
+    date: '2026-10-30'
+    parent_task_sha256: 38afc68d43e954b574ee0d0efbbd3f2229e6ea45e03ce5af370000a55b3a7e68
+    parent_scene_sha256: 519bcdd00a50a03b136803777e349ef903d9ab58888fbe51c4ff38b9f328d6c1
+    parent_source_task_file: explore_to_achieve/wia_v1/furnished_v1/existing/tasks/t03__t03_furnished_existing_v1.yaml
+    parent_source_scene_file: explore_to_achieve/wia_v1/furnished_v1/existing/scenes/t03__t03_furnished_existing_v1.yaml
+    scene_geometry_changed: false
+    native_execution_verified: false
+    scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.

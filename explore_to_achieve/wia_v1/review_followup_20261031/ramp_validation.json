@@ -1,0 +1,820 @@
+{
+  "schema": "wia_direct_ramp_review_v1",
+  "date": "2026-10-31",
+  "model_calls": 0,
+  "robot_commands": 0,
+  "environment_state_setters_used": true,
+  "autonomous_agent_performance": false,
+  "task_success_claimed": false,
+  "physical_gpu": 4,
+  "tmux": "codex-gpu:880",
+  "rows": [
+    {
+      "task_file": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t42.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/scenes/t42.yaml",
+      "task_sha256": "40f201c9fcdfc12017ee200f7e67611f3a88d6f84b036e94053fe470042590b0",
+      "scene_sha256": "7936bf8cb3b0834e3abffdd1060bdb06c7e223565e0d266d9e432d342d01c490",
+      "source_sha256": "727107005a5dbe540ed8c84e14a137d0954252cd7a0d63fdf7defe388188fe7f",
+      "source_identity": "Physical Dynamics/Inclined Plane/house_single_floor/living_room_0/redesign_sphere_v2_from_childs_room_0.json",
+      "variant": "adapted",
+      "seed": 0,
+      "parameters": {
+        "revision": "controlled_ramp_comparison_v1",
+        "candidate_pairs": [
+          {
+            "label": "bowl",
+            "trial": "trial_1",
+            "spare": "spare_1"
+          },
+          {
+            "label": "avocado",
+            "trial": "trial_2",
+            "spare": "spare_2"
+          },
+          {
+            "label": "ball",
+            "trial": "trial_3",
+            "spare": "spare_3"
+          }
+        ],
+        "ramp_dimensions_m": [
+          0.4697,
+          0.3,
+          0.02
+        ],
+        "orientation_free_keys": [
+          "trial_3",
+          "spare_3"
+        ],
+        "release_local_x_m": -0.117425,
+        "trial_duration_s": 3.0,
+        "arrival_tie_tolerance_s": 0.15,
+        "safe_bounds_m": [
+          [
+            13.85,
+            2.75,
+            0.7
+          ],
+          [
+            15.25,
+            3.45,
+            2.7
+          ]
+        ],
+        "apparatus_keys": [
+          "ramp_deck",
+          "ramp_deck_leg_0",
+          "ramp_deck_leg_1",
+          "ramp_deck_leg_2",
+          "ramp_deck_leg_3",
+          "candidate_table",
+          "candidate_table_leg_0",
+          "candidate_table_leg_1",
+          "candidate_table_leg_2",
+          "candidate_table_leg_3",
+          "trial_mat",
+          "spare_mat",
+          "receiver",
+          "receiver_rail_0",
+          "receiver_rail_1",
+          "receiver_rail_2",
+          "ramp",
+          "release_marker"
+        ],
+        "trial_support_keys": [
+          "ramp",
+          "ramp_deck",
+          "receiver",
+          "receiver_rail_0",
+          "receiver_rail_1",
+          "receiver_rail_2"
+        ],
+        "static_friction": 0.0,
+        "dynamic_friction": 0.0,
+        "source_ramp_geometry_and_friction_preserved": false,
+        "original_source_room": "childs_room_0",
+        "authored_room": "living_room_0"
+      },
+      "candidates": [
+        "trial_1",
+        "trial_2",
+        "trial_3"
+      ],
+      "release_protocol": "contact_then_zero_velocity",
+      "repetitions": 3,
+      "status": "repeatable_passive_outcome",
+      "errors": [],
+      "comparison": {
+        "autonomous_agent_performance": false,
+        "public_controls_only": false,
+        "environment_state_setters_used": true,
+        "legal_robot_reference_verified": false,
+        "robot_trial_valid": false,
+        "model_calls": 0,
+        "release_protocol": "contact_then_zero_velocity",
+        "per_repetition": [
+          {
+            "repetition": 1,
+            "complete_eligible_comparison": true,
+            "eligibility_failures": {},
+            "receiver_finishing_arrival_s": {
+              "trial_3": 0.8333333767950535
+            },
+            "admissible_set": [
+              "trial_3"
+            ]
+          },
+          {
+            "repetition": 2,
+            "complete_eligible_comparison": true,
+            "eligibility_failures": {},
+            "receiver_finishing_arrival_s": {
+              "trial_3": 0.9333333820104599
+            },
+            "admissible_set": [
+              "trial_3"
+            ]
+          },
+          {
+            "repetition": 3,
+            "complete_eligible_comparison": true,
+            "eligibility_failures": {},
+            "receiver_finishing_arrival_s": {
+              "trial_3": 0.9333333820104599
+            },
+            "admissible_set": [
+              "trial_3"
+            ]
+          }
+        ],
+        "per_candidate": {
+          "trial_1": {
+            "requested_repetitions": 3,
+            "observed_trial_count": 3,
+            "eligible_trial_count": 3,
+            "ineligible_or_missing_trial_count": 0,
+            "raw_arrival_s_by_repetition": [
+              null,
+              null,
+              null
+            ],
+            "raw_arrival_measurement_errors_by_repetition": [
+              null,
+              null,
+              null
+            ],
+            "raw_arrival_statistics": {
+              "count": 0,
+              "minimum_s": null,
+              "maximum_s": null,
+              "median_s": null,
+              "spread_s": null
+            },
+            "eligible_finishing_arrival_statistics": {
+              "count": 0,
+              "minimum_s": null,
+              "maximum_s": null,
+              "median_s": null,
+              "spread_s": null
+            },
+            "eligible_no_arrival_count": 3,
+            "eligible_not_final_in_receiver_count": 3,
+            "eligible_finishing_observation_count": 0
+          },
+          "trial_2": {
+            "requested_repetitions": 3,
+            "observed_trial_count": 3,
+            "eligible_trial_count": 3,
+            "ineligible_or_missing_trial_count": 0,
+            "raw_arrival_s_by_repetition": [
+              null,
+              null,
+              null
+            ],
+            "raw_arrival_measurement_errors_by_repetition": [
+              null,
+              null,
+              null
+            ],
+            "raw_arrival_statistics": {
+              "count": 0,
+              "minimum_s": null,
+              "maximum_s": null,
+              "median_s": null,
+              "spread_s": null
+            },
+            "eligible_finishing_arrival_statistics": {
+              "count": 0,
+              "minimum_s": null,
+              "maximum_s": null,
+              "median_s": null,
+              "spread_s": null
+            },
+            "eligible_no_arrival_count": 3,
+            "eligible_not_final_in_receiver_count": 3,
+            "eligible_finishing_observation_count": 0
+          },
+          "trial_3": {
+            "requested_repetitions": 3,
+            "observed_trial_count": 3,
+            "eligible_trial_count": 3,
+            "ineligible_or_missing_trial_count": 0,
+            "raw_arrival_s_by_repetition": [
+              0.8333333767950535,
+              0.9333333820104599,
+              0.9333333820104599
+            ],
+            "raw_arrival_measurement_errors_by_repetition": [
+              null,
+              null,
+              null
+            ],
+            "raw_arrival_statistics": {
+              "count": 3,
+              "minimum_s": 0.8333333767950535,
+              "maximum_s": 0.9333333820104599,
+              "median_s": 0.9333333820104599,
+              "spread_s": 0.10000000521540642
+            },
+            "eligible_finishing_arrival_statistics": {
+              "count": 3,
+              "minimum_s": 0.8333333767950535,
+              "maximum_s": 0.9333333820104599,
+              "median_s": 0.9333333820104599,
+              "spread_s": 0.10000000521540642
+            },
+            "eligible_no_arrival_count": 0,
+            "eligible_not_final_in_receiver_count": 0,
+            "eligible_finishing_observation_count": 3
+          }
+        },
+        "all_requested_repetitions_complete": true,
+        "complete_repetition_count": 3,
+        "repeatable": true,
+        "complete_repetition_admissible_intersection": [
+          "trial_3"
+        ],
+        "complete_repetition_admissible_union": [
+          "trial_3"
+        ],
+        "repeatable_admissible_set": [
+          "trial_3"
+        ],
+        "status": "repeatable_passive_outcome",
+        "arrival_tie_tolerance_s": 0.15,
+        "timing_statistics_scope": "Descriptive only; medians never select an overall winner.",
+        "winner_reversal": "not_established_from_one_material_condition"
+      },
+      "elapsed_wall_s": 481.80270271841437,
+      "alias": "T42",
+      "result_file": "/local_home2/zhouxinyang/models/WIA/outputs/release_v02_followup_20261031/t42/result.json",
+      "result_sha256": "6892d7c01375b557cd5fd08722f0fc92084b4a42f12586fa88d2d68e824df8c9",
+      "trial_count": 9
+    },
+    {
+      "task_file": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t43.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/scenes/t43.yaml",
+      "task_sha256": "d1ff4b9c481dcea4d6ef1fd251d391b4886f1962ebc5ef2dadcffbe422574c98",
+      "scene_sha256": "e16060907f51a285c34f543c7348308034d4e53c2fdd01f81ed7f00b2988b4e1",
+      "source_sha256": "016170cd16062a122507a04ffccc8fc09c192e5fa245b0e1a4cb0170cf66d5b3",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "variant": "adapted",
+      "seed": 0,
+      "parameters": {
+        "revision": "controlled_ramp_comparison_v1",
+        "candidate_pairs": [
+          {
+            "label": "bowl",
+            "trial": "trial_1",
+            "spare": "spare_1"
+          },
+          {
+            "label": "avocado",
+            "trial": "trial_2",
+            "spare": "spare_2"
+          },
+          {
+            "label": "ball",
+            "trial": "trial_3",
+            "spare": "spare_3"
+          }
+        ],
+        "ramp_dimensions_m": [
+          0.551,
+          0.3,
+          0.02
+        ],
+        "orientation_free_keys": [
+          "trial_3",
+          "spare_3"
+        ],
+        "release_local_x_m": -0.13775,
+        "trial_duration_s": 3.0,
+        "arrival_tie_tolerance_s": 0.15,
+        "safe_bounds_m": [
+          [
+            -40.15,
+            17.75,
+            0.7
+          ],
+          [
+            -38.75,
+            18.45,
+            2.7
+          ]
+        ],
+        "apparatus_keys": [
+          "ramp_deck",
+          "ramp_deck_leg_0",
+          "ramp_deck_leg_1",
+          "ramp_deck_leg_2",
+          "ramp_deck_leg_3",
+          "candidate_table",
+          "candidate_table_leg_0",
+          "candidate_table_leg_1",
+          "candidate_table_leg_2",
+          "candidate_table_leg_3",
+          "trial_mat",
+          "spare_mat",
+          "receiver",
+          "receiver_rail_0",
+          "receiver_rail_1",
+          "receiver_rail_2",
+          "ramp",
+          "release_marker"
+        ],
+        "trial_support_keys": [
+          "ramp",
+          "ramp_deck",
+          "receiver",
+          "receiver_rail_0",
+          "receiver_rail_1",
+          "receiver_rail_2"
+        ],
+        "static_friction": 2.7567,
+        "dynamic_friction": 1.4513,
+        "source_ramp_geometry_and_friction_preserved": true,
+        "original_source_room": "kitchen_0",
+        "authored_room": "living_room_0"
+      },
+      "candidates": [
+        "trial_1",
+        "trial_2",
+        "trial_3"
+      ],
+      "release_protocol": "contact_then_zero_velocity",
+      "repetitions": 3,
+      "status": "repeatable_passive_outcome",
+      "errors": [],
+      "comparison": {
+        "autonomous_agent_performance": false,
+        "public_controls_only": false,
+        "environment_state_setters_used": true,
+        "legal_robot_reference_verified": false,
+        "robot_trial_valid": false,
+        "model_calls": 0,
+        "release_protocol": "contact_then_zero_velocity",
+        "per_repetition": [
+          {
+            "repetition": 1,
+            "complete_eligible_comparison": true,
+            "eligibility_failures": {},
+            "receiver_finishing_arrival_s": {
+              "trial_2": 0.6000000312924385,
+              "trial_3": 0.5000000260770321
+            },
+            "admissible_set": [
+              "trial_2",
+              "trial_3"
+            ]
+          },
+          {
+            "repetition": 2,
+            "complete_eligible_comparison": true,
+            "eligibility_failures": {},
+            "receiver_finishing_arrival_s": {
+              "trial_2": 0.6000000312924385,
+              "trial_3": 0.6000000312924385
+            },
+            "admissible_set": [
+              "trial_2",
+              "trial_3"
+            ]
+          },
+          {
+            "repetition": 3,
+            "complete_eligible_comparison": true,
+            "eligibility_failures": {},
+            "receiver_finishing_arrival_s": {
+              "trial_2": 0.6000000312924385,
+              "trial_3": 0.6000000312924385
+            },
+            "admissible_set": [
+              "trial_2",
+              "trial_3"
+            ]
+          }
+        ],
+        "per_candidate": {
+          "trial_1": {
+            "requested_repetitions": 3,
+            "observed_trial_count": 3,
+            "eligible_trial_count": 3,
+            "ineligible_or_missing_trial_count": 0,
+            "raw_arrival_s_by_repetition": [
+              null,
+              null,
+              null
+            ],
+            "raw_arrival_measurement_errors_by_repetition": [
+              null,
+              null,
+              null
+            ],
+            "raw_arrival_statistics": {
+              "count": 0,
+              "minimum_s": null,
+              "maximum_s": null,
+              "median_s": null,
+              "spread_s": null
+            },
+            "eligible_finishing_arrival_statistics": {
+              "count": 0,
+              "minimum_s": null,
+              "maximum_s": null,
+              "median_s": null,
+              "spread_s": null
+            },
+            "eligible_no_arrival_count": 3,
+            "eligible_not_final_in_receiver_count": 3,
+            "eligible_finishing_observation_count": 0
+          },
+          "trial_2": {
+            "requested_repetitions": 3,
+            "observed_trial_count": 3,
+            "eligible_trial_count": 3,
+            "ineligible_or_missing_trial_count": 0,
+            "raw_arrival_s_by_repetition": [
+              0.6000000312924385,
+              0.6000000312924385,
+              0.6000000312924385
+            ],
+            "raw_arrival_measurement_errors_by_repetition": [
+              null,
+              null,
+              null
+            ],
+            "raw_arrival_statistics": {
+              "count": 3,
+              "minimum_s": 0.6000000312924385,
+              "maximum_s": 0.6000000312924385,
+              "median_s": 0.6000000312924385,
+              "spread_s": 0.0
+            },
+            "eligible_finishing_arrival_statistics": {
+              "count": 3,
+              "minimum_s": 0.6000000312924385,
+              "maximum_s": 0.6000000312924385,
+              "median_s": 0.6000000312924385,
+              "spread_s": 0.0
+            },
+            "eligible_no_arrival_count": 0,
+            "eligible_not_final_in_receiver_count": 0,
+            "eligible_finishing_observation_count": 3
+          },
+          "trial_3": {
+            "requested_repetitions": 3,
+            "observed_trial_count": 3,
+            "eligible_trial_count": 3,
+            "ineligible_or_missing_trial_count": 0,
+            "raw_arrival_s_by_repetition": [
+              0.5000000260770321,
+              0.6000000312924385,
+              0.6000000312924385
+            ],
+            "raw_arrival_measurement_errors_by_repetition": [
+              null,
+              null,
+              null
+            ],
+            "raw_arrival_statistics": {
+              "count": 3,
+              "minimum_s": 0.5000000260770321,
+              "maximum_s": 0.6000000312924385,
+              "median_s": 0.6000000312924385,
+              "spread_s": 0.10000000521540642
+            },
+            "eligible_finishing_arrival_statistics": {
+              "count": 3,
+              "minimum_s": 0.5000000260770321,
+              "maximum_s": 0.6000000312924385,
+              "median_s": 0.6000000312924385,
+              "spread_s": 0.10000000521540642
+            },
+            "eligible_no_arrival_count": 0,
+            "eligible_not_final_in_receiver_count": 0,
+            "eligible_finishing_observation_count": 3
+          }
+        },
+        "all_requested_repetitions_complete": true,
+        "complete_repetition_count": 3,
+        "repeatable": true,
+        "complete_repetition_admissible_intersection": [
+          "trial_2",
+          "trial_3"
+        ],
+        "complete_repetition_admissible_union": [
+          "trial_2",
+          "trial_3"
+        ],
+        "repeatable_admissible_set": [
+          "trial_2",
+          "trial_3"
+        ],
+        "status": "repeatable_passive_outcome",
+        "arrival_tie_tolerance_s": 0.15,
+        "timing_statistics_scope": "Descriptive only; medians never select an overall winner.",
+        "winner_reversal": "not_established_from_one_material_condition"
+      },
+      "elapsed_wall_s": 210.59699616674334,
+      "alias": "T43",
+      "result_file": "/local_home2/zhouxinyang/models/WIA/outputs/release_v02_followup_20261031/t43/result.json",
+      "result_sha256": "e900fcd48413529f22778367f19ba4a34d13929bab4136e732c08b877eaea81a",
+      "trial_count": 9
+    },
+    {
+      "task_file": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/tasks/t44.yaml",
+      "scene_file": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/wia_v1/release/scenes/t44.yaml",
+      "task_sha256": "a0fd95c2595c31a8d48c8d7329bb0c4460ff0ca725853921f7c277d2aa132f7d",
+      "scene_sha256": "b595450e69cf98ec54f881477009b957c488c74aa13d45655a9dcb2c8d204d46",
+      "source_sha256": "016170cd16062a122507a04ffccc8fc09c192e5fa245b0e1a4cb0170cf66d5b3",
+      "source_identity": "Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json",
+      "variant": "adapted",
+      "seed": 0,
+      "parameters": {
+        "revision": "controlled_ramp_comparison_v1",
+        "candidate_pairs": [
+          {
+            "label": "bowl",
+            "trial": "trial_1",
+            "spare": "spare_1"
+          },
+          {
+            "label": "avocado",
+            "trial": "trial_2",
+            "spare": "spare_2"
+          },
+          {
+            "label": "ball",
+            "trial": "trial_3",
+            "spare": "spare_3"
+          }
+        ],
+        "ramp_dimensions_m": [
+          0.406,
+          0.3,
+          0.02
+        ],
+        "orientation_free_keys": [
+          "trial_3",
+          "spare_3"
+        ],
+        "release_local_x_m": -0.1015,
+        "trial_duration_s": 3.0,
+        "arrival_tie_tolerance_s": 0.15,
+        "safe_bounds_m": [
+          [
+            -40.15,
+            17.75,
+            0.7
+          ],
+          [
+            -38.75,
+            18.45,
+            2.7
+          ]
+        ],
+        "apparatus_keys": [
+          "ramp_deck",
+          "ramp_deck_leg_0",
+          "ramp_deck_leg_1",
+          "ramp_deck_leg_2",
+          "ramp_deck_leg_3",
+          "candidate_table",
+          "candidate_table_leg_0",
+          "candidate_table_leg_1",
+          "candidate_table_leg_2",
+          "candidate_table_leg_3",
+          "trial_mat",
+          "spare_mat",
+          "receiver",
+          "receiver_rail_0",
+          "receiver_rail_1",
+          "receiver_rail_2",
+          "ramp",
+          "release_marker"
+        ],
+        "trial_support_keys": [
+          "ramp",
+          "ramp_deck",
+          "receiver",
+          "receiver_rail_0",
+          "receiver_rail_1",
+          "receiver_rail_2"
+        ],
+        "static_friction": 2.8359,
+        "dynamic_friction": 0.9499,
+        "source_ramp_geometry_and_friction_preserved": true,
+        "original_source_room": "entryway_0",
+        "authored_room": "living_room_0"
+      },
+      "candidates": [
+        "trial_1",
+        "trial_2",
+        "trial_3"
+      ],
+      "release_protocol": "contact_then_zero_velocity",
+      "repetitions": 3,
+      "status": "nonrepeatable_passive_outcomes",
+      "errors": [],
+      "comparison": {
+        "autonomous_agent_performance": false,
+        "public_controls_only": false,
+        "environment_state_setters_used": true,
+        "legal_robot_reference_verified": false,
+        "robot_trial_valid": false,
+        "model_calls": 0,
+        "release_protocol": "contact_then_zero_velocity",
+        "per_repetition": [
+          {
+            "repetition": 1,
+            "complete_eligible_comparison": true,
+            "eligibility_failures": {},
+            "receiver_finishing_arrival_s": {
+              "trial_1": 0.6333333663642406,
+              "trial_2": 0.6000000312924385,
+              "trial_3": 0.46666669100522995
+            },
+            "admissible_set": [
+              "trial_2",
+              "trial_3"
+            ]
+          },
+          {
+            "repetition": 2,
+            "complete_eligible_comparison": true,
+            "eligibility_failures": {},
+            "receiver_finishing_arrival_s": {
+              "trial_1": 0.6333333663642406,
+              "trial_2": 0.6000000312924385,
+              "trial_3": 0.5666666962206364
+            },
+            "admissible_set": [
+              "trial_1",
+              "trial_2",
+              "trial_3"
+            ]
+          },
+          {
+            "repetition": 3,
+            "complete_eligible_comparison": true,
+            "eligibility_failures": {},
+            "receiver_finishing_arrival_s": {
+              "trial_1": 0.6333333663642406,
+              "trial_2": 0.6000000312924385,
+              "trial_3": 0.46666669100522995
+            },
+            "admissible_set": [
+              "trial_2",
+              "trial_3"
+            ]
+          }
+        ],
+        "per_candidate": {
+          "trial_1": {
+            "requested_repetitions": 3,
+            "observed_trial_count": 3,
+            "eligible_trial_count": 3,
+            "ineligible_or_missing_trial_count": 0,
+            "raw_arrival_s_by_repetition": [
+              0.6333333663642406,
+              0.6333333663642406,
+              0.6333333663642406
+            ],
+            "raw_arrival_measurement_errors_by_repetition": [
+              null,
+              null,
+              null
+            ],
+            "raw_arrival_statistics": {
+              "count": 3,
+              "minimum_s": 0.6333333663642406,
+              "maximum_s": 0.6333333663642406,
+              "median_s": 0.6333333663642406,
+              "spread_s": 0.0
+            },
+            "eligible_finishing_arrival_statistics": {
+              "count": 3,
+              "minimum_s": 0.6333333663642406,
+              "maximum_s": 0.6333333663642406,
+              "median_s": 0.6333333663642406,
+              "spread_s": 0.0
+            },
+            "eligible_no_arrival_count": 0,
+            "eligible_not_final_in_receiver_count": 0,
+            "eligible_finishing_observation_count": 3
+          },
+          "trial_2": {
+            "requested_repetitions": 3,
+            "observed_trial_count": 3,
+            "eligible_trial_count": 3,
+            "ineligible_or_missing_trial_count": 0,
+            "raw_arrival_s_by_repetition": [
+              0.6000000312924385,
+              0.6000000312924385,
+              0.6000000312924385
+            ],
+            "raw_arrival_measurement_errors_by_repetition": [
+              null,
+              null,
+              null
+            ],
+            "raw_arrival_statistics": {
+              "count": 3,
+              "minimum_s": 0.6000000312924385,
+              "maximum_s": 0.6000000312924385,
+              "median_s": 0.6000000312924385,
+              "spread_s": 0.0
+            },
+            "eligible_finishing_arrival_statistics": {
+              "count": 3,
+              "minimum_s": 0.6000000312924385,
+              "maximum_s": 0.6000000312924385,
+              "median_s": 0.6000000312924385,
+              "spread_s": 0.0
+            },
+            "eligible_no_arrival_count": 0,
+            "eligible_not_final_in_receiver_count": 0,
+            "eligible_finishing_observation_count": 3
+          },
+          "trial_3": {
+            "requested_repetitions": 3,
+            "observed_trial_count": 3,
+            "eligible_trial_count": 3,
+            "ineligible_or_missing_trial_count": 0,
+            "raw_arrival_s_by_repetition": [
+              0.46666669100522995,
+              0.5666666962206364,
+              0.46666669100522995
+            ],
+            "raw_arrival_measurement_errors_by_repetition": [
+              null,
+              null,
+              null
+            ],
+            "raw_arrival_statistics": {
+              "count": 3,
+              "minimum_s": 0.46666669100522995,
+              "maximum_s": 0.5666666962206364,
+              "median_s": 0.46666669100522995,
+              "spread_s": 0.10000000521540642
+            },
+            "eligible_finishing_arrival_statistics": {
+              "count": 3,
+              "minimum_s": 0.46666669100522995,
+              "maximum_s": 0.5666666962206364,
+              "median_s": 0.46666669100522995,
+              "spread_s": 0.10000000521540642
+            },
+            "eligible_no_arrival_count": 0,
+            "eligible_not_final_in_receiver_count": 0,
+            "eligible_finishing_observation_count": 3
+          }
+        },
+        "all_requested_repetitions_complete": true,
+        "complete_repetition_count": 3,
+        "repeatable": false,
+        "complete_repetition_admissible_intersection": [
+          "trial_2",
+          "trial_3"
+        ],
+        "complete_repetition_admissible_union": [
+          "trial_1",
+          "trial_2",
+          "trial_3"
+        ],
+        "repeatable_admissible_set": null,
+        "status": "nonrepeatable_passive_outcomes",
+        "arrival_tie_tolerance_s": 0.15,
+        "timing_statistics_scope": "Descriptive only; medians never select an overall winner.",
+        "winner_reversal": "not_established_from_one_material_condition"
+      },
+      "elapsed_wall_s": 212.78618502803147,
+      "alias": "T44",
+      "result_file": "/local_home2/zhouxinyang/models/WIA/outputs/release_v02_followup_20261031/t44/result.json",
+      "result_sha256": "adbf79b42310fe52b7a15cba835c6752f17936eede9d3d27899642d3084d2ecf",
+      "trial_count": 9
+    }
+  ],
+  "conclusion": "All 27 trials are eligible. A fixed ball choice remains admissible in all tested scenes; T44 has a tie-boundary bowl inclusion change. Definitions and tie thresholds are unchanged."
+}

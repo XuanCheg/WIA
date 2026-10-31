@@ -1,0 +1,11 @@
+tasks:
+  - path: GF2-1
+policy:
+  type: show_harness
+  backend: codex_cli
+  model: YOUR_EXPLICIT_MODEL_NAME
+environment:
+  mode: launch
+evaluation:
+  run_mode: benchmark
+output_dir: ../results/one_task

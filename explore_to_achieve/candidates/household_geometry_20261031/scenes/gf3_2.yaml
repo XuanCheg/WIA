@@ -1,0 +1,747 @@
+kind: scene_patch
+id: wia_household_gf3_2_v1_scene
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/restaurant_hotel/kitchen_0/household_gf3_2.json
+bindings:
+  deck:
+    name: hg_gf3_2_deck
+  native_support:
+    name: commercial_kitchen_table_bwlfnu_0
+  item_0:
+    name: hg_gf3_2_item_0
+    category: marjoram_shaker
+    model: xlspnl
+  item_1:
+    name: hg_gf3_2_item_1
+    category: marjoram_shaker
+    model: xlspnl
+  bin_0_floor:
+    name: hg_gf3_2_bin_0_floor
+  bin_0_left:
+    name: hg_gf3_2_bin_0_left
+  bin_0_right:
+    name: hg_gf3_2_bin_0_right
+  bin_0_back:
+    name: hg_gf3_2_bin_0_back
+  bin_0_roof:
+    name: hg_gf3_2_bin_0_roof
+  bin_1_floor:
+    name: hg_gf3_2_bin_1_floor
+  bin_1_left:
+    name: hg_gf3_2_bin_1_left
+  bin_1_right:
+    name: hg_gf3_2_bin_1_right
+  bin_1_back:
+    name: hg_gf3_2_bin_1_back
+  bin_1_roof:
+    name: hg_gf3_2_bin_1_roof
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.active_layout
+        parameters:
+          revision: wia_household_fit_v1
+          layout:
+            shared_layout_id: household_gf3_2_20261031
+            scene_model: restaurant_hotel
+            rooms:
+            - kitchen_0
+            floor_name: floors_ykbuit_0
+            objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_deck
+              category: table
+              size: 1.0
+              scale:
+              - 0.45
+              - 1.6
+              - 0.016
+              position:
+              - 4.46
+              - -0.088
+              - 0.885
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.42
+              - 0.36
+              - 1.0
+            - type: DatasetObject
+              name: hg_gf3_2_item_0
+              category: marjoram_shaker
+              model: xlspnl
+              scale:
+              - 0.8415951634514112
+              - 0.8415951634514112
+              - 0.8415951634514112
+              position:
+              - 4.300127042660522
+              - -0.39995958435250895
+              - 1.1659537606110282
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: hg_gf3_2_item_1
+              category: marjoram_shaker
+              model: xlspnl
+              scale:
+              - 0.5610634423009407
+              - 0.5610634423009407
+              - 0.5610634423009407
+              position:
+              - 4.300084695107015
+              - 0.4000269437649941
+              - 1.158302507074019
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_0_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.2520000000000002
+              - 0.209
+              - 0.008
+              position:
+              - 4.545
+              - -0.35
+              - 0.897
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.12
+              - 0.38
+              - 0.9
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_0_left
+              category: object
+              size: 1.0
+              scale:
+              - 0.2520000000000002
+              - 0.012
+              - 0.125
+              position:
+              - 4.545
+              - -0.4485
+              - 0.9635
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_0_right
+              category: object
+              size: 1.0
+              scale:
+              - 0.2520000000000002
+              - 0.012
+              - 0.125
+              position:
+              - 4.545
+              - -0.25149999999999995
+              - 0.9635
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_0_back
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.209
+              - 0.125
+              position:
+              - 4.671
+              - -0.35
+              - 0.9635
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_0_roof
+              category: object
+              size: 1.0
+              scale:
+              - 0.26400000000000023
+              - 0.209
+              - 0.012
+              position:
+              - 4.545
+              - -0.35
+              - 1.032
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_1_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.2520000000000002
+              - 0.209
+              - 0.008
+              position:
+              - 4.545
+              - 0.35
+              - 0.897
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.75
+              - 0.15
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_1_left
+              category: object
+              size: 1.0
+              scale:
+              - 0.2520000000000002
+              - 0.012
+              - 0.175
+              position:
+              - 4.545
+              - 0.25149999999999995
+              - 0.9885
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_1_right
+              category: object
+              size: 1.0
+              scale:
+              - 0.2520000000000002
+              - 0.012
+              - 0.175
+              position:
+              - 4.545
+              - 0.4485
+              - 0.9885
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_1_back
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.209
+              - 0.175
+              position:
+              - 4.671
+              - 0.35
+              - 0.9885
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_1_roof
+              category: object
+              size: 1.0
+              scale:
+              - 0.26400000000000023
+              - 0.209
+              - 0.012
+              position:
+              - 4.545
+              - 0.35
+              - 1.082
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            supported_items:
+            - name: hg_gf3_2_deck
+              support: commercial_kitchen_table_bwlfnu_0
+              support_contract: fixed_mount
+              support_surface_mode: local_raycast
+            - name: hg_gf3_2_item_0
+              support: hg_gf3_2_deck
+            - name: hg_gf3_2_item_1
+              support: hg_gf3_2_deck
+            synchronize_authored_poses_before_alignment: true
+            robot_start:
+              position:
+              - 3.58
+              - -0.088
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            initial_gripper_state: open
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.active_layout
+        parameters:
+          revision: wia_household_fit_v1
+          layout:
+            shared_layout_id: household_gf3_2_20261031
+            scene_model: restaurant_hotel
+            rooms:
+            - kitchen_0
+            floor_name: floors_ykbuit_0
+            objects:
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_deck
+              category: table
+              size: 1.0
+              scale:
+              - 0.45
+              - 1.6
+              - 0.016
+              position:
+              - 4.46
+              - -0.088
+              - 0.885
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.45
+              - 0.42
+              - 0.36
+              - 1.0
+            - type: DatasetObject
+              name: hg_gf3_2_item_0
+              category: marjoram_shaker
+              model: xlspnl
+              scale:
+              - 0.8415951634514112
+              - 0.8415951634514112
+              - 0.8415951634514112
+              position:
+              - 4.300127042660522
+              - -0.39995958435250895
+              - 1.1659537606110282
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: hg_gf3_2_item_1
+              category: marjoram_shaker
+              model: xlspnl
+              scale:
+              - 0.5610634423009407
+              - 0.5610634423009407
+              - 0.5610634423009407
+              position:
+              - 4.300084695107015
+              - 0.4000269437649941
+              - 1.158302507074019
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_0_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.2520000000000002
+              - 0.209
+              - 0.008
+              position:
+              - 4.545
+              - -0.35
+              - 0.897
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.12
+              - 0.38
+              - 0.9
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_0_left
+              category: object
+              size: 1.0
+              scale:
+              - 0.2520000000000002
+              - 0.012
+              - 0.125
+              position:
+              - 4.545
+              - -0.4485
+              - 0.9635
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_0_right
+              category: object
+              size: 1.0
+              scale:
+              - 0.2520000000000002
+              - 0.012
+              - 0.125
+              position:
+              - 4.545
+              - -0.25149999999999995
+              - 0.9635
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_0_back
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.209
+              - 0.125
+              position:
+              - 4.671
+              - -0.35
+              - 0.9635
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_0_roof
+              category: object
+              size: 1.0
+              scale:
+              - 0.26400000000000023
+              - 0.209
+              - 0.012
+              position:
+              - 4.545
+              - -0.35
+              - 1.032
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_1_floor
+              category: table
+              size: 1.0
+              scale:
+              - 0.2520000000000002
+              - 0.209
+              - 0.008
+              position:
+              - 4.545
+              - 0.35
+              - 0.897
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.95
+              - 0.75
+              - 0.15
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_1_left
+              category: object
+              size: 1.0
+              scale:
+              - 0.2520000000000002
+              - 0.012
+              - 0.175
+              position:
+              - 4.545
+              - 0.25149999999999995
+              - 0.9885
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_1_right
+              category: object
+              size: 1.0
+              scale:
+              - 0.2520000000000002
+              - 0.012
+              - 0.175
+              position:
+              - 4.545
+              - 0.4485
+              - 0.9885
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_1_back
+              category: object
+              size: 1.0
+              scale:
+              - 0.012
+              - 0.209
+              - 0.175
+              position:
+              - 4.671
+              - 0.35
+              - 0.9885
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: hg_gf3_2_bin_1_roof
+              category: object
+              size: 1.0
+              scale:
+              - 0.26400000000000023
+              - 0.209
+              - 0.012
+              position:
+              - 4.545
+              - 0.35
+              - 1.082
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.55
+              - 0.51
+              - 0.44
+              - 1.0
+            supported_items:
+            - name: hg_gf3_2_deck
+              support: commercial_kitchen_table_bwlfnu_0
+              support_contract: fixed_mount
+              support_surface_mode: local_raycast
+            - name: hg_gf3_2_item_0
+              support: hg_gf3_2_deck
+            - name: hg_gf3_2_item_1
+              support: hg_gf3_2_deck
+            synchronize_authored_poses_before_alignment: true
+            robot_start:
+              position:
+              - 3.58
+              - -0.088
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+            initial_gripper_state: open
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+seed: 7
+runtime:
+  preview_fps: 0.0
+  camera_size:
+  - 512
+  - 512

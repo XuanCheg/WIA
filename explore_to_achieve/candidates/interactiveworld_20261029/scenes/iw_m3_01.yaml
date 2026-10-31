@@ -1,0 +1,132 @@
+kind: scene_patch
+id: iw_m3_01
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Action Sequencing/Action Order Inference/restaurant_asian/kitchen_0/iw_m3_01.json
+bindings:
+  item_01:
+    name: item_01
+  item_02:
+    name: item_02
+  item_03:
+    name: item_03
+  unit_a:
+    name: unit_a
+  unit_b:
+    name: unit_b
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: &id001
+          prototype: M3
+          source_task: GUIDE-14018
+          source_file: /local_home2/zhouxinyang/models/InteractiveWorld/benchmark/tasks/taskpacks/finding/GUIDE-14018.taskpack.json
+          source_sha256: 29691cc33aa7c7d23313a2f10243ba08500bbdbcd33cdf650471df4150063738
+          scene_model: restaurant_asian
+          room: kitchen_0
+          fixture: commercial_kitchen_table_nisnrl_0
+          objects:
+          - name: item_01
+            category: swiss_cheese
+            model: hwxeto
+            slot: 0
+            offset:
+            - 0
+            - 0
+            size:
+            - 0.09
+            - 0.065
+            - 0.06
+            fixed: false
+          - name: item_02
+            category: carton_of_milk
+            model: xmugpm
+            slot: 1
+            offset:
+            - 0
+            - 0
+            size:
+            - 0.065
+            - 0.065
+            - 0.12
+            fixed: false
+          - name: item_03
+            category: chicken
+            model: nppsmz
+            slot: 2
+            offset:
+            - 0
+            - 0
+            size:
+            - 0.13
+            - 0.09
+            - 0.09
+            fixed: false
+          - name: unit_a
+            category: fridge
+            model: dszchb
+            slot: 1
+            offset:
+            - 0
+            - 0
+            size:
+            - 0.65
+            - 0.65
+            - 1.4
+            fixed: true
+            container: true
+          - name: unit_b
+            category: fridge
+            model: dszchb
+            slot: 2
+            offset:
+            - 0
+            - 0
+            size:
+            - 0.65
+            - 0.65
+            - 1.4
+            fixed: true
+            container: true
+          regions:
+            unit_a: 1
+            unit_b: 2
+          contract:
+            payload: item_01
+            content_by_unit:
+              unit_a: item_02
+              unit_b: item_03
+            eligible_content:
+            - item_02
+            protected:
+            - item_02
+            - item_03
+            require_closed: true
+            eligible_unit: unit_a
+          objective: Store the cheese in the refrigerator whose observed contents indicate dairy storage.
+            The other refrigerator holds chicken. Use any sufficient inspection plan, preserve the resident
+            contents, and close both refrigerator doors. No temperature or food-safety outcome is claimed.
+          condition:
+            eligible_unit: unit_a
+          id: iw_m3_01
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+seed: 7
+runtime:
+  preview_fps: 0.0
+  camera_size:
+  - 512
+  - 512

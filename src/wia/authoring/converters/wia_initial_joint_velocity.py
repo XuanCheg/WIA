@@ -12,6 +12,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
+from wia.resources import resolve_resource_path
 
 REVISION = 'wia_initial_joint_velocity_v1'
 
@@ -31,10 +32,10 @@ def configure_scene(config, parameters):
             or config['scene'].get('scene_model') != expected):
         raise ValueError('Initial joint velocity override requires its revision and exact configured scene_model.')
     declared_path = parameters.get('source_scene_file')
-    if (not isinstance(declared_path, str) or not Path(declared_path).is_absolute()
+    if (not isinstance(declared_path, str) or not (Path(declared_path).is_absolute() or declared_path.startswith('behavior://'))
             or Path(declared_path).suffix.lower() != '.json'):
-        raise ValueError('source_scene_file must be an absolute JSON file path.')
-    source_path = Path(declared_path).resolve()
+        raise ValueError('source_scene_file must be an absolute JSON file path or behavior:// resource.')
+    source_path = resolve_resource_path(declared_path)
     source_bytes = source_path.read_bytes()
     source_digest = hashlib.sha256(source_bytes).hexdigest()
     if parameters.get('source_scene_sha256') != source_digest:

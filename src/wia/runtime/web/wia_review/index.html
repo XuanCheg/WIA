@@ -4,71 +4,81 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>WIA V1 · Development review</title>
+  <title>WIA · Task review</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">W</span><span>World-Interactive Agency · WIA V1<small>Development review</small></span></a>
-    <a class="button export" href="api/reviews.csv" download>Download feedback CSV ↗</a>
+    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">W</span><span>World-Interactive Agency<small>Task review</small></span></a>
+    <a class="button export" href="api/reviews.csv" download>Export feedback ↗</a>
   </header>
   <section class="intro">
-    <div><p class="eyebrow">DEVELOPMENT REVIEW</p><h1>Review the task, then the evidence.</h1><p class="muted">Track the original proposals, inspect each version, and leave actionable feedback. Layout approval is human feedback, not native execution success.</p></div>
-    <section class="progress-panel" aria-label="Original proposal progress"><p class="eyebrow">ORIGINAL PROPOSAL PROGRESS</p><div id="stats" class="stats"></div><p id="progress-context" class="caption">Counts are supplied by the current catalogue snapshot.</p></section>
+    <div><h1>Task review</h1><p class="muted">Inspect the current layout and record what needs to change.</p></div>
+    <section class="progress-panel" aria-label="Active dataset progress"><div id="stats" class="stats"></div><p id="progress-context" class="caption">Current-version decisions across the active dataset.</p></section>
   </section>
   <div class="workspace">
     <aside class="catalogue" aria-label="Task catalogue">
       <div class="catalogue-tools">
-        <label class="scope-label" for="scope-filter">Proposal set<select id="scope-filter"><option value="original">Original proposals</option><option value="extra">Additional proposals</option><option value="all">Original + additional</option></select></label>
-        <label class="search-label" for="search">Search tasks<input id="search" type="search" placeholder="Txx, subclass, or objective…" autocomplete="off"></label>
-        <div id="triage-filters" class="triage-filters" role="group" aria-label="Quick triage filters"><button type="button" data-readiness="awaiting_review">Ready to review</button><button type="button" data-readiness="with_images">With images</button><button type="button" data-readiness="without_images">Awaiting images</button><button type="button" data-readiness="needs_fix">Needs changes</button><button type="button" data-readiness="reference_verified">Reference verified</button><button type="button" data-readiness="all" class="active" aria-pressed="true">All</button></div>
-        <div class="filters">
-          <label for="family-filter">Family<select id="family-filter"><option value="">All families</option><option>AP</option><option>NT</option><option>GF</option><option>SR</option><option>GG</option><option>TM</option></select></label>
-          <label for="status-filter">Status<select id="status-filter"><option value="">All statuses</option></select></label>
-          <label for="review-filter">Default-version review<select id="review-filter"><option value="">All default-version reviews</option><option value="unreviewed">Unreviewed</option><option value="approved">Design / layout OK</option><option value="needs_fix">Needs changes</option><option value="skipped">Skipped</option></select></label>
+        <label class="search-label" for="search">Find a task<input id="search" type="search" placeholder="Task ID, category, or objective…" autocomplete="off"></label>
+        <input id="family-filter" type="hidden" value="">
+        <div id="family-nav" class="family-nav" role="group" aria-label="Task categories"></div>
+        <div id="triage-filters" class="triage-filters" role="group" aria-label="Review queue">
+          <button type="button" data-readiness="all" class="active" aria-pressed="true">All tasks</button>
+          <button type="button" data-readiness="awaiting_review">To review</button>
+          <button type="button" data-readiness="needs_fix">Needs changes</button>
         </div>
-        <div class="list-refresh"><span id="list-status" role="status">Loading catalogue…</span><button id="refresh-list" class="text-button" type="button">Refresh list</button></div>
+        <details id="more-filters" class="more-filters"><summary>More filters <span id="filter-count"></span></summary>
+          <div class="filters">
+            <label class="scope-label" for="scope-filter">Origin<select id="scope-filter"><option value="all" selected>All active tasks</option><option value="original">Original tasks</option><option value="extra">New tasks</option></select></label>
+            <label for="status-filter">Implementation status<select id="status-filter"><option value="">All statuses</option></select></label>
+            <label for="review-filter">Current-version decision<select id="review-filter"><option value="">All decisions</option><option value="unreviewed">Unreviewed</option><option value="approved">Layout OK</option><option value="needs_fix">Needs changes</option><option value="skipped">Skipped</option></select></label>
+          </div>
+          <div class="triage-filters" role="group" aria-label="Evidence filters"><button type="button" data-readiness="with_images">With images</button><button type="button" data-readiness="without_images">Awaiting images</button><button type="button" data-readiness="reference_verified">Reference verified</button></div>
+          <button id="show-candidates" class="text-button candidate-entry" type="button" aria-describedby="candidate-context">Show new tasks <span id="candidate-count"></span></button>
+          <p id="candidate-context" class="caption">New tasks share the same categories and review queue.</p>
+        </details>
+        <div class="list-refresh"><span id="list-status" role="status">Loading tasks…</span><button id="reset-filters" class="text-button" type="button">Reset</button><button id="refresh-list" class="text-button" type="button" aria-label="Refresh task list">Refresh</button></div>
       </div>
       <div id="catalogue-error" class="notice error hidden" role="alert"></div>
-      <nav id="task-list" class="task-list" aria-label="Tasks grouped by family"></nav>
-      <div class="pagination"><button id="page-prev" class="button quiet" type="button" disabled>←</button><span id="page-label">Page 1</span><button id="page-next" class="button quiet" type="button" disabled>→</button></div>
+      <nav id="task-list" class="task-list" aria-label="Tasks grouped by category and subclass"></nav>
+      <div class="pagination"><button id="page-prev" class="button quiet" type="button" disabled aria-label="Previous task page">←</button><span id="page-label">Page 1</span><button id="page-next" class="button quiet" type="button" disabled aria-label="Next task page">→</button></div>
     </aside>
     <main id="detail" class="detail">
-      <div id="welcome" class="welcome"><span class="empty-symbol" aria-hidden="true">▤</span><h2>Select a task to review.</h2><p>Pending and unbuilt tasks stay visible. Images appear only when recorded evidence is available.</p></div>
+      <div id="welcome" class="welcome"><span class="empty-symbol" aria-hidden="true">▤</span><h2>Choose a task to inspect.</h2><p>Browse by category, or use To review to continue through the remaining images.</p><p class="caption">The extension set is outside this review.</p></div>
       <p id="detail-status" class="notice hidden" role="status"></p>
       <div id="detail-content" class="hidden">
         <div class="detail-heading"><div><p id="detail-family" class="eyebrow"></p><h2 id="detail-title"></h2><div id="detail-badges" class="badges"></div></div><button id="refresh-detail" class="button quiet" type="button">Refresh detail</button></div>
-        <div class="queue-bar"><div class="queue-buttons"><button id="queue-prev" class="button quiet" type="button" disabled>← Previous</button><button id="queue-next" class="button quiet" type="button" disabled>Next →</button></div><span id="queue-context" class="caption">Current filtered queue</span><span class="shortcut-hint"><kbd>j</kbd> next <kbd>k</kbd> previous · <kbd>Ctrl / ⌘</kbd> + <kbd>Enter</kbd> save &amp; next</span></div>
-        <div class="version-bar"><label for="variant-select">Authored version<select id="variant-select"></select></label><span id="variant-context" class="muted"></span></div>
+        <div class="queue-bar"><div class="queue-buttons"><button id="queue-prev" class="button quiet" type="button" disabled>← Previous</button><button id="queue-next" class="button quiet" type="button" disabled>Next →</button></div><span id="queue-context" class="caption">Current filtered queue</span><span class="shortcut-hint"><kbd>j</kbd> / <kbd>k</kbd> navigate · <kbd>Ctrl / ⌘</kbd> + <kbd>Enter</kbd> save &amp; next</span></div>
+        <details class="version-history"><summary>Version &amp; history <span id="current-version-label"></span></summary><div class="version-bar"><label for="variant-select">Version<select id="variant-select"></select></label><span id="variant-context" class="muted"></span></div></details>
         <div class="detail-columns">
           <div class="evidence-column">
-            <section class="paper task-brief"><p class="eyebrow">CURRENT OBJECTIVE · SELECTED VERSION</p><div id="objective" class="prose objective"></div></section>
-            <section class="paper row-findings"><p class="eyebrow">ROW SUMMARY &amp; KNOWN FINDINGS</p><div id="row-summary" class="prose"></div><p class="caption scope-note">Current curated row context may describe other versions. It does not certify the selected version.</p><details id="original-assessment" class="original-assessment"><summary>Original research assessment</summary><p class="caption">Historical registry context may predate current definitions or captures.</p><div id="known-findings" class="prose"></div></details></section>
+            <section class="paper task-brief"><p class="eyebrow">OBJECTIVE</p><div id="objective" class="prose objective"></div></section>
             <section class="visual-panel paper" aria-label="Selected-version images">
-              <p class="eyebrow">SELECTED-VERSION IMAGES</p><p id="images-context" class="caption"></p>
-              <div id="image-groups" class="image-groups" role="group" aria-label="View groups"><button type="button" data-image-group="robot" class="active" aria-pressed="true">Agent views</button><button type="button" data-image-group="auxiliary">Auxiliary inspection</button><button type="button" data-image-group="all">All</button></div>
-              <div class="image-controls"><label for="view-select">View<select id="view-select"></select></label><label class="compare-toggle" for="compare-toggle"><input id="compare-toggle" type="checkbox"> Compare two views</label><label id="compare-view-control" class="hidden" for="compare-view-select">Second view · same version<select id="compare-view-select"></select></label></div>
+              <div class="visual-heading"><h3>Recorded views</h3><span id="images-context" class="caption"></span></div>
+              <div id="image-groups" class="image-groups" role="group" aria-label="View groups"><button type="button" data-image-group="robot" class="active" aria-pressed="true">Agent views</button><button type="button" data-image-group="auxiliary">Scene inspection</button><button type="button" data-image-group="all">All views</button></div>
+              <div class="image-controls"><label for="view-select">View<select id="view-select"></select></label><label class="compare-toggle" for="compare-toggle"><input id="compare-toggle" type="checkbox"> Compare views</label><label id="compare-view-control" class="hidden" for="compare-view-select">Second view · same version<select id="compare-view-select"></select></label></div>
               <div id="image-pair" class="image-pair"><div class="image-card"><div id="hero" class="hero"><p>No recorded image available.</p></div><p id="image-caption" class="caption"></p></div><div id="comparison-card" class="image-card hidden"><div id="compare-hero" class="hero"></div><p id="compare-caption" class="caption"></p></div></div>
-              <div id="view-tabs" class="view-tabs" role="group" aria-label="Recorded views"></div>
-              <p class="caption scope-note">The frozen initial overview is public, history-bearing input. Global and object inspection views are auxiliary review evidence. Image availability alone does not verify execution.</p>
+              <details class="view-index"><summary>All view shortcuts</summary><div id="view-tabs" class="view-tabs" role="group" aria-label="Recorded views"></div></details>
             </section>
-            <details class="paper public-task"><summary>Definition · success criteria, constraints &amp; environment</summary><h3>Success criteria</h3><div id="success-criteria" class="prose"></div><h3>Constraints</h3><div id="constraints" class="prose"></div><div id="environment-panel"><h3>Environment</h3><div id="environment" class="prose"></div></div><details class="definitions"><summary>Definition paths</summary><div id="definition-paths" class="path-list"></div></details></details>
-            <section class="paper"><p class="eyebrow">SELECTED-VERSION REFERENCE EVIDENCE</p><div id="evidence-summary" class="prose"></div><dl id="evidence-status" class="metadata"></dl><div id="evidence-paths" class="path-list"></div><p class="caption scope-note">Only this version's status and evidence are shown here. Paths are copyable repository references.</p></section>
+            <details class="paper public-task"><summary>Success criteria &amp; constraints</summary><h3>Success criteria</h3><div id="success-criteria" class="prose"></div><h3>Constraints</h3><div id="constraints" class="prose"></div><div id="environment-panel"><h3>Environment</h3><div id="environment" class="prose"></div></div><details class="definitions"><summary>Definition paths</summary><div id="definition-paths" class="path-list"></div></details></details>
+            <details class="paper row-findings"><summary>Recorded context &amp; earlier findings</summary><div id="row-summary" class="prose"></div><details id="original-assessment" class="original-assessment"><summary>Original research assessment</summary><p class="caption">Historical context may predate the selected version.</p><div id="known-findings" class="prose"></div></details></details>
+            <details class="paper reference-evidence"><summary>Reference evidence &amp; technical details</summary><div id="evidence-summary" class="prose"></div><dl id="evidence-status" class="metadata"></dl><div id="evidence-paths" class="path-list"></div><p class="caption scope-note">Evidence belongs to the selected version. Recorded images alone do not verify task execution.</p></details>
           </div>
           <aside class="review-panel paper" aria-label="Human feedback">
-            <p class="eyebrow">HUMAN REVIEW · SELECTED VERSION</p><h3>What should happen next?</h3><p class="caption">Review this version's design and layout. Approval does not certify native execution or benchmark success.</p>
-            <div id="decision-buttons" class="decision-buttons"><button type="button" data-decision="approved" class="decision">✓ Design / layout OK</button><button type="button" data-decision="needs_fix" class="decision">↗ Needs changes</button><button type="button" data-decision="skipped" class="decision">— Skip</button><button type="button" data-decision="unreviewed" class="text-button clear-decision">Clear decision</button></div>
-            <label class="notes-label" for="notes">Notes</label><div id="note-templates" class="note-templates" role="group" aria-label="Append a note template"><button type="button" data-note-template="Visibility">Visibility</button><button type="button" data-note-template="Occlusion">Occlusion</button><button type="button" data-note-template="Task wording">Task wording</button><button type="button" data-note-template="Layout/reach">Layout/reach</button><button type="button" data-note-template="Scoring concern">Scoring concern</button><button type="button" data-note-template="Mechanism concern">Mechanism concern</button></div><textarea id="notes" rows="7" placeholder="Describe an issue and the change needed…"></textarea>
-            <div class="save-row"><span id="save-state" role="status">No unsaved changes</span><button id="save-review" class="button primary" type="button" disabled>Save review</button></div>
+            <p class="eyebrow">YOUR REVIEW</p><h3>Decision &amp; notes</h3><p class="caption">Review this version's design and layout.</p>
+            <div id="decision-buttons" class="decision-buttons"><button type="button" data-decision="approved" class="decision">✓ Layout OK</button><button type="button" data-decision="needs_fix" class="decision">↗ Needs changes</button><button type="button" data-decision="skipped" class="decision">— Skip</button><button type="button" data-decision="unreviewed" class="text-button clear-decision">Clear decision</button></div>
+            <label class="notes-label" for="notes">Notes</label><textarea id="notes" rows="8" placeholder="Describe an issue and the change needed…"></textarea>
+            <details class="template-picker"><summary>Add a note prompt</summary><div id="note-templates" class="note-templates" role="group" aria-label="Append a note template"><button type="button" data-note-template="Visibility">Visibility</button><button type="button" data-note-template="Occlusion">Occlusion</button><button type="button" data-note-template="Task wording">Task wording</button><button type="button" data-note-template="Layout/reach">Layout/reach</button><button type="button" data-note-template="Scoring concern">Scoring</button><button type="button" data-note-template="Mechanism concern">Mechanism</button></div></details>
+            <div class="save-row"><span id="save-state" role="status">No unsaved changes</span><button id="save-review" class="button quiet" type="button" disabled>Save</button></div>
             <button id="save-next" class="button primary save-next" type="button" disabled>Save and next →</button>
             <div id="review-feedback" class="notice hidden" role="status"></div>
-            <p id="review-revision" class="caption"></p><p id="stale-review" class="notice warning hidden">This review belongs to earlier evidence. Inspect the current version before saving a new review.</p>
+            <p id="review-revision" class="caption"></p><p id="stale-review" class="notice warning hidden">Earlier evidence was reviewed. Inspect this version before saving a current decision.</p>
           </aside>
         </div>
       </div>
     </main>
   </div>
-  <footer><span id="snapshot-date">Catalogue snapshot unavailable</span><span>List refreshes every 15 seconds · detail refresh is manual</span></footer>
+  <footer><span id="snapshot-date">Catalogue snapshot unavailable</span><span>Active set only · layout feedback does not certify physical execution</span></footer>
   <dialog id="unsaved-dialog" aria-labelledby="unsaved-title"><h2 id="unsaved-title">Unsaved review</h2><p>Your decision or notes have changed. Save them before continuing, or explicitly discard the changes.</p><div class="dialog-actions"><button id="guard-cancel" class="button quiet" type="button">Keep editing</button><button id="guard-discard" class="button quiet" type="button">Discard changes</button><button id="guard-save" class="button primary" type="button">Save and continue</button></div><p id="guard-feedback" class="caption" role="status"></p></dialog>
   <dialog id="image-dialog" class="image-dialog" aria-label="Enlarged recorded image"><button id="close-image" class="button quiet" type="button">Close</button><div id="enlarged-image"></div><p id="enlarged-caption" class="caption"></p></dialog>
   <script src="app.js"></script>

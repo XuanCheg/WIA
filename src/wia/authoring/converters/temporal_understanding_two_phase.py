@@ -72,8 +72,8 @@ def _public_task(source, options, policy=None):
     return {
         'objective': source.raw['question'] + '\n\n'
             f'Phase 1 is read-only: an active survey with at most {budget} Agent decisions. Observe all eight mounted cameras. '
-            'You may move or turn the base, adjust the torso and move empty arms to inspect. '
-            'Do not grasp, push, pull, open containers or change contents or furniture. '
+            'You may move or turn the base and adjust the torso to inspect; arm and gripper commands are disabled. '
+            'Do not command arm or gripper motion; incidental navigation contact is diagnostic only. '
             'When ready, put PHASE1_COMPLETE by itself in world_observation and choose DONE '
             'to request the unobserved transition; plain DONE also requests transition. The runner switches '
             'automatically when the survey budget is exhausted. Phase 2: use the existing guarded base controls to approach '
@@ -91,12 +91,12 @@ def _public_task(source, options, policy=None):
             'between the two observation phases while it is unobserved. The robot, cameras and model episode '
             'continue across the transition; no removal action is shown to you.',
         'constraints': [f'Phase 1 allows at most {budget} decisions including invalid or refused decisions; '
-            'use only guarded base, torso and empty-arm motion. No object interaction is permitted. '
+            'use base and torso motion only. Arm and gripper commands are disabled. '
             'The survey decisions count toward the total episode budget.',
             'Phase 2 permits existing guarded base, arm, rotation, trunk and gripper controls for inspection '
             'and opening when needed. The base approach and minimum 0.25 m movement are required; '
             'choose any original container within the 1.0 m arrival radius, with no fixed route or mandatory grasp.',
-            'Keep the original boxes, contents and task dependencies in place. Phase 1 prohibits all furniture movement; '
+            'Keep the original boxes, contents and task dependencies in place. Phase 1 disables arm and gripper commands; '
             'Phase 2 permits legal arm handling of noncritical native movable furniture.',
             'Use only delivered robot camera observations and your own phase-1 memory.']}
 
@@ -477,7 +477,7 @@ def _physical_public_task(source, p, destination):
         p.get('require_complete_phase_1_coverage') is False else 'inspect every comparison location')
     objective = (source.raw['question'] + '\n\n'
         f'Phase 1: {survey_instruction} in a read-only survey of at most {budget} decisions. '
-        'Use mounted cameras, base/torso motion and empty arms; preserve all objects and furniture. '
+        'Use mounted cameras and base/torso motion; arm and gripper commands are disabled. Incidental navigation contact does not end the survey. '
         'Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved in this same episode. '
         'Phase 2: compare with memory and submit ANSWER: <original option>. Then perform the applicable operation: '
         f'if an object was added, put the actual added object on {destination["public_label"]}; '

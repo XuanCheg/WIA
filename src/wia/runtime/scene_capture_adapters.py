@@ -368,6 +368,14 @@ def capture_loaded_views(session, selected, expected_views):
                            pixels[controller.objects[key].name] == 0) for key in controller.contents}
             session.temporal_capture_evidence['phase_2_rendered_actor_checks'] = checks
             session.temporal_capture_evidence['phase_2_rendered_actor_visibility_valid'] = all(checks.values())
+        # Opted-in access repairs retain the actual second-phase inventory too.
+        # The exporter reads the frozen world without advancing physics or controls.
+        from wia.runtime.wia_capture_diagnostics import capture_initial_review_diagnostics
+        access = capture_initial_review_diagnostics(session)
+        if access is not None and access.get('schema') == 'wia_initial_access_review_diagnostics_v1':
+            session.temporal_capture_evidence['access_review_diagnostics'] = {
+                **access, 'capture_phase': 'phase_2', 'snapshot_id': second.snapshot_id,
+                'action_step': second.action_step}
     if set(expected_views) - views.keys():
         raise RuntimeError("Requested native views are unavailable: " + str(set(expected_views) - views.keys()))
     return {name: views[name] for name in expected_views}, target_location

@@ -1,6 +1,6 @@
 kind: scene_patch
 id: scene_hidden_collection_d1156faa040aacc20c70b3ce__t37_furnished_collection_v4
-version: 3
+version: 5
 status: pending
 source:
   provider: esi
@@ -101,9 +101,9 @@ scene:
               public_name: miniature cola bottle
               support: cubicle_deceti_12
               position:
-              - -16.83
-              - -6.9
-              - 0.9625558633708473
+              - -16.12
+              - -7.73
+              - 0.837230920791626
               orientation:
               - 0.0
               - 0.0
@@ -111,6 +111,8 @@ scene:
               - 1.0
               support_surface_mode: local_raycast
               support_alignment_mode: local_raycast
+              pickup_xy_policy: preserve_authored_v1
+              maximum_pickup_xy_drift_m: 0.015
             - name: wia_t37_distractor_01
               category: bottle_of_orange_juice
               model: edltwh
@@ -272,9 +274,9 @@ scene:
               public_name: miniature cola bottle
               support: cubicle_deceti_12
               position:
-              - -16.83
-              - -6.9
-              - 0.9625558633708473
+              - -16.12
+              - -7.73
+              - 0.837230920791626
               orientation:
               - 0.0
               - 0.0
@@ -282,6 +284,8 @@ scene:
               - 1.0
               support_surface_mode: local_raycast
               support_alignment_mode: local_raycast
+              pickup_xy_policy: preserve_authored_v1
+              maximum_pickup_xy_drift_m: 0.015
             - name: wia_t37_distractor_01
               category: bottle_of_orange_juice
               model: edltwh

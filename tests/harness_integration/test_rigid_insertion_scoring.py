@@ -11,9 +11,10 @@ from wia.tasks.rigid_insertion_scoring import RigidInsertionProgress
 
 
 def tracker(targets=None, containers=("bin",), **kwargs):
+    minimum_lift = kwargs.pop("minimum_lift_m", 0.05)
     return RigidInsertionProgress(
         targets or {"item": "native_item"}, containers,
-        minimum_lift_m=0.05, stability_duration_s=0.5,
+        minimum_lift_m=minimum_lift, stability_duration_s=0.5,
         maximum_linear_speed_m_s=0.02, maximum_angular_speed_rad_s=0.1, **kwargs)
 
 
@@ -32,6 +33,95 @@ def sample(time, *, targets=("item",), held=None, inserted=(), lowest_z=0.2,
                                     "touching": key in inserted, "penetration_free": True}},
         } for key in targets},
     }
+
+
+def final_tracker(**kwargs):
+    return tracker(manipulation_revision="final_state_v1", minimum_lift_m=None, **kwargs)
+
+
+def test_final_state_stable_zero_lift_insertion_needs_no_grasp_or_release_history():
+    progress = final_tracker()
+    progress.begin(sample(0))
+    assert not progress.update(sample(1, inserted=("item",)))["physical_success"]
+    result = progress.update(sample(1.5, inserted=("item",)))
+    assert result["physical_success"]
+    assert result["schema"] == result["scoring_version"] == "rigid_insertion_final_state_v1"
+    assert result["manipulation_revision"] == "final_state_v1"
+    assert result["thresholds"]["minimum_lift_m"] is None
+    state = result["per_target"]["item"]
+    assert not state["grasp_seen"] and not state["lift_seen"] and not state["release_seen"]
+    assert state["maximum_held_lift_m"] is None
+    assert state["verified_evidence"]["lowest_z_m"] == state["baseline_lowest_z_m"]
+
+
+@pytest.mark.parametrize("revision,lift", [(None, None), ("unknown", None),
+                                         ("final_state_v1", .05), ("final_state_v1", 0.)])
+def test_final_state_is_explicit_and_cannot_retain_a_lift_threshold(revision, lift):
+    with pytest.raises(ValueError):
+        tracker(manipulation_revision=revision, minimum_lift_m=lift)
+
+
+@pytest.mark.parametrize("failure", ["only_top", "penetration", "held", "contact", "hand_not_clear",
+    "closed", "release_pending", "unstable", "unavailable", "control"])
+def test_final_state_insertion_preserves_native_geometry_release_and_stability_gates(failure):
+    progress = final_tracker()
+    progress.begin(sample(0))
+    for time in (1, 1.5, 2):
+        row = sample(time, inserted=("item",))
+        target = row["targets"]["item"]
+        if failure == "only_top":
+            target["containers"]["bin"]["partial_inside"] = False
+        elif failure == "penetration":
+            target["containers"]["bin"]["penetration_free"] = False
+        elif failure == "held":
+            row["grasp"].update(holding=True, constraint_active=True, object_name="native_item")
+        elif failure == "contact":
+            target["robot_contact"] = True
+        elif failure == "hand_not_clear":
+            row["hand_clear"] = False
+        elif failure == "closed":
+            row["grasp"]["gripper_open"] = False
+        elif failure == "release_pending":
+            row["grasp"]["release_pending"] = True
+        elif failure == "unstable":
+            target["linear_speed_m_s"] = .2
+        elif failure == "unavailable":
+            target["containers"]["bin"]["touching"] = None
+        else:
+            row["control_valid"] = False
+        result = progress.update(row)
+    assert not result["physical_success"] and result["verified_targets"] == []
+    if failure == "unavailable":
+        assert result["evaluation_validity"] == "unavailable"
+
+
+def test_final_state_wrong_allowed_destination_cannot_verify():
+    progress = final_tracker(containers=("bin", "wrong"), expected_containers={"item": "bin"})
+    progress.begin(sample(0))
+    for time in (1, 1.5):
+        row = sample(time)
+        row["targets"]["item"]["containers"]["wrong"] = {
+            "interior_valid": True, "partial_inside": True, "touching": True, "penetration_free": True}
+        result = progress.update(row)
+    assert not result["physical_success"]
+    assert result["per_target"]["item"]["conditions"]["ineligible_partial_insertion"]
+
+
+def test_final_state_gap_interrupts_dwell_and_verification_remains_sequential():
+    targets = {key: "native_" + key for key in ("first", "second")}
+    progress = tracker(targets, manipulation_revision="final_state_v1", minimum_lift_m=None,
+                       max_sample_gap_s=.3)
+    progress.begin(sample(0, targets=targets))
+    progress.update(sample(.25, targets=targets, inserted=("first",)))
+    assert not progress.update(sample(1, targets=targets, inserted=("first",)))["physical_success"]
+    assert progress.result()["per_target"]["first"]["stable_duration_s"] == 0
+    for time in (1.25, 1.5):
+        result = progress.update(sample(time, targets=targets, inserted=("first",)))
+    assert result["verified_targets"] == ["first"]
+    for time in (1.75, 2, 2.25):
+        result = progress.update(sample(time, targets=targets, inserted=("second",)))
+    assert result["physical_success"] and result["verified_targets"] == list(targets)
+    assert result["per_target"]["first"]["containers"]["bin"]["partial_inside"] is False
 
 
 def pickup(progress, key="item", *, targets=("item",), offset=0):

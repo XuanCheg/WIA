@@ -1,0 +1,68 @@
+{
+  "previous_selection": {
+    "alias": "T37",
+    "family": "GG",
+    "variant_id": "t37_furnished_collection_v4",
+    "task_file": "explore_to_achieve/wia_v1/release/tasks/t37.yaml",
+    "source_task_file": "explore_to_achieve/wia_v1/furnished_v1/collection_native_v4/T37__t37_furnished_collection_v4.task.yaml",
+    "source_task_file_sha256": "4a580f13e1e716c5bb8d9b7f934ebf48e54eaf90aa49820b1f5a52ee60659af1",
+    "scene_file": "explore_to_achieve/wia_v1/release/scenes/t37.yaml",
+    "source_scene_file": "explore_to_achieve/wia_v1/furnished_v1/collection_native_v4/T37__t37_furnished_collection_v4.scene.yaml",
+    "source_scene_file_sha256": "8ebc7b9a3b95aef25bd5fb9182f329bd9bde95ee09ead3363fa4905ed13d6843",
+    "task_id": "task_hidden_collection_d1156faa040aacc20c70b3ce__t37_furnished_collection_v4",
+    "variant": "adapted"
+  },
+  "current_selection": {
+    "alias": "T37",
+    "family": "GG",
+    "variant_id": "t37_furnished_collection_v4",
+    "task_file": "explore_to_achieve/wia_v1/release/tasks/t37.yaml",
+    "source_task_file": "explore_to_achieve/wia_v1/t37_access_20261030/t37.task.yaml",
+    "source_task_file_sha256": "3e134813e28e97776fa6b9c400415220e11930b9e9442d1b82cb301d61a14ba0",
+    "scene_file": "explore_to_achieve/wia_v1/release/scenes/t37.yaml",
+    "source_scene_file": "explore_to_achieve/wia_v1/t37_access_20261030/t37.scene.yaml",
+    "source_scene_file_sha256": "b2c6ede01cdff2aa6a56cbd6f882cef7d72fd3979039d318929ff1353c7ec5f2",
+    "task_id": "task_hidden_collection_d1156faa040aacc20c70b3ce__t37_furnished_collection_v4",
+    "variant": "adapted"
+  },
+  "changes": {
+    "revision": "t37_same_desk_aisle_v1",
+    "target": "wia_t37_target_03",
+    "original_target": {
+      "name": "wia_t37_target_03",
+      "category": "cola_bottle",
+      "model": "oyqdtz",
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ],
+      "role": "target",
+      "room": "shared_office_0",
+      "public_name": "miniature cola bottle",
+      "support": "cubicle_deceti_12",
+      "position": [
+        -16.83,
+        -6.9,
+        0.9625558633708473
+      ],
+      "orientation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "support_surface_mode": "local_raycast",
+      "support_alignment_mode": "local_raycast"
+    },
+    "geometric_evidence": "/local_home2/zhouxinyang/models/WIA/outputs/t37_access_repair_20261030/local_0.json",
+    "evidence_sha256": "8b8def56a365365b6c547ae4cb724d55d56f160b10a303ff396d636d1def88ec",
+    "local_open_gripper_witness": true,
+    "original_start_route_verified": false,
+    "carried_tray_verified": false,
+    "native_initialization_verified": false,
+    "native_acquisition_verified": false,
+    "scope": "One target moved on the same native cubicle desk; room, furniture, assets, scale, other objects and collection evaluator retained."
+  },
+  "native_validation_pending": true
+}

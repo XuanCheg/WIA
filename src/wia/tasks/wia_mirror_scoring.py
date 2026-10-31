@@ -16,10 +16,17 @@ from wia.tasks.wia_dimensional_scoring import _bool, _mapping, _number, _vector
 
 
 SCORING_VERSION = 'wia_mirror_progress_v1'
+FINAL_STATE_REVISION = 'final_state_v1'
+FINAL_STATE_SCORING_VERSION = 'wia_mirror_final_state_progress_v1'
 _COMPLETION = {
     'mirror_select_deliver': ('selection', 'grasp_lift', 'stable_placement'),
     'classify_appearance_deliver': ('appearance_report', 'selection', 'grasp_lift', 'stable_placement'),
     'mirror_reconfigure': ('selection', 'grasp_lift', 'reconfiguration', 'stable_placement'),
+}
+_FINAL_COMPLETION = {
+    'mirror_select_deliver': ('selected_original_at_destination', 'stable_placement'),
+    'classify_appearance_deliver': ('appearance_report', 'selected_original_at_destination', 'stable_placement'),
+    'mirror_reconfigure': ('selected_original_at_destination', 'reconfiguration', 'stable_placement'),
 }
 _THRESHOLDS = (
     'minimum_lift_m', 'stability_duration_s', 'maximum_linear_speed_m_s',
@@ -63,7 +70,7 @@ def _json_value(value):
 
 
 class MirrorProgress:
-    """Freeze optical identity and measure real pickup and released placement."""
+    """Freeze optical identity and reduce the declared placement contract."""
 
     def __init__(self, parameters):
         p = deepcopy(dict(parameters))
@@ -98,7 +105,16 @@ class MirrorProgress:
             **{label: self.destination_contracts[key]['kind'] for label, key in self.destinations.items()}}
             if self.bounded_destinations else {})
         self.scoring = deepcopy(dict(_mapping(p.get('scoring'))))
+        revision = self.scoring.get('manipulation_revision')
+        if 'manipulation_revision' in self.scoring and revision != FINAL_STATE_REVISION:
+            raise ValueError('Unsupported mirror manipulation_revision.')
+        self.final_state = revision == FINAL_STATE_REVISION
+        self.completion = _FINAL_COMPLETION if self.final_state else _COMPLETION
         for key in _THRESHOLDS:
+            if self.final_state and key in ('minimum_lift_m', 'minimum_required_motion_m'):
+                if key not in self.scoring or self.scoring[key] is not None:
+                    raise ValueError(key + ' must be explicitly null for final-state placement.')
+                continue
             value = _number(self.scoring.get(key), nonnegative=True)
             if value is None or (key in ('minimum_lift_m', 'stability_duration_s', 'max_sample_gap_s') and value == 0):
                 raise ValueError(key + ' must be an explicit finite valid threshold.')
@@ -113,11 +129,11 @@ class MirrorProgress:
             self.distance_gap = _number(p.get('distance_gap_m'), nonnegative=True)
             self.swap = self.relation == 'reverse_initial_distance_order'
             if (len(candidates) != 2 or self.distance_gap is None or self.distance_gap == 0
-                    or p.get('requires_both_objects_moved') is not self.swap
+                    or (not self.final_state and p.get('requires_both_objects_moved') is not self.swap)
                     or p.get('non_goal_initialization_required') is not True):
                 raise ValueError('Spatial tasks require two originals and the declared motion/initial-goal gates.')
         declared = p.get('completion_items')
-        if declared is not None and [item.get('id') for item in declared] != list(_COMPLETION[self.operation]):
+        if declared is not None and [item.get('id') for item in declared] != list(self.completion[self.operation]):
             raise ValueError('Completion item IDs must match the fixed mirror operation contract.')
         self._reset()
 
@@ -151,7 +167,8 @@ class MirrorProgress:
         } for key, name in self.candidates.items()}
         self._current = {'available': False, 'native_time_s': None, 'held_names': None,
                          'final_released': None, 'measurement_errors': ['episode_not_started'],
-                         'sample_gap_exceeded': False, 'reconfiguration_satisfied': False}
+                         'sample_gap_exceeded': False, 'reconfiguration_satisfied': False,
+                         'unselected_objects_preserved': False}
 
     def _target(self, key, value):
         row, errors = _mapping(value), []
@@ -282,7 +299,7 @@ class MirrorProgress:
         return self._consume(sample, initial=True)
 
     def report_answer(self, text):
-        """Record classification text without changing physics or a frozen answer."""
+        """Record classification text without changing physics or stability time."""
         normalized = None
         if isinstance(text, str):
             value = text.strip()
@@ -293,8 +310,10 @@ class MirrorProgress:
                 normalized = value
         self._reports.append({'text': text if isinstance(text, str) else None,
             'normalized': normalized, 'valid': normalized is not None,
-            'after_first_grasp': self._report_frozen, 'native_time_s': self._current['native_time_s']})
-        if normalized is not None and not self._report_frozen:
+            'after_first_grasp': (any(state['grasp_seen'] for state in self._states.values())
+                                  if self.final_state else self._report_frozen),
+            'native_time_s': self._current['native_time_s']})
+        if normalized is not None and (self.final_state or not self._report_frozen):
             self._latest_report = normalized
         return self.result()
 
@@ -326,7 +345,7 @@ class MirrorProgress:
         held, released = self._grasp(sample.get('grasp'))
         if held is None:
             errors.append('grasp_unavailable_or_inconsistent')
-        rows = {}
+        rows, unselected_preserved = {}, True
         for key, state in self._states.items():
             row, target_errors = self._target(key, _mapping(sample.get('targets')).get(key))
             rows[key] = row
@@ -350,8 +369,13 @@ class MirrorProgress:
             state['measured'] = _json_value({field: value for field, value in row.items() if field != 'vertices_m'})
             if (not self.swap and self._selection is not None and key != self._selection
                     and row['identity_valid'] and row['position_m'] is not None and reference['position_m'] is not None):
-                if np.linalg.norm(row['position_m'] - reference['position_m']) > self.scoring['unselected_position_tolerance_m']:
+                preserved = bool(np.linalg.norm(row['position_m'] - reference['position_m'])
+                                 <= self.scoring['unselected_position_tolerance_m'])
+                unselected_preserved &= preserved
+                if not preserved and not self.final_state:
                     self._violations.add(key + ':unselected_object_moved')
+                if self.final_state:
+                    state['unselected_position_preserved'] = preserved
         if self.spatial:
             anchor = _vector(sample.get('anchor_centroid_m'), (3,))
             if anchor is None:
@@ -360,13 +384,13 @@ class MirrorProgress:
                 self._violations.add('fixed_anchor_changed')
         if not initial and increasing and held is not None and self._pickup_enabled and held:
             candidate_keys = [self._keys_by_name[name] for name in held if name in self._keys_by_name]
-            if candidate_keys and not self._report_frozen:
+            if candidate_keys and not self._report_frozen and not self.final_state:
                 self._report_frozen = True
                 self._frozen_report = self._latest_report
                 self._report_frozen_at = now
-            if len(candidate_keys) != len(held):
+            if len(candidate_keys) != len(held) and not self.final_state:
                 self._violations.add('grasped_object_not_original_candidate')
-            if not self.swap and candidate_keys:
+            if not self.swap and candidate_keys and not self.final_state:
                 if self._committed is None:
                     self._committed = candidate_keys[0] if len(candidate_keys) == 1 else None
                 if len(candidate_keys) != 1 or any(
@@ -386,7 +410,7 @@ class MirrorProgress:
                     else:
                         prior = state['maximum_held_lift_m']
                         state['maximum_held_lift_m'] = lift if prior is None else max(prior, lift)
-                        if lift >= self.scoring['minimum_lift_m']:
+                        if not self.final_state and lift >= self.scoring['minimum_lift_m']:
                             state['lift_seen'] = True
                             if state['lift_at_s'] is None:
                                 state['lift_at_s'] = now
@@ -399,10 +423,10 @@ class MirrorProgress:
             state['distance_to_frozen_anchor_m'] = None if distances is None else distances[key]
         relation_satisfied = self._relation_satisfied(distances) if self.spatial else False
         required = list(self.candidates) if self.spatial else [self._selection] if self._selection is not None else []
-        motion_satisfied = (self.spatial and bool(required) and all(
+        motion_satisfied = (self.spatial and bool(required) and (self.final_state or all(
             self._states[key]['xy_displacement_m'] is not None
             and self._states[key]['xy_displacement_m'] >= self.scoring['minimum_required_motion_m']
-            for key in (required if self.swap else [self._selection])))
+            for key in (required if self.swap else [self._selection]))))
         if gap:
             errors.append('native_sample_gap_exceeded')
         available = not errors and not self._initial_errors
@@ -410,11 +434,13 @@ class MirrorProgress:
         destination = (self.spatial_destination if self.spatial else self.delivery_destination if self.operation == 'mirror_select_deliver'
                        or _mapping(self._optical).get('appearance_mode') == 'reflected' else 'yellow')
         stable = bool(uninterrupted and required and held == () and released is True
+                      and (not self.final_state or unselected_preserved)
                       and (not self.spatial or (relation_satisfied and motion_satisfied)))
         for key, state in self._states.items():
             row = rows[key]
             relation = row['destinations'].get(destination) if key in required else None
-            placed = bool(relation is not None and all(value is True for field, value in relation.items() if field != 'kind'))
+            placed = bool(relation is not None and (not self.final_state or row['identity_valid'])
+                          and all(value is True for field, value in relation.items() if field != 'kind'))
             state.update(placement_relations=deepcopy(relation), placement_satisfied=placed)
             if key in required:
                 stable = bool(stable and placed and row['robot_contact'] is False
@@ -431,39 +457,50 @@ class MirrorProgress:
         self._current = {'available': available, 'native_time_s': now, 'held_names': None if held is None else list(held),
             'final_released': released, 'measurement_errors': errors, 'sample_gap_exceeded': gap,
             'reconfiguration_satisfied': bool(relation_satisfied and motion_satisfied),
-            'distance_relation_satisfied': relation_satisfied, 'required_motion_satisfied': bool(motion_satisfied),
+            'distance_relation_satisfied': relation_satisfied,
+            'required_motion_satisfied': None if self.final_state else bool(motion_satisfied),
+            'unselected_objects_preserved': unselected_preserved,
             'destination': destination, 'distances_m': distances, 'control_flags': flags}
         return self.result()
 
     def result(self):
         """Return detached evidence without changing reports, event history or time."""
         required = list(self.candidates) if self.swap else [self._selection] if self._selection is not None else []
-        selected = bool(required and all(self._states[key]['grasp_seen'] for key in required)
-                        and (self.swap or self._committed == self._selection))
+        selected = bool(required and (all(self._states[key]['placement_satisfied'] for key in required)
+                        if self.final_state else all(self._states[key]['grasp_seen'] for key in required)
+                        and (self.swap or self._committed == self._selection)))
         lifted = bool(required and all(self._states[key]['grasp_seen'] and self._states[key]['lift_seen'] for key in required))
-        report_correct = bool(self._report_frozen and self._frozen_report is not None
-                              and self._frozen_report == _mapping(self._optical).get('appearance_mode'))
+        report_value = self._latest_report if self.final_state else self._frozen_report if self._report_frozen else None
+        report_correct = bool(report_value is not None and report_value == _mapping(self._optical).get('appearance_mode'))
         stages = {'selection': selected, 'grasp_lift': lifted, 'appearance_report': report_correct,
+                  'selected_original_at_destination': selected,
                   'reconfiguration': self._current['reconfiguration_satisfied'], 'stable_placement': self._stable_placement}
-        items = [{'id': key, 'completed': bool(stages[key])} for key in _COMPLETION[self.operation]]
+        items = [{'id': key, 'completed': bool(stages[key]), **({'kind': 'terminal_condition'} if self.final_state else {})}
+                 for key in self.completion[self.operation]]
         validity = 'invalid' if self._violations else 'complete' if self._current['available'] else 'unavailable'
-        physical = bool(validity == 'complete' and selected and lifted and self._stable_placement
+        physical = bool(validity == 'complete' and selected and (self.final_state or lifted) and self._stable_placement
                         and (not self.spatial or stages['reconfiguration']))
         success = bool(physical and (self.operation != 'classify_appearance_deliver' or report_correct))
         completed = sum(item['completed'] for item in items)
         score = completed / len(items) if validity == 'complete' else None
-        return deepcopy({'schema': SCORING_VERSION, 'scoring_version': SCORING_VERSION,
+        version = FINAL_STATE_SCORING_VERSION if self.final_state else SCORING_VERSION
+        revision = {'manipulation_revision': FINAL_STATE_REVISION} if self.final_state else {}
+        report = ({'latest_valid': self._latest_report, 'acceptance_policy': 'latest_valid_final_report',
+                   'correct': report_correct, 'history': self._reports} if self.final_state else {
+                   'latest_valid_before_grasp': self._latest_report, 'frozen': self._report_frozen,
+                   'frozen_value': self._frozen_report, 'frozen_at_s': self._report_frozen_at,
+                   'correct': report_correct, 'history': self._reports})
+        return deepcopy({'schema': version, 'scoring_version': version, **revision,
             'operation': self.operation, 'task_success': success, 'physical_success': physical,
             'evaluation_validity': validity,
-            'constraints_satisfied': False if self._violations else True if validity == 'complete' else None,
+            'constraints_satisfied': False if self._violations or (self.final_state
+                and not self._current['unselected_objects_preserved']) else True if validity == 'complete' else None,
             'completion_items': items, 'completed_goals': completed, 'total_goals': len(items),
             'completion_score': score, 'score_percent': None if score is None else score * 100,
             'frozen_selection': self._optical, 'selected_candidate': self._selection,
             'committed_candidate': self._committed, 'frozen_anchor_centroid_m': _json_value(self._anchor),
             'initial_distance_order': self._initial_order, 'initial_distances_m': self._initial_distances,
-            'report': {'latest_valid_before_grasp': self._latest_report, 'frozen': self._report_frozen,
-                       'frozen_value': self._frozen_report, 'frozen_at_s': self._report_frozen_at,
-                       'correct': report_correct, 'history': self._reports},
+            'report': report,
             'per_target': self._states, 'initial_measurement_errors': self._initial_errors,
             'constraint_violations': sorted(self._violations),
             'native_time_s': self._current['native_time_s'],

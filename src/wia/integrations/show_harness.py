@@ -13,7 +13,8 @@ POLICY_FLAGS = {"backend": "backend", "model": "model", "base_url": "base-url", 
                 "provider": "provider", "max_output_tokens": "max-output-tokens", "temperature": "temperature",
                 "reasoning_effort": "reasoning-effort", "codex_executable": "codex-executable", "model_timeout": "model-timeout",
                 "history_text_turns": "history-text-turns", "image_max_edge": "image-max-edge",
-                "sliding_window_tokens": "sliding-window-tokens"}
+                "sliding_window_tokens": "sliding-window-tokens", "history_policy": "history-policy",
+                "history_recent_moves": "history-recent-moves", "max_perception_rounds": "max-perception-rounds"}
 
 
 def build_arguments(plan):

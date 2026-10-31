@@ -89,7 +89,7 @@ def test_initial_prompt_distinguishes_centres_without_pixel_cues_and_rgb_is_unch
 def test_stdio_mcp_exposes_only_exact_depth_reads_from_the_supplied_snapshot(tmp_path):
     observation = depth_observation()
     observation.save(tmp_path)
-    script = __import__('wia.resources', fromlist=['ROOT']).ROOT / "core/agent/depth_mcp.py"
+    script = Path(__import__('core.agent.depth_mcp', fromlist=['__file__']).__file__)
 
     async def exercise():
         params = StdioServerParameters(command=sys.executable, args=[str(script), str(tmp_path)])
@@ -196,7 +196,7 @@ def test_local_endpoint_queries_exact_depth_without_images_or_grasp_judgement(mo
     reply = asyncio.run(agent.decide(DecisionInput(observation, ("DONE",))))
     assert reply.raw_text == '{"action":"DONE"}' and reply.metadata["depth_query_count"] == 1
     assert len(sent[0]["messages"][0]["content"]) == 3  # Prompt plus two unchanged RGBs.
-    assert {tool["function"]["name"] for tool in sent[0]["tools"]} == {"read_depth_pixels", "read_depth_region"}
+    assert {tool["function"]["name"] for tool in sent[0]["tools"]} == {"read_depth_pixels", "read_depth_region", "read_rgb_camera"}
     result = json.loads(sent[1]["messages"][-1]["content"])
     assert result == DepthSnapshot.from_observation(observation).pixels("wrist_depth_m", [[9, 8]])
     assert logs[0]["result"] == result and logs[0]["passed_to_model"]

@@ -1,0 +1,366 @@
+kind: category_robot_task
+id: wia_rigid_t22_family_v1
+version: 5
+status: pending
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json
+public:
+  objective: 'Which container does the gift box best fit inside: the large packing box or the medium packing
+    box or the small packing box? Place each named object partially inside its selected container. Leave
+    it released and withdraw the robot hands at least 2 cm clear.'
+  success_criteria: 'Answer the original containment question for every named object. For each object,
+    verify partial insertion into its selected container with actual container contact and no interpenetration.
+    With empty open hands, no robot support or contact and hands at least 2 cm clear, maintain this state
+    for at least 0.5 seconds with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. An
+    object resting entirely on top does not count. No minimum lift height or prior grasp is required.
+    Targets may be verified sequentially and removed after verification to free a shared container. Finish
+    with empty open hands. Submit ANSWER: <container label> and declare DONE.'
+  environment: The gift box is exposed on the left upholstered armchair (sofa seat). The three packing
+    boxes remain on the native white table. Retrieve the target using the real R1 robot.
+  constraints:
+  - Complete every target subtask before declaring DONE. An object resting entirely on top does not count
+    as inside.
+  - Use the existing guarded public robot controls and visible object/container labels.
+  - Preserve all asset scales and keep every container within 2 cm and 0.05 radians of its starting pose.
+  - Targets may be verified sequentially. An object may be removed after its released, stable partial
+    insertion has been completely verified, to free a shared container. Simultaneous packing is not required.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    target:
+      name: obj_containee
+      category: gift_box
+      model: pnprrx
+    container_2:
+      name: obj_container_2
+      category: packing_box
+      model: cjhskr
+    container_1:
+      name: obj_container_1
+      category: packing_box
+      model: cjhskr
+    container_0:
+      name: obj_container_0
+      category: packing_box
+      model: cjhskr
+    table:
+      name: breakfast_table_skczfi_1
+      category: breakfast_table
+      model: skczfi
+    pickup_support:
+      name: armchair_bslhmj_0
+      category: armchair
+      model: bslhmj
+  evaluation:
+    type: category_operation
+    module: wia.authoring.converters.rigid_partial_insertion
+    operation: pick_release_partial_insert
+    binding_keys:
+    - target
+    - container_2
+    - container_1
+    - container_0
+    - table
+    - pickup_support
+    parameters:
+      scorer_version: rigid_insertion_final_state_v1
+      targets:
+      - target
+      containers:
+      - container_0
+      - container_1
+      - container_2
+      expected_containers:
+        target: container_1
+      target_labels:
+        target: gift box
+      expected_answers:
+        target: medium packing box
+      minimum_lift_m: null
+      stability_duration_s: 0.5
+      maximum_linear_speed_m_s: 0.02
+      maximum_angular_speed_rad_s: 0.1
+      max_sample_gap_s: 0.1
+      interior_margin_m: 0.002
+      penetration_tolerance_m: 0.001
+      withdrawal_clearance_m: 0.02
+      container_pose_tolerance_m: 0.02
+      maximum_container_rotation_rad: 0.05
+      scale_relative_tolerance: 0.0001
+      allow_remove_after_verification: true
+      initial_supports:
+        target: pickup_support
+        container_0: table
+        container_1: table
+        container_2: table
+      initial_support_tolerance_m: 0.015
+      maximum_initial_linear_speed_m_s: 0.02
+      maximum_initial_angular_speed_rad_s: 0.1
+      manipulation_revision: final_state_v1
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+      initial_visibility: null
+    tabletop:
+      patches:
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - -3.4
+        - 0.85
+        - 0.1
+        yaw_deg: 90.0
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_0
+        position:
+        - -4.0
+        - 2.18
+        - 0.8449220665386521
+        candidates: []
+        quaternion_xyzw:
+        - -1.0589354688759913e-05
+        - 8.725466482639917e-06
+        - 2.1133562065910046e-07
+        - 0.9999999999058437
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_1
+        position:
+        - -3.48
+        - 2.18
+        - 0.883001536934694
+        candidates: []
+        quaternion_xyzw:
+        - -1.0681792081226006e-05
+        - 8.778271738712513e-06
+        - -8.00719039911206e-09
+        - 0.9999999999044207
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_2
+        position:
+        - -2.94
+        - 2.18
+        - 0.9192032971075379
+        candidates: []
+        quaternion_xyzw:
+        - -1.0733043920535927e-05
+        - 8.81807122210578e-06
+        - -1.6399642707916547e-07
+        - 0.9999999999035083
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: target
+        position:
+        - -5.057117366790772
+        - 1.279439353942871
+        - 0.5573
+        candidates: []
+        quaternion_xyzw:
+        - -4.0523591451346874e-06
+        - -1.56510213855654e-06
+        - 1.6803096514195204e-07
+        - 1.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.active_layout
+        parameters:
+          revision: t22_left_sofa_v3
+          layout:
+            objects:
+            - name: obj_container_0
+              position:
+              - -4.0
+              - 2.18
+              - 0.8449220665386521
+              orientation:
+              - -1.0589354688759913e-05
+              - 8.725466482639917e-06
+              - 2.1133562065910046e-07
+              - 0.9999999999058437
+            - name: obj_container_1
+              position:
+              - -3.48
+              - 2.18
+              - 0.883001536934694
+              orientation:
+              - -1.0681792081226006e-05
+              - 8.778271738712513e-06
+              - -8.00719039911206e-09
+              - 0.9999999999044207
+            - name: obj_container_2
+              position:
+              - -2.94
+              - 2.18
+              - 0.9192032971075379
+              orientation:
+              - -1.0733043920535927e-05
+              - 8.81807122210578e-06
+              - -1.6399642707916547e-07
+              - 0.9999999999035083
+            - name: obj_containee
+              position:
+              - -5.057117366790772
+              - 1.279439353942871
+              - 0.5573
+              orientation:
+              - -4.0523591451346874e-06
+              - -1.56510213855654e-06
+              - 1.6803096514195204e-07
+              - 1.0
+            supported_items:
+            - name: obj_container_0
+              support: breakfast_table_skczfi_1
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: obj_container_1
+              support: breakfast_table_skczfi_1
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: obj_container_2
+              support: breakfast_table_skczfi_1
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: obj_containee
+              support: armchair_bslhmj_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            floor_name: floors_gjpvfd_0
+            synchronize_authored_poses_before_alignment: true
+      initial_visibility: null
+qualification:
+  on_failure: skip
+  support: null
+  initial_visibility: none
+defaults:
+  seed: 0
+  max_steps: 60
+  wall_timeout_s: 5400.0
+  world_advances_during_inference: true
+  observation_condition: current
+  action_mode: parameterized
+repair:
+  family_revision: wia_rigid_family_v1
+  contract_revision: wia_rigid_partial_insertion_v1
+  document_alias: T22
+  validation_status: pending-native-gift-relocation-review
+  parent_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/rigid_support_v2/tasks/t22_native_table_support_v2.yaml
+  parent_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/rigid_support_v2/scenes/t22_native_table_support_v2.yaml
+  scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/t22_left_sofa_v3/scene.yaml
+  original_scene_qualification:
+    on_failure: skip
+    support: table
+    supported_objects:
+    - target
+    - container_2
+    - container_1
+    - container_0
+    object_supports:
+      target: pickup_support
+    support_surface_mode: local_raycast
+    support_tolerance_m: 0.015
+    maximum_linear_speed_m_s: 0.02
+    maximum_angular_speed_rad_s: 0.1
+    require_support_contact: true
+    reject_robot_contacts: true
+    screen_furniture_overlap: true
+    settle_steps: 30
+  original_qa_provenance:
+    question_source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
+      Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json
+    question_source_identity: Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json
+    question_source_sha256: f3757c9769c92c0b6daabbb575d5795e71ea9d6c20bcbe955b8257366cbca0d6
+    scene_source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
+      Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json
+    scene_source_identity: Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json
+    scene_source_sha256: f3757c9769c92c0b6daabbb575d5795e71ea9d6c20bcbe955b8257366cbca0d6
+    original_qa_id: '2061'
+    original_question: 'Which container does the gift box best fit inside: the large packing box or the
+      medium packing box or the small packing box?'
+    original_answer: medium packing box
+    answer_type: choice
+    original_options:
+    - large packing box
+    - medium packing box
+    - small packing box
+    verified_answer_by_public_label:
+      gift box: medium packing box
+    verification_basis: Original QA answer and named source target_container/idx metadata; no AABB inference.
+  parameters_provisional: true
+  parameters_calibrated: false
+  threshold_basis: Explicit common provisional Rigid family criteria; native calibration is pending.
+  native_validation_run: false
+  physically_qualified: false
+  legal_robot_reference_verified: false
+  reference_execution_status: deferred_until_user_review
+  parent_task_sha256: c87a15cdb66a40905849957af86959789b7c2fc33370a3902eb6abe8cbc55ab7
+  parent_scene_sha256: d58539509ce92094ec040d38583b0f35c8832615c54a2dc5be0d444cb5cd62f9
+  task_source_identity: Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json
+  task_source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
+    Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json
+  task_source_sha256: f3757c9769c92c0b6daabbb575d5795e71ea9d6c20bcbe955b8257366cbca0d6
+  scene_source_identity: Physical Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json
+  scene_source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
+    Structure/Rigid Containment/Beechwood_0_int/living_room_1/Beechwood_0_int_scene_dict_storage2_0_revised.json
+  scene_source_sha256: f3757c9769c92c0b6daabbb575d5795e71ea9d6c20bcbe955b8257366cbca0d6
+  inventory_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261024_furnished/asset_inventory/Beechwood_0_int.json
+  inventory_sha256: 01758c949a0a6f7efe07c9357236fa584d120e33b2537bd0eba6ce2b284d3ca5
+  support_revision: t22_left_sofa_v3
+  variant_id: t22_left_sofa_v3
+  support_binding_override:
+    name: breakfast_table_skczfi_1
+    category: breakfast_table
+    model: skczfi
+  repair_reason: Apply the user review request to relocate only the gift box from the white table to the
+    left upholstered armchair (sofa seat). Preserve all three packing boxes and their native white-table
+    support, the robot start, source identities, scales, rotations, insertion scoring, support modes,
+    synchronization, thresholds and budgets. Native validation remains pending.
+  full_reference_execution: pending
+  native_support_verified: false
+  native_robot_placement_verified: false
+  physical_success_verified: false
+  parent_manifest_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/rigid_support_v2/manifest.json
+  parent_manifest_sha256: 1036a25e5745494990a2d5043812a24967877e72f5451e1184451bc1b4666f3c
+  pickup_support_binding_override:
+    name: armchair_bslhmj_0
+    category: armchair
+    model: bslhmj
+  final_state_revision:
+    revision: final_state_v1
+    date: '2026-10-30'
+    parent_task_sha256: 090a7ca5b07b0b22da003a60039747740d102ada3effc98b7704c5c54607a50d
+    parent_scene_sha256: 17875e8ba96e5ab84126c98a313b56c1a3dbf741903be83f8dc09b41eeff1f1f
+    parent_source_task_file: explore_to_achieve/wia_v1/review_20261025/t22_left_sofa_v3/task.yaml
+    parent_source_scene_file: explore_to_achieve/wia_v1/review_20261025/t22_left_sofa_v3/scene.yaml
+    scene_geometry_changed: false
+    native_execution_verified: false
+    scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.

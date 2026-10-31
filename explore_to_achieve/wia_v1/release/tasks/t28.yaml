@@ -1,18 +1,17 @@
 kind: category_robot_task
 id: task_417c33b7f9da9058fd795848__t28_furnished_tray_v3
-version: 3
+version: 4
 status: pending
 source:
   provider: esi
   json: Specular Reflection/Correspondence/Beechwood_0_garden/kitchen_0/wia_furnished_background_v1.json
 public:
-  objective: Find the jar of sugar, thyme shaker, vinegar bottle on open furniture surfaces.
-    Bring them to the blue-grey tray on the counter. Arrange their centers into isosceles.
-  success_criteria: Retrieve each target with a genuine grasp and at least 5 cm lift, then
-    release all targets entirely on the tray deck in the requested relation. Leave hands clear
-    and objects stable for at least 0.5 seconds.
-  environment: A furnished kitchen. Target objects are on exposed surfaces and are not deliberately
-    hidden.
+  objective: Find the jar of sugar, thyme shaker, vinegar bottle on open furniture surfaces. Bring them
+    to the blue-grey tray on the counter. Arrange their centers into isosceles.
+  success_criteria: Leave every original target fully inside the usable tray deck, in the requested relation,
+    with actual nonpenetrating deck support. Leave hands empty, open and clear and the objects stable
+    for at least 0.5 seconds. No minimum lift height, travel distance or prior grasp is required.
+  environment: A furnished kitchen. Target objects are on exposed surfaces and are not deliberately hidden.
   constraints:
   - Use lawful robot controls and mounted observations.
   - Keep the tray and its supporting furniture fixed.
@@ -106,8 +105,8 @@ private:
         kind: shape
         shape: isosceles
       scoring:
-        minimum_lift_m: 0.05
-        minimum_displacement_m: 0.05
+        minimum_lift_m: null
+        minimum_displacement_m: null
         stability_duration_s: 0.5
         maximum_linear_speed_m_s: 0.02
         maximum_angular_speed_rad_s: 0.1
@@ -118,6 +117,7 @@ private:
         maximum_bottom_gap_m: 0.015
         penetration_tolerance_m: 0.001
         minimum_separation_m: 0.05
+        manipulation_revision: final_state_v1
 scene:
   policy: native_then_minimal_patch_else_skip
   variants:
@@ -597,3 +597,13 @@ repair:
   native_visibility_verified: false
   manipulation_verified: false
   full_reference_execution: deferred_until_user_review
+  final_state_revision:
+    revision: final_state_v1
+    date: '2026-10-30'
+    parent_task_sha256: 1556db59011fd336a6940ab01ca6fc350a0d1262a3fe6fbeb68f824e42f9af6f
+    parent_scene_sha256: 414bad9a64a79e5255a18a14640f561b2b9bb72ab7be77b7352a76dc584d792d
+    parent_source_task_file: explore_to_achieve/wia_v1/furnished_v1/spatial_v3/tasks/t28__t28_furnished_tray_v3.yaml
+    parent_source_scene_file: explore_to_achieve/wia_v1/furnished_v1/spatial_v3/scenes/t28__t28_furnished_tray_v3.yaml
+    scene_geometry_changed: false
+    native_execution_verified: false
+    scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.

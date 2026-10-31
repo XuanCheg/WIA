@@ -1,6 +1,6 @@
 kind: scene_patch
 id: scene_redesign_7fd79b0d5819ace319f077c7__t48_o_furnished_v4
-version: 5
+version: 7
 status: pending
 source:
   provider: esi
@@ -424,7 +424,7 @@ scene:
           source_objects:
             container_00:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 12.75
               - 0.8012670065463574
               quaternion_xyzw:
@@ -433,15 +433,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 12.633761071777343
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 12.864251279449462
                 - 0.8794758893550427
             image1_content_00:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 12.749006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -455,7 +455,7 @@ scene:
               - 0.09195598162463012
             container_01:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 13.399999999999999
               - 0.8012670065463574
               quaternion_xyzw:
@@ -464,15 +464,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 13.283761071777343
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 13.514251279449462
                 - 0.8794758893550427
             image1_content_01:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 13.399006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -486,7 +486,7 @@ scene:
               - 0.07185805511474609
             image2_content_01:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 13.399006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -500,7 +500,7 @@ scene:
               - 0.07185805511474609
             container_02:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 14.05
               - 0.8012670065463574
               quaternion_xyzw:
@@ -509,15 +509,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 13.933761071777344
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 14.164251279449463
                 - 0.8794758893550427
             image2_content_02:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 14.049006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -536,8 +536,8 @@ scene:
           builder_sha256: 6fe04f703d0a43121fa0a446005b0351ad52dbddb0a375c90517c0ba14c707ab
           generator_sha256: ef40b0c0bf7a17563ba09f2dc25f2741e90ac3686aec1a9f692794df41a1b584
           replay_sha256: d20f0eb7958f25f4b4650a98b4754cd09eaf7063c92a1fb79f48de25897be337
-          provenance: Rigidly translated copy of the existing temporal world; original producer
-            evidence is retained in parent_provenance.
+          provenance: Rigidly translated copy of the existing temporal world; original producer evidence
+            is retained in parent_provenance.
           source_task_type: change_detection
           public_options:
           - 'yes'
@@ -1056,9 +1056,9 @@ scene:
             event_branch: added
           parent_provenance:
             source_identity: Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_05.json
-            provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration
-              build_unobserved_replay_plan and _preloaded_object_configs; saved AABB-center
-              placement from _place_preloaded_phase_content and producer _try_place_inside_container.
+            provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration build_unobserved_replay_plan
+              and _preloaded_object_configs; saved AABB-center placement from _place_preloaded_phase_content
+              and producer _try_place_inside_container.
       - operation: robot_pose
         position:
         - -5.1
@@ -1094,7 +1094,7 @@ scene:
         phase: after_postprocessing
         binding: container_00
         position:
-        - -7.000000000000001
+        - -6.880000000000001
         - 12.75
         - 0.8012670065463574
         quaternion_xyzw:
@@ -1106,7 +1106,7 @@ scene:
         phase: after_postprocessing
         binding: container_01
         position:
-        - -7.000000000000001
+        - -6.880000000000001
         - 13.399999999999999
         - 0.8012670065463574
         quaternion_xyzw:
@@ -1118,7 +1118,7 @@ scene:
         phase: after_postprocessing
         binding: container_02
         position:
-        - -7.000000000000001
+        - -6.880000000000001
         - 14.05
         - 0.8012670065463574
         quaternion_xyzw:
@@ -1130,7 +1130,7 @@ scene:
         phase: after_postprocessing
         binding: image1_content_00
         position:
-        - -7.002059406852723
+        - -6.882059406852723
         - 12.749006175613403
         - 0.786062834411958
         quaternion_xyzw:
@@ -1142,7 +1142,7 @@ scene:
         phase: after_postprocessing
         binding: image1_content_01
         position:
-        - -7.002059406852723
+        - -6.882059406852723
         - 13.399006175613403
         - 0.786062834411958
         quaternion_xyzw:
@@ -1692,7 +1692,7 @@ scene:
           source_objects:
             container_00:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 12.75
               - 0.8012670065463574
               quaternion_xyzw:
@@ -1701,15 +1701,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 12.633761071777343
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 12.864251279449462
                 - 0.8794758893550427
             image1_content_00:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 12.749006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -1723,7 +1723,7 @@ scene:
               - 0.09195598162463012
             container_01:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 13.399999999999999
               - 0.8012670065463574
               quaternion_xyzw:
@@ -1732,15 +1732,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 13.283761071777343
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 13.514251279449462
                 - 0.8794758893550427
             image1_content_01:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 13.399006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -1754,7 +1754,7 @@ scene:
               - 0.07185805511474609
             image2_content_01:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 13.399006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -1768,7 +1768,7 @@ scene:
               - 0.07185805511474609
             container_02:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 14.05
               - 0.8012670065463574
               quaternion_xyzw:
@@ -1777,15 +1777,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 13.933761071777344
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 14.164251279449463
                 - 0.8794758893550427
             image2_content_02:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 14.049006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -1804,8 +1804,8 @@ scene:
           builder_sha256: 6fe04f703d0a43121fa0a446005b0351ad52dbddb0a375c90517c0ba14c707ab
           generator_sha256: ef40b0c0bf7a17563ba09f2dc25f2741e90ac3686aec1a9f692794df41a1b584
           replay_sha256: d20f0eb7958f25f4b4650a98b4754cd09eaf7063c92a1fb79f48de25897be337
-          provenance: Rigidly translated copy of the existing temporal world; original producer
-            evidence is retained in parent_provenance.
+          provenance: Rigidly translated copy of the existing temporal world; original producer evidence
+            is retained in parent_provenance.
           source_task_type: change_detection
           public_options:
           - 'yes'
@@ -2324,9 +2324,9 @@ scene:
             event_branch: added
           parent_provenance:
             source_identity: Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_05.json
-            provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration
-              build_unobserved_replay_plan and _preloaded_object_configs; saved AABB-center
-              placement from _place_preloaded_phase_content and producer _try_place_inside_container.
+            provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration build_unobserved_replay_plan
+              and _preloaded_object_configs; saved AABB-center placement from _place_preloaded_phase_content
+              and producer _try_place_inside_container.
       - operation: category_initialization
         phase: after_postprocessing
         module: wia.authoring.converters.wia_native_furniture
@@ -2407,7 +2407,23 @@ scene:
         - container_01
         - container_02
         relocation_policy: independent_groups
-        layout_parameters: {}
+        layout_parameters:
+          reviewed_group_placements_v1:
+            container_00:
+              support_name: conference_table_fpkmyw_0
+              root_xy_m:
+              - -6.898659591674805
+              - 13.444845199584961
+            container_01:
+              support_name: conference_table_fpkmyw_0
+              root_xy_m:
+              - -6.865889434814453
+              - 12.590814590454102
+            container_02:
+              support_name: conference_table_fpkmyw_0
+              root_xy_m:
+              - -7.281530265808105
+              - 14.298653602600098
         controller_initial_trunk_joint_positions_rad: null
         placement_groups:
         - - container_00
@@ -2736,7 +2752,7 @@ scene:
           source_objects:
             container_00:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 12.75
               - 0.8012670065463574
               quaternion_xyzw:
@@ -2745,15 +2761,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 12.633761071777343
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 12.864251279449462
                 - 0.8794758893550427
             image1_content_00:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 12.749006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -2767,7 +2783,7 @@ scene:
               - 0.09195598162463012
             container_01:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 13.399999999999999
               - 0.8012670065463574
               quaternion_xyzw:
@@ -2776,15 +2792,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 13.283761071777343
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 13.514251279449462
                 - 0.8794758893550427
             image1_content_01:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 13.399006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -2798,7 +2814,7 @@ scene:
               - 0.07185805511474609
             image2_content_01:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 13.399006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -2812,7 +2828,7 @@ scene:
               - 0.07185805511474609
             container_02:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 14.05
               - 0.8012670065463574
               quaternion_xyzw:
@@ -2821,15 +2837,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 13.933761071777344
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 14.164251279449463
                 - 0.8794758893550427
             image2_content_02:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 14.049006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -2970,7 +2986,7 @@ scene:
         phase: after_postprocessing
         binding: container_00
         position:
-        - -7.000000000000001
+        - -6.880000000000001
         - 12.75
         - 0.8012670065463574
         quaternion_xyzw:
@@ -2982,7 +2998,7 @@ scene:
         phase: after_postprocessing
         binding: container_01
         position:
-        - -7.000000000000001
+        - -6.880000000000001
         - 13.399999999999999
         - 0.8012670065463574
         quaternion_xyzw:
@@ -2994,7 +3010,7 @@ scene:
         phase: after_postprocessing
         binding: container_02
         position:
-        - -7.000000000000001
+        - -6.880000000000001
         - 14.05
         - 0.8012670065463574
         quaternion_xyzw:
@@ -3006,7 +3022,7 @@ scene:
         phase: after_postprocessing
         binding: image1_content_00
         position:
-        - -7.002059406852723
+        - -6.882059406852723
         - 12.749006175613403
         - 0.786062834411958
         quaternion_xyzw:
@@ -3018,7 +3034,7 @@ scene:
         phase: after_postprocessing
         binding: image1_content_01
         position:
-        - -7.002059406852723
+        - -6.882059406852723
         - 13.399006175613403
         - 0.786062834411958
         quaternion_xyzw:
@@ -3328,7 +3344,7 @@ scene:
           source_objects:
             container_00:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 12.75
               - 0.8012670065463574
               quaternion_xyzw:
@@ -3337,15 +3353,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 12.633761071777343
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 12.864251279449462
                 - 0.8794758893550427
             image1_content_00:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 12.749006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -3359,7 +3375,7 @@ scene:
               - 0.09195598162463012
             container_01:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 13.399999999999999
               - 0.8012670065463574
               quaternion_xyzw:
@@ -3368,15 +3384,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 13.283761071777343
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 13.514251279449462
                 - 0.8794758893550427
             image1_content_01:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 13.399006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -3390,7 +3406,7 @@ scene:
               - 0.07185805511474609
             image2_content_01:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 13.399006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -3404,7 +3420,7 @@ scene:
               - 0.07185805511474609
             container_02:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 14.05
               - 0.8012670065463574
               quaternion_xyzw:
@@ -3413,15 +3429,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 13.933761071777344
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 14.164251279449463
                 - 0.8794758893550427
             image2_content_02:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 14.049006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -3747,7 +3763,7 @@ scene:
           source_objects:
             container_00:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 12.75
               - 0.8012670065463574
               quaternion_xyzw:
@@ -3756,15 +3772,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 12.633761071777343
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 12.864251279449462
                 - 0.8794758893550427
             image1_content_00:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 12.749006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -3778,7 +3794,7 @@ scene:
               - 0.09195598162463012
             container_01:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 13.399999999999999
               - 0.8012670065463574
               quaternion_xyzw:
@@ -3787,15 +3803,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 13.283761071777343
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 13.514251279449462
                 - 0.8794758893550427
             image1_content_01:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 13.399006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -3809,7 +3825,7 @@ scene:
               - 0.07185805511474609
             image2_content_01:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 13.399006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -3823,7 +3839,7 @@ scene:
               - 0.07185805511474609
             container_02:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 14.05
               - 0.8012670065463574
               quaternion_xyzw:
@@ -3832,15 +3848,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 13.933761071777344
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 14.164251279449463
                 - 0.8794758893550427
             image2_content_02:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 14.049006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -3981,7 +3997,7 @@ scene:
         phase: after_postprocessing
         binding: container_00
         position:
-        - -7.000000000000001
+        - -6.880000000000001
         - 12.75
         - 0.8012670065463574
         quaternion_xyzw:
@@ -3993,7 +4009,7 @@ scene:
         phase: after_postprocessing
         binding: container_01
         position:
-        - -7.000000000000001
+        - -6.880000000000001
         - 13.399999999999999
         - 0.8012670065463574
         quaternion_xyzw:
@@ -4005,7 +4021,7 @@ scene:
         phase: after_postprocessing
         binding: container_02
         position:
-        - -7.000000000000001
+        - -6.880000000000001
         - 14.05
         - 0.8012670065463574
         quaternion_xyzw:
@@ -4017,7 +4033,7 @@ scene:
         phase: after_postprocessing
         binding: image2_content_01
         position:
-        - -7.002059406852723
+        - -6.882059406852723
         - 13.399006175613403
         - 0.786062834411958
         quaternion_xyzw:
@@ -4029,7 +4045,7 @@ scene:
         phase: after_postprocessing
         binding: image2_content_02
         position:
-        - -7.002059406852723
+        - -6.882059406852723
         - 14.049006175613403
         - 0.786062834411958
         quaternion_xyzw:
@@ -4339,7 +4355,7 @@ scene:
           source_objects:
             container_00:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 12.75
               - 0.8012670065463574
               quaternion_xyzw:
@@ -4348,15 +4364,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 12.633761071777343
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 12.864251279449462
                 - 0.8794758893550427
             image1_content_00:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 12.749006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -4370,7 +4386,7 @@ scene:
               - 0.09195598162463012
             container_01:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 13.399999999999999
               - 0.8012670065463574
               quaternion_xyzw:
@@ -4379,15 +4395,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 13.283761071777343
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 13.514251279449462
                 - 0.8794758893550427
             image1_content_01:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 13.399006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -4401,7 +4417,7 @@ scene:
               - 0.07185805511474609
             image2_content_01:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 13.399006175613403
               - 0.786062834411958
               quaternion_xyzw:
@@ -4415,7 +4431,7 @@ scene:
               - 0.07185805511474609
             container_02:
               position:
-              - -7.000000000000001
+              - -6.880000000000001
               - 14.05
               - 0.8012670065463574
               quaternion_xyzw:
@@ -4424,15 +4440,15 @@ scene:
               - 0.7071067811865475
               - 0.7071067811865476
               bbox:
-              - - -7.1592856117248544
+              - - -7.039285611724854
                 - 13.933761071777344
                 - 0.6926497794688733
-              - - -6.844833201980592
+              - - -6.724833201980592
                 - 14.164251279449463
                 - 0.8794758893550427
             image2_content_02:
               position:
-              - -7.002059406852723
+              - -6.882059406852723
               - 14.049006175613403
               - 0.786062834411958
               quaternion_xyzw:

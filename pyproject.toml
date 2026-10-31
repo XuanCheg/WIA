@@ -4,14 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "wia"
-version = "0.1.0"
+version = "0.2.0"
 description = "World Interactive Agency: model-independent embodied evaluation"
 requires-python = ">=3.10"
 dependencies = ["numpy>=1.24", "PyYAML>=6", "pydantic>=2"]
 
 [project.optional-dependencies]
 harness = ["showharness[harness]>=0.1.0"]
-simulator = ["requests>=2", "Pillow>=9"]
+simulator = ["requests>=2", "Pillow>=9", "scipy>=1.10"]
 test = ["pytest>=7"]
 
 [project.entry-points."showharness.datasets"]

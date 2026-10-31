@@ -21,7 +21,7 @@ BACKENDS = {
 }
 POLICY_KEYS = {"type", "backend", "model", "base_url", "api_key_env", "provider",
                "max_output_tokens", "temperature", "reasoning_effort", "chat_template_kwargs",
-               "codex_executable", "model_timeout", "structured_output", "history_text_turns", "json_schema_output", "image_max_edge", "sliding_window_tokens"}
+               "codex_executable", "model_timeout", "structured_output", "history_text_turns", "json_schema_output", "image_max_edge", "sliding_window_tokens", "history_policy", "history_recent_moves", "max_perception_rounds"}
 EVAL_KEYS = {"max_steps", "timeout", "action_mode", "world", "observation_condition", "run_mode",
              "world_observation_log", "max_invalid_retries", "max_recoverable_failures", "snapshot_cache", "execution_mode"}
 ENV_KEYS = {"mode", "gpu", "port", "python", "data_root", "url", "episode_manifest", "evaluation_file",
@@ -109,6 +109,8 @@ def prepare(config_path, *, execution_mode=None):
         _known(environment, ENV_KEYS, "environment")
         _known(evaluation, EVAL_KEYS, "evaluation")
         _validate_numbers(policy, evaluation)
+        from wia.runtime.agent.history_policy import validate_history_policy
+        validate_history_policy(policy)
         if 'sliding_window_tokens' in policy:
             window = policy['sliding_window_tokens']
             if (policy['backend'] != 'openai_chat_completions' or policy.get('provider') != 'vllm'
@@ -156,7 +158,7 @@ def prepare(config_path, *, execution_mode=None):
         raise ValueError("Debug requires one launched task; use its live resume control for continuation.")
     if evaluation["execution_mode"] == "batch" and environment.get("keep_simulator"):
         raise ValueError("Batch evaluation cannot keep a simulator; use debug mode.")
-    from wia.tasks.loader import is_release_v1, select_task, task_definition
+    from wia.tasks.loader import is_release_v1, release_entry, select_task, task_definition
     plans = []
     attach_urls, attach_manifests = set(), set()
     for index, selection in enumerate(tasks):
@@ -173,7 +175,8 @@ def prepare(config_path, *, execution_mode=None):
                      "world": "run" if defaults["world_advances_during_inference"] else "pause",
                      "observation_condition": defaults["observation_condition"], "run_mode": "benchmark", **evaluation}
         rigid = getattr(definition, "kind", None) == "rigid_containment_task"
-        default_variant = "tabletop" if rigid else "original"
+        selected = release_entry(task_path)
+        default_variant = selected['variant'] if selected else ("tabletop" if rigid else "original")
         task = {"path": str(task_path.resolve()), "seed": selection.get("seed", defaults["seed"]),
                 "variant": selection.get("variant", default_variant),
                 "sha256": hashlib.sha256(task_path.read_bytes()).hexdigest()}
@@ -224,7 +227,7 @@ def prepare(config_path, *, execution_mode=None):
                 if canonical != policy["backend"]:
                     raise ValueError("Attach backend metadata differs from selected backend.")
                 if policy["backend"] != "codex_cli":
-                    for field in ("base_url", "api_key_env", "provider", "max_output_tokens", "temperature", "chat_template_kwargs", "history_text_turns", "json_schema_output", "image_max_edge", "sliding_window_tokens"):
+                    for field in ("base_url", "api_key_env", "provider", "max_output_tokens", "temperature", "chat_template_kwargs", "history_text_turns", "json_schema_output", "image_max_edge", "sliding_window_tokens", "history_policy", "history_recent_moves", "max_perception_rounds"):
                         if field in policy and policy[field] != metadata.get(field):
                             raise ValueError(f"Attach {field} differs from immutable backend metadata.")
                         if metadata.get(field) is not None:

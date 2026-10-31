@@ -1,33 +1,30 @@
 kind: category_robot_task
 id: wia_dimensional_d1_3_v2
-version: 4
+version: 6
 status: pending
 source:
   provider: esi
   json: Specular Reflection/Correspondence/hall_train_station/empty_room_0/wia_background_v1.json
 public:
-  objective: Choose a block and orient it to pass through the entire narrow tunnel. Grasp
-    and lift it, enter through the near opening, exit beyond the far opening, and release
-    it on the blue pad.
-  success_criteria: The selected block must physically enter the near opening, traverse the
-    frame depth, and fully exit through the far opening before its final supported release
-    on blue. Use a real robot grasp to lift each required block at least 5 cm. Finish with
-    every required block supported on its assigned pad, released without robot contact, and
-    stable for at least 0.5 seconds with linear speed at most 0.02 m/s and angular speed at
-    most 0.1 rad/s. Leave the working hand empty and open, withdraw all robot hands from the
-    placed blocks, and declare DONE.
-  environment: A hall workstation with grey blocks, a fixed framed opening and a blue delivery
-    pad.
+  objective: Choose a block and orientation that fit the entire framed opening. Move the block from the
+    near side through the opening and out beyond the far side, then leave it supported on the blue pad.
+    Rotation is allowed.
+  success_criteria: The selected block must physically enter the near opening, traverse the frame depth,
+    and fully exit through the far opening before its final supported release on blue. Finish with every
+    required block supported on its assigned pad, released without robot contact, and stable for at least
+    0.5 seconds with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. Leave the working
+    hand empty and open, withdraw all robot hands from the placed blocks, and declare DONE. No minimum
+    lift height or prior grasp is required.
+  environment: A hall workstation with grey blocks, a fixed framed opening and a blue delivery pad.
   constraints:
   - Preserve all block dimensions and all fixed tables, legs, pads and frames.
   - Use the existing guarded public robot controls and the observed block shapes and pad colors.
-  - The first candidate block you grasp commits your selection. Keep the unselected block
-    within 2 cm of its starting position.
-  - Rotation is allowed. Pass the selected block through the opening; do not route it around
-    the frame.
-  - The selected block may be released before passage is complete if it subsequently completes
-    the physical traversal and finishes on blue. The robot hand itself need not pass through
-    the opening.
+  - Rotation is allowed. Pass the selected block through the opening; do not route it around the frame.
+  - The selected block may be released before passage is complete if it subsequently completes the physical
+    traversal and finishes on blue. The robot hand itself need not pass through the opening.
+  - Robot base translation and rotation are allowed, including lateral movement around the workstation.
+    The selected block must actually pass through the framed opening; the robot hand itself need not pass
+    through the opening.
 requirements:
   capabilities:
   - base_translation
@@ -96,7 +93,7 @@ private:
       destinations:
       - pad_0
       scoring:
-        minimum_lift_m: 0.05
+        minimum_lift_m: null
         stability_duration_s: 0.5
         maximum_linear_speed_m_s: 0.02
         maximum_angular_speed_rad_s: 0.1
@@ -106,8 +103,9 @@ private:
         dimension_relative_tolerance: 1.0e-05
         aperture_clearance_margin_m: 0.001
         minimum_assignment_gap_m: 0.015
-        threshold_status: Explicit provisional development contract; native calibration and
-          legal reference execution deferred until user review.
+        threshold_status: Explicit provisional development contract; native calibration and legal reference
+          execution deferred until user review.
+        manipulation_revision: final_state_v1
       unselected_position_tolerance_m: 0.02
       fixture_keys:
       - table
@@ -129,10 +127,6 @@ private:
         - 0.14
         - 0.14
       completion_items:
-      - id: choice
-        kind: historical_checkpoint
-      - id: grasp_lift
-        kind: historical_checkpoint
       - id: passage
         kind: historical_checkpoint
       - id: stable_placement
@@ -299,7 +293,7 @@ scene:
               - 0.32
               - 0.012
               position:
-              - 0.35999999999999943
+              - 0.14
               - 0.0
               - 0.666
               orientation:
@@ -324,7 +318,7 @@ scene:
               - 0.04
               - 0.13
               position:
-              - 0.0
+              - -0.22
               - -0.07499999999999996
               - 0.7250000000000001
               orientation:
@@ -349,7 +343,7 @@ scene:
               - 0.04
               - 0.13
               position:
-              - 0.0
+              - -0.22
               - 0.07499999999999996
               - 0.7250000000000001
               orientation:
@@ -374,7 +368,7 @@ scene:
               - 0.5
               - 0.04
               position:
-              - 0.0
+              - -0.22
               - 0.0
               - 0.77
               orientation:
@@ -399,7 +393,7 @@ scene:
               - 0.06
               - 0.05
               position:
-              - -0.28000000000000025
+              - -0.5
               - 0.15000000000000002
               - 0.6880000000000001
               orientation:
@@ -424,7 +418,7 @@ scene:
               - 0.14
               - 0.14
               position:
-              - -0.28000000000000025
+              - -0.48
               - -0.1499999999999999
               - 0.733
               orientation:
@@ -604,7 +598,7 @@ scene:
               - 0.32
               - 0.012
               position:
-              - 0.35999999999999943
+              - 0.14
               - 0.0
               - 0.666
               orientation:
@@ -629,7 +623,7 @@ scene:
               - 0.04
               - 0.13
               position:
-              - 0.0
+              - -0.22
               - -0.07499999999999996
               - 0.7250000000000001
               orientation:
@@ -654,7 +648,7 @@ scene:
               - 0.04
               - 0.13
               position:
-              - 0.0
+              - -0.22
               - 0.07499999999999996
               - 0.7250000000000001
               orientation:
@@ -679,7 +673,7 @@ scene:
               - 0.5
               - 0.04
               position:
-              - 0.0
+              - -0.22
               - 0.0
               - 0.77
               orientation:
@@ -704,7 +698,7 @@ scene:
               - 0.06
               - 0.05
               position:
-              - -0.28000000000000025
+              - -0.5
               - 0.15000000000000002
               - 0.6880000000000001
               orientation:
@@ -729,7 +723,7 @@ scene:
               - 0.14
               - 0.14
               position:
-              - -0.28000000000000025
+              - -0.48
               - -0.1499999999999999
               - 0.733
               orientation:
@@ -777,8 +771,8 @@ repair:
   contract_revision: wia_dimensional_v3
   design_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/workstation_transfer_v1/train_remaining_design.json
   design_sha256: 2b58a9f83e4e55989b5decc2f30a086c6cd3a38d31bc6d25c82bea21d1f55435
-  source_role: background_loader_only; original optical inventory and QA are replaced explicitly
-    by active_layout; no original optical answer is reused
+  source_role: background_loader_only; original optical inventory and QA are replaced explicitly by active_layout;
+    no original optical answer is reused
   budget_status: Explicit provisional 240-decision development budget.
   runtime:
     reflection_sensor_profile: {}
@@ -825,3 +819,31 @@ repair:
   physical_success_verified: false
   scientific_controls_verified: false
   continuous_path_certified: false
+  final_state_revision:
+    revision: final_state_v1
+    date: '2026-10-30'
+    parent_task_sha256: 15c86570508202f8a8bbab7a37e2636b45195afc1b488c841c9512cfdbee7320
+    parent_scene_sha256: 77f8580c92adbd0e4883cce758bc0b1d5f733c5dde4890f29adf349439df2fd2
+    parent_source_task_file: explore_to_achieve/wia_v1/workstation_transfer_v1/tasks/d1_3_seed101_v2_hall_train_v1.yaml
+    parent_source_scene_file: explore_to_achieve/wia_v1/workstation_transfer_v1/scenes/d1_3_seed101_v2_hall_train_v1.yaml
+    scene_geometry_changed: false
+    native_execution_verified: false
+    scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.
+  user_review_access_v1:
+    alias: D1-3
+    selected_variant: adapted
+    reason: 'Apply the main-authored workstation access proposal: move only frame, blue pad and candidate
+      X positions to the reviewed table-relative offsets (-0.22 m frame, +0.14 m pad, -0.50 m candidate_0,
+      -0.48 m candidate_1), and explicitly allow lateral robot base motion. Preserve table, legs, robot
+      start, all dimensions, orientations, Y/Z coordinates, historical provenance and final_state_v1 physical-passage
+      predicates. Native geometry, robot access and physical success validation are pending.'
+    native_validation_status: pending
+    native_validation_run: false
+    physical_success_verified: false
+    table_relative_x_offsets_m:
+      wia_dim_aperture_low: -0.22
+      wia_dim_aperture_high: -0.22
+      wia_dim_aperture_roof: -0.22
+      wia_dim_pad_0: 0.14
+      wia_dim_candidate_0: -0.5
+      wia_dim_candidate_1: -0.48

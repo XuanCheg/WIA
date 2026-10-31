@@ -4,14 +4,15 @@ Run validation: python -B -m pytest -q tests/test_authored_sources.py
 """
 from pathlib import Path
 
-from wia.resources import ROOT, ESI_ROOT
+from wia.resources import ROOT, ESI_ROOT, DATASET_ROOT
 UPSTREAM_ROOT = ESI_ROOT / 'dataset/json_clean'
 AUTHORED_ROOT = ROOT / 'explore_to_achieve/sources/json_clean'
 
 
 def resolve_source(identity, *, data_root=None):
     """Keep explicit snapshot roots isolated; otherwise search original then authored."""
-    roots = [Path(data_root)] if data_root is not None else [UPSTREAM_ROOT, AUTHORED_ROOT]
+    roots = ([Path(data_root)] if data_root is not None else
+             [DATASET_ROOT / 'sources/json_clean', UPSTREAM_ROOT, AUTHORED_ROOT])
     for root in roots:
         root = root.expanduser().resolve()
         candidate = (root / identity).resolve()

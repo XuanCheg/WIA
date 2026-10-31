@@ -1,0 +1,21 @@
+{
+  "id": "wia_household_gf2_2_v1_transport",
+  "big_task": "Specular Reflection",
+  "small_task": "Correspondence",
+  "runner_task": "mirror",
+  "scene": "restaurant_hotel",
+  "room": "kitchen_0",
+  "question": "Move the upright cutting board from its wide pickup stand into the narrow blue drying slot. Turn the board to match the slot, pass it through the front mouth, and leave the whole board inside, supported on the slot floor. The top of the board is exposed for handling at the pickup stand.",
+  "answer": "",
+  "answer_type": "free_form",
+  "options_json": "[]",
+  "image_paths_json": "[]",
+  "metadata_json": "{\"floor_name\": \"floors_ykbuit_0\", \"question_data\": {\"placement\": [], \"render\": {\"camera_pose\": {\"position\": [3.7, -0.088, 1.3], \"quaternion_xyzw\": [0.5, -0.5, -0.5, 0.5]}}}}",
+  "objects": {},
+  "initial_poses": {},
+  "wia_provenance": {
+    "role": "authored_scene_transport_only",
+    "original_source_answer_used": false,
+    "task_definition": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/candidates/household_geometry_20261031/tasks/gf2_2.yaml"
+  }
+}

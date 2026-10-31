@@ -15,7 +15,7 @@ from harness_integration.test_annotation_manipulation_categories import NativeOb
 
 
 class StackTrial:
-    def __init__(self, tmp_path, states, *, top=False, transfer=True):
+    def __init__(self, tmp_path, states, *, top=False, transfer=True, revision=None):
         self.states = states
         self.keys = ['middle', 'base_candidate_0', 'base_candidate_1']
         if top:
@@ -42,6 +42,8 @@ class StackTrial:
             'maximum_angular_speed_rad_s': .1}
         if transfer:
             parameters.update(manipulation_revision='support_transfer_v1', task_revision='wia_ordered_transfer_test_v1')
+        if revision is not None:
+            parameters.update(manipulation_revision=revision, task_revision='wia_final_stack_test_v1')
         self.config = {'type': 'category_operation', 'module': order.MODULE, 'operation': order.OPERATION,
             'scene': self.session.scene_name, 'room': self.session.room_name, 'binding_keys': self.keys,
             'bindings': {key: obj.name for key, obj in self.objects.items()}, 'parameters': parameters}

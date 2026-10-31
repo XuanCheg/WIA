@@ -1,0 +1,21 @@
+{
+  "id": "wia_household_gf3_2_v1_transport",
+  "big_task": "Specular Reflection",
+  "small_task": "Correspondence",
+  "runner_task": "mirror",
+  "scene": "restaurant_hotel",
+  "room": "kitchen_0",
+  "question": "Store the shorter spice jar upright in the low blue shelf compartment and the taller jar upright in the high yellow compartment. Compare the jars themselves. Leave one jar completely inside each compartment on its floor; keep both upright within 10 degrees of vertical.",
+  "answer": "",
+  "answer_type": "free_form",
+  "options_json": "[]",
+  "image_paths_json": "[]",
+  "metadata_json": "{\"floor_name\": \"floors_ykbuit_0\", \"question_data\": {\"placement\": [], \"render\": {\"camera_pose\": {\"position\": [3.7, -0.088, 1.3], \"quaternion_xyzw\": [0.5, -0.5, -0.5, 0.5]}}}}",
+  "objects": {},
+  "initial_poses": {},
+  "wia_provenance": {
+    "role": "authored_scene_transport_only",
+    "original_source_answer_used": false,
+    "task_definition": "/local_home2/zhouxinyang/models/WIA/explore_to_achieve/candidates/household_geometry_20261031/tasks/gf3_2.yaml"
+  }
+}

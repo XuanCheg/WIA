@@ -1,0 +1,67 @@
+{
+  "schema": "wia_inside_control_validation_v1",
+  "alias": "T52",
+  "complete": true,
+  "source_identity": "Perceptual Grounding/Material Transparency/office_large/meeting_room_1/office_large__meeting_room_1.json",
+  "source_sha256": "2c704a1ead4a4dc6f23cc90c78d3c8cd31e0ad2dc815ba8d7c22291bd2ad4be6",
+  "task_sha256": "750155bc6e0cbf597719ee2286b0b7b6bef95794758226f7662763026e4d367a",
+  "scene_sha256": "38e4be33e171c040c982d45d8e19b44493dce99e4e3a4ce28952aa987099f2c2",
+  "model_calls": 0,
+  "robot_commands": 0,
+  "autonomous_agent_performance": false,
+  "action_step": 0,
+  "native_result": {
+    "schema": "private_stable_inside_v1",
+    "snapshot_id": 3,
+    "action_step": 0,
+    "completion_items": [
+      {
+        "id": "stable_inside",
+        "kind": "terminal_condition",
+        "completed": true,
+        "evaluation_validity": "valid"
+      }
+    ],
+    "task_success": true,
+    "initial_inside_native": true,
+    "release_stable_steps": 15,
+    "measurements": {
+      "measurement_errors": {},
+      "gripper": {
+        "grasp_mode": "assisted",
+        "gripper_width_m": 0.060000136494636536,
+        "gripper_command_name": "HOLD",
+        "gripper_closed": false,
+        "gripper_open": false,
+        "holding": false,
+        "object_name": null,
+        "constraint_active": false,
+        "release_pending": false
+      },
+      "destination_relation": true,
+      "linear_speed_m_s": 0.0,
+      "angular_speed_rad_s": 0.0,
+      "robot_withdrawn": true
+    },
+    "evaluation_validity": "complete",
+    "no_op_verified": true,
+    "scoring_version": "task_completion_v2",
+    "completed_goals": 1,
+    "total_goals": 1,
+    "completion_score": 1.0,
+    "score_percent": 100.0,
+    "diagnostic_lower_bound": 1.0,
+    "constraints_satisfied": true
+  },
+  "device_mapping": {
+    "physical_gpu": 4,
+    "cuda_device": 0,
+    "renderer_gpu": 4
+  },
+  "evidence": {
+    "outputs/release_v02_followup_20261031/t52_jar_corner/result.json": "b812ef0da3a96c1be791ff835bc5a9a35eb3dac38ec6edfdceeba09f3705a121",
+    "outputs/release_v02_followup_20261031/t52_jar_corner/private_evaluation/state.json": "a13cf1dcf8a09b35cec07bbc434f7929d5b4d95a72e386324df21456de376eef"
+  },
+  "interpretation": "The exact released T52 definition passes the existing stable-inside scorer without public actions. This is a no-op control, not a grasp or autonomous-agent performance claim.",
+  "initialization_note": "The generic direct-furniture-support heuristic rejects the small object because its support is the jar, although its measured height is inside the permitted window. Native Inside, container contact, 15 stable steps and a safe floor-supported robot start passed. Original object poses and scales were preserved."
+}

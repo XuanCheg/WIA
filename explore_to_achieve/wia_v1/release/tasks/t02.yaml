@@ -1,28 +1,24 @@
 kind: category_robot_task
 id: task_040db5114ed9fd93389a461f
-version: 4
+version: 5
 status: pending
 source:
   provider: esi
   json: Action Sequencing/Action Order Inference/house_single_floor/dining_room_0/house_single_floor__dining_room_0.json
 public:
-  objective: Follow this supplied order. Choose one cutting board as the base for
-    B (the gift box). Grasp B, separate it from its current support, then place and
-    release it on the chosen base until stable. Then choose one softball, grasp and
-    separate it from its current support, and place and release it on top of B until
-    the whole stack is stable.
-  success_criteria: Either original candidate of each category is acceptable when
-    the chosen objects genuinely form the requested support order after the ordered
-    grasp, support separation and placement operations. The freestanding stack must
-    remain in supporting contact with low motion for at least 0.5 seconds after release.
-    A fixed lift height is not required. Native evidence must show the selected object
-    genuinely held clear of external and candidate supports before its later release.
-  environment: The original room contains two cutting board candidates and one gift
-    box called B. There are two softball candidates.
+  objective: Build a stable stack with the gift box called B supported by either original cutting board.
+    Place either original softball on top of B. You may complete the stack anywhere on a stable supporting
+    surface. The chosen base may remain where it starts.
+  success_criteria: The selected original objects must form the requested support order, with each upper
+    object supported only by its predecessor and the base supported by a stable surface. Leave the stack
+    released, clear of robot contact, and stable for at least 0.5 seconds. Success depends on the final
+    structure; there is no minimum lift height, required grasp history, intermediate placement checkpoint
+    or prescribed action order.
+  environment: The original room contains two cutting board candidates and one gift box called B. There
+    are two softball candidates.
   constraints:
-  - Use robot motion and gripper interaction to move objects.
-  - Finish placing B before grasping the chosen top object.
-  - Recover unsuccessful placements with robot grasping and retry as needed.
+  - Use guarded public robot controls to arrange the objects.
+  - Preserve all original object sizes.
   - Leave all grippers released and clear of the finished stack.
 requirements:
   capabilities:
@@ -74,15 +70,15 @@ private:
       minimum_stability_duration_s: 0.5
       maximum_linear_speed_m_s: 0.02
       maximum_angular_speed_rad_s: 0.1
-      task_revision: wia_ordered_support_transfer_v1
+      task_revision: wia_stack_final_state_20261030_v1
       mechanism_contract:
-        goal: execute_supplied_support_order
+        goal: achieve_declared_final_support_order
         preserve:
         - original_candidates
         - asset_scales
-        - intermediate_stable_support
+        - released_stable_support
         inference_claimed: false
-      manipulation_revision: support_transfer_v1
+      manipulation_revision: final_state_v1
 scene:
   policy: native_then_minimal_patch_else_skip
   variants:
@@ -118,7 +114,7 @@ scene:
       - operation: category_initialization
         phase: before_construction
         module: wia.authoring.converters.action_order
-        parameters: &id001
+        parameters:
           operation: measured_rigid_row_startup_v2
           scene_model: house_single_floor
           room: dining_room_0
@@ -199,7 +195,64 @@ scene:
       - operation: category_initialization
         phase: after_postprocessing
         module: wia.authoring.converters.action_order
-        parameters: *id001
+        parameters:
+          operation: measured_rigid_row_startup_v2
+          scene_model: house_single_floor
+          room: dining_room_0
+          bindings:
+            middle:
+              name: obj_fixed
+              category: gift_box
+              model: pnprrx
+            base_candidate_0:
+              name: obj_A_correct
+              category: cutting_board
+              model: aibvew
+            base_candidate_1:
+              name: obj_A_wrong
+              category: cutting_board
+              model: aibvew
+            top_candidate_0:
+              name: obj_C_correct
+              category: softball
+              model: erhbze
+            top_candidate_1:
+              name: obj_C_wrong
+              category: softball
+              model: erhbze
+          interaction_policy:
+            mode: manipulation
+            group_bindings:
+            - middle
+            - base_candidate_0
+            - base_candidate_1
+            - top_candidate_0
+            - top_candidate_1
+            manipulation_bindings:
+            - middle
+            - base_candidate_0
+            - base_candidate_1
+            - top_candidate_0
+            - top_candidate_1
+            relocation_policy: independent_groups
+            source_region: dining_room_0
+            placement_groups:
+            - - middle
+            - - base_candidate_0
+            - - base_candidate_1
+            - - top_candidate_0
+            - - top_candidate_1
+            source_camera_policy: preserve
+            support_search: measured_surfaces
+            allow_fallback_table: true
+            minimum_grasp_height_m: 0.35
+            maximum_grasp_height_m: 1.1
+            maximum_stance_distance_m: 0.85
+          source_provenance:
+            source_json: Action Sequencing/Action Order Inference/house_single_floor/dining_room_0/house_single_floor__dining_room_0.json
+            builder: ESI-Bench/src/active_explore/tasks/action_sequencing/action_order_inference.py
+            historical_adapter: core/sim/esi_action_order_tabletop.py
+            rule_revision: measured_independent_candidate_supports_v3
       - operation: prepare_category_interaction
         phase: after_postprocessing
         mode: manipulation
@@ -260,9 +313,8 @@ repair:
   manipulation_revision: support_transfer_v1
   parent_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/action_order_transfer_v2/t02_task.yaml
   parent_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/action_order_transfer_v2/t02_scene.yaml
-  change_authorization: User approved removal of the fixed 5 cm gate on 2026-10-24;
-    retain genuine native grasp, support separation, ordered placement, release and
-    stability.
+  change_authorization: User approved removal of the fixed 5 cm gate on 2026-10-24; retain genuine native
+    grasp, support separation, ordered placement, release and stability.
   runtime:
     reflection_sensor_profile: {}
     requires_native_visual_discovery: false
@@ -280,3 +332,13 @@ repair:
   native_validation_run: false
   physical_success_verified: false
   background_revision: complete_ground_v2
+  final_state_revision:
+    revision: final_state_v1
+    date: '2026-10-30'
+    parent_task_sha256: 11307f29c7e2998e95e45fee2b848619104e2ad4bac8b770bdda7d7a8648f8a6
+    parent_scene_sha256: 80d21b8e7c4ce04f51d5b2b7ac90c040e8e91fcdfb14fbbce212bd97b62d2eef
+    parent_source_task_file: explore_to_achieve/wia_v1/background_family_v2/tasks/t02_complete_ground_v2.yaml
+    parent_source_scene_file: explore_to_achieve/wia_v1/background_family_v2/scenes/t02_complete_ground_v2.yaml
+    scene_geometry_changed: false
+    native_execution_verified: false
+    scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.

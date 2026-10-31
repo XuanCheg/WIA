@@ -97,6 +97,10 @@ class ESIObservationSource:
         # Initial ambiguity/history reducers must see exactly the same complete
         # input bundle as the Agent, including the frozen Global image.
         observation = self._capture_initial_overview(observation)
+        prelude = getattr(self.session, 'candidate_episode_prelude', None)
+        if callable(prelude):
+            observation = prelude(self, observation)
+            self.initial_observation = observation
         # Canonical Mapping worlds need a read-only initial inventory before
         # the first public action, even while release qualification is pending.
         identity_provider = getattr(self.session, 'mapping_joint_world_identity', None)
@@ -364,6 +368,9 @@ class ESIObservationSource:
         self.latest_snapshot = snapshot
         if action_boundary:
             self.boundary_observation = observation
+        candidate_hook = getattr(self.session, 'candidate_observation_hook', None)
+        if action_boundary and callable(candidate_hook):
+            candidate_hook(observation)
         if self.on_capture is not None:
             self.on_capture(snapshot)
         if counters:

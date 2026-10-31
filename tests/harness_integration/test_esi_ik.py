@@ -22,6 +22,18 @@ def guarded_solver(q=None, proposal=None, limits=4.0, jump_limit=.08):
     return guard, ctrl, solver, state
 
 
+class CachedFunctionsLike:
+    """Match the native cache's keyed-only access protocol."""
+
+    def __init__(self, values):
+        self.values = values
+        self.lookups = []
+
+    def __getitem__(self, key):
+        self.lookups.append(key)
+        return self.values[key]
+
+
 def test_singular_solution_cannot_deploy_large_joint_jump():
     guard, ctrl, solver, state = guarded_solver(proposal=[1, 0, 0, 0, 0, 0])
     state["eef_left_jacobian_relative"][0, 0] = 0.001
@@ -192,6 +204,98 @@ def test_damped_native_pose_retreat_is_bounded_and_reduces_error():
     assert guard.fault is None and guard.damped_recovery_steps == 1
     assert result[0] < 0 and np.max(np.abs(result)) <= guard.max_step.max() + 1e-9
     assert abs(goal['target_pos'][0] - .001*result[0]) < abs(goal['target_pos'][0])
+
+
+@pytest.mark.parametrize("backend", ["numpy", "torch"])
+def test_damped_recovery_uses_keyed_cache_lookups_and_preserves_backend(backend):
+    guard, ctrl, _, values = guarded_solver(proposal=[2, 0, 0, 0, 0, 0])
+    values["joint_position"] = values["joint_position"].astype(np.float32)
+    if backend == "torch":
+        torch = pytest.importorskip("torch")
+        values["joint_position"] = torch.tensor(values["joint_position"])
+    values.update(eef_left_pos_relative=np.zeros(3),
+                  eef_left_quat_relative=np.array([0., 0., 0., 1.]))
+    values["eef_left_jacobian_relative"] = np.diag([.001, 1, 1, 1, 1, 1])
+    state = CachedFunctionsLike(values)
+    goal = CachedFunctionsLike({"target_pos": np.array([-.0001, 0, 0]),
+                                "target_ori_mat": np.eye(3)})
+    result = ctrl.compute_control(goal, state)
+    assert guard.fault is None and guard.damped_recovery_steps == 1
+    assert type(result) is type(values["joint_position"])
+    assert result.dtype == values["joint_position"].dtype
+    deployed = np.asarray(result)
+    assert deployed[0] < 0 and np.max(np.abs(deployed)) <= guard.max_step.max() + 1e-9
+    assert abs(-.0001 - .001*deployed[0]) < .0001
+    assert all(isinstance(key, str) for key in state.lookups + goal.lookups)
+
+
+@pytest.mark.parametrize("mapping,key", [("state", "eef_left_pos_relative"),
+                                         ("state", "eef_left_quat_relative"),
+                                         ("goal", "target_pos"),
+                                         ("goal", "target_ori_mat")])
+def test_missing_cached_pose_field_falls_back_to_native_rejection(mapping, key):
+    guard, ctrl, _, values = guarded_solver(proposal=[2, 0, 0, 0, 0, 0])
+    values.update(eef_left_pos_relative=np.zeros(3),
+                  eef_left_quat_relative=np.array([0., 0., 0., 1.]))
+    targets = {"target_pos": np.array([-.001, 0, 0]), "target_ori_mat": np.eye(3)}
+    del (values if mapping == "state" else targets)[key]
+    state, goal = CachedFunctionsLike(values), CachedFunctionsLike(targets)
+    result = ctrl.compute_control(goal, state)
+    assert guard.fault == "ik_joint_jump" and guard.damped_recovery_steps == 0
+    assert np.array_equal(result, values["joint_position"])
+    assert key in (state if mapping == "state" else goal).lookups
+    assert all(isinstance(lookup, str) for lookup in state.lookups + goal.lookups)
+
+
+def test_damped_recovery_does_not_hide_invalid_pose_computation():
+    _, ctrl, _, state = guarded_solver(proposal=[2, 0, 0, 0, 0, 0])
+    state.update(eef_left_pos_relative=np.zeros(3), eef_left_quat_relative=np.zeros(4))
+    goal = {"target_pos": np.array([-.001, 0, 0]), "target_ori_mat": np.eye(3)}
+    with pytest.raises(ValueError, match="zero norm"):
+        ctrl.compute_control(CachedFunctionsLike(goal), CachedFunctionsLike(state))
+
+
+@pytest.mark.parametrize("latch", ["fault_hold", "explicit_hold"])
+@pytest.mark.parametrize("guard_depth", [1, 2])
+def test_replacing_guards_calls_native_solver_without_stale_latches(monkeypatch, latch, guard_depth):
+    stale, ctrl, solver, state = guarded_solver(q=[.9, 0, 0, 0, 0, 0],
+                                               proposal=[.93, 0, 0, 0, 0, 0], limits=1.)
+    native_compute, native_calls = stale.original_compute, []
+
+    def native(goal, control):
+        native_calls.append(1)
+        return native_compute(goal, control)
+
+    def fail_if_stale(*args):
+        pytest.fail("A replaced guard was invoked.")
+
+    stale.original_compute = native
+    limits = {"position": (np.full(6, -1.), np.full(6, 1.)),
+              "velocity": (np.full(6, -2.), np.full(6, 2.))}
+    stale_guards = [stale]
+    if guard_depth == 2:
+        outer = NativeIKGuard(ctrl, limits, 1 / 120, stale.config)
+        # Reproduce a legacy chain created before replacement unwrapped guards.
+        outer.original_compute = stale.compute_control
+        stale_guards.append(outer)
+    for old in stale_guards:
+        if latch == "fault_hold":
+            old.fault, old.hold = "arm_joint_limit", np.full(6, -.2)
+        else:
+            old.explicit_joint_hold = np.full(6, -.2)
+        monkeypatch.setattr(old, "_bounded", fail_if_stale)
+    fresh = NativeIKGuard(ctrl, limits, 1 / 120, stale.config)
+    assert fresh.original_compute is native
+    assert fresh.fault is None and fresh.hold is None and fresh.explicit_joint_hold is None
+    result = ctrl.compute_control({}, state)
+    assert native_calls == [1] and fresh.fault is None
+    assert result[0] > state["joint_position"][0]
+    assert np.max(np.abs(result-state["joint_position"])) == pytest.approx(.6 / 120)
+    state["joint_position"] = result.copy()
+    solver.proposal[0] = 1.
+    rejected = ctrl.compute_control({}, state)
+    assert native_calls == [1, 1] and fresh.fault == "arm_joint_limit"
+    assert np.array_equal(rejected, state["joint_position"])
 
 
 def test_damped_soft_limit_allows_inward_but_never_outward_step():

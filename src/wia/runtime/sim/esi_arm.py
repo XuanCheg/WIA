@@ -476,6 +476,13 @@ class R1ArmController(R1BaseController):
                     _array(self.robot.get_joint_positions()[dofs]) - _array(self.ik_guard.hold))))
                 recovery_completed = recovery_error <= cfg.ik_recovery_joint_tolerance_rad
             self._freeze_arm_pose()
+        # Holding the measured end pose may itself reject a native IK proposal.
+        # Preserve that late rejection so the executor runs measured settling;
+        # a stale arm_motion_blocked reason would skip that stop certificate.
+        pre_stop_reason = reason
+        if (not cancelled and not timeout and self.ik_guard.fault in IK_REJECTION_ERRORS
+                and reason in {"completed", "arm_motion_blocked", "target_not_reached"}):
+            reason = self.ik_guard.fault
         after, error, ori_error = measure()
         completed = (reason == "completed" and np.linalg.norm(error) <= cfg.translation_tolerance_m
                      and ori_error <= orientation_tolerance)
@@ -485,6 +492,7 @@ class R1ArmController(R1BaseController):
         result = {
             "action": action, "motion": "arm_rotation" if rotating else "arm_translation",
             "working_arm": self.working_arm, "frame": "eef_local" if rotating else "robot_base",
+            "pre_stop_reason": pre_stop_reason,
             "target_base_position": target.tolist(), "target_base_quaternion_xyzw": target_quat,
             "ee_pose_before": before, "ee_pose_after": after,
             "base_pose_before": base_before, "base_pose_after": self.pose(),

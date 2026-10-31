@@ -1,6 +1,6 @@
 kind: scene_patch
 id: wia_rigid_t22_family_v1_scene__t22_left_sofa_v3
-version: 4
+version: 6
 status: pending
 source:
   provider: esi
@@ -39,6 +39,10 @@ scene:
       initial_visibility: null
     tabletop:
       patches:
+      - operation: object_scale
+        phase: before_construction
+        binding: target
+        multiplier: 0.4
       - operation: robot_pose
         phase: before_construction
         position:

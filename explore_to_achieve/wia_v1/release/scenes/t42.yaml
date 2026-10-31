@@ -1,6 +1,6 @@
 kind: scene_patch
 id: wia_ramp_private_material_000__t42_complete_ground_v3__t42_red_release_marker_v1
-version: 5
+version: 6
 status: pending
 source:
   provider: esi
@@ -681,6 +681,7 @@ scene:
               - 0.0
               - 0.5736971923032635
               - 0.8190674767950149
+            synchronize_authored_poses_before_alignment: true
       - operation: category_initialization
         phase: after_postprocessing
         module: wia.authoring.converters.active_layout
@@ -1271,6 +1272,7 @@ scene:
               - 0.0
               - 0.5736971923032635
               - 0.8190674767950149
+            synchronize_authored_poses_before_alignment: true
       - operation: category_initialization
         phase: before_construction
         module: wia.authoring.converters.wia_background

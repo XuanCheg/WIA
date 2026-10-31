@@ -69,9 +69,13 @@ def test_v4_reads_fixed_dataset_fixtures_and_preserves_all_geometry(bounded):
 
 
 @pytest.mark.parametrize('label', ['blue', 'yellow'])
-def test_v4_native_adapter_sequence_delivers_mixed_produce_to_pot_or_board(bounded, label):
+@pytest.mark.parametrize('final_state', [False, True])
+def test_v4_native_adapter_sequence_delivers_mixed_produce_to_pot_or_board(bounded, label, final_state):
     p = bounded.config['parameters']
     p.update(operation='mirror_select_deliver', delivery_destination=label)
+    if final_state:
+        p['scoring'].update(manipulation_revision='final_state_v1', minimum_lift_m=None,
+                            minimum_required_motion_m=None)
     bounded.config['operation'] = p['operation']
     for key, category in [('candidate_0', 'apple'), ('candidate_1', 'carrot')]:
         bounded.objects[key].category = category
@@ -79,25 +83,31 @@ def test_v4_native_adapter_sequence_delivers_mixed_produce_to_pot_or_board(bound
     evaluator = adapter.create_evaluator(bounded.session, bounded.controller, bounded.config, bounded.output)
     initial = evaluator.begin_episode(bounded.observation)
     assert initial['initial_qualification']['accepted'] is True
-    bounded.robot._ag_obj_in_hand['left'] = bounded.target
-    bounded.robot._ag_obj_constraints['left'] = object()
-    bounded.readings['left'], bounded.robot.positions[:2] = 1, 0.
-    bounded.target.position[2] += .06
-    bounded.clock.current_time = .0625
-    evaluator.sample_step()
-    bounded.robot._ag_obj_in_hand['left'] = bounded.robot._ag_obj_constraints['left'] = None
+    if not final_state:
+        bounded.robot._ag_obj_in_hand['left'] = bounded.target
+        bounded.robot._ag_obj_constraints['left'] = object()
+        bounded.readings['left'], bounded.robot.positions[:2] = 1, 0.
+        bounded.target.position[2] += .06
+        bounded.clock.current_time = .0625
+        evaluator.sample_step()
+        bounded.robot._ag_obj_in_hand['left'] = bounded.robot._ag_obj_constraints['left'] = None
     bounded.readings['left'], bounded.robot.positions[:2] = -1, .04
     destination = bounded.objects[p['destinations'][label]]
     bounded.target.position[:] = destination.position
     kind = p['destination_contracts'][p['destinations'][label]]['kind']
     for field in ('touching', kind):
         bounded.target.relations[(destination.name, field)] = True
-    for time in np.arange(.125, .751, .0625):
+    for time in np.arange(.0625 if final_state else .125, .751, .0625):
         bounded.clock.current_time = float(time)
         evaluator.sample_step()
     result = evaluator.record(bounded.observation)
     assert result['evaluation_validity'] == 'complete' and result['task_success'] is True
     assert result['per_target']['candidate_0']['placement_relations']['kind'] == kind
+    if final_state:
+        assert result['physical_scorer_schema'] == 'wia_mirror_final_state_progress_v1'
+        assert not result['per_target']['candidate_0']['grasp_seen']
+        assert [row['id'] for row in result['completion_items']] == [
+            'selected_original_at_destination', 'stable_placement']
 
 
 def test_root_fixture_pose_change_is_rejected_even_when_object_pose_is_unchanged(bounded):

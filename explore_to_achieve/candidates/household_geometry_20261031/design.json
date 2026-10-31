@@ -1,0 +1,2163 @@
+{
+  "schema": "wia_household_geometry_design_v1",
+  "user_request": "Two everyday scenes each for GF-2 and GF-3, without restoring D tasks.",
+  "asset_metadata": {
+    "table_knife/eebpap": {
+      "category": "table_knife",
+      "model": "eebpap",
+      "bounds_root_m": [
+        [
+          -0.11985251432736543,
+          -0.014494858045597248,
+          -0.002735739649721458
+        ],
+        [
+          0.14557020940037546,
+          0.013624312154656149,
+          0.002819158226508356
+        ]
+      ],
+      "dimensions_m": [
+        0.2654227237277409,
+        0.028119170200253396,
+        0.005554897876229814
+      ],
+      "native_bbox_m": [
+        0.26545968651771545,
+        0.02806510590016842,
+        0.005555598996579647
+      ],
+      "source": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/table_knife/eebpap/usd/eebpap.usdz.encrypted",
+      "native": false,
+      "vertex_count": 56
+    },
+    "table_knife/jxdfyy": {
+      "category": "table_knife",
+      "model": "jxdfyy",
+      "bounds_root_m": [
+        [
+          -0.11580107334343737,
+          -0.010999267863141426,
+          -0.007546631814159266
+        ],
+        [
+          0.12842093228805318,
+          0.01247137604464399,
+          0.007822508753473123
+        ]
+      ],
+      "dimensions_m": [
+        0.24422200563149055,
+        0.023470643907785416,
+        0.015369140567632389
+      ],
+      "native_bbox_m": [
+        0.24240677058696747,
+        0.021948758512735367,
+        0.0134413568302989
+      ],
+      "source": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/table_knife/jxdfyy/usd/jxdfyy.usdz.encrypted",
+      "native": false,
+      "vertex_count": 181
+    },
+    "cutting_board/aibvew": {
+      "category": "cutting_board",
+      "model": "aibvew",
+      "bounds_root_m": [
+        [
+          -0.11526724585799997,
+          -0.08241735652581683,
+          -0.010007928898710383
+        ],
+        [
+          0.11508823349353747,
+          0.08241737126318949,
+          0.010001453394197501
+        ]
+      ],
+      "dimensions_m": [
+        0.23035547935153744,
+        0.16483472778900632,
+        0.020009382292907885
+      ],
+      "native_bbox_m": [
+        0.23035617172718048,
+        0.16483472287654877,
+        0.019999999552965164
+      ],
+      "source": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/cutting_board/aibvew/usd/aibvew.usdz.encrypted",
+      "native": false,
+      "vertex_count": 424
+    },
+    "cutting_board/olftkr": {
+      "category": "cutting_board",
+      "model": "olftkr",
+      "bounds_root_m": [
+        [
+          -0.18182420732046012,
+          -0.12200781342127787,
+          -0.015000221505441003
+        ],
+        [
+          0.18182324277950102,
+          0.12197167980679069,
+          0.014999737814390124
+        ]
+      ],
+      "dimensions_m": [
+        0.36364745009996113,
+        0.24397949322806856,
+        0.029999959319831127
+      ],
+      "native_bbox_m": [
+        0.36325177550315857,
+        0.24395214021205902,
+        0.030001262202858925
+      ],
+      "source": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/cutting_board/olftkr/usd/olftkr.usdz.encrypted",
+      "native": false,
+      "vertex_count": 112
+    },
+    "paperback_book/aubynm": {
+      "category": "paperback_book",
+      "model": "aubynm",
+      "bounds_root_m": [
+        [
+          -0.14633507731698359,
+          -0.1123620070505087,
+          -0.0030982938767469825
+        ],
+        [
+          0.14628825504568788,
+          0.11208379790306644,
+          0.005288803280790955
+        ]
+      ],
+      "dimensions_m": [
+        0.29262333236267146,
+        0.22444580495357513,
+        0.008387097157537937
+      ],
+      "native_bbox_m": [
+        0.292623370885849,
+        0.2244466245174408,
+        0.008387123234570026
+      ],
+      "source": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/paperback_book/aubynm/usd/aubynm.usdz.encrypted",
+      "native": false,
+      "vertex_count": 60
+    },
+    "paperback_book/bisnup": {
+      "category": "paperback_book",
+      "model": "bisnup",
+      "bounds_root_m": [
+        [
+          -0.1526308830123142,
+          -0.10960921443047056,
+          -0.004761917320877607
+        ],
+        [
+          0.15257219716499293,
+          0.10992779875643066,
+          0.0032360469495959776
+        ]
+      ],
+      "dimensions_m": [
+        0.30520308017730713,
+        0.21953701318690122,
+        0.007997964270473584
+      ],
+      "native_bbox_m": [
+        0.30492088198661804,
+        0.21952976286411285,
+        0.007997535169124603
+      ],
+      "source": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/paperback_book/bisnup/usd/bisnup.usdz.encrypted",
+      "native": false,
+      "vertex_count": 8
+    },
+    "cucumber/wcvwye": {
+      "category": "cucumber",
+      "model": "wcvwye",
+      "bounds_root_m": [
+        [
+          -0.06658354434419156,
+          -0.023661382054472213,
+          -0.01919695118825615
+        ],
+        [
+          0.061989045257837105,
+          0.025017772822284456,
+          0.02288485189516365
+        ]
+      ],
+      "dimensions_m": [
+        0.12857258960202866,
+        0.04867915487675667,
+        0.0420818030834198
+      ],
+      "native_bbox_m": [
+        0.128682941198349,
+        0.04798223078250885,
+        0.042080070823431015
+      ],
+      "source": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/cucumber/wcvwye/usd/wcvwye.usdz.encrypted",
+      "native": false,
+      "vertex_count": 172
+    },
+    "carrot/qhmmmx": {
+      "category": "carrot",
+      "model": "qhmmmx",
+      "bounds_root_m": [
+        [
+          -0.0888416846076785,
+          -0.015292533186394563,
+          -0.015072493130733333
+        ],
+        [
+          0.09152009831154295,
+          0.014647251442943932,
+          0.01474266288204018
+        ]
+      ],
+      "dimensions_m": [
+        0.18036178291922145,
+        0.029939784629338495,
+        0.029815156012773514
+      ],
+      "native_bbox_m": [
+        0.18041640520095825,
+        0.029639957472682,
+        0.02965105138719082
+      ],
+      "source": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/carrot/qhmmmx/usd/qhmmmx.usdz.encrypted",
+      "native": false,
+      "vertex_count": 56
+    },
+    "marjoram_shaker/xlspnl": {
+      "category": "marjoram_shaker",
+      "model": "xlspnl",
+      "bounds_root_m": [
+        [
+          -0.03476252617929365,
+          -0.034646897430519186,
+          -0.10747894538755931
+        ],
+        [
+          0.03446061698104952,
+          0.03455085208889597,
+          0.05293072170981361
+        ]
+      ],
+      "dimensions_m": [
+        0.06922314316034317,
+        0.06919774951941515,
+        0.16040966709737292
+      ],
+      "native_bbox_m": [
+        0.06740885227918625,
+        0.06725135445594788,
+        0.1596778780221939
+      ],
+      "source": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/marjoram_shaker/xlspnl/usd/xlspnl.usdz.encrypted",
+      "native": false,
+      "vertex_count": 692
+    },
+    "pineapple_juice_carton/barzwx": {
+      "category": "pineapple_juice_carton",
+      "model": "barzwx",
+      "bounds_root_m": [
+        [
+          -0.08615577627791282,
+          -0.1237525771018495,
+          -0.13520846325262958
+        ],
+        [
+          0.08618773351010134,
+          0.12380223053084194,
+          0.1696458943281236
+        ]
+      ],
+      "dimensions_m": [
+        0.17234350978801416,
+        0.24755480763269144,
+        0.3048543575807532
+      ],
+      "native_bbox_m": [
+        0.17235416173934937,
+        0.2474377602338791,
+        0.30484578013420105
+      ],
+      "source": "/local_home2/zhouxinyang/data/behavior/behavior-1k-assets/objects/pineapple_juice_carton/barzwx/usd/barzwx.usdz.encrypted",
+      "native": false,
+      "vertex_count": 2347
+    }
+  },
+  "scenes": [
+    {
+      "alias": "GF2-1",
+      "decision": "A standing carton is too tall; pitching it changes the feasible cross-section.",
+      "execution_burden": "One object, one insertion; the low mouth permits object passage, not a full open hand.",
+      "initial_asset_dimensions_m": {
+        "item_0": [
+          0.05935971744457679,
+          0.08526450140883166,
+          0.105
+        ]
+      },
+      "native_measurements": false,
+      "reused_native_layout_evidence": "outputs/interactiveworld_20261029/r6/iw_h2_02/inventory.json",
+      "native_route_and_grasp_verified": false,
+      "initial_target_count": 1,
+      "layout": {
+        "shared_layout_id": "household_gf2_1_20261031",
+        "scene_model": "restaurant_hotel",
+        "rooms": [
+          "kitchen_0"
+        ],
+        "floor_name": "floors_ykbuit_0",
+        "objects": [
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_1_deck",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.45,
+              1.6,
+              0.016
+            ],
+            "position": [
+              4.46,
+              -0.088,
+              0.885
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.45,
+              0.42,
+              0.36,
+              1.0
+            ]
+          },
+          {
+            "type": "DatasetObject",
+            "name": "hg_gf2_1_item_0",
+            "category": "pineapple_juice_carton",
+            "model": "barzwx",
+            "scale": [
+              0.3444267644171248,
+              0.3444267644171248,
+              0.3444267644171248
+            ],
+            "position": [
+              4.309994496536959,
+              -0.43000855098494506,
+              1.1370694135199149
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_1_bin_0_floor",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.23199999999999976,
+              0.136,
+              0.008
+            ],
+            "position": [
+              4.555,
+              0.25,
+              0.897
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.12,
+              0.38,
+              0.9,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_1_bin_0_left",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.23199999999999976,
+              0.012,
+              0.087
+            ],
+            "position": [
+              4.555,
+              0.188,
+              0.9445
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_1_bin_0_right",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.23199999999999976,
+              0.012,
+              0.087
+            ],
+            "position": [
+              4.555,
+              0.312,
+              0.9445
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_1_bin_0_back",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.012,
+              0.136,
+              0.087
+            ],
+            "position": [
+              4.671,
+              0.25,
+              0.9445
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_1_bin_0_roof",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.24399999999999974,
+              0.136,
+              0.012
+            ],
+            "position": [
+              4.555,
+              0.25,
+              0.994
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_1_bin_0_mouth_left",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.012,
+              0.012,
+              0.087
+            ],
+            "position": [
+              4.433,
+              0.188,
+              0.9445
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_1_bin_0_mouth_right",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.012,
+              0.012,
+              0.087
+            ],
+            "position": [
+              4.433,
+              0.312,
+              0.9445
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_1_bin_0_mouth_roof",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.012,
+              0.136,
+              0.012
+            ],
+            "position": [
+              4.433,
+              0.25,
+              0.994
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_1_bin_0_mouth_floor",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.03,
+              0.136,
+              0.008
+            ],
+            "position": [
+              4.436,
+              0.25,
+              0.897
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.12,
+              0.38,
+              0.9,
+              1.0
+            ]
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "hg_gf2_1_deck",
+            "support": "commercial_kitchen_table_bwlfnu_0",
+            "support_contract": "fixed_mount",
+            "support_surface_mode": "local_raycast"
+          },
+          {
+            "name": "hg_gf2_1_item_0",
+            "support": "hg_gf2_1_deck"
+          }
+        ],
+        "synchronize_authored_poses_before_alignment": true,
+        "robot_start": {
+          "position": [
+            3.58,
+            -0.088,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "initial_gripper_state": "open"
+      }
+    },
+    {
+      "alias": "GF2-2",
+      "decision": "The board starts upright but broadside to the destination; yaw changes the feasible mouth width.",
+      "execution_burden": "One board with an exposed upper gripping region; narrow-slot alignment is the harder insertion.",
+      "initial_asset_dimensions_m": {
+        "item_0": [
+          0.23035547935153744,
+          0.16483472778900632,
+          0.020009382292907885
+        ]
+      },
+      "native_measurements": false,
+      "reused_native_layout_evidence": "outputs/interactiveworld_20261029/r6/iw_h2_02/inventory.json",
+      "native_route_and_grasp_verified": false,
+      "initial_target_count": 1,
+      "layout": {
+        "shared_layout_id": "household_gf2_2_20261031",
+        "scene_model": "restaurant_hotel",
+        "rooms": [
+          "kitchen_0"
+        ],
+        "floor_name": "floors_ykbuit_0",
+        "objects": [
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_2_deck",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.45,
+              1.6,
+              0.016
+            ],
+            "position": [
+              4.46,
+              -0.088,
+              0.885
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.45,
+              0.42,
+              0.36,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_2_pickup_floor",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.07,
+              0.28,
+              0.012
+            ],
+            "position": [
+              4.31,
+              -0.43,
+              0.899
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_2_pickup_guide_a",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.01,
+              0.28,
+              0.065
+            ],
+            "position": [
+              4.2924999999999995,
+              -0.43,
+              0.9375
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_2_pickup_guide_b",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.01,
+              0.28,
+              0.065
+            ],
+            "position": [
+              4.3275,
+              -0.43,
+              0.9375
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "DatasetObject",
+            "name": "hg_gf2_2_item_0",
+            "category": "cutting_board",
+            "model": "aibvew",
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "position": [
+              4.310003237752256,
+              -0.42991049381776875,
+              1.1429999926313137
+            ],
+            "orientation": [
+              0.5,
+              0.4999999999999999,
+              0.5,
+              0.5000000000000001
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_2_bin_0_floor",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.2639999999999998,
+              0.079,
+              0.008
+            ],
+            "position": [
+              4.5489999999999995,
+              0.25,
+              0.897
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.12,
+              0.38,
+              0.9,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_2_bin_0_left",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.2639999999999998,
+              0.012,
+              0.205
+            ],
+            "position": [
+              4.5489999999999995,
+              0.2165,
+              1.0035
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_2_bin_0_right",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.2639999999999998,
+              0.012,
+              0.205
+            ],
+            "position": [
+              4.5489999999999995,
+              0.28350000000000003,
+              1.0035
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_2_bin_0_back",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.012,
+              0.079,
+              0.205
+            ],
+            "position": [
+              4.681,
+              0.25,
+              1.0035
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_2_bin_0_roof",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.2759999999999998,
+              0.079,
+              0.012
+            ],
+            "position": [
+              4.5489999999999995,
+              0.25,
+              1.112
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_2_bin_0_mouth_left",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.012,
+              0.012,
+              0.205
+            ],
+            "position": [
+              4.411,
+              0.2165,
+              1.0035
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_2_bin_0_mouth_right",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.012,
+              0.012,
+              0.205
+            ],
+            "position": [
+              4.411,
+              0.28350000000000003,
+              1.0035
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_2_bin_0_mouth_roof",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.012,
+              0.079,
+              0.012
+            ],
+            "position": [
+              4.411,
+              0.25,
+              1.112
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf2_2_bin_0_mouth_floor",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.03,
+              0.079,
+              0.008
+            ],
+            "position": [
+              4.414,
+              0.25,
+              0.897
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.12,
+              0.38,
+              0.9,
+              1.0
+            ]
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "hg_gf2_2_deck",
+            "support": "commercial_kitchen_table_bwlfnu_0",
+            "support_contract": "fixed_mount",
+            "support_surface_mode": "local_raycast"
+          },
+          {
+            "name": "hg_gf2_2_item_0",
+            "support": "hg_gf2_2_pickup_floor"
+          }
+        ],
+        "synchronize_authored_poses_before_alignment": true,
+        "robot_start": {
+          "position": [
+            3.58,
+            -0.088,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "initial_gripper_state": "open"
+      }
+    },
+    {
+      "alias": "GF3-1",
+      "decision": "Three-way ordering by intrinsic length, with different compartment lengths and a permuted initial order.",
+      "execution_burden": "Three sequential transfers with generous open-top access; shape-based ordering rather than tight insertion.",
+      "initial_asset_dimensions_m": {
+        "item_0": [
+          0.2,
+          0.07572244601657864,
+          0.06545999145490622
+        ],
+        "item_1": [
+          0.12,
+          0.045433467609947174,
+          0.039275994872943726
+        ],
+        "item_2": [
+          0.15999999999999998,
+          0.0605779568132629,
+          0.052367993163924965
+        ]
+      },
+      "native_measurements": false,
+      "reused_native_layout_evidence": "outputs/interactiveworld_20261029/r6/iw_h2_02/inventory.json",
+      "native_route_and_grasp_verified": false,
+      "initial_target_count": 3,
+      "layout": {
+        "shared_layout_id": "household_gf3_1_20261031",
+        "scene_model": "restaurant_hotel",
+        "rooms": [
+          "kitchen_0"
+        ],
+        "floor_name": "floors_ykbuit_0",
+        "objects": [
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_1_deck",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.45,
+              1.6,
+              0.016
+            ],
+            "position": [
+              4.46,
+              -0.088,
+              0.885
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.45,
+              0.42,
+              0.36,
+              1.0
+            ]
+          },
+          {
+            "type": "DatasetObject",
+            "name": "hg_gf3_1_item_0",
+            "category": "cucumber",
+            "model": "wcvwye",
+            "scale": [
+              1.5555415086455127,
+              1.5555415086455127,
+              1.5555415086455127
+            ],
+            "position": [
+              4.301054961070638,
+              -0.47642653297987086,
+              1.1401316586853212
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.7071067811865475,
+              0.7071067811865476
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "hg_gf3_1_item_1",
+            "category": "cucumber",
+            "model": "wcvwye",
+            "scale": [
+              0.9333249051873075,
+              0.9333249051873075,
+              0.9333249051873075
+            ],
+            "position": [
+              4.300632976642382,
+              0.0021440802120774698,
+              1.1412789952111928
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.7071067811865475,
+              0.7071067811865476
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "hg_gf3_1_item_2",
+            "category": "cucumber",
+            "model": "wcvwye",
+            "scale": [
+              1.24443320691641,
+              1.24443320691641,
+              1.24443320691641
+            ],
+            "position": [
+              4.30084396885651,
+              0.4828587736161033,
+              1.140705326948257
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.7071067811865475,
+              0.7071067811865476
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_1_bin_0_floor",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.15699999999999958,
+              0.204,
+              0.008
+            ],
+            "position": [
+              4.5925,
+              -0.48,
+              0.897
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.12,
+              0.38,
+              0.9,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_1_bin_0_left",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.15699999999999958,
+              0.012,
+              0.11
+            ],
+            "position": [
+              4.5925,
+              -0.576,
+              0.9560000000000001
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_1_bin_0_right",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.15699999999999958,
+              0.012,
+              0.11
+            ],
+            "position": [
+              4.5925,
+              -0.384,
+              0.9560000000000001
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_1_bin_0_back",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.012,
+              0.204,
+              0.11
+            ],
+            "position": [
+              4.671,
+              -0.48,
+              0.9560000000000001
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_1_bin_1_floor",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.19699999999999962,
+              0.204,
+              0.008
+            ],
+            "position": [
+              4.5725,
+              0.0,
+              0.897
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.75,
+              0.15,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_1_bin_1_left",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.19699999999999962,
+              0.012,
+              0.11
+            ],
+            "position": [
+              4.5725,
+              -0.096,
+              0.9560000000000001
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_1_bin_1_right",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.19699999999999962,
+              0.012,
+              0.11
+            ],
+            "position": [
+              4.5725,
+              0.096,
+              0.9560000000000001
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_1_bin_1_back",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.012,
+              0.204,
+              0.11
+            ],
+            "position": [
+              4.671,
+              0.0,
+              0.9560000000000001
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_1_bin_2_floor",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.23699999999999966,
+              0.204,
+              0.008
+            ],
+            "position": [
+              4.5525,
+              0.48,
+              0.897
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.65,
+              0.28,
+              0.8,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_1_bin_2_left",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.23699999999999966,
+              0.012,
+              0.11
+            ],
+            "position": [
+              4.5525,
+              0.384,
+              0.9560000000000001
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_1_bin_2_right",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.23699999999999966,
+              0.012,
+              0.11
+            ],
+            "position": [
+              4.5525,
+              0.576,
+              0.9560000000000001
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_1_bin_2_back",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.012,
+              0.204,
+              0.11
+            ],
+            "position": [
+              4.671,
+              0.48,
+              0.9560000000000001
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "hg_gf3_1_deck",
+            "support": "commercial_kitchen_table_bwlfnu_0",
+            "support_contract": "fixed_mount",
+            "support_surface_mode": "local_raycast"
+          },
+          {
+            "name": "hg_gf3_1_item_0",
+            "support": "hg_gf3_1_deck"
+          },
+          {
+            "name": "hg_gf3_1_item_1",
+            "support": "hg_gf3_1_deck"
+          },
+          {
+            "name": "hg_gf3_1_item_2",
+            "support": "hg_gf3_1_deck"
+          }
+        ],
+        "synchronize_authored_poses_before_alignment": true,
+        "robot_start": {
+          "position": [
+            3.58,
+            -0.088,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "initial_gripper_state": "open"
+      }
+    },
+    {
+      "alias": "GF3-2",
+      "decision": "Two-way height assignment with a required upright final pose; laying the tall jar down does not satisfy the goal.",
+      "execution_burden": "Two transfers; wide mouths allow access while shelf roofs make the final pose meaningful.",
+      "initial_asset_dimensions_m": {
+        "item_0": [
+          0.05825786248264944,
+          0.058236491317262,
+          0.135
+        ],
+        "item_1": [
+          0.03883857498843296,
+          0.03882432754484133,
+          0.09000000000000001
+        ]
+      },
+      "native_measurements": false,
+      "reused_native_layout_evidence": "outputs/interactiveworld_20261029/r6/iw_h2_02/inventory.json",
+      "native_route_and_grasp_verified": false,
+      "initial_target_count": 2,
+      "layout": {
+        "shared_layout_id": "household_gf3_2_20261031",
+        "scene_model": "restaurant_hotel",
+        "rooms": [
+          "kitchen_0"
+        ],
+        "floor_name": "floors_ykbuit_0",
+        "objects": [
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_2_deck",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.45,
+              1.6,
+              0.016
+            ],
+            "position": [
+              4.46,
+              -0.088,
+              0.885
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.45,
+              0.42,
+              0.36,
+              1.0
+            ]
+          },
+          {
+            "type": "DatasetObject",
+            "name": "hg_gf3_2_item_0",
+            "category": "marjoram_shaker",
+            "model": "xlspnl",
+            "scale": [
+              0.8415951634514112,
+              0.8415951634514112,
+              0.8415951634514112
+            ],
+            "position": [
+              4.300127042660522,
+              -0.39995958435250895,
+              1.1659537606110282
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "DatasetObject",
+            "name": "hg_gf3_2_item_1",
+            "category": "marjoram_shaker",
+            "model": "xlspnl",
+            "scale": [
+              0.5610634423009407,
+              0.5610634423009407,
+              0.5610634423009407
+            ],
+            "position": [
+              4.300084695107015,
+              0.4000269437649941,
+              1.158302507074019
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": false,
+            "visual_only": false
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_2_bin_0_floor",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.2520000000000002,
+              0.209,
+              0.008
+            ],
+            "position": [
+              4.545,
+              -0.35,
+              0.897
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.12,
+              0.38,
+              0.9,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_2_bin_0_left",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.2520000000000002,
+              0.012,
+              0.125
+            ],
+            "position": [
+              4.545,
+              -0.4485,
+              0.9635
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_2_bin_0_right",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.2520000000000002,
+              0.012,
+              0.125
+            ],
+            "position": [
+              4.545,
+              -0.25149999999999995,
+              0.9635
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_2_bin_0_back",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.012,
+              0.209,
+              0.125
+            ],
+            "position": [
+              4.671,
+              -0.35,
+              0.9635
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_2_bin_0_roof",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.26400000000000023,
+              0.209,
+              0.012
+            ],
+            "position": [
+              4.545,
+              -0.35,
+              1.032
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_2_bin_1_floor",
+            "category": "table",
+            "size": 1.0,
+            "scale": [
+              0.2520000000000002,
+              0.209,
+              0.008
+            ],
+            "position": [
+              4.545,
+              0.35,
+              0.897
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.95,
+              0.75,
+              0.15,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_2_bin_1_left",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.2520000000000002,
+              0.012,
+              0.175
+            ],
+            "position": [
+              4.545,
+              0.25149999999999995,
+              0.9885
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_2_bin_1_right",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.2520000000000002,
+              0.012,
+              0.175
+            ],
+            "position": [
+              4.545,
+              0.4485,
+              0.9885
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_2_bin_1_back",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.012,
+              0.209,
+              0.175
+            ],
+            "position": [
+              4.671,
+              0.35,
+              0.9885
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          },
+          {
+            "type": "PrimitiveObject",
+            "primitive_type": "Cube",
+            "name": "hg_gf3_2_bin_1_roof",
+            "category": "object",
+            "size": 1.0,
+            "scale": [
+              0.26400000000000023,
+              0.209,
+              0.012
+            ],
+            "position": [
+              4.545,
+              0.35,
+              1.082
+            ],
+            "orientation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "fixed_base": true,
+            "visual_only": false,
+            "rgba": [
+              0.55,
+              0.51,
+              0.44,
+              1.0
+            ]
+          }
+        ],
+        "supported_items": [
+          {
+            "name": "hg_gf3_2_deck",
+            "support": "commercial_kitchen_table_bwlfnu_0",
+            "support_contract": "fixed_mount",
+            "support_surface_mode": "local_raycast"
+          },
+          {
+            "name": "hg_gf3_2_item_0",
+            "support": "hg_gf3_2_deck"
+          },
+          {
+            "name": "hg_gf3_2_item_1",
+            "support": "hg_gf3_2_deck"
+          }
+        ],
+        "synchronize_authored_poses_before_alignment": true,
+        "robot_start": {
+          "position": [
+            3.58,
+            -0.088,
+            0.02
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "initial_gripper_state": "open"
+      }
+    }
+  ],
+  "empirical_difficulty_calibrated": false
+}

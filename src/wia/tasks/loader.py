@@ -13,7 +13,7 @@ import yaml
 from .schema import CategoryTaskDefinition, RigidContainmentTaskDefinition, SceneDefinition, TaskDefinition
 from .sources import resolve_source
 
-from wia.resources import ROOT, ESI_ROOT
+from wia.resources import ROOT, ESI_ROOT, DATASET_ROOT, CATALOGUE_PATH
 TASK_ROOT = ROOT / "explore_to_achieve/wia_v1/release/tasks"
 SCENE_ROOT = ROOT / "explore_to_achieve/scenes"
 DATA_ROOT = ESI_ROOT / 'dataset/json_clean'
@@ -42,7 +42,27 @@ UniqueLoader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, uni
 
 def discover_tasks(task_root=TASK_ROOT):
     root = Path(task_root).resolve()
+    if root == TASK_ROOT.resolve():
+        return tuple((DATASET_ROOT / row['task_file']).resolve() for row in release_catalogue()['tasks'])
     return tuple(sorted(set(root.rglob("*.yaml")) | set(root.rglob("*.yml"))))
+
+
+def release_catalogue():
+    """Use the selected catalogue, including external v0.2 dataset packages."""
+    return json.loads(CATALOGUE_PATH.read_text(encoding='utf-8'))
+
+
+def release_entry(path):
+    # Sealed diagnostic capture bundles contain explicit task/source files but
+    # no dataset catalogue. Absence cannot grant release membership; discovery
+    # and alias selection still require release_catalogue() to be readable.
+    if not CATALOGUE_PATH.is_file():
+        return None
+    path = Path(path).resolve()
+    for row in release_catalogue()['tasks']:
+        if any(path == (DATASET_ROOT / row[key]).resolve() for key in ('task_file', 'scene_file')):
+            return row
+    return None
 
 
 def task_definition(value):
@@ -72,10 +92,21 @@ def select_task(selection, *, task_root=TASK_ROOT):
     canonical = (root / requested).resolve()
     if canonical.is_relative_to(root) and canonical.is_file():
         return canonical
+    if root == TASK_ROOT.resolve():
+        rows = release_catalogue()['tasks']
+        selected = [row for row in rows if selection in (row['alias'], row['task_id'])]
+        if len(selected) == 1:
+            return (DATASET_ROOT / selected[0]['task_file']).resolve()
+        if len(selected) > 1:
+            raise ValueError('Task selector is ambiguous; provide its catalogue alias or exact task file.')
     matches = []
+    aliases = {str((DATASET_ROOT / row['task_file']).resolve()): row['alias']
+               for row in release_catalogue()['tasks']}
     for path in discover_tasks(root):
         definition = task_definition(yaml.load(path.read_text(), Loader=UniqueLoader))
-        if selection == definition.id or str(requested) == str(path.relative_to(root).with_suffix("")):
+        relative = path.relative_to(root) if path.is_relative_to(root) else Path(path.name)
+        if (selection == definition.id or selection == aliases.get(str(path))
+                or str(requested) == str(relative.with_suffix(""))):
             matches.append(path)
     if len(matches) != 1:
         raise ValueError("Task selector is missing or ambiguous; provide an exact task file or canonical path.")
@@ -148,14 +179,8 @@ def source_scene_room(relative_path, raw):
 
 
 def is_release_v1(path):
-    """Identify a frozen v1 definition by explicit catalogue membership, without physics."""
-    path = Path(path).resolve()
-    release = ROOT / 'explore_to_achieve/wia_v1/release'
-    if not path.is_relative_to(release):
-        return False
-    catalogue = json.loads((release / 'catalogue.json').read_text())
-    return any(path == (ROOT / row[key]).resolve() for row in catalogue['tasks']
-               for key in ('task_file', 'scene_file'))
+    """Legacy API name for selected release membership; never a physics certificate."""
+    return release_entry(path) is not None
 
 
 def load_task(selection, *, task_root=TASK_ROOT, data_root=None, variant=None, seed=None, run_mode="benchmark"):
@@ -167,7 +192,8 @@ def load_task(selection, *, task_root=TASK_ROOT, data_root=None, variant=None, s
         raise ValueError('Category task is pending/discarded; native execution requires qualification and review.')
     if isinstance(definition, RigidContainmentTaskDefinition):
         return load_rigid_task(path, definition, data_root=data_root, variant=variant, seed=seed, run_mode=run_mode)
-    variant = variant or "original"
+    selected = release_entry(path)
+    variant = variant or (selected['variant'] if selected else "original")
     if variant not in definition.scene.variants:
         raise ValueError("Scene variant is not declared by this task.")
     source = resolve_source(definition.source.json_path, data_root=data_root)

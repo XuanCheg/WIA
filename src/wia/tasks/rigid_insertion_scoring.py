@@ -18,6 +18,7 @@ from numbers import Real
 
 
 SCORING_VERSION = "rigid_insertion_progress_v1"
+FINAL_STATE_SCORING_VERSION = "rigid_insertion_final_state_v1"
 
 
 def _number(value, *, nonnegative=False):
@@ -56,11 +57,19 @@ class RigidInsertionProgress:
     ``expected_containers`` optionally maps targets to one eligible container
     key or an iterable of eligible keys; omitted targets retain all named
     containers. Geometry from other containers remains diagnostic evidence.
+    ``manipulation_revision='final_state_v1'`` requires ``minimum_lift_m=None``
+    and verifies released stable insertion without pickup or lift prerequisites.
+    Per-target verification remains historical and can occur sequentially.
     """
 
     def __init__(self, targets, containers, *, minimum_lift_m, stability_duration_s,
                  maximum_linear_speed_m_s, maximum_angular_speed_rad_s,
-                 max_sample_gap_s=None, expected_containers=None):
+                 max_sample_gap_s=None, expected_containers=None, manipulation_revision=None):
+        if manipulation_revision not in (None, "final_state_v1"):
+            raise ValueError("Unsupported rigid insertion manipulation_revision.")
+        self.manipulation_revision = manipulation_revision
+        if manipulation_revision == "final_state_v1" and minimum_lift_m is not None:
+            raise ValueError("final_state_v1 requires minimum_lift_m to be explicitly None.")
         if not isinstance(targets, Mapping) or not targets:
             raise ValueError("targets must map stable keys to native object names.")
         if any(not isinstance(key, str) or not key or not isinstance(name, str) or not name
@@ -93,6 +102,9 @@ class RigidInsertionProgress:
                 ("stability_duration_s", stability_duration_s, True),
                 ("maximum_linear_speed_m_s", maximum_linear_speed_m_s, False),
                 ("maximum_angular_speed_rad_s", maximum_angular_speed_rad_s, False)):
+            if key == "minimum_lift_m" and self.manipulation_revision == "final_state_v1":
+                self.thresholds[key] = None
+                continue
             number = _number(value, nonnegative=True)
             if number is None or (positive and number == 0):
                 raise ValueError(f"{key} must be finite and {'positive' if positive else 'nonnegative'}.")
@@ -245,9 +257,12 @@ class RigidInsertionProgress:
         linear = _number(target.get("linear_speed_m_s"), nonnegative=True) if identity_valid else None
         angular = _number(target.get("angular_speed_rad_s"), nonnegative=True) if identity_valid else None
         dynamic = _boolean(target.get("dynamic_collidable")) if identity_valid else None
-        for name, value in (("baseline_lowest_z_m", baseline), ("lowest_z_m", lowest_z),
+        measurements = (("lowest_z_m", lowest_z),
                             ("linear_speed_m_s", linear), ("angular_speed_rad_s", angular),
-                            ("dynamic_collidable", dynamic)):
+                            ("dynamic_collidable", dynamic))
+        if self.manipulation_revision is None:
+            measurements += (("baseline_lowest_z_m", baseline),)
+        for name, value in measurements:
             if value is None and not state["verified"]:
                 errors.append(name + "_unavailable")
         held = bool(grasp_available and grasp.get("holding") is True
@@ -262,7 +277,8 @@ class RigidInsertionProgress:
                 lift = lowest_z - baseline
                 previous = state["maximum_held_lift_m"]
                 state["maximum_held_lift_m"] = lift if previous is None else max(previous, lift)
-                if lift >= self.thresholds["minimum_lift_m"]:
+                if (self.manipulation_revision is None
+                        and lift >= self.thresholds["minimum_lift_m"]):
                     state["lift_seen"] = True
         if not state["verified"] and not initial and state["lift_seen"] and empty_open is True:
             state["release_seen"] = True
@@ -303,9 +319,11 @@ class RigidInsertionProgress:
         state["conditions"] = conditions
         if state["verified"]:
             return
+        history_satisfied = (self.manipulation_revision == "final_state_v1" or
+                             (state["grasp_seen"] and state["lift_seen"] and state["release_seen"]))
         stable = bool(not initial and not global_errors and not errors and control is True
-                      and not self._control_violation and state["grasp_seen"] and state["lift_seen"]
-                      and state["release_seen"] and empty_open is True and hand_clear is True
+                      and not self._control_violation and history_satisfied
+                      and empty_open is True and hand_clear is True
                       and contact is False and dynamic is True and candidates
                       and conditions["slow_linear_motion"] and conditions["slow_angular_motion"])
         if not stable:
@@ -345,8 +363,9 @@ class RigidInsertionProgress:
                   "evaluation_validity": "valid" if state["verified"] else state["evaluation_validity"],
                   "container": state["verified_container"], "verified_at_s": state["verified_at_s"]}
                  for key, state in self._states.items()]
-        return deepcopy({
-            "schema": SCORING_VERSION, "scoring_version": SCORING_VERSION,
+        version = FINAL_STATE_SCORING_VERSION if self.manipulation_revision == "final_state_v1" else SCORING_VERSION
+        result = {
+            "schema": version, "scoring_version": version,
             "task_success": success, "physical_success": success,
             "evaluation_validity": "complete" if available else "unavailable",
             "constraints_satisfied": constraints, "completion_items": items,
@@ -363,4 +382,7 @@ class RigidInsertionProgress:
             "sample_gap_exceeded": current.get("sample_gap_exceeded", False),
             "thresholds": self.thresholds,
             "expected_containers": {key: list(value) for key, value in self.expected_containers.items()},
-        })
+        }
+        if self.manipulation_revision is not None:
+            result["manipulation_revision"] = self.manipulation_revision
+        return deepcopy(result)

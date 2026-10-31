@@ -1,0 +1,595 @@
+{
+  "schema": "wia_household_native_static_review_v1",
+  "updated_at": "2026-10-31T05:11:02.065667+00:00",
+  "current_task_count": 4,
+  "static_review_complete_count": 4,
+  "current_native_capture_count": 4,
+  "pickup_witness_count": 7,
+  "goal_or_staging_witness_count": 7,
+  "model_calls": 0,
+  "robot_actions": 0,
+  "physical_task_completion_verified": false,
+  "scope": "Native initial support/shape and bounded SE2-base, four-torso/six-arm-joint collision screening. GF-2 terminal queries stop wholly before the mouth; GF-3 queries use hypothetical final poses. No grasp closure, object transport, insertion, release or complete reference execution is certified.",
+  "tasks": [
+    {
+      "alias": "GF2-1",
+      "job_id": "capture_4f32e9b3515ae63e63b3d5acb264c729",
+      "queue_state": "REVIEW_PENDING",
+      "checks": {
+        "current_capture_identity": true,
+        "native_initialization": true,
+        "native_geometry_export": true,
+        "native_clock_unchanged": true,
+        "native_shape_fit_proposals": true,
+        "pickup_geometric_witnesses": true,
+        "goal_or_staging_geometric_witnesses": true,
+        "main_visual_review": true
+      },
+      "initial_static_review_complete": true,
+      "capture_duration_s": 417.1573799038306,
+      "geometry_errors": [],
+      "pickup": [
+        {
+          "name": "hg_gf2_1_item_0",
+          "status": "found_witness",
+          "ik_attempts": 3,
+          "has_kinematic_witness": true
+        }
+      ],
+      "goal_or_staging": [
+        {
+          "name": "hg_gf2_1_item_0",
+          "status": "found_witness",
+          "ik_attempts": 36,
+          "has_kinematic_witness": true
+        }
+      ],
+      "native_fit_assignments": [
+        {
+          "target": "item_0",
+          "destination": "bin_0_floor",
+          "native_intrinsic_dimensions_m": [
+            0.059359715155795516,
+            0.08526449812121839,
+            0.10499999595142895
+          ],
+          "proposed_root_position_world_m": [
+            4.546069221106373,
+            0.24999144156480407,
+            0.9311853839289103
+          ],
+          "proposed_root_quaternion_xyzw": [
+            0.0,
+            0.7071067811865475,
+            0.0,
+            0.7071067811865476
+          ],
+          "proposed_world_aabb_m": [
+            [
+              4.4994998093820735,
+              0.2073677434888102,
+              0.9015000228881835
+            ],
+            [
+              4.604499805333503,
+              0.2926322416100286,
+              0.9608597380439791
+            ]
+          ],
+          "measured_interior_m": [
+            [
+              4.438999652862549,
+              0.1939999908208847,
+              0.9010000228881836
+            ],
+            [
+              4.664999961853027,
+              0.3059999942779541,
+              0.9880000352859497
+            ]
+          ],
+          "full_vertices_fit_with_scoring_margins": true,
+          "initial_linear_speed_m_s": 0.0,
+          "initial_angular_speed_rad_s": 0.0,
+          "physical_completion_verified": false
+        }
+      ],
+      "visual_review": {
+        "job_id": "capture_4f32e9b3515ae63e63b3d5acb264c729",
+        "reviewed": true,
+        "views": [
+          "object_overview",
+          "object_side"
+        ],
+        "assessment": "The resized 105 mm carton remains upright and outside the low cubby, with visible handling space. Cubby roof and the same table/deck are preserved. No visible initial collapse or robot contact; measured geometry and contact evidence are recorded separately."
+      },
+      "goal_refinement": null,
+      "receipt": "/local_home2/zhouxinyang/models/WIA/outputs/edge_review_20261029/queue/jobs/capture_4f32e9b3515ae63e63b3d5acb264c729/attempts/01/preview_complete.json",
+      "native_audit_directory": "/local_home2/zhouxinyang/models/WIA/outputs/dataset_balance_20261031/household_geometry/native_carton_clearance/GF2-1/capture_4f32e9b3515ae63e63b3d5acb264c729",
+      "goal_audit_directory": "/local_home2/zhouxinyang/models/WIA/outputs/dataset_balance_20261031/household_geometry/goal_access/GF2-1/capture_4f32e9b3515ae63e63b3d5acb264c729",
+      "physical_task_completion_verified": false
+    },
+    {
+      "alias": "GF2-2",
+      "job_id": "capture_ce783ba954178cbd2615db0876037620",
+      "queue_state": "REVIEW_PENDING",
+      "checks": {
+        "current_capture_identity": true,
+        "native_initialization": true,
+        "native_geometry_export": true,
+        "native_clock_unchanged": true,
+        "native_shape_fit_proposals": true,
+        "pickup_geometric_witnesses": true,
+        "goal_or_staging_geometric_witnesses": true,
+        "main_visual_review": true
+      },
+      "initial_static_review_complete": true,
+      "capture_duration_s": 502.66703201271594,
+      "geometry_errors": [],
+      "pickup": [
+        {
+          "name": "hg_gf2_2_item_0",
+          "status": "found_witness",
+          "ik_attempts": 3,
+          "has_kinematic_witness": true
+        }
+      ],
+      "goal_or_staging": [
+        {
+          "name": "hg_gf2_2_item_0",
+          "status": "found_witness",
+          "ik_attempts": 3,
+          "has_kinematic_witness": true
+        }
+      ],
+      "native_fit_assignments": [
+        {
+          "target": "item_0",
+          "destination": "bin_0_floor",
+          "native_intrinsic_dimensions_m": [
+            0.23035547935153744,
+            0.16483472778900632,
+            0.020009382292907885
+          ],
+          "proposed_root_position_world_m": [
+            4.5460895099969285,
+            0.24999674734658237,
+            0.9839173794140004
+          ],
+          "proposed_root_quaternion_xyzw": [
+            0.7071067811865475,
+            0.0,
+            0.0,
+            0.7071067811865476
+          ],
+          "proposed_world_aabb_m": [
+            [
+              4.4308222641389285,
+              0.2399952939523849,
+              0.9015000228881835
+            ],
+            [
+              4.661177743490466,
+              0.2600046762452927,
+              1.0663347506771899
+            ]
+          ],
+          "measured_interior_m": [
+            [
+              4.416999816894531,
+              0.2224999964237213,
+              0.9010000228881836
+            ],
+            [
+              4.675000190734863,
+              0.2774999737739563,
+              1.1059999465942383
+            ]
+          ],
+          "full_vertices_fit_with_scoring_margins": true,
+          "initial_linear_speed_m_s": 0.0,
+          "initial_angular_speed_rad_s": 0.0,
+          "physical_completion_verified": false
+        }
+      ],
+      "visual_review": {
+        "job_id": "capture_ce783ba954178cbd2615db0876037620",
+        "reviewed": true,
+        "views": [
+          "object_overview",
+          "object_side"
+        ],
+        "assessment": "Native board is upright in the pickup stand, with exposed upper handling region; narrow drying mouth is visible. No visible initial collapse. Physics contact and reachability evidence are recorded separately."
+      },
+      "goal_refinement": null,
+      "receipt": "/local_home2/zhouxinyang/models/WIA/outputs/edge_review_20261029/queue/jobs/capture_ce783ba954178cbd2615db0876037620/attempts/01/preview_complete.json",
+      "native_audit_directory": "/local_home2/zhouxinyang/models/WIA/outputs/dataset_balance_20261031/household_geometry/native/GF2-2/capture_ce783ba954178cbd2615db0876037620",
+      "goal_audit_directory": "/local_home2/zhouxinyang/models/WIA/outputs/dataset_balance_20261031/household_geometry/goal_access/GF2-2/capture_ce783ba954178cbd2615db0876037620",
+      "physical_task_completion_verified": false
+    },
+    {
+      "alias": "GF3-1",
+      "job_id": "capture_ed87a55a110cf32ff934939bb421af7f",
+      "queue_state": "REVIEW_PENDING",
+      "checks": {
+        "current_capture_identity": true,
+        "native_initialization": true,
+        "native_geometry_export": true,
+        "native_clock_unchanged": true,
+        "native_shape_fit_proposals": true,
+        "pickup_geometric_witnesses": true,
+        "goal_or_staging_geometric_witnesses": true,
+        "main_visual_review": true
+      },
+      "initial_static_review_complete": true,
+      "capture_duration_s": 488.679664385505,
+      "geometry_errors": [],
+      "pickup": [
+        {
+          "name": "hg_gf3_1_item_0",
+          "status": "found_witness",
+          "ik_attempts": 3,
+          "has_kinematic_witness": true
+        },
+        {
+          "name": "hg_gf3_1_item_1",
+          "status": "found_witness",
+          "ik_attempts": 12,
+          "has_kinematic_witness": true
+        },
+        {
+          "name": "hg_gf3_1_item_2",
+          "status": "found_witness",
+          "ik_attempts": 3,
+          "has_kinematic_witness": true
+        }
+      ],
+      "goal_or_staging": [
+        {
+          "name": "hg_gf3_1_item_0",
+          "status": "found_witness",
+          "ik_attempts": 97,
+          "has_kinematic_witness": true
+        },
+        {
+          "name": "hg_gf3_1_item_1",
+          "status": "found_witness",
+          "ik_attempts": 33,
+          "has_kinematic_witness": true
+        },
+        {
+          "name": "hg_gf3_1_item_2",
+          "status": "found_witness",
+          "ik_attempts": 3,
+          "has_kinematic_witness": true
+        }
+      ],
+      "native_fit_assignments": [
+        {
+          "target": "item_1",
+          "destination": "bin_0_floor",
+          "native_intrinsic_dimensions_m": [
+            0.12000000358264377,
+            0.045433468966379925,
+            0.03927599604554288
+          ],
+          "proposed_root_position_world_m": [
+            4.591644269103605,
+            -0.4806329808336055,
+            0.9194170160707664
+          ],
+          "proposed_root_quaternion_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "proposed_world_aabb_m": [
+            [
+              4.529500187036193,
+              -0.502716738655515,
+              0.9015000228881835
+            ],
+            [
+              4.649500190618837,
+              -0.45728326968913513,
+              0.9407760189337264
+            ]
+          ],
+          "measured_interior_m": [
+            [
+              4.514000415802002,
+              -0.5699999928474426,
+              0.9010000228881836
+            ],
+            [
+              4.664999961853027,
+              -0.39000001549720764,
+              1.0109999179840088
+            ]
+          ],
+          "full_vertices_fit_with_scoring_margins": true,
+          "initial_linear_speed_m_s": 0.0,
+          "initial_angular_speed_rad_s": 0.0,
+          "physical_completion_verified": false
+        },
+        {
+          "target": "item_2",
+          "destination": "bin_1_floor",
+          "native_intrinsic_dimensions_m": [
+            0.159999994558827,
+            0.06057795475316825,
+            0.05236799138302928
+          ],
+          "proposed_root_position_world_m": [
+            4.572358981419885,
+            -0.0008439688278090718,
+            0.9253893456059907
+          ],
+          "proposed_root_quaternion_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "proposed_world_aabb_m": [
+            [
+              4.489500210621587,
+              -0.030288977376584127,
+              0.9015000228881835
+            ],
+            [
+              4.649500205180415,
+              0.030288977376584127,
+              0.9538680142712128
+            ]
+          ],
+          "measured_interior_m": [
+            [
+              4.474000453948975,
+              -0.09000000357627869,
+              0.9010000228881836
+            ],
+            [
+              4.664999961853027,
+              0.09000000357627869,
+              1.0109999179840088
+            ]
+          ],
+          "full_vertices_fit_with_scoring_margins": true,
+          "initial_linear_speed_m_s": 0.0,
+          "initial_angular_speed_rad_s": 0.0,
+          "physical_completion_verified": false
+        },
+        {
+          "target": "item_0",
+          "destination": "bin_2_floor",
+          "native_intrinsic_dimensions_m": [
+            0.20000000086205727,
+            0.07572244634296404,
+            0.06545999173705752
+          ],
+          "proposed_root_position_world_m": [
+            4.5530732171728605,
+            0.4789450430971402,
+            0.93136167742967
+          ],
+          "proposed_root_quaternion_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "proposed_world_aabb_m": [
+            [
+              4.4494997497063,
+              0.44213878100084314,
+              0.9015000228881835
+            ],
+            [
+              4.649499750568357,
+              0.5178612273438071,
+              0.9669600146252411
+            ]
+          ],
+          "measured_interior_m": [
+            [
+              4.433999538421631,
+              0.39000001549720764,
+              0.9010000228881836
+            ],
+            [
+              4.664999961853027,
+              0.5699999928474426,
+              1.0109999179840088
+            ]
+          ],
+          "full_vertices_fit_with_scoring_margins": true,
+          "initial_linear_speed_m_s": 0.0,
+          "initial_angular_speed_rad_s": 0.0,
+          "physical_completion_verified": false
+        }
+      ],
+      "visual_review": {
+        "job_id": "capture_ed87a55a110cf32ff934939bb421af7f",
+        "reviewed": true,
+        "views": [
+          "object_overview",
+          "object_side"
+        ],
+        "assessment": "Three distinct cucumber sizes and blue/yellow/purple compartments are visible. All targets start outside compartments on the prep surface; the permutation places each by an incorrect destination. No visible collapse or initial robot contact. Native geometry and pickup checks are recorded separately."
+      },
+      "goal_refinement": null,
+      "receipt": "/local_home2/zhouxinyang/models/WIA/outputs/edge_review_20261029/queue/jobs/capture_ed87a55a110cf32ff934939bb421af7f/attempts/01/preview_complete.json",
+      "native_audit_directory": "/local_home2/zhouxinyang/models/WIA/outputs/dataset_balance_20261031/household_geometry/native_permuted/GF3-1/capture_ed87a55a110cf32ff934939bb421af7f",
+      "goal_audit_directory": "/local_home2/zhouxinyang/models/WIA/outputs/dataset_balance_20261031/household_geometry/goal_access/GF3-1/capture_ed87a55a110cf32ff934939bb421af7f",
+      "physical_task_completion_verified": false
+    },
+    {
+      "alias": "GF3-2",
+      "job_id": "capture_1938440b4f72456892289d94c74b31d1",
+      "queue_state": "REVIEW_PENDING",
+      "checks": {
+        "current_capture_identity": true,
+        "native_initialization": true,
+        "native_geometry_export": true,
+        "native_clock_unchanged": true,
+        "native_shape_fit_proposals": true,
+        "pickup_geometric_witnesses": true,
+        "goal_or_staging_geometric_witnesses": true,
+        "main_visual_review": true
+      },
+      "initial_static_review_complete": true,
+      "capture_duration_s": 443.942510612309,
+      "geometry_errors": [],
+      "pickup": [
+        {
+          "name": "hg_gf3_2_item_0",
+          "status": "found_witness",
+          "ik_attempts": 3,
+          "has_kinematic_witness": true
+        },
+        {
+          "name": "hg_gf3_2_item_1",
+          "status": "found_witness",
+          "ik_attempts": 6,
+          "has_kinematic_witness": true
+        }
+      ],
+      "goal_or_staging": [
+        {
+          "name": "hg_gf3_2_item_0",
+          "status": "found_witness",
+          "ik_attempts": 192,
+          "has_kinematic_witness": true
+        },
+        {
+          "name": "hg_gf3_2_item_1",
+          "status": "found_witness",
+          "ik_attempts": 156,
+          "has_kinematic_witness": true
+        }
+      ],
+      "native_fit_assignments": [
+        {
+          "target": "item_1",
+          "destination": "bin_0_floor",
+          "native_intrinsic_dimensions_m": [
+            0.03883857679898694,
+            0.03882432935473113,
+            0.09000001703841301
+          ],
+          "proposed_root_position_world_m": [
+            4.542084750424073,
+            -0.3499730651744466,
+            0.961802545616195
+          ],
+          "proposed_root_quaternion_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "proposed_world_aabb_m": [
+            [
+              4.522580766913617,
+              -0.3694121736180623,
+              0.9015000228881835
+            ],
+            [
+              4.561419343712604,
+              -0.3305878442633311,
+              0.9915000399265965
+            ]
+          ],
+          "measured_interior_m": [
+            [
+              4.419000148773193,
+              -0.4424999952316284,
+              0.9010000228881836
+            ],
+            [
+              4.664999961853027,
+              -0.257500022649765,
+              1.025999903678894
+            ]
+          ],
+          "full_vertices_fit_with_scoring_margins": true,
+          "initial_linear_speed_m_s": 0.0,
+          "initial_angular_speed_rad_s": 0.0,
+          "physical_completion_verified": false
+        },
+        {
+          "target": "item_0",
+          "destination": "bin_1_floor",
+          "native_intrinsic_dimensions_m": [
+            0.058257863135469976,
+            0.058236491969843054,
+            0.13499999702929105
+          ],
+          "proposed_root_position_world_m": [
+            4.542127097975055,
+            0.35004042458864065,
+            0.9919537800293308
+          ],
+          "proposed_root_quaternion_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "proposed_world_aabb_m": [
+            [
+              4.512871123745375,
+              0.3208817629557752,
+              0.9015000228881835
+            ],
+            [
+              4.571128986880845,
+              0.37911825492561824,
+              1.0365000199174745
+            ]
+          ],
+          "measured_interior_m": [
+            [
+              4.419000148773193,
+              0.257500022649765,
+              0.9010000228881836
+            ],
+            [
+              4.664999961853027,
+              0.4424999952316284,
+              1.0759999752044678
+            ]
+          ],
+          "full_vertices_fit_with_scoring_margins": true,
+          "initial_linear_speed_m_s": 0.0,
+          "initial_angular_speed_rad_s": 0.0,
+          "physical_completion_verified": false
+        }
+      ],
+      "visual_review": {
+        "job_id": "capture_1938440b4f72456892289d94c74b31d1",
+        "reviewed": true,
+        "views": [
+          "object_overview",
+          "object_side"
+        ],
+        "assessment": "Both jars are upright and visibly different in height, with the taller jar initially by the low blue compartment and the shorter jar by the high yellow compartment. The fixtures remain seated on the prep surface. No visible initial collapse. Native contact and reachability evidence are recorded separately."
+      },
+      "goal_refinement": {
+        "job_id": "capture_1938440b4f72456892289d94c74b31d1",
+        "directory": "/local_home2/zhouxinyang/models/WIA/outputs/dataset_balance_20261031/household_geometry/goal_access/GF3-2/capture_1938440b4f72456892289d94c74b31d1_front_waypoint",
+        "main_reviewed": true,
+        "reason": "Use legal fully-contained poses with 6 mm front inset. Tall-jar path uses one outside-shelf waypoint; every native obstacle, robot limit, margin and path sampling rule is preserved. Original central and direct-interpolation failures remain archived.",
+        "fit_proposals": "/local_home2/zhouxinyang/models/WIA/outputs/dataset_balance_20261031/household_geometry/spice_front_endpoint/fit_proposals.json",
+        "minimum_tall_jar_sampled_proxy_clearance_m": 0.010350733724777166,
+        "physical_execution_verified": false
+      },
+      "receipt": "/local_home2/zhouxinyang/models/WIA/outputs/edge_review_20261029/queue/jobs/capture_1938440b4f72456892289d94c74b31d1/attempts/01/preview_complete.json",
+      "native_audit_directory": "/local_home2/zhouxinyang/models/WIA/outputs/dataset_balance_20261031/household_geometry/native_fixed_links/GF3-2/capture_1938440b4f72456892289d94c74b31d1",
+      "goal_audit_directory": "/local_home2/zhouxinyang/models/WIA/outputs/dataset_balance_20261031/household_geometry/goal_access/GF3-2/capture_1938440b4f72456892289d94c74b31d1_front_waypoint",
+      "physical_task_completion_verified": false
+    }
+  ]
+}

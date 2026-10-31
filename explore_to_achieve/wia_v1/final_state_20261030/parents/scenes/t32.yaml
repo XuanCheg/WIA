@@ -1,0 +1,447 @@
+kind: scene_patch
+id: category_3c0c7a96f845e249e88a5045__t32_furnished_tray_v3
+version: 4
+status: pending
+source:
+  provider: esi
+  json: Specular Reflection/Correspondence/Merom_0_garden/playroom_0/wia_furnished_background_v1.json
+target: null
+qualification: null
+bindings:
+  obj1:
+    name: obj1
+    category: vase
+    model: saenda
+  initial_support_0:
+    name: bookcase_owvfik_0
+  obj2:
+    name: obj2
+    category: trophy
+    model: ayuubt
+  initial_support_1:
+    name: countertop_tpuwys_0
+  deck:
+    name: wia_tray_deck
+  rim_w:
+    name: wia_tray_rim_w
+  rim_e:
+    name: wia_tray_rim_e
+  rim_s:
+    name: wia_tray_rim_s
+  rim_n:
+    name: wia_tray_rim_n
+  tray_table:
+    name: countertop_tpuwys_0
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.wia_spatial_tray
+        parameters:
+          revision: wia_spatial_tray_v1
+          scene_contract:
+            scene_model: Merom_0_garden
+            room: playroom_0
+          layout:
+            shared_layout_id: wia_furnished_T32_support_v3
+            scene_model: Merom_0_garden
+            rooms:
+            - playroom_0
+            floor_name: floors_jrdgxz_0
+            objects:
+            - type: DatasetObject
+              name: obj1
+              category: vase
+              model: saenda
+              position:
+              - -3.08
+              - -10.61
+              - 1.1024741013978911
+              orientation:
+              - 0.4788272919373164
+              - 0.5094495457484611
+              - 0.6183579624675472
+              - 0.3589136596531907
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj2
+              category: trophy
+              model: ayuubt
+              position:
+              - -5.82
+              - -12.72
+              - 1.1191993950803805
+              orientation:
+              - 3.712080797413364e-06
+              - -5.020261824029149e-07
+              - 9.003560990095139e-07
+              - 1.0
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_deck
+              category: tray
+              size: 1.0
+              scale:
+              - 0.45
+              - 1.3
+              - 0.02
+              position:
+              - -5.82
+              - -11.45
+              - 0.8291993950803804
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_w
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.3
+              - 0.036
+              position:
+              - -6.037
+              - -11.45
+              - 0.8571993950803805
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_e
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.3
+              - 0.036
+              position:
+              - -5.603000000000001
+              - -11.45
+              - 0.8571993950803805
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_s
+              category: tray
+              size: 1.0
+              scale:
+              - 0.45
+              - 0.016
+              - 0.036
+              position:
+              - -5.82
+              - -12.092
+              - 0.8571993950803805
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_n
+              category: tray
+              size: 1.0
+              scale:
+              - 0.45
+              - 0.016
+              - 0.036
+              position:
+              - -5.82
+              - -10.807999999999998
+              - 0.8571993950803805
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            supported_items:
+            - name: obj1
+              support: bookcase_owvfik_0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: obj2
+              support: countertop_tpuwys_0
+            robot_start:
+              position:
+              - -4.8
+              - -11.45
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.wia_spatial_tray
+        parameters:
+          revision: wia_spatial_tray_v1
+          scene_contract:
+            scene_model: Merom_0_garden
+            room: playroom_0
+          layout:
+            shared_layout_id: wia_furnished_T32_support_v3
+            scene_model: Merom_0_garden
+            rooms:
+            - playroom_0
+            floor_name: floors_jrdgxz_0
+            objects:
+            - type: DatasetObject
+              name: obj1
+              category: vase
+              model: saenda
+              position:
+              - -3.08
+              - -10.61
+              - 1.1024741013978911
+              orientation:
+              - 0.4788272919373164
+              - 0.5094495457484611
+              - 0.6183579624675472
+              - 0.3589136596531907
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: DatasetObject
+              name: obj2
+              category: trophy
+              model: ayuubt
+              position:
+              - -5.82
+              - -12.72
+              - 1.1191993950803805
+              orientation:
+              - 3.712080797413364e-06
+              - -5.020261824029149e-07
+              - 9.003560990095139e-07
+              - 1.0
+              scale:
+              - 1.0
+              - 1.0
+              - 1.0
+              fixed_base: false
+              visual_only: false
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_deck
+              category: tray
+              size: 1.0
+              scale:
+              - 0.45
+              - 1.3
+              - 0.02
+              position:
+              - -5.82
+              - -11.45
+              - 0.8291993950803804
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_w
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.3
+              - 0.036
+              position:
+              - -6.037
+              - -11.45
+              - 0.8571993950803805
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_e
+              category: tray
+              size: 1.0
+              scale:
+              - 0.016
+              - 1.3
+              - 0.036
+              position:
+              - -5.603000000000001
+              - -11.45
+              - 0.8571993950803805
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_s
+              category: tray
+              size: 1.0
+              scale:
+              - 0.45
+              - 0.016
+              - 0.036
+              position:
+              - -5.82
+              - -12.092
+              - 0.8571993950803805
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            - type: PrimitiveObject
+              primitive_type: Cube
+              name: wia_tray_rim_n
+              category: tray
+              size: 1.0
+              scale:
+              - 0.45
+              - 0.016
+              - 0.036
+              position:
+              - -5.82
+              - -10.807999999999998
+              - 0.8571993950803805
+              orientation:
+              - 0.0
+              - 0.0
+              - 0.0
+              - 1.0
+              fixed_base: true
+              visual_only: false
+              rgba:
+              - 0.28
+              - 0.44
+              - 0.55
+              - 1.0
+            supported_items:
+            - name: obj1
+              support: bookcase_owvfik_0
+              support_surface_mode: local_raycast
+              support_alignment_mode: local_raycast
+            - name: obj2
+              support: countertop_tpuwys_0
+            robot_start:
+              position:
+              - -4.8
+              - -11.45
+              - 0.02
+              orientation:
+              - 0.0
+              - 0.0
+              - 1.0
+              - 6.123233995736766e-17
+seed: 0
+runtime:
+  reflection_sensor_profile: {}
+  requires_native_visual_discovery: false
+  post_controller_settle_steps: 30
+  trunk_config: configs/esi_trunk.json
+  robot_camera_config: configs/esi_robot_cameras.json
+  viewer_config: configs/esi_viewer.json
+  camera_size:
+  - 512
+  - 512
+  viewer_main_view: global_diagonal
+  debug_cameras: true
+  human_depth_visualizations: true
+  preview_fps: 2.0
+target_bindings: []

@@ -1,29 +1,28 @@
 kind: category_robot_task
 id: wia_produce_appearance_seed101
-version: 5
+version: 6
 status: pending
 source:
   provider: esi
   json: Specular Reflection/Correspondence/office_cubicles_left/meeting_room_0/wia_furnished_background_v1.json
 public:
-  objective: 'Inspect the produce appearance inside the red outline in the initial
-    head-camera view. Before grasping, submit ANSWER: reflected or ANSWER: direct.
-    Deliver the corresponding real item inside the stockpot if reflected, or onto
-    the cutting board if direct.'
-  success_criteria: Use genuine grasp and at least 5 cm lift for every required item.
-    Release all required items stably in the specified destination for at least 0.5
-    seconds, with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s.
-    Empty and open the working hand, withdraw both hands, and declare DONE.
-  environment: A furnished meeting room with vegetables or fruit on native furniture,
-    a real mirror, a stockpot, and a cutting board.
+  objective: 'Inspect the produce appearance inside the red outline in the initial head-camera view. Submit
+    ANSWER: reflected or ANSWER: direct. Deliver the corresponding real item inside the stockpot if reflected,
+    or onto the cutting board if direct.'
+  success_criteria: Leave all required original items in the branch-correct destination and requested
+    spatial relation, released without robot support and stable for at least 0.5 seconds, with linear
+    speed at most 0.02 m/s and angular speed at most 0.1 rad/s. Finish with empty open hands, withdrawn
+    from the objects. No minimum lift height, travel distance, prior grasp or first-grasp commitment is
+    required. Declare DONE.
+  environment: A furnished meeting room with vegetables or fruit on native furniture, a real mirror, a
+    stockpot, and a cutting board.
   constraints:
-  - Keep the mirror, red outline, stockpot, cutting board and furniture fixed. Preserve
-    item shapes and sizes.
-  - Use the initial head-camera view to interpret the red outline; later robot motion
-    does not change the requested identity.
-  - Use guarded public controls and mounted observations. Unselected produce must
-    remain within 2 cm of its initial position.
-  - The first candidate grasp commits selection; do not grasp a different candidate.
+  - Keep the mirror, red outline, stockpot, cutting board and furniture fixed. Preserve item shapes and
+    sizes.
+  - Use the initial head-camera view to interpret the red outline; later robot motion does not change
+    the requested identity.
+  - Use guarded public controls and mounted observations. At completion, unselected produce must be within
+    2 cm of its initial position.
 requirements:
   capabilities:
   - base_translation
@@ -100,7 +99,7 @@ private:
       - pot
       - board
       scoring:
-        minimum_lift_m: 0.05
+        minimum_lift_m: null
         stability_duration_s: 0.5
         maximum_linear_speed_m_s: 0.02
         maximum_angular_speed_rad_s: 0.1
@@ -110,16 +109,15 @@ private:
         dimension_relative_tolerance: 1.0e-05
         aperture_clearance_margin_m: 0.001
         minimum_assignment_gap_m: 0.015
-        threshold_status: Explicit provisional development contract; native calibration
-          and legal reference execution deferred until user review.
+        threshold_status: Explicit provisional development contract; native calibration and legal reference
+          execution deferred until user review.
         unselected_position_tolerance_m: 0.02
-        minimum_required_motion_m: 0.05
-        selection_commitment: First post-begin native grasp commits the real object;
-          a different candidate grasp violates single-target selection. Spatial swap
-          requires both targets.
-        optical_scope: Physical outcome and geometric selection are scored separately
-          from optical visibility/necessity. No mirrored segmentation-mask proxy or
-          source QA truth.
+        minimum_required_motion_m: null
+        selection_commitment: First post-begin native grasp commits the real object; a different candidate
+          grasp violates single-target selection. Spatial swap requires both targets.
+        optical_scope: Physical outcome and geometric selection are scored separately from optical visibility/necessity.
+          No mirrored segmentation-mask proxy or source QA truth.
+        manipulation_revision: final_state_v1
       table_key: board
       mirror_key: mirror
       cue_bindings:
@@ -134,11 +132,9 @@ private:
       appearance_mode: direct
       completion_items:
       - id: appearance_report
-        kind: historical_checkpoint
-      - id: selection
-        kind: historical_checkpoint
-      - id: grasp_lift
-        kind: historical_checkpoint
+        kind: terminal_condition
+      - id: selected_original_at_destination
+        kind: terminal_condition
       - id: stable_placement
         kind: terminal_condition
       scene_contract:
@@ -875,8 +871,8 @@ repair:
   contract_revision: wia_mirror_v4
   design_file: explore_to_achieve/wia_v1/mirror_v1/design.json
   design_sha256: 3f6c5b30a25ae11b318dc59e3ef58d63d8e3ac681ce1e4539598f9aac0d43481
-  source_role: background_loader_only; original optical inventory and QA are replaced
-    explicitly by active_layout; no original optical answer is reused
+  source_role: background_loader_only; original optical inventory and QA are replaced explicitly by active_layout;
+    no original optical answer is reused
   budget_status: Explicit provisional 240-decision development budget.
   runtime:
     reflection_sensor_profile: {}
@@ -908,8 +904,17 @@ repair:
   - 1.0
   - 1.0
   asset_measurement_file: outputs/wia_v1_20261025_revision/assets.json
-  design_scope: 'Matched R-A revisions: candidate Y span reduced from +/-0.65 to +/-0.40
-    m; cue opening height 0.12 m and maximum width 0.14 m. Keep all assets, seed,
-    robot pose, destinations, public task and scoring. Native framing/support validation
-    pending.'
+  design_scope: 'Matched R-A revisions: candidate Y span reduced from +/-0.65 to +/-0.40 m; cue opening
+    height 0.12 m and maximum width 0.14 m. Keep all assets, seed, robot pose, destinations, public task
+    and scoring. Native framing/support validation pending.'
   calibration_receipt: /local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261023/capture_campaign/queue/jobs/capture_b6e079233b9e09ca93dab9c4a43f0d7a/attempts/01/preview_complete.json
+  final_state_revision:
+    revision: final_state_v1
+    date: '2026-10-30'
+    parent_task_sha256: aca269a8fcdd0c6641f3a34e7452cdea97ac4d1d307b297ad0a53cc7d26200e8
+    parent_scene_sha256: 012c5ae8ecfd550137fb29dc9837992d14f6e70175754d6773002bf08d22e953
+    parent_source_task_file: explore_to_achieve/wia_v1/review_20261025/produce_mirror_v4/r_a2_seed101_produce_v4/task.yaml
+    parent_source_scene_file: explore_to_achieve/wia_v1/review_20261025/produce_mirror_v4/r_a2_seed101_produce_v4/scene.yaml
+    scene_geometry_changed: false
+    native_execution_verified: false
+    scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.

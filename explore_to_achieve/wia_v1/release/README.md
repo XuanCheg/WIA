@@ -1,7 +1,7 @@
-# WIA-v1 release catalogue
+# Active WIA release catalogue
 
-This directory freezes the current evaluation campaign's preferred variants from the reviewed snapshot and review evidence. It contains 61 task/scene pairs. AP4 remains excluded because it has no executable definition. Original task IDs, statuses, goals, seeds, budgets, physical configuration and scoring are preserved; only converter module identities use the canonical WIA namespace. Selection is not a claim of native execution qualification.
+The catalogue selects 60 task/scene pairs: 46 retained original tasks plus one already-contained control, nine InteractiveWorld mechanism representatives and four household geometry tasks. AP-4 is covered by the H2/H3 recovery tasks. Extensions, retired D tasks and redundant variants are excluded. Some active definitions live outside this directory; catalogue membership, not a recursive directory scan, defines the release.
 
-Use `wia tasks` or an exact YAML path in this directory. `catalogue.json` records each source variant and the source-definition hashes. Historical source/review files remain unchanged. Old CoreV2 registries and old converter/import namespaces are not runtime compatibility interfaces.
+Use `wia tasks`, an alias or an exact YAML path. Omitted variants use the catalogue selection. R-A1 and R-A2 retain their shared legacy task ID and require aliases or exact paths. Selection does not certify successful native execution. Pending statuses and all qualification limits remain explicit.
 
-For evidence archives, previews are lossy and exact model images are referenced by `model_inputs.json`. Numeric `.npy.gz` artifacts decompress to the original NPY bytes. Copy the whole episode including `artifacts/` to preserve relative references.
+The three-part v0.2 export provides portable dataset, evaluation and ShowHarnessExplore packages. Its provenance records original and exported hashes; formatting, selected-variant filtering and resource relocation are distinguished from semantic task changes. Historical files and private review feedback remain in the development workspace.

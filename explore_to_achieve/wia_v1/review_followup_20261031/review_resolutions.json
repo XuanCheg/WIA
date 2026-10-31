@@ -1,0 +1,43 @@
+{
+  "schema": "wia_review_resolutions_v1",
+  "date": "2026-10-31",
+  "source": "Explicit user review in this conversation",
+  "resolutions": [
+    {
+      "aliases": [
+        "T22",
+        "T46"
+      ],
+      "status": "closed_by_user_review",
+      "reason": "The chair may be moved during execution. The user reviewed the scenes and requested removal of the static-access concern.",
+      "additional_validation_required": false,
+      "historical_geometry_reports_preserved": true,
+      "new_physical_success_claim": false
+    },
+    {
+      "aliases": [
+        "GF2-1",
+        "GF2-2",
+        "GF3-1",
+        "GF3-2"
+      ],
+      "status": "closed_by_user_visual_review",
+      "reason": "The user accepted the visible geometry and waived further grasp/transport/insertion validation.",
+      "additional_validation_required": false,
+      "historical_geometry_reports_preserved": true,
+      "new_physical_success_claim": false
+    },
+    {
+      "aliases": [
+        "T42",
+        "T43",
+        "T44"
+      ],
+      "status": "validated_with_user_accepted_limitations",
+      "reason": "Direct release validation completed (27 trials). The ball is always admissible; T44 has a tie-boundary change in bowl admission. The user explicitly requested preservation of the reviewed definitions and documentation of these limits.",
+      "additional_validation_required": false,
+      "historical_geometry_reports_preserved": true,
+      "new_physical_success_claim": false
+    }
+  ]
+}

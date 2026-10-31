@@ -123,25 +123,24 @@ def test_survey_reads_authored_camera_mount_and_records_real_changes(world, tmp_
     mount[0] += .001
     evaluator.sample_step()
     evaluator.sample_step()
-    assert world.controller.survey_violation
-    assert evaluator.survey_violations == ['camera_mount:head']
-    assert (tmp_path / 'survey_violation.json').exists()
-    with pytest.raises(ValueError, match='read-only safety'):
-        evaluator.prepare_phase_transition(observation)
+    assert not world.controller.survey_violation
+    assert not evaluator.survey_violations
+    assert 'camera_mount:head' in evaluator.survey_environment_warnings
+    evaluator.prepare_phase_transition(observation)
 
 
-def test_survey_still_blocks_background_motion_with_private_evidence(world, tmp_path):
+def test_survey_records_background_motion_without_cancelling(world, tmp_path):
     evaluator = TemporalChangeEvaluator(world.session, world.executor, world.config, tmp_path)
     evaluator.begin_episode(NS(snapshot_id=1, action_step=0))
     world.objects['floor'].position[0] += .01
     evaluator.sample_step()
-    assert 'object_pose:floor' in evaluator.survey_violation_evidence
-    assert world.controller.survey_violation
+    assert 'object_pose:floor' in evaluator.survey_environment_warnings
+    assert not world.controller.survey_violation
 
 
 @pytest.mark.parametrize('restriction', [None, 'critical', 'missing_policy',
                                         'dependency_error', 'contact', 'contact_error'])
-def test_passive_background_drift_requires_complete_contact_free_evidence(world, tmp_path, restriction):
+def test_passive_background_drift_retains_contact_evidence_without_cancelling(world, tmp_path, restriction):
     door = Object('door', 'door', [2., 0., 1.])
     door.n_joints = 1
     joints = np.array([.7591391])
@@ -172,24 +171,20 @@ def test_passive_background_drift_requires_complete_contact_free_evidence(world,
         world.session.robot.contact_list = contacts
     joints[0] += .0061134
     evaluator.sample_step()
-    if restriction is not None:
-        assert world.controller.survey_violation
-        assert 'object_joints:door' in evaluator.survey_violation_evidence
-        assert not evaluator.survey_environment_warnings
-        with pytest.raises(ValueError, match='read-only safety'):
-            evaluator.prepare_phase_transition(observation)
-        return
     assert not world.controller.survey_violation
     assert 'object_joints:door' in evaluator.survey_environment_warnings
     assert (tmp_path / 'survey_environment_warnings.json').exists()
-    assert world.session.background_static_map_stale
-    assert not world.session._navigation_cache
+    if restriction is None:
+        assert world.session.background_static_map_stale
+        assert not world.session._navigation_cache
     evaluator.prepare_phase_transition(observation)
     world.controller.advance()
     result = evaluator.record(NS(snapshot_id=2, action_step=0), action=None)
     assert result['phase'] == 'phase_2'
     assert result['transition']['world_unchanged']
-    assert result['phase_1_contact_history'] == {'verified': True, 'non_floor_bodies': []}
+    assert result['phase_1_contact_history'] == {
+        'verified': restriction != 'contact_error',
+        'non_floor_bodies': ['/World/another_object/link'] if restriction == 'contact' else []}
     assert door.pose_writes == 0
     assert joints[0] == pytest.approx(.7652525)
 
@@ -276,13 +271,15 @@ def test_new_operational_goal_requires_sampled_phase_2_motion_before_answer(worl
     assert result['phase_2_native_navigation']['travel_m'] == pytest.approx(.3)
 
 
-def test_mutated_content_or_robot_contact_blocks_phase_change(world, tmp_path):
+def test_passive_content_motion_is_recorded_at_phase_boundary(world, tmp_path):
     evaluator = TemporalChangeEvaluator(world.session, world.executor, world.config, tmp_path)
     first = NS(snapshot_id=1, action_step=0)
     evaluator.begin_episode(first)
     world.objects['image1_content_02'].position += [.1, 0., 0.]
-    with pytest.raises(ValueError, match='changed'):
-        evaluator.prepare_phase_transition(first)
+    evaluator.prepare_phase_transition(first)
+    assert not world.controller.survey_violation
+    assert evaluator.survey_environment_warnings
+    assert evaluator.phase_1['native_state']['objects']['image1_content_02']['position'][0] == pytest.approx(2.1)
     assert world.controller.phase == 'phase_1' and world.controller.transition is None
 
 
@@ -323,3 +320,31 @@ def test_original_question_types_follow_measured_content_identities(a, b, change
     assert _expected_answer(p, first, second)[0] == change
     p['source_task_type'] = 'change_detection'
     assert _expected_answer(p, first, second)[0] == ('no' if change == 'no_change' else 'yes')
+
+
+def test_navigation_contact_does_not_cancel_or_block_transition(world, tmp_path):
+    evaluator = TemporalChangeEvaluator(world.session, world.executor, world.config, tmp_path)
+    observation = NS(snapshot_id=1, action_step=0)
+    evaluator.begin_episode(observation)
+    original = world.session.robot.contact_list
+    world.session.robot.contact_list = lambda: original() + [NS(
+        body0='/World/robot/base', body1='/World/table/base_link')]
+    evaluator.sample_step()
+    assert not world.controller.survey_violation
+    assert 'native_check:robot_clear' in evaluator.survey_environment_warnings
+    evaluator.prepare_phase_transition(observation)
+    world.controller.advance()
+    assert world.controller.phase == 'phase_2'
+
+
+@pytest.mark.parametrize('action', ['MV_FWD', 'MV_UP', 'ROTATE_CW', 'GRASP',
+                                   'RELEASE', 'RIGHT_MV_FWD', 'RIGHT_GRASP'])
+def test_survey_rejects_arm_and_hand_commands(action):
+    from wia.tasks.temporal_policy import survey_action_allowed
+    assert not survey_action_allowed(action)
+
+
+@pytest.mark.parametrize('action', ['BASE_FWD', 'BASE_TURN_LEFT', 'TRUNK_UP', 'DONE'])
+def test_survey_allows_navigation_and_torso(action):
+    from wia.tasks.temporal_policy import survey_action_allowed
+    assert survey_action_allowed(action)

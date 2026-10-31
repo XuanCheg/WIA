@@ -1,6 +1,6 @@
 kind: category_robot_task
 id: task_redesign_0498b76051279b8acd7e914e
-version: 5
+version: 7
 status: pending
 source:
   provider: esi
@@ -9,39 +9,35 @@ public:
   objective: 'Comparing Phase 1 and Phase 2, did the contents of any comparison box change?
 
 
-    Phase 1: freely inspect comparison locations in a read-only survey of at most 10 decisions.
-    Use mounted cameras, base/torso motion and empty arms; preserve all objects and furniture.
-    Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved in this
-    same episode. Phase 2: compare with memory and submit ANSWER: <original option>. Then
-    perform the applicable operation: if an object was added, put the actual added object
-    on the collection and inspection tray; if replaced, put the current replacement on the
-    collection and inspection tray; if moved, return the displaced object to its remembered
-    original container/support; if removed, select the matching category and model by appearance
-    from the public spare inventory and replenish the remembered original location; if unchanged,
-    inspect all comparison locations with informative views and leave the contents in place.
-    No grasp is required for no-change. If several locations changed, complete the applicable
-    operation for each change. You may finish Phase 1 before visiting every location; the
-    phase switches automatically after ten decisions. Survey coverage is recorded but is not
-    a transition or full-success gate. The spare tray contains the complete candidate inventory
-    from the beginning in every event variant. Public spare inventory: spare 1 on the stocked
-    spare tray: shaker; spare 2 on the stocked spare tray: jar of cumin; spare 3 on the stocked
-    spare tray: butter; spare 4 on the stocked spare tray: bottle of lavender oil. The spare
-    table is visible and reachable during both phases. Original answer options: ["yes", "no"]'
-  success_criteria: Use informative observations in both phases, report the correct original
-    comparison answer, and complete the applicable change-dependent operation. Manipulation
-    requires real selection of the history-bound object and stable released placement with
-    native destination support/contact. Preserve all other source contents, spare distractors,
-    containers and furniture. Inspection-only no-change requires informative comparison-location
-    views, never a fabricated pickup.
-  environment: A furnished dining room with the original temporal task objects on an existing
-    native table and the inherited physical apparatus.
+    Phase 1: freely inspect comparison locations in a read-only survey of at most 10 decisions. Use mounted
+    cameras and base/torso motion; arm and gripper commands are disabled. Incidental navigation contact
+    does not end the survey. Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved
+    in this same episode. Phase 2: compare with memory and submit ANSWER: <original option>. Then perform
+    the applicable operation: if an object was added, put the actual added object on the collection and
+    inspection tray; if replaced, put the current replacement on the collection and inspection tray; if
+    moved, return the displaced object to its remembered original container/support; if removed, select
+    the matching category and model by appearance from the public spare inventory and replenish the remembered
+    original location; if unchanged, inspect all comparison locations with informative views and leave
+    the contents in place. No grasp is required for no-change. If several locations changed, complete
+    the applicable operation for each change. You may finish Phase 1 before visiting every location; the
+    phase switches automatically after ten decisions. Survey coverage is recorded but is not a transition
+    or full-success gate. The spare tray contains the complete candidate inventory from the beginning
+    in every event variant. Public spare inventory: spare 1 on the stocked spare tray: shaker; spare 2
+    on the stocked spare tray: jar of cumin; spare 3 on the stocked spare tray: butter; spare 4 on the
+    stocked spare tray: bottle of lavender oil. The spare table is visible and reachable during both phases.
+    Original answer options: ["yes", "no"]'
+  success_criteria: Use informative observations in both phases, report the correct original comparison
+    answer, and complete the applicable change-dependent operation. Manipulation requires real selection
+    of the history-bound object and stable released placement with native destination support/contact.
+    Preserve all other source contents, spare distractors, containers and furniture. Inspection-only no-change
+    requires informative comparison-location views, never a fabricated pickup.
+  environment: A furnished dining room with the original temporal task objects on an existing native table
+    and the inherited physical apparatus.
   constraints:
   - Phase 1 is bounded to 10 decisions and strictly read-only, including the spare inventory.
   - The hidden event delivers no intermediate frames. Use only public guarded controls afterward.
-  - There is no extra minimum travel distance, arbitrary any-container visit or return-to-start
-    requirement.
-  - Do not move any source object other than the comparison-selected target; preserve apparatus
-    and distractors.
+  - There is no extra minimum travel distance, arbitrary any-container visit or return-to-start requirement.
+  - Do not move any source object other than the comparison-selected target; preserve apparatus and distractors.
 requirements:
   capabilities:
   - base_translation
@@ -217,7 +213,7 @@ private:
         container_00:
           position:
           - 4.0
-          - 6.6
+          - 6.4799999999999995
           - 0.8564671092800823
           quaternion_xyzw:
           - 0.0
@@ -226,16 +222,16 @@ private:
           - 1.0
           bbox:
           - - 3.883761071777344
-            - 6.4448332019805905
+            - 6.32483320198059
             - 0.7478498822025982
           - - 4.114251279449463
-            - 6.759285611724853
+            - 6.639285611724853
             - 0.9346759920887676
         image1_content_00:
           position:
           - 3.9990061756134034
-          - 6.602059406852722
-          - 0.8412629371456829
+          - 6.482059406852722
+          - 0.8592629371456829
           quaternion_xyzw:
           - 0.0
           - 0.0
@@ -248,7 +244,7 @@ private:
         container_01:
           position:
           - 4.65
-          - 6.6
+          - 6.4799999999999995
           - 0.8564671092800823
           quaternion_xyzw:
           - 0.0
@@ -257,16 +253,16 @@ private:
           - 1.0
           bbox:
           - - 4.533761071777344
-            - 6.4448332019805905
+            - 6.32483320198059
             - 0.7478498822025982
           - - 4.764251279449463
-            - 6.759285611724853
+            - 6.639285611724853
             - 0.9346759920887676
         image1_content_01:
           position:
           - 4.649006175613404
-          - 6.602059406852722
-          - 0.8412629371456829
+          - 6.482059406852722
+          - 0.8592629371456829
           quaternion_xyzw:
           - 0.0
           - 0.0
@@ -279,8 +275,8 @@ private:
         image2_content_01:
           position:
           - 4.649006175613404
-          - 6.602059406852722
-          - 0.8412629371456829
+          - 6.482059406852722
+          - 0.8592629371456829
           quaternion_xyzw:
           - 0.0
           - 0.0
@@ -293,7 +289,7 @@ private:
         container_02:
           position:
           - 5.300000000000001
-          - 6.6
+          - 6.4799999999999995
           - 0.8564671092800823
           quaternion_xyzw:
           - 0.0
@@ -302,16 +298,16 @@ private:
           - 1.0
           bbox:
           - - 5.183761071777345
-            - 6.4448332019805905
+            - 6.32483320198059
             - 0.7478498822025982
           - - 5.414251279449464
-            - 6.759285611724853
+            - 6.639285611724853
             - 0.9346759920887676
         image2_content_02:
           position:
           - 5.299006175613404
-          - 6.602059406852722
-          - 0.8412629371456829
+          - 6.482059406852722
+          - 0.8592629371456829
           quaternion_xyzw:
           - 0.0
           - 0.0
@@ -363,8 +359,7 @@ private:
         - informative source view access in the selected saved phase
         - source snapshot geometry and mounted-camera observations
         continuous_two_phase_episode: false
-        movement_boundary_sensitivity: Existing thresholds retained; near-boundary outcomes
-          require review.
+        movement_boundary_sensitivity: Existing thresholds retained; near-boundary outcomes require review.
         native_operation_verified: false
       source_task_type: change_detection
       public_options:
@@ -684,11 +679,11 @@ private:
           position:
           - 3.705000000000001
           - 7.55
-          - 0.6952154141239849
+          - 0.6702154141239849
           dimensions_m:
           - 0.01
           - 0.4
-          - 0.06
+          - 0.01
           rgba:
           - 0.15
           - 0.3
@@ -704,11 +699,11 @@ private:
           position:
           - 4.195000000000001
           - 7.55
-          - 0.6952154141239849
+          - 0.6702154141239849
           dimensions_m:
           - 0.01
           - 0.4
-          - 0.06
+          - 0.01
           rgba:
           - 0.15
           - 0.3
@@ -724,11 +719,11 @@ private:
           position:
           - 3.950000000000001
           - 7.3549999999999995
-          - 0.6952154141239849
+          - 0.6702154141239849
           dimensions_m:
           - 0.5
           - 0.01
-          - 0.06
+          - 0.01
           rgba:
           - 0.15
           - 0.3
@@ -744,11 +739,11 @@ private:
           position:
           - 3.950000000000001
           - 7.745
-          - 0.6952154141239849
+          - 0.6702154141239849
           dimensions_m:
           - 0.5
           - 0.01
-          - 0.06
+          - 0.01
           rgba:
           - 0.15
           - 0.3
@@ -797,7 +792,7 @@ private:
           position:
           - 3.820000000000001
           - 7.6499999999999995
-          - 0.686005116062614
+          - 0.7015851160626141
           orientation:
           - 0.0
           - 0.0
@@ -1183,7 +1178,7 @@ scene:
             container_00:
               position:
               - 4.0
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -1192,16 +1187,16 @@ scene:
               - 1.0
               bbox:
               - - 3.883761071777344
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 4.114251279449463
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image1_content_00:
               position:
               - 3.9990061756134034
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -1214,7 +1209,7 @@ scene:
             container_01:
               position:
               - 4.65
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -1223,16 +1218,16 @@ scene:
               - 1.0
               bbox:
               - - 4.533761071777344
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 4.764251279449463
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image1_content_01:
               position:
               - 4.649006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -1245,8 +1240,8 @@ scene:
             image2_content_01:
               position:
               - 4.649006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -1259,7 +1254,7 @@ scene:
             container_02:
               position:
               - 5.300000000000001
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -1268,16 +1263,16 @@ scene:
               - 1.0
               bbox:
               - - 5.183761071777345
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 5.414251279449464
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image2_content_02:
               position:
               - 5.299006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -1294,8 +1289,8 @@ scene:
           builder_sha256: 6fe04f703d0a43121fa0a446005b0351ad52dbddb0a375c90517c0ba14c707ab
           generator_sha256: ef40b0c0bf7a17563ba09f2dc25f2741e90ac3686aec1a9f692794df41a1b584
           replay_sha256: d20f0eb7958f25f4b4650a98b4754cd09eaf7063c92a1fb79f48de25897be337
-          provenance: Rigidly translated copy of the existing temporal world; original producer
-            evidence is retained in parent_provenance.
+          provenance: Rigidly translated copy of the existing temporal world; original producer evidence
+            is retained in parent_provenance.
           source_task_type: change_detection
           public_options:
           - 'yes'
@@ -1609,11 +1604,11 @@ scene:
               position:
               - 3.705000000000001
               - 7.55
-              - 0.6952154141239849
+              - 0.6702154141239849
               dimensions_m:
               - 0.01
               - 0.4
-              - 0.06
+              - 0.01
               rgba:
               - 0.15
               - 0.3
@@ -1629,11 +1624,11 @@ scene:
               position:
               - 4.195000000000001
               - 7.55
-              - 0.6952154141239849
+              - 0.6702154141239849
               dimensions_m:
               - 0.01
               - 0.4
-              - 0.06
+              - 0.01
               rgba:
               - 0.15
               - 0.3
@@ -1649,11 +1644,11 @@ scene:
               position:
               - 3.950000000000001
               - 7.3549999999999995
-              - 0.6952154141239849
+              - 0.6702154141239849
               dimensions_m:
               - 0.5
               - 0.01
-              - 0.06
+              - 0.01
               rgba:
               - 0.15
               - 0.3
@@ -1669,11 +1664,11 @@ scene:
               position:
               - 3.950000000000001
               - 7.745
-              - 0.6952154141239849
+              - 0.6702154141239849
               dimensions_m:
               - 0.5
               - 0.01
-              - 0.06
+              - 0.01
               rgba:
               - 0.15
               - 0.3
@@ -1722,7 +1717,7 @@ scene:
               position:
               - 3.820000000000001
               - 7.6499999999999995
-              - 0.686005116062614
+              - 0.7015851160626141
               orientation:
               - 0.0
               - 0.0
@@ -1800,12 +1795,16 @@ scene:
           survey_revision: free_survey_10_v1
           parent_provenance:
             source_identity: Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_02.json
-            provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration
-              build_unobserved_replay_plan and _preloaded_object_configs; saved AABB-center
-              placement from _place_preloaded_phase_content and producer _try_place_inside_container.
+            provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration build_unobserved_replay_plan
+              and _preloaded_object_configs; saved AABB-center placement from _place_preloaded_phase_content
+              and producer _try_place_inside_container.
+      - operation: object_scale
+        phase: before_construction
+        binding: public_spare_3
+        multiplier: 3.0
       - operation: robot_pose
         position:
-        - 3.0
+        - 3.5
         - 5.6
         - 0.02
         yaw_deg: 45.00000000000001
@@ -1839,7 +1838,7 @@ scene:
         binding: container_00
         position:
         - 4.0
-        - 6.6
+        - 6.4799999999999995
         - 0.8564671092800823
         quaternion_xyzw:
         - 0.0
@@ -1851,7 +1850,7 @@ scene:
         binding: container_01
         position:
         - 4.65
-        - 6.6
+        - 6.4799999999999995
         - 0.8564671092800823
         quaternion_xyzw:
         - 0.0
@@ -1863,7 +1862,7 @@ scene:
         binding: container_02
         position:
         - 5.300000000000001
-        - 6.6
+        - 6.4799999999999995
         - 0.8564671092800823
         quaternion_xyzw:
         - 0.0
@@ -1875,8 +1874,8 @@ scene:
         binding: image1_content_00
         position:
         - 3.9990061756134034
-        - 6.602059406852722
-        - 0.8412629371456829
+        - 6.482059406852722
+        - 0.8592629371456829
         quaternion_xyzw:
         - 0.0
         - 0.0
@@ -1887,8 +1886,8 @@ scene:
         binding: image1_content_01
         position:
         - 4.649006175613404
-        - 6.602059406852722
-        - 0.8412629371456829
+        - 6.482059406852722
+        - 0.8592629371456829
         quaternion_xyzw:
         - 0.0
         - 0.0
@@ -2092,7 +2091,7 @@ scene:
         position:
         - 3.705000000000001
         - 7.55
-        - 0.6952154141239849
+        - 0.6702154141239849
         quaternion_xyzw:
         - 0.0
         - 0.0
@@ -2104,7 +2103,7 @@ scene:
         position:
         - 4.195000000000001
         - 7.55
-        - 0.6952154141239849
+        - 0.6702154141239849
         quaternion_xyzw:
         - 0.0
         - 0.0
@@ -2116,7 +2115,7 @@ scene:
         position:
         - 3.950000000000001
         - 7.3549999999999995
-        - 0.6952154141239849
+        - 0.6702154141239849
         quaternion_xyzw:
         - 0.0
         - 0.0
@@ -2128,7 +2127,7 @@ scene:
         position:
         - 3.950000000000001
         - 7.745
-        - 0.6952154141239849
+        - 0.6702154141239849
         quaternion_xyzw:
         - 0.0
         - 0.0
@@ -2437,7 +2436,7 @@ scene:
             container_00:
               position:
               - 4.0
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -2446,16 +2445,16 @@ scene:
               - 1.0
               bbox:
               - - 3.883761071777344
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 4.114251279449463
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image1_content_00:
               position:
               - 3.9990061756134034
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -2468,7 +2467,7 @@ scene:
             container_01:
               position:
               - 4.65
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -2477,16 +2476,16 @@ scene:
               - 1.0
               bbox:
               - - 4.533761071777344
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 4.764251279449463
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image1_content_01:
               position:
               - 4.649006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -2499,8 +2498,8 @@ scene:
             image2_content_01:
               position:
               - 4.649006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -2513,7 +2512,7 @@ scene:
             container_02:
               position:
               - 5.300000000000001
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -2522,16 +2521,16 @@ scene:
               - 1.0
               bbox:
               - - 5.183761071777345
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 5.414251279449464
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image2_content_02:
               position:
               - 5.299006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -2548,8 +2547,8 @@ scene:
           builder_sha256: 6fe04f703d0a43121fa0a446005b0351ad52dbddb0a375c90517c0ba14c707ab
           generator_sha256: ef40b0c0bf7a17563ba09f2dc25f2741e90ac3686aec1a9f692794df41a1b584
           replay_sha256: d20f0eb7958f25f4b4650a98b4754cd09eaf7063c92a1fb79f48de25897be337
-          provenance: Rigidly translated copy of the existing temporal world; original producer
-            evidence is retained in parent_provenance.
+          provenance: Rigidly translated copy of the existing temporal world; original producer evidence
+            is retained in parent_provenance.
           source_task_type: change_detection
           public_options:
           - 'yes'
@@ -2863,11 +2862,11 @@ scene:
               position:
               - 3.705000000000001
               - 7.55
-              - 0.6952154141239849
+              - 0.6702154141239849
               dimensions_m:
               - 0.01
               - 0.4
-              - 0.06
+              - 0.01
               rgba:
               - 0.15
               - 0.3
@@ -2883,11 +2882,11 @@ scene:
               position:
               - 4.195000000000001
               - 7.55
-              - 0.6952154141239849
+              - 0.6702154141239849
               dimensions_m:
               - 0.01
               - 0.4
-              - 0.06
+              - 0.01
               rgba:
               - 0.15
               - 0.3
@@ -2903,11 +2902,11 @@ scene:
               position:
               - 3.950000000000001
               - 7.3549999999999995
-              - 0.6952154141239849
+              - 0.6702154141239849
               dimensions_m:
               - 0.5
               - 0.01
-              - 0.06
+              - 0.01
               rgba:
               - 0.15
               - 0.3
@@ -2923,11 +2922,11 @@ scene:
               position:
               - 3.950000000000001
               - 7.745
-              - 0.6952154141239849
+              - 0.6702154141239849
               dimensions_m:
               - 0.5
               - 0.01
-              - 0.06
+              - 0.01
               rgba:
               - 0.15
               - 0.3
@@ -2976,7 +2975,7 @@ scene:
               position:
               - 3.820000000000001
               - 7.6499999999999995
-              - 0.686005116062614
+              - 0.7015851160626141
               orientation:
               - 0.0
               - 0.0
@@ -3054,9 +3053,9 @@ scene:
           survey_revision: free_survey_10_v1
           parent_provenance:
             source_identity: Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/redesign_pair_02.json
-            provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration
-              build_unobserved_replay_plan and _preloaded_object_configs; saved AABB-center
-              placement from _place_preloaded_phase_content and producer _try_place_inside_container.
+            provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration build_unobserved_replay_plan
+              and _preloaded_object_configs; saved AABB-center placement from _place_preloaded_phase_content
+              and producer _try_place_inside_container.
       - operation: category_initialization
         phase: after_postprocessing
         module: wia.authoring.converters.wia_native_furniture
@@ -3079,8 +3078,8 @@ scene:
             category: straight_chair
             model: eospnr
             position:
-            - 5.1
-            - 5.55
+            - 6.15
+            - 7.65
             - 0.5523470640182495
             orientation:
             - 0.0
@@ -3139,8 +3138,8 @@ scene:
             category: straight_chair
             model: eospnr
             position:
-            - 4.2
-            - 5.55
+            - 2.8
+            - 5.5
             - 0.5523470640182495
             orientation:
             - 0.0
@@ -3172,8 +3171,24 @@ scene:
         - container_00
         - container_01
         - container_02
-        relocation_policy: vertical_only
-        layout_parameters: {}
+        relocation_policy: independent_groups
+        layout_parameters:
+          reviewed_group_placements_v1:
+            container_00:
+              support_name: breakfast_table_zypvuv_0
+              root_xy_m:
+              - 4.05
+              - 6.33
+            container_01:
+              support_name: breakfast_table_zypvuv_0
+              root_xy_m:
+              - 4.65
+              - 6.33
+            container_02:
+              support_name: breakfast_table_zypvuv_0
+              root_xy_m:
+              - 5.25
+              - 6.33
         controller_initial_trunk_joint_positions_rad: null
         placement_groups:
         - - container_00
@@ -3503,7 +3518,7 @@ scene:
             container_00:
               position:
               - 4.0
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -3512,16 +3527,16 @@ scene:
               - 1.0
               bbox:
               - - 3.883761071777344
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 4.114251279449463
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image1_content_00:
               position:
               - 3.9990061756134034
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -3534,7 +3549,7 @@ scene:
             container_01:
               position:
               - 4.65
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -3543,16 +3558,16 @@ scene:
               - 1.0
               bbox:
               - - 4.533761071777344
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 4.764251279449463
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image1_content_01:
               position:
               - 4.649006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -3565,8 +3580,8 @@ scene:
             image2_content_01:
               position:
               - 4.649006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -3579,7 +3594,7 @@ scene:
             container_02:
               position:
               - 5.300000000000001
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -3588,16 +3603,16 @@ scene:
               - 1.0
               bbox:
               - - 5.183761071777345
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 5.414251279449464
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image2_content_02:
               position:
               - 5.299006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -3619,7 +3634,7 @@ scene:
             and producer _try_place_inside_container.
       - operation: robot_pose
         position:
-        - 3.0
+        - 3.5
         - 5.6
         - 0.02
         yaw_deg: 45.00000000000001
@@ -3688,8 +3703,8 @@ scene:
             category: straight_chair
             model: eospnr
             position:
-            - 5.1
-            - 5.55
+            - 6.15
+            - 7.65
             - 0.5523470640182495
             orientation:
             - 0.0
@@ -3748,8 +3763,8 @@ scene:
             category: straight_chair
             model: eospnr
             position:
-            - 4.2
-            - 5.55
+            - 2.8
+            - 5.5
             - 0.5523470640182495
             orientation:
             - 0.0
@@ -3773,7 +3788,7 @@ scene:
         binding: container_00
         position:
         - 4.0
-        - 6.6
+        - 6.4799999999999995
         - 0.8564671092800823
         quaternion_xyzw:
         - 0.0
@@ -3785,7 +3800,7 @@ scene:
         binding: container_01
         position:
         - 4.65
-        - 6.6
+        - 6.4799999999999995
         - 0.8564671092800823
         quaternion_xyzw:
         - 0.0
@@ -3797,7 +3812,7 @@ scene:
         binding: container_02
         position:
         - 5.300000000000001
-        - 6.6
+        - 6.4799999999999995
         - 0.8564671092800823
         quaternion_xyzw:
         - 0.0
@@ -3809,8 +3824,8 @@ scene:
         binding: image1_content_00
         position:
         - 3.9990061756134034
-        - 6.602059406852722
-        - 0.8412629371456829
+        - 6.482059406852722
+        - 0.8592629371456829
         quaternion_xyzw:
         - 0.0
         - 0.0
@@ -3821,8 +3836,8 @@ scene:
         binding: image1_content_01
         position:
         - 4.649006175613404
-        - 6.602059406852722
-        - 0.8412629371456829
+        - 6.482059406852722
+        - 0.8592629371456829
         quaternion_xyzw:
         - 0.0
         - 0.0
@@ -4131,7 +4146,7 @@ scene:
             container_00:
               position:
               - 4.0
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -4140,16 +4155,16 @@ scene:
               - 1.0
               bbox:
               - - 3.883761071777344
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 4.114251279449463
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image1_content_00:
               position:
               - 3.9990061756134034
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -4162,7 +4177,7 @@ scene:
             container_01:
               position:
               - 4.65
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -4171,16 +4186,16 @@ scene:
               - 1.0
               bbox:
               - - 4.533761071777344
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 4.764251279449463
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image1_content_01:
               position:
               - 4.649006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -4193,8 +4208,8 @@ scene:
             image2_content_01:
               position:
               - 4.649006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -4207,7 +4222,7 @@ scene:
             container_02:
               position:
               - 5.300000000000001
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -4216,16 +4231,16 @@ scene:
               - 1.0
               bbox:
               - - 5.183761071777345
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 5.414251279449464
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image2_content_02:
               position:
               - 5.299006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -4550,7 +4565,7 @@ scene:
             container_00:
               position:
               - 4.0
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -4559,16 +4574,16 @@ scene:
               - 1.0
               bbox:
               - - 3.883761071777344
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 4.114251279449463
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image1_content_00:
               position:
               - 3.9990061756134034
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -4581,7 +4596,7 @@ scene:
             container_01:
               position:
               - 4.65
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -4590,16 +4605,16 @@ scene:
               - 1.0
               bbox:
               - - 4.533761071777344
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 4.764251279449463
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image1_content_01:
               position:
               - 4.649006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -4612,8 +4627,8 @@ scene:
             image2_content_01:
               position:
               - 4.649006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -4626,7 +4641,7 @@ scene:
             container_02:
               position:
               - 5.300000000000001
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -4635,16 +4650,16 @@ scene:
               - 1.0
               bbox:
               - - 5.183761071777345
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 5.414251279449464
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image2_content_02:
               position:
               - 5.299006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -4666,7 +4681,7 @@ scene:
             and producer _try_place_inside_container.
       - operation: robot_pose
         position:
-        - 3.0
+        - 3.5
         - 5.6
         - 0.02
         yaw_deg: 45.00000000000001
@@ -4735,8 +4750,8 @@ scene:
             category: straight_chair
             model: eospnr
             position:
-            - 5.1
-            - 5.55
+            - 6.15
+            - 7.65
             - 0.5523470640182495
             orientation:
             - 0.0
@@ -4795,8 +4810,8 @@ scene:
             category: straight_chair
             model: eospnr
             position:
-            - 4.2
-            - 5.55
+            - 2.8
+            - 5.5
             - 0.5523470640182495
             orientation:
             - 0.0
@@ -4820,7 +4835,7 @@ scene:
         binding: container_00
         position:
         - 4.0
-        - 6.6
+        - 6.4799999999999995
         - 0.8564671092800823
         quaternion_xyzw:
         - 0.0
@@ -4832,7 +4847,7 @@ scene:
         binding: container_01
         position:
         - 4.65
-        - 6.6
+        - 6.4799999999999995
         - 0.8564671092800823
         quaternion_xyzw:
         - 0.0
@@ -4844,7 +4859,7 @@ scene:
         binding: container_02
         position:
         - 5.300000000000001
-        - 6.6
+        - 6.4799999999999995
         - 0.8564671092800823
         quaternion_xyzw:
         - 0.0
@@ -4856,8 +4871,8 @@ scene:
         binding: image2_content_01
         position:
         - 4.649006175613404
-        - 6.602059406852722
-        - 0.8412629371456829
+        - 6.482059406852722
+        - 0.8592629371456829
         quaternion_xyzw:
         - 0.0
         - 0.0
@@ -4868,8 +4883,8 @@ scene:
         binding: image2_content_02
         position:
         - 5.299006175613404
-        - 6.602059406852722
-        - 0.8412629371456829
+        - 6.482059406852722
+        - 0.8592629371456829
         quaternion_xyzw:
         - 0.0
         - 0.0
@@ -5178,7 +5193,7 @@ scene:
             container_00:
               position:
               - 4.0
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -5187,16 +5202,16 @@ scene:
               - 1.0
               bbox:
               - - 3.883761071777344
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 4.114251279449463
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image1_content_00:
               position:
               - 3.9990061756134034
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -5209,7 +5224,7 @@ scene:
             container_01:
               position:
               - 4.65
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -5218,16 +5233,16 @@ scene:
               - 1.0
               bbox:
               - - 4.533761071777344
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 4.764251279449463
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image1_content_01:
               position:
               - 4.649006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -5240,8 +5255,8 @@ scene:
             image2_content_01:
               position:
               - 4.649006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -5254,7 +5269,7 @@ scene:
             container_02:
               position:
               - 5.300000000000001
-              - 6.6
+              - 6.4799999999999995
               - 0.8564671092800823
               quaternion_xyzw:
               - 0.0
@@ -5263,16 +5278,16 @@ scene:
               - 1.0
               bbox:
               - - 5.183761071777345
-                - 6.4448332019805905
+                - 6.32483320198059
                 - 0.7478498822025982
               - - 5.414251279449464
-                - 6.759285611724853
+                - 6.639285611724853
                 - 0.9346759920887676
             image2_content_02:
               position:
               - 5.299006175613404
-              - 6.602059406852722
-              - 0.8412629371456829
+              - 6.482059406852722
+              - 0.8592629371456829
               quaternion_xyzw:
               - 0.0
               - 0.0
@@ -5353,17 +5368,135 @@ repair:
     yaw_deg: 0.0
   support_name_map:
     breakfast_table_rhjoby_0: breakfast_table_zypvuv_0
-  original_variant_policy: Retained the schema-required empty original placeholder with the
-    new authored source; physical review uses the transformed saved/adapted variants.
-  rotation_pose_restoration: Initialization-only object_pose patches run before temporal phase
-    installation.
-  world_bbox_expectations: source_objects bbox_size_m stores rotated world AABB extents; constructor
-    scales/local dimensions are preserved.
+  original_variant_policy: Retained the schema-required empty original placeholder with the new authored
+    source; physical review uses the transformed saved/adapted variants.
+  rotation_pose_restoration: Initialization-only object_pose patches run before temporal phase installation.
+  world_bbox_expectations: source_objects bbox_size_m stores rotated world AABB extents; constructor scales/local
+    dimensions are preserved.
   apparatus_floor_z_m: 0.0
-  apparatus_leg_policy: Only collection/spare table leg bottoms are aligned to the explicit
-    floor; transformed tops and XY are preserved.
+  apparatus_leg_policy: Only collection/spare table leg bottoms are aligned to the explicit floor; transformed
+    tops and XY are preserved.
   apparatus_translation_world_m:
   - 0.4454
   - 2.0004
   - 0.0
   interaction_relocation_policy: vertical_only
+  user_review_access_v1:
+    revision: user_review_access_v1
+    alias: T46
+    translation_world_m:
+    - 0.0
+    - -0.12
+    - 0.0
+    affected_bindings:
+    - container_00
+    - container_01
+    - container_02
+    - image1_content_00
+    - image1_content_01
+    - image2_content_01
+    - image2_content_02
+    original_native_supports_unchanged: true
+    native_support_names:
+    - breakfast_table_zypvuv_0
+    native_validation: pending
+  review_t46_access_20261031:
+    revision: review_t46_access_20261031
+    alias: T46
+    reviewed_group_placements_v1:
+      container_00:
+        support_name: breakfast_table_zypvuv_0
+        root_xy_m:
+        - 4.05
+        - 6.33
+      container_01:
+        support_name: breakfast_table_zypvuv_0
+        root_xy_m:
+        - 4.65
+        - 6.33
+      container_02:
+        support_name: breakfast_table_zypvuv_0
+        root_xy_m:
+        - 5.25
+        - 6.33
+    relocation_policy: independent_groups
+    content_center_raise_m: 0.018
+    butter_scale_ratio: 3.0
+    butter_center_raise_m: 0.01558
+    butter_measured_height_before_m: 0.015579
+    butter_predicted_height_after_m: 0.046737
+    spare_rim_height_before_m: 0.06
+    spare_rim_height_after_m: 0.01
+    spare_rim_center_delta_m: -0.025
+    chair_root_xy_m:
+      straight_chair_eospnr_0:
+      - 6.15
+      - 7.65
+      straight_chair_eospnr_5:
+      - 2.8
+      - 5.5
+    robot_translation_world_m:
+    - 0.5
+    - 0.0
+    - 0.0
+    basis: 'Main-authored proposal from native evidence: content bottoms were about 0.008 m below carton
+      bounds; a 0.018 m raise proposes about 0.010 m settling clearance. The butter measured height was
+      0.015579 m; uniform 3x scale adds 0.015579 m to its half-height, rounded upward to a 0.01558 m center
+      raise. Spare rims retain their original bottom Z while lowering from 0.06 m to 0.01 m for access.
+      Cartons retain their assets and authored source poses; only existing interaction setup receives
+      exact native-table XY targets. Use root Y=6.33 m: the main agent measured the open-carton minimum
+      Y as 6.217809 m at root Y=6.48 m and the table minimum Y as 6.015751 m. The corrected target predicts
+      carton minimum Y=6.067809 m, retaining the existing 0.03 m support inset; the earlier Y=6.25 m proposal
+      would overhang and is discarded. Two front chairs blocked useful front-table stances in the main
+      agent''s bounded CPU audit. Move only their existing native-furniture XY poses and shift configured
+      robot starts +0.5 m world X. The main agent reports no mesh-AABB overlaps above 0.005 m for the
+      proposed chairs and a clear predicted robot SE2 footprint; these prospective screens do not verify
+      native settling, grasp access, or physical task success.'
+    variant_scope:
+      adapted:
+        source_object_sets: 2
+        content_positions: 8
+        apparatus_sets: 2
+        butter_positions: 2
+        spare_rims: 8
+        content_pose_patches: 2
+        spare_rim_pose_patches: 4
+        butter_pose_patches: 0
+        reviewed_group_patches: 1
+        butter_scale_patches: 1
+        native_furniture_pose_patches: 1
+        chair_positions: 2
+        robot_pose_patches: 1
+        butter_effective_multiplier: 3.0
+        previous_butter_scale_patch_count: 0
+      saved_image1:
+        source_object_sets: 2
+        content_positions: 8
+        apparatus_sets: 0
+        butter_positions: 0
+        spare_rims: 0
+        content_pose_patches: 2
+        spare_rim_pose_patches: 0
+        butter_pose_patches: 0
+        reviewed_group_patches: 0
+        butter_scale_patches: 0
+        native_furniture_pose_patches: 1
+        chair_positions: 2
+        robot_pose_patches: 1
+      saved_image2:
+        source_object_sets: 2
+        content_positions: 8
+        apparatus_sets: 0
+        butter_positions: 0
+        spare_rims: 0
+        content_pose_patches: 2
+        spare_rim_pose_patches: 0
+        butter_pose_patches: 0
+        reviewed_group_patches: 0
+        butter_scale_patches: 0
+        native_furniture_pose_patches: 1
+        chair_positions: 2
+        robot_pose_patches: 1
+    native_validation: pending
+    native_validation_run: false
+    physical_success_verified: false

@@ -1,0 +1,89 @@
+kind: scene_patch
+id: iw_h1_01
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Action Sequencing/Action Order Inference/restaurant_hotel/kitchen_0/iw_h1_01.json
+bindings:
+  item_01:
+    name: item_01
+  item_02:
+    name: item_02
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: &id001
+          prototype: H1
+          source_task: GUIDE-87017
+          source_file: /local_home2/zhouxinyang/models/InteractiveWorld/benchmark/tasks/taskpacks/planning/GUIDE-87017.taskpack.json
+          source_sha256: ad7fa530b29bf043fe3b8cff8765584be18995be901d8d1278c70b01cd38e77b
+          scene_model: restaurant_hotel
+          room: kitchen_0
+          fixture: commercial_kitchen_table_bwlfnu_0
+          objects:
+          - name: item_01
+            category: null
+            model: null
+            slot: 0
+            offset:
+            - -0.15
+            - 0
+            size:
+            - 0.09
+            - 0.065
+            - 0.05
+            fixed: false
+            package: true
+          - name: item_02
+            category: null
+            model: null
+            slot: 0
+            offset:
+            - 0.15
+            - 0
+            size:
+            - 0.09
+            - 0.065
+            - 0.05
+            fixed: false
+            package: true
+          regions:
+            delivery: 1
+            quarantine: 2
+          contract:
+            selected: item_01
+            spares:
+            - item_02
+            compatible:
+            - item_02
+            delivery: delivery
+            quarantine: quarantine
+            protected: []
+            defective: false
+          objective: Inspect the underside of the left package. A green acceptance mark permits delivery;
+            a red mark requires quarantine and replacement from the spare supply. Deliver one acceptable
+            package to the blue receiving area. Keep an acceptable original and preserve the spare; quarantine
+            only a rejected original.
+          condition:
+            defective: false
+          id: iw_h1_01
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+seed: 7
+runtime:
+  preview_fps: 0.0
+  camera_size:
+  - 512
+  - 512

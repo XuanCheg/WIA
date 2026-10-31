@@ -369,3 +369,88 @@ def test_explicit_native_view_names_are_allowed_without_expanding_default_captur
     assert 'object_detail_32' not in publisher.ALLOWED_VIEWS
     defaults, _ = publisher._images([{'directory': 'native'}], 'native_capture', tmp_path)
     assert len(defaults) == len(publisher.DEFAULT_VIEWS) == 9
+
+
+def test_temporary_exclusions_hide_rows_and_recount_without_destroying_evidence(tmp_path):
+    excluded_aliases = ['D1-1', 'D1-2', 'D1-3', 'D2-1', 'D2-2']
+    aliases = [*excluded_aliases, *(f'T{number:02d}' for number in range(56))]
+    rows = [{'wia_id': f'row_{index}', 'document_alias': alias,
+             'primary_family': 'GF' if index < 5 else 'AP',
+             'implementation_state': 'unbuilt' if index < 5 else 'selected_definition',
+             'task': {'task_file': 'original_task.yaml'},
+             'scene': {'selected_scene_file': 'original_scene.yaml'}}
+            for index, alias in enumerate(aliases)]
+    extras = [{'id': f'candidate_{number}', 'document_alias': f'C{number:02d}',
+               'primary_family': 'AP', 'release_admitted': False,
+               'variants': [{'id': 'candidate_review', 'task_file': 'candidate_task.yaml',
+                             'scene_file': 'candidate_scene.yaml'}]} for number in range(19)]
+    updates = {f'row_{index}': {'status': 'reference_verified', 'variants': [{
+        'id': 'native_review', 'task_file': 'candidate_task.yaml', 'scene_file': 'candidate_scene.yaml',
+        'captures': [{'directory': 'capture', 'views': ['head']}]}]} for index in range(5)}
+    fixture_inputs(tmp_path, rows=rows, extras=extras, updates=updates)
+    (tmp_path / 'capture').mkdir()
+    (tmp_path / 'capture/head.png').write_bytes(b'Historical screenshot bytes.')
+    (tmp_path / 'reviews.json').write_text('{"feedback":"Preserve every historical decision."}')
+    before = build(tmp_path)
+    assert before['summary']['proposal_count'] == 61
+    assert before['summary']['row_count'] == 80
+    curation = json.loads((tmp_path / 'evidence.json').read_text())
+    curation['temporarily_excluded_aliases'] = excluded_aliases
+    write_json(tmp_path / 'evidence.json', curation)
+    protected = {path: path.read_bytes() for path in tmp_path.rglob('*') if path.is_file()}
+    after = build(tmp_path)
+    summary = after['summary']
+    assert summary['proposal_count'] == 56
+    assert summary['row_count'] == 75
+    assert summary['extra_row_count'] == 19
+    assert summary['family_counts'] == {'AP': 56}
+    assert summary['extra_family_counts'] == {'AP': 19}
+    assert summary['active_family_counts'] == {'AP': 75}
+    assert summary['unbuilt_row_count'] == 19
+    assert summary['registry_unbuilt_row_count'] == 0
+    assert summary['reference_success_row_count'] == summary['rows_with_images_count'] == 0
+    assert summary['authored_variant_count'] == 19
+    assert after['provenance']['temporarily_excluded_aliases'] == excluded_aliases
+    assert not set(excluded_aliases) & {row['document_alias'] for row in after['rows']}
+    assert all(row['proposal_membership'] is False and row['release_admitted'] is False
+               for row in after['rows'][-19:])
+    publisher.publish_snapshot('review/snapshot.json', after, project_root=tmp_path)
+    assert all(path.read_bytes() == content for path, content in protected.items())
+    assert len(json.loads((tmp_path / 'registry.json').read_text())['rows']) == 61
+    assert json.loads((tmp_path / 'evidence.json').read_text())['row_updates'] == updates
+
+
+def test_temporary_exclusions_also_support_explicit_extra_aliases(tmp_path):
+    extras = [{'id': 'extra', 'document_alias': 'EXTRA', 'primary_family': 'AP',
+               'variants': [{'id': 'candidate_review'}]}]
+    fixture_inputs(tmp_path, extras=extras)
+    curation = json.loads((tmp_path / 'evidence.json').read_text())
+    curation['temporarily_excluded_aliases'] = ['EXTRA']
+    write_json(tmp_path / 'evidence.json', curation)
+    snapshot = build(tmp_path)
+    assert snapshot['summary']['proposal_count'] == snapshot['summary']['row_count'] == 1
+    assert snapshot['summary']['extra_row_count'] == 0
+    assert snapshot['summary']['extra_family_counts'] == {}
+    assert snapshot['provenance']['temporarily_excluded_aliases'] == ['EXTRA']
+
+
+@pytest.mark.parametrize('exclusions', [None, 'T42', [42], ['T42', 'T42'], ['UNKNOWN']])
+def test_temporary_exclusions_reject_wrong_types_duplicates_and_unknown_aliases(tmp_path, exclusions):
+    fixture_inputs(tmp_path)
+    curation = json.loads((tmp_path / 'evidence.json').read_text())
+    curation['temporarily_excluded_aliases'] = exclusions
+    write_json(tmp_path / 'evidence.json', curation)
+    with pytest.raises(ValueError, match='(excluded_aliases|unknown document aliases)'):
+        build(tmp_path)
+
+
+def test_excluded_rows_still_validate_curation_and_supplement_conflicts(tmp_path):
+    fixture_inputs(tmp_path, updates={'wia_v1_t42': {'variants': [{'id': 'main_curated'}]}})
+    curation = json.loads((tmp_path / 'evidence.json').read_text())
+    curation['temporarily_excluded_aliases'] = ['T42']
+    write_json(tmp_path / 'evidence.json', curation)
+    write_json(tmp_path / 'supplement.json', {'schema': publisher.EVIDENCE_SCHEMA,
+        'row_updates': {'wia_v1_t42': {'variants': [{'id': 'main_curated'}]}}})
+    with pytest.raises(ValueError, match='Conflicting duplicate'):
+        publisher.build_snapshot('registry.json', 'evidence.json', supplements=['supplement.json'],
+                                 project_root=tmp_path)

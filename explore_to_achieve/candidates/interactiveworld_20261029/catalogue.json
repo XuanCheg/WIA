@@ -1,0 +1,250 @@
+{
+  "schema": "wia_interactiveworld_candidates_v1",
+  "release_admitted": false,
+  "tasks": [
+    {
+      "id": "iw_h1_01",
+      "prototype": "H1",
+      "condition": {
+        "defective": false
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h1_01.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h1_01.yaml",
+      "variant": "adapted",
+      "source_task": "GUIDE-87017"
+    },
+    {
+      "id": "iw_h1_02",
+      "prototype": "H1",
+      "condition": {
+        "defective": true
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h1_02.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h1_02.yaml",
+      "variant": "adapted",
+      "source_task": "GUIDE-87017"
+    },
+    {
+      "id": "iw_h2_01",
+      "prototype": "H2",
+      "condition": {
+        "disturbance": false
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h2_01.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h2_01.yaml",
+      "variant": "adapted",
+      "source_task": "ORCHESTRATE-112022"
+    },
+    {
+      "id": "iw_h2_02",
+      "prototype": "H2",
+      "condition": {
+        "disturbance": true
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h2_02.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h2_02.yaml",
+      "variant": "adapted",
+      "source_task": "ORCHESTRATE-112022"
+    },
+    {
+      "id": "iw_h3_01",
+      "prototype": "H3",
+      "condition": {
+        "initial_stock": 1,
+        "progress": "remaining"
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h3_01.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h3_01.yaml",
+      "variant": "adapted",
+      "source_task": "ASK-99600"
+    },
+    {
+      "id": "iw_h3_02",
+      "prototype": "H3",
+      "condition": {
+        "initial_stock": 2,
+        "progress": "retained"
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h3_02.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h3_02.yaml",
+      "variant": "adapted",
+      "source_task": "ASK-99600"
+    },
+    {
+      "id": "iw_h3_03",
+      "prototype": "H3",
+      "condition": {
+        "initial_stock": 2,
+        "progress": "undone"
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h3_03.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h3_03.yaml",
+      "variant": "adapted",
+      "source_task": "ASK-99600"
+    },
+    {
+      "id": "iw_h4_01",
+      "prototype": "H4",
+      "condition": {
+        "blocker_layout": 0
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h4_01.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h4_01.yaml",
+      "variant": "adapted",
+      "source_task": "NARRATE-12802"
+    },
+    {
+      "id": "iw_h4_02",
+      "prototype": "H4",
+      "condition": {
+        "blocker_layout": 1
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h4_02.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h4_02.yaml",
+      "variant": "adapted",
+      "source_task": "NARRATE-12802"
+    },
+    {
+      "id": "iw_h5_01",
+      "prototype": "H5",
+      "condition": {
+        "primary_available": true
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h5_01.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h5_01.yaml",
+      "variant": "adapted",
+      "source_task": "ASK-30000"
+    },
+    {
+      "id": "iw_h5_02",
+      "prototype": "H5",
+      "condition": {
+        "primary_available": false
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_h5_02.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_h5_02.yaml",
+      "variant": "adapted",
+      "source_task": "ASK-30000"
+    },
+    {
+      "id": "iw_m1_01",
+      "prototype": "M1",
+      "condition": {
+        "used_tool": "item_01"
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m1_01.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_m1_01.yaml",
+      "variant": "adapted",
+      "source_task": "WATCH-28002"
+    },
+    {
+      "id": "iw_m1_02",
+      "prototype": "M1",
+      "condition": {
+        "used_tool": "item_02"
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m1_02.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_m1_02.yaml",
+      "variant": "adapted",
+      "source_task": "WATCH-28002"
+    },
+    {
+      "id": "iw_m2_01",
+      "prototype": "M2",
+      "condition": {
+        "orders": {
+          "order_a": 4,
+          "order_b": 3
+        }
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m2_01.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_m2_01.yaml",
+      "variant": "adapted",
+      "source_task": "GUIDE-24003"
+    },
+    {
+      "id": "iw_m2_02",
+      "prototype": "M2",
+      "condition": {
+        "orders": {
+          "order_a": 5,
+          "order_b": 3
+        }
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m2_02.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_m2_02.yaml",
+      "variant": "adapted",
+      "source_task": "GUIDE-24003"
+    },
+    {
+      "id": "iw_m3_01",
+      "prototype": "M3",
+      "condition": {
+        "eligible_unit": "unit_a"
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m3_01.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_m3_01.yaml",
+      "variant": "adapted",
+      "source_task": "GUIDE-14018"
+    },
+    {
+      "id": "iw_m3_02",
+      "prototype": "M3",
+      "condition": {
+        "eligible_unit": "unit_b"
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m3_02.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_m3_02.yaml",
+      "variant": "adapted",
+      "source_task": "GUIDE-14018"
+    },
+    {
+      "id": "iw_m4_01",
+      "prototype": "M4",
+      "condition": {
+        "duration_c": 8.0
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m4_01.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_m4_01.yaml",
+      "variant": "adapted",
+      "source_task": "ORCHESTRATE-44001"
+    },
+    {
+      "id": "iw_m4_02",
+      "prototype": "M4",
+      "condition": {
+        "duration_c": 24.0
+      },
+      "task_file": "explore_to_achieve/candidates/interactiveworld_20261029/tasks/iw_m4_02.yaml",
+      "scene_file": "explore_to_achieve/candidates/interactiveworld_20261029/scenes/iw_m4_02.yaml",
+      "variant": "adapted",
+      "source_task": "ORCHESTRATE-44001"
+    }
+  ],
+  "catalogue_role": "Historical variant pool; use the unified release catalogue for active selection.",
+  "active_representatives": [
+    "iw_h1_02",
+    "iw_h2_02",
+    "iw_h3_03",
+    "iw_h4_02",
+    "iw_h5_02",
+    "iw_m1_01",
+    "iw_m2_01",
+    "iw_m3_01",
+    "iw_m4_02"
+  ],
+  "archived_variants": [
+    "iw_h1_01",
+    "iw_h2_01",
+    "iw_h3_01",
+    "iw_h3_02",
+    "iw_h4_01",
+    "iw_h5_01",
+    "iw_m1_02",
+    "iw_m2_02",
+    "iw_m3_02",
+    "iw_m4_01"
+  ],
+  "active_catalogue": "explore_to_achieve/wia_v1/release/catalogue.json",
+  "selection_revision": "representative_mechanisms_20261031"
+}

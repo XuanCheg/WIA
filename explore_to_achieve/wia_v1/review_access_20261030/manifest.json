@@ -1,0 +1,1909 @@
+{
+  "revision": "user_review_access_v1",
+  "basis": "/local_home2/zhouxinyang/models/WIA/outputs/review_reconciliation_20261030/reconciliation.json",
+  "rows": [
+    {
+      "alias": "T22",
+      "previous_selection": {
+        "alias": "T22",
+        "family": "GF",
+        "variant_id": "t22_left_sofa_v3",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t22.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/final_state_20261030/tasks/t22.yaml",
+        "source_task_file_sha256": "80a905cd3f44b8297327f78e4dafa8d263cc6a75fe71db49527d511f45c5424d",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t22.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/final_state_20261030/scenes/t22.yaml",
+        "source_scene_file_sha256": "17875e8ba96e5ab84126c98a313b56c1a3dbf741903be83f8dc09b41eeff1f1f",
+        "task_id": "wia_rigid_t22_family_v1",
+        "variant": "original"
+      },
+      "current_selection": {
+        "alias": "T22",
+        "family": "GF",
+        "variant_id": "t22_left_sofa_v3",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t22.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/review_access_20261030/tasks/t22.yaml",
+        "source_task_file_sha256": "439ce769dbe6e98a3cdde3f58574d60a08230adaeb57b08363fc43c0ca725750",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t22.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/review_access_20261030/scenes/t22.yaml",
+        "source_scene_file_sha256": "6698d6f13c35f22e7e8df4661f9ece201d57e298b74cefc2c959eb333dd3e94d",
+        "task_id": "wia_rigid_t22_family_v1",
+        "variant": "tabletop"
+      },
+      "changes": {
+        "revision": "user_review_access_v1",
+        "alias": "T22",
+        "selected_variant": "tabletop",
+        "versions": {
+          "task": {
+            "before": 5,
+            "after": 6
+          },
+          "scene": {
+            "before": 4,
+            "after": 5
+          }
+        },
+        "coordinates": [],
+        "public_constraints_added": [],
+        "native_validation_status": "pending",
+        "physical_success_verified": false,
+        "variant_selection": {
+          "before": "original",
+          "after": "tabletop"
+        },
+        "selected_patch_count": 6
+      },
+      "native_validation": "pending"
+    },
+    {
+      "alias": "D1-1",
+      "previous_selection": {
+        "alias": "D1-1",
+        "family": "GF",
+        "variant_id": "d1_1_seed101_v2_hall_train_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/d1-1.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/final_state_20261030/tasks/d1-1.yaml",
+        "source_task_file_sha256": "c5bd8ce6b7ce9958a205d742f6522f168c01cc831c6f807d11f086bc1a6aff9c",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/d1-1.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/final_state_20261030/scenes/d1-1.yaml",
+        "source_scene_file_sha256": "ba45090b69be087dde6f8b63f8f0453338dbffb27dfd1ee2e913581fff25fdc7",
+        "task_id": "wia_dimensional_d1_1_v2",
+        "variant": "adapted"
+      },
+      "current_selection": {
+        "alias": "D1-1",
+        "family": "GF",
+        "variant_id": "d1_1_seed101_v2_hall_train_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/d1-1.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/review_access_20261030/tasks/d1-1.yaml",
+        "source_task_file_sha256": "fee43a958c47362955d6cde27d31e581958c09471f8d97ed29ef5bc8f87937d4",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/d1-1.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/review_access_20261030/scenes/d1-1.yaml",
+        "source_scene_file_sha256": "a0d3380395f77535bb95b30692b487a132912959f1055f9712cdec8bd1ffe15f",
+        "task_id": "wia_dimensional_d1_1_v2",
+        "variant": "adapted"
+      },
+      "changes": {
+        "revision": "user_review_access_v1",
+        "alias": "D1-1",
+        "selected_variant": "adapted",
+        "versions": {
+          "task": {
+            "before": 5,
+            "after": 6
+          },
+          "scene": {
+            "before": 4,
+            "after": 5
+          }
+        },
+        "coordinates": [
+          {
+            "definition": "task",
+            "path": "scene.variants.adapted.patches[0].parameters.layout",
+            "phase": "before_construction",
+            "table_origin_x_m": 0.0,
+            "positions": {
+              "wia_dim_aperture_low": {
+                "before_m": [
+                  0.0,
+                  -0.07000000000000006,
+                  0.79
+                ],
+                "after_m": [
+                  -0.22,
+                  -0.07000000000000006,
+                  0.79
+                ]
+              },
+              "wia_dim_aperture_high": {
+                "before_m": [
+                  0.0,
+                  0.07000000000000006,
+                  0.79
+                ],
+                "after_m": [
+                  -0.22,
+                  0.07000000000000006,
+                  0.79
+                ]
+              },
+              "wia_dim_aperture_roof": {
+                "before_m": [
+                  0.0,
+                  0.0,
+                  0.9
+                ],
+                "after_m": [
+                  -0.22,
+                  0.0,
+                  0.9
+                ]
+              },
+              "wia_dim_pad_0": {
+                "before_m": [
+                  0.35999999999999943,
+                  0.0,
+                  0.666
+                ],
+                "after_m": [
+                  0.14,
+                  0.0,
+                  0.666
+                ]
+              },
+              "wia_dim_candidate_0": {
+                "before_m": [
+                  -0.28000000000000025,
+                  0.15000000000000002,
+                  0.6930000000000001
+                ],
+                "after_m": [
+                  -0.5,
+                  0.15000000000000002,
+                  0.6930000000000001
+                ]
+              },
+              "wia_dim_candidate_1": {
+                "before_m": [
+                  -0.28000000000000025,
+                  -0.1499999999999999,
+                  0.733
+                ],
+                "after_m": [
+                  -0.48,
+                  -0.1499999999999999,
+                  0.733
+                ]
+              }
+            }
+          },
+          {
+            "definition": "task",
+            "path": "scene.variants.adapted.patches[1].parameters.layout",
+            "phase": "after_postprocessing",
+            "table_origin_x_m": 0.0,
+            "positions": {
+              "wia_dim_aperture_low": {
+                "before_m": [
+                  0.0,
+                  -0.07000000000000006,
+                  0.79
+                ],
+                "after_m": [
+                  -0.22,
+                  -0.07000000000000006,
+                  0.79
+                ]
+              },
+              "wia_dim_aperture_high": {
+                "before_m": [
+                  0.0,
+                  0.07000000000000006,
+                  0.79
+                ],
+                "after_m": [
+                  -0.22,
+                  0.07000000000000006,
+                  0.79
+                ]
+              },
+              "wia_dim_aperture_roof": {
+                "before_m": [
+                  0.0,
+                  0.0,
+                  0.9
+                ],
+                "after_m": [
+                  -0.22,
+                  0.0,
+                  0.9
+                ]
+              },
+              "wia_dim_pad_0": {
+                "before_m": [
+                  0.35999999999999943,
+                  0.0,
+                  0.666
+                ],
+                "after_m": [
+                  0.14,
+                  0.0,
+                  0.666
+                ]
+              },
+              "wia_dim_candidate_0": {
+                "before_m": [
+                  -0.28000000000000025,
+                  0.15000000000000002,
+                  0.6930000000000001
+                ],
+                "after_m": [
+                  -0.5,
+                  0.15000000000000002,
+                  0.6930000000000001
+                ]
+              },
+              "wia_dim_candidate_1": {
+                "before_m": [
+                  -0.28000000000000025,
+                  -0.1499999999999999,
+                  0.733
+                ],
+                "after_m": [
+                  -0.48,
+                  -0.1499999999999999,
+                  0.733
+                ]
+              }
+            }
+          },
+          {
+            "definition": "scene",
+            "path": "scene.variants.adapted.patches[0].parameters.layout",
+            "phase": "before_construction",
+            "table_origin_x_m": 0.0,
+            "positions": {
+              "wia_dim_aperture_low": {
+                "before_m": [
+                  0.0,
+                  -0.07000000000000006,
+                  0.79
+                ],
+                "after_m": [
+                  -0.22,
+                  -0.07000000000000006,
+                  0.79
+                ]
+              },
+              "wia_dim_aperture_high": {
+                "before_m": [
+                  0.0,
+                  0.07000000000000006,
+                  0.79
+                ],
+                "after_m": [
+                  -0.22,
+                  0.07000000000000006,
+                  0.79
+                ]
+              },
+              "wia_dim_aperture_roof": {
+                "before_m": [
+                  0.0,
+                  0.0,
+                  0.9
+                ],
+                "after_m": [
+                  -0.22,
+                  0.0,
+                  0.9
+                ]
+              },
+              "wia_dim_pad_0": {
+                "before_m": [
+                  0.35999999999999943,
+                  0.0,
+                  0.666
+                ],
+                "after_m": [
+                  0.14,
+                  0.0,
+                  0.666
+                ]
+              },
+              "wia_dim_candidate_0": {
+                "before_m": [
+                  -0.28000000000000025,
+                  0.15000000000000002,
+                  0.6930000000000001
+                ],
+                "after_m": [
+                  -0.5,
+                  0.15000000000000002,
+                  0.6930000000000001
+                ]
+              },
+              "wia_dim_candidate_1": {
+                "before_m": [
+                  -0.28000000000000025,
+                  -0.1499999999999999,
+                  0.733
+                ],
+                "after_m": [
+                  -0.48,
+                  -0.1499999999999999,
+                  0.733
+                ]
+              }
+            }
+          },
+          {
+            "definition": "scene",
+            "path": "scene.variants.adapted.patches[1].parameters.layout",
+            "phase": "after_postprocessing",
+            "table_origin_x_m": 0.0,
+            "positions": {
+              "wia_dim_aperture_low": {
+                "before_m": [
+                  0.0,
+                  -0.07000000000000006,
+                  0.79
+                ],
+                "after_m": [
+                  -0.22,
+                  -0.07000000000000006,
+                  0.79
+                ]
+              },
+              "wia_dim_aperture_high": {
+                "before_m": [
+                  0.0,
+                  0.07000000000000006,
+                  0.79
+                ],
+                "after_m": [
+                  -0.22,
+                  0.07000000000000006,
+                  0.79
+                ]
+              },
+              "wia_dim_aperture_roof": {
+                "before_m": [
+                  0.0,
+                  0.0,
+                  0.9
+                ],
+                "after_m": [
+                  -0.22,
+                  0.0,
+                  0.9
+                ]
+              },
+              "wia_dim_pad_0": {
+                "before_m": [
+                  0.35999999999999943,
+                  0.0,
+                  0.666
+                ],
+                "after_m": [
+                  0.14,
+                  0.0,
+                  0.666
+                ]
+              },
+              "wia_dim_candidate_0": {
+                "before_m": [
+                  -0.28000000000000025,
+                  0.15000000000000002,
+                  0.6930000000000001
+                ],
+                "after_m": [
+                  -0.5,
+                  0.15000000000000002,
+                  0.6930000000000001
+                ]
+              },
+              "wia_dim_candidate_1": {
+                "before_m": [
+                  -0.28000000000000025,
+                  -0.1499999999999999,
+                  0.733
+                ],
+                "after_m": [
+                  -0.48,
+                  -0.1499999999999999,
+                  0.733
+                ]
+              }
+            }
+          }
+        ],
+        "public_constraints_added": [
+          "Robot base translation and rotation are allowed, including lateral movement around the workstation. The selected block must actually pass through the framed opening; the robot hand itself need not pass through the opening."
+        ],
+        "native_validation_status": "pending",
+        "physical_success_verified": false,
+        "table_relative_x_offsets_m": {
+          "wia_dim_aperture_low": -0.22,
+          "wia_dim_aperture_high": -0.22,
+          "wia_dim_aperture_roof": -0.22,
+          "wia_dim_pad_0": 0.14,
+          "wia_dim_candidate_0": -0.5,
+          "wia_dim_candidate_1": -0.48
+        }
+      },
+      "native_validation": "pending"
+    },
+    {
+      "alias": "D1-2",
+      "previous_selection": {
+        "alias": "D1-2",
+        "family": "GF",
+        "variant_id": "d1_2_seed101_v2_hall_arch_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/d1-2.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/final_state_20261030/tasks/d1-2.yaml",
+        "source_task_file_sha256": "e9f7de974ff90b474a2724590d7f8175838dcf4caed137d4555aa53b54626ebe",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/d1-2.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/final_state_20261030/scenes/d1-2.yaml",
+        "source_scene_file_sha256": "3b6b117476406c139d966e7e7fa9a57c1fd7e73ad0d179e1664137be8f867405",
+        "task_id": "wia_dimensional_d1_2_v2",
+        "variant": "adapted"
+      },
+      "current_selection": {
+        "alias": "D1-2",
+        "family": "GF",
+        "variant_id": "d1_2_seed101_v2_hall_arch_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/d1-2.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/review_access_20261030/tasks/d1-2.yaml",
+        "source_task_file_sha256": "91eac71e8dcade9a58c50e4c78b1de60515b102eddba043309b54c49fb76aca3",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/d1-2.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/review_access_20261030/scenes/d1-2.yaml",
+        "source_scene_file_sha256": "6de9eea83b7a40eb835b92d66e4c3578d96bc93a9ee83b98447844cf9fcbe817",
+        "task_id": "wia_dimensional_d1_2_v2",
+        "variant": "adapted"
+      },
+      "changes": {
+        "revision": "user_review_access_v1",
+        "alias": "D1-2",
+        "selected_variant": "adapted",
+        "versions": {
+          "task": {
+            "before": 5,
+            "after": 6
+          },
+          "scene": {
+            "before": 4,
+            "after": 5
+          }
+        },
+        "coordinates": [
+          {
+            "definition": "task",
+            "path": "scene.variants.adapted.patches[0].parameters.layout",
+            "phase": "before_construction",
+            "table_origin_x_m": -34.0,
+            "positions": {
+              "wia_dim_aperture_low": {
+                "before_m": [
+                  -34.0,
+                  11.86,
+                  0.725
+                ],
+                "after_m": [
+                  -34.22,
+                  11.86,
+                  0.725
+                ]
+              },
+              "wia_dim_aperture_high": {
+                "before_m": [
+                  -34.0,
+                  12.14,
+                  0.725
+                ],
+                "after_m": [
+                  -34.22,
+                  12.14,
+                  0.725
+                ]
+              },
+              "wia_dim_aperture_roof": {
+                "before_m": [
+                  -34.0,
+                  12.0,
+                  0.78
+                ],
+                "after_m": [
+                  -34.22,
+                  12.0,
+                  0.78
+                ]
+              },
+              "wia_dim_pad_0": {
+                "before_m": [
+                  -33.64,
+                  12.0,
+                  0.656
+                ],
+                "after_m": [
+                  -33.86,
+                  12.0,
+                  0.656
+                ]
+              },
+              "wia_dim_candidate_0": {
+                "before_m": [
+                  -34.28,
+                  12.15,
+                  0.753
+                ],
+                "after_m": [
+                  -34.5,
+                  12.15,
+                  0.753
+                ]
+              },
+              "wia_dim_candidate_1": {
+                "before_m": [
+                  -34.28,
+                  11.85,
+                  0.723
+                ],
+                "after_m": [
+                  -34.48,
+                  11.85,
+                  0.723
+                ]
+              }
+            }
+          },
+          {
+            "definition": "task",
+            "path": "scene.variants.adapted.patches[1].parameters.layout",
+            "phase": "after_postprocessing",
+            "table_origin_x_m": -34.0,
+            "positions": {
+              "wia_dim_aperture_low": {
+                "before_m": [
+                  -34.0,
+                  11.86,
+                  0.725
+                ],
+                "after_m": [
+                  -34.22,
+                  11.86,
+                  0.725
+                ]
+              },
+              "wia_dim_aperture_high": {
+                "before_m": [
+                  -34.0,
+                  12.14,
+                  0.725
+                ],
+                "after_m": [
+                  -34.22,
+                  12.14,
+                  0.725
+                ]
+              },
+              "wia_dim_aperture_roof": {
+                "before_m": [
+                  -34.0,
+                  12.0,
+                  0.78
+                ],
+                "after_m": [
+                  -34.22,
+                  12.0,
+                  0.78
+                ]
+              },
+              "wia_dim_pad_0": {
+                "before_m": [
+                  -33.64,
+                  12.0,
+                  0.656
+                ],
+                "after_m": [
+                  -33.86,
+                  12.0,
+                  0.656
+                ]
+              },
+              "wia_dim_candidate_0": {
+                "before_m": [
+                  -34.28,
+                  12.15,
+                  0.753
+                ],
+                "after_m": [
+                  -34.5,
+                  12.15,
+                  0.753
+                ]
+              },
+              "wia_dim_candidate_1": {
+                "before_m": [
+                  -34.28,
+                  11.85,
+                  0.723
+                ],
+                "after_m": [
+                  -34.48,
+                  11.85,
+                  0.723
+                ]
+              }
+            }
+          },
+          {
+            "definition": "scene",
+            "path": "scene.variants.adapted.patches[0].parameters.layout",
+            "phase": "before_construction",
+            "table_origin_x_m": -34.0,
+            "positions": {
+              "wia_dim_aperture_low": {
+                "before_m": [
+                  -34.0,
+                  11.86,
+                  0.725
+                ],
+                "after_m": [
+                  -34.22,
+                  11.86,
+                  0.725
+                ]
+              },
+              "wia_dim_aperture_high": {
+                "before_m": [
+                  -34.0,
+                  12.14,
+                  0.725
+                ],
+                "after_m": [
+                  -34.22,
+                  12.14,
+                  0.725
+                ]
+              },
+              "wia_dim_aperture_roof": {
+                "before_m": [
+                  -34.0,
+                  12.0,
+                  0.78
+                ],
+                "after_m": [
+                  -34.22,
+                  12.0,
+                  0.78
+                ]
+              },
+              "wia_dim_pad_0": {
+                "before_m": [
+                  -33.64,
+                  12.0,
+                  0.656
+                ],
+                "after_m": [
+                  -33.86,
+                  12.0,
+                  0.656
+                ]
+              },
+              "wia_dim_candidate_0": {
+                "before_m": [
+                  -34.28,
+                  12.15,
+                  0.753
+                ],
+                "after_m": [
+                  -34.5,
+                  12.15,
+                  0.753
+                ]
+              },
+              "wia_dim_candidate_1": {
+                "before_m": [
+                  -34.28,
+                  11.85,
+                  0.723
+                ],
+                "after_m": [
+                  -34.48,
+                  11.85,
+                  0.723
+                ]
+              }
+            }
+          },
+          {
+            "definition": "scene",
+            "path": "scene.variants.adapted.patches[1].parameters.layout",
+            "phase": "after_postprocessing",
+            "table_origin_x_m": -34.0,
+            "positions": {
+              "wia_dim_aperture_low": {
+                "before_m": [
+                  -34.0,
+                  11.86,
+                  0.725
+                ],
+                "after_m": [
+                  -34.22,
+                  11.86,
+                  0.725
+                ]
+              },
+              "wia_dim_aperture_high": {
+                "before_m": [
+                  -34.0,
+                  12.14,
+                  0.725
+                ],
+                "after_m": [
+                  -34.22,
+                  12.14,
+                  0.725
+                ]
+              },
+              "wia_dim_aperture_roof": {
+                "before_m": [
+                  -34.0,
+                  12.0,
+                  0.78
+                ],
+                "after_m": [
+                  -34.22,
+                  12.0,
+                  0.78
+                ]
+              },
+              "wia_dim_pad_0": {
+                "before_m": [
+                  -33.64,
+                  12.0,
+                  0.656
+                ],
+                "after_m": [
+                  -33.86,
+                  12.0,
+                  0.656
+                ]
+              },
+              "wia_dim_candidate_0": {
+                "before_m": [
+                  -34.28,
+                  12.15,
+                  0.753
+                ],
+                "after_m": [
+                  -34.5,
+                  12.15,
+                  0.753
+                ]
+              },
+              "wia_dim_candidate_1": {
+                "before_m": [
+                  -34.28,
+                  11.85,
+                  0.723
+                ],
+                "after_m": [
+                  -34.48,
+                  11.85,
+                  0.723
+                ]
+              }
+            }
+          }
+        ],
+        "public_constraints_added": [
+          "Robot base translation and rotation are allowed, including lateral movement around the workstation. The selected block must actually pass through the framed opening; the robot hand itself need not pass through the opening."
+        ],
+        "native_validation_status": "pending",
+        "physical_success_verified": false,
+        "table_relative_x_offsets_m": {
+          "wia_dim_aperture_low": -0.22,
+          "wia_dim_aperture_high": -0.22,
+          "wia_dim_aperture_roof": -0.22,
+          "wia_dim_pad_0": 0.14,
+          "wia_dim_candidate_0": -0.5,
+          "wia_dim_candidate_1": -0.48
+        }
+      },
+      "native_validation": "pending"
+    },
+    {
+      "alias": "D1-3",
+      "previous_selection": {
+        "alias": "D1-3",
+        "family": "GF",
+        "variant_id": "d1_3_seed101_v2_hall_train_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/d1-3.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/final_state_20261030/tasks/d1-3.yaml",
+        "source_task_file_sha256": "b14f135d27a45ee824879917c17be350de7db433520db0c8359ad3a8b903f6ac",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/d1-3.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/final_state_20261030/scenes/d1-3.yaml",
+        "source_scene_file_sha256": "77f8580c92adbd0e4883cce758bc0b1d5f733c5dde4890f29adf349439df2fd2",
+        "task_id": "wia_dimensional_d1_3_v2",
+        "variant": "adapted"
+      },
+      "current_selection": {
+        "alias": "D1-3",
+        "family": "GF",
+        "variant_id": "d1_3_seed101_v2_hall_train_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/d1-3.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/review_access_20261030/tasks/d1-3.yaml",
+        "source_task_file_sha256": "9545d7d3da79d2e2568b31ed6d9867e6ee4caa60e8d085af1d7c7df18df1fd74",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/d1-3.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/review_access_20261030/scenes/d1-3.yaml",
+        "source_scene_file_sha256": "fe73fa83d95123791d322f22ff2ada794d344a7cba52fbe057b3b6470f3cf643",
+        "task_id": "wia_dimensional_d1_3_v2",
+        "variant": "adapted"
+      },
+      "changes": {
+        "revision": "user_review_access_v1",
+        "alias": "D1-3",
+        "selected_variant": "adapted",
+        "versions": {
+          "task": {
+            "before": 5,
+            "after": 6
+          },
+          "scene": {
+            "before": 4,
+            "after": 5
+          }
+        },
+        "coordinates": [
+          {
+            "definition": "task",
+            "path": "scene.variants.adapted.patches[0].parameters.layout",
+            "phase": "before_construction",
+            "table_origin_x_m": 0.0,
+            "positions": {
+              "wia_dim_aperture_low": {
+                "before_m": [
+                  0.0,
+                  -0.07499999999999996,
+                  0.7250000000000001
+                ],
+                "after_m": [
+                  -0.22,
+                  -0.07499999999999996,
+                  0.7250000000000001
+                ]
+              },
+              "wia_dim_aperture_high": {
+                "before_m": [
+                  0.0,
+                  0.07499999999999996,
+                  0.7250000000000001
+                ],
+                "after_m": [
+                  -0.22,
+                  0.07499999999999996,
+                  0.7250000000000001
+                ]
+              },
+              "wia_dim_aperture_roof": {
+                "before_m": [
+                  0.0,
+                  0.0,
+                  0.77
+                ],
+                "after_m": [
+                  -0.22,
+                  0.0,
+                  0.77
+                ]
+              },
+              "wia_dim_pad_0": {
+                "before_m": [
+                  0.35999999999999943,
+                  0.0,
+                  0.666
+                ],
+                "after_m": [
+                  0.14,
+                  0.0,
+                  0.666
+                ]
+              },
+              "wia_dim_candidate_0": {
+                "before_m": [
+                  -0.28000000000000025,
+                  0.15000000000000002,
+                  0.6880000000000001
+                ],
+                "after_m": [
+                  -0.5,
+                  0.15000000000000002,
+                  0.6880000000000001
+                ]
+              },
+              "wia_dim_candidate_1": {
+                "before_m": [
+                  -0.28000000000000025,
+                  -0.1499999999999999,
+                  0.733
+                ],
+                "after_m": [
+                  -0.48,
+                  -0.1499999999999999,
+                  0.733
+                ]
+              }
+            }
+          },
+          {
+            "definition": "task",
+            "path": "scene.variants.adapted.patches[1].parameters.layout",
+            "phase": "after_postprocessing",
+            "table_origin_x_m": 0.0,
+            "positions": {
+              "wia_dim_aperture_low": {
+                "before_m": [
+                  0.0,
+                  -0.07499999999999996,
+                  0.7250000000000001
+                ],
+                "after_m": [
+                  -0.22,
+                  -0.07499999999999996,
+                  0.7250000000000001
+                ]
+              },
+              "wia_dim_aperture_high": {
+                "before_m": [
+                  0.0,
+                  0.07499999999999996,
+                  0.7250000000000001
+                ],
+                "after_m": [
+                  -0.22,
+                  0.07499999999999996,
+                  0.7250000000000001
+                ]
+              },
+              "wia_dim_aperture_roof": {
+                "before_m": [
+                  0.0,
+                  0.0,
+                  0.77
+                ],
+                "after_m": [
+                  -0.22,
+                  0.0,
+                  0.77
+                ]
+              },
+              "wia_dim_pad_0": {
+                "before_m": [
+                  0.35999999999999943,
+                  0.0,
+                  0.666
+                ],
+                "after_m": [
+                  0.14,
+                  0.0,
+                  0.666
+                ]
+              },
+              "wia_dim_candidate_0": {
+                "before_m": [
+                  -0.28000000000000025,
+                  0.15000000000000002,
+                  0.6880000000000001
+                ],
+                "after_m": [
+                  -0.5,
+                  0.15000000000000002,
+                  0.6880000000000001
+                ]
+              },
+              "wia_dim_candidate_1": {
+                "before_m": [
+                  -0.28000000000000025,
+                  -0.1499999999999999,
+                  0.733
+                ],
+                "after_m": [
+                  -0.48,
+                  -0.1499999999999999,
+                  0.733
+                ]
+              }
+            }
+          },
+          {
+            "definition": "scene",
+            "path": "scene.variants.adapted.patches[0].parameters.layout",
+            "phase": "before_construction",
+            "table_origin_x_m": 0.0,
+            "positions": {
+              "wia_dim_aperture_low": {
+                "before_m": [
+                  0.0,
+                  -0.07499999999999996,
+                  0.7250000000000001
+                ],
+                "after_m": [
+                  -0.22,
+                  -0.07499999999999996,
+                  0.7250000000000001
+                ]
+              },
+              "wia_dim_aperture_high": {
+                "before_m": [
+                  0.0,
+                  0.07499999999999996,
+                  0.7250000000000001
+                ],
+                "after_m": [
+                  -0.22,
+                  0.07499999999999996,
+                  0.7250000000000001
+                ]
+              },
+              "wia_dim_aperture_roof": {
+                "before_m": [
+                  0.0,
+                  0.0,
+                  0.77
+                ],
+                "after_m": [
+                  -0.22,
+                  0.0,
+                  0.77
+                ]
+              },
+              "wia_dim_pad_0": {
+                "before_m": [
+                  0.35999999999999943,
+                  0.0,
+                  0.666
+                ],
+                "after_m": [
+                  0.14,
+                  0.0,
+                  0.666
+                ]
+              },
+              "wia_dim_candidate_0": {
+                "before_m": [
+                  -0.28000000000000025,
+                  0.15000000000000002,
+                  0.6880000000000001
+                ],
+                "after_m": [
+                  -0.5,
+                  0.15000000000000002,
+                  0.6880000000000001
+                ]
+              },
+              "wia_dim_candidate_1": {
+                "before_m": [
+                  -0.28000000000000025,
+                  -0.1499999999999999,
+                  0.733
+                ],
+                "after_m": [
+                  -0.48,
+                  -0.1499999999999999,
+                  0.733
+                ]
+              }
+            }
+          },
+          {
+            "definition": "scene",
+            "path": "scene.variants.adapted.patches[1].parameters.layout",
+            "phase": "after_postprocessing",
+            "table_origin_x_m": 0.0,
+            "positions": {
+              "wia_dim_aperture_low": {
+                "before_m": [
+                  0.0,
+                  -0.07499999999999996,
+                  0.7250000000000001
+                ],
+                "after_m": [
+                  -0.22,
+                  -0.07499999999999996,
+                  0.7250000000000001
+                ]
+              },
+              "wia_dim_aperture_high": {
+                "before_m": [
+                  0.0,
+                  0.07499999999999996,
+                  0.7250000000000001
+                ],
+                "after_m": [
+                  -0.22,
+                  0.07499999999999996,
+                  0.7250000000000001
+                ]
+              },
+              "wia_dim_aperture_roof": {
+                "before_m": [
+                  0.0,
+                  0.0,
+                  0.77
+                ],
+                "after_m": [
+                  -0.22,
+                  0.0,
+                  0.77
+                ]
+              },
+              "wia_dim_pad_0": {
+                "before_m": [
+                  0.35999999999999943,
+                  0.0,
+                  0.666
+                ],
+                "after_m": [
+                  0.14,
+                  0.0,
+                  0.666
+                ]
+              },
+              "wia_dim_candidate_0": {
+                "before_m": [
+                  -0.28000000000000025,
+                  0.15000000000000002,
+                  0.6880000000000001
+                ],
+                "after_m": [
+                  -0.5,
+                  0.15000000000000002,
+                  0.6880000000000001
+                ]
+              },
+              "wia_dim_candidate_1": {
+                "before_m": [
+                  -0.28000000000000025,
+                  -0.1499999999999999,
+                  0.733
+                ],
+                "after_m": [
+                  -0.48,
+                  -0.1499999999999999,
+                  0.733
+                ]
+              }
+            }
+          }
+        ],
+        "public_constraints_added": [
+          "Robot base translation and rotation are allowed, including lateral movement around the workstation. The selected block must actually pass through the framed opening; the robot hand itself need not pass through the opening."
+        ],
+        "native_validation_status": "pending",
+        "physical_success_verified": false,
+        "table_relative_x_offsets_m": {
+          "wia_dim_aperture_low": -0.22,
+          "wia_dim_aperture_high": -0.22,
+          "wia_dim_aperture_roof": -0.22,
+          "wia_dim_pad_0": 0.14,
+          "wia_dim_candidate_0": -0.5,
+          "wia_dim_candidate_1": -0.48
+        }
+      },
+      "native_validation": "pending"
+    },
+    {
+      "alias": "T40",
+      "previous_selection": {
+        "alias": "T40",
+        "family": "TM",
+        "variant_id": "t40_history_a_h_furnished_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t40.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/furnished_v1/temporal/tasks/t40_history_a_h_furnished_v1.yaml",
+        "source_task_file_sha256": "4f5587ffe9f4e4721c7bca9704228fcefffb03a925365c87064f40bd6a2d1824",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t40.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/furnished_v1/temporal/scenes/t40_history_a_h_furnished_v1.yaml",
+        "source_scene_file_sha256": "e2a60f60439b76a54d2704fa912eadbe22b461785ac7dbbe3bde7dfd7054dfca",
+        "task_id": "wia_tm2_matched_history_v3",
+        "variant": "adapted"
+      },
+      "current_selection": {
+        "alias": "T40",
+        "family": "TM",
+        "variant_id": "t40_history_a_h_furnished_v1",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t40.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/review_access_20261030/tasks/t40.yaml",
+        "source_task_file_sha256": "2b38e4ad120c0f43b065a9637cde0be176851efaa65337a0cc173ddef4606611",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t40.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/review_access_20261030/scenes/t40.yaml",
+        "source_scene_file_sha256": "36fab683a3c5c1c2d83c951ce4b27790e151a0378cb2a96ce330beaae813aa32",
+        "task_id": "wia_tm2_matched_history_v3",
+        "variant": "adapted"
+      },
+      "changes": {
+        "alias": "T40",
+        "selected_variant": "adapted",
+        "translation_world_m": [
+          0.0,
+          -0.12,
+          0.0
+        ],
+        "container_centers_before_world_m": {
+          "container_00": [
+            6.6453999999999995,
+            3.5004,
+            0.9215091553341029
+          ],
+          "container_01": [
+            7.2954,
+            3.5004,
+            0.9215091553341029
+          ],
+          "container_02": [
+            7.9454,
+            3.5004,
+            0.9215091553341029
+          ]
+        },
+        "container_centers_after_world_m": {
+          "container_00": [
+            6.6453999999999995,
+            3.3804,
+            0.9215091553341029
+          ],
+          "container_01": [
+            7.2954,
+            3.3804,
+            0.9215091553341029
+          ],
+          "container_02": [
+            7.9454,
+            3.3804,
+            0.9215091553341029
+          ]
+        },
+        "source_bindings": [
+          "container_00",
+          "container_01",
+          "container_02",
+          "image1_content_00",
+          "image1_content_01",
+          "image2_content_01"
+        ],
+        "phase_bindings": {
+          "image1": [
+            "image1_content_00",
+            "image1_content_01"
+          ],
+          "image2": [
+            "image2_content_01"
+          ]
+        },
+        "updated_variants": [
+          "adapted",
+          "saved_image1",
+          "saved_image2"
+        ],
+        "live_coordinate_counts": {
+          "task": 98,
+          "scene": 86
+        },
+        "original_native_supports_unchanged": true,
+        "native_support_names": [
+          "breakfast_table_rhjoby_0"
+        ],
+        "invariants": [
+          "One shared world XYZ translation preserves all source-relative geometry and temporal endpoints.",
+          "Native furniture, robot, apparatus, public spare inventory, and support identities are unchanged.",
+          "Dimensions, scales, orientations, masses, source identity, public text, labels, timing, events, and scoring are unchanged.",
+          "Raw replay payloads, historical repair metadata, and parent provenance are unchanged.",
+          "Task and scene IDs are retained; each definition version is incremented once."
+        ],
+        "pending_validation": [
+          "native support/contact",
+          "native collision and settling",
+          "visibility",
+          "robot and gripper reachability"
+        ]
+      },
+      "native_validation": "pending"
+    },
+    {
+      "alias": "T41",
+      "previous_selection": {
+        "alias": "T41",
+        "family": "TM",
+        "variant_id": "t41_b_furnished_v2",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t41.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t41_b_furnished_v2.yaml",
+        "source_task_file_sha256": "06cbc6aa65d379a4b0ae9eac28c207a9bd2e475b04838557becfe4fea21ff87a",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t41.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t41_b_furnished_v2.yaml",
+        "source_scene_file_sha256": "43fb37fdf88de28bf7260c0d7f20ddedd0d06186f809100f0f80ab74caa5c334",
+        "task_id": "task_redesign_bd0c096bec07a9036cd4bb66",
+        "variant": "adapted"
+      },
+      "current_selection": {
+        "alias": "T41",
+        "family": "TM",
+        "variant_id": "t41_b_furnished_v2",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t41.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/review_access_20261030/tasks/t41.yaml",
+        "source_task_file_sha256": "017b19fdfa82dedfc82d7e81587b5051429e0fe73528cbf0116e8fa28247b1f5",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t41.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/review_access_20261030/scenes/t41.yaml",
+        "source_scene_file_sha256": "eb2a8bedb29bcf5542b8cd4b8653e022ce8e7d867b9b047db354c699c01738b6",
+        "task_id": "task_redesign_bd0c096bec07a9036cd4bb66",
+        "variant": "adapted"
+      },
+      "changes": {
+        "alias": "T41",
+        "selected_variant": "adapted",
+        "translation_world_m": [
+          0.12,
+          0.0,
+          0.0
+        ],
+        "container_centers_before_world_m": {
+          "container_00": [
+            -5.099999999999999,
+            16.05,
+            0.8571024272839124
+          ],
+          "container_01": [
+            -5.099999999999999,
+            16.7,
+            0.8571024272839124
+          ],
+          "container_02": [
+            -5.099999999999999,
+            17.35,
+            0.8571024272839124
+          ]
+        },
+        "container_centers_after_world_m": {
+          "container_00": [
+            -4.979999999999999,
+            16.05,
+            0.8571024272839124
+          ],
+          "container_01": [
+            -4.979999999999999,
+            16.7,
+            0.8571024272839124
+          ],
+          "container_02": [
+            -4.979999999999999,
+            17.35,
+            0.8571024272839124
+          ]
+        },
+        "source_bindings": [
+          "container_00",
+          "container_01",
+          "container_02",
+          "image1_content_00",
+          "image1_content_01",
+          "image2_content_00",
+          "image2_content_01"
+        ],
+        "phase_bindings": {
+          "image1": [
+            "image1_content_00",
+            "image1_content_01"
+          ],
+          "image2": [
+            "image2_content_00",
+            "image2_content_01"
+          ]
+        },
+        "updated_variants": [
+          "adapted",
+          "saved_image1",
+          "saved_image2"
+        ],
+        "live_coordinate_counts": {
+          "task": 106,
+          "scene": 93
+        },
+        "original_native_supports_unchanged": true,
+        "native_support_names": [
+          "coffee_table_dnsjnv_0"
+        ],
+        "invariants": [
+          "One shared world XYZ translation preserves all source-relative geometry and temporal endpoints.",
+          "Native furniture, robot, apparatus, public spare inventory, and support identities are unchanged.",
+          "Dimensions, scales, orientations, masses, source identity, public text, labels, timing, events, and scoring are unchanged.",
+          "Raw replay payloads, historical repair metadata, and parent provenance are unchanged.",
+          "Task and scene IDs are retained; each definition version is incremented once."
+        ],
+        "pending_validation": [
+          "native support/contact",
+          "native collision and settling",
+          "visibility",
+          "robot and gripper reachability"
+        ]
+      },
+      "native_validation": "pending"
+    },
+    {
+      "alias": "T45",
+      "previous_selection": {
+        "alias": "T45",
+        "family": "TM",
+        "variant_id": "t45_b_furnished_v2",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t45.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/tasks/t45_b_furnished_v2.yaml",
+        "source_task_file_sha256": "e15575f35e0106b68093b02281625c648c67b35760c048472d57c7d61febdf07",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t45.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/furnished_v1/temporal_beechwood_v2/scenes/t45_b_furnished_v2.yaml",
+        "source_scene_file_sha256": "e3c31d253abce85ce5738b303d5963c1198c52d778499e8c039a29f3f2834bc7",
+        "task_id": "task_redesign_939a8fa9a40b1fc7e04a5db0",
+        "variant": "adapted"
+      },
+      "current_selection": {
+        "alias": "T45",
+        "family": "TM",
+        "variant_id": "t45_b_furnished_v2",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t45.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/review_access_20261030/tasks/t45.yaml",
+        "source_task_file_sha256": "94a603af7ad28d55062d4610464a36c4bca38a27f5e9a633192c7980a4802ec4",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t45.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/review_access_20261030/scenes/t45.yaml",
+        "source_scene_file_sha256": "003b9b4e5665acbb72a87b75de36a1478d4d29be44323f909ef46ce57b82f0b5",
+        "task_id": "task_redesign_939a8fa9a40b1fc7e04a5db0",
+        "variant": "adapted"
+      },
+      "changes": {
+        "alias": "T45",
+        "selected_variant": "adapted",
+        "translation_world_m": [
+          0.12,
+          0.0,
+          0.0
+        ],
+        "container_centers_before_world_m": {
+          "container_00": [
+            -5.099999999999999,
+            16.05,
+            0.8571024272839124
+          ],
+          "container_01": [
+            -5.099999999999999,
+            16.7,
+            0.8571024272839124
+          ],
+          "container_02": [
+            -5.099999999999999,
+            17.35,
+            0.8571024272839124
+          ]
+        },
+        "container_centers_after_world_m": {
+          "container_00": [
+            -4.979999999999999,
+            16.05,
+            0.8571024272839124
+          ],
+          "container_01": [
+            -4.979999999999999,
+            16.7,
+            0.8571024272839124
+          ],
+          "container_02": [
+            -4.979999999999999,
+            17.35,
+            0.8571024272839124
+          ]
+        },
+        "source_bindings": [
+          "container_00",
+          "container_01",
+          "container_02",
+          "image1_content_00",
+          "image1_content_01",
+          "image2_content_00",
+          "image2_content_01",
+          "image2_content_02"
+        ],
+        "phase_bindings": {
+          "image1": [
+            "image1_content_00",
+            "image1_content_01"
+          ],
+          "image2": [
+            "image2_content_00",
+            "image2_content_01",
+            "image2_content_02"
+          ]
+        },
+        "updated_variants": [
+          "adapted",
+          "saved_image1",
+          "saved_image2"
+        ],
+        "live_coordinate_counts": {
+          "task": 114,
+          "scene": 100
+        },
+        "original_native_supports_unchanged": true,
+        "native_support_names": [
+          "coffee_table_dnsjnv_0"
+        ],
+        "invariants": [
+          "One shared world XYZ translation preserves all source-relative geometry and temporal endpoints.",
+          "Native furniture, robot, apparatus, public spare inventory, and support identities are unchanged.",
+          "Dimensions, scales, orientations, masses, source identity, public text, labels, timing, events, and scoring are unchanged.",
+          "Raw replay payloads, historical repair metadata, and parent provenance are unchanged.",
+          "Task and scene IDs are retained; each definition version is incremented once."
+        ],
+        "pending_validation": [
+          "native support/contact",
+          "native collision and settling",
+          "visibility",
+          "robot and gripper reachability"
+        ]
+      },
+      "native_validation": "pending"
+    },
+    {
+      "alias": "T46",
+      "previous_selection": {
+        "alias": "T46",
+        "family": "TM",
+        "variant_id": "t46_w_furnished_v2",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t46.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v2/tasks/t46_w_furnished_v2.yaml",
+        "source_task_file_sha256": "5f7081008db1983cb915d03738a170616914bbaa93504e95e1be6933cfbfb19d",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t46.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/furnished_v1/temporal_wainscott_v2/scenes/t46_w_furnished_v2.yaml",
+        "source_scene_file_sha256": "39b7bc1975f22001156f516b941343df8b07e47140a9a05712bd4d41a952bc7a",
+        "task_id": "task_redesign_0498b76051279b8acd7e914e",
+        "variant": "adapted"
+      },
+      "current_selection": {
+        "alias": "T46",
+        "family": "TM",
+        "variant_id": "t46_w_furnished_v2",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t46.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/review_access_20261030/tasks/t46.yaml",
+        "source_task_file_sha256": "1c06d6f28e2592db705393a0ff156a7a9ce706f57dfc7306d9695cdec32fa4ad",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t46.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/review_access_20261030/scenes/t46.yaml",
+        "source_scene_file_sha256": "3e21a8ca901afc8c018f02c5ee4223a6d5064f00db0a8991432af60d9e3f00b8",
+        "task_id": "task_redesign_0498b76051279b8acd7e914e",
+        "variant": "adapted"
+      },
+      "changes": {
+        "alias": "T46",
+        "selected_variant": "adapted",
+        "translation_world_m": [
+          0.0,
+          -0.12,
+          0.0
+        ],
+        "container_centers_before_world_m": {
+          "container_00": [
+            4.0,
+            6.6,
+            0.8564671092800823
+          ],
+          "container_01": [
+            4.65,
+            6.6,
+            0.8564671092800823
+          ],
+          "container_02": [
+            5.300000000000001,
+            6.6,
+            0.8564671092800823
+          ]
+        },
+        "container_centers_after_world_m": {
+          "container_00": [
+            4.0,
+            6.4799999999999995,
+            0.8564671092800823
+          ],
+          "container_01": [
+            4.65,
+            6.4799999999999995,
+            0.8564671092800823
+          ],
+          "container_02": [
+            5.300000000000001,
+            6.4799999999999995,
+            0.8564671092800823
+          ]
+        },
+        "source_bindings": [
+          "container_00",
+          "container_01",
+          "container_02",
+          "image1_content_00",
+          "image1_content_01",
+          "image2_content_01",
+          "image2_content_02"
+        ],
+        "phase_bindings": {
+          "image1": [
+            "image1_content_00",
+            "image1_content_01"
+          ],
+          "image2": [
+            "image2_content_01",
+            "image2_content_02"
+          ]
+        },
+        "updated_variants": [
+          "adapted",
+          "saved_image1",
+          "saved_image2"
+        ],
+        "live_coordinate_counts": {
+          "task": 106,
+          "scene": 93
+        },
+        "original_native_supports_unchanged": true,
+        "native_support_names": [
+          "breakfast_table_zypvuv_0"
+        ],
+        "invariants": [
+          "One shared world XYZ translation preserves all source-relative geometry and temporal endpoints.",
+          "Native furniture, robot, apparatus, public spare inventory, and support identities are unchanged.",
+          "Dimensions, scales, orientations, masses, source identity, public text, labels, timing, events, and scoring are unchanged.",
+          "Raw replay payloads, historical repair metadata, and parent provenance are unchanged.",
+          "Task and scene IDs are retained; each definition version is incremented once."
+        ],
+        "pending_validation": [
+          "native support/contact",
+          "native collision and settling",
+          "visibility",
+          "robot and gripper reachability"
+        ]
+      },
+      "native_validation": "pending"
+    },
+    {
+      "alias": "T47",
+      "previous_selection": {
+        "alias": "T47",
+        "family": "TM",
+        "variant_id": "t47_o_furnished_v4",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t47.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/furnished_v1/temporal_office_v4/tasks/t47_o_furnished_v4.yaml",
+        "source_task_file_sha256": "988f5ae54becedfd568178108f56a55f8167f3855385a5abf8e9945245675aad",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t47.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/furnished_v1/temporal_office_v4/scenes/t47_o_furnished_v4.yaml",
+        "source_scene_file_sha256": "60f5e806609ffdec64f4117a0d2821e5addeb339f4f5922ef738498812c8f10f",
+        "task_id": "task_redesign_b892978c0400005618c6589c",
+        "variant": "adapted"
+      },
+      "current_selection": {
+        "alias": "T47",
+        "family": "TM",
+        "variant_id": "t47_o_furnished_v4",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t47.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/review_access_20261030/tasks/t47.yaml",
+        "source_task_file_sha256": "fcf4d5404f629acada7f561f8d40de2be8a6e0d63cec0538096a99a658fb7119",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t47.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/review_access_20261030/scenes/t47.yaml",
+        "source_scene_file_sha256": "bac8b5bf2b9a42daba64010ae09cc0c558efc52034bfee663aff22aa14e958f1",
+        "task_id": "task_redesign_b892978c0400005618c6589c",
+        "variant": "adapted"
+      },
+      "changes": {
+        "alias": "T47",
+        "selected_variant": "adapted",
+        "translation_world_m": [
+          0.12,
+          0.0,
+          0.0
+        ],
+        "container_centers_before_world_m": {
+          "container_00": [
+            -7.000000000000001,
+            12.75,
+            0.8012670065463574
+          ],
+          "container_01": [
+            -7.000000000000001,
+            13.399999999999999,
+            0.8012670065463574
+          ],
+          "container_02": [
+            -7.000000000000001,
+            14.05,
+            0.8012670065463574
+          ]
+        },
+        "container_centers_after_world_m": {
+          "container_00": [
+            -6.880000000000001,
+            12.75,
+            0.8012670065463574
+          ],
+          "container_01": [
+            -6.880000000000001,
+            13.399999999999999,
+            0.8012670065463574
+          ],
+          "container_02": [
+            -6.880000000000001,
+            14.05,
+            0.8012670065463574
+          ]
+        },
+        "source_bindings": [
+          "container_00",
+          "container_01",
+          "container_02",
+          "image1_content_00",
+          "image1_content_01",
+          "image2_content_00",
+          "image2_content_01"
+        ],
+        "phase_bindings": {
+          "image1": [
+            "image1_content_00",
+            "image1_content_01"
+          ],
+          "image2": [
+            "image2_content_00",
+            "image2_content_01"
+          ]
+        },
+        "updated_variants": [
+          "adapted",
+          "saved_image1",
+          "saved_image2"
+        ],
+        "live_coordinate_counts": {
+          "task": 106,
+          "scene": 93
+        },
+        "original_native_supports_unchanged": true,
+        "native_support_names": [
+          "conference_table_fpkmyw_0"
+        ],
+        "invariants": [
+          "One shared world XYZ translation preserves all source-relative geometry and temporal endpoints.",
+          "Native furniture, robot, apparatus, public spare inventory, and support identities are unchanged.",
+          "Dimensions, scales, orientations, masses, source identity, public text, labels, timing, events, and scoring are unchanged.",
+          "Raw replay payloads, historical repair metadata, and parent provenance are unchanged.",
+          "Task and scene IDs are retained; each definition version is incremented once."
+        ],
+        "pending_validation": [
+          "native support/contact",
+          "native collision and settling",
+          "visibility",
+          "robot and gripper reachability"
+        ]
+      },
+      "native_validation": "pending"
+    },
+    {
+      "alias": "T48",
+      "previous_selection": {
+        "alias": "T48",
+        "family": "TM",
+        "variant_id": "t48_o_furnished_v4",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t48.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/furnished_v1/temporal_office_v4/tasks/t48_o_furnished_v4.yaml",
+        "source_task_file_sha256": "616278afed1b6b75ea9b83a7455c2db89817f7d7d6d4751413e15a3f31036ea0",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t48.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/furnished_v1/temporal_office_v4/scenes/t48_o_furnished_v4.yaml",
+        "source_scene_file_sha256": "0d46d884352f01b45b4a4f6d39117c83bc74ef7f9e91ce428e7191812ff2c18c",
+        "task_id": "task_redesign_7fd79b0d5819ace319f077c7",
+        "variant": "adapted"
+      },
+      "current_selection": {
+        "alias": "T48",
+        "family": "TM",
+        "variant_id": "t48_o_furnished_v4",
+        "task_file": "explore_to_achieve/wia_v1/release/tasks/t48.yaml",
+        "source_task_file": "explore_to_achieve/wia_v1/review_access_20261030/tasks/t48.yaml",
+        "source_task_file_sha256": "51a707d2eb62f769d4d4b2b3306e42456e1b81a7a5158427ed5d40e09634d840",
+        "scene_file": "explore_to_achieve/wia_v1/release/scenes/t48.yaml",
+        "source_scene_file": "explore_to_achieve/wia_v1/review_access_20261030/scenes/t48.yaml",
+        "source_scene_file_sha256": "a1c43b211e5abceb206c551a33b7016efd941ee711dc925beb1dba2d8ca9643b",
+        "task_id": "task_redesign_7fd79b0d5819ace319f077c7",
+        "variant": "adapted"
+      },
+      "changes": {
+        "alias": "T48",
+        "selected_variant": "adapted",
+        "translation_world_m": [
+          0.12,
+          0.0,
+          0.0
+        ],
+        "container_centers_before_world_m": {
+          "container_00": [
+            -7.000000000000001,
+            12.75,
+            0.8012670065463574
+          ],
+          "container_01": [
+            -7.000000000000001,
+            13.399999999999999,
+            0.8012670065463574
+          ],
+          "container_02": [
+            -7.000000000000001,
+            14.05,
+            0.8012670065463574
+          ]
+        },
+        "container_centers_after_world_m": {
+          "container_00": [
+            -6.880000000000001,
+            12.75,
+            0.8012670065463574
+          ],
+          "container_01": [
+            -6.880000000000001,
+            13.399999999999999,
+            0.8012670065463574
+          ],
+          "container_02": [
+            -6.880000000000001,
+            14.05,
+            0.8012670065463574
+          ]
+        },
+        "source_bindings": [
+          "container_00",
+          "container_01",
+          "container_02",
+          "image1_content_00",
+          "image1_content_01",
+          "image2_content_01",
+          "image2_content_02"
+        ],
+        "phase_bindings": {
+          "image1": [
+            "image1_content_00",
+            "image1_content_01"
+          ],
+          "image2": [
+            "image2_content_01",
+            "image2_content_02"
+          ]
+        },
+        "updated_variants": [
+          "adapted",
+          "saved_image1",
+          "saved_image2"
+        ],
+        "live_coordinate_counts": {
+          "task": 106,
+          "scene": 93
+        },
+        "original_native_supports_unchanged": true,
+        "native_support_names": [
+          "conference_table_fpkmyw_0"
+        ],
+        "invariants": [
+          "One shared world XYZ translation preserves all source-relative geometry and temporal endpoints.",
+          "Native furniture, robot, apparatus, public spare inventory, and support identities are unchanged.",
+          "Dimensions, scales, orientations, masses, source identity, public text, labels, timing, events, and scoring are unchanged.",
+          "Raw replay payloads, historical repair metadata, and parent provenance are unchanged.",
+          "Task and scene IDs are retained; each definition version is incremented once."
+        ],
+        "pending_validation": [
+          "native support/contact",
+          "native collision and settling",
+          "visibility",
+          "robot and gripper reachability"
+        ]
+      },
+      "native_validation": "pending"
+    }
+  ],
+  "physical_success_verified": false
+}

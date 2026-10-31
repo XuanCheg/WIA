@@ -1,0 +1,119 @@
+{
+  "schema": "wia_inside_control_capture_v1",
+  "alias": "T52",
+  "job_id": "capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67",
+  "task_sha256": "750155bc6e0cbf597719ee2286b0b7b6bef95794758226f7662763026e4d367a",
+  "scene_sha256": "38e4be33e171c040c982d45d8e19b44493dce99e4e3a4ce28952aa987099f2c2",
+  "code_commit": "working_6805c082cf215fc351366e45af9c53ec",
+  "capture_signature": "7a3e63c7e7cbf5e4ff8e8beb036f2b6779f995bc342a0bccf267c5020030c252",
+  "complete": true,
+  "image_count": 21,
+  "duration_s": 757.4702407661825,
+  "timings": {
+    "cold_initialization_s": 303.66126391105354,
+    "initialization_wait_s": 0.0,
+    "screenshot_s": 453.8089803652838,
+    "warm_swap_s": 0.0,
+    "total_s": 757.4702445156872
+  },
+  "model_calls": 0,
+  "robot_actions": 0,
+  "physical_grasp_verified": false,
+  "image_checks": "Top and detail views visually show the original whiskey stone inside the transparent jar; geometry unchanged. Instance segmentation through glass can report zero pixels even when RGB shows the stone.",
+  "native_no_op_evidence": "inside_control_validation.json",
+  "receipt_sha256": "c436b6317f15844b62e03341a19ccfc6435fbcf5c4b98c77dcdc3c85136318bf",
+  "images": {
+    "global_diagonal": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/global_diagonal.png",
+      "sha256": "d3f9d2fd6d60b89c280025b14ef155641e8e62429eb8ace7801c53b1e25a355d"
+    },
+    "global_overhead": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/global_overhead.png",
+      "sha256": "90e646a6f4bdd84d39f70715217d0c263096147568a8f72cf444eece51a39b3b"
+    },
+    "global_front": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/global_front.png",
+      "sha256": "7c9faba452c552c13a06595c91e212d124e93c1f14b30deec695e08fd7bc7f79"
+    },
+    "global_back": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/global_back.png",
+      "sha256": "e14689b27ffb8f4187566f0499e16b6e8292f6e3902b59f390b23264f308767e"
+    },
+    "global_left": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/global_left.png",
+      "sha256": "86f060e1d14b774a846b3245ea4a7655aae8f15192b59e25a926c98600056e42"
+    },
+    "global_right": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/global_right.png",
+      "sha256": "ffad314aebd01f484c7c55efa82694d67a4a0068a7dc2258861c5d010815bc5c"
+    },
+    "head": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/head.png",
+      "sha256": "6dbee5fd68e6b25eb9fd4ff82dbddde5bd7f2df9215b216eba1c5dd19ae96912"
+    },
+    "wrist": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/wrist.png",
+      "sha256": "9a249b32668cc8fc6ff3f7f1c16661f55c2163fcf8a63df1af650eefa3e62f39"
+    },
+    "scene": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/scene.png",
+      "sha256": "90a0a4f0680281a6c887c16f197e7b5381224c77be7d8ef7ed2da8a202b72727"
+    },
+    "right_wrist": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/right_wrist.png",
+      "sha256": "5de268813531ccc7900f4cee02015687781a64e4da5e6b3d2859c94837928a57"
+    },
+    "chassis_front_left": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/chassis_front_left.png",
+      "sha256": "99e0140a6dfb8d551f96224d6167782db9b2c1d7be763c3a88e4a0411e7dc6c5"
+    },
+    "chassis_front_right": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/chassis_front_right.png",
+      "sha256": "786d5c3fde7fe27aaea03ec91c0371167a150dace978b3e3527a0ecf1b87c4bd"
+    },
+    "chassis_left": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/chassis_left.png",
+      "sha256": "42c5a5e697771c09e7844bf70212bf055011c4ae1b0691378021db509b66c1b0"
+    },
+    "chassis_right": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/chassis_right.png",
+      "sha256": "73914d6e5af2ca09db4cde64d7823435d0a239b8d184e7e948a26f765f9e82ed"
+    },
+    "chassis_rear": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/chassis_rear.png",
+      "sha256": "b933e222a6ab574b9bcb1141b68c54def6ebbfc616a105a79c535fd9900cccdc"
+    },
+    "initial_overview_rgb": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/initial_overview_rgb.png",
+      "sha256": "c9b1bf1bffe277bfc434ae61e2de041e042ca31960abd21ab42c6e0778410593"
+    },
+    "object_overview": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/object_overview.png",
+      "sha256": "72d3ab8fa62d8a8e227a68a130175e355a58f579a4a19597252949a54a9d84b8"
+    },
+    "object_top": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/object_top.png",
+      "sha256": "832614243f7d05d98fd84502375e5bbdc7eb7229920373b59f3a0f645589ca82"
+    },
+    "object_side": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/object_side.png",
+      "sha256": "ef76f838c35ae3328c3acd5d498ab1b98c02ccb86cd8d004a250ca680b242e9f"
+    },
+    "object_detail_00": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/object_detail_00.png",
+      "sha256": "6ce2e18362a7299d929122155fbe3f3ebaf784229482827a49f3789031c6563d"
+    },
+    "object_detail_01": {
+      "path": "outputs/edge_review_20261029/queue/jobs/capture_7a3e63c7e7cbf5e4ff8e8beb036f2b67/attempts/01/object_detail_01.png",
+      "sha256": "e4916f8f9249c450b52ca45044a556a5dc860d1d908a573507a33651d5aa72c8"
+    }
+  },
+  "retention": {
+    "state": "RETAINED",
+    "physical_gpu": 4,
+    "native_pid": 271985,
+    "tmux": "codex-gpu:890",
+    "timeout_s": 0,
+    "physics_steps_during_retention": 0
+  }
+}

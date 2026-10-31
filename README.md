@@ -44,7 +44,7 @@ evaluation:
 output_dir: ../results/my_fresh_run
 ```
 
-The sample task is pending, so its configs explicitly use diagnostic mode. This does not qualify it for benchmark scoring. Choose a ready task for benchmark mode. Models must be explicit; replace `YOUR_EXPLICIT_MODEL_NAME`. Relative task, data, manifest and evaluator paths resolve against the config directory, or against `resource_root` when set. `output_dir` and `resource_root` themselves resolve against the config directory. Unique task IDs also use the canonical task catalogue; ambiguous IDs fail. Task YAML and config duplicate keys fail. Seeds are nonnegative integers. Ordinary task variants default to `original`; approved rigid containment tasks default to `tabletop`.
+The sample configs explicitly use diagnostic mode. Selected release tasks may also run in benchmark mode under the frozen-load policy; neither mode certifies physical success. Pending tasks outside the selected catalogue still require qualification or diagnostic mode. Models must be explicit; replace `YOUR_EXPLICIT_MODEL_NAME`. Relative task, data, manifest and evaluator paths resolve against the config directory, or against `resource_root` when set. `output_dir` and `resource_root` themselves resolve against the config directory. Unique task IDs also use the canonical task catalogue; ambiguous IDs fail. Task YAML and config duplicate keys fail. Seeds are nonnegative integers. Selected release tasks default to their catalogue variant. Other ordinary task variants default to `original`; approved rigid containment tasks default to `tabletop`.
 
 `policy.backend` accepts `codex_cli`, `openai_chat_completions`, `openai_responses` or legacy `local_http`. The HTTP dialect is always explicit. Chat Completions supports `provider: openai|vllm|compatible`, `max_output_tokens`, optional `temperature` and `reasoning_effort`; `chat_template_kwargs` is accepted only for `provider: vllm`. Responses supports token limits, optional temperature and reasoning effort. Codex CLI uses its own configuration and does not accept HTTP URL/credential/generation settings. `local_http` preserves its existing adapter; it requires `base_url` and does not accept new API generation options. Declarative tasks require structured output. API dialects currently support declarative task episodes; existing Harness text/scene-QA paths keep their original transports.
 
@@ -91,7 +91,7 @@ Dry-run validates and prints frozen execution plans. It imports no Harness code,
 
 External integrations register a trial executor via `wia.policies.register_policy(name, factory)` or an installed `wia.policy_systems` entry point returning a zero-argument executor factory. An executor implements `execute(plan) -> authoritative summary`; it owns its policy/environment lifecycle and action loop. External policies are not required to name a model or backend. `PolicySystem` defines the public `initialize`, `start_episode`, `decide`, `end_episode`, `close` lifecycle for future policy, WorldModel, WAM or Claude integrations. These are extension interfaces, not implemented model systems. See [architecture](/local_home2/zhouxinyang/models/WIA/docs/architecture.md).
 
-WIA-v1 uses the frozen preferred-variant catalogue at `explore_to_achieve/wia_v1/release/catalogue.json` (61 executable definitions; AP4 has no executable definition). `wia tasks` and campaign preparation use this catalogue. Task statuses, physical settings and scoring remain unchanged. Historical task/review artifacts are retained but are not supported runtime inputs: old `core.esi_converters.*` identities and Harness import aliases have been removed. Install WIA explicitly; no Harness source bridge is provided.
+WIA v0.2 uses the active catalogue at `explore_to_achieve/wia_v1/release/catalogue.json` (60 selected definitions across six families, including AP-4 recovery mechanisms). `wia tasks` and campaign preparation use this catalogue. Task statuses, physical settings and scoring remain unchanged. Historical task/review artifacts are retained but are not supported runtime inputs: old `core.esi_converters.*` identities and Harness import aliases have been removed. Install WIA explicitly; no Harness source bridge is provided.
 
 Episode archives now use content-addressed exact model PNGs, 512-pixel JPEG previews (quality 80), and lossless gzipped NPY evidence. Read archive paths from JSON rather than assuming filenames. Live model images and numeric depth inputs remain unchanged. New human videos default to 384-pixel tiles and CRF 32. Existing outputs are not rewritten.
 
@@ -105,7 +105,7 @@ python -m pytest tests/test_evaluation_entry.py tests/test_optional_harness.py
 
 ## Fixed v1 loading and runtime ownership
 
-The release catalogue at `explore_to_achieve/wia_v1/release/catalogue.json` contains 61 preferred task/scene pairs. Its files load in benchmark mode without physical requalification or a pending-review gate. Loading records `loaded_release_v1`, `physical_checks_run: false` and `physical_safety_inferred: false`. Schema/resource checks, scene construction, runtime action interlocks and evaluation remain active; successful loading is not a calibrated Safety result.
+The release catalogue at `explore_to_achieve/wia_v1/release/catalogue.json` contains 60 selected task/scene pairs. Its files load in benchmark mode without physical requalification or a pending-review gate. Loading records `loaded_release_v1`, `physical_checks_run: false` and `physical_safety_inferred: false`. Schema/resource checks, scene construction, runtime action interlocks and evaluation remain active; successful loading is not a calibrated Safety result.
 
 Launch native tools with `python -m wia.runtime.commands.run_esi_robot` and the episode runner with `python -m wia.runtime.commands.run_esi_explore_episode`. Dataset-specific tools and their integration tests moved from Harness to `src/wia/runtime` and `tests/harness_integration`; old Harness module paths have no wrappers. Native prompt templates live in `explore_to_achieve/prompts`. The dataset API stays in [ShowHarness](/local_home2/zhouxinyang/models/Show-Harness-Explore/showharness/datasets.py).
 
@@ -184,3 +184,79 @@ cleans up each owned scene and continues to the next configured task.
 Batch mode rejects `keep_simulator`; debug accepts exactly one launched task.
 Always choose a fresh output directory before launching either preset. Existing
 resident processes must load the updated native code before using debug retention.
+
+### API context policies
+
+Set `policy.history_policy` in evaluation YAML or use `--history-policy`.
+Explicit configuration overrides `WIA_GATEWAY_HISTORY_POLICY`; omitted settings
+preserve existing legacy behavior.
+
+| Policy | History sent with current observations |
+| --- | --- |
+| `full` | Complete conversation, including historical images/tools |
+| `current_sensors_full_text` | All historical text and returned reasoning; old images/depth omitted; historical RGB recall available |
+| `current_sensors_last_result_notes` | Only the immediately previous final public action/output; persistent notes and historical RGB recall available |
+| `recent_text` | Last N public outputs (`history_text_turns: N`, diagnostic Chat Completions) |
+| `sliding_window` | Token-budgeted complete turns, initial/current turns pinned (`sliding_window_tokens: N`, diagnostic vLLM only) |
+| `showharness_state` | Fresh task/rules/current state and bounded executed actions (`history_recent_moves: 3` by default) |
+
+The current-sensor and ShowHarness-state policies require Vercel Gateway.
+`current_sensors_recent2_notes` is accepted as a compatibility alias for
+`current_sensors_last_result_notes`; it no longer replays two complete turns.
+Historical experiment artifacts retain their original recorded semantics.
+
+```yaml
+policy:
+  history_policy: current_sensors_last_result_notes
+  max_perception_rounds: 4
+```
+
+The previous-result policy keeps a fixed global task/rules/tool prompt, then the
+previous final public output and the current observation. Prior observation prompts,
+intermediate tool chains and returned reasoning are not replayed. A rejected tool
+decision contributes a rejection result rather than an older action. Current measured
+execution feedback remains authoritative; the current action-history list contains at
+most one executed action. Original logs and archived images remain on disk.
+
+Within the current decision, sensor/tool results and returned reasoning remain available.
+Each response containing depth/current RGB/historical RGB calls spends one perception
+round; batch compatible calls. At the configured positive limit (default four),
+perception tools are removed and a reminder requests final action JSON. Calling a
+removed tool consumes an invalid decision with feedback; no action is inferred by the
+harness. The allowance resets next decision. Global instructions explain that reads
+use an immutable snapshot and do not refresh the world.
+
+`episode_note({"operation":"append","text":"..."})` appends episode-local memory.
+Successful writes total at most 128 Unicode code points per decision, including whitespace;
+oversized writes are rejected without truncation. `episode_note({"operation":"read"})`
+returns all notes without size/count limits. Notes are not injected automatically.
+Note-only calls do not consume perception rounds; reads remain available after the
+perception limit. Thus this is not a hard cap on all API rounds or context size.
+Writes persist in `episode_notes.jsonl`; receipts in `note_tool_calls.jsonl`.
+The tools are documented in the global prompt. Logs do not add API episode resume support.
+
+Current depth/RGB tools remain available in other policies as before. Historical RGB
+recall is enabled in the two current-sensor policy families, not ShowHarness-state.
+The state policy adapts official ShowLab commit
+`6ad77dbc6180e973dff8148ffcca6c085580cea2` context management to WIA, preserving WIA's
+sensors, actions and scoring. Initial images follow WIA's first-decision protocol.
+
+Remove incompatible history-text/sliding-window fields when changing policies.
+Model/provider restrictions, reasoning effort, output caps and decision budget are
+separate settings. Fixed global prefixes allow reuse, but changing history means a
+higher cache-hit percentage is not guaranteed. Explicit note reads can enlarge input.
+
+### Extra fields in model action outputs
+
+WIA drops unsupported JSON keys from a command envelope and from a recognized action's
+command object before running the existing validation. A valid command executes normally;
+extra fields do not spend an invalid decision. The next decision receives an explicit
+accepted-with-ignored-fields notice. Original text, normalized text and ignored key paths
+are saved in the attempt record; the previous-result policy replays the normalized public
+result. Required fields, types, action names, magnitude limits and duplicate-key checks
+remain enforced. No values are coerced, filled or changed. New code takes effect in newly
+started agent processes; running Python agents are not hot-patched.
+
+### v0.2 release suite
+
+The [three-part release guide](/local_home2/zhouxinyang/models/WIA/docs/releases/v0.2/README.md) describes the independent dataset, cleaned evaluation code and ShowHarnessExplore snapshot. Set `WIA_DATASET_ROOT` for an external dataset package; code resources remain under `WIA_ROOT`. Default discovery follows the selected catalogue, so archived YAML files are not added to the active list. Build reproducible local archives with `python scripts/build_release_v02.py --output-dir dist/v0.2` using a fresh output directory.

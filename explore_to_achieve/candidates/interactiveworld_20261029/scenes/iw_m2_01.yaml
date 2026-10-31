@@ -1,0 +1,122 @@
+kind: scene_patch
+id: iw_m2_01
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Action Sequencing/Action Order Inference/grocery_store_asian/grocery_store_0/iw_m2_01.json
+bindings:
+  item_01:
+    name: item_01
+  item_02:
+    name: item_02
+  item_03:
+    name: item_03
+  item_04:
+    name: item_04
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: &id002
+          prototype: M2
+          source_task: GUIDE-24003
+          source_file: /local_home2/zhouxinyang/models/InteractiveWorld/benchmark/tasks/taskpacks/guidance/GUIDE-24003.taskpack.json
+          source_sha256: c65174d90cd00ee5b062d122ae58c78ce44efa16e49b3702d6302c7c4da189f8
+          scene_model: grocery_store_asian
+          room: grocery_store_0
+          fixture: grocery_shelf_akinbg_1
+          objects:
+          - name: item_01
+            category: pineapple_juice_carton
+            model: barzwx
+            slot: 0
+            offset:
+            - -0.15
+            - 0
+            size:
+            - 0.06
+            - 0.06
+            - 0.11
+            fixed: false
+            quantity: 3
+          - name: item_02
+            category: pineapple_juice_carton
+            model: barzwx
+            slot: 0
+            offset:
+            - -0.05
+            - 0
+            size:
+            - 0.06
+            - 0.06
+            - 0.11
+            fixed: false
+            quantity: 2
+          - name: item_03
+            category: pineapple_juice_carton
+            model: barzwx
+            slot: 0
+            offset:
+            - 0.05
+            - 0
+            size:
+            - 0.06
+            - 0.06
+            - 0.11
+            fixed: false
+            quantity: 2
+          - name: item_04
+            category: pineapple_juice_carton
+            model: barzwx
+            slot: 0
+            offset:
+            - 0.15
+            - 0
+            size:
+            - 0.06
+            - 0.06
+            - 0.11
+            fixed: false
+            quantity: 1
+          regions:
+            stock: 0
+            order_a: 1
+            order_b: 2
+          contract:
+            units:
+              item_01: 3
+              item_02: 2
+              item_03: 2
+              item_04: 1
+            stock_region: stock
+            protected: []
+            orders: &id001
+              order_a: 4
+              order_b: 3
+          objective: Allocate the sealed cartons using the visible QTY number on each package as its stock
+            quantity. Fulfil both receiving orders exactly without opening cartons or counting a carton
+            twice. Preserve unused stock. Quantities are operational stock units, not physical package
+            volume.
+          quantity_labels: true
+          condition:
+            orders: *id001
+          id: iw_m2_01
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id002
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+seed: 7
+runtime:
+  preview_fps: 0.0
+  camera_size:
+  - 512
+  - 512

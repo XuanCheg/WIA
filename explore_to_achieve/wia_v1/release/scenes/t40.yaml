@@ -1,6 +1,6 @@
 kind: scene_patch
 id: wia_tm2_history_a_v3_scene__t40_history_a_h_furnished_v1
-version: 5
+version: 7
 status: pending
 source:
   provider: esi
@@ -407,7 +407,7 @@ scene:
             container_00:
               position:
               - 6.6453999999999995
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -416,15 +416,15 @@ scene:
               - 1.0
               bbox:
               - - 6.529161071777343
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 6.7596512794494625
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
             image1_content_00:
               position:
               - 6.644406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -438,7 +438,7 @@ scene:
             container_01:
               position:
               - 7.2954
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -447,15 +447,15 @@ scene:
               - 1.0
               bbox:
               - - 7.179161071777344
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 7.409651279449463
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
             image1_content_01:
               position:
               - 7.294406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -469,7 +469,7 @@ scene:
             image2_content_01:
               position:
               - 7.294406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -483,7 +483,7 @@ scene:
             container_02:
               position:
               - 7.9454
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -492,10 +492,10 @@ scene:
               - 1.0
               bbox:
               - - 7.829161071777344
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 8.059651279449463
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
           scene_model: house_single_floor
           room: dining_room_0
@@ -504,8 +504,8 @@ scene:
           builder_sha256: 6fe04f703d0a43121fa0a446005b0351ad52dbddb0a375c90517c0ba14c707ab
           generator_sha256: ef40b0c0bf7a17563ba09f2dc25f2741e90ac3686aec1a9f692794df41a1b584
           replay_sha256: d20f0eb7958f25f4b4650a98b4754cd09eaf7063c92a1fb79f48de25897be337
-          provenance: Rigidly translated copy of the existing temporal world; original producer
-            evidence is retained in parent_provenance.
+          provenance: Rigidly translated copy of the existing temporal world; original producer evidence
+            is retained in parent_provenance.
           source_task_type: change_detection
           public_options:
           - 'yes'
@@ -1008,9 +1008,9 @@ scene:
           survey_revision: free_survey_10_v1
           parent_provenance:
             source_identity: Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_a_v1.json
-            provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration
-              build_unobserved_replay_plan and _preloaded_object_configs; saved AABB-center
-              placement from _place_preloaded_phase_content and producer _try_place_inside_container.
+            provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration build_unobserved_replay_plan
+              and _preloaded_object_configs; saved AABB-center placement from _place_preloaded_phase_content
+              and producer _try_place_inside_container.
       - operation: robot_pose
         position:
         - 9.4
@@ -1047,7 +1047,7 @@ scene:
         binding: container_00
         position:
         - 6.6453999999999995
-        - 3.5004
+        - 3.3804
         - 0.9215091553341029
         quaternion_xyzw:
         - 0.0
@@ -1059,7 +1059,7 @@ scene:
         binding: container_01
         position:
         - 7.2954
-        - 3.5004
+        - 3.3804
         - 0.9215091553341029
         quaternion_xyzw:
         - 0.0
@@ -1071,7 +1071,7 @@ scene:
         binding: container_02
         position:
         - 7.9454
-        - 3.5004
+        - 3.3804
         - 0.9215091553341029
         quaternion_xyzw:
         - 0.0
@@ -1083,7 +1083,7 @@ scene:
         binding: image1_content_00
         position:
         - 6.644406175613403
-        - 3.502459406852722
+        - 3.382459406852722
         - 0.9063049831997035
         quaternion_xyzw:
         - 0.0
@@ -1095,7 +1095,7 @@ scene:
         binding: image1_content_01
         position:
         - 7.294406175613403
-        - 3.502459406852722
+        - 3.382459406852722
         - 0.9063049831997035
         quaternion_xyzw:
         - 0.0
@@ -1631,7 +1631,7 @@ scene:
             container_00:
               position:
               - 6.6453999999999995
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -1640,15 +1640,15 @@ scene:
               - 1.0
               bbox:
               - - 6.529161071777343
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 6.7596512794494625
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
             image1_content_00:
               position:
               - 6.644406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -1662,7 +1662,7 @@ scene:
             container_01:
               position:
               - 7.2954
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -1671,15 +1671,15 @@ scene:
               - 1.0
               bbox:
               - - 7.179161071777344
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 7.409651279449463
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
             image1_content_01:
               position:
               - 7.294406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -1693,7 +1693,7 @@ scene:
             image2_content_01:
               position:
               - 7.294406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -1707,7 +1707,7 @@ scene:
             container_02:
               position:
               - 7.9454
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -1716,10 +1716,10 @@ scene:
               - 1.0
               bbox:
               - - 7.829161071777344
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 8.059651279449463
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
           scene_model: house_single_floor
           room: dining_room_0
@@ -1728,8 +1728,8 @@ scene:
           builder_sha256: 6fe04f703d0a43121fa0a446005b0351ad52dbddb0a375c90517c0ba14c707ab
           generator_sha256: ef40b0c0bf7a17563ba09f2dc25f2741e90ac3686aec1a9f692794df41a1b584
           replay_sha256: d20f0eb7958f25f4b4650a98b4754cd09eaf7063c92a1fb79f48de25897be337
-          provenance: Rigidly translated copy of the existing temporal world; original producer
-            evidence is retained in parent_provenance.
+          provenance: Rigidly translated copy of the existing temporal world; original producer evidence
+            is retained in parent_provenance.
           source_task_type: change_detection
           public_options:
           - 'yes'
@@ -2232,9 +2232,9 @@ scene:
           survey_revision: free_survey_10_v1
           parent_provenance:
             source_identity: Temporal Understanding/Unobserved Change/house_single_floor/dining_room_0/wia_history_a_v1.json
-            provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration
-              build_unobserved_replay_plan and _preloaded_object_configs; saved AABB-center
-              placement from _place_preloaded_phase_content and producer _try_place_inside_container.
+            provenance: Original JSON boxes/GT cameras; passive_gt.unobserved_regeneration build_unobserved_replay_plan
+              and _preloaded_object_configs; saved AABB-center placement from _place_preloaded_phase_content
+              and producer _try_place_inside_container.
       - operation: prepare_category_interaction
         phase: after_postprocessing
         mode: inspection
@@ -2249,7 +2249,23 @@ scene:
         - container_01
         - container_02
         relocation_policy: independent_groups
-        layout_parameters: {}
+        layout_parameters:
+          reviewed_group_placements_v1:
+            container_00:
+              support_name: breakfast_table_rhjoby_0
+              root_xy_m:
+              - 7.296533584594727
+              - 3.378950958251953
+            container_01:
+              support_name: breakfast_table_rhjoby_0
+              root_xy_m:
+              - 6.56406307220459
+              - 3.3735111999511718
+            container_02:
+              support_name: breakfast_table_rhjoby_0
+              root_xy_m:
+              - 8.029004096984863
+              - 3.3735111999511718
         controller_initial_trunk_joint_positions_rad:
         - 0.6981317007977318
         - -1.3962634015954636
@@ -2569,7 +2585,7 @@ scene:
             container_00:
               position:
               - 6.6453999999999995
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -2578,15 +2594,15 @@ scene:
               - 1.0
               bbox:
               - - 6.529161071777343
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 6.7596512794494625
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
             image1_content_00:
               position:
               - 6.644406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -2600,7 +2616,7 @@ scene:
             container_01:
               position:
               - 7.2954
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -2609,15 +2625,15 @@ scene:
               - 1.0
               bbox:
               - - 7.179161071777344
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 7.409651279449463
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
             image1_content_01:
               position:
               - 7.294406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -2631,7 +2647,7 @@ scene:
             image2_content_01:
               position:
               - 7.294406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -2645,7 +2661,7 @@ scene:
             container_02:
               position:
               - 7.9454
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -2654,10 +2670,10 @@ scene:
               - 1.0
               bbox:
               - - 7.829161071777344
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 8.059651279449463
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
           scene_model: house_single_floor
           room: dining_room_0
@@ -2723,7 +2739,7 @@ scene:
         binding: container_00
         position:
         - 6.6453999999999995
-        - 3.5004
+        - 3.3804
         - 0.9215091553341029
         quaternion_xyzw:
         - 0.0
@@ -2735,7 +2751,7 @@ scene:
         binding: container_01
         position:
         - 7.2954
-        - 3.5004
+        - 3.3804
         - 0.9215091553341029
         quaternion_xyzw:
         - 0.0
@@ -2747,7 +2763,7 @@ scene:
         binding: container_02
         position:
         - 7.9454
-        - 3.5004
+        - 3.3804
         - 0.9215091553341029
         quaternion_xyzw:
         - 0.0
@@ -2759,7 +2775,7 @@ scene:
         binding: image1_content_00
         position:
         - 6.644406175613403
-        - 3.502459406852722
+        - 3.382459406852722
         - 0.9063049831997035
         quaternion_xyzw:
         - 0.0
@@ -2771,7 +2787,7 @@ scene:
         binding: image1_content_01
         position:
         - 7.294406175613403
-        - 3.502459406852722
+        - 3.382459406852722
         - 0.9063049831997035
         quaternion_xyzw:
         - 0.0
@@ -3067,7 +3083,7 @@ scene:
             container_00:
               position:
               - 6.6453999999999995
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -3076,15 +3092,15 @@ scene:
               - 1.0
               bbox:
               - - 6.529161071777343
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 6.7596512794494625
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
             image1_content_00:
               position:
               - 6.644406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -3098,7 +3114,7 @@ scene:
             container_01:
               position:
               - 7.2954
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -3107,15 +3123,15 @@ scene:
               - 1.0
               bbox:
               - - 7.179161071777344
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 7.409651279449463
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
             image1_content_01:
               position:
               - 7.294406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -3129,7 +3145,7 @@ scene:
             image2_content_01:
               position:
               - 7.294406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -3143,7 +3159,7 @@ scene:
             container_02:
               position:
               - 7.9454
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -3152,10 +3168,10 @@ scene:
               - 1.0
               bbox:
               - - 7.829161071777344
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 8.059651279449463
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
           scene_model: house_single_floor
           room: dining_room_0
@@ -3458,7 +3474,7 @@ scene:
             container_00:
               position:
               - 6.6453999999999995
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -3467,15 +3483,15 @@ scene:
               - 1.0
               bbox:
               - - 6.529161071777343
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 6.7596512794494625
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
             image1_content_00:
               position:
               - 6.644406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -3489,7 +3505,7 @@ scene:
             container_01:
               position:
               - 7.2954
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -3498,15 +3514,15 @@ scene:
               - 1.0
               bbox:
               - - 7.179161071777344
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 7.409651279449463
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
             image1_content_01:
               position:
               - 7.294406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -3520,7 +3536,7 @@ scene:
             image2_content_01:
               position:
               - 7.294406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -3534,7 +3550,7 @@ scene:
             container_02:
               position:
               - 7.9454
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -3543,10 +3559,10 @@ scene:
               - 1.0
               bbox:
               - - 7.829161071777344
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 8.059651279449463
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
           scene_model: house_single_floor
           room: dining_room_0
@@ -3603,7 +3619,7 @@ scene:
         binding: container_00
         position:
         - 6.6453999999999995
-        - 3.5004
+        - 3.3804
         - 0.9215091553341029
         quaternion_xyzw:
         - 0.0
@@ -3615,7 +3631,7 @@ scene:
         binding: container_01
         position:
         - 7.2954
-        - 3.5004
+        - 3.3804
         - 0.9215091553341029
         quaternion_xyzw:
         - 0.0
@@ -3627,7 +3643,7 @@ scene:
         binding: container_02
         position:
         - 7.9454
-        - 3.5004
+        - 3.3804
         - 0.9215091553341029
         quaternion_xyzw:
         - 0.0
@@ -3639,7 +3655,7 @@ scene:
         binding: image2_content_01
         position:
         - 7.294406175613403
-        - 3.502459406852722
+        - 3.382459406852722
         - 0.9063049831997035
         quaternion_xyzw:
         - 0.0
@@ -3935,7 +3951,7 @@ scene:
             container_00:
               position:
               - 6.6453999999999995
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -3944,15 +3960,15 @@ scene:
               - 1.0
               bbox:
               - - 6.529161071777343
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 6.7596512794494625
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
             image1_content_00:
               position:
               - 6.644406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -3966,7 +3982,7 @@ scene:
             container_01:
               position:
               - 7.2954
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -3975,15 +3991,15 @@ scene:
               - 1.0
               bbox:
               - - 7.179161071777344
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 7.409651279449463
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
             image1_content_01:
               position:
               - 7.294406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -3997,7 +4013,7 @@ scene:
             image2_content_01:
               position:
               - 7.294406175613403
-              - 3.502459406852722
+              - 3.382459406852722
               - 0.9063049831997035
               quaternion_xyzw:
               - 0.0
@@ -4011,7 +4027,7 @@ scene:
             container_02:
               position:
               - 7.9454
-              - 3.5004
+              - 3.3804
               - 0.9215091553341029
               quaternion_xyzw:
               - 0.0
@@ -4020,10 +4036,10 @@ scene:
               - 1.0
               bbox:
               - - 7.829161071777344
-                - 3.345233201980591
+                - 3.2252332019805907
                 - 0.8128919282566188
               - - 8.059651279449463
-                - 3.6596856117248535
+                - 3.5396856117248534
                 - 0.9997180381427883
           scene_model: house_single_floor
           room: dining_room_0

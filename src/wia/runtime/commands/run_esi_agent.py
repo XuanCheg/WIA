@@ -53,6 +53,10 @@ def add_backend_arguments(parser):
     parser.add_argument("--max-output-tokens", type=int)
     parser.add_argument("--temperature", type=float)
     parser.add_argument("--chat-template-kwargs", type=json.loads, help="JSON object; provider=vllm only")
+    from wia.runtime.agent.history_policy import HISTORY_POLICIES
+    parser.add_argument("--history-policy", choices=HISTORY_POLICIES)
+    parser.add_argument("--max-perception-rounds", type=int, help="Previous-result-notes policy: perception rounds per decision (default 4); note reads remain unlimited.")
+    parser.add_argument("--history-recent-moves", type=int, help="ShowHarness state policy: recent executed actions (default 3).")
     parser.add_argument("--history-text-turns", type=int,
                         help="Diagnostic Chat Completions only: replay this many public final outputs, omitting older images/prompts/tools.")
     parser.add_argument("--json-schema-output", action="store_true",
@@ -69,6 +73,8 @@ def add_backend_arguments(parser):
 def validate_backend_arguments(args):
     """Reject incompatible options before starting a scene or model session."""
     backend = canonical_backend(args.backend)
+    from wia.runtime.agent.history_policy import validate_history_policy
+    validate_history_policy({**vars(args), "backend": backend, "base_url": args.base_url or args.local_base_url})
     history_turns = getattr(args, "history_text_turns", None)
     image_edge = getattr(args, "image_max_edge", None)
     window = getattr(args, 'sliding_window_tokens', None)
@@ -128,13 +134,16 @@ def backend_metadata(args):
         metadata["image_max_edge"] = args.image_max_edge
     if getattr(args, 'sliding_window_tokens', None) is not None:
         metadata['sliding_window_tokens'] = args.sliding_window_tokens
+    for field in ("history_policy", "history_recent_moves", "max_perception_rounds"):
+        if getattr(args, field, None) is not None:
+            metadata[field] = getattr(args, field)
     return metadata
 
 
 def backend_cli_arguments(args):
     """Forward selected backend fields from the scene launcher to the agent."""
     result = ["--backend", args.backend]
-    for field in ("base_url", "api_key_env", "provider", "max_output_tokens", "temperature", "local_base_url", "local_api_key_env", "history_text_turns", "image_max_edge", "sliding_window_tokens"):
+    for field in ("base_url", "api_key_env", "provider", "max_output_tokens", "temperature", "local_base_url", "local_api_key_env", "history_text_turns", "image_max_edge", "sliding_window_tokens", "history_policy", "history_recent_moves", "max_perception_rounds"):
         value = getattr(args, field, None)
         if value is not None:
             result += ["--" + field.replace("_", "-"), str(value)]
@@ -175,6 +184,13 @@ def create_declarative_session(args, *, public_task, policy, output, assembler, 
                     kwargs["image_max_edge"] = args.image_max_edge
                 if getattr(args, 'sliding_window_tokens', None) is not None:
                     kwargs['sliding_window_tokens'] = args.sliding_window_tokens
+    if (backend == 'openai_chat_completions'
+            and kwargs.get('base_url', '').rstrip('/') == 'https://ai-gateway.vercel.sh/v1'):
+        from wia.runtime.agent.vercel_session import VercelChatSession
+        return VercelChatSession(history_policy=getattr(args, 'history_policy', None) or
+            os.environ.get('WIA_GATEWAY_HISTORY_POLICY') or None,
+            history_recent_moves=getattr(args, 'history_recent_moves', None),
+            max_perception_rounds=getattr(args, 'max_perception_rounds', None), **kwargs)
     return create_session(backend, **kwargs)
 
 

@@ -1,6 +1,6 @@
 kind: category_robot_task
 id: task_hidden_collection_d1156faa040aacc20c70b3ce__t37_furnished_collection_v4
-version: 3
+version: 5
 status: pending
 source:
   provider: esi
@@ -117,9 +117,9 @@ private:
           public_name: miniature cola bottle
           support: cubicle_deceti_12
           position:
-          - -16.83
-          - -6.9
-          - 0.9625558633708473
+          - -16.12
+          - -7.73
+          - 0.837230920791626
           orientation:
           - 0.0
           - 0.0
@@ -127,6 +127,8 @@ private:
           - 1.0
           support_surface_mode: local_raycast
           support_alignment_mode: local_raycast
+          pickup_xy_policy: preserve_authored_v1
+          maximum_pickup_xy_drift_m: 0.015
         - name: wia_t37_distractor_01
           category: bottle_of_orange_juice
           model: edltwh
@@ -287,9 +289,9 @@ scene:
               public_name: miniature cola bottle
               support: cubicle_deceti_12
               position:
-              - -16.83
-              - -6.9
-              - 0.9625558633708473
+              - -16.12
+              - -7.73
+              - 0.837230920791626
               orientation:
               - 0.0
               - 0.0
@@ -297,6 +299,8 @@ scene:
               - 1.0
               support_surface_mode: local_raycast
               support_alignment_mode: local_raycast
+              pickup_xy_policy: preserve_authored_v1
+              maximum_pickup_xy_drift_m: 0.015
             - name: wia_t37_distractor_01
               category: bottle_of_orange_juice
               model: edltwh
@@ -458,9 +462,9 @@ scene:
               public_name: miniature cola bottle
               support: cubicle_deceti_12
               position:
-              - -16.83
-              - -6.9
-              - 0.9625558633708473
+              - -16.12
+              - -7.73
+              - 0.837230920791626
               orientation:
               - 0.0
               - 0.0
@@ -468,6 +472,8 @@ scene:
               - 1.0
               support_surface_mode: local_raycast
               support_alignment_mode: local_raycast
+              pickup_xy_policy: preserve_authored_v1
+              maximum_pickup_xy_drift_m: 0.015
             - name: wia_t37_distractor_01
               category: bottle_of_orange_juice
               model: edltwh
@@ -612,3 +618,75 @@ repair:
   parent_task_defaults:
     seed: 0
   declared_task_default_overrides: {}
+  aisle_pickup_revision:
+    revision: t37_same_desk_aisle_v1
+    target: wia_t37_target_03
+    original_target:
+      name: wia_t37_target_03
+      category: cola_bottle
+      model: oyqdtz
+      scale:
+      - 0.65
+      - 0.65
+      - 0.65
+      role: target
+      room: shared_office_0
+      public_name: miniature cola bottle
+      support: cubicle_deceti_12
+      position:
+      - -16.83
+      - -6.9
+      - 0.9625558633708473
+      orientation:
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      support_surface_mode: local_raycast
+      support_alignment_mode: local_raycast
+    geometric_evidence: /local_home2/zhouxinyang/models/WIA/outputs/t37_access_repair_20261030/local_0.json
+    evidence_sha256: 8b8def56a365365b6c547ae4cb724d55d56f160b10a303ff396d636d1def88ec
+    local_open_gripper_witness: true
+    original_start_route_verified: false
+    carried_tray_verified: false
+    native_initialization_verified: false
+    native_acquisition_verified: false
+    scope: One target moved on the same native cubicle desk; room, furniture, assets, scale, other objects
+      and collection evaluator retained.
+  supported_pickup_revision:
+    revision: t37_same_desk_supported_v2
+    target: wia_t37_target_03
+    original_target:
+      name: wia_t37_target_03
+      category: cola_bottle
+      model: oyqdtz
+      scale:
+      - 0.65
+      - 0.65
+      - 0.65
+      role: target
+      room: shared_office_0
+      public_name: miniature cola bottle
+      support: cubicle_deceti_12
+      position:
+      - -16.22
+      - -7.55
+      - 0.837230920791626
+      orientation:
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      support_surface_mode: local_raycast
+      support_alignment_mode: local_raycast
+      pickup_xy_policy: preserve_authored_v1
+      maximum_pickup_xy_drift_m: 0.015
+    geometric_evidence: /local_home2/zhouxinyang/models/WIA/outputs/t37_access_repair_20261030/supported_local_0.json
+    evidence_sha256: 08a807b16c6ba17c478eed375429a0a41619fa6f4a512d1d332bb94cc34b4558
+    local_open_gripper_witness: true
+    original_start_route_verified: false
+    carried_tray_verified: false
+    native_initialization_verified: false
+    native_acquisition_verified: false
+    scope: One target moved on the same native cubicle desk; room, furniture, assets, scale, other objects
+      and collection evaluator retained.

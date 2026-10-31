@@ -53,6 +53,7 @@ def sample(now=0., *, initial=False, held=()):
         elif name in held:
             bottom = 1.
         rows[key] = {'name': name, 'position': [x, y, bottom + .05],
+            'scale': [1., 1., 1.],
             'aabb_min': [x - .05, y - .05, bottom], 'aabb_max': [x + .05, y + .05, bottom + .1],
             'linear_speed_m_s': 0., 'angular_speed_rad_s': 0., 'dynamic_collidable': True,
             'robot_contact': name in held, 'on_top_deck': not initial and not held,
@@ -128,6 +129,96 @@ def test_already_correct_geometry_without_retrieval_cannot_pass():
     assert result['declared_relation']['satisfied']
     assert not result['task_success']
     assert not any(state['acquired'] for state in result['per_target'].values())
+
+
+def final_state_parameters(kind='shape'):
+    p = parameters(kind)
+    p['scoring'].update(manipulation_revision='final_state_v1', minimum_lift_m=None,
+                        minimum_displacement_m=None)
+    return p
+
+
+@pytest.mark.parametrize('kind', ['shape', 'contact'])
+def test_final_state_correct_tray_placement_passes_without_grasp_lift_or_motion_checkpoint(kind):
+    scorer = SpatialTrayProgress(final_state_parameters(kind))
+    scorer.begin(sample(initial=True))
+    result = stable_result(scorer)
+    assert result['task_success'] and result['physical_success']
+    assert result['schema'] == 'wia_spatial_tray_final_state_progress_v1'
+    assert result['manipulation_revision'] == 'final_state_v1'
+    assert [row['id'] for row in result['completion_items']] == [
+        'targets_on_tray', 'declared_relation', 'stable_released_tray_placement']
+    assert all(row['kind'] == 'terminal_condition' for row in result['completion_items'])
+    assert not any(row['acquired'] or row['moved'] for row in result['per_target'].values())
+
+
+@pytest.mark.parametrize('failure', ['relation', 'outside', 'held', 'robot_support', 'penetration',
+                                    'unstable', 'unavailable', 'identity', 'fixed_target', 'control', 'fixture',
+                                    'scale', 'scale_unavailable'])
+def test_final_state_tray_still_requires_measured_terminal_geometry_and_integrity(failure):
+    scorer = SpatialTrayProgress(final_state_parameters('contact'))
+    scorer.begin(sample(initial=True))
+    value = sample(.4)
+    row = value['targets']['a']
+    if failure == 'relation':
+        value['contact_geometry'] = contact('separated')
+    elif failure == 'outside':
+        row['aabb_min'][0], row['aabb_max'][0] = 1.01, 1.11
+    elif failure == 'held':
+        value['grasp'].update(held_names=['native_a'], released=False)
+    elif failure == 'robot_support':
+        row['robot_contact'] = True
+    elif failure == 'penetration':
+        row['deck_contact_geometry']['penetrating'] = True
+    elif failure == 'unstable':
+        row['angular_speed_rad_s'] = .2
+    elif failure == 'unavailable':
+        row['deck_contact_geometry']['available'] = False
+    elif failure == 'identity':
+        row['name'] = 'replacement'
+    elif failure == 'fixed_target':
+        row['dynamic_collidable'] = False
+    elif failure == 'scale':
+        row['scale'][0] = 1.1
+    elif failure == 'scale_unavailable':
+        row.pop('scale')
+    else:
+        value['control_valid' if failure == 'control' else 'fixtures_valid'] = False
+    result = stable_result(scorer, value)
+    assert not result['task_success'] and result['stable_duration_s'] == 0.
+    if failure in ('unavailable', 'identity', 'scale_unavailable'):
+        assert result['evaluation_validity'] == 'unavailable' and result['completion_score'] is None
+    if failure == 'identity':
+        assert not next(row['completed'] for row in result['completion_items'] if row['id'] == 'targets_on_tray')
+
+
+def test_final_state_tray_preserves_separation_threshold_and_clock_gap_guards():
+    p = final_state_parameters('contact')
+    p['goal_relation']['relation'] = 'separated'
+    scorer = SpatialTrayProgress(p)
+    scorer.begin(sample(initial=True))
+    value = sample(.4)
+    value['contact_geometry'] = contact('separated')
+    value['contact_geometry']['minimum_separation_m'] = .049
+    assert not stable_result(scorer, value)['task_success']
+    value['contact_geometry']['minimum_separation_m'] = .05
+    value['native_time_s'] = 1.
+    scorer.update(value)
+    value['native_time_s'] = 2.1
+    assert not scorer.update(value)['task_success']
+    assert scorer.result()['sample_gap_exceeded']
+    value['native_time_s'] = .5
+    assert scorer.update(value)['evaluation_validity'] == 'invalid'
+
+
+@pytest.mark.parametrize('change', [
+    {'manipulation_revision': 'unknown'}, {'manipulation_revision': None},
+    {'minimum_lift_m': .05}, {'minimum_displacement_m': .1}, {'minimum_separation_m': .049}])
+def test_final_state_tray_rejects_unknown_revisions_history_thresholds_and_weakened_geometry(change):
+    p = final_state_parameters()
+    p['scoring'].update(change)
+    with pytest.raises(ValueError):
+        validate_parameters(p)
 
 
 def test_initially_in_destination_is_not_accepted_as_retrieval():
@@ -286,6 +377,7 @@ def native_fixture_world(monkeypatch):
     def body(name, low, high, *, fixed):
         low, high = np.asarray(low, dtype=float), np.asarray(high, dtype=float)
         return SimpleNamespace(name=name, category='native_category', model='native_model',
+            scale=np.ones(3),
             visual_only=False, fixed_base=fixed, aabb=(low, high),
             get_position_orientation=lambda: ((low + high) / 2, np.array([0., 0., 0., 1.])),
             get_linear_velocity=unsupported_velocity(name) if fixed else lambda: np.zeros(3),
@@ -343,6 +435,36 @@ def test_dynamic_target_missing_native_velocity_remains_unavailable(native_fixtu
     assert any('get_linear_velocity' in error for error in target['measurement_errors'])
     result = SpatialTrayProgress(world.p).begin(measured)
     assert result['evaluation_validity'] == 'unavailable' and result['task_success'] is False
+
+
+@pytest.mark.parametrize('key', ['a', 'deck', 'rim', 'table'])
+def test_final_state_adapter_measures_native_scale_and_rejects_changes_with_unchanged_bounds(native_fixture_world, key):
+    world = native_fixture_world
+    world.p['scoring'] = final_state_parameters()['scoring']
+    measured = adapter._measure(world.session, None, world.config, world.objects)
+    scorer = SpatialTrayProgress(world.p)
+    assert scorer.begin(measured)['evaluation_validity'] == 'complete'
+    assert measured['targets']['a']['scale'] == [1., 1., 1.]
+    assert measured['fixtures']['deck']['scale'] == [1., 1., 1.]
+    world.objects[key].scale[0] = 1.01
+    world.session.pipeline.og.sim.current_time = .1
+    changed = adapter._measure(world.session, None, world.config, world.objects, measured)
+    result = scorer.update(changed)
+    assert result['evaluation_validity'] == 'invalid' and not result['task_success']
+    if key == 'a':
+        assert 'a:asset_scale_changed' in result['constraint_violations']
+    else:
+        assert changed['fixtures_valid'] is False
+
+
+def test_final_state_missing_native_scale_is_unavailable(native_fixture_world):
+    world = native_fixture_world
+    world.p['scoring'] = final_state_parameters()['scoring']
+    del world.objects['a'].scale
+    measured = adapter._measure(world.session, None, world.config, world.objects)
+    result = SpatialTrayProgress(world.p).begin(measured)
+    assert result['evaluation_validity'] == 'unavailable' and not result['task_success']
+    assert any('native_scale_unavailable' in reason for reason in result['initial_measurement_errors'])
 
 
 def test_primitive_tray_fixtures_without_model_metadata_preserve_valid_geometry(native_fixture_world):

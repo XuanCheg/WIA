@@ -120,6 +120,29 @@ def test_paused_queue_limits_pilot_to_exact_worker_gpu_and_explicit_job(candidat
     assert queue.status(other)['state'] == 'QUEUED'
 
 
+def test_gpu_pool_restriction_preserves_running_work_and_blocks_other_devices(candidates):
+    queue, jobs = submit_all(candidates)
+    selected, other = [item['job_id'] for item in jobs]
+    existing = queue.claim({'id': 'existing', 'uuid': 'GPU-6'}, job_id=selected)
+    queue.transition(existing, 'RUNNING')
+    write_json(queue.root / 'capture_pause.json', {'state': 'PAUSED_BY_USER',
+        'authorized_gpu_pool': {'state': 'RUNNING', 'gpu_uuids': ['GPU-6', 'GPU-7']}})
+    for gpu in range(6):
+        assert queue.claim({'id': f'worker-{gpu}', 'uuid': f'GPU-{gpu}'}) is None
+    assert queue.claim({'id': 'unknown'}) is None
+    assert queue.status(selected)['state'] == 'RUNNING'
+    assert not (queue.job_dir(selected) / 'cancel.json').exists()
+    claim = queue.claim({'id': 'worker-7', 'uuid': 'GPU-7'})
+    assert claim['job_id'] == other
+
+
+def test_gpu_pool_requires_explicit_running_authorization(candidates):
+    queue, _ = submit_all(candidates)
+    write_json(queue.root / 'capture_pause.json', {'state': 'PAUSED_BY_USER',
+        'authorized_gpu_pool': {'state': 'STOPPED', 'gpu_uuids': ['GPU-6']}})
+    assert queue.claim({'id': 'worker-6', 'uuid': 'GPU-6'}) is None
+
+
 def test_runtime_policy_keeps_historical_jobs_intact_and_claims_only_current_code(candidates):
     queue, jobs = submit_all(candidates)
     selected = jobs[0]['job_id']

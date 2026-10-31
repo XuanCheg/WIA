@@ -1,30 +1,27 @@
 kind: category_robot_task
 id: task_39adb8b7c3109d4fb0566a86__t19_furnished_existing_v1
-version: 3
+version: 4
 status: pending
 source:
   provider: esi
   json: Specular Reflection/Correspondence/Merom_0_garden/playroom_0/wia_furnished_background_v1.json
 public:
-  objective: 'Retrieve the items from exposed room furniture. Build one stable three-object
-    tower using the paperback book, bowl, lunch box. Choose a bottom object on the starting
-    support surface. Grasp and lift each of the other two objects at least 5 cm, place one
-    on the bottom and the last on the middle, lower into support contact before opening the
-    gripper, then withdraw and leave the tower untouched for at least one second. You may
-    test another order by physically unstacking and rebuilding. Original auxiliary question:
-    How should you stack bowl, lunch_box, paperback_book to maximize stability?'
-  success_criteria: All three objects are upright and form a supported tower in any stable
-    order. The bottom touches the starting support surface; each upper touches and rests on
-    its predecessor, with no other support. Both upper objects have real grasp, lift and release
-    evidence. All robot hands are detached and withdrawn; the tower stays still for one continuous
-    second. The original answer is scored separately as auxiliary QA.
-  environment: A furnished playroom with the task items openly dispersed on exposed native
-    furniture surfaces. The items are not deliberately hidden.
+  objective: 'Retrieve the items from exposed room furniture. Build one stable three-object tower using
+    the paperback book, bowl, lunch box. Arrange the three objects into any upright, stable tower on the
+    starting support surface. Leave all hands released and withdrawn and the tower stable for at least
+    one second. Original auxiliary question: How should you stack bowl, lunch_box, paperback_book to maximize
+    stability?'
+  success_criteria: All three original objects are upright and form a supported tower in any stable order.
+    The bottom touches the starting support surface; each upper touches and rests on its predecessor,
+    with no other support. All robot hands are detached and withdrawn; the tower stays still for one continuous
+    second. No minimum lift height, grasp history or release sequence is required. The original answer
+    remains auxiliary QA.
+  environment: A furnished playroom with the task items openly dispersed on exposed native furniture surfaces.
+    The items are not deliberately hidden.
   constraints:
   - Use only existing guarded base, arm, trunk, wrist and gripper controls.
-  - Keep task object sizes and task supports unchanged. Noncritical native movable furniture
-    may be moved using guarded arm and gripper actions.
-  - Use real pick-and-place; legacy mock grasp and kinematic placement are excluded.
+  - Keep task object sizes and task supports unchanged. Noncritical native movable furniture may be moved
+    using guarded arm and gripper actions.
 requirements:
   capabilities:
   - base_translation
@@ -142,14 +139,15 @@ private:
       - - lunch_box
         - bowl
         - paperback_book
-      task_revision: task_edit_20261018_v1
+      task_revision: wia_tower_final_state_20261030_v1
       mechanism_contract:
+        goal: achieve_released_stable_tower
         preserve:
         - original_objects
         - asset_scales
-        - native_grasp_release_history
-        goal: released_tower_after_robot_withdrawal
-        stability_seconds: 1.0
+        - source_support
+        - native_stability
+      manipulation_revision: final_state_v1
 scene:
   policy: native_then_minimal_patch_else_skip
   variants:
@@ -425,3 +423,13 @@ repair:
   full_reference_execution: deferred_until_user_review
   parent_evaluator_parameters_preserved: true
   parent_seed_and_budget_preserved: true
+  final_state_revision:
+    revision: final_state_v1
+    date: '2026-10-30'
+    parent_task_sha256: a267dc89fa2fcd83c82ebd9baf55e076f2d2854ff9eaf5bec1cd8fa0a83d20a4
+    parent_scene_sha256: 657cb4807cadecaef40f34f4ab8a76a91284bedb862ee87581d3fe654fab260a
+    parent_source_task_file: explore_to_achieve/wia_v1/furnished_v1/existing/tasks/t19__t19_furnished_existing_v1.yaml
+    parent_source_scene_file: explore_to_achieve/wia_v1/furnished_v1/existing/scenes/t19__t19_furnished_existing_v1.yaml
+    scene_geometry_changed: false
+    native_execution_verified: false
+    scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.

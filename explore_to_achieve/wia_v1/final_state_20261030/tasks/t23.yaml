@@ -1,0 +1,510 @@
+kind: category_robot_task
+id: wia_rigid_t23_family_v1
+version: 8
+status: pending
+source:
+  provider: esi
+  json: Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json
+public:
+  objective: 'Which container does each object best fit inside?
+
+    - granola box
+
+    - spray can
+
+    - colored pencil
+
+    Containers: bucket, mug, wicker basket Place each named object partially inside its selected container.
+    Leave it released and withdraw the robot hands at least 2 cm clear.'
+  success_criteria: 'Answer the original containment question for every named object. For each object,
+    verify partial insertion into its selected container with actual container contact and no interpenetration.
+    With empty open hands, no robot support or contact and hands at least 2 cm clear, maintain this state
+    for at least 0.5 seconds with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. An
+    object resting entirely on top does not count. No minimum lift height or prior grasp is required.
+    Targets may be verified sequentially and removed after verification to free a shared container. Finish
+    with empty open hands. Submit ANSWER: <container label> and declare DONE.'
+  environment: The mug, wicker basket and bucket are exposed on the native bottom cabinet. The granola
+    box, spray can and colored pencil remain on the native sofa. Retrieve the targets using the real R1
+    robot.
+  constraints:
+  - Complete all object subtasks before declaring DONE. An object resting entirely on top does not count
+    as inside.
+  - Use the existing guarded public robot controls and visible object/container labels.
+  - Preserve all asset scales and keep every container within 2 cm and 0.05 radians of its starting pose.
+  - Targets may be verified sequentially. An object may be removed after its released, stable partial
+    insertion has been completely verified, to free a shared container. Simultaneous packing is not required.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - ee_rotation
+  - trunk_height
+  - gripper
+private:
+  bindings:
+    target:
+      name: obj_containee
+      category: granola_box
+      model: yzeuqo
+    container_2:
+      name: obj_container_2
+      category: bucket
+      model: bdhvnt
+    container_1:
+      name: obj_container_1
+      category: wicker_basket
+      model: drxfmr
+    container_0:
+      name: obj_container_0
+      category: mug
+      model: ycbmug
+    table:
+      name: bottom_cabinet_jhymlr_0
+      category: bottom_cabinet
+      model: jhymlr
+    pickup_support:
+      name: sofa_qnnwfx_0
+      category: sofa
+      model: null
+    extra1:
+      name: multi_extra1
+      category: spray_can
+      model: tehmzy
+    extra2:
+      name: multi_extra2
+      category: colored_pencil
+      model: zisrpq
+    multi_support_extra1:
+      name: sofa_qnnwfx_0
+    multi_support_extra2:
+      name: sofa_qnnwfx_0
+  evaluation:
+    type: category_operation
+    module: wia.authoring.converters.rigid_partial_insertion
+    operation: pick_release_partial_insert
+    binding_keys:
+    - target
+    - container_2
+    - container_1
+    - container_0
+    - table
+    - pickup_support
+    - extra1
+    - extra2
+    - multi_support_extra1
+    - multi_support_extra2
+    parameters:
+      scorer_version: rigid_insertion_final_state_v1
+      targets:
+      - target
+      - extra1
+      - extra2
+      containers:
+      - container_0
+      - container_1
+      - container_2
+      expected_containers:
+        target: container_1
+        extra1: container_2
+        extra2: container_2
+      target_labels:
+        target: granola box
+        extra1: spray can
+        extra2: colored pencil
+      expected_answers:
+        target: wicker basket
+        extra1: bucket
+        extra2: bucket
+      minimum_lift_m: null
+      stability_duration_s: 0.5
+      maximum_linear_speed_m_s: 0.02
+      maximum_angular_speed_rad_s: 0.1
+      max_sample_gap_s: 0.1
+      interior_margin_m: 0.002
+      penetration_tolerance_m: 0.001
+      withdrawal_clearance_m: 0.02
+      container_pose_tolerance_m: 0.02
+      maximum_container_rotation_rad: 0.05
+      scale_relative_tolerance: 0.0001
+      allow_remove_after_verification: true
+      initial_supports:
+        target: pickup_support
+        extra1: multi_support_extra1
+        extra2: multi_support_extra2
+        container_0: table
+        container_1: table
+        container_2: table
+      initial_support_tolerance_m: 0.015
+      maximum_initial_linear_speed_m_s: 0.02
+      maximum_initial_angular_speed_rad_s: 0.1
+      manipulation_revision: final_state_v1
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+      initial_visibility: null
+    tabletop:
+      patches:
+      - operation: object_scale
+        phase: before_construction
+        binding: target
+        multiplier: 0.6156076189497709
+      - operation: robot_pose
+        phase: before_construction
+        position:
+        - 2.196875925064087
+        - -4.392786502838135
+        - 0.1
+        yaw_deg: 0.0
+        heading_offsets_deg:
+        - 0.0
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+        head_pitch_deg: 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_0
+        position:
+        - 3.78
+        - -5.0
+        - 0.7868481989563672
+        candidates: []
+        quaternion_xyzw:
+        - 1.33170397020709e-06
+        - -2.8728391043805723e-07
+        - 8.114438969631722e-07
+        - 0.9999999999987428
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_1
+        position:
+        - 3.78
+        - -4.4
+        - 0.8141919564069477
+        candidates: []
+        quaternion_xyzw:
+        - -0.0014184837707883842
+        - -0.00030071710328443416
+        - -1.4677642343535497e-06
+        - 0.9999989487348782
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: container_2
+        position:
+        - 3.78
+        - -3.85
+        - 0.8645175214470593
+        candidates: []
+        quaternion_xyzw:
+        - 7.777997762351998e-08
+        - 2.2648234363668084e-08
+        - -3.485174186781482e-07
+        - 0.999999999999936
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: target
+        position:
+        - 1.503667950630188
+        - -3.5965774059295654
+        - 0.7052990794181824
+        candidates: []
+        quaternion_xyzw:
+        - -0.03154609352350235
+        - 0.004090696107596159
+        - 6.631857831962407e-05
+        - 0.9994940757751465
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: add_dataset_object
+        phase: before_construction
+        name: multi_extra1
+        category: spray_can
+        model: tehmzy
+        position:
+        - 1.2841908931732178
+        - -3.61431884765625
+        - 0.7129917740821838
+        scale:
+        - 2.377927188609682
+        - 3.9291335261541596
+        - 0.8267473512744551
+        quaternion_xyzw:
+        - -0.00023748460807837546
+        - 0.0002709553809836507
+        - -5.457750376081094e-07
+        - 0.9999999403953552
+      - operation: add_dataset_object
+        phase: before_construction
+        name: multi_extra2
+        category: colored_pencil
+        model: zisrpq
+        position:
+        - 1.509343147277832
+        - -3.8347322940826416
+        - 0.5636064410209656
+        scale:
+        - 0.6264114665310713
+        - 20.477167312575247
+        - 25.935455051409946
+        quaternion_xyzw:
+        - 0.04827207326889038
+        - 0.06616578996181488
+        - 0.0006534624844789505
+        - 0.9966400861740112
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: extra1
+        position:
+        - 1.2841908931732178
+        - -3.61431884765625
+        - 0.7129917740821838
+        quaternion_xyzw:
+        - -0.00023748460807837546
+        - 0.0002709553809836507
+        - -5.457750376081094e-07
+        - 0.9999999403953552
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: object_pose
+        phase: after_postprocessing
+        binding: extra2
+        position:
+        - 1.509343147277832
+        - -3.8347322940826416
+        - 0.5636064410209656
+        quaternion_xyzw:
+        - 0.04827207326889038
+        - 0.06616578996181488
+        - 0.0006534624844789505
+        - 0.9966400861740112
+        jitter_xy_m:
+        - 0.0
+        - 0.0
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.active_layout
+        parameters:
+          revision: t23_native_cabinet_support_v2
+          layout:
+            objects:
+            - name: obj_container_0
+              position:
+              - 3.78
+              - -5.0
+              - 0.7868481989563672
+              orientation:
+              - 1.33170397020709e-06
+              - -2.8728391043805723e-07
+              - 8.114438969631722e-07
+              - 0.9999999999987428
+            - name: obj_container_1
+              position:
+              - 3.78
+              - -4.4
+              - 0.8141919564069477
+              orientation:
+              - -0.0014184837707883842
+              - -0.00030071710328443416
+              - -1.4677642343535497e-06
+              - 0.9999989487348782
+            - name: obj_container_2
+              position:
+              - 3.78
+              - -3.85
+              - 0.8645175214470593
+              orientation:
+              - 7.777997762351998e-08
+              - 2.2648234363668084e-08
+              - -3.485174186781482e-07
+              - 0.999999999999936
+            - name: obj_containee
+              position:
+              - 1.503667950630188
+              - -3.5965774059295654
+              - 0.7052990794181824
+              orientation:
+              - -0.03154609352350235
+              - 0.004090696107596159
+              - 6.631857831962407e-05
+              - 0.9994940757751465
+            - name: multi_extra1
+              position:
+              - 1.2841908931732178
+              - -3.61431884765625
+              - 0.7129917740821838
+              orientation:
+              - -0.00023748460807837546
+              - 0.0002709553809836507
+              - -5.457750376081094e-07
+              - 0.9999999403953552
+            - name: multi_extra2
+              position:
+              - 1.509343147277832
+              - -3.8347322940826416
+              - 0.5636064410209656
+              orientation:
+              - 0.04827207326889038
+              - 0.06616578996181488
+              - 0.0006534624844789505
+              - 0.9966400861740112
+            supported_items:
+            - name: obj_container_0
+              support: bottom_cabinet_jhymlr_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: obj_container_1
+              support: bottom_cabinet_jhymlr_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: obj_container_2
+              support: bottom_cabinet_jhymlr_0
+              support_alignment_mode: local_raycast
+              support_surface_mode: local_raycast
+            - name: obj_containee
+              support: sofa_qnnwfx_0
+              support_alignment_mode: aabb_top
+              support_surface_mode: local_raycast
+            - name: multi_extra1
+              support: sofa_qnnwfx_0
+              support_alignment_mode: aabb_top
+              support_surface_mode: local_raycast
+            - name: multi_extra2
+              support: sofa_qnnwfx_0
+              support_alignment_mode: aabb_top
+              support_surface_mode: local_raycast
+            floor_name: floors_esoefs_0
+            synchronize_authored_poses_before_alignment: true
+      initial_visibility: null
+qualification:
+  on_failure: skip
+  support: null
+  initial_visibility: none
+defaults:
+  seed: 0
+  max_steps: 60
+  wall_timeout_s: 5400.0
+  world_advances_during_inference: true
+  observation_condition: current
+  action_mode: parameterized
+repair:
+  family_revision: wia_rigid_family_v1
+  contract_revision: wia_rigid_partial_insertion_v1
+  document_alias: T23
+  validation_status: pending-native-support-and-robot-review
+  parent_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t23_support_v5/task.yaml
+  parent_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t23_support_v5/scene.yaml
+  scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/review_20261025/rigid_support_v2/scenes/t23_native_cabinet_support_v2.yaml
+  original_scene_qualification:
+    on_failure: skip
+    support: table
+    supported_objects:
+    - target
+    - container_2
+    - container_1
+    - container_0
+    - extra1
+    - extra2
+    object_supports:
+      target: pickup_support
+      extra1: multi_support_extra1
+      extra2: multi_support_extra2
+    support_surface_mode: local_raycast
+    support_tolerance_m: 0.015
+    maximum_linear_speed_m_s: 0.02
+    maximum_angular_speed_rad_s: 0.1
+    require_support_contact: true
+    reject_robot_contacts: true
+    screen_furniture_overlap: true
+    settle_steps: 30
+  original_qa_provenance:
+    question_source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
+      Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json
+    question_source_identity: Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json
+    question_source_sha256: 3d5a24b945238a080f727335332d71334c1d76431abf5b5569aa49a5602afa37
+    scene_source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
+      Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json
+    scene_source_identity: Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json
+    scene_source_sha256: b3605aab6b6009c9733f639a2649d56c604c88db76ce1b29ba86a103dcc4b0a7
+    original_qa_id: '2074'
+    original_question: 'Which container does each object best fit inside?
+
+      - granola box
+
+      - spray can
+
+      - colored pencil
+
+      Containers: bucket, mug, wicker basket'
+    original_answer: '[{"_key":"colored pencil","value":"bucket"},{"_key":"granola box","value":"wicker
+      basket"},{"_key":"spray can","value":"bucket"}]'
+    answer_type: sequence
+    original_options:
+    - bucket
+    - mug
+    - wicker basket
+    verified_answer_by_public_label:
+      colored pencil: bucket
+      granola box: wicker basket
+      spray can: bucket
+    verification_basis: Original QA answer and named source target_container/idx metadata; no AABB inference.
+  parameters_provisional: true
+  parameters_calibrated: false
+  threshold_basis: Explicit common provisional Rigid family criteria; native calibration is pending.
+  native_validation_run: false
+  physically_qualified: false
+  legal_robot_reference_verified: false
+  reference_execution_status: deferred_until_user_review
+  support_revision: t23_native_cabinet_support_v2
+  repair_reason: Replace only the five fabricated support-table primitives with the explicitly selected
+    retained native furniture. Preserve original source roles, asset scales and orientations, insertion
+    scoring, budgets and sofa pickup starts. Native support and robot placement remain unqualified.
+  physical_success_verified: false
+  parent_support_task_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t23_support_v4/task.yaml
+  parent_support_task_sha256: 18ab83c6112720736a6c39e2181de2b6495dd44c1a3db30e077a240d51e8e144
+  parent_support_scene_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/explore_to_achieve/wia_v1/rigid_t23_support_v4/scene.yaml
+  parent_support_scene_sha256: f5415a742e8382b86997aa15e1eabaeedcd4c3f63f0e53c36bc3fce1da22cfa5
+  translated_world_x_m: 0.35
+  parent_task_sha256: 9648eb2ff84a0dc6d1365e46624a0627fec7fdf6d015833d957cf38593cfb85e
+  parent_scene_sha256: c9fe2ade86dfc95c63a14bafdad83924c68bc0da84ea945c2c115345128c1014
+  task_source_identity: Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json
+  task_source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
+    Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised__criterion_4.json
+  task_source_sha256: 3d5a24b945238a080f727335332d71334c1d76431abf5b5569aa49a5602afa37
+  scene_source_identity: Physical Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json
+  scene_source_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/ESI-Bench/dataset/json_clean/Physical
+    Structure/Rigid Containment/Beechwood_1_int/television_room_0/Beechwood_1_int_scene_dict_storage2_1_revised.json
+  scene_source_sha256: b3605aab6b6009c9733f639a2649d56c604c88db76ce1b29ba86a103dcc4b0a7
+  inventory_file: /local_home2/zhouxinyang/models/Show-Harness-Explore/outputs/wia_v1_20261025_revision/rigid_inventory/Beechwood_1_int.json
+  inventory_sha256: bcb90b8cb140b6418d428788eb0d3e613576d8670d7459ff2cb0f8a938d5bf7b
+  variant_id: t23_native_cabinet_support_v2
+  support_binding_override:
+    name: bottom_cabinet_jhymlr_0
+    category: bottom_cabinet
+    model: jhymlr
+  full_reference_execution: pending
+  native_support_verified: false
+  native_robot_placement_verified: false
+  final_state_revision:
+    revision: final_state_v1
+    date: '2026-10-30'
+    parent_task_sha256: 3f9da55e80e4128136c4ab0b3011578c164bc11ac53b4c48c230e5d7ae7d1dab
+    parent_scene_sha256: 8161d9531ff9ad18d0a23f8649eb9d7b74f91cfd491cdc89c96380e0260a6392
+    parent_source_task_file: explore_to_achieve/wia_v1/review_20261025/rigid_support_v2/tasks/t23_native_cabinet_support_v2.yaml
+    parent_source_scene_file: explore_to_achieve/wia_v1/review_20261025/rigid_support_v2/scenes/t23_native_cabinet_support_v2.yaml
+    scene_geometry_changed: false
+    native_execution_verified: false
+    scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.

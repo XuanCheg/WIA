@@ -60,6 +60,16 @@ def validate_layout(layout, operation):
                     raise ValueError(key + ' must contain three positive finite dimensions.')
         if row in added and not {'position', 'orientation'}.issubset(row):
             raise ValueError('Added inventory requires explicitly authored poses.')
+        if 'pickup_xy_policy' in row:
+            tolerance = row.get('maximum_pickup_xy_drift_m')
+            if (row['pickup_xy_policy'] != 'preserve_authored_v1' or row not in added
+                    or 'pickup_edge_margin_m' in row or 'pickup_approach_xy_m' in row
+                    or isinstance(tolerance, bool) or not isinstance(tolerance, (int, float))
+                    or not np.isfinite(tolerance) or not 0 < tolerance <= .015):
+                raise ValueError('Preserved pickup XY requires added inventory, an exclusive authored pose policy and drift tolerance at most 0.015 m.')
+            position = np.asarray(row['position'], dtype=float)
+            if position.shape != (3,) or not np.isfinite(position).all():
+                raise ValueError('Preserved pickup XY requires a finite authored position.')
     if not targets:
         raise ValueError('At least one selected target is required.')
     route = layout.get('route', [])
@@ -393,7 +403,21 @@ def initialize_scene(session, parameters):
             raise ValueError('Declared collection support is missing: ' + row['support'])
         if row['name'] not in added_names and not row.get('relocation') and not getattr(session, '_release_edge_policy', False):
             continue
-        if row.get('pickup_edge_margin_m') is not None:
+        if row.get('pickup_xy_policy') == 'preserve_authored_v1':
+            # Concave furniture's outer AABB edge can be behind a partition.
+            # Generic preload physics may already have displaced an added object.
+            # Restore its declared pose before measuring the local support surface.
+            previous_position, previous_orientation = (
+                collection.array(value) for value in obj.get_position_orientation())
+            obj.set_position_orientation(position=row['position'], orientation=row['orientation'])
+            obj.keep_still()
+            edge_placements.append({'object': obj.name, 'support': support.name,
+                'policy': row['pickup_xy_policy'], 'authored_xy_m': row['position'][:2],
+                'pre_alignment_position_m': previous_position.tolist(),
+                'pre_alignment_orientation_xyzw': previous_orientation.tolist(),
+                'authored_pose_restored_before_support_check': True,
+                'physical_grasp_verified': False, 'route_connectivity_verified': False})
+        elif row.get('pickup_edge_margin_m') is not None:
             from wia.tasks.pickup_edges import place_pickup_near_edge
             edge_placements.append(place_pickup_near_edge(session, obj, support, row['pickup_edge_margin_m'], row['room'], row.get('pickup_approach_xy_m')))
             if not hasattr(session, 'pickup_edge_placements'):
@@ -448,11 +472,16 @@ def initialize_scene(session, parameters):
         room = _region(session, position)
         inventory[row['name']] = {'native_room': room, 'required_room': row['room'],
                                  'room_matches': room == row['room'], 'position_m': position.tolist()}
+        if row.get('pickup_xy_policy') == 'preserve_authored_v1':
+            drift = float(np.linalg.norm(position[:2] - np.asarray(row['position'])[:2]))
+            inventory[row['name']].update(authored_xy_drift_m=drift,
+                authored_xy_preserved=drift <= row['maximum_pickup_xy_drift_m'])
         if row.get('support'):
             support = session.env.scene.object_registry('name', row['support'])
             spec = {**row, '_added': row['name'] in added_names}
             supports[row['name']] = _support_evidence(obj, support, spec, obj.states[Touching].get_value(support))
     accepted = bool(receipt['accepted'] and all(row['room_matches'] for row in inventory.values())
+                    and all(row.get('authored_xy_preserved', True) for row in inventory.values())
                     and all(row['accepted'] for row in supports.values())
                     and all(robot_initialization[key] for key in ('floor_supported', 'upright', 'collision_free'))
                     and not preview_only)
@@ -473,6 +502,8 @@ def initialize_scene(session, parameters):
                    'robot_measurement_reason': robot_initialization.get('reason'),
                    'failed_inventory_rooms': [name[:80] for name in failed_rooms[:8]],
                    'failed_inventory_room_count': len(failed_rooms),
+                   'failed_authored_pickup_xy': [name for name, row in inventory.items()
+                                                if row.get('authored_xy_preserved') is False],
                    'failed_supports': [name[:80] for name in failed_supports[:8]],
                    'failed_support_count': len(failed_supports)}
         if preview_only:

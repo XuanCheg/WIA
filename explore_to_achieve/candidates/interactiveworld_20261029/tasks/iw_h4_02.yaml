@@ -1,0 +1,186 @@
+kind: category_robot_task
+id: iw_h4_02
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Action Sequencing/Action Order Inference/school_chemistry/chemistry_lab_0/iw_h4_02.json
+public:
+  objective: Place the scale fully within the blue outlined target footprint. Minimize the number of relocated
+    bottles while making placement and gripper access possible; put every relocated bottle in the yellow
+    storage area. Preserve both fixed anchors and stop clearing when sufficient space exists. Withdraw
+    both hands after stable release. Among valid placements, fewer relocated bottles is better.
+  success_criteria: Actual stable released placement, meaningful process evidence and preservation are
+    required. Scene screenshots alone do not certify task completion.
+  environment: Derived school_chemistry chemistry_lab_0 with source-context inventory.
+  constraints:
+  - Use only public robot sensors and legal physical controls.
+  - Preserve resident contents and protected furniture.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - gripper
+  - ee_rotation
+  - trunk_height
+private:
+  bindings:
+    item_01:
+      name: item_01
+    item_02:
+      name: item_02
+    item_03:
+      name: item_03
+    item_04:
+      name: item_04
+    anchor_01:
+      name: anchor_01
+    anchor_02:
+      name: anchor_02
+  evaluation:
+    type: category_operation
+    module: wia.authoring.converters.interactiveworld_candidates
+    operation: H4
+    binding_keys:
+    - item_01
+    - item_02
+    - item_03
+    - item_04
+    - anchor_01
+    - anchor_02
+    parameters: &id001
+      prototype: H4
+      source_task: NARRATE-12802
+      source_file: /local_home2/zhouxinyang/models/InteractiveWorld/benchmark/tasks/taskpacks/accessibility/NARRATE-12802.taskpack.json
+      source_sha256: 0f4fb86e94c93291190bd3063a20593cca66a45225df285a5abf77d02ce296f7
+      scene_model: school_chemistry
+      room: chemistry_lab_0
+      fixture: desk_slgrxc_0
+      objects:
+      - name: item_01
+        category: digital_scale
+        model: xwzzen
+        slot: 1
+        offset:
+        - 0
+        - 0
+        size:
+        - 0.14
+        - 0.075
+        - 0.055
+        fixed: false
+      - name: item_02
+        category: bottle_of_ginger_beer
+        model: zkocwb
+        slot: 0
+        offset:
+        - -0.2
+        - 0
+        size:
+        - 0.05
+        - 0.05
+        - 0.13
+        fixed: false
+      - name: item_03
+        category: bottle_of_ginger_beer
+        model: zkocwb
+        slot: 0
+        offset:
+        - 0
+        - 0
+        size:
+        - 0.05
+        - 0.05
+        - 0.13
+        fixed: false
+      - name: item_04
+        category: bottle_of_ginger_beer
+        model: zkocwb
+        slot: 0
+        offset:
+        - 0.28
+        - 0
+        size:
+        - 0.05
+        - 0.05
+        - 0.13
+        fixed: false
+      - name: anchor_01
+        category: saucepot
+        model: obuxbe
+        slot: 0
+        offset:
+        - -0.2
+        - 0.22
+        size:
+        - 0.13
+        - 0.12
+        - 0.09
+        fixed: true
+      - name: anchor_02
+        category: mixing_bowl
+        model: bsgybx
+        slot: 0
+        offset:
+        - 0.2
+        - 0.22
+        size:
+        - 0.13
+        - 0.12
+        - 0.09
+        fixed: true
+      regions:
+        target: 0
+        storage: 2
+      contract:
+        target: item_01
+        blockers:
+        - item_02
+        - item_03
+        - item_04
+        anchors:
+        - anchor_01
+        - anchor_02
+        target_region: target
+        storage_region: storage
+        protected:
+        - anchor_01
+        - anchor_02
+        blocker_layout: 1
+      objective: Place the scale fully within the blue outlined target footprint. Minimize the number
+        of relocated bottles while making placement and gripper access possible; put every relocated bottle
+        in the yellow storage area. Preserve both fixed anchors and stop clearing when sufficient space
+        exists. Withdraw both hands after stable release. Among valid placements, fewer relocated bottles
+        is better.
+      condition:
+        blocker_layout: 1
+      id: iw_h4_02
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+qualification:
+  on_failure: skip
+  target_movable_collidable: true
+  initial_visibility: none
+defaults:
+  seed: 7
+  max_steps: 120
+  wall_timeout_s: 5400.0
+  world_advances_during_inference: false
+  observation_condition: current
+  action_mode: parameterized

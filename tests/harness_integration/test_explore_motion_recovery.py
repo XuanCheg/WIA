@@ -204,3 +204,66 @@ def test_target_and_stop_tolerances_are_positive():
         replace(controller.arm_config, initial_trunk_joint_tolerance_rad=0.)
     with pytest.raises(ValueError):
         replace(controller.config, recovery_max_steps=2)
+
+
+@pytest.mark.parametrize('fault', ['arm_joint_limit', 'ik_joint_jump'])
+@pytest.mark.parametrize('unstable', [False, True])
+def test_late_ik_rejection_requires_measured_stop_and_keeps_partial_pose(fault, unstable):
+    controller, robot, env = make_arm_controller(progress_timeout_sim_s=.1)
+    original_step, original_stop = env.step, controller.stop
+    after_first_step = []
+    settling = False
+
+    def step(actions):
+        original_step(actions)
+        if not after_first_step:
+            after_first_step.append(robot.ee.copy())
+            env.arm_response = 0
+        if settling and unstable:
+            robot.joints[12] += .02 if len(env.actions) % 2 else -.02
+
+    def stop():
+        nonlocal settling
+        guard = controller.ik_guard
+        guard.fault = fault
+        guard.native_reference = robot.get_joint_positions()[guard.indices]
+        guard.freeze(guard.native_reference, preserve_recovery=True)
+        settling = True
+        original_stop()
+
+    env.step, controller.stop = step, stop
+    executor = create_r1_executor(controller)
+    executor.macro_execution = 'metric_target'
+    from core.action_compiler import MacroLimits
+    before = robot.ee.copy()
+    result = executor.execute_macro({'action': 'MV_FWD', 'distance_m': .05},
+        resolution=executor.primitive_resolution, limits=MacroLimits())
+    assert result['reason'] == fault and not result['success']
+    assert result['stop_stability_verified'] is (not unstable)
+    assert 0 < robot.ee[0] - before[0] < .05
+    np.testing.assert_allclose(robot.ee, after_first_step[0])
+    assert AgentActionFeedback.from_result(result).motion_stopped is (None if unstable else True)
+    if not unstable:
+        controller.stop = original_stop
+        env.step, env.arm_response = original_step, .5
+        retreat = executor.execute('MV_BACK')
+        assert retreat['success'] and robot.ee[0] < after_first_step[0][0]
+
+
+def test_late_ik_rejection_does_not_reclassify_cancellation():
+    controller, robot, env = make_arm_controller()
+    original_stop = controller.stop
+
+    def stop():
+        guard = controller.ik_guard
+        guard.fault = 'arm_joint_limit'
+        guard.native_reference = robot.get_joint_positions()[guard.indices]
+        guard.freeze(guard.native_reference, preserve_recovery=True)
+        original_stop()
+
+    controller.stop = stop
+    result = create_r1_executor(controller).execute('MV_FWD',
+        should_cancel=lambda: len(env.actions) >= 2)
+    assert result['cancelled'] and result['reason'] == 'cancelled'
+    assert 'stop_stability_verified' not in result
+    assert AgentActionFeedback.from_result(result).motion_stopped is None

@@ -1,0 +1,85 @@
+kind: scene_patch
+id: iw_h2_01
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Action Sequencing/Action Order Inference/restaurant_hotel/kitchen_0/iw_h2_01.json
+bindings:
+  item_01:
+    name: item_01
+  item_02:
+    name: item_02
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: &id001
+          prototype: H2
+          source_task: ORCHESTRATE-112022
+          source_file: /local_home2/zhouxinyang/models/InteractiveWorld/benchmark/tasks/taskpacks/planning/ORCHESTRATE-112022.taskpack.json
+          source_sha256: ce09a510e5e66defe0019d49814db2f509285474bf37dbaf29dae47a69ea1aea
+          scene_model: restaurant_hotel
+          room: kitchen_0
+          fixture: commercial_kitchen_table_bwlfnu_0
+          objects:
+          - name: item_01
+            category: apple
+            model: agveuv
+            slot: 1
+            offset:
+            - 0
+            - 0
+            size:
+            - 0.075
+            - 0.075
+            - 0.075
+            fixed: false
+          - name: item_02
+            category: null
+            model: null
+            slot: 0
+            offset:
+            - 0
+            - 0
+            size:
+            - 0.09
+            - 0.065
+            - 0.06
+            fixed: false
+          regions:
+            work: 0
+            delivery: 2
+            storage: 3
+          contract:
+            payload: item_01
+            obstruction: item_02
+            work_region: work
+            delivery: delivery
+            storage: storage
+            protected: []
+            disturbance: false
+          objective: Clear the outlined work area by storing its obstruction in the yellow storage area,
+            deliver the apple to the blue receiving area, and leave the work area clear. The work area
+            may be disturbed after delivery; inspect its final condition and repair only if necessary.
+          condition:
+            disturbance: false
+          id: iw_h2_01
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+seed: 7
+runtime:
+  preview_fps: 0.0
+  camera_size:
+  - 512
+  - 512

@@ -533,8 +533,6 @@ class TemporalChangeEvaluator:
         if self.survey_violations:
             raise ValueError('Phase 1 read-only safety check failed; inspect private survey evidence.')
         measured = self.controller.measure(self.executor)
-        if not measured['valid']:
-            raise ValueError('The original Phase 1 was changed before its external event.')
         self.sample_step()
         if self.survey_violations:
             raise ValueError('Phase 1 read-only safety check failed; inspect private survey evidence.')
@@ -551,7 +549,7 @@ class TemporalChangeEvaluator:
                        'action_step': observation.action_step}
 
     def sample_step(self):
-        """Check read-only survey invariants and controlled Phase-2 navigation."""
+        """Record passive survey diagnostics and check Phase-2 navigation."""
         if self.controller.phase == 'phase_1' and self.survey_reference is not None:
             current = self.controller._unchanged_world()
             original = self.survey_reference
@@ -583,16 +581,16 @@ class TemporalChangeEvaluator:
             for name, passed in measured['checks'].items():
                 if not passed:
                     failures['native_check:' + name] = measured
-            new_failures = {key: value for key, value in failures.items()
-                            if key not in self.survey_violation_evidence}
-            if failures:
-                self.controller.survey_violation = True
-            if new_failures:
-                self.survey_violation_evidence.update(new_failures)
-                self.survey_violations = list(self.survey_violation_evidence)
-                write_json(self.output / 'survey_violation.json', {
-                    'phase': 'phase_1', 'last_boundary': self.last_boundary,
-                    'violations': self.survey_violation_evidence})
+            # Navigation contact and passive scene changes do not violate the
+            # action-level survey contract. Arm/hand requests are rejected by
+            # the shared action gate before execution. Keep physical evidence.
+            new_warnings = {key: value for key, value in failures.items()
+                            if key not in self.survey_environment_warnings}
+            if new_warnings:
+                self.survey_environment_warnings.update(new_warnings)
+                write_json(self.output / 'survey_environment_warnings.json', {
+                    'phase': 'phase_1', 'policy': 'arm_commands_disabled',
+                    'warnings': self.survey_environment_warnings})
             return
         if (self.controller.phase != 'phase_2' or self.navigation is None
                 or not self.config['parameters'].get('phase_2_navigation_required')):

@@ -1,0 +1,135 @@
+{
+  "alias": "T46",
+  "previous_selection": {
+    "alias": "T46",
+    "family": "TM",
+    "variant_id": "t46_w_furnished_v2",
+    "task_file": "explore_to_achieve/wia_v1/release/tasks/t46.yaml",
+    "source_task_file": "explore_to_achieve/wia_v1/review_access_20261030/tasks/t46.yaml",
+    "source_task_file_sha256": "1c06d6f28e2592db705393a0ff156a7a9ce706f57dfc7306d9695cdec32fa4ad",
+    "scene_file": "explore_to_achieve/wia_v1/release/scenes/t46.yaml",
+    "source_scene_file": "explore_to_achieve/wia_v1/review_access_20261030/scenes/t46.yaml",
+    "source_scene_file_sha256": "3e21a8ca901afc8c018f02c5ee4223a6d5064f00db0a8991432af60d9e3f00b8",
+    "task_id": "task_redesign_0498b76051279b8acd7e914e",
+    "variant": "adapted",
+    "origin": "original",
+    "subclass": "TM-2"
+  },
+  "changes": {
+    "revision": "review_t46_access_20261031",
+    "selected_variant": "adapted",
+    "geometry": {
+      "reviewed_group_placements_v1": {
+        "container_00": {
+          "support_name": "breakfast_table_zypvuv_0",
+          "root_xy_m": [
+            4.05,
+            6.33
+          ]
+        },
+        "container_01": {
+          "support_name": "breakfast_table_zypvuv_0",
+          "root_xy_m": [
+            4.65,
+            6.33
+          ]
+        },
+        "container_02": {
+          "support_name": "breakfast_table_zypvuv_0",
+          "root_xy_m": [
+            5.25,
+            6.33
+          ]
+        }
+      },
+      "relocation_policy": "independent_groups",
+      "content_center_raise_m": 0.018,
+      "butter_scale_ratio": 3.0,
+      "butter_center_raise_m": 0.01558,
+      "butter_measured_height_before_m": 0.015579,
+      "butter_predicted_height_after_m": 0.046737,
+      "spare_rim_height_before_m": 0.06,
+      "spare_rim_height_after_m": 0.01,
+      "spare_rim_center_delta_m": -0.025,
+      "chair_root_xy_m": {
+        "straight_chair_eospnr_0": [
+          6.15,
+          7.65
+        ],
+        "straight_chair_eospnr_5": [
+          2.8,
+          5.5
+        ]
+      },
+      "robot_translation_world_m": [
+        0.5,
+        0.0,
+        0.0
+      ]
+    },
+    "evaluation_scope": {
+      "source_object_sets": 1,
+      "content_positions": 4,
+      "apparatus_sets": 1,
+      "butter_positions": 1,
+      "spare_rims": 4
+    },
+    "per_variant_scope": {
+      "adapted": {
+        "source_object_sets": 2,
+        "content_positions": 8,
+        "apparatus_sets": 2,
+        "butter_positions": 2,
+        "spare_rims": 8,
+        "content_pose_patches": 2,
+        "spare_rim_pose_patches": 4,
+        "butter_pose_patches": 0,
+        "reviewed_group_patches": 1,
+        "butter_scale_patches": 1,
+        "native_furniture_pose_patches": 1,
+        "chair_positions": 2,
+        "robot_pose_patches": 1,
+        "butter_effective_multiplier": 3.0,
+        "previous_butter_scale_patch_count": 0
+      },
+      "saved_image1": {
+        "source_object_sets": 2,
+        "content_positions": 8,
+        "apparatus_sets": 0,
+        "butter_positions": 0,
+        "spare_rims": 0,
+        "content_pose_patches": 2,
+        "spare_rim_pose_patches": 0,
+        "butter_pose_patches": 0,
+        "reviewed_group_patches": 0,
+        "butter_scale_patches": 0,
+        "native_furniture_pose_patches": 1,
+        "chair_positions": 2,
+        "robot_pose_patches": 1
+      },
+      "saved_image2": {
+        "source_object_sets": 2,
+        "content_positions": 8,
+        "apparatus_sets": 0,
+        "butter_positions": 0,
+        "spare_rims": 0,
+        "content_pose_patches": 2,
+        "spare_rim_pose_patches": 0,
+        "butter_pose_patches": 0,
+        "reviewed_group_patches": 0,
+        "butter_scale_patches": 0,
+        "native_furniture_pose_patches": 1,
+        "chair_positions": 2,
+        "robot_pose_patches": 1
+      }
+    },
+    "content_bindings": [
+      "image1_content_00",
+      "image1_content_01",
+      "image2_content_01",
+      "image2_content_02"
+    ],
+    "native_validation": "pending",
+    "physical_success_verified": false
+  }
+}

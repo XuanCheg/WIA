@@ -303,7 +303,7 @@ class MCPRobotEnvironment:
         if self.temporal_episode and self.temporal_phase == 'phase_1':
             from wia.tasks.temporal_policy import survey_action_allowed
             if not survey_action_allowed(action):
-                raise ValueError('Phase 1 permits only guarded base, torso and empty-arm survey motion.')
+                raise ValueError('Phase 1 permits only base and torso survey motion; arm and gripper commands are disabled.')
         if self.action_mode == "parameterized":
             if not isinstance(action, ParameterizedAction):
                 raise ValueError("Parameterized episodes require typed commands.")

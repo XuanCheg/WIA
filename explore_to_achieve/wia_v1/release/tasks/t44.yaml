@@ -1,35 +1,30 @@
 kind: category_robot_task
 id: task_redesign_c8b7b9e832f5ee2958b6efe0__t44_red_release_marker_v1
-version: 4
+version: 5
 status: pending
 source:
   provider: esi
   json: Specular Reflection/Correspondence/hall_arch_wood/empty_room_0/wia_background_v1.json
 public:
-  objective: 'Compare how a bowl, an avocado and a spherical ball travel down the
-    ramp. The candidate table contains one trial item and one unused matching spare
-    of each type. Use the items on the yellow mat for trials and preserve those on
-    the green mat as spares. Test each trial item separately: grasp it, place it over
-    the red release mark on the ramp in its initial resting orientation, release without
-    a push and observe three seconds. Recover trial items to the candidate table after
-    observing them so the runway is clear. Then select the unused spare matching the
-    fastest successful trial and deliver it through the ramp into the blue receiving
-    tray.'
-  success_criteria: Record a controlled trial for all three types. Choose an unused
-    spare of a type that reached and stayed in the receiver fastest; trials within
-    0.15 seconds of the best arrival time are tied. Release that spare through the
-    same ramp and leave it stationary in the receiving tray.
-  environment: An elevated ramp, a contained runway, an open-entry receiving tray
-    and a separate six-item supply table.
+  objective: 'Compare how a bowl, an avocado and a spherical ball travel down the ramp. The candidate
+    table contains one trial item and one unused matching spare of each type. Use the items on the yellow
+    mat for trials and preserve those on the green mat as spares. Test each trial item separately: grasp
+    it, place it over the red release mark on the ramp in its initial resting orientation, release without
+    a push and observe three seconds. Recover trial items to the candidate table after observing them
+    so the runway is clear. Then select the unused spare matching the fastest successful trial and deliver
+    it through the ramp into the blue receiving tray.'
+  success_criteria: Record a controlled trial for all three types. Choose an unused spare of a type that
+    reached and stayed in the receiver fastest; trials within 0.15 seconds of the best arrival time are
+    tied. Release that spare through the same ramp and leave it stationary in the receiving tray.
+  environment: An elevated ramp, a contained runway, an open-entry receiving tray and a separate six-item
+    supply table.
   constraints:
-  - "Release each object in its trial item\u2019s initial resting orientation (within\
-    \ 20 degrees; ball orientation is unrestricted), with its centre within 2.5 cm\
-    \ of the ramp centreline and the point halfway between the upper edge and ramp\
-    \ centre. The object must contact the top face while held, with linear speed at\
-    \ most 0.05 m/s and angular speed at most 0.2 rad/s."
-  - Keep ramp angle and materials unchanged. Do not push released items, move the
-    apparatus or place items directly in the receiver. Keep the runway clear between
-    trials.
+  - "Release each object in its trial item\u2019s initial resting orientation (within 20 degrees; ball\
+    \ orientation is unrestricted), with its centre within 2.5 cm of the ramp centreline and the point\
+    \ halfway between the upper edge and ramp centre. The object must contact the top face while held,\
+    \ with linear speed at most 0.05 m/s and angular speed at most 0.2 rad/s."
+  - Keep ramp angle and materials unchanged. Do not push released items, move the apparatus or place items
+    directly in the receiver. Keep the runway clear between trials.
   - Picking a spare ends the trial stage. Preserve all unused spares.
 requirements:
   capabilities:
@@ -802,6 +797,7 @@ scene:
               - 0.5736971923032635
               - 0.8190674767950149
             shared_layout_id: wia_ramp_workstation__t44_hall_arch_v2
+            synchronize_authored_poses_before_alignment: true
       - operation: category_initialization
         phase: after_postprocessing
         module: wia.authoring.converters.active_layout
@@ -1393,6 +1389,7 @@ scene:
               - 0.5736971923032635
               - 0.8190674767950149
             shared_layout_id: wia_ramp_workstation__t44_hall_arch_v2
+            synchronize_authored_poses_before_alignment: true
 qualification:
   on_failure: skip
   initial_visibility: none
@@ -1447,5 +1444,4 @@ repair:
   physical_success_verified: false
   scientific_controls_verified: false
   continuous_path_certified: false
-  revision_scope: Release marker color only; two selected native backgrounds across
-    three proposals.
+  revision_scope: Release marker color only; two selected native backgrounds across three proposals.

@@ -1,7 +1,8 @@
-"""Collect private, read-only initial mirror geometry after capture images freeze.
+"""Collect private, read-only initial review geometry after capture images freeze.
 
 Run CPU checks: python -B -m pytest -q -p no:cacheprovider \
-  tests/test_wia_capture_diagnostics.py
+  tests/harness_integration/test_wia_capture_diagnostics.py \
+  tests/test_wia_access_capture_diagnostics.py
 The capture caller owns image freezing and its final clock check. This helper
 never renders, runs an evaluator/qualifier, steps physics, writes files or adds
 anything to public observations or prompts. Unsupported tasks return None.
@@ -13,6 +14,13 @@ import math
 
 SCHEMA = 'wia_initial_review_diagnostics_v1'
 MIRROR_MODULE = 'wia.authoring.converters.wia_mirror'
+HOUSEHOLD_MODULE = 'wia.authoring.converters.wia_household_fit'
+ACCESS_REPAIR_MARKER = 'user_review_access_v1'
+ACCESS_MODULES = frozenset({
+    'wia.authoring.converters.rigid_partial_insertion',
+    'wia.authoring.converters.wia_dimensional',
+    'wia.authoring.converters.temporal_understanding_two_phase',
+})
 
 
 def _native_time(session):
@@ -26,15 +34,29 @@ def _native_time(session):
 
 
 def capture_initial_review_diagnostics(session):
-    """Return private mirror measurements, with errors contained within metadata.
+    """Return private review measurements, with errors contained within metadata.
 
-    Only the exact mirror category operation dispatches to its explicitly owned
-    geometry helper. Zero-action/step metadata requires finite unchanged native
-    clocks; an unavailable clock never supplies synthetic zero counts.
+    The mirror operation keeps its existing helper; explicitly marked access
+    repairs may export inventory through their separate read-only helper.
+    Zero-action/step metadata requires finite unchanged native clocks; an
+    unavailable clock never supplies synthetic zero counts.
     """
     task = getattr(session, 'loaded_task', None)
     private = getattr(getattr(task, 'definition', None), 'private', None)
     evaluation = getattr(private, 'evaluation', None)
+    repair = getattr(getattr(task, 'definition', None), 'repair', None)
+    if (getattr(evaluation, 'type', None) == 'category_operation'
+            and getattr(evaluation, 'module', None) == HOUSEHOLD_MODULE):
+        # Keep the dotted lazy import explicit for capture dependency sealing.
+        import wia.runtime.wia_household_capture_diagnostics as household_diagnostics
+        return household_diagnostics.capture_initial_household_diagnostics(session)
+    if (getattr(evaluation, 'type', None) == 'category_operation'
+            and getattr(evaluation, 'module', None) in ACCESS_MODULES
+            and isinstance(repair, dict)
+            and isinstance(repair.get(ACCESS_REPAIR_MARKER), dict)):
+        # Keep the dotted lazy import explicit for capture dependency sealing.
+        import wia.runtime.wia_access_capture_diagnostics as access_diagnostics
+        return access_diagnostics.capture_initial_access_diagnostics(session)
     if (getattr(evaluation, 'type', None) != 'category_operation'
             or getattr(evaluation, 'module', None) != MIRROR_MODULE):
         return None

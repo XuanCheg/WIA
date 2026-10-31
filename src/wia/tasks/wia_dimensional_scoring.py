@@ -16,6 +16,7 @@ import numpy as np
 
 SCORING_VERSION = 'wia_dimensional_progress_v1'
 APERTURE_SCORING_VERSION = 'wia_dimensional_progress_v2'
+FINAL_STATE_SCORING_VERSION = 'wia_dimensional_final_state_v1'
 _THRESHOLDS = (
     'minimum_lift_m', 'stability_duration_s', 'maximum_linear_speed_m_s',
     'maximum_angular_speed_rad_s', 'max_sample_gap_s', 'fixture_position_tolerance_m',
@@ -57,6 +58,10 @@ class DimensionalProgress:
     scoring thresholds, and (for aperture tasks) native aperture bounds. Legacy
     unselected-position tolerances are inert. Proposal candidate dimensions are
     never used to infer selection, lift, assignment or passage.
+    Explicit ``scoring.manipulation_revision='final_state_v1'`` with a null
+    minimum lift removes pickup checkpoints; aperture passage is still sampled.
+    Optional ``scoring.aperture_floor_contact_tolerance_m`` permits measured
+    floor contact during passage; the default retains the original lower inset.
     """
 
     def __init__(self, parameters):
@@ -79,11 +84,24 @@ class DimensionalProgress:
         if self.operation == 'sort_intrinsic_dimension' and len(destinations) != len(candidates):
             raise ValueError('Sorting requires one destination for every original candidate.')
         self.scoring = deepcopy(dict(_mapping(p.get('scoring'))))
+        self.manipulation_revision = self.scoring.get('manipulation_revision')
+        if self.manipulation_revision not in (None, 'final_state_v1'):
+            raise ValueError('Unsupported dimensional manipulation_revision.')
+        if (self.manipulation_revision == 'final_state_v1'
+                and ('minimum_lift_m' not in self.scoring or self.scoring['minimum_lift_m'] is not None)):
+            raise ValueError('final_state_v1 requires minimum_lift_m to be explicitly None.')
         for key in _THRESHOLDS:
+            if key == 'minimum_lift_m' and self.manipulation_revision == 'final_state_v1':
+                continue
             value = _number(self.scoring.get(key), nonnegative=True)
             if value is None or (key in ('minimum_lift_m', 'stability_duration_s', 'max_sample_gap_s') and value == 0):
                 raise ValueError(key + ' must be an explicit finite valid threshold.')
             self.scoring[key] = value
+        if 'aperture_floor_contact_tolerance_m' in self.scoring:
+            value = _number(self.scoring['aperture_floor_contact_tolerance_m'], nonnegative=True)
+            if value is None:
+                raise ValueError('aperture_floor_contact_tolerance_m must be an explicit finite nonnegative number.')
+            self.scoring['aperture_floor_contact_tolerance_m'] = value
         self.aperture = None
         if self.operation == 'select_pass_aperture':
             self.aperture = {key: _number(_mapping(p.get('aperture')).get(key)) for key in
@@ -234,7 +252,7 @@ class DimensionalProgress:
         front = self._wholly_front(vertices)
         if front:
             path['last_whole_front_at_s'] = now
-        if not state['lift_seen']:
+        if self.manipulation_revision is None and not state['lift_seen']:
             return
         if not path['armed']:
             if front:
@@ -245,9 +263,11 @@ class DimensionalProgress:
         union = np.concatenate((previous, vertices), axis=0)
         union_reaches_slab = bool(np.min(union[:, 0]) <= a['exit_x_m'] and np.max(union[:, 0]) >= a['entry_x_m'])
         margin = self.scoring['aperture_clearance_margin_m']
+        floor_minimum = (a['z_min_m'] - self.scoring['aperture_floor_contact_tolerance_m']
+                         if 'aperture_floor_contact_tolerance_m' in self.scoring else a['z_min_m'] + margin)
         yz_clear = bool(np.all(union[:, 1] >= a['y_min_m'] + margin)
             and np.all(union[:, 1] <= a['y_max_m'] - margin)
-            and np.all(union[:, 2] >= a['z_min_m'] + margin)
+            and np.all(union[:, 2] >= floor_minimum)
             and np.all(union[:, 2] <= a['z_max_m'] - margin))
         if union_reaches_slab and not yz_clear:
             self._interrupt_path(key, 'adjacent_sample_union_not_inside_inset_opening')
@@ -317,7 +337,8 @@ class DimensionalProgress:
                     state['grasp_seen'] = True
                     lift = rows[key]['lowest_z_m'] - self._initial[key]['lowest_z_m']
                     state['maximum_held_lift_m'] = lift if state['maximum_held_lift_m'] is None else max(lift, state['maximum_held_lift_m'])
-                    if lift >= self.scoring['minimum_lift_m']:
+                    if (self.manipulation_revision is None
+                            and lift >= self.scoring['minimum_lift_m']):
                         state['lift_seen'] = True
         if gap:
             errors.append('native_sample_gap_exceeded')
@@ -360,9 +381,16 @@ class DimensionalProgress:
                 lift = state['lift_seen']
                 passage = state['path']['completed']
                 placement = state['stable_placement']
+                if self.manipulation_revision == 'final_state_v1':
+                    return (passage and placement, passage, placement)
                 return (grasp and lift and passage and placement, placement, passage, lift, grasp)
 
-            attempts = [key for key in self.candidates if self._states[key]['grasp_seen']]
+            if self.manipulation_revision == 'final_state_v1':
+                attempts = [key for key in self.candidates if self._states[key]['path']['completed']
+                            or self._states[key]['path']['slab_overlap_seen']
+                            or self._states[key]['stable_placement']]
+            else:
+                attempts = [key for key in self.candidates if self._states[key]['grasp_seen']]
             self._selected = max(attempts, key=rank) if attempts else None
             self._done_declared = True
             self._terminal_result = self.result()
@@ -376,14 +404,17 @@ class DimensionalProgress:
         aperture = self.operation == 'select_pass_aperture'
         if aperture:
             selected = self._states.get(self._selected)
-            checkpoints = [('choice', bool(selected and selected['grasp_seen'])),
-                ('grasp_lift', bool(selected and selected['grasp_seen'] and selected['lift_seen'])),
-                ('passage', bool(selected and selected['path']['completed'])),
+            checkpoints = [('passage', bool(selected and selected['path']['completed'])),
                 ('stable_placement', bool(selected and selected['stable_placement']))]
+            if self.manipulation_revision is None:
+                checkpoints = [('choice', bool(selected and selected['grasp_seen'])),
+                    ('grasp_lift', bool(selected and selected['grasp_seen'] and selected['lift_seen']))] + checkpoints
         else:
-            checkpoints = [('grasp_lift', all(state['grasp_seen'] and state['lift_seen'] for state in self._states.values())),
-                ('assignment', self._assignment is not None and all(state['assignment_satisfied'] for state in self._states.values())),
+            checkpoints = [('assignment', self._assignment is not None and all(state['assignment_satisfied'] for state in self._states.values())),
                 ('stable_placement', all(state['stable_placement'] for state in self._states.values()))]
+            if self.manipulation_revision is None:
+                checkpoints = [('grasp_lift', all(state['grasp_seen'] and state['lift_seen']
+                    for state in self._states.values()))] + checkpoints
         validity = 'invalid' if self._violations else 'complete' if current['available'] else 'unavailable'
         success = bool(validity == 'complete' and all(completed for _, completed in checkpoints))
         score = sum(completed for _, completed in checkpoints) / len(checkpoints) if validity == 'complete' else None
@@ -391,7 +422,8 @@ class DimensionalProgress:
                   'evidence_scope': 'measured_grasp_only_not_feasibility' if name == 'choice' else
                       'sampled_passage_not_continuous_path_certificate' if name == 'passage' else 'measured_native_checkpoint'}
                  for name, completed in checkpoints]
-        version = APERTURE_SCORING_VERSION if aperture else SCORING_VERSION
+        version = (FINAL_STATE_SCORING_VERSION if self.manipulation_revision == 'final_state_v1'
+                   else APERTURE_SCORING_VERSION if aperture else SCORING_VERSION)
         result = {'schema': version, 'scoring_version': version,
             'task_success': success, 'physical_success': success, 'evaluation_validity': validity,
             'constraints_satisfied': False if self._violations else True if validity == 'complete' else None,
@@ -404,6 +436,8 @@ class DimensionalProgress:
             'sample_gap_exceeded': current['sample_gap_exceeded'],
             'measurement_errors': current['measurement_errors'], 'scoring': self.scoring,
             'continuous_path_certified': False, 'physical_feasibility_of_unselected_candidates_inferred': False}
+        if self.manipulation_revision is not None:
+            result['manipulation_revision'] = self.manipulation_revision
         if aperture:
             result['evaluation_finalized'] = self._done_declared
             result['native_evaluation_validity'] = validity

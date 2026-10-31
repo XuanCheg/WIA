@@ -1,0 +1,116 @@
+kind: category_robot_task
+id: iw_h5_02
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Action Sequencing/Action Order Inference/grocery_store_cafe/grocery_store_0/iw_h5_02.json
+public:
+  objective: Deliver the cat-food can to the blue primary receiving area if it contains no resident item.
+    If any resident occupies that area, use the yellow fallback area. This is a stock-separation rule,
+    not a claim that the primary is geometrically full. Preserve the resident item.
+  success_criteria: Actual stable released placement, meaningful process evidence and preservation are
+    required. Scene screenshots alone do not certify task completion.
+  environment: Derived grocery_store_cafe grocery_store_0 with source-context inventory.
+  constraints:
+  - Use only public robot sensors and legal physical controls.
+  - Preserve resident contents and protected furniture.
+requirements:
+  capabilities:
+  - base_translation
+  - base_rotation
+  - ee_translation
+  - gripper
+  - ee_rotation
+  - trunk_height
+private:
+  bindings:
+    item_01:
+      name: item_01
+    item_02:
+      name: item_02
+  evaluation:
+    type: category_operation
+    module: wia.authoring.converters.interactiveworld_candidates
+    operation: H5
+    binding_keys:
+    - item_01
+    - item_02
+    parameters: &id001
+      prototype: H5
+      source_task: ASK-30000
+      source_file: /local_home2/zhouxinyang/models/InteractiveWorld/benchmark/tasks/taskpacks/decision/ASK-30000.taskpack.json
+      source_sha256: c54d45d214fc7abd7c6e03b082ddfb283acc9fe489e715c1e446fd06590c677b
+      scene_model: grocery_store_cafe
+      room: grocery_store_0
+      fixture: breakfast_table_ylykeh_0
+      objects:
+      - name: item_01
+        category: can_of_cat_food
+        model: omiuox
+        slot: 0
+        offset:
+        - 0
+        - 0
+        size:
+        - 0.065
+        - 0.065
+        - 0.06
+        fixed: false
+      - name: item_02
+        category: can_of_dog_food
+        model: rgwfxq
+        slot: 1
+        offset:
+        - 0
+        - 0
+        size:
+        - 0.065
+        - 0.065
+        - 0.08
+        fixed: false
+      regions:
+        primary: 1
+        fallback: 2
+      contract:
+        payload: item_01
+        resident: item_02
+        primary: primary
+        fallback: fallback
+        protected:
+        - item_02
+        primary_available: false
+      objective: Deliver the cat-food can to the blue primary receiving area if it contains no resident
+        item. If any resident occupies that area, use the yellow fallback area. This is a stock-separation
+        rule, not a claim that the primary is geometrically full. Preserve the resident item.
+      condition:
+        primary_available: false
+      id: iw_h5_02
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+qualification:
+  on_failure: skip
+  target_movable_collidable: true
+  initial_visibility: none
+defaults:
+  seed: 7
+  max_steps: 120
+  wall_timeout_s: 5400.0
+  world_advances_during_inference: false
+  observation_condition: current
+  action_mode: parameterized

@@ -9,8 +9,9 @@ from wia.authoring.modules import import_owned_module
 
 def test_all_preferred_release_tasks_load_with_canonical_adapters():
     catalogue = json.loads((ROOT / 'explore_to_achieve/wia_v1/release/catalogue.json').read_text())
-    assert len(catalogue['tasks']) == len(discover_tasks()) == 61
-    assert [r['alias'] for r in catalogue['excluded']] == ['AP4']
+    assert len(catalogue['tasks']) == len(discover_tasks()) == 60
+    assert {r['alias'] for r in catalogue['tasks']} >= {'GF2-1', 'GF2-2', 'GF3-1', 'GF3-2', 'iw_h2_02', 'iw_h3_03', 'T52'}
+    assert all(not r['alias'].startswith('D') for r in catalogue['tasks'])
     for row in catalogue['tasks']:
         task = load_task(ROOT / row['task_file'], variant=row['variant'])
         task.verify_unchanged()

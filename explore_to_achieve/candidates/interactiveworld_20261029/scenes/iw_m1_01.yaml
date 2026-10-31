@@ -1,0 +1,86 @@
+kind: scene_patch
+id: iw_m1_01
+version: 1
+status: pending
+source:
+  provider: esi
+  json: Action Sequencing/Action Order Inference/hotel_suite_large/bedroom_0/iw_m1_01.json
+bindings:
+  item_01:
+    name: item_01
+  item_02:
+    name: item_02
+scene:
+  policy: native_then_minimal_patch_else_skip
+  variants:
+    original:
+      patches: []
+    adapted:
+      patches:
+      - operation: category_initialization
+        phase: before_construction
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: &id001
+          prototype: M1
+          source_task: WATCH-28002
+          source_file: /local_home2/zhouxinyang/models/InteractiveWorld/benchmark/tasks/taskpacks/prevention/WATCH-28002.taskpack.json
+          source_sha256: 10b4a1b186d31360cba4f2dc85acbe71c249baf4a9698abeda09f85549a2da93
+          scene_model: hotel_suite_large
+          room: bedroom_0
+          fixture: desk_ohjotf_0
+          objects:
+          - name: item_01
+            category: sponge
+            model: aewrov
+            slot: 0
+            offset:
+            - -0.07
+            - 0
+            size:
+            - 0.08
+            - 0.055
+            - 0.035
+            fixed: false
+          - name: item_02
+            category: sponge
+            model: aewrov
+            slot: 0
+            offset:
+            - 0.07
+            - 0
+            size:
+            - 0.08
+            - 0.055
+            - 0.035
+            fixed: false
+          regions:
+            used: 1
+            clean: 2
+            cleaning_surface: 0
+          contract:
+            tools:
+            - item_01
+            - item_02
+            used_region: used
+            clean_region: clean
+            protected: []
+            used_tool: item_01
+          objective: Observe which of the two matching cleaning sponges is used on the marked cleaning
+            surface. Place that sponge in the yellow used-tool area and the unused sponge in the blue
+            clean-tool area. Track identity through the visible use event. This is a use-history rule,
+            not a microbial-contamination simulation.
+          condition:
+            used_tool: item_01
+          id: iw_m1_01
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.interactiveworld_candidates
+        parameters: *id001
+      - operation: restore_robot_head_mount
+        phase: after_postprocessing
+seed: 7
+runtime:
+  preview_fps: 0.0
+  camera_size:
+  - 512
+  - 512

@@ -539,6 +539,9 @@ class ESIControlBackend(ESIPreviewBackend):
                     evaluator = getattr(session, "task_evaluator", None)
                     if evaluator is not None:
                         evaluator.record(self.observation_source.boundary_observation, action=None)
+                    history = getattr(session, 'candidate_public_history', None)
+                    if history is not None:
+                        slot['candidate_observation_history'] = history
                     slot.update(ok=True, message="Agent resumed at the retained action boundary.",
                                 resumed_action_step=resume_step)
                     return True
@@ -551,6 +554,13 @@ class ESIControlBackend(ESIPreviewBackend):
                 self.primitive_actions, self.physics_steps, self.physics_steps_known = 0, 0, True
                 self.equivalent_fixed_primitives = self.actual_fixed_primitive_executions = self.metric_target_executions = 0
                 self.observation_source.begin_episode(self.episode_task)
+                history = getattr(native_session, 'candidate_public_history', None)
+                if history is not None:
+                    deliver = getattr(native_session, 'candidate_public_history_delivery', None)
+                    if not callable(deliver):
+                        raise RuntimeError('Candidate history lacks its native delivery binding.')
+                    slot['candidate_observation_history'] = history
+                    native_session.candidate_history_delivery_receipt = deliver()
                 slot.update(ok=True, message="Agent episode ready at the current scene.")
                 return True
             if isinstance(tokens, AnswerDeclaration):
