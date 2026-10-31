@@ -413,7 +413,8 @@ def main(argv: list[str] | None = None, *, initial_observation_capture=None) -> 
     manual_enabled = args.base_control or args.arm_control or args.gripper_control or args.rotation_control or args.trunk_control
     if manual_enabled and not (args.web or args.base_debug or args.validate_base or args.arm_debug or args.validate_arm
                               or args.gripper_debug or args.validate_manipulation
-                              or args.rotation_debug or args.validate_rotation or args.validate_camera_geometry):
+                              or args.rotation_debug or args.validate_rotation or args.validate_camera_geometry
+                              or args.validate_scorer or args.validation_sequence):
         raise ValueError("Manual control requires --web or a diagnostic flag.")
     base_config = None
     if base_enabled:
