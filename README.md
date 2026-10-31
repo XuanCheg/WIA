@@ -291,7 +291,13 @@ indices and do not contact a provider, inspect GPUs or start a simulator.
 
 The deep59 convenience script loads the key from `~/apikey_vercel.key` (or
 `WIA_API_KEY_FILE`) without printing it, configures the existing simulator environment,
-and runs in the current terminal. Create or attach your own tmux session before invoking it:
+and runs in the current terminal. It sets `WIA_SKIP_GPU_CHECK=1`: the supervisor and
+native episode launcher skip utilization, memory, process-occupancy and idle
+rechecks. GPU index/UUID queries remain solely for explicit device mapping. With
+`--gpus auto`, the first four visible devices are selected without checking whether
+they are busy; explicit `--gpus` indices are used directly. Other entry points
+retain their ordinary checks unless the same opt-out is set. No existing process
+is terminated by this mode. Create or attach your own tmux session before invoking it:
 
 ```bash
 bash scripts/bench_deepseek_4gpu.sh --dry-run

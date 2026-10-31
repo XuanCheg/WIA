@@ -15,5 +15,6 @@ export LD_LIBRARY_PATH="${WIA_RUNTIME_LIBS:-/local_home2/zhouxinyang/runtime_lib
 export OMNIGIBSON_DATA_PATH="${OMNIGIBSON_DATA_PATH:-/local_home2/zhouxinyang/data/behavior}"
 export VK_ICD_FILENAMES="${VK_ICD_FILENAMES:-$WIA_ROOT/configs/esi_vulkan_egl.json}"
 export OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 PYTHONUNBUFFERED=1
+export WIA_SKIP_GPU_CHECK=1
 exec "$WIA_PYTHON" -m wia bench --config configs/bench_deepseek_60.yaml --workers 4 \
     --gpus "${WIA_GPUS:-auto}" --max-steps -1 --output "outputs/deepseek_bench_$(date +%Y%m%d_%H%M%S)" "$@"

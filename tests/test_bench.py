@@ -76,13 +76,27 @@ def test_dry_run_does_not_access_gpus_or_network(tmp_path, monkeypatch):
     assert not (tmp_path/'bench').exists()
 
 
-def test_supervisor_accounts_for_crashed_worker(tmp_path, monkeypatch):
+@pytest.mark.parametrize('skip_gpu_check', [False, True])
+@pytest.mark.parametrize('auto', [False, True])
+def test_supervisor_accounts_for_crashed_worker(tmp_path, monkeypatch, skip_gpu_check, auto):
+    monkeypatch.delenv('CUDA_VISIBLE_DEVICES', raising=False)
     devices = [{'index':i,'uuid':f'GPU-{i}','idle':True} for i in range(2)]
-    monkeypatch.setattr(bench,'idle_devices',lambda:devices)
+    if skip_gpu_check:
+        monkeypatch.setenv('WIA_SKIP_GPU_CHECK', '1')
+        monkeypatch.setattr(bench, 'inventory_devices', lambda: [{**d, 'idle': False} for d in devices])
+        def forbidden():
+            raise AssertionError('GPU status must not be queried')
+        monkeypatch.setattr(bench, 'idle_devices', forbidden)
+    else:
+        monkeypatch.delenv('WIA_SKIP_GPU_CHECK', raising=False)
+        monkeypatch.setattr(bench,'idle_devices',lambda:devices)
     monkeypatch.setattr(bench,'gateway_preflight',lambda policy:None)
     class Process:
         count = 0
         def __init__(self, command, **kwargs):
+            assert kwargs['env']['CUDA_VISIBLE_DEVICES'] == f'GPU-{Process.count}'
+            if skip_gpu_check:
+                assert kwargs['env']['WIA_SKIP_GPU_CHECK'] == '1'
             self.pid = 100 + Process.count
             self.returncode = Process.count
             worker = json.loads(Path(command[-1]).read_text())
@@ -96,8 +110,40 @@ def test_supervisor_accounts_for_crashed_worker(tmp_path, monkeypatch):
         def poll(self):
             return self.returncode
     monkeypatch.setattr(bench.subprocess,'Popen',Process)
-    result=bench.launch(prepared(tmp_path,4),gpus=[0,1],port_base=18880)
+    result=bench.launch(prepared(tmp_path,4),gpus=None if auto else [0,1],worker_count=2,port_base=18880)
     assert [t['status'] for t in result['trials']] == [
         'completed_unsuccessful','runtime_error','completed_unsuccessful','runtime_error']
     assert result['worker_exit_codes'] == [0,1]
     assert result['request_accounting']['cost_usd']['known_sum'] == 0.01
+
+
+def test_unchecked_inventory_queries_only_device_identity(monkeypatch):
+    def query(command, **kwargs):
+        assert command == ['nvidia-smi', '--query-gpu=index,uuid', '--format=csv,noheader,nounits']
+        return '2, GPU-two\n5, GPU-five\n'
+    monkeypatch.setattr(bench.subprocess, 'check_output', query)
+    devices = bench.inventory_devices()
+    assert devices == [{'index': 2, 'uuid': 'GPU-two'}, {'index': 5, 'uuid': 'GPU-five'}]
+    monkeypatch.setenv('CUDA_VISIBLE_DEVICES', '5,2')
+    assert [d['index'] for d in bench.visible_devices(devices)] == [5, 2]
+    monkeypatch.setenv('CUDA_VISIBLE_DEVICES', 'GPU-five')
+    assert [d['index'] for d in bench.visible_devices(devices)] == [5]
+
+
+@pytest.mark.parametrize('skip', [False, True])
+def test_native_scene_query_obeys_script_opt_out(monkeypatch, skip):
+    from types import SimpleNamespace
+    from wia.runtime.commands import run_esi_explore_episode as native
+    if skip:
+        monkeypatch.setenv('WIA_SKIP_GPU_CHECK', '1')
+    else:
+        monkeypatch.delenv('WIA_SKIP_GPU_CHECK', raising=False)
+    def query(command, **kwargs):
+        assert command[1] == ('--query-gpu=index,uuid' if skip else
+                              '--query-gpu=index,uuid,utilization.gpu,memory.used')
+        return SimpleNamespace(stdout='4, GPU-four\n' if skip else '4, GPU-four, 99, 20000\n')
+    monkeypatch.setattr(native.subprocess, 'run', query)
+    _, devices, eligible, observed_skip = native.query_local_gpus()
+    assert devices[0][1].strip() == 'GPU-four'
+    assert eligible == ([4] if skip else [])
+    assert observed_skip is skip

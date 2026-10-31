@@ -3,7 +3,8 @@
 
 Run with the behavior environment: python src/wia/runtime/commands/run_esi_explore_episode.py
 --task-file TASK --run-mode diagnostic --gpu N --output-dir OUTPUT.
-Only idle explicitly selected local devices are used; reusable shells remain alive.
+Idle checks are enabled unless the caller selects WIA_SKIP_GPU_CHECK=1.
+Reusable shells remain alive.
 """
 from __future__ import annotations
 
@@ -77,6 +78,17 @@ def finalize_task_record(output, manifest, status):
 def episode_timeout(value):
     """Use 'none' to disable only the overall episode deadline."""
     return None if value.lower() == "none" else float(value)
+
+
+def query_local_gpus():
+    """Read identities only when the launch script disables occupancy checks."""
+    skip = os.environ.get('WIA_SKIP_GPU_CHECK') == '1'
+    fields = 'index,uuid' if skip else 'index,uuid,utilization.gpu,memory.used'
+    query = subprocess.run(['nvidia-smi', '--query-gpu=' + fields,
+        '--format=csv,noheader,nounits'], capture_output=True, text=True, check=True)
+    devices = [row.split(',') for row in query.stdout.strip().splitlines() if row.strip()]
+    eligible = [int(row[0]) for row in devices if skip or int(row[2]) < 5 and int(row[3]) < 512]
+    return query, devices, eligible, skip
 
 
 def read_native_qualification(output):
@@ -267,18 +279,17 @@ def main(argv=None):
         (output / "task.yaml").write_bytes(task.path.read_bytes())
         (output / "episode_manifest.json").write_text(json.dumps(episode_manifest, indent=2) + "\n")
     state_path = output / 'local_runtime.json'
-    query = subprocess.run(['nvidia-smi', '--query-gpu=index,uuid,utilization.gpu,memory.used',
-        '--format=csv,noheader,nounits'], capture_output=True, text=True, check=True)
-    devices = [row.split(',') for row in query.stdout.strip().splitlines()]
-    idle = [int(row[0]) for row in devices if int(row[2]) < 5 and int(row[3]) < 512]
+    query, devices, idle, skip_gpu_check = query_local_gpus()
     selected_gpu = args.gpu if args.gpu is not None else (idle[0] if idle else None)
     resident_control = os.environ.get('WIA_RESIDENT_CONTROL_DIR')
     owned_resident = False
-    if resident_control and selected_gpu is not None:
+    if resident_control and selected_gpu is not None and not skip_gpu_check:
         from wia.runtime.resident_episode import owns_gpu
         chosen = next(row for row in devices if int(row[0]) == selected_gpu)
         owned_resident = owns_gpu(resident_control, selected_gpu, chosen[1].strip())
     if selected_gpu not in idle and not owned_resident:
+        if skip_gpu_check:
+            raise RuntimeError('The selected local GPU index is absent from the device inventory.')
         raise RuntimeError('No selected idle local GPU is available; existing workloads will not be displaced.')
     device = next(row for row in devices if int(row[0]) == selected_gpu)
     node, job = '127.0.0.1', None
@@ -288,6 +299,7 @@ def main(argv=None):
         gateway_port = listener.getsockname()[1]
     agent_url = f'http://127.0.0.1:{gateway_port}'
     gpu = {'execution_mode': 'local', 'CUDA_VISIBLE_DEVICES': device[1].strip(),
+        'gpu_idle_check': not skip_gpu_check,
         'uuid': device[1].strip(), 'renderer_index': selected_gpu, 'physical_index': selected_gpu,
         'device_uuid': device[1].strip(), 'service': {}, 'observed_gpu_query': query.stdout}
     if resident_control:

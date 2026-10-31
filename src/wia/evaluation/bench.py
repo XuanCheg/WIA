@@ -58,6 +58,23 @@ def idle_devices():
     return devices
 
 
+def inventory_devices():
+    """Read device identity only, without utilization, memory or process queries."""
+    query = subprocess.check_output(['nvidia-smi', '--query-gpu=index,uuid',
+                                    '--format=csv,noheader,nounits'], text=True)
+    return [{'index': int(row.split(',')[0]), 'uuid': row.split(',')[1].strip()}
+            for row in query.splitlines() if row.strip()]
+
+
+def visible_devices(devices):
+    visible = os.environ.get('CUDA_VISIBLE_DEVICES')
+    if visible is None:
+        return devices
+    tokens = [token.strip() for token in visible.split(',') if token.strip()]
+    return [d for token in tokens for d in devices
+            if str(d['index']) == token or d['uuid'].startswith(token)]
+
+
 def shards(prepared, gpus, port_base):
     if not gpus or len(set(gpus)) != len(gpus) or any(g < 0 for g in gpus):
         raise ValueError('GPU indices must be unique nonnegative integers.')
@@ -109,12 +126,15 @@ def snapshot(output, workers):
 
 
 def launch(prepared, *, gpus=None, worker_count=4, port_base=8800, dry_run=False):
+    skip_gpu_check = os.environ.get('WIA_SKIP_GPU_CHECK') == '1'
     if worker_count < 1:
         raise ValueError('Worker count must be positive.')
     if dry_run:
         workers = shards(prepared, gpus if gpus is not None else list(range(worker_count)), port_base)
         return {'schema': 'wia_bench_plan_v1', 'workers': workers,
-                'note': 'Dry run only; auto GPU indices are placeholders. Live checks occur before execution.'}
+                'gpu_idle_check': not skip_gpu_check,
+                'note': ('Dry run only; auto GPU indices are placeholders. Device identities resolve at execution; GPU occupancy checks are disabled.'
+                         if skip_gpu_check else 'Dry run only; auto GPU indices are placeholders. Live checks occur before execution.')}
     receipts = {}
     for plan in prepared['plans']:
         policy = plan['policy']
@@ -124,14 +144,18 @@ def launch(prepared, *, gpus=None, worker_count=4, port_base=8800, dry_run=False
         signature = json.dumps(policy, sort_keys=True)
         if signature not in receipts:
             receipts[signature] = gateway_preflight(policy)
-    devices = idle_devices()
+    devices = inventory_devices() if skip_gpu_check else idle_devices()
     if gpus is None:
-        gpus = [d['index'] for d in devices if d['idle']][:worker_count]
+        candidates = visible_devices(devices) if skip_gpu_check else [d for d in devices if d['idle']]
+        gpus = [d['index'] for d in candidates][:worker_count]
         if len(gpus) < worker_count:
-            raise ValueError(f'Need {worker_count} idle GPUs; found {len(gpus)}.')
+            kind = 'visible' if skip_gpu_check else 'idle'
+            raise ValueError(f'Need {worker_count} {kind} GPUs; found {len(gpus)}.')
     workers = shards(prepared, gpus, port_base)
-    selected = [d for d in devices if d['index'] in gpus and d['idle']]
+    selected = [d for d in devices if d['index'] in gpus and (skip_gpu_check or d['idle'])]
     if len(selected) != len(gpus):
+        if skip_gpu_check:
+            raise ValueError('A selected GPU index is absent from the device inventory.')
         raise ValueError('Every selected GPU must currently be idle; existing jobs will not be displaced.')
     for worker in workers:
         with socket.socket() as listener:
@@ -146,6 +170,7 @@ def launch(prepared, *, gpus=None, worker_count=4, port_base=8800, dry_run=False
           file=sys.stderr, flush=True)
     output.mkdir(parents=True, exist_ok=False)
     (output/'bench_plan.json').write_text(json.dumps({'workers': workers, 'devices': selected,
+        'gpu_idle_check': not skip_gpu_check,
         'model_preflight': list(receipts.values())}, indent=2) + '\n')
     processes, logs = [], []
     started = time.monotonic()
@@ -153,7 +178,8 @@ def launch(prepared, *, gpus=None, worker_count=4, port_base=8800, dry_run=False
         for index, worker in enumerate(workers):
             gpu = worker['plans'][0]['environment']['gpu']
             # Recheck immediately before each independent worker launch.
-            device = next((d for d in idle_devices() if d['index'] == gpu and d['idle']), None)
+            current_devices = selected if skip_gpu_check else idle_devices()
+            device = next((d for d in current_devices if d['index'] == gpu and (skip_gpu_check or d['idle'])), None)
             if device is None:
                 raise RuntimeError(f'GPU {gpu} became busy before launch.')
             path = output/f'worker_{index:02d}_plan.json'
