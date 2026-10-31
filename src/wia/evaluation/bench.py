@@ -187,7 +187,8 @@ def launch(prepared, *, gpus=None, worker_count=4, port_base=8800, dry_run=False
         if plan['index'] not in completed:
             trials.append({'index': plan['index'], 'task': plan['task'], 'status': 'runtime_error',
                            'error': 'Worker exited without a trial result.'})
-    result = {'schema': 'wia_bench_results_v1', 'trials': sorted(trials, key=lambda t: t['index']),
+    from .activity import aggregate_activity
+    result = {'activity': aggregate_activity(trials), 'schema': 'wia_bench_results_v1', 'trials': sorted(trials, key=lambda t: t['index']),
               'request_accounting': accounting, 'elapsed_s': time.monotonic()-started,
               'worker_exit_codes': [p.returncode for p in processes]}
     (output/'results.json').write_text(json.dumps(result, indent=2, allow_nan=False)+'\n')

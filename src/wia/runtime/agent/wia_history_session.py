@@ -335,7 +335,10 @@ class WiaHistorySession:
     def provenance(self):
         first = self.phase1_session.provenance()
         second = self.phase2_session.provenance() if self.phase2_session is not None else None
+        from core.agent.api_accounting import combine_accounting
+        accounts = [p['request_accounting'] for p in (first, second) if p and p.get('request_accounting') is not None]
         return {
+            'request_accounting': combine_accounting(accounts) if accounts else None,
             'schema': 'wia_history_session_v1', 'wia_history_condition': self.wia_history_condition,
             'resume_supported': False, 'episode_id': first.get('episode_id'),
             'model_name': self.phase1_session.model, 'reasoning_effort': self.phase1_session.reasoning_effort,

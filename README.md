@@ -322,3 +322,46 @@ missing-trial failures and a nonzero exit status. No paid probe or GPU execution
 performed by `--dry-run`.
 
 For the current launch audit, protocol risks and a complete archived T07 input/output walkthrough, see [formal evaluation readiness](/local_home2/zhouxinyang/models/WIA/docs/FORMAL_EVALUATION_READINESS_20261031.md).
+
+### Private activity statistics and bounded API attempts
+
+New episode summaries separate `agent_decisions` (consumed decision steps),
+`decision_calls` (invocations of the decision interface, including unsuccessful
+invocations and forced selections), `model_calls` (actual HTTP generation
+attempts, including tool rounds and failed attempts), and physical actions.
+Historical summaries keep their original field meanings. Native Codex supplier
+request counts are unavailable and are `null`; visible dynamic tools are counted.
+`request_accounting` reports API successes, failures, timeouts and retries, plus
+requested/executed/failed/rejected tool counts by name. Failed tool executions are
+a subset of executed calls. Output-function submissions are named separately.
+Private `api_usage.jsonl` contains one row per HTTP attempt; `tool_calls.jsonl`
+contains local request/dispatch events. Missing usage or cost remains unknown.
+
+HTTP model requests use at most three non-timeout failed attempts or ten timeout
+attempts for the same unchanged request. The applicable counter reaching its limit
+ends the episode with a model error. The counters reset after each successful
+request; mixed failures retain both counters until that request succeeds or a
+limit is reached. HTTP 408/504 and transport timeouts use the timeout counter.
+Retries do not execute or replay a robot command, consume another decision step,
+or reset the world. Each retry receives the same remaining model time allowance;
+an explicit overall episode deadline can still end the episode sooner.
+Tokenization calls are recorded separately from model generations. Codex CLI owns
+its internal provider transport; these HTTP attempt limits do not claim control
+over hidden CLI provider retries.
+
+Safety uses `observational_safety_statistics_v3` and is statistics only. The
+private native ledger records contact intervals/categories/objects, furniture
+and structural contacts, controller-interlock events and drop/tipping/disturbance
+candidates. Initialization events are separate. Contact is not automatically
+classified as realized harm. Counts retain unavailable-measurement/coverage
+information, stay outside task progress and model observations, and cannot modify
+completion, success or task validity. The compatibility `safety_score` is always
+`null`. Task-specific physical success predicates and controller interlocks remain
+unchanged. `results.json` includes private `activity` aggregates and explicit
+missing-trial counts; they do not enter quality scoring.
+
+`world=run` is an intentional protocol choice and remains intact. No task budget
+or ramp definition was changed by this statistics/retry update. Budget calibration
+will optimize measured quality against API cost before setting a cap around
+`ceil(1.3 * optimal_steps)`; the earlier large engineering recommendations have
+not been applied.

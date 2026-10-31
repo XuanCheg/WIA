@@ -161,7 +161,7 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                "task_success": None, "model_declared_done": False, "executed_actions": [],
                "termination_reason": "max_steps"}
     summary['extra_output_field_policy'] = 'ignore_unknown_fields_validate_known_values'
-    summary.update(action_mode=action_mode, agent_decisions=0, model_calls=0, macro_actions=0,
+    summary.update(action_mode=action_mode, agent_decisions=0, decision_calls=0, macro_actions=0,
                    primitive_actions=0, primitive_actions_known=True,
                    physics_steps=0, physics_steps_known=True,
                    physics_step_unit="controller_env_steps")
@@ -192,12 +192,12 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
             raise ValueError("Only an interrupted current-observation episode with remaining budget can resume.")
         summary["segment_started_at"] = summary["started_at"]
         summary["started_at"] = resume_summary["started_at"]
-        for key in ("agent_decisions", "model_calls", "macro_actions", "primitive_actions", "primitive_actions_known",
+        for key in ("agent_decisions", "decision_calls", "macro_actions", "primitive_actions", "primitive_actions_known",
                     "physics_steps", "physics_steps_known", "equivalent_fixed_primitives", "actual_fixed_primitive_executions",
                     "metric_target_executions", "controller_env_steps"):
-            summary[key] = resume_summary[key]
+            summary[key] = resume_summary.get(key, resume_summary.get("model_calls", 0)) if key == "decision_calls" else resume_summary[key]
         summary["executed_actions"] = list(resume_summary["executed_actions"])
-        summary["resume_from_model_calls"] = resume_summary["model_calls"]
+        summary["resume_from_decision_calls"] = resume_summary.get("decision_calls", resume_summary.get("model_calls", 0))
         if temporal_episode:
             if resume_summary.get('temporal_policy') != temporal_policy:
                 raise ValueError('Resume must preserve the original survey policy.')
@@ -443,7 +443,7 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                         from dataclasses import replace
                         logged_request = replace(request, observation=request.sensor_inputs)
                     trace.step_input(logged_request, summary["agent"], projection, at=entry["requested_at"])
-                    summary["model_calls"] += 1
+                    summary["decision_calls"] += 1
                     wait_started = time.perf_counter()
                     if hasattr(environment, "world_metrics"):
                         entry["world_before_model"] = await environment.world_metrics()
@@ -460,7 +460,7 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                         if isinstance(value, (int, float)) and not isinstance(value, bool):
                             timings[key] = timings.get(key, 0.) + value
                     coverage['delivered_to_agent'] = True
-                    coverage['delivery_model_call'] = summary['model_calls']
+                    coverage['delivery_decision_call'] = summary['decision_calls']
                     previous_sent = request.previous_phase_observation
                     if (pending_phase_observation is not None and previous_sent is not None
                             and previous_sent.snapshot_id == pending_phase_observation.snapshot_id
@@ -468,9 +468,9 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                         for prior_coverage in summary['observation_coverage']:
                             if prior_coverage['snapshot_id'] == pending_phase_observation.snapshot_id:
                                 prior_coverage['delivered_to_agent'] = True
-                                prior_coverage['delivery_model_call'] = summary['model_calls']
+                                prior_coverage['delivery_decision_call'] = summary['decision_calls']
                         summary['temporal_transitions'][-1]['final_phase_1_delivered'] = True
-                        summary['temporal_transitions'][-1]['delivery_model_call'] = summary['model_calls']
+                        summary['temporal_transitions'][-1]['delivery_decision_call'] = summary['decision_calls']
                         pending_phase_observation = None
                     from wia.runtime.agent.output_normalization import normalize_extra_fields
                     reply = normalize_extra_fields(request, reply)
@@ -527,7 +527,7 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                     trace.validation(feedback, at=entry["received_at"])
                 except InvalidToolDecision as error:
                     coverage["delivered_to_agent"] = True
-                    coverage["delivery_model_call"] = summary["model_calls"]
+                    coverage["delivery_decision_call"] = summary["decision_calls"]
                     action = command = None
                     feedback = str(error)
                     entry.update(parse_error=feedback, invalid_tool_decision=True, received_at=timestamp())
@@ -806,7 +806,7 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                 forced = agent.prepare_force_choice(replace(forced, decision_step=forced_step))
                 trace.set_stamp(forced_step, 1, observation)
                 trace.step_input(forced, summary["agent"], projection, at=timestamp())
-                summary["model_calls"] += 1
+                summary["decision_calls"] += 1
                 wait_started = time.perf_counter()
                 if deadline is None:
                     reply = await agent.decide(forced)
@@ -849,6 +849,11 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
             record.update(finished_at=timestamp(), termination_reason=summary["termination_reason"])
             with (output / "steps.jsonl").open("a", encoding="utf-8") as log:
                 log.write(json.dumps(record, ensure_ascii=False, allow_nan=False) + "\n")
+        session_provenance = summary.get('native_session') or {}
+        request_accounting = session_provenance.get('request_accounting')
+        summary['request_accounting'] = request_accounting
+        summary['model_calls'] = request_accounting.get('model_calls') if request_accounting is not None else None
+        summary['model_calls_scope'] = 'actual_model_api_attempts' if request_accounting is not None else 'unavailable_native_transport'
         summary.update(finished_at=timestamp(), num_executed_actions=len(summary["executed_actions"]))
         if episode_manifest is not None:
             summary["private_task_success"] = summary["task_success"]

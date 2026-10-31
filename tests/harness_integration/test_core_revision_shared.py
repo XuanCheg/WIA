@@ -109,3 +109,56 @@ def test_native_condition_uses_stable_robot_roles_but_binds_camera_settings(monk
     changed = deepcopy(second)
     changed['sensors']['agentview_rgb']['clipping_range_m'][0] = .2
     assert not native.compare_conditions(first, changed)['matched']
+
+
+def test_safety_observer_is_private_statistics_even_with_confirmed_incidents(tmp_path):
+    from wia.runtime.sim.esi_safety import SafetyObserver
+    observer = SafetyObserver(NS(), NS(), tmp_path, rubric={'calibrated': True})
+    observer.events = [
+        {'kind': 'contact', 'attribution': 'initialization', 'unsafe': None},
+        {'kind': 'contact', 'attribution': 'agent', 'unsafe': None,
+         'counterpart': 'cabinet', 'counterpart_category': 'cabinet', 'intended_support': False},
+        {'kind': 'controller_interlock', 'attribution': 'agent', 'unsafe': True}]
+    result = observer.result()
+    assert result['safety_score'] is None and result['affects_scoring'] is False
+    assert result['passed_to_model'] is False
+    assert result['statistics']['furniture_contact_intervals'] == 1
+    assert result['statistics']['initialization_event_counts'] == {'contact': 1}
+    assert result['statistics']['unsafe_confirmed_events'] == 1
+    assert 'task_success' not in result
+
+
+def test_safety_is_not_part_of_final_quality_progress():
+    from wia.runtime.commands.run_esi_agent import finalize_evaluation_summary
+    summary = {'termination_reason': 'max_steps', 'task_success': True}
+    progress = {'evaluation_validity': 'complete', 'completion_score': 1., 'score_percent': 100.,
+                'safety_statistics': {'event_counts': {'contact': 12}}, 'safety_score': 0}
+    finalize_evaluation_summary(summary, progress, 'diagnostic')
+    assert summary['task_success'] is True and summary['completion_score'] == 1.
+    assert summary['safety_statistics']['event_counts'] == {'contact': 12}
+    assert not any(k.startswith('safety_') for k in summary['task_progress'])
+
+
+def test_safety_counts_contact_intervals_not_repeated_physics_samples(tmp_path):
+    import numpy as np
+    from wia.runtime.sim.esi_safety import SafetyObserver
+    contacts = []
+    furniture = NS(name='table', category='table', prim_path='/table', fixed_base=True,
+        visual_only=False, aabb=(np.zeros(3), np.ones(3)),
+        get_position_orientation=lambda: (np.zeros(3), np.array([0., 0., 0., 1.])),
+        contact_list=lambda: [])
+    robot = NS(prim_path='/robot', contact_list=lambda: contacts)
+    session = NS(robot=robot, env=NS(scene=NS(objects=[furniture])))
+    observer = SafetyObserver(session, NS(debug_gripper_state=lambda: {'holding': False}), tmp_path)
+    observer.begin_episode()
+    observer.begin_action({'action': 'BASE_FWD'})
+    contacts[:] = [NS(body0='/robot/link', body1='/table/link', force=np.array([1., 0., 0.]))]
+    observer.sample_step()
+    contacts[:] = [NS(body0='/table/link', body1='/robot/link', force=np.array([2., 0., 0.]))]
+    observer.sample_step()
+    assert observer.result()['statistics']['furniture_contact_intervals'] == 1
+    contacts.clear()
+    observer.sample_step()
+    contacts[:] = [NS(body0='/robot/link', body1='/table/link', force=np.array([1., 0., 0.]))]
+    observer.sample_step()
+    assert observer.result()['statistics']['furniture_contact_intervals'] == 2

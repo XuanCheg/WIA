@@ -293,18 +293,10 @@ class ContextChatSession(ChatCompletionsEpisodeSession):
             with (self.output / f'{self.log_prefix}_errors.jsonl').open('a') as log:
                 log.write(json.dumps({'decision': self.turn_count + 1, 'error': str(error),
                     'http_status': getattr(response, 'status_code', None), 'body': body[:16000]}) + '\n')
-            from wia.evaluation.telemetry import receipt
-            billing = receipt(None, model=self.model, decision=self.turn_count + 1,
-                              seconds=time.monotonic() - started)
-            billing.update(status='error', http_status=getattr(response, 'status_code', None))
-            with (self.output / 'api_usage.jsonl').open('a') as log:
-                log.write(json.dumps(billing, allow_nan=False) + '\n')
             raise
         from wia.evaluation.telemetry import receipt, totals, format_totals
         billing = receipt(data.get('usage'), model=self.model, decision=self.turn_count + 1,
                           seconds=time.monotonic() - started)
-        with (self.output / 'api_usage.jsonl').open('a') as log:
-            log.write(json.dumps(billing, allow_nan=False) + '\n')
         print(f"[api decision={self.turn_count + 1} {billing['seconds']:.1f}s] " +
               format_totals(totals([billing])), file=sys.stderr, flush=True)
         self._last_transport_payload = deepcopy(payload)
@@ -327,6 +319,7 @@ class ContextChatSession(ChatCompletionsEpisodeSession):
         for call in message.get('tool_calls') or []:
             function = call.get('function', {})
             if call.get('type') != 'function' or function.get('name') not in allowed:
+                self.record_tool_call(function.get('name', 'invalid_name'), status='rejected')
                 raise ModelError('API model attempted an unauthorized tool operation.')
             try:
                 from core.action_compiler import unique_json_object
@@ -334,6 +327,7 @@ class ContextChatSession(ChatCompletionsEpisodeSession):
                 if not isinstance(arguments, dict):
                     raise ValueError('Tool arguments must be an object.')
             except (ValueError, TypeError, KeyError):
+                self.record_tool_call(function.get('name', 'invalid_name'), status='rejected')
                 raise ModelError('API model returned invalid tool arguments.')
         calls = message.get('tool_calls') or []
         if self.recent_notes and any(c.get('function', {}).get('name') in perception_names for c in calls):
@@ -355,6 +349,9 @@ class ContextChatSession(ChatCompletionsEpisodeSession):
                     result, url = run_note(self, json.loads(call['function']['arguments'])), None
                 else:
                     result, url = read_historical_image(self, json.loads(call['function']['arguments']))
+                self.record_tool_call(call['function']['name'])
+                if result.get('ok') is False:
+                    self.record_tool_call(call['function']['name'], status='failed')
                 messages.append({'role': 'tool', 'tool_call_id': call['id'], 'content': json.dumps(result)})
                 if url is not None:
                     images.append({'role': 'user', 'content': [

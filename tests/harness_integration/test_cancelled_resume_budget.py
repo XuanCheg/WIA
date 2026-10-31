@@ -46,7 +46,8 @@ def test_cancelled_same_budget_resumes_cumulative_history_without_reset(control_
                         tmp_path / "previous", max_steps=4, episode_manifest=manifest)
             first = json.loads((tmp_path / "previous/summary.json").read_text())
             assert first["termination_reason"] == "cancelled"
-            assert first["agent_decisions"] == 1 and first["model_calls"] == 2
+            assert first["model_calls"] is None
+            assert first["agent_decisions"] == 1 and first["decision_calls"] == 2
             history = list(backend.history)
 
             def forbidden_reset(*args, **kwargs):
@@ -62,8 +63,8 @@ def test_cancelled_same_budget_resumes_cumulative_history_without_reset(control_
                     resume_summary=first, expected_action_step=1, episode_manifest=manifest)
             assert result["termination_reason"] == "model_done"
             assert result["max_steps"] == first["max_steps"] == 4
-            assert result["agent_decisions"] == 3 and result["model_calls"] == 4
-            assert result["resume_from_model_calls"] == first["model_calls"]
+            assert result["agent_decisions"] == 3 and result["decision_calls"] == 4
+            assert result["resume_from_decision_calls"] == first["decision_calls"]
             assert result["started_at"] == first["started_at"]
             assert result["previous_active_wall_time_s"] == first["timings"]["total_episode_wall_time"]
             assert result["episode_manifest"] == first["episode_manifest"] == original_manifest

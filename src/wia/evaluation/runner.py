@@ -305,7 +305,9 @@ def summarize(summary):
             "evaluation_validity": summary.get("evaluation_validity"),
             "completion_score": summary.get("completion_score"), "score_percent": summary.get("score_percent"),
             "agent_decisions": summary.get("agent_decisions"), "executed_actions": summary.get("executed_actions"),
-            "model_calls": summary.get("model_calls"), "timings": summary.get("timings"),
+            "model_calls": summary.get("model_calls"), "decision_calls": summary.get("decision_calls"),
+            "request_accounting": summary.get("request_accounting"),
+            "safety_statistics": summary.get("safety_statistics"), "timings": summary.get("timings"),
             "usage": usage, "token_accounting": usage_report(summary), "cost": summary.get("cost"),
             "model_logs": summary.get("model_logs")}
 
@@ -334,7 +336,8 @@ def run(prepared):
             result = {"status": "runtime_error", "error": str(error), "error_type": type(error).__name__, "cost": None}
         results.append({"index": plan["index"], "task": plan["task"], "output_dir": plan["output_dir"], **result})
         counts = {status: sum(item["status"] == status for item in results) for status in sorted({item["status"] for item in results})}
-        aggregate = {"schema": "wia_results_v1", "trials": results, "counts": counts,
+        from .activity import aggregate_activity
+        aggregate = {"activity": aggregate_activity(results), "schema": "wia_results_v1", "trials": results, "counts": counts,
                      "token_accounting": aggregate_usage(results),
                      "cost": sum(item["cost"] for item in results) if all(isinstance(item.get("cost"), (int, float)) for item in results) else None}
         temporary = output / 'results.json.tmp'

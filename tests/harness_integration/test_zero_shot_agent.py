@@ -195,6 +195,6 @@ def test_physical_runner_continues_past_thirty_decisions(tmp_path):
     agent = Agent(*(['{"action":"BASE_FWD"}'] * 31), '{"action":"DONE"}')
     summary = asyncio.run(run_episode(env, agent, tmp_path, max_steps=300, success_provider=lambda: False))
     assert len(env.calls) == 31
-    assert summary['model_calls'] == 32 and summary['termination_reason'] == 'model_done'
+    assert summary['decision_calls'] == 32 and summary['termination_reason'] == 'model_done'
     assert agent.inputs[29].steps_remaining == 271
     assert agent.inputs[30].steps_remaining == 270

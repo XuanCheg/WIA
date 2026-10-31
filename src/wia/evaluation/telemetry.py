@@ -22,7 +22,10 @@ def receipt(raw, *, model, decision, seconds):
 
 def totals(records):
     fields = ('input_tokens', 'output_tokens', 'reasoning_tokens', 'cached_tokens', 'cost_usd')
-    return {'requests': len(records), **{key: {
+    return {'requests': len(records),
+            'failed_requests': sum(r.get('status') in ('error', 'timeout', 'cancelled') for r in records),
+            'timeout_requests': sum(r.get('status') == 'timeout' for r in records),
+            'retry_requests': sum(r.get('attempt', 1) > 1 for r in records), **{key: {
         'known_sum': sum(r[key] for r in records if r.get(key) is not None),
         'missing_requests': sum(r.get(key) is None for r in records)} for key in fields}}
 
@@ -34,6 +37,6 @@ def format_totals(value):
         if data['missing_requests']:
             number += f" (+{data['missing_requests']} unknown)"
         return number
-    return (f"requests={value['requests']} in={field('input_tokens')} cached={field('cached_tokens')} "
+    return (f"requests={value['requests']} failed={value.get('failed_requests', 0)} timeouts={value.get('timeout_requests', 0)} in={field('input_tokens')} cached={field('cached_tokens')} "
             f"out={field('output_tokens')} reasoning={field('reasoning_tokens')} "
             f"cost={field('cost_usd', True)}")

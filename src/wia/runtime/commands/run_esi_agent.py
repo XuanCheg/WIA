@@ -243,10 +243,12 @@ def finalize_evaluation_summary(summary, latest_progress, run_mode):
     summary['execution_validity'] = 'interrupted' if interrupted else 'completed'
     summary['agent_failure_countable'] = False
     if latest_progress:
-        summary['task_progress'] = latest_progress
+        summary['task_progress'] = {k: v for k, v in latest_progress.items() if not k.startswith('safety_')}
+        summary['safety_statistics'] = latest_progress.get('safety_statistics')
+        summary['safety_exposure'] = latest_progress.get('safety_exposure')
         summary.update({key: latest_progress.get(key) for key in (
             'evaluation_validity', 'scoring_version', 'completion_score', 'score_percent',
-            'constraints_satisfied', 'safety_score', 'safety_validity', 'safety_exposure')})
+            'constraints_satisfied')})
         summary['agent_failure_countable'] = (
             latest_progress.get('evaluation_validity') == 'complete' and not interrupted)
         summary['task_progress_is_final'] = not interrupted
@@ -562,8 +564,7 @@ def main(argv=None):
                 latest_progress.update(data.get('progress', {}))
                 if 'safety' in data:
                     safety = data['safety']
-                    latest_progress.update(safety_score=safety.get('safety_score'),
-                        safety_validity='measured' if safety.get('safety_score') is not None else 'unavailable',
+                    latest_progress.update(safety_statistics=safety.get('statistics'),
                         safety_exposure=safety.get('exposure'))
                 (output / "evaluation.json").write_text(json.dumps(data, indent=2) + "\n")
                 return measured_success

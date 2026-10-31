@@ -73,7 +73,8 @@ class GraspLiftEvaluator:
                   "eef": self.controller.ee_pose(), **evidence}
         safety = getattr(self.session, 'safety_observer', None)
         if safety is not None:
-            record['safety'] = safety.result()
+            from wia.runtime.sim.esi_safety import private_safety_result
+            record['safety'] = private_safety_result(safety)
             record['safety_score'] = record['safety']['safety_score']
         temporary = self.output / "state.json.tmp"
         temporary.write_text(json.dumps(record, indent=2, allow_nan=False) + "\n")

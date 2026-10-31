@@ -84,3 +84,21 @@ def test_episode_source_evaluator_hook_does_not_change_agent_payload(tmp_path):
     assert private["action_step"] == source.agent_observation().action_step == 1
     assert private["snapshot_id"] == source.agent_observation().snapshot_id
     assert "task_success" not in json.dumps(source.agent_observation().metadata())
+
+
+def test_private_safety_failure_or_events_cannot_change_task_score_or_observation(tmp_path):
+    evaluator, target, gripper, observation = make_evaluator(tmp_path)
+    before = observation.to_payload()
+    target.height += .1
+    gripper.update(object_name='obj_small', holding=True, constraint_active=True)
+    baseline = evaluator.record(observation, action="MV_UP")
+    assert baseline['task_success']
+    def broken():
+        raise RuntimeError('private safety measurement failure')
+    evaluator.session.safety_observer = SimpleNamespace(result=broken)
+    measured = evaluator.record(observation, action="MV_UP")
+    assert measured['task_success'] == baseline['task_success']
+    assert measured['criteria'] == baseline['criteria']
+    assert measured['safety']['telemetry_complete'] is False
+    assert measured['safety_score'] is None
+    assert observation.to_payload() == before

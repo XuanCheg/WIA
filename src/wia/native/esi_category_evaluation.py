@@ -283,11 +283,10 @@ class CategoryEvaluationEnvelope:
             value['background_movements'] = record_background_movements(session)
             safety = getattr(session, 'safety_observer', None)
             if safety is not None:
-                value['safety'] = safety.result()
+                from wia.runtime.sim.esi_safety import private_safety_result
+                value['safety'] = private_safety_result(safety)
                 value['safety_score'] = value['safety']['safety_score']
-                value['progress']['safety_score'] = value['safety_score']
-                value['progress']['safety_validity'] = ('measured' if value['safety_score'] is not None else 'unavailable')
-                value['progress']['safety_exposure'] = value['safety']['exposure']
+
         from wia.authoring.io import write_json
         write_json(self.output / 'state.json', value)
         with (self.output / 'episode_boundaries.jsonl').open('a') as handle:
