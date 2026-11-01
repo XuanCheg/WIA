@@ -1,10 +1,62 @@
 """Check deterministic diagnostic bookkeeping. Run `python -m pytest -q tests/test_scene_sweep.py`."""
 import json
+import runpy
+import sys
+from pathlib import Path
 from types import SimpleNamespace as NS
 
 import numpy as np
 
 from wia.runtime.sim.esi_scene_validation import run
+
+
+def test_failed_cold_scene_is_recorded_and_next_scene_still_runs(tmp_path, monkeypatch):
+    script = Path(__file__).resolve().parents[1]/'scripts/check_all_scenes.py'
+    main = runpy.run_path(str(script))['main']
+    namespace = main.__globals__
+    release = tmp_path/'explore_to_achieve/wia_v1/release'
+    release.mkdir(parents=True)
+    catalogue = [{'alias':alias,'task_file':f'{alias}.yaml'} for alias in ('first','second')]
+    (release/'catalogue.json').write_text(json.dumps({'tasks':catalogue}))
+    plans = [{'task':{'path':str(tmp_path/row['task_file']),'variant':'adapted','seed':0}}
+             for row in catalogue]
+    sequence = tmp_path/'sequence.json'
+    sequence.write_text('{"actions":[]}')
+    monkeypatch.setitem(namespace,'ROOT',tmp_path)
+    monkeypatch.setitem(namespace,'prepare',lambda path:{'plans':plans})
+    monkeypatch.setitem(namespace,'idle_devices',lambda:[{'index':4,'idle':True,'uuid':'fixture-gpu'}])
+    monkeypatch.setitem(namespace,'task_profiles',lambda plans:{})
+    def task(path,**kwargs):
+        return NS(path=Path(path),variant='adapted',seed=0,
+                  definition=NS(defaults=NS(max_steps=10)),manifest=lambda episode:{})
+    monkeypatch.setitem(namespace,'load_task',task)
+    monkeypatch.setitem(namespace,'stop_service',lambda control:None)
+    attempts = []
+    class Client:
+        def __init__(self,control,*args):self.control=control
+        def submit(self,argv,output):
+            self.request_id=str(len(attempts));attempts.append(output.name)
+            response=self.control/'responses'/f'{self.request_id}.json'
+            response.parent.mkdir(parents=True,exist_ok=True)
+            if len(attempts)==1:
+                response.write_text('{"error":"cold scene load failed","reusable":false,"scene_exit_code":1}')
+            else:
+                response.write_text('{"reusable":true,"scene_exit_code":0}')
+                (output/'scorer_validation.json').write_text(
+                    '{"completed":true,"errors":[],"evaluation_validity":"complete"}')
+        def retry_initialization(self,reason,*,agent_started):
+            assert not agent_started
+            return False
+    monkeypatch.setitem(namespace,'ResidentEpisodeClient',Client)
+    # The git hash is provenance only; the fixture has no repository.
+    monkeypatch.setattr(namespace['subprocess'],'check_output',lambda *args,**kwargs:'fixture-commit\n')
+    output=tmp_path/'results'
+    monkeypatch.setattr(sys,'argv',[str(script),'--gpu','4','--output',str(output),'--sequence',str(sequence)])
+    assert main()==1
+    report=json.loads((output/'results.json').read_text())
+    assert report['completed'] and attempts==['00_first','01_second']
+    assert [row['status'] for row in report['results']]==['runtime_error','passed']
+    assert 'cold scene load failed' in report['results'][0]['error']
 
 
 def test_fixed_sequence_preserves_order_and_distinguishes_blocked_motion(tmp_path):

@@ -100,7 +100,7 @@ def main():
                 before = state['application_identity']
                 state.update(reusable=True, scene_clear_s=0., output=str(output), request_started_at=time.monotonic())
                 response = {'request_id': request['request_id'], 'native_pid': os.getpid(), 'request_index': count,
-                            'application_identity_before': before, 'world_rebuilt': True}
+                            'application_identity_before': before, 'world_rebuilt': True, 'output_dir': str(output)}
                 atomic_json(control / 'service.json', {**response, 'state': 'SCENE_RUNNING', 'pid': os.getpid()})
                 code = 1
                 with native_log(output / 'simulator.log'):

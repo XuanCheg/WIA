@@ -173,3 +173,88 @@ def test_fallback_never_replays_cold_failure_or_an_executed_agent(tmp_path, monk
         raise AssertionError('No restart is allowed after this boundary')
     monkeypatch.setattr(resident,'stop_service',forbidden)
     assert not client.retry_initialization('native failure',agent_started=guard == 'agent')
+
+
+def test_replacement_does_not_replay_unanswered_requests_or_overwrite_completed_receipts(tmp_path):
+    from wia.runtime.resident_episode import retire_unanswered_requests
+    (tmp_path/'requests').mkdir()
+    (tmp_path/'responses').mkdir()
+    for request in ('completed','interrupted'):
+        (tmp_path/'requests'/f'{request}.json').write_text('{}')
+    receipt=tmp_path/'responses/completed.json'
+    receipt.write_text('{"reusable":true,"scene_exit_code":0}\n')
+    retire_unanswered_requests(tmp_path)
+    assert receipt.read_text()=='{"reusable":true,"scene_exit_code":0}\n'
+    interrupted=json.loads((tmp_path/'responses/interrupted.json').read_text())
+    assert interrupted['request_id']=='interrupted' and interrupted['retired_before_restart']
+    assert interrupted['scene_exit_code'] is None and not interrupted['reusable']
+
+
+def test_cold_fallback_restarts_real_owned_process_and_executes_only_the_new_request(tmp_path, monkeypatch):
+    import sys
+    import time
+    from wia.runtime import resident_episode as resident
+    script=tmp_path/'src/wia/runtime/commands/run_esi_episode_service.py'
+    script.parent.mkdir(parents=True)
+    script.write_text('''"""CPU fallback service fixture. Run through pytest only."""
+import argparse, json, os, time
+from pathlib import Path
+p=argparse.ArgumentParser()
+p.add_argument('--control-dir',type=Path)
+p.add_argument('--task-profiles')
+a=p.parse_args(); c=a.control_dir
+first=not (c/'booted').exists()
+(c/'booted').touch()
+def state(value):
+    tmp=c/'service.tmp';tmp.write_text(json.dumps(dict(pid=os.getpid(),**value)))
+    tmp.replace(c/'service.json')
+state(dict(state='IDLE',completed_scenes=int(first),macro_defaults={'USE_GPU_DYNAMICS':False},
+           native_macro_profile={'USE_GPU_DYNAMICS':False}))
+seen=set()
+while not (c/'stop_service.json').exists():
+    for path in (c/'requests').glob('*.json'):
+        if path.name in seen or (c/'responses'/path.name).exists():continue
+        seen.add(path.name);r=json.loads(path.read_text());out=Path(r['output_dir'])
+        with (c/'handled.jsonl').open('a') as f:f.write(json.dumps(dict(pid=os.getpid(),request_id=r['request_id']))+'\\n')
+        if first:
+            state(dict(state='SCENE_RUNNING',request_id=r['request_id']))
+            (out/'simulator.log').write_text('Original warm load failure\\n')
+            (out/'initialization_failure.json').write_text('{}')
+            # Deliberately leave this request unanswered to exercise retirement.
+        else:
+            (c/'responses'/path.name).write_text(json.dumps(dict(request_id=r['request_id'],reusable=True,scene_exit_code=0)))
+    time.sleep(.01)
+''')
+    monkeypatch.setattr(resident,'WIA_RUNTIME_ROOT',tmp_path)
+    task=tmp_path/'task.yaml'; profiles=tmp_path/'profiles.json'
+    profiles.write_text(json.dumps({str(task):{'gpu_dynamics':False}}))
+    monkeypatch.setenv('WIA_RESIDENT_TASK_PROFILES',str(profiles))
+    control=tmp_path/'control';output=tmp_path/'output';output.mkdir()
+    processes=[];popen=resident.subprocess.Popen
+    def start(*args,**kwargs):
+        process=popen(*args,**kwargs);processes.append(process);return process
+    monkeypatch.setattr(resident.subprocess,'Popen',start)
+    client=resident.ResidentEpisodeClient(control,{'uuid':'CPU-fixture'}, {},sys.executable)
+    try:
+        client.submit(['--task-file',str(task),'--scene-seed','0'],output)
+        previous=client.request_id
+        deadline=time.monotonic()+5
+        while not (output/'initialization_failure.json').exists():
+            assert time.monotonic()<deadline
+            time.sleep(.01)
+        assert client.retry_initialization('Synthetic warm failure',agent_started=False)
+        response=control/'responses'/f'{client.request_id}.json'
+        deadline=time.monotonic()+5
+        while not response.exists():
+            assert time.monotonic()<deadline
+            time.sleep(.01)
+        assert processes[0].wait(timeout=5)==0 and processes[0].pid!=processes[1].pid
+        handled=[json.loads(line) for line in (control/'handled.jsonl').read_text().splitlines()]
+        assert [row['request_id'] for row in handled]==[previous,client.request_id]
+        assert json.loads((control/'responses'/f'{previous}.json').read_text())['retired_before_restart']
+        assert (output/'initialization_attempts'/previous/'simulator.log').exists()
+    finally:
+        resident.stop_service(control,timeout=2)
+        for process in processes:
+            try:process.wait(timeout=5)
+            except resident.subprocess.TimeoutExpired:process.kill();process.wait()

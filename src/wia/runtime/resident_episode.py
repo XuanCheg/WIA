@@ -26,6 +26,23 @@ def native_macro_settings(defaults, profile):
                    if key != 'USE_GPU_DYNAMICS'})
 
 
+def retire_unanswered_requests(control):
+    """Prevent a replacement process from replaying its dead owner's requests.
+
+    Call only after confirming the previous owned service is gone. These are
+    disposal records, not observed native exit codes or successful executions.
+    """
+    control = Path(control)
+    for request in (control / 'requests').glob('*.json'):
+        response = control / 'responses' / request.name
+        if not response.exists():
+            temporary = response.with_suffix('.tmp')
+            temporary.write_text(json.dumps({'request_id': request.stem, 'reusable': False,
+                'scene_exit_code': None, 'retired_before_restart': True,
+                'error': 'Previous owned simulator exited before returning this request.'}) + '\n')
+            temporary.replace(response)
+
+
 def task_profiles(plans):
     """Resolve native profiles without importing Kit or any GPU task module."""
     from wia.resources import ESI_ROOT
@@ -153,8 +170,19 @@ class ResidentEpisodeClient:
                 time.sleep(.2)
                 service = read_service(self.control)
                 if service is None:
-                    raise RuntimeError('Resident service exited while clearing its previous scene.')
+                    return self.ensure(quiet=quiet)
+            if service.get('state') == 'FAILED':
+                emit('simulator_recycling', pid=service['pid'], reason='previous_native_failure')
+                stop_service(self.control)
+                return self.ensure(quiet=quiet)
             if service.get('state') != 'IDLE':
+                previous_output = service.get('output_dir')
+                progress = Path(previous_output) / 'progress.json' if previous_output else None
+                if (progress is not None and progress.exists()
+                        and json.loads(progress.read_text()).get('stage') == 'scene_cleanup'):
+                    emit('simulator_recycling', pid=service['pid'], reason='previous_cleanup_timeout')
+                    stop_service(self.control)
+                    return self.ensure(quiet=quiet)
                 raise RuntimeError('Resident simulator is not reusable: ' + str(service))
             maximum = int(os.environ.get('WIA_RESIDENT_MAX_SCENES', '4'))
             if maximum > 0 and service.get('completed_scenes', 0) >= maximum:
@@ -171,6 +199,7 @@ class ResidentEpisodeClient:
         (self.control / 'stop_service.json').unlink(missing_ok=True)
         for name in ('requests', 'responses'):
             (self.control / name).mkdir(exist_ok=True)
+        retire_unanswered_requests(self.control)
         (self.control / 'gpu.json').write_text(json.dumps(self.gpu, indent=2) + '\n')
         root = WIA_RUNTIME_ROOT
         command = [self.python, '-u', str(root / 'src/wia/runtime/commands/run_esi_episode_service.py'),
