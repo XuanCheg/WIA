@@ -1,0 +1,84 @@
+{
+  "schema": "wia_parallel_scene_sweep_v1",
+  "model_calls": 0,
+  "run_mode": "benchmark",
+  "simulator_timeout_s": null,
+  "sequence": {
+    "schema": "wia_native_scene_sequence_v1",
+    "purpose": "Diagnostic control and scorer checks; no model and no task-solving claim.",
+    "actions": [
+      {
+        "action": "BASE_TURN_LEFT",
+        "angle_deg": 5
+      },
+      {
+        "action": "BASE_TURN_RIGHT",
+        "angle_deg": 5
+      },
+      {
+        "action": "BASE_FWD",
+        "distance_m": 0.05
+      },
+      {
+        "action": "BASE_BACK",
+        "distance_m": 0.05
+      },
+      {
+        "action": "MV_UP",
+        "distance_m": 0.02
+      },
+      {
+        "action": "MV_DOWN",
+        "distance_m": 0.02
+      },
+      {
+        "action": "GRASP"
+      },
+      {
+        "action": "RELEASE"
+      }
+    ]
+  },
+  "workers": [
+    {
+      "gpu": 4,
+      "tasks": [
+        "t01",
+        "t10",
+        "t28",
+        "r-c1",
+        "iw_m1_01"
+      ]
+    },
+    {
+      "gpu": 5,
+      "tasks": [
+        "t04",
+        "t15",
+        "t38",
+        "r-s1",
+        "iw_m4_02"
+      ]
+    },
+    {
+      "gpu": 6,
+      "tasks": [
+        "t06",
+        "t18",
+        "t40",
+        "r-a1",
+        "gf2-1"
+      ]
+    },
+    {
+      "gpu": 7,
+      "tasks": [
+        "t07",
+        "t22",
+        "t49",
+        "iw_h1_02",
+        "gf3-1"
+      ]
+    }
+  ]
+}

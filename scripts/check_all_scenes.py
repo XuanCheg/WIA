@@ -32,7 +32,8 @@ def parallel_sweep(args, plans, aliases, sequence):
     if not gpus or len(gpus) != len(set(gpus)):
         raise ValueError('GPU indices must be distinct.')
     groups = [[aliases[p['task']['path']] for p in plans[index::len(gpus)]] for index in range(len(gpus))]
-    preview = {'schema': 'wia_parallel_scene_sweep_v1', 'model_calls': 0, 'simulator_timeout_s': None, 'sequence': sequence,
+    preview = {'schema': 'wia_parallel_scene_sweep_v1', 'model_calls': 0, 'run_mode': args.run_mode,
+               'simulator_timeout_s': None, 'sequence': sequence,
                'workers': [{'gpu': gpu, 'tasks': group} for gpu, group in zip(gpus, groups) if group]}
     if args.dry_run:
         print(json.dumps(preview, indent=2))
@@ -53,6 +54,7 @@ def parallel_sweep(args, plans, aliases, sequence):
             logs.append(log)
             command = [sys.executable, '-u', str(Path(__file__).resolve()), '--gpu', str(worker['gpu']),
                 '--output', str(directory), '--config', str(args.config), '--sequence', str(args.sequence),
+                '--run-mode', args.run_mode,
                 '--tasks', *worker['tasks']]
             process = subprocess.Popen(command, cwd=ROOT, stdout=log, stderr=subprocess.STDOUT,
                                        start_new_session=True)
@@ -108,6 +110,8 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--config', type=Path, default=ROOT/'configs/bench_deepseek_60.yaml')
     parser.add_argument('--sequence', type=Path, default=ROOT/'configs/native_scene_validation.json')
+    parser.add_argument('--run-mode', choices=('diagnostic', 'benchmark'), default='diagnostic',
+                        help='Exercise debug qualification or formal initialization; neither mode calls a model.')
     parser.add_argument('--scene-timeout', type=float, help=argparse.SUPPRESS)
     parser.add_argument('--tasks', nargs='+', help='Optional catalogue aliases; default: all configured tasks in order.')
     parser.add_argument('--dry-run', action='store_true')
@@ -126,7 +130,8 @@ def main():
     if args.gpus:
         return parallel_sweep(args, plans, aliases, sequence)
     preview = {'schema': 'wia_scene_sweep_plan_v1', 'gpu': args.gpu, 'model_calls': 0,
-               'loading': 'serial', 'persistent_simulator': True, 'simulator_timeout_s': None, 'sequence': sequence,
+               'loading': 'serial', 'persistent_simulator': True, 'run_mode': args.run_mode,
+               'simulator_timeout_s': None, 'sequence': sequence,
                'tasks': [aliases[p['task']['path']] for p in plans]}
     if args.dry_run:
         print(json.dumps(preview, indent=2))
@@ -163,7 +168,7 @@ def main():
             alias = aliases[plan['task']['path']]
             directory = output/f'{index:02d}_{alias}'
             directory.mkdir()
-            task = load_task(plan['task']['path'], variant=plan['task']['variant'], seed=plan['task']['seed'], run_mode='diagnostic')
+            task = load_task(plan['task']['path'], variant=plan['task']['variant'], seed=plan['task']['seed'], run_mode=args.run_mode)
             manifest = task.manifest(f'fixed-scene-{index:02d}-{alias}')
             manifest.update(max_steps=task.definition.defaults.max_steps, world_mode='run',
                 world_advances_during_inference=True, observation_condition='current', action_mode='parameterized',
@@ -181,7 +186,7 @@ def main():
             try:
                 argv = ['--task-file', str(task.path), '--variant', task.variant, '--scene-seed', str(task.seed),
                     '--episode-manifest', str(directory/'episode_manifest.json'), '--gpu-info', str(output/'gpu.json'),
-                    '--output-dir', str(directory), '--run-mode', 'diagnostic', '--gripper-control', '--rotation-control',
+                    '--output-dir', str(directory), '--run-mode', args.run_mode, '--gripper-control', '--rotation-control',
                     '--trunk-control', '--parameterized-actions', '--primitive-profile', 'fine',
                     '--performance-profile', 'benchmark', '--macro-execution', 'metric_target',
                     '--observation-pipeline', 'optimized', '--preview-fps', '0', '--no-human-recording',

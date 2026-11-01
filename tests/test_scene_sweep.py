@@ -6,11 +6,13 @@ from pathlib import Path
 from types import SimpleNamespace as NS
 
 import numpy as np
+import pytest
 
 from wia.runtime.sim.esi_scene_validation import run
 
 
-def test_failed_cold_scene_is_recorded_and_next_scene_still_runs(tmp_path, monkeypatch):
+@pytest.mark.parametrize('run_mode', ['diagnostic', 'benchmark'])
+def test_failed_cold_scene_is_recorded_and_next_scene_still_runs(tmp_path, monkeypatch, run_mode):
     script = Path(__file__).resolve().parents[1]/'scripts/check_all_scenes.py'
     main = runpy.run_path(str(script))['main']
     namespace = main.__globals__
@@ -27,6 +29,7 @@ def test_failed_cold_scene_is_recorded_and_next_scene_still_runs(tmp_path, monke
     monkeypatch.setitem(namespace,'idle_devices',lambda:[{'index':4,'idle':True,'uuid':'fixture-gpu'}])
     monkeypatch.setitem(namespace,'task_profiles',lambda plans:{})
     def task(path,**kwargs):
+        assert kwargs['run_mode'] == run_mode
         return NS(path=Path(path),variant='adapted',seed=0,
                   definition=NS(defaults=NS(max_steps=10)),manifest=lambda episode:{})
     monkeypatch.setitem(namespace,'load_task',task)
@@ -35,6 +38,7 @@ def test_failed_cold_scene_is_recorded_and_next_scene_still_runs(tmp_path, monke
     class Client:
         def __init__(self,control,*args):self.control=control
         def submit(self,argv,output):
+            assert argv[argv.index('--run-mode') + 1] == run_mode
             self.request_id=str(len(attempts));attempts.append(output.name)
             response=self.control/'responses'/f'{self.request_id}.json'
             response.parent.mkdir(parents=True,exist_ok=True)
@@ -51,9 +55,11 @@ def test_failed_cold_scene_is_recorded_and_next_scene_still_runs(tmp_path, monke
     # The git hash is provenance only; the fixture has no repository.
     monkeypatch.setattr(namespace['subprocess'],'check_output',lambda *args,**kwargs:'fixture-commit\n')
     output=tmp_path/'results'
-    monkeypatch.setattr(sys,'argv',[str(script),'--gpu','4','--output',str(output),'--sequence',str(sequence)])
+    monkeypatch.setattr(sys,'argv',[str(script),'--gpu','4','--output',str(output),'--sequence',str(sequence),
+                                   '--run-mode',run_mode])
     assert main()==1
     report=json.loads((output/'results.json').read_text())
+    assert report['run_mode'] == run_mode
     assert report['completed'] and attempts==['00_first','01_second']
     assert [row['status'] for row in report['results']]==['runtime_error','passed']
     assert 'cold scene load failed' in report['results'][0]['error']
