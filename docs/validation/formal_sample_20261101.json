@@ -1,0 +1,504 @@
+{
+  "schema": "wia_representative_formal_sample_results_v1",
+  "recorded_at_utc": "2026-11-01T04:14:39.968297+00:00",
+  "experiment_commit": "8de56f768f7e5108ec4a8e4532119de33c774920",
+  "run_mode": "benchmark",
+  "benchmark_score": false,
+  "model_calls": 0,
+  "counts": {
+    "passed": 15,
+    "issues_found": 4,
+    "incomplete_coverage": 1
+  },
+  "actions": 152,
+  "observation_boundaries": 191,
+  "boundary_validities": {
+    "complete": 137,
+    "unavailable": 30,
+    "partial": 15,
+    "pending_done": 9
+  },
+  "boundary_or_sequence_errors": 31,
+  "task_and_source_hashes_unchanged": true,
+  "all_scene_qualifications": "not_run",
+  "all_prechecks_enabled": false,
+  "cold_fallbacks": 4,
+  "results": [
+    {
+      "task": "t01",
+      "gpu": 4,
+      "status": "passed",
+      "elapsed_s": 359.02201358322054,
+      "native_pid": 2518905,
+      "engine_reused": false,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "complete",
+      "boundary_validities": {
+        "complete": 10
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_00/00_t01"
+    },
+    {
+      "task": "t04",
+      "gpu": 5,
+      "status": "passed",
+      "elapsed_s": 289.93146392703056,
+      "native_pid": 2518909,
+      "engine_reused": false,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "complete",
+      "boundary_validities": {
+        "complete": 10
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_01/00_t04"
+    },
+    {
+      "task": "t06",
+      "gpu": 6,
+      "status": "passed",
+      "elapsed_s": 532.8304610420018,
+      "native_pid": 2518927,
+      "engine_reused": false,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "complete",
+      "boundary_validities": {
+        "complete": 10
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_02/00_t06"
+    },
+    {
+      "task": "t07",
+      "gpu": 7,
+      "status": "passed",
+      "elapsed_s": 395.56524247676134,
+      "native_pid": 2518908,
+      "engine_reused": false,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "complete",
+      "boundary_validities": {
+        "complete": 10
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_03/00_t07"
+    },
+    {
+      "task": "t10",
+      "gpu": 4,
+      "status": "issues_found",
+      "elapsed_s": 256.3591474434361,
+      "native_pid": 2518905,
+      "engine_reused": true,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "unavailable",
+      "boundary_validities": {
+        "unavailable": 10
+      },
+      "errors": 10,
+      "first_error": {
+        "stage": "initial",
+        "error": "score_unavailable",
+        "native_schema": "private_revised_mapping_v1",
+        "unknown_checks": []
+      },
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_00/01_t10"
+    },
+    {
+      "task": "t15",
+      "gpu": 5,
+      "status": "passed",
+      "elapsed_s": 225.32407462317497,
+      "native_pid": 2518909,
+      "engine_reused": true,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "complete",
+      "boundary_validities": {
+        "complete": 10
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_01/01_t15"
+    },
+    {
+      "task": "t18",
+      "gpu": 6,
+      "status": "passed",
+      "elapsed_s": 315.47989303898066,
+      "native_pid": 2518927,
+      "engine_reused": true,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "complete",
+      "boundary_validities": {
+        "complete": 10
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_02/01_t18"
+    },
+    {
+      "task": "t22",
+      "gpu": 7,
+      "status": "passed",
+      "elapsed_s": 216.33450494799763,
+      "native_pid": 2518908,
+      "engine_reused": true,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "complete",
+      "boundary_validities": {
+        "complete": 10
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_03/01_t22"
+    },
+    {
+      "task": "t28",
+      "gpu": 4,
+      "status": "passed",
+      "elapsed_s": 360.5665782634169,
+      "native_pid": 2564796,
+      "engine_reused": false,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "complete",
+      "boundary_validities": {
+        "complete": 10
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": {
+        "reason": "RuntimeError: Failed native initialization cannot be reused.",
+        "previous_request_id": "5c383fafc7ac4fbb9d53000b4866a6b3",
+        "previous_native_pid": null,
+        "failed_attempt_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_00/02_t28/initialization_attempts/5c383fafc7ac4fbb9d53000b4866a6b3",
+        "cold_retry_limit": 1,
+        "agent_started": false,
+        "model_calls_replayed": 0
+      },
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_00/02_t28"
+    },
+    {
+      "task": "t38",
+      "gpu": 5,
+      "status": "incomplete_coverage",
+      "elapsed_s": 858.942106786184,
+      "native_pid": 2575336,
+      "engine_reused": false,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "partial",
+      "boundary_validities": {
+        "partial": 10
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": {
+        "reason": "2026-11-01 03:42:54 [903,910ms] [Error] [carb.graphics-vulkan.plugin] GPU crash is detected. Trying to write crash dump into: /local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_01/resident_000/appdata/kit_logs/kit_20261101_112750-0.nv-gpudmp",
+        "previous_request_id": "d09f88c6335041aaa29e3f2a16400b22",
+        "previous_native_pid": 2518909,
+        "failed_attempt_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_01/02_t38/initialization_attempts/d09f88c6335041aaa29e3f2a16400b22",
+        "cold_retry_limit": 1,
+        "agent_started": false,
+        "model_calls_replayed": 0
+      },
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_01/02_t38"
+    },
+    {
+      "task": "t40",
+      "gpu": 6,
+      "status": "passed",
+      "elapsed_s": 977.9409672031179,
+      "native_pid": 2594991,
+      "engine_reused": false,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 11,
+      "evaluation_validity": "complete",
+      "boundary_validities": {
+        "partial": 5,
+        "complete": 6
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": {
+        "reason": "Owned native service failed before its response.",
+        "previous_request_id": "625bede4138a4e49b8408d4dfbcbf84d",
+        "previous_native_pid": null,
+        "failed_attempt_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_02/02_t40/initialization_attempts/625bede4138a4e49b8408d4dfbcbf84d",
+        "cold_retry_limit": 1,
+        "agent_started": false,
+        "model_calls_replayed": 0
+      },
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_02/02_t40"
+    },
+    {
+      "task": "t49",
+      "gpu": 7,
+      "status": "passed",
+      "elapsed_s": 369.8017613524571,
+      "native_pid": 2558471,
+      "engine_reused": false,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "complete",
+      "boundary_validities": {
+        "complete": 10
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_03/02_t49"
+    },
+    {
+      "task": "r-c1",
+      "gpu": 4,
+      "status": "passed",
+      "elapsed_s": 190.29263057000935,
+      "native_pid": 2564796,
+      "engine_reused": true,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "complete",
+      "boundary_validities": {
+        "complete": 10
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_00/03_r-c1"
+    },
+    {
+      "task": "r-s1",
+      "gpu": 5,
+      "status": "passed",
+      "elapsed_s": 184.2862924914807,
+      "native_pid": 2575336,
+      "engine_reused": true,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "complete",
+      "boundary_validities": {
+        "complete": 10
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_01/03_r-s1"
+    },
+    {
+      "task": "r-a1",
+      "gpu": 6,
+      "status": "passed",
+      "elapsed_s": 562.3448848742992,
+      "native_pid": 2626943,
+      "engine_reused": false,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "complete",
+      "boundary_validities": {
+        "complete": 10
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": {
+        "reason": "Owned native service failed before its response.",
+        "previous_request_id": "dac811489ed140628b787b4d195d4105",
+        "previous_native_pid": null,
+        "failed_attempt_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_02/03_r-a1/initialization_attempts/dac811489ed140628b787b4d195d4105",
+        "cold_retry_limit": 1,
+        "agent_started": false,
+        "model_calls_replayed": 0
+      },
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_02/03_r-a1"
+    },
+    {
+      "task": "iw_h1_02",
+      "gpu": 7,
+      "status": "issues_found",
+      "elapsed_s": 349.3706385847181,
+      "native_pid": 2579647,
+      "engine_reused": false,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "unavailable",
+      "boundary_validities": {
+        "unavailable": 10
+      },
+      "errors": 10,
+      "first_error": {
+        "stage": "initial",
+        "error": "score_unavailable",
+        "native_schema": "wia.high_candidate_evaluation.v1",
+        "unknown_checks": [
+          "inspection_before_delivery"
+        ]
+      },
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_03/03_iw_h1_02"
+    },
+    {
+      "task": "iw_m1_01",
+      "gpu": 4,
+      "status": "issues_found",
+      "elapsed_s": 171.25488788075745,
+      "native_pid": 2564796,
+      "engine_reused": true,
+      "world_retained": true,
+      "actions": 0,
+      "observations": 0,
+      "evaluation_validity": null,
+      "boundary_validities": {},
+      "errors": 1,
+      "first_error": {
+        "stage": "begin_episode",
+        "error": "RuntimeError: An unowned object moved during the authored use preview",
+        "native_schema": null,
+        "unknown_checks": []
+      },
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_00/04_iw_m1_01"
+    },
+    {
+      "task": "iw_m4_02",
+      "gpu": 5,
+      "status": "issues_found",
+      "elapsed_s": 207.2911769915372,
+      "native_pid": 2575336,
+      "engine_reused": true,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "unavailable",
+      "boundary_validities": {
+        "unavailable": 10
+      },
+      "errors": 10,
+      "first_error": {
+        "stage": "initial",
+        "error": "score_unavailable",
+        "native_schema": "wia.candidate_medium.v1",
+        "unknown_checks": [
+          "load_transport:item_01",
+          "delivery_transport:item_01",
+          "load_transport:item_02",
+          "delivery_transport:item_02",
+          "load_transport:item_03",
+          "delivery_transport:item_03"
+        ]
+      },
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_01/04_iw_m4_02"
+    },
+    {
+      "task": "gf2-1",
+      "gpu": 6,
+      "status": "passed",
+      "elapsed_s": 280.396761642769,
+      "native_pid": 2626943,
+      "engine_reused": true,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "complete",
+      "boundary_validities": {
+        "pending_done": 9,
+        "complete": 1
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_02/04_gf2-1"
+    },
+    {
+      "task": "gf3-1",
+      "gpu": 7,
+      "status": "passed",
+      "elapsed_s": 207.3030772684142,
+      "native_pid": 2579647,
+      "engine_reused": true,
+      "world_retained": true,
+      "actions": 8,
+      "observations": 10,
+      "evaluation_validity": "complete",
+      "boundary_validities": {
+        "complete": 10
+      },
+      "errors": 0,
+      "first_error": null,
+      "cold_fallback": null,
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_03/04_gf3-1"
+    }
+  ],
+  "retained_services": [
+    {
+      "gpu": 4,
+      "pid": 2564796,
+      "state": "SCENE_RETAINED",
+      "task": "iw_m1_01",
+      "control_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_00/resident_000"
+    },
+    {
+      "gpu": 5,
+      "pid": 2575336,
+      "state": "SCENE_RETAINED",
+      "task": "iw_m4_02",
+      "control_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_01/resident_000"
+    },
+    {
+      "gpu": 6,
+      "pid": 2626943,
+      "state": "SCENE_RETAINED",
+      "task": "gf2-1",
+      "control_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_02/resident_000"
+    },
+    {
+      "gpu": 7,
+      "pid": 2579647,
+      "state": "SCENE_RETAINED",
+      "task": "gf3-1",
+      "control_dir": "/local_home2/zhouxinyang/models/WIA/outputs/formal_sample_20261101/worker_03/resident_000"
+    }
+  ],
+  "limitations": [
+    "Fixed sequences validate runtime and scoring availability, not task-solving quality.",
+    "Unrelated OpenPI GPU workloads appeared after startup; runtime/memory comparisons were not isolated.",
+    "The user requested cold-start trials without Vulkan, driver, render-quality or scorer repairs."
+  ]
+}
