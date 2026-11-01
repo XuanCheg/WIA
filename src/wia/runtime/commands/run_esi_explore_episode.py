@@ -647,6 +647,8 @@ def main(argv=None):
                 subprocess.run(["tmux", "send-keys", "-t", target, "C-c"], check=True)
         deadline = time.monotonic()+120
         while not retained and not (output/"native_exit_code.txt").exists() and time.monotonic() < deadline:
+            if resident_client is not None and read_service(resident_control) is None:
+                break
             time.sleep(1)
         if not retained and resident_client is not None:
             from wia.runtime.resident_episode import read_service
@@ -656,14 +658,16 @@ def main(argv=None):
                     break
                 time.sleep(.2)
         if not retained:
-            emit('scene_cleared' if (output/"native_exit_code.txt").exists() else 'scene_clear_timeout', **lifecycle)
+            native_stopped = resident_client is not None and read_service(resident_control) is None
+            emit('scene_cleared' if (output/"native_exit_code.txt").exists() else
+                 'scene_disposed' if native_stopped else 'scene_clear_timeout', **lifecycle)
         save_status("finished", simulator_retained=retained,
                     native_exit_code=(output/"native_exit_code.txt").read_text().strip()
                     if (output/"native_exit_code.txt").exists() else None)
         current_gpu = json.loads(state_path.read_text())
         if current_gpu.get("service", {}).get("output_dir") == str(output):
             current_gpu["service"].update(status="running" if retained else
-                "stopped" if manifest["native_exit_code"] is not None else "stopping",
+                "stopped" if manifest["native_exit_code"] is not None or native_stopped else "stopping",
                 recording=False, control_owner="human", last_completed_experiment=str(output/"experiment.json"),
                 simulator_retained_after_episode=retained)
             current_gpu["service"].setdefault("agent", {}).update(status="idle", control_owner="human",
