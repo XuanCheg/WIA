@@ -41,7 +41,8 @@ def main():
     profiles = json.loads(args.task_profiles.read_text())
     import wia.runtime.scene_capture_adapters as adapters
     from wia.runtime.sim.esi_omnigibson import ESISession, _import_pipeline
-    from wia.runtime.commands.run_esi_capture_service import install_lifecycle, native_log, native_stage_cleanup
+    from wia.runtime.resident_episode import native_macro_settings
+    from wia.runtime.commands.run_esi_capture_service import install_lifecycle, native_log
     import wia.runtime.commands.run_esi_robot as run_esi_robot
     pipeline = _import_pipeline(WIA_ESI_ROOT)
     pipeline.og._wia_resident_episode = True
@@ -53,18 +54,13 @@ def main():
         for module in sorted({row['native_module'] for row in profiles.values()}):
             importlib.import_module(module)
     def reset_macros(profile):
-        values = dict(defaults, USE_GPU_DYNAMICS=profile['gpu_dynamics'],
-                      **{key: value for key, value in profile.get('macro_overrides', {}).items()
-                         if key != 'USE_GPU_DYNAMICS'})
+        values = native_macro_settings(defaults, profile)
         changed = any(bool(getattr(gm, key)) != value for key, value in values.items())
+        if changed and pipeline.og.app is not None:
+            raise RuntimeError('Native macro profile changes require a fresh Kit process; client must recycle its owner.')
         with gm.unlocked():
             for key, value in values.items():
                 setattr(gm, key, value)
-        if changed and pipeline.og.app is not None:
-            if pipeline.og.sim.scenes:
-                raise RuntimeError('Cannot change native physics profile while a world is loaded.')
-            with native_stage_cleanup(pipeline.og):
-                pipeline.og.clear()
         return values
     state = {'reusable': True, 'application_identity': None, 'scene_clear_s': 0.}
     install_lifecycle(adapters, ESISession, state)
@@ -87,7 +83,8 @@ def main():
     thread.start()
     completed = {path.name for path in (control / 'responses').glob('*.json')}
     count = 0
-    atomic_json(control / 'service.json', {'state': 'IDLE', 'pid': os.getpid(), 'application_identity': None})
+    atomic_json(control / 'service.json', {'state': 'IDLE', 'pid': os.getpid(), 'application_identity': None,
+                                         'macro_defaults': defaults})
     try:
         while not (control / 'stop_service.json').exists():
             for path in sorted((control / 'requests').glob('*.json')):
@@ -144,7 +141,8 @@ def main():
                     return 1
                 count += 1
                 atomic_json(control / 'service.json', {'state': 'IDLE', 'pid': os.getpid(),
-                    'application_identity': response['application_identity_after'], 'completed_scenes': count})
+                    'application_identity': response['application_identity_after'], 'completed_scenes': count,
+                    'macro_defaults': defaults, 'native_macro_profile': response['native_macro_profile']})
             time.sleep(.2)
     finally:
         stopping.set()

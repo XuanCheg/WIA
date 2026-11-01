@@ -194,20 +194,37 @@ def main():
                 deadline = time.monotonic() + args.scene_timeout
                 response_path = control/'responses'/f'{client.request_id}.json'
                 last_progress = time.monotonic()
-                while not response_path.exists():
-                    if time.monotonic() >= deadline:
-                        raise TimeoutError('Native load/sequence deadline exceeded.')
-                    if read_service(control) is None:
-                        raise RuntimeError('Owned native service exited before its response.')
-                    fatal = monitor.failure()
-                    if fatal:
-                        raise RuntimeError(fatal)
-                    if time.monotonic()-last_progress >= 30:
-                        stage = 'sequence' if (directory/'scorer_validation.json').exists() else 'loading'
-                        print(f'[sweep] task={alias} stage={stage} elapsed_s={time.monotonic()-started:.0f}', flush=True)
-                        last_progress = time.monotonic()
-                    time.sleep(1)
-                receipt = json.loads(response_path.read_text())
+                while True:
+                    try:
+                        while not response_path.exists():
+                            if time.monotonic() >= deadline:
+                                raise TimeoutError('Native load/sequence deadline exceeded.')
+                            service = read_service(control)
+                            if service is None or service.get('state') == 'FAILED':
+                                raise RuntimeError('Owned native service failed before its response.')
+                            fatal = monitor.failure()
+                            if fatal:
+                                raise RuntimeError(fatal)
+                            if time.monotonic()-last_progress >= 30:
+                                stage = 'sequence' if (directory/'scorer_validation.json').exists() else 'loading'
+                                print(f'[sweep] task={alias} stage={stage} elapsed_s={time.monotonic()-started:.0f}', flush=True)
+                                last_progress = time.monotonic()
+                            time.sleep(1)
+                        receipt = json.loads(response_path.read_text())
+                        validation = directory/'scorer_validation.json'
+                        completed = json.loads(validation.read_text()).get('completed') if validation.exists() else False
+                        if (not completed and (receipt.get('error') or
+                                (directory/'initialization_failure.json').exists())):
+                            raise RuntimeError(receipt.get('error') or 'Native initialization failed.')
+                        break
+                    except Exception as error:
+                        if not client.retry_initialization(str(error), agent_started=False):
+                            raise
+                        monitor = RendererLogMonitor(directory/'simulator.log')
+                        monitor.offset = 0
+                        deadline = time.monotonic() + args.scene_timeout
+                        response_path = control/'responses'/f'{client.request_id}.json'
+                        record['cold_fallback'] = True
                 record['native_receipt'] = receipt
                 validation = directory/'scorer_validation.json'
                 record['validation'] = json.loads(validation.read_text()) if validation.exists() else None

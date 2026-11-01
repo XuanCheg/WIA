@@ -425,6 +425,7 @@ def main(argv=None):
         scene_started = time.monotonic()
         emit('scene_loading', **lifecycle)
         resident_client.submit(native[3:], output)
+        first_world = not resident_client.started_reused
         save_status('initializing', persistent_simulator=True, resident_control_dir=resident_control)
     else:
         emit('simulator_initializing', **lifecycle)
@@ -449,11 +450,25 @@ def main(argv=None):
             if resident_client is not None:
                 from wia.runtime.resident_episode import read_service
                 fatal = renderer_monitor.failure()
-                if fatal:
-                    resident_client.dispose_failed(output, fatal)
-                    raise RuntimeError('Native renderer failure; the damaged owned process was disposed. ' + fatal)
-                if read_service(resident_control) is None:
-                    raise RuntimeError('The owned resident native service exited; inspect service.log and simulator.log.')
+                service = read_service(resident_control)
+                failure = fatal
+                if service is None or service.get('state') == 'FAILED':
+                    failure = failure or 'Owned native service failed during scene initialization.'
+                if (output/'native_exit_code.txt').exists() or (output/'initialization_failure.json').exists():
+                    failure = failure or 'Native initialization failed; inspect simulator.log.'
+                if time.monotonic() - scene_started >= 1200:
+                    failure = failure or 'Native initialization exceeded the 1200-second deadline.'
+                if failure:
+                    if resident_client.retry_initialization(failure, agent_started=False):
+                        renderer_monitor = RendererLogMonitor(output/'simulator.log')
+                        renderer_monitor.offset = 0
+                        first_world = True
+                        scene_started = time.monotonic()
+                        save_status('initializing', cold_fallback=True, agent_started=False)
+                        continue
+                    from wia.runtime.resident_episode import stop_service
+                    stop_service(resident_control)
+                    raise RuntimeError(failure + ' Cold initialization failed; no further startup retry.')
             if gateway.poll() is not None:
                 raise RuntimeError('Owned MCP gateway exited; inspect gateway.log.')
             qualification = read_native_qualification(output)

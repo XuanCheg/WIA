@@ -19,6 +19,13 @@ import runpy
 from .lifecycle_log import emit
 
 
+def native_macro_settings(defaults, profile):
+    """Resolve the complete launch-time physics configuration for a task."""
+    return dict(defaults, USE_GPU_DYNAMICS=profile['gpu_dynamics'],
+                **{key: value for key, value in profile.get('macro_overrides', {}).items()
+                   if key != 'USE_GPU_DYNAMICS'})
+
+
 def task_profiles(plans):
     """Resolve native profiles without importing Kit or any GPU task module."""
     from wia.resources import ESI_ROOT
@@ -131,10 +138,16 @@ class ResidentEpisodeClient:
         self.control = Path(control)
         self.gpu, self.environment, self.python = gpu, environment, python
         self.request_id = None
+        self.cold_attempted = False
+        self.started_reused = False
 
     def ensure(self, *, quiet=False):
         service = read_service(self.control)
         if service is not None:
+            if service.get('state') == 'FAILED':
+                emit('simulator_recycling', pid=service['pid'], reason='previous_native_failure')
+                stop_service(self.control)
+                return self.ensure(quiet=quiet)
             deadline = time.monotonic() + 120
             while service.get('state') == 'SCENE_RUNNING' and time.monotonic() < deadline:
                 time.sleep(.2)
@@ -192,8 +205,27 @@ class ResidentEpisodeClient:
             time.sleep(.5)
         emit('simulator_service_ready', pid=process.pid, elapsed_s=round(time.monotonic()-started, 2))
 
-    def submit(self, native_argv, output):
+    def submit(self, native_argv, output, *, _retry=False):
+        if not _retry:
+            self.output = Path(output)
+            self.native_argv = list(native_argv)
+            self.input_entries = {path.name for path in self.output.iterdir()}
+            self.cold_attempted = False
         self.ensure(quiet=True)
+        service = read_service(self.control)
+        if service.get('completed_scenes', 0):
+            profiles = json.loads(Path(os.environ['WIA_RESIDENT_TASK_PROFILES']).read_text())
+            task_path = str(Path(native_argv[native_argv.index('--task-file') + 1]).resolve())
+            defaults = service.get('macro_defaults')
+            requested = native_macro_settings(defaults, profiles[task_path]) if defaults is not None else None
+            if requested is None or requested != service.get('native_macro_profile'):
+                emit('simulator_recycling', pid=service['pid'], reason='native_macro_profile_change',
+                     previous=service.get('native_macro_profile'), requested=requested)
+                stop_service(self.control)
+                self.ensure(quiet=True)
+        service = read_service(self.control)
+        self.started_reused = service.get('completed_scenes', 0) > 0
+        self.cold_attempted = self.cold_attempted or not self.started_reused
         self.request_id = uuid.uuid4().hex
         path = self.control / 'requests' / (self.request_id + '.json')
         temporary = path.with_suffix('.tmp')
@@ -205,6 +237,36 @@ class ResidentEpisodeClient:
             'control_dir': str(self.control), 'native_pid': service['pid'], 'request_id': self.request_id,
             'persistent_simulator': True, 'appdata_path': str(self.control / 'appdata'),
             'native_argv': native_argv}, indent=2) + '\n')
+
+    def retry_initialization(self, reason, *, agent_started):
+        """Retry a failed reused world once cold, preserving the failed attempt.
+
+        Call only before Agent execution. A failed cold start is final; callers
+        record it and continue their task list rather than retrying indefinitely.
+        """
+        if agent_started or self.cold_attempted or (self.output / 'agent.log').exists():
+            return False
+        validation = self.output / 'scorer_validation.json'
+        if validation.exists() and json.loads(validation.read_text()).get('completed'):
+            return False
+        previous = read_service(self.control)
+        emit('simulator_cold_fallback', request_id=self.request_id, reason=reason,
+             pid=previous.get('pid') if previous else None)
+        stop_service(self.control)
+        archive = self.output / 'initialization_attempts' / self.request_id
+        archive.mkdir(parents=True, exist_ok=False)
+        retained = self.input_entries | {'initialization_attempts', 'gateway.log',
+                                         'experiment.json', 'status.json'}
+        for path in list(self.output.iterdir()):
+            if path.name not in retained:
+                path.rename(archive / path.name)
+        (self.output / 'simulator_fallback.json').write_text(json.dumps({
+            'reason': reason, 'previous_request_id': self.request_id,
+            'previous_native_pid': previous.get('pid') if previous else None,
+            'failed_attempt_dir': str(archive), 'cold_retry_limit': 1,
+            'agent_started': False, 'model_calls_replayed': 0}, indent=2) + '\n')
+        self.submit(self.native_argv, self.output, _retry=True)
+        return True
 
     def stop_scene(self):
         path = self.control / 'stop_scene.json'
