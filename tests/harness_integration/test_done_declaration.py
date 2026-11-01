@@ -1,4 +1,4 @@
-"""Run CPU terminal transport checks with python -m pytest tests/test_done_declaration.py."""
+"""Run: python -m pytest tests/harness_integration/test_done_declaration.py."""
 import asyncio
 import json
 import threading
@@ -50,6 +50,9 @@ class NativeDone:
             raise RuntimeError(PRIVATE)
         return self.value(observation, finalized=True)
 
+    def finalize_episode(self, observation):
+        return self.value(observation, finalized=True)
+
 
 def envelope(tmp_path, *, fail=False):
     native = NativeDone(fail=fail)
@@ -59,9 +62,9 @@ def envelope(tmp_path, *, fail=False):
     return CategoryEvaluationEnvelope(native, task, tmp_path), native
 
 
-def post_on_owner(backend, url, body):
+def post_on_owner(backend, url, body, path='/api/agent/done'):
     responses = []
-    thread = threading.Thread(target=lambda: responses.append(requests.post(url + '/api/agent/done',
+    thread = threading.Thread(target=lambda: responses.append(requests.post(url + path,
         json=body, timeout=3)))
     thread.start()
     with backend.frame_cond:
@@ -180,6 +183,12 @@ class DoneEnvironment(Environment):
         return {'ok': True, 'message': 'DONE declaration recorded.',
                 'snapshot_id': after.snapshot_id, 'action_step': after.action_step}
 
+    async def finalize_episode(self, observation, *, reason):
+        receipt = self.source.finalize_episode(snapshot_id=observation.snapshot_id,
+            action_step=observation.action_step, reason=reason)
+        self.finalized = True
+        return receipt
+
 
 def test_runner_genuine_done_finalizes_before_success_read_and_saves_fresh_observation(tmp_path):
     env = DoneEnvironment()
@@ -195,11 +204,12 @@ def test_runner_genuine_done_finalizes_before_success_read_and_saves_fresh_obser
     assert after['action_step'] == 0
 
 
-def test_runner_budget_is_not_done_and_pending_task_cannot_succeed_early(tmp_path):
+def test_runner_budget_scores_terminal_state_without_declaring_done(tmp_path):
     env = DoneEnvironment()
     result = asyncio.run(run_episode(env, Agent('{"action":"BASE_FWD"}'), tmp_path,
         max_steps=1, success_provider=lambda: env.finalized))
-    assert result['termination_reason'] == 'max_steps' and not result['task_success']
+    assert result['termination_reason'] == 'max_steps' and result['task_success']
+    assert result['model_declared_done'] is False and result['terminal_evaluation']
     assert env.declarations == [] and env.calls == ['BASE_FWD']
 
 
@@ -338,12 +348,21 @@ def test_pending_validator_still_rejects_mismatched_native_identity(tmp_path, fi
                                     wrapper.task.task_text, wrapper.task)
 
 
-def test_runner_budget_retains_canonical_pending_score_as_none_without_done(tmp_path):
+@pytest.mark.parametrize('completed', [0, 1, 2])
+def test_runner_budget_scores_actual_canonical_progress_without_done(tmp_path, completed):
     env = DoneEnvironment()
     wrapper, native = envelope(tmp_path/'private')
     wrapper.task.definition.kind = 'category_robot_task'
     wrapper.task.task_text = env.source.task_text
     wrapper.begin_episode(env.source.agent_observation())
+    def measured_final(observation):
+        value = native.value(observation, finalized=True)
+        value.update(task_success=completed == 2,
+            completion_items=[{'id': str(i), 'completed': i < completed} for i in range(2)],
+            completed_goals=completed, total_goals=2,
+            completion_score=completed / 2, score_percent=completed * 50)
+        return value
+    native.finalize_episode = measured_final
     env.rig.task_evaluator = wrapper
     def success():
         data = json.loads((wrapper.output/'state.json').read_text())
@@ -351,6 +370,113 @@ def test_runner_budget_retains_canonical_pending_score_as_none_without_done(tmp_
                                           wrapper.task.task_text, wrapper.task)
     result = asyncio.run(run_episode(env, Agent('{"action":"BASE_FWD"}'), tmp_path/'episode',
                                     max_steps=1, success_provider=success))
-    assert result['termination_reason'] == 'max_steps' and result['task_success'] is None
+    assert result['termination_reason'] == 'max_steps' and result['task_success'] is (completed == 2)
     assert env.calls == ['BASE_FWD'] and not env.declarations and not native.declarations
-    assert json.loads((tmp_path/'episode/summary.json').read_text())['task_success'] is None
+    assert result['model_declared_done'] is False and result['terminal_evaluation']
+    data = json.loads((wrapper.output/'state.json').read_text())
+    assert data['evaluation_finalized'] and data['model_declared_done'] is False
+    assert data['evaluation_validity'] == 'complete' and data['score_percent'] == completed * 50
+    assert json.loads((tmp_path/'episode/summary.json').read_text())['task_success'] is (completed == 2)
+
+
+def test_http_finalization_is_private_idempotent_and_does_not_declare_done(control_http, tmp_path):
+    backend, _, url, calls, rig = control_http
+    token = claim(backend, url)
+    wrapper, native = envelope(tmp_path/'private')
+    rig.task_evaluator = wrapper
+    source = backend.observation_source
+    before = source.agent_observation()
+    wrapper.begin_episode(before)
+    rig.pipeline.og.sim.step = lambda: pytest.fail('Finalization must not step physics')
+    body = {'snapshot_id': before.snapshot_id, 'action_step': before.action_step,
+            'reason': 'max_steps', 'control_token': token}
+    assert requests.post(url+'/api/agent/finalize', json=dict(body, control_token='wrong')).status_code == 403
+    assert requests.post(url+'/api/agent/finalize', json=dict(body, score=100)).status_code == 400
+    response = post_on_owner(backend, url, body, '/api/agent/finalize')
+    assert response.status_code == 200
+    receipt = response.json()
+    assert set(receipt) == {'ok', 'message', 'snapshot_id', 'action_step'}
+    assert receipt['snapshot_id'] > before.snapshot_id and receipt['action_step'] == before.action_step
+    assert PRIVATE not in response.text and 'task_success' not in response.text and 'score' not in response.text
+    assert native.declarations == [] and source._done_declaration is None and calls == []
+    assert wrapper.done_result['model_declared_done'] is False
+    assert post_on_owner(backend, url, body, '/api/agent/finalize').json() == receipt
+    wrapper.resume_episode()
+    assert wrapper.done_result is None
+
+
+def test_mcp_runner_budget_reaches_owner_finalizer(control_http, tmp_path, monkeypatch):
+    from mcp import Client
+    from wia.runtime.agent.mcp_environment import MCPRobotEnvironment
+    from wia.runtime.web.mcp_server import create_server
+    from harness_integration.test_agent_control import pump
+    backend, _, url, calls, rig = control_http
+    wrapper, native = envelope(tmp_path/'private')
+    rig.task_evaluator = wrapper
+    monkeypatch.setattr('wia.runtime.agent.mcp_environment.Client', lambda *a, **k: Client(create_server(url)))
+    async def run():
+        finished = asyncio.Event()
+        worker = asyncio.create_task(pump(backend, finished))
+        try:
+            async with MCPRobotEnvironment(url, run_id='budget-finalize', task_text='Approach the table.') as env:
+                def success():
+                    return wrapper.done_result is not None
+                return await run_episode(env, Agent('{"action":"BASE_FWD"}'), tmp_path/'episode',
+                    max_steps=1, success_provider=success)
+        finally:
+            finished.set()
+            await worker
+    result = asyncio.run(run())
+    assert result['termination_reason'] == 'max_steps' and result['task_success'] is True
+    assert not result['model_declared_done'] and not native.declarations
+    assert calls == ['BASE_FWD'] and wrapper.done_result['evaluation_validity'] == 'complete'
+
+
+def test_terminal_summary_preserves_measured_progress_after_model_error():
+    from wia.runtime.commands.run_esi_agent import finalize_evaluation_summary
+    summary = {'termination_reason': 'model_error', 'task_success': False,
+               'terminal_evaluation': {'ok': True}, 'model_declared_done': False}
+    finalize_evaluation_summary(summary, {'evaluation_validity': 'complete',
+        'completion_score': .5, 'score_percent': 50.}, 'benchmark')
+    assert summary['score_percent'] == 50. and summary['task_success'] is False
+    assert summary['execution_validity'] == 'interrupted' and summary['task_progress_is_final']
+    assert not summary['agent_failure_countable']
+
+
+def test_finalization_preserves_missing_measurement_as_unavailable(tmp_path):
+    wrapper, native = envelope(tmp_path)
+    observation = NS(snapshot_id=1, action_step=0)
+    wrapper.begin_episode(observation)
+    def missing(current):
+        value = native.value(current, finalized=True)
+        value.update(task_success=False, evaluation_validity='unavailable',
+            completion_items=[{'id': 'terminal', 'completed': False, 'evaluation_validity': 'unavailable'}])
+        return value
+    native.finalize_episode = missing
+    value = wrapper.finalize_episode(observation, reason='max_steps')
+    assert value['evaluation_finalized'] and value['model_declared_done'] is False
+    assert value['evaluation_validity'] == 'unavailable' and value['score_percent'] is None
+    assert not native.declarations
+
+
+def test_finalization_failure_cannot_reuse_a_preterminal_score(tmp_path):
+    wrapper, native = envelope(tmp_path)
+    observation = NS(snapshot_id=1, action_step=0)
+    wrapper.begin_episode(observation)
+    def broken(current):
+        raise RuntimeError(PRIVATE)
+    native.finalize_episode = broken
+    value = wrapper.finalize_episode(observation, reason='max_steps')
+    assert value['evaluation_validity'] == 'unavailable' and value['score_percent'] is None
+    assert value['native_result']['failure_stage'] == 'episode_finalization'
+
+
+def test_terminal_transport_failure_cannot_count_stale_progress():
+    from wia.runtime.commands.run_esi_agent import finalize_evaluation_summary
+    summary = {'termination_reason': 'max_steps', 'task_success': True,
+               'terminal_evaluation_error': 'Terminal boundary unavailable'}
+    finalize_evaluation_summary(summary, {'evaluation_validity': 'complete',
+        'completion_score': 1., 'score_percent': 100.}, 'benchmark')
+    assert summary['evaluation_validity'] == 'unavailable'
+    assert summary['task_success'] is None and summary['score_percent'] is None
+    assert not summary['agent_failure_countable'] and not summary['task_progress_is_final']

@@ -94,6 +94,10 @@ class CandidateEvaluator:
         (self.output/'state.json').write_text(json.dumps(result,indent=2)+'\n');self.sample_step();return result
 
     def declare_done(self,observation):
+        return self.finalize_episode(observation)
+
+    def finalize_episode(self,observation):
+        """Reduce the actual final frame, including exits without model DONE."""
         result=self.record(observation);result['evaluation_finalized']=True;return result
 
 

@@ -237,11 +237,13 @@ def declarative_resume_budget(summary, manifest, requested=None, *, extend=False
 
 
 def finalize_evaluation_summary(summary, latest_progress, run_mode):
-    """Keep measured progress separate from an interrupted episode's quality result."""
+    """Keep measured terminal progress separate from execution validity."""
     summary['run_mode'] = run_mode
     interrupted = summary['termination_reason'] in ('runtime_error', 'model_error', 'execution_error', 'observation_error', 'environment_error', 'cancelled')
     summary['execution_validity'] = 'interrupted' if interrupted else 'completed'
     summary['agent_failure_countable'] = False
+    terminal = bool(summary.get('terminal_evaluation') or summary.get('done_declaration'))
+    terminal_error = bool(summary.get('terminal_evaluation_error'))
     if latest_progress:
         summary['task_progress'] = {k: v for k, v in latest_progress.items() if not k.startswith('safety_')}
         summary['safety_statistics'] = latest_progress.get('safety_statistics')
@@ -250,12 +252,15 @@ def finalize_evaluation_summary(summary, latest_progress, run_mode):
             'evaluation_validity', 'scoring_version', 'completion_score', 'score_percent',
             'constraints_satisfied')})
         summary['agent_failure_countable'] = (
-            latest_progress.get('evaluation_validity') == 'complete' and not interrupted)
-        summary['task_progress_is_final'] = not interrupted
-    if interrupted or latest_progress and not summary['agent_failure_countable']:
+            latest_progress.get('evaluation_validity') == 'complete' and not interrupted and not terminal_error)
+        summary['task_progress_is_final'] = (terminal or not interrupted) and not terminal_error
+    if ((interrupted and not terminal) or terminal_error
+            or latest_progress and latest_progress.get('evaluation_validity') != 'complete'):
         summary['task_success'] = None
-    if interrupted:
+    if (interrupted and not terminal) or terminal_error:
         summary['completion_score'] = summary['score_percent'] = None
+    if terminal_error:
+        summary['evaluation_validity'] = 'unavailable'
 
 
 def validate_wia_history_condition(args, *, loaded_task=None, manifest=None):

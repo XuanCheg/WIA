@@ -70,6 +70,7 @@ class ESIObservationSource:
         self.initial_overview_failure = None
         self.initial_observation = None
         self._done_declaration = None
+        self._episode_finalization = None
 
     def begin_episode(self, task_text: str) -> AgentObservation:
         """Start public task/history at the current scene, on the sensor owner.
@@ -86,6 +87,7 @@ class ESIObservationSource:
         self.action_step = 0
         self.last_action_feedback = None
         self._done_declaration = None
+        self._episode_finalization = None
         self.initial_overview = None
         self.initial_overview_status = 'unavailable'
         self.initial_overview_failure = None
@@ -507,6 +509,36 @@ class ESIObservationSource:
                    'snapshot_id': observation.snapshot_id, 'action_step': observation.action_step}
         self._done_declaration = (requested, receipt)
         return dict(receipt)
+
+    def finalize_episode(self, *, snapshot_id, action_step, reason):
+        """Capture and score the actual terminal state on the simulator owner."""
+        _main_thread()
+        if self._episode_finalization is not None:
+            requested, receipt = self._episode_finalization
+            if (snapshot_id, action_step) not in (requested, (receipt['snapshot_id'], receipt['action_step'])):
+                raise ValueError('Terminal evaluation boundary changed.')
+            return dict(receipt)
+        observation = self.agent_observation()
+        if (snapshot_id, action_step) != (observation.snapshot_id, observation.action_step):
+            raise ValueError('Terminal evaluation boundary changed.')
+        evaluator = getattr(self.session, 'task_evaluator', None)
+        if self._done_declaration is None:
+            observation = self.capture(action_boundary=True).observation
+            finalize = getattr(evaluator, 'finalize_episode', None)
+            if callable(finalize):
+                finalize(observation, reason=reason)
+        receipt = {'ok': True, 'message': 'Terminal state recorded.',
+                   'snapshot_id': observation.snapshot_id, 'action_step': observation.action_step}
+        self._episode_finalization = ((snapshot_id, action_step), receipt)
+        return dict(receipt)
+
+    def resume_episode(self):
+        """Reopen a terminalized interruption without resetting the world."""
+        _main_thread()
+        resume = getattr(getattr(self.session, 'task_evaluator', None), 'resume_episode', None)
+        if callable(resume):
+            resume()
+        self._episode_finalization = None
 
     def report_temporal(self, event, answer, *, snapshot_id, action_step):
         """Apply one bounded temporal event at the retained owner-thread boundary."""

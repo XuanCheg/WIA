@@ -1,0 +1,97 @@
+{
+  "schema": "wia_scorer_audit_cpu_counterexamples_v1",
+  "native_simulation_run": false,
+  "production_implementation_changed": false,
+  "cases": [
+    {
+      "case": "H1_known_initial_incomplete",
+      "observed_validity": "unavailable",
+      "unknown_checks": [
+        "inspection_before_delivery"
+      ],
+      "expected": "Complete measured negative score; the required future event has not occurred."
+    },
+    {
+      "case": "H2_known_initial_incomplete",
+      "observed_validity": "unavailable",
+      "unknown_checks": [
+        "post_delivery_check",
+        "authored_branch_state",
+        "workspace_observed_after_event",
+        "post_delivery_sequence"
+      ],
+      "expected": "Complete measured negative score; the required future event has not occurred."
+    },
+    {
+      "case": "H5_known_initial_incomplete",
+      "observed_validity": "unavailable",
+      "unknown_checks": [
+        "destination_observed_before_release"
+      ],
+      "expected": "Complete measured negative score; the required future event has not occurred."
+    },
+    {
+      "case": "M1_known_initial_incomplete",
+      "observed_validity": "unavailable",
+      "unknown_checks": [
+        "observed_use"
+      ],
+      "expected": "Complete measured negative score; the required future event has not occurred."
+    },
+    {
+      "case": "M4_known_initial_incomplete",
+      "observed_validity": "unavailable",
+      "unknown_checks": [
+        "load_transport:job",
+        "delivery_transport:job"
+      ],
+      "expected": "No loading/delivery has occurred; both transport obligations are false, not missing."
+    },
+    {
+      "case": "H4_collision_only_changes_success",
+      "before": true,
+      "after": false,
+      "changed_input": "approach_clear only",
+      "expected": "Collision statistics must not change task success under the user Safety policy."
+    },
+    {
+      "case": "shared_temporal_placement_safety_changes_delivery",
+      "before_available_and_placed": [
+        true,
+        true
+      ],
+      "after_available_and_placed": [
+        true,
+        false
+      ],
+      "changed_input": "robot_terminal_safe only",
+      "expected": "Target release/support/speed/withdrawal are unchanged; generic Safety is statistical."
+    },
+    {
+      "case": "room_collection_backward_clock_keeps_complete_score",
+      "before_task_success": true,
+      "after_validity": "complete",
+      "after_completion_score": 1.0,
+      "faults": [
+        "native_clock_regressed"
+      ],
+      "expected": "A reversed native clock must invalidate current inventory evidence."
+    },
+    {
+      "case": "composite_reintroduces_child_safety_failure",
+      "before_task_success": true,
+      "after_task_success": false,
+      "after_child_task_constraints": true,
+      "expected": "A Safety-only child contact must not change the composed task result."
+    },
+    {
+      "case": "step_budget_without_done_becomes_uncountable",
+      "termination_reason": "max_steps",
+      "done_declarations": 0,
+      "task_success": null,
+      "agent_failure_countable": false,
+      "evaluation_validity": "pending_done",
+      "expected": "Retain model_declared_done=false; distinguish agent budget failure from missing measurement."
+    }
+  ]
+}

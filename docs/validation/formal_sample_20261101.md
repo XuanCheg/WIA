@@ -17,7 +17,7 @@ Four reused-world initializations failed. All four recovered initialization and 
 - Commands: left turn 5 degrees, right turn 5 degrees, forward 0.05 m, backward 0.05 m, working-arm up 0.02 m, down 0.02 m, GRASP, RELEASE; then DONE and an explicit public phase transition when supported.
 - No simulator wall-time deadline. Existing virtual-time convergence/blocked-motion predicates remain. No videos are recorded.
 - Keep the native profile restart boundary, default four-scene renderer lifetime, full SDK scene cleanup and one cold retry. A failed cold start would be recorded before continuing; no Agent work is replayed.
-- The user requested no Vulkan/driver/renderer/scorer repairs, asked to try cold starts, and authorized continued use after other GPU workloads appeared. No such repair or quality reduction was applied.
+- The user requested no Vulkan/driver/renderer repairs, asked to try cold starts, and authorized continued use after other GPU workloads appeared. Scorers were unchanged during this sample; this was not a user prohibition on scorer repairs. No rendering repair or quality reduction was applied.
 
 The formal-mode selector was added to the existing diagnostic sweep and checked with 23 focused CPU cases before launch. The sample deliberately includes old problem cases. Formal-mode metadata is not a guarantee that every internal execution guard is removed: M1's authored-use-preview consistency assertion still aborts begin_episode in this version.
 

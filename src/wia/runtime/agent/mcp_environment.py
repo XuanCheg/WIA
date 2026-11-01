@@ -51,6 +51,7 @@ class MCPRobotEnvironment:
         self._pending_temporal_boundary = None
         self._initial_overview_binding = None
         self.done_declaration_available = False
+        self.episode_finalization_available = False
         self.requires_done_declaration = False
 
     def attach_input_logger(self, logger):
@@ -124,6 +125,7 @@ class MCPRobotEnvironment:
             response.raise_for_status()
             current = response.json()
         self.done_declaration_available = current.get('done_declaration_available') is True
+        self.episode_finalization_available = current.get('episode_finalization_available') is True
         self.requires_done_declaration = current.get('requires_done_declaration') is True
         if self.requires_done_declaration and not self.done_declaration_available:
             raise RuntimeError('This task requires terminal declaration support from its simulator.')
@@ -276,6 +278,25 @@ class MCPRobotEnvironment:
         self._record_input({'tool': 'robot_report_done', 'arguments': compact_json(arguments),
             'requested_at': requested, 'at': timestamp(),
             'status': 'received' if self.done_declaration_available else 'local_noop', 'result': public})
+        return public
+
+    async def finalize_episode(self, observation, *, reason):
+        """Ask the owner to score the final state without exposing private results."""
+        if not self.episode_finalization_available:
+            if self.requires_done_declaration:
+                raise RuntimeError('This simulator cannot score terminal states without DONE; restart it with the updated runtime.')
+            return None
+        arguments = {'snapshot_id': observation.snapshot_id, 'action_step': observation.action_step,
+                     'reason': reason, 'control_token': self.control_token}
+        requested = timestamp()
+        result = await self._http('/api/agent/finalize', arguments)
+        public = {key: result[key] for key in ('ok', 'message', 'snapshot_id', 'action_step')}
+        if (public['ok'] is not True or type(public['snapshot_id']) is not int
+                or public['snapshot_id'] < observation.snapshot_id
+                or type(public['action_step']) is not int or public['action_step'] != observation.action_step):
+            raise RuntimeError('Terminal evaluation returned an invalid boundary receipt.')
+        self._record_input({'tool': 'episode_finalize', 'arguments': compact_json(arguments),
+            'requested_at': requested, 'at': timestamp(), 'status': 'received', 'result': public})
         return public
 
     async def report_temporal(self, event, answer, observation):

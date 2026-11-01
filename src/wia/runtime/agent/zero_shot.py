@@ -248,6 +248,7 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
         summary['observation_coverage'].append(row)
         return row
     record = None
+    observation = None
     restore_candidate_history = None
     consume_invalid_step = getattr(agent, "invalid_decision_consumes_step", False)
     pending_invalid_feedback = None
@@ -843,6 +844,26 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
     except Exception as error:
         summary.update(termination_reason="runtime_error", error=str(error))
     finally:
+        finalize = getattr(environment, 'finalize_episode', None)
+        if (observation is not None and callable(finalize)
+                and not summary.get('done_declaration') and not summary.get('done_declaration_error')):
+            try:
+                # Read the current stopped boundary even after a failed action;
+                # terminal scoring must not use the last pre-action observation.
+                observation = await environment.observe()
+                receipt = await finalize(observation, reason=summary['termination_reason'])
+                if receipt is not None:
+                    observation = await environment.observe()
+                    if (observation.snapshot_id != receipt['snapshot_id']
+                            or observation.action_step != receipt['action_step']):
+                        raise RuntimeError('Terminal observation does not match its evaluation receipt.')
+                    summary['terminal_evaluation'] = receipt
+                    summary['terminal_observation'] = str(archive.save(observation, output / 'terminal').relative_to(output))
+                    if success_provider is not None:
+                        summary['task_success'] = success_provider()
+            except Exception as error:
+                summary['terminal_evaluation_error'] = f'{type(error).__name__}: {error}'
+                summary['task_success'] = None
         if restore_candidate_history is not None:
             restore_candidate_history()
         if hasattr(agent, "close"):

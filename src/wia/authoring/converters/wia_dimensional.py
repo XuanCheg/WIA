@@ -538,6 +538,24 @@ class DimensionalEvaluator:
         self._terminal_record = self.record(observation)
         return deepcopy(self._terminal_record)
 
+    def finalize_episode(self, observation):
+        """Score this segment's actual state while retaining resumable evidence."""
+        if not self.active:
+            return None
+        if self._terminal_record is not None:
+            return deepcopy(self._terminal_record)
+        self.sample_step()
+        scorer, done_declared = self.scorer, self._done_declared
+        try:
+            # Only the pure reducer is copied; native simulator objects stay live.
+            self.scorer = deepcopy(scorer)
+            if self.scorer is not None and self.requires_done_declaration:
+                self.scorer.declare_done()
+            self._done_declared = True
+            return self.record(observation)
+        finally:
+            self.scorer, self._done_declared = scorer, done_declared
+
     def begin_episode(self, observation):
         if self.active:
             raise RuntimeError('The dimensional episode has already begun.')

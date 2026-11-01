@@ -781,7 +781,8 @@ def test_d1_legacy_unselected_tolerance_is_optional_and_inert(native):
 
 
 @pytest.mark.parametrize('finish_full_goal', [False, True])
-def test_native_adapter_done_preserves_original_grasp_lift_pass_release_blue_goal(native, finish_full_goal):
+@pytest.mark.parametrize('finish_method', ['declare_done', 'finalize_episode'])
+def test_native_adapter_done_preserves_original_grasp_lift_pass_release_blue_goal(native, finish_full_goal, finish_method):
     instance = evaluator(native)
     instance.begin_episode(native.observation)
     native.robot._ag_obj_in_hand['left'] = native.target
@@ -811,7 +812,7 @@ def test_native_adapter_done_preserves_original_grasp_lift_pass_release_blue_goa
     assert pending['evaluation_validity'] == 'pending_done'
     assert pending['completion_items'] is pending['completion_score'] is None
     assert not pending['task_success'] and not pending['evaluation_finalized']
-    terminal = instance.declare_done(native.observation)
+    terminal = getattr(instance, finish_method)(native.observation)
     assert terminal['evaluation_validity'] == 'complete'
     assert terminal['task_success'] is finish_full_goal
     items = {item['id']: item['completed'] for item in terminal['completion_items']}
@@ -820,3 +821,6 @@ def test_native_adapter_done_preserves_original_grasp_lift_pass_release_blue_goa
     assert terminal['selected_candidate'] == 'candidate_0'
     assert terminal['physical_success'] is finish_full_goal
     assert terminal['completion_score'] == (1. if finish_full_goal else .5)
+    if finish_method == 'finalize_episode':
+        assert instance._terminal_record is None and not instance._done_declared
+        assert instance.record(native.observation)['evaluation_validity'] == 'pending_done'

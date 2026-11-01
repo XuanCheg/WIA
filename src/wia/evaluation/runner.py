@@ -311,6 +311,8 @@ def summarize(summary):
     else:
         status = "invalid_or_incomplete_score"
     return {"status": status, "termination_reason": reason, "task_success": summary.get("task_success"),
+            "model_declared_done": summary.get("model_declared_done", False),
+            "task_progress_is_final": summary.get("task_progress_is_final", False),
             "evaluation_validity": summary.get("evaluation_validity"),
             "completion_score": summary.get("completion_score"), "score_percent": summary.get("score_percent"),
             "agent_decisions": summary.get("agent_decisions"), "executed_actions": summary.get("executed_actions"),

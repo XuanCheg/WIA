@@ -112,11 +112,45 @@ class CategoryEvaluationEnvelope:
         except Exception as error:
             self._fail('done_declaration', error)
             native = self.failure.record(observation)
+        if isinstance(native, dict):
+            native = dict(native, model_declared_done=True, termination_reason='model_done')
         self.done_result = self._seal(native, observation)
         if self.done_result.get('evaluation_finalized') is not True:
             self.done_error = 'Terminal task evaluation did not finalize.'
             raise RuntimeError(self.done_error)
         return deepcopy(self.done_result)
+
+    def finalize_episode(self, observation, *, reason):
+        """Score the measured terminal state without declaring model DONE."""
+        if self.done_result is not None:
+            if self.done_error is not None:
+                raise RuntimeError(self.done_error)
+            return deepcopy(self.done_result)
+        if not self.episode:
+            raise RuntimeError('Terminal evaluation requires an active episode.')
+        self.task.verify_unchanged()
+        try:
+            if self.failure is not None:
+                native = self.failure.record(observation)
+            elif self.requires_done_declaration:
+                native = self.native.finalize_episode(observation)
+            else:
+                native = self.native.record(observation, action=None)
+            native = dict(native)
+        except Exception as error:
+            self._fail('episode_finalization', error)
+            native = self.failure.record(observation)
+        native.update(evaluation_finalized=True, model_declared_done=False, termination_reason=reason)
+        self.done_result = self._seal(native, observation)
+        return deepcopy(self.done_result)
+
+    def resume_episode(self):
+        """Reopen an interrupted segment without resetting physical evidence."""
+        if self.done_result is not None:
+            if self.done_result.get('model_declared_done', True):
+                raise RuntimeError('An episode with model DONE cannot resume.')
+            self.done_result = None
+            self.done_error = None
 
     def _fail(self, stage, error):
         self.failure = UnavailableEvaluator(self.task.definition.private.evaluation.model_dump(), stage, error)
@@ -226,6 +260,9 @@ class CategoryEvaluationEnvelope:
         value['progress'] = progress(native)
         value['progress']['status'] = ('pending_done' if native.get('evaluation_validity') == 'pending_done'
                                        else 'measured')
+        for key in ('evaluation_finalized', 'model_declared_done', 'termination_reason'):
+            if key in native:
+                value[key] = value['progress'][key] = native[key]
         if self.requires_done_declaration:
             value['requires_done_declaration'] = True
             value['evaluation_finalized'] = native.get('evaluation_finalized', False) is True

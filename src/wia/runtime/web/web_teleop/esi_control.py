@@ -46,6 +46,13 @@ class DoneDeclaration:
 
 
 @dataclass(frozen=True)
+class EpisodeFinalization:
+    snapshot_id: int
+    action_step: int
+    reason: str
+
+
+@dataclass(frozen=True)
 class TemporalDeclaration:
     event: str
     answer: str | None
@@ -66,6 +73,7 @@ class ESIControlBackend(ESIPreviewBackend):
             'agent/arrivals': (self.submit_arrivals, ('rooms', 'snapshot_id', 'action_step', 'control_token')),
             'agent/answer': (self.submit_answer, ('answer', 'snapshot_id', 'action_step', 'control_token')),
             'agent/done': (self.submit_done, ('snapshot_id', 'action_step', 'control_token')),
+            'agent/finalize': (self.submit_finalization, ('snapshot_id', 'action_step', 'reason', 'control_token')),
             'agent/temporal': (self.submit_temporal, ('event', 'answer', 'snapshot_id', 'action_step', 'control_token'))}
         def handler(method, fields):
             def submit(body):
@@ -215,6 +223,7 @@ class ESIControlBackend(ESIPreviewBackend):
                              next_gripper="RELEASE" if closed or command == "GRASP" else "GRASP")
             state.update(holding=None, picked=None, placed=None, task_done=None)
             state['done_declaration_available'] = callable(getattr(self.observation_source, 'report_done', None))
+            state['episode_finalization_available'] = callable(getattr(self.observation_source, 'finalize_episode', None))
             session = getattr(self.observation_source, 'session', None)
             state['requires_done_declaration'] = getattr(
                 getattr(session, 'task_evaluator', None), 'requires_done_declaration', False) is True
@@ -407,6 +416,17 @@ class ESIControlBackend(ESIPreviewBackend):
         return self._submit_transaction(TemporalDeclaration(event, answer, snapshot_id, action_step),
                                         {}, timeout, control_token=token)
 
+    def submit_finalization(self, snapshot_id, action_step, reason, token, timeout=None):
+        """Queue runner-owned terminal scoring without a model declaration."""
+        if (type(snapshot_id) is not int or snapshot_id < 1
+                or type(action_step) is not int or action_step < 0
+                or not isinstance(reason, str) or not reason or len(reason) > 64):
+            return {'ok': False, 'status': 400, 'message': 'Invalid episode finalization.'}
+        if not isinstance(token, str) or not token:
+            return {'ok': False, 'status': 403, 'message': 'Agent control token required.'}
+        return self._submit_transaction(EpisodeFinalization(snapshot_id, action_step, reason),
+                                        {}, timeout, control_token=token)
+
     def cancel_agent(self, token):
         with self.frame_cond:
             if self.control_owner == "human":
@@ -431,7 +451,7 @@ class ESIControlBackend(ESIPreviewBackend):
         done, cancel = threading.Event(), threading.Event()
         with self.frame_cond:
             if (self.temporal_state()['temporal_phase'] == 'phase_1'
-                    and not isinstance(command, (ArrivalDeclarations, TemporalDeclaration, AnswerDeclaration, DoneDeclaration))
+                    and not isinstance(command, (ArrivalDeclarations, TemporalDeclaration, AnswerDeclaration, DoneDeclaration, EpisodeFinalization))
                     and not all(survey_action_allowed(item) for item in (command if isinstance(command, list) else [command]))):
                 return {'ok': False, 'status': 409, 'message': 'Phase 1 permits observation only; robot commands are unavailable.'}
             if control_token is not None:
@@ -534,6 +554,7 @@ class ESIControlBackend(ESIPreviewBackend):
                 if resume_step is not None:
                     slot.pop("task_text")
                     slot.pop("world_advances_during_inference")
+                    self.observation_source.resume_episode()
                     self.observation_source.capture(action_boundary=True)
                     session = getattr(self.observation_source, "session", None)
                     evaluator = getattr(session, "task_evaluator", None)
@@ -582,6 +603,16 @@ class ESIControlBackend(ESIPreviewBackend):
                         snapshot_id=tokens.snapshot_id, action_step=tokens.action_step))
                 except (ValueError, RuntimeError):
                     slot.update(ok=False, status=409, message='DONE declaration is unavailable at this boundary.')
+                return True
+            if isinstance(tokens, EpisodeFinalization):
+                if cancel.is_set() or self.closing.is_set():
+                    slot.update(ok=False, status=409, message='Terminal evaluation cancelled.')
+                    return True
+                try:
+                    slot.update(self.observation_source.finalize_episode(snapshot_id=tokens.snapshot_id,
+                        action_step=tokens.action_step, reason=tokens.reason))
+                except (ValueError, RuntimeError):
+                    slot.update(ok=False, status=409, message='Terminal evaluation is unavailable at this boundary.')
                 return True
             if isinstance(tokens, ArrivalDeclarations):
                 if cancelled():
@@ -685,7 +716,7 @@ class ESIControlBackend(ESIPreviewBackend):
                 safety.action = None
             with self.frame_cond:
                 self.owner_phase("awaiting_model" if self.control_owner == "agent" else "human_idle")
-                if not isinstance(tokens, DoneDeclaration):
+                if not isinstance(tokens, (DoneDeclaration, EpisodeFinalization)):
                     slot["world_timing"] = self.world_policy.snapshot()
                 self.busy = False
                 self.active_cancel = None

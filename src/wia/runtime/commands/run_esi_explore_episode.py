@@ -54,6 +54,8 @@ def finalize_task_record(output, manifest, status):
         execution_feedback=[step["action_result"] for step in steps if step.get("action_result") is not None],
         termination_reason=summary.get("termination_reason", "skipped" if qualification.get("status") == "skipped" else status["stage"]),
         private_task_success=summary.get("task_success"),
+        model_declared_done=summary.get("model_declared_done", False),
+        task_progress_is_final=summary.get("task_progress_is_final", False),
         agent_decisions=summary.get("agent_decisions"), decision_calls=summary.get("decision_calls"),
         model_calls=summary.get("model_calls"), request_accounting=summary.get("request_accounting"),
         safety_statistics=summary.get("safety_statistics"),
