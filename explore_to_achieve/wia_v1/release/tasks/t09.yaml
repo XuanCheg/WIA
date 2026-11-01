@@ -1,18 +1,16 @@
 kind: category_robot_task
 id: task_a2a69e7d4437df99efab7d3d
-version: 2
+version: 3
 status: pending
 source:
   provider: esi
   json: Cognitive Mapping/Regional Boundary/restaurant_cafeteria/full_scene/q_043.json
 public:
-  objective: 'Which room is chandelier closest to among these options: bathroom_0,
-    kitchen_0, dining_room_0? Inspect each queried anchor using its public description
-    and relate it to the named regions.'
-  success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
-    choosing from: bathroom_0, kitchen_0, dining_room_0. Each queried anchor must
-    be identified in delivered robot-camera observations. Room occupancy alone does
-    not establish the anchor relation; no extra room tour is required.'
+  objective: 'Which room is chandelier closest to among these options: bathroom_0, kitchen_0, dining_room_0?
+    Inspect each queried anchor using its public description and relate it to the named regions.'
+  success_criteria: 'Return the selected option in the answer field, choosing from: bathroom_0, kitchen_0,
+    dining_room_0. Each queried anchor must be identified in delivered robot-camera observations. Room
+    occupancy alone does not establish the anchor relation; no extra room tour is required.'
   environment: Explore the preserved original building using the robot-mounted observations.
   constraints:
   - Preserve original room boundaries, queried anchors and doorway geometry.

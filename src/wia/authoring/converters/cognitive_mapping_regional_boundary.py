@@ -463,6 +463,8 @@ def _native_region_distances(scene, anchor, parameters):
         else:
             expanded = geometry['_expand_bbox_xyxy'](bbox, parameters['expansion_ratio'], parameters['expansion_min_m'])
         measured[str(name)] = {
+            'bbox_world_xy': list(bbox), 'expanded_bbox_world_xy': list(expanded),
+            'center_xy': list(geometry['_room_bbox_center_xy'](bbox)),
             'bbox_distance': geometry['_distance_point_to_bbox_xy'](anchor['centre_xy'], expanded),
             'center_distance': geometry['_distance_xy'](anchor['centre_xy'], geometry['_room_bbox_center_xy'](bbox))}
     if set(measured) != set(parameters['candidate_regions']):
@@ -493,6 +495,26 @@ def _relation_evidence(session, config, bound):
             for key in ('bbox_distance', 'center_distance')) for name, record in p['recorded_distances'].items())
         result.update(recorded_metric_reproduced=reproduced,
                       region_relation_consistent=reproduced and ranked[0] == p['target_regions'][0])
+    elif p.get('actual_capability') == 'observed_anchor_region_relation':
+        # Use the source generator's assignment, retaining segmentation for comparison.
+        settings = {**p, 'candidate_regions': list(scene.seg_map.room_ins_id_to_ins_name.values()),
+                    'expansion_ratio': p.get('expansion_ratio', .35),
+                    'expansion_min_m': p.get('expansion_min_m', .75)}
+        assignments = []
+        for key, state, segmented in zip(config['binding_keys'], states, regions):
+            geometry = _native_region_distances(scene, state, settings)
+            containing = sorted((name for name, row in geometry.items() if row['bbox_distance'] == 0),
+                                key=lambda name: (geometry[name]['center_distance'], name))
+            in_rooms = list(getattr(bound[key], 'in_rooms', ()) or ())
+            assigned = containing[0] if containing else segmented or next((r for r in in_rooms if r), None)
+            assignments.append({'binding': key, 'assigned_region': assigned,
+                'segmentation_region': segmented, 'in_rooms': in_rooms, 'containing_regions': containing,
+                'method': 'expanded_bbox' if containing else 'seg_query' if segmented else 'in_rooms',
+                'region_geometry': geometry})
+        result.update(native_anchor_assignment=assignments,
+            assignment_policy='source_expanded_bounds_then_segmentation_then_in_rooms',
+            assignment_parameters={k: settings[k] for k in ('expansion_ratio', 'expansion_min_m')},
+            region_relation_consistent=[r['assigned_region'] for r in assignments] == p['target_regions'])
     else:
         result['region_relation_consistent'] = regions == p['target_regions']
     return result

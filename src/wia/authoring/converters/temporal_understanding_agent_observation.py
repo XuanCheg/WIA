@@ -994,11 +994,11 @@ def build_history_retrieval(source, context):
     public = {'objective': f'Survey all {len(targets)} distinct targets along this route: {route} '
         'Target inventory: ' + '; '.join(labels[k] for k in targets) + '. '
         'Remember their first-observed order. After observing every target from an informative legal viewpoint, '
-        'submit ANSWER: SURVEY_COMPLETE. A reproducible rank question will then be revealed. '
+        'set survey_complete=true with command DONE and answer=null. A reproducible rank question will then be revealed. '
         f'Identify that history-selected target, retrieve it, and place it on {destination["public_label"]}.',
         'success_criteria': 'Complete the informative survey without moving targets, resolve the revealed rank '
             'using your own first-encounter history, then grasp the same bound object and release it stably at '
-            'the named destination. Submit the selected public target label as ANSWER: <label>. '
+            'the named destination. Submit the selected public target label in the answer field. '
             'Simultaneous first encounters do not define an order and invalidate that order question.',
         'environment': 'One continuous native episode; no actor replay or historical count answer is supplied. '
             'The colored target stations and named delivery surface are explicit initialized apparatus.',
@@ -1169,7 +1169,7 @@ class HistoryRetrievalEvaluator:
         self.question_rank = random.Random(self.parameters['followup_seed']).randrange(1, len(self.frozen) + 1)
         self.selected_key = self.frozen[self.question_rank - 1]
         question = (f'Survey complete. Which target was number {self.question_rank} in your first-observed order? '
-            'Submit its public target label as ANSWER: <label>, retrieve that same target, and place it on '
+            'Submit its public target label in the answer field, retrieve that same target, and place it on '
             + self.parameters['destination_label'] + '.')
         if self.parameters.get('followup_rule') in ('before_reference_encounter', 'after_reference_encounter'):
             before = self.parameters['followup_rule'] == 'before_reference_encounter'
@@ -1181,7 +1181,7 @@ class HistoryRetrievalEvaluator:
             reference = self.parameters['public_target_labels'][self.frozen[reference_index]]
             question = ('Survey complete. For the next delivery, retrieve the item you first inspected immediately '
                 + ('before ' if before else 'after ') + reference + '. Use your actual survey history. '
-                'Submit its item label as ANSWER: <label>, then place that same item on '
+                'Submit its item label in the answer field, then place that same item on '
                 + self.parameters['destination_label'] + '.')
         events = getattr(self.session, 'public_task_events', None)
         if events is None:

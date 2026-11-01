@@ -199,3 +199,18 @@ def test_m1_returned_or_late_tool_view_cannot_create_observed_use():
     frame["objects"]["tool_a"] = placed(1)
     events.state["events"][-1]["time_s"] = .75
     assert not events.on_observation_delivered(frame, {"tool_a", "zone_cleaning_surface"})["observed_tags"]
+
+
+def test_wipe_path_avoids_spare_tool_without_moving_it():
+    position = [0., 0., .0175]
+    box = [[-.04, -.0275, 0.], [.04, .0275, .035]]
+    spare = [[.10, -.0275, 0.], [.18, .0275, .035]]
+    zone = {'aabb': [[-.04, -.1, 0.], [.28, .1, 0.]], 'support': 'table'}
+    path = wipe_waypoints(position, box, zone, obstacles=[spare])
+    wipe = [path[7], *[p for p in path if p['contact']]]
+    assert sum(math.dist(a['position'], b['position']) for a, b in zip(wipe, wipe[1:])) == pytest.approx(.1)
+    for point in wipe:
+        p = point['position']
+        assert not all(p[i] + box[1][i] > spare[0][i] and
+                       p[i] + box[0][i] < spare[1][i] for i in (0, 1))
+    assert len(path) == 16 and path[-1]['position'] == position

@@ -212,7 +212,8 @@ class HistoryCollectionEvaluator:
             {'id': 'requested_native_identities', 'completed': identities, 'kind': 'checkpoint',
              'evaluation_validity': 'valid' if identity_available else 'unavailable'},
             {'id': 'all_requested_items_delivered', 'completed': delivered, 'kind': 'terminal_condition',
-             'evaluation_validity': 'valid' if self.physical_available else 'unavailable'}]
+             'evaluation_validity': 'valid' if not queried or self.physical_available else 'unavailable',
+             'reason': 'query_not_opened' if not queried else None}]
         available = self.protection_available and self.grasp_available and all(
             item['evaluation_validity'] == 'valid' for item in items)
         result = {'schema': 'history_multi_retrieval_v1', 'completion_items': items,

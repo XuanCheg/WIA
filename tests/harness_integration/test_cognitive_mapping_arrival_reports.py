@@ -332,7 +332,7 @@ def test_legacy_converter_public_goal_and_private_answer_boundary(module, tmp_pa
     p = task['private']['evaluation']['parameters']
     assert p['arrival_report_required'] is True and p['required_regions']
     public = json.dumps(task['public'])
-    assert 'ARRIVED: <room_instance>' in public
+    assert 'arrived_rooms' in public and 'ARRIVED:' not in public
     assert not any(key in public for key in ('graph_shortest_region_path', 'shortest_path_regions',
         'region_sequence', 'answer_region', 'correct_region', 'target_regions', 'floor_insseg', 'recorded_distances'))
     assert source.path.read_bytes() == raw_before

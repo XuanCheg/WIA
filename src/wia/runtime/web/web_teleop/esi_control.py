@@ -33,6 +33,14 @@ class ArrivalDeclarations:
 
 
 @dataclass(frozen=True)
+class ObservationDeclarations:
+    objects: list
+    delivered_views: list
+    snapshot_id: int
+    action_step: int
+
+
+@dataclass(frozen=True)
 class AnswerDeclaration:
     answer: str
     snapshot_id: int
@@ -71,6 +79,7 @@ class ESIControlBackend(ESIPreviewBackend):
     def agent_extensions(self):
         declarations = {
             'agent/arrivals': (self.submit_arrivals, ('rooms', 'snapshot_id', 'action_step', 'control_token')),
+            'agent/observed_objects': (self.submit_observed_objects, ('objects', 'delivered_views', 'snapshot_id', 'action_step', 'control_token')),
             'agent/answer': (self.submit_answer, ('answer', 'snapshot_id', 'action_step', 'control_token')),
             'agent/done': (self.submit_done, ('snapshot_id', 'action_step', 'control_token')),
             'agent/finalize': (self.submit_finalization, ('snapshot_id', 'action_step', 'reason', 'control_token')),
@@ -203,6 +212,7 @@ class ESIControlBackend(ESIPreviewBackend):
                 proprioception=self._proprioception(robot),
                 robot_state=robot.to_dict() if robot is not None else None,
                 observation_snapshot_id=self.agent_snapshot.snapshot_id if self.agent_snapshot is not None else None,
+                simulation_clock=getattr(self.observation_source, 'simulation_clock', None),
                 observation_captured_at=self.agent_snapshot.captured_at if self.agent_snapshot is not None else None,
                 observation_config=self.observation_config.to_dict(),
                 camera_shape=self.metadata.get("image_shape"),
@@ -225,6 +235,8 @@ class ESIControlBackend(ESIPreviewBackend):
             state['done_declaration_available'] = callable(getattr(self.observation_source, 'report_done', None))
             state['episode_finalization_available'] = callable(getattr(self.observation_source, 'finalize_episode', None))
             session = getattr(self.observation_source, 'session', None)
+            state['observation_declarations_available'] = getattr(
+                getattr(session, 'task_evaluator', None), 'observation_declarations_available', False) is True
             state['requires_done_declaration'] = getattr(
                 getattr(session, 'task_evaluator', None), 'requires_done_declaration', False) is True
             state.update(self.world_policy.snapshot())
@@ -378,6 +390,22 @@ class ESIControlBackend(ESIPreviewBackend):
         if not isinstance(token, str) or not token:
             return {'ok': False, 'status': 403, 'message': 'Agent control token required.'}
         return self._submit_transaction(ArrivalDeclarations(tuple(dict.fromkeys(rooms)), snapshot_id, action_step),
+                                        {}, timeout, control_token=token)
+
+    def submit_observed_objects(self, objects, delivered_views, snapshot_id, action_step, token, timeout=None):
+        from wia.runtime.agent.observation_declarations import validate_declarations
+        try:
+            objects = validate_declarations(objects)
+            if (not isinstance(delivered_views, list) or len(delivered_views) > 16
+                    or any(not isinstance(v, str) or len(v) > 160 for v in delivered_views)
+                    or type(snapshot_id) is not int or snapshot_id < 1
+                    or type(action_step) is not int or action_step < 0):
+                raise ValueError('Invalid observation boundary.')
+        except ValueError:
+            return {'ok': False, 'status': 400, 'message': 'Invalid observation declarations.'}
+        if not isinstance(token, str) or not token:
+            return {'ok': False, 'status': 403, 'message': 'Agent control token required.'}
+        return self._submit_transaction(ObservationDeclarations(objects, delivered_views, snapshot_id, action_step),
                                         {}, timeout, control_token=token)
 
     def submit_answer(self, answer, snapshot_id, action_step, token, timeout=None):
@@ -583,6 +611,16 @@ class ESIControlBackend(ESIPreviewBackend):
                     slot['candidate_observation_history'] = history
                     native_session.candidate_history_delivery_receipt = deliver()
                 slot.update(ok=True, message="Agent episode ready at the current scene.")
+                return True
+            if isinstance(tokens, ObservationDeclarations):
+                if cancelled():
+                    slot.update(ok=False, status=409, message='Observation declarations cancelled.')
+                    return True
+                try:
+                    slot.update(self.observation_source.report_observed_objects(tokens.objects, tokens.delivered_views,
+                        snapshot_id=tokens.snapshot_id, action_step=tokens.action_step))
+                except (ValueError, RuntimeError):
+                    slot.update(ok=False, status=409, message='Observation declaration boundary unavailable.')
                 return True
             if isinstance(tokens, AnswerDeclaration):
                 if cancelled():

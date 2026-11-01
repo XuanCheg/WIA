@@ -1,0 +1,43 @@
+{
+  "schema": "wia_native_scene_sequence_v1",
+  "purpose": "Fixed MCP diagnostic of the revised T23 answer mapping; no model or manipulation-success claim.",
+  "actions": [
+    {
+      "action": "BASE_TURN_LEFT",
+      "angle_deg": 5
+    },
+    {
+      "action": "BASE_TURN_RIGHT",
+      "angle_deg": 5
+    },
+    {
+      "action": "BASE_FWD",
+      "distance_m": 0.05
+    },
+    {
+      "action": "BASE_BACK",
+      "distance_m": 0.05
+    },
+    {
+      "action": "MV_UP",
+      "distance_m": 0.02
+    },
+    {
+      "action": "MV_DOWN",
+      "distance_m": 0.02
+    },
+    {
+      "action": "GRASP"
+    },
+    {
+      "action": "RELEASE"
+    }
+  ],
+  "answers": {
+    "DONE": {
+      "granola box": "mug",
+      "spray can": "mug",
+      "colored pencil": "wicker basket"
+    }
+  }
+}

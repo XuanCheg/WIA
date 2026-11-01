@@ -559,6 +559,7 @@ class RoomCollectionEvaluator:
         self.picked, self.wrong_pickups, self.previous_collected = set(), set(), set()
         self.visits, self.acquisitions, self.spills, self.faults = [], [], [], []
         self.previous_held = None
+        self.clock_regression = None
         self.last_time = self.stable_since = self.state = None
 
     def _result(self, duration, dwell):
@@ -576,7 +577,11 @@ class RoomCollectionEvaluator:
         now = float(state['native_time_s'])
         if self.last_time is not None and now <= self.last_time:
             if now < self.last_time:
-                self.faults.append('native_clock_regressed')
+                if 'native_clock_regressed' not in self.faults:
+                    self.faults.append('native_clock_regressed')
+                self.clock_regression = {'previous_time_s': self.last_time, 'current_time_s': now}
+                self.state = state
+                self.stable_since = None
             return
         room, valid = state['native_region'], state['room_occupancy_valid']
         if (not self.visits or self.visits[-1]['room'] != room
@@ -615,7 +620,8 @@ class RoomCollectionEvaluator:
         duration = 0. if self.stable_since is None else self.last_time - self.stable_since
         result = self._result(duration, self.parameters['terminal_dwell_s'])
         initialization_accepted = result['checks']['initialization_receipt']
-        validity = 'complete' if initialization_accepted else 'invalid_initialization'
+        validity = ('unavailable' if self.faults else
+                    'complete' if initialization_accepted else 'invalid_initialization')
         result.update(schema='native_wia_room_collection_v1', snapshot_id=observation.snapshot_id,
                       action_step=observation.action_step, evaluation_validity=validity,
                       terminal_conditions_satisfied=result['task_success'], route=list(self.route),
@@ -623,9 +629,10 @@ class RoomCollectionEvaluator:
                       native_room_visits=self.visits, acquisitions=self.acquisitions,
                       validly_acquired_targets=sorted(self.picked), wrong_pickups=sorted(self.wrong_pickups),
                       spills=self.spills, native_state=self.state, configuration=self.config,
+                      faults=list(self.faults), clock_regression=getattr(self, 'clock_regression', None),
                       completion_items=[{'id': 'collect:' + name, 'kind': 'current_physical_inventory',
-                                         'completed': initialization_accepted and name in result['collected_targets'],
-                                         'evaluation_validity': 'valid' if initialization_accepted else validity}
+                                         'completed': validity == 'complete' and name in result['collected_targets'],
+                                         'evaluation_validity': 'valid' if validity == 'complete' else validity}
                                         for name in self.targets])
         (self.output / 'latest.json').write_text(json.dumps(result, indent=2, allow_nan=False) + '\n')
         return result

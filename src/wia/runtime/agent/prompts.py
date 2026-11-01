@@ -41,7 +41,7 @@ class PromptAssembler:
                  wia_history_condition="full", debug_reachability=False, cache_prefix_layout=False):
         self.cache_prefix_layout = cache_prefix_layout
         if task_mode not in ("physical", "original_qa") or task_mode == "original_qa" and not world_observation:
-            raise ValueError("Original QA requires world-observation output for its final answer.")
+            raise ValueError("Original QA requires world-observation output for evidence logging.")
         self.task_mode = task_mode
         if wia_history_condition not in ('full', 'history_removed', 'history_oracle'):
             raise ValueError('Unknown WIA history condition.')
@@ -145,6 +145,7 @@ class PromptAssembler:
         value = {"prompt_main_sha256": hashlib.sha256(self.main.encode()).hexdigest(),
                 "prompt_component_hashes": dict(self.component_hashes), "prompt_plugins": dict(self.plugins),
                 "task_mode": self.task_mode,
+                "task_response_protocol": "structured_fields_v1" if self.task_mode == 'physical' or self.qa_protocol is None else None,
                 "qa_protocol": self.qa_protocol.provenance() if self.qa_protocol is not None else None}
         if not self.initial_overview_required:
             value['wia_history_condition'] = self.wia_history_condition
@@ -227,6 +228,17 @@ class PromptAssembler:
             raise ValueError("The native task pathway does not use model_notes.")
         request = replace(request, world_observation_log=self.plugins["world_observation"],
                           qa_response=self.qa_protocol is not None)
+        if self.task_mode == 'physical' or self.qa_protocol is None:
+            from .task_response import enable_task_response
+            if ('survey_complete' in public_task['objective']
+                    and not (request.action_context or {}).get('temporal_episode')
+                    and not (request.action_context or {}).get('history_collection_survey_complete')):
+                request = replace(request, action_context=dict(request.action_context or {},
+                                  history_collection_survey_available=True))
+            request = enable_task_response(request, public_task)
+        elif (request.action_context or {}).get('observation_declarations_available'):
+            from .observation_declarations import enable_declarations
+            request = enable_declarations(request)
         allowed_public = {"task_id", "task_version", "objective", "success_criteria", "environment", "constraints"}
         if set(public_task) != allowed_public:
             raise ValueError("Only the validated public task projection is accepted.")
@@ -279,6 +291,12 @@ class PromptAssembler:
         if sensor.perception is not None and sensor.perception.point_cloud_m is not None:
             sensor_data["perception_point_cloud_m"] = sensor.perception.point_cloud_m.tolist()
         context = dict(request.action_context or {})
+        if context.get('simulation_clock') is not None:
+            context['simulation_clock_semantics'] = (
+                'Elapsed simulation seconds since this task episode started, sampled at the identified '
+                'camera snapshot. Processing durations and the deadline use this same clock. '
+                'It is not wall time or a live timer; the world may advance during inference. '
+                'The timer does not report processing completion or task success.')
         if context.get('candidate_history_frames'):
             sensor_data['attached_images_in_order'] = [{
                 'name': f"candidate_history_{frame['index']:02}_agentview_rgb",
@@ -299,9 +317,17 @@ class PromptAssembler:
             output.pop("retry_feedback")
         output_text = describe("Exact structured output contract", output)
         if request.world_observation_log:
-            output_text += ('\nReturn {"command":{...one valid action command...},'
-                            '"world_observation":"Brief description of the supplied world."}. '
-                            'Only command is executed. The observation is a public log, not memory or a success signal.')
+            output_text += ('\nReturn the single command and a world_observation string, together with all '
+                            'other fields required by the exact schema above. '
+                            'Only command executes robot motion. The observation is a public log, not memory or a success signal.')
+            if self.task_mode == 'physical':
+                output_text += ('\nReturn the separate answer field shown in the schema. Use null when not submitting '
+                    'an answer; otherwise use the requested option, or the object/question mapping required by the schema. '
+                    'Only this field submits an answer. Answer-like text in world_observation does not submit an answer. '
+                    'A non-null answer is recorded before this command; it does not itself declare DONE or certify success. '
+                    'Use arrived_rooms for current room-arrival declarations and [] otherwise. '
+                    'Use survey_complete=true with command DONE only to finish a requested survey and continue the task; '
+                    'use false otherwise. Text markers in world_observation are never parsed as declarations.')
             if self.qa_protocol is not None:
                 output_text += ('\nAlso return the original task answer, confidence and reasoning fields at the top level. '
                     'reasoning is a brief public explanation of observed evidence, not a deliberation trace. '
@@ -316,11 +342,22 @@ class PromptAssembler:
                         'as in the original task. ')
                 output_text += ('At the last budgeted decision no further motion is executed. '
                     'An extra nonmotion final selection is requested if no recognized answer was given.')
+        elif self.task_mode == 'physical':
+            output_text += ('\nReturn the declared command, answer, arrived_rooms and survey_complete fields. '
+                'Use answer=null, arrived_rooms=[] and survey_complete=false when unused. '
+                'A survey transition pairs survey_complete=true with command DONE and continues the task.')
         elif request.action_mode == "parameterized":
             output_text += '\nReturn {"command":{"action":ACTION,...required magnitude...}}. '
             output_text += 'GRASP, RELEASE, RIGHT_GRASP, RIGHT_RELEASE and DONE have only action inside command. No other fields.'
         else:
             output_text += '\nReturn {"action":ACTION} with no other fields.'
+        if (request.action_context or {}).get('observation_declarations_available'):
+            output_text += ('\nAlso return observed_objects: a list of {"label": "public object description", '
+                '"camera": "camera name"}. Use [] when no queried object is identified. '
+                'Report only queried anchors identified in current mounted RGB images actually supplied '
+                'or retrieved with read_rgb_camera this turn. Use the object descriptions from the question; '
+                'spaces and underscores are equivalent. A declaration alone does not earn credit. '
+                'The initial overview and recalled historical images do not count as a current encounter.')
         resident = self.render("resident", {"ROBOT_PROFILE": self.components["robots/r1.md"],
             "ACTION_INTERFACE": self.components[f"actions/{request.action_mode}.md"] +
                 ("\n\nCurrent action capabilities and limits are supplied in the system context for this decision."

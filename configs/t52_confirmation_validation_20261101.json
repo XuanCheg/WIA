@@ -1,0 +1,39 @@
+{
+  "schema": "wia_native_scene_sequence_v1",
+  "purpose": "T52 protocol diagnostic: declare inside on the first action, then execute all eight commands and actively DONE. No model or recognition claim.",
+  "actions": [
+    {
+      "action": "BASE_TURN_LEFT",
+      "angle_deg": 5
+    },
+    {
+      "action": "BASE_TURN_RIGHT",
+      "angle_deg": 5
+    },
+    {
+      "action": "BASE_FWD",
+      "distance_m": 0.05
+    },
+    {
+      "action": "BASE_BACK",
+      "distance_m": 0.05
+    },
+    {
+      "action": "MV_UP",
+      "distance_m": 0.02
+    },
+    {
+      "action": "MV_DOWN",
+      "distance_m": 0.02
+    },
+    {
+      "action": "GRASP"
+    },
+    {
+      "action": "RELEASE"
+    }
+  ],
+  "answers": {
+    "0": "inside"
+  }
+}

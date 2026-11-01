@@ -167,7 +167,7 @@ def build(alias, seed):
     if alias.startswith('R-C'):
         goal += 'Grasp that item and release it ' + ('on the cutting board.' if alias == 'R-C3' else 'inside the stockpot.')
     elif alias.startswith('R-A'):
-        goal = ('Inspect the produce appearance inside the red outline in the initial head-camera view. Before grasping, submit ANSWER: reflected or ANSWER: direct. '
+        goal = ('Inspect the produce appearance inside the red outline in the initial head-camera view. Before grasping, submit reflected or direct in the answer field. '
                 'Deliver the corresponding real item inside the stockpot if reflected, or onto the cutting board if direct.')
     elif alias == 'R-S3':
         goal = ('Use the mirror to identify the two produce items and their initial distance order relative to the fixed stockpot. '

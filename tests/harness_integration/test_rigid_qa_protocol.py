@@ -115,7 +115,7 @@ def test_budget_skips_last_motion_and_forces_one_selection_in_same_agent(qa, tmp
     assert result["qa_stop_reason"] == "max_steps"
     assert result["qa_final_answer"] == "medium container"
     assert result["qa_forced_choice"]["confidence"] == .3
-    assert env.calls == [] and agent.calls == result["model_calls"] == 3
+    assert env.calls == [] and agent.calls == 3 and result["model_calls"] is None
 
 
 @pytest.fixture
@@ -130,7 +130,7 @@ def test_combined_confidence_does_not_suppress_physical_action(combined, tmp_pat
                                ("DONE", "medium container", .8)])
     result = asyncio.run(run_episode(env, agent, tmp_path / "episode", max_steps=60))
     assert env.calls == ["BASE_FWD"]
-    assert result["agent_decisions"] == 2 and result["model_calls"] == 2
+    assert result["agent_decisions"] == 2 and result["model_calls"] is None
     assert result["qa_stop_reason"] == "model_stop"
     assert result["task_success"] is None
     records = [json.loads(line) for line in (tmp_path / "episode/steps.jsonl").read_text().splitlines()]
@@ -205,12 +205,12 @@ def test_resume_continues_budget_and_history_without_replaying_motion(combined, 
     interrupted = QAAgent(combined, [("BASE_FWD", "unsure", .2), ("BASE_FWD", "unsure", .2),
                                      ModelError("serverOverloaded")])
     first = asyncio.run(run_episode(env, interrupted, tmp_path / "first", max_steps=4))
-    assert first["agent_decisions"] == 2 and first["model_calls"] == 3
+    assert first["agent_decisions"] == 2 and first["model_calls"] is None
     resumed = QAAgent(combined, [("BASE_FWD", "unsure", .3), ("DONE", "medium container", .4)])
     result = asyncio.run(run_episode(env, resumed, tmp_path / "resumed", max_steps=4,
                                     resume_summary=first, expected_action_step=2))
     assert env.calls == ["BASE_FWD"] * 3
-    assert result["agent_decisions"] == 4 and result["model_calls"] == 5
+    assert result["agent_decisions"] == 4 and result["model_calls"] is None
     assert result["qa_final_answer"] == "medium container"
     assert [r["step"] for r in result["qa_history"]] == [1, 2, 3, 4]
     records = [json.loads(x) for x in (tmp_path / "resumed/steps.jsonl").read_text().splitlines()]

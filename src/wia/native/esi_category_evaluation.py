@@ -45,6 +45,22 @@ class CategoryEvaluationEnvelope:
         self.done_error = None
 
     @property
+    def observation_declarations_available(self):
+        return getattr(self.native, 'observation_declarations_available', False) is True
+
+    def capture_observation(self, observation):
+        capture = getattr(self.native, 'capture_observation', None)
+        if callable(capture):
+            capture(observation)
+
+    def report_observed_objects(self, objects, delivered_views, observation):
+        if not self.episode or self.done_result is not None:
+            raise ValueError('Observation declarations require an active episode.')
+        self.task.verify_unchanged()
+        self.native.report_observed_objects(objects, delivered_views, observation)
+        self.record(observation, action=None)
+
+    @property
     def requires_done_declaration(self):
         return getattr(self.native, 'requires_done_declaration', False) is True
 
@@ -98,8 +114,6 @@ class CategoryEvaluationEnvelope:
 
     def report_done(self, observation):
         """Latch one terminal native result without executing or stepping a robot."""
-        if not self.requires_done_declaration:
-            return None
         if self.done_result is not None:
             if self.done_error is not None:
                 raise RuntimeError(self.done_error)
@@ -108,7 +122,12 @@ class CategoryEvaluationEnvelope:
             raise RuntimeError('DONE declarations require an active episode.')
         self.task.verify_unchanged()
         try:
-            native = self.native.declare_done(observation)
+            if self.failure is not None:
+                native = self.failure.record(observation)
+            elif self.requires_done_declaration:
+                native = self.native.declare_done(observation)
+            else:
+                native = dict(self.native.record(observation, action=None), evaluation_finalized=True)
         except Exception as error:
             self._fail('done_declaration', error)
             native = self.failure.record(observation)
@@ -149,6 +168,9 @@ class CategoryEvaluationEnvelope:
         if self.done_result is not None:
             if self.done_result.get('model_declared_done', True):
                 raise RuntimeError('An episode with model DONE cannot resume.')
+            reopen = getattr(self.native, 'resume_episode', None)
+            if callable(reopen):
+                reopen()
             self.done_result = None
             self.done_error = None
 
@@ -209,6 +231,10 @@ class CategoryEvaluationEnvelope:
         try:
             report(answer, observation)
         except Exception as error:
+            if answer == 'SURVEY_COMPLETE' and isinstance(error, ValueError):
+                # An incomplete public survey is a rejected declaration, not
+                # loss of native scoring evidence. Keep the evaluator usable.
+                raise
             self._fail('answer_report', error)
         self.record(observation, action=None)
 

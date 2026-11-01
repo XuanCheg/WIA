@@ -38,7 +38,7 @@ class CandidateEvaluator:
                 if other is not None and obj is not other and obj.states[Touching].get_value(other):contacts.append(name)
             objects[obj.name]={'position':position,'orientation':orientation,'native_id':str(obj.prim_path),'aabb':[arr(x).tolist() for x in obj.aabb],
                 'linear_speed':float(np.linalg.norm(arr(obj.get_linear_velocity()))),'angular_speed':float(np.linalg.norm(arr(obj.get_angular_velocity()))),
-                'held':obj.name in held_names if held is not None else None,'contacts':contacts}
+                'held':obj.name in held_names if isinstance(held,dict) else None,'contacts':contacts}
         frame={'time_s':float(session.pipeline.og.sim.current_time),'objects':objects,'regions':deepcopy(state['regions']),
             'events':deepcopy(state['events']),'observed':deepcopy(state['observed'])}
         if p['prototype']=='M3':
@@ -71,12 +71,16 @@ class CandidateEvaluator:
     def sample_step(self):
         if not self.episode_started:return
         frame=self.measure()
+        if self.frames and frame['time_s'] < self.frames[-1]['time_s']:
+            raise ValueError('Candidate native clock regressed within the episode.')
         if not self.frames or frame['time_s']>self.frames[-1]['time_s']:self.frames.append(frame)
 
     def record(self,observation,*,action=None):
         from wia.candidates.high import evaluate as high
         from wia.candidates.medium import evaluate as medium
         p=self.config['parameters'];frame=self.measure();history=[f for f in self.frames if f['time_s']<frame['time_s']]
+        if self.frames and frame['time_s'] < self.frames[-1]['time_s']:
+            raise ValueError('Candidate native clock regressed within the episode.')
         result=(high if p['prototype'].startswith('H') else medium)(p['prototype'],p['contract'],frame,history)
         result.update(snapshot_id=getattr(observation,'snapshot_id',None),action_step=getattr(observation,'action_step',None),physical_execution_verified=False)
         (self.output/'state.json').write_text(json.dumps(result,indent=2)+'\n');self.sample_step();return result

@@ -1,17 +1,16 @@
 kind: category_robot_task
 id: task_f80a5eb019aeed71f2d6a2ad
-version: 2
+version: 3
 status: pending
 source:
   provider: esi
   json: Cognitive Mapping/Regional Boundary/restaurant_cafeteria/full_scene/q_028.json
 public:
-  objective: Are top_cabinet and commercial_kitchen_table in the same region? Inspect
-    each queried anchor using its public description and relate it to the named regions.
-  success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
-    choosing from: Yes, No. Each queried anchor must be identified in delivered robot-camera
-    observations. Room occupancy alone does not establish the anchor relation; no
-    extra room tour is required.'
+  objective: Are top_cabinet and commercial_kitchen_table in the same region? Inspect each queried anchor
+    using its public description and relate it to the named regions.
+  success_criteria: 'Return the selected option in the answer field, choosing from: Yes, No. Each queried
+    anchor must be identified in delivered robot-camera observations. Room occupancy alone does not establish
+    the anchor relation; no extra room tour is required.'
   environment: Explore the preserved original building using the robot-mounted observations.
   constraints:
   - Preserve original room boundaries, queried anchors and doorway geometry.

@@ -1,18 +1,17 @@
 kind: category_robot_task
 id: wia_regional_t11_v1
-version: 2
+version: 3
 status: pending
 source:
   provider: esi
   json: Cognitive Mapping/Regional Boundary/school_gym/full_scene/q_008.json
 public:
-  objective: 'Which room contains the paper towel dispenser? Choose from: gym 0, locker room
-    1, locker room 0, bathroom 0. Inspect each queried anchor using its public description
-    and relate it to the named regions.'
-  success_criteria: 'Report a standalone ANSWER: <room label> line in world_observation, choosing
-    from: gym 0, locker room 1, locker room 0, bathroom 0. Each queried anchor must be identified
-    in delivered robot-camera observations. Room occupancy alone does not establish the anchor
-    relation; no extra room tour is required.'
+  objective: 'Which room contains the paper towel dispenser? Choose from: gym 0, locker room 1, locker
+    room 0, bathroom 0. Inspect each queried anchor using its public description and relate it to the
+    named regions.'
+  success_criteria: 'Return the selected room label in the answer field, choosing from: gym 0, locker
+    room 1, locker room 0, bathroom 0. Each queried anchor must be identified in delivered robot-camera
+    observations. Room occupancy alone does not establish the anchor relation; no extra room tour is required.'
   environment: Explore the preserved original building using the robot-mounted observations.
   constraints:
   - Preserve original room boundaries, queried anchors and doorway geometry.

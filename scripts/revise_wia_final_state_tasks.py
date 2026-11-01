@@ -88,11 +88,11 @@ def revise(task):
             'Leave it released and withdraw the robot hands at least 2 cm clear.')
         public['success_criteria'] = ('Answer the original containment question for every named object. '
             'For each object, verify partial insertion into its selected container with actual container contact and no interpenetration. '
-            'With empty open hands, no robot support or contact and hands at least 2 cm clear, maintain this state for at least '
+            'With both hands empty, the working gripper open, no robot support or contact and both hands at least 2 cm clear, maintain this state for at least '
             '0.5 seconds with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. '
             'An object resting entirely on top does not count. No minimum lift height or prior grasp is required. '
             'Targets may be verified sequentially and removed after verification to free a shared container. '
-            'Finish with empty open hands. Submit ANSWER: <container label> and declare DONE.')
+            'Finish with both hands empty and the working gripper open. Submit the container label in the answer field and declare DONE.')
         p.update(manipulation_revision='final_state_v1', minimum_lift_m=None,
                  scorer_version='rigid_insertion_final_state_v1')
     elif module == 'wia_dimensional':

@@ -182,10 +182,10 @@ class TemporalEnvironment(Environment):
         return validate_episode_evaluation(sealed, self.source.agent_observation(), self.task.task_text, self.task)
 
 
-def reply(action='DONE', text='', *, note=None):
+def reply(action='DONE', text='', *, note=None, answer=None):
     command = {'action': action}
     raw = {'command': command, 'memory_update': note} if note is not None else command
-    return ModelReply(json.dumps(raw), {'world_observation': text})
+    return ModelReply(json.dumps(raw), {'world_observation': text, 'answer': answer})
 
 
 class SessionAgent(MetadataAgent):
@@ -200,11 +200,11 @@ class SessionAgent(MetadataAgent):
 def test_phase_one_done_continues_same_model_session_and_preserves_memory(tmp_path):
     environment = TemporalEnvironment(tmp_path / 'private')
     agent = SessionAgent(reply(text='PHASE1_COMPLETE', note='Phase 1 visible contents remembered.'),
-        reply(text=f'ANSWER: {OPTION}', note='Compared with the earlier observations.'))
+        reply(answer=OPTION, note='Compared with the earlier observations.'))
     summary = asyncio.run(run_episode(environment, agent, tmp_path / 'episode', memory_mode='model_notes',
                                       success_provider=environment.success))
     assert summary['termination_reason'] == 'model_done' and summary['task_success'] is True
-    assert summary['agent_decisions'] == summary['model_calls'] == 2
+    assert summary['agent_decisions'] == 2 and summary['model_calls'] is None
     assert not environment.calls and summary['executed_actions'] == []
     assert all(summary[key] == 0 for key in ('macro_actions', 'primitive_actions', 'physics_steps',
         'controller_env_steps', 'actual_fixed_primitive_executions', 'equivalent_fixed_primitives'))
@@ -235,7 +235,7 @@ def test_phase_one_done_continues_same_model_session_and_preserves_memory(tmp_pa
 ])
 def test_plain_done_requests_transition_regardless_of_prose(text, tmp_path):
     environment = TemporalEnvironment(tmp_path / 'private')
-    agent = MetadataAgent(reply(text=text), reply(text='PHASE1_COMPLETE'), reply(text=f'ANSWER: {OPTION}'))
+    agent = MetadataAgent(reply(text=text), reply(text='PHASE1_COMPLETE'), reply(answer=OPTION))
     summary = asyncio.run(run_episode(environment, agent, tmp_path / 'episode', success_provider=environment.success))
     assert summary['termination_reason'] == 'model_done'
     assert summary['agent_decisions'] == 3 and not environment.calls
@@ -247,8 +247,8 @@ def test_plain_done_requests_transition_regardless_of_prose(text, tmp_path):
 def test_phase_two_done_without_one_bounded_answer_continues_without_motion(tmp_path):
     environment = TemporalEnvironment(tmp_path / 'private')
     agent = MetadataAgent(reply(text='PHASE1_COMPLETE'), reply(text='ANSWER:'),
-        reply(text=f'ANSWER: {OPTION}\nANSWER: {OPTION}'), reply(text='ANSWER: ' + 'x' * 161),
-        reply(text=f'ANSWER: {OPTION}'))
+        reply(text=f'ANSWER: {OPTION}\nANSWER: {OPTION}'), reply(answer='x' * 161),
+        reply(answer=OPTION))
     summary = asyncio.run(run_episode(environment, agent, tmp_path / 'episode', max_steps=5,
                                       success_provider=environment.success))
     assert summary['termination_reason'] == 'model_done' and summary['task_success'] is True
@@ -260,7 +260,7 @@ def test_phase_two_done_without_one_bounded_answer_continues_without_motion(tmp_
 def test_markers_from_invalid_commands_or_motion_do_not_trigger_phase_events(tmp_path):
     environment = TemporalEnvironment(tmp_path / 'private')
     agent = MetadataAgent(reply('FORBIDDEN', 'PHASE1_COMPLETE'), reply('BASE_FWD', 'PHASE1_COMPLETE'),
-        reply(text='PHASE1_COMPLETE'), reply('BASE_FWD', 'PHASE1_COMPLETE'), reply(text=f'ANSWER: {OPTION}'))
+        reply(text='PHASE1_COMPLETE'), reply('BASE_FWD', 'PHASE1_COMPLETE'), reply(answer=OPTION))
     summary = asyncio.run(run_episode(environment, agent, tmp_path / 'episode', success_provider=environment.success))
     assert summary['termination_reason'] == 'model_done' and environment.calls == ['BASE_FWD', 'BASE_FWD']
     assert environment.controller.advances == 1 and environment.native.begins == 1
@@ -286,7 +286,7 @@ def test_temporal_episode_rejects_initial_view_only_without_changing_configurati
 
 def test_phase_one_plain_done_transitions_without_ending_episode(tmp_path):
     environment = TemporalEnvironment(tmp_path / 'private')
-    agent = MetadataAgent(reply(), reply(text=f'ANSWER: {OPTION}'))
+    agent = MetadataAgent(reply(), reply(answer=OPTION))
     summary = asyncio.run(run_episode(environment, agent, tmp_path / 'episode', max_steps=3))
     assert summary['termination_reason'] == 'model_done' and summary['model_declared_done']
     assert summary['agent_decisions'] == 2 and summary['primitive_actions'] == 0
@@ -541,7 +541,7 @@ def test_actual_mcp_runner_preserves_one_lease_episode_and_phase_one_images(temp
     completed = asyncio.Event()
     agent = MetadataAgent(reply('BASE_FWD', 'Surveying the first-phase view without interacting with objects.'),
         reply(text='PHASE1_COMPLETE'), reply('BASE_FWD', 'Inspecting the second-phase view.'),
-        reply(text=f'ANSWER: {OPTION}'))
+        reply(answer=OPTION))
     leases = []
     decide = agent.decide
 
@@ -580,7 +580,7 @@ def test_actual_mcp_runner_preserves_one_lease_episode_and_phase_one_images(temp
     assert native.begins == controller.advances == 1 and calls == ['BASE_FWD', 'BASE_FWD']
     assert backend.steps == 2 and backend.control_owner == 'human' and len(set(leases)) == 1
     assert summary['phase_1_decisions'] == 2
-    assert summary['agent_decisions'] == summary['model_calls'] == 4
+    assert summary['agent_decisions'] == 4 and summary['model_calls'] is None
     assert summary['macro_actions'] == summary['primitive_actions'] == 2
     old, new = agent.inputs[1].observation, agent.inputs[2].observation
     assert old.action_step == new.action_step == 1 and new.snapshot_id > old.snapshot_id
@@ -643,7 +643,7 @@ def test_parameterized_temporal_episode_masks_phase_one_and_restores_phase_two_c
     monkeypatch.setattr('wia.runtime.agent.mcp_environment.Client', lambda *args, **kwargs: Client(create_server(url)))
     completed = asyncio.Event()
     movement = ModelReply('{"action":"BASE_FWD","distance_m":0.10}', {'world_observation': 'PHASE1_COMPLETE'})
-    agent = MetadataAgent(movement, reply(text='PHASE1_COMPLETE'), movement, reply(text=f'ANSWER: {OPTION}'))
+    agent = MetadataAgent(movement, reply(text='PHASE1_COMPLETE'), movement, reply(answer=OPTION))
 
     async def run():
         owner = asyncio.create_task(pump(backend, completed))
@@ -661,7 +661,7 @@ def test_parameterized_temporal_episode_masks_phase_one_and_restores_phase_two_c
 
     summary = asyncio.run(run())
     assert summary['termination_reason'] == 'model_done' and calls == ['BASE_FWD'] * 4
-    assert summary['agent_decisions'] == summary['model_calls'] == 4
+    assert summary['agent_decisions'] == 4 and summary['model_calls'] is None
     assert summary['phase_1_decisions'] == 2
     assert summary['macro_actions'] == 2 and summary['primitive_actions'] == 4
     assert native.prepared[0][1] == 1 and native.answers[-1][2] == 2

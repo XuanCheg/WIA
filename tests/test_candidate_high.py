@@ -139,7 +139,8 @@ def test_h2_does_not_accept_final_state_without_event_observation():
     assert evaluated["checks"]["workspace_observed_after_event"] is False
     assert not evaluated["task_success"]
     frames[15]["events"] = []
-    assert result("H2", contract, frames)["evaluation_validity"] == "unavailable"
+    assert result("H2", contract, frames)["evaluation_validity"] == "complete"
+    assert result("H2", contract, frames)["checks"]["post_delivery_sequence"] is False
 
 
 def h3(initial_count):

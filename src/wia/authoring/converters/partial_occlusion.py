@@ -107,7 +107,7 @@ def revise_grounding_result(result, source, context):
     if not partial:
         inspection = inspection.replace('keep the blocker fixed', 'preserve the candidate pose and appearance')
     task['public'] = {'objective': 'Inspect ' + target_description + '. ' + inspection
-        + 'Determine whether the candidate is ' + choices + '. Report its category as ANSWER: <category> '
+        + 'Determine whether the candidate is ' + choices + '. Return its category in the answer field '
         + 'before grasping it. Then grasp that same original candidate and release it '
         + ('inside ' if p['placement_relation'] == 'inside' else 'on ') + label + '.',
         'success_criteria': 'Complete informative inspection, report the correct identity before target grasp, '
@@ -413,7 +413,7 @@ class PartialOcclusionConverter(ConverterBase):
             'objective': 'Inspect the partly hidden candidate behind the original foreground blocker. '
                 + 'Determine whether it is ' + ' or '.join(choices) + ', report its category, '
                 + f'and place that same candidate {preposition} {label}. '
-                + 'Report the category in world_observation as ANSWER: <category>.',
+                + 'Return the category in the answer field.',
             'success_criteria': 'Report the correct category, select the same original candidate with the gripper, '
                 + f'and release it stably {preposition} {label}. The object must remain released and supported '
                 + 'for 15 consecutive physics steps; identification and placement are scored separately.',

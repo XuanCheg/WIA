@@ -138,12 +138,12 @@ def test_public_goal_uses_only_original_question_options_and_generic_protocol(so
     public = task['public']
     assert public['objective'].startswith(source.raw['question'] + '\n\n')
     assert json.dumps(json.loads(source.raw['options_json'])) in public['objective']
-    assert 'PHASE1_COMPLETE by itself in world_observation and choose DONE' in public['objective']
-    assert 'ANSWER: <option> in world_observation and choose DONE' in public['objective']
+    assert 'survey_complete=true with answer=null and command DONE' in public['objective']
+    assert 'selected option in answer and choose DONE' in public['objective']
     assert 'Phase 1 is read-only' in public['objective']
     assert 'active survey with at most 20' in public['objective']
     assert 'Phase 1 allows at most 20 decisions including invalid or refused decisions' in public['constraints'][0]
-    assert 'No object interaction is permitted' in public['constraints'][0]
+    assert 'Arm and gripper commands are disabled' in public['constraints'][0]
     assert 'Phase 2 permits existing guarded base, arm, rotation, trunk and gripper controls' in public['constraints'][1]
     assert 'no fixed route or mandatory grasp' in public['constraints'][1]
     assert 'approach and inspect at least one original container after the change' in public['objective']
@@ -243,7 +243,7 @@ def test_original_add_remove_replace_and_nochange_slots(source, tmp_path, legacy
     assert private['original_answer'] == example.raw['answer']
     assert private['public_options'] == ['yes', 'no']
     assert task['public']['objective'].startswith(example.raw['question'])
-    assert 'PHASE1_COMPLETE' in task['public']['objective']
+    assert 'survey_complete=true' in task['public']['objective']
     for key in p['phase_keys']['image1'] + p['phase_keys']['image2']:
         assert p['bindings'][key]['model'] not in json.dumps(task['public'])
 

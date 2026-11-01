@@ -286,3 +286,19 @@ def test_reinstall_reuses_current_prelude_and_reset_requires_fresh_state(setup):
         prelude.run(source, observation(99))
     with pytest.raises(RuntimeError, match="previous native scene reset"):
         prelude.mark_delivered()
+
+
+def test_private_physics_ticks_fill_sparse_prelude_image_gaps(setup):
+    session, source, evaluator, prelude = setup
+    def apply_preview(kind, capture):
+        for tick in range(1, 5):
+            session.time = tick / 30
+            prelude.events.physics_sample_callback()
+        capture('after_native_steps')
+        return {'status': 'applied'}
+    prelude.events.apply_preview = apply_preview
+    prelude.run(source, source.latest_snapshot.observation)
+    times = sorted({f['time_s'] for f in evaluator.prelude_frames})
+    assert len(times) == 5 and max(b-a for a,b in zip(times,times[1:])) <= 1/30 + 1e-9
+    assert len(session.candidate_public_history['frames']) == 3
+    assert prelude.events.physics_sample_callback is None

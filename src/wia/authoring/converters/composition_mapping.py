@@ -159,10 +159,11 @@ def plan_groups(records, tasks, scenes, *, feedback=None):
             outputs.append({'child_id': key, 'output_id': f'goal_{index}', 'capability': capability,
                 'public_objective': task['public']['objective'],
                 'public_success_criteria': task['public']['success_criteria']})
-        public = {'objective': 'Explore this building once and provide the requested answers. '
-            + ' '.join(f"{entry['output_id']}: {entry['public_objective']}" for entry in outputs),
+        public = {'objective': 'Explore this building once and provide the requested answers.\n'
+            + '\n'.join(f"{entry['output_id']}: {entry['public_objective']}" for entry in outputs),
             'success_criteria': 'A verified room visit may satisfy compatible unordered requirements in several goals. '
-                'Submit one final answer sheet as ANSWER: {"goal_1":"<answer>","goal_2":"<answer>"}. '
+                'Submit one final JSON object in the answer field: '
+                + json.dumps({entry['output_id']: '<answer>' for entry in outputs}) + '. '
                 'All answers may be submitted at the same observation boundary. '
                 + ' '.join(f"{entry['output_id']}: {entry['public_success_criteria']}" for entry in outputs),
             'environment': 'One verified common world, initial state, phase and robot/controller configuration.',

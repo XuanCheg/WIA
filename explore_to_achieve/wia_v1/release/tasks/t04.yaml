@@ -1,23 +1,20 @@
 kind: category_robot_task
 id: task_c76ca29024536f0bf868a572
-version: 2
+version: 3
 status: pending
 source:
   provider: esi
   json: Cognitive Mapping/Connectivity/Rs_int/full_scene/q_003.json
 public:
-  objective: 'Are entryway_0 and kitchen_0 adjacent, with a direct connection between
-    them? Explore the two named regions and report each arrival. While physically
-    and stably inside each required room, output a standalone line ''ARRIVED: <room_instance>''
-    in your world_observation text, replacing <room_instance> with the room instance
-    you identify from your observations. Report each required room; a declaration
-    alone does not establish a visit. For an ordered route, report each step after
-    completing its predecessor, including repeated room names. Out-of-order visits
-    do not erase completed steps; revisit and report the pending step to continue.'
-  success_criteria: 'Report a standalone ANSWER: <option> line in world_observation,
-    choosing from: Yes, No. Answer direct adjacency: a No answer does not mean the
-    rooms are globally unreachable. Each distinct required room is counted once; no
-    return tour is required.'
+  objective: Are entryway_0 and kitchen_0 adjacent, with a direct connection between them? Explore the
+    two named regions and report each arrival. While physically and stably inside each required room,
+    include its public room-instance name in arrived_rooms, using underscores in place of spaces. Report
+    each required room; a declaration alone does not establish a visit. For an ordered route, report each
+    step after completing its predecessor, including repeated room names. Out-of-order visits do not erase
+    completed steps; revisit and report the pending step to continue.
+  success_criteria: 'Return the selected option in the answer field, choosing from: Yes, No. Answer direct
+    adjacency: a No answer does not mean the rooms are globally unreachable. Each distinct required room
+    is counted once; no return tour is required.'
   environment: Explore the preserved original building using the robot-mounted observations.
   constraints:
   - Preserve original room boundaries, queried anchors and doorway geometry.

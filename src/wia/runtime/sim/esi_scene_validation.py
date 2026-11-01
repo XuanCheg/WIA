@@ -10,6 +10,9 @@ from wia.runtime.scene_capture_queue import write_json
 
 
 def run(session, executor, output, sequence):
+    if sequence.get('fit_probe') is not None:
+        from .rigid_fit_probe import run as probe_fit
+        return probe_fit(session, output, sequence['fit_probe'])
     output = Path(output)
     report = {'schema': 'wia_native_scene_validation_v1', 'model_calls': 0,
               'prechecks_enabled': getattr(session, '_wia_prechecks_enabled', True),
@@ -38,6 +41,13 @@ def run(session, executor, output, sequence):
             item['observation_error'] = f'{type(error).__name__}: {error}'
             report['errors'].append({'stage': label, 'error': item['observation_error']})
         try:
+            if (sequence.get('observed_objects') is not None
+                    and getattr(session.task_evaluator, 'observation_declarations_available', False)
+                    and label != 'final'):
+                item['synthetic_declarations'] = sequence['observed_objects']
+                item['declaration_receipt'] = source.report_observed_objects(sequence['observed_objects'],
+                    list(observation.rgb_images()), snapshot_id=observation.snapshot_id,
+                    action_step=observation.action_step)
             value = session.task_evaluator.record(observation, action=None)
             item['evaluation'] = {key: value.get(key) for key in
                 ('schema', 'evaluation_validity', 'score_percent', 'task_success', 'failure_stage',
@@ -94,12 +104,13 @@ def run(session, executor, output, sequence):
             record['elapsed_s'] = time.monotonic()-started
             report['actions'].append(record)
             save()
-        done = getattr(source, 'report_done', None)
+        done = (getattr(source, 'report_done', None) if sequence.get('declare_done', True)
+                else lambda **kw: source.finalize_episode(**kw, reason='diagnostic_sequence_end'))
         if callable(done):
             boundary = source.boundary_observation
             try:
                 receipt = done(snapshot_id=boundary.snapshot_id, action_step=boundary.action_step)
-                report['events'].append({'event': 'DONE', 'receipt': receipt})
+                report['events'].append({'event': 'DONE' if sequence.get('declare_done', True) else 'runner_finalization', 'receipt': receipt})
             except Exception as error:
                 report['errors'].append({'stage': 'DONE', 'error': f'{type(error).__name__}: {error}'})
         capture('final', source.boundary_observation)

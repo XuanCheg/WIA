@@ -5,7 +5,8 @@ import json
 import pytest
 
 from core.agent.backends import structured_reply
-from core.agent.decision import parse_action
+from core.agent.decision import parse_action, ModelReply
+from wia.runtime.agent.task_response import unpack_task_response
 from wia.runtime.agent.prompts import PromptAssembler
 from core.action_compiler import ParameterizedAction
 from harness_integration.test_milestone85_prompts import request_inputs
@@ -26,16 +27,17 @@ def test_plugin_default_and_disabled_transport_preserve_commands(mode, enabled):
     assert ("World observation logging plugin" in request.prompt()) == enabled
     assert assembler.provenance()["prompt_plugins"]["world_observation"] == enabled
     command = {"action": "GRASP"}
-    payload = {"command": command} if mode == "parameterized" or enabled else command
+    payload = {"command": command, "answer": None, "arrived_rooms": [], "survey_complete": False}
     if enabled:
         payload["world_observation"] = "An object is visible near the fingers; attachment is uncertain."
     wire = json.dumps(payload)
-    reply = structured_reply(request, wire, {})
+    reply, fields, _ = unpack_task_response(request, ModelReply(wire))
+    assert fields == {"answer": None, "arrived_rooms": [], "survey_complete": False}
     assert json.loads(reply.raw_text) == command
     assert ("world_observation" in reply.metadata) == enabled
     if enabled:
         assert reply.metadata["structured_output"]["raw_output"] == wire
-        assert set(request.structured_schema["required"]) == {"command", "world_observation"}
+        assert set(request.structured_schema["required"]) == {"command", "world_observation", "answer", "arrived_rooms", "survey_complete"}
         assert "world_observation" not in request.schema.get("properties", {})
     assert (ParameterizedAction.parse(reply.raw_text, request.available_actions).action if mode == "parameterized"
             else parse_action(reply.raw_text, request.available_actions)) == "GRASP"

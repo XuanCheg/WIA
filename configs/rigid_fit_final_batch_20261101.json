@@ -1,0 +1,42 @@
+{
+  "resource_root": "/local_home2/zhouxinyang/models/WIA",
+  "tasks": [
+    {
+      "path": "explore_to_achieve/wia_v1/release/tasks/t22.yaml",
+      "seed": 0
+    },
+    {
+      "path": "explore_to_achieve/wia_v1/release/tasks/t23.yaml",
+      "seed": 0
+    },
+    {
+      "path": "explore_to_achieve/wia_v1/release/tasks/t25.yaml",
+      "seed": 0
+    }
+  ],
+  "policy": {
+    "type": "show_harness",
+    "backend": "openai_chat_completions",
+    "provider": "compatible",
+    "model": "deepseek/deepseek-v4.1-flash-1017",
+    "base_url": "https://ai-gateway.vercel.sh/v1",
+    "api_key_env": "AI_GATEWAY_API_KEY",
+    "reasoning_effort": "low",
+    "max_output_tokens": 384000,
+    "model_timeout": 1800,
+    "history_policy": "current_sensors_last_result_notes",
+    "max_perception_rounds": 4
+  },
+  "environment": {
+    "mode": "launch",
+    "preview_fps": 0,
+    "record": false
+  },
+  "evaluation": {
+    "run_mode": "diagnostic",
+    "execution_mode": "batch",
+    "timeout": null,
+    "max_steps": -1
+  },
+  "output_dir": "../outputs/deepseek_60task_bench"
+}

@@ -534,7 +534,7 @@
   },
   "objects": {},
   "initial_poses": {},
-  "_question": "Process and deliver all three jobs as early as possible using two exclusive stations and one robot. Elapsed simulation time is the scheduling cost. Potato and pear use station A; apple uses station B. A job must remain released and supported in its station for its stated duration before delivery to the blue area. Early removal resets processing. Use simulation time; model waits pause the world. Processing is a timed state machine, not cooking.",
+  "_question": "Process and deliver all three jobs as early as possible using two exclusive stations and one robot. Elapsed simulation time is the scheduling cost. Potato and pear use station A; apple uses station B. A job must remain released and supported in its station for its stated duration before delivery to the blue area. Early removal resets processing. Use simulation time; the world continues during model waits. Grasp and carry each job into its station, then grasp and carry it to delivery after processing. Processing is a timed state machine, not cooking.",
   "candidate_provenance": {
     "source_task": "ORCHESTRATE-44001",
     "source_file": "/local_home2/zhouxinyang/models/InteractiveWorld/benchmark/tasks/taskpacks/planning/ORCHESTRATE-44001.taskpack.json",

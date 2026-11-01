@@ -158,7 +158,7 @@ def test_conversion_preserves_original_mechanism_and_separates_private_answer(tm
     assert parameters['identity_choices'] == partial._public_question(source().raw)[1]
     assert parameters['expected_identity'] == partial._normalize_answer(source().raw['answer'])
     assert task['public']['objective'].startswith('Inspect the partly hidden candidate')
-    assert 'world_observation as ANSWER: <category>' in task['public']['objective']
+    assert 'category in the answer field' in task['public']['objective']
     assert 'before placement' not in str(task['public'])
     assert task['private']['bindings']['target']['name'] == partial._source_builder().build_env_objects(source().payload)[0]['name']
     assert task['private']['bindings']['destination'] == destination()['binding']

@@ -294,7 +294,8 @@ class MirrorProgress:
                     self._initial_errors.append('initial_distance_order_ambiguous')
                 else:
                     self._initial_order = [key for _, key in ranked]
-            if self._relation_satisfied(self._initial_distances):
+            self._initial_goal_satisfied = self._relation_satisfied(self._initial_distances)
+            if self._initial_goal_satisfied and not self.final_state:
                 self._initial_errors.append('initial_spatial_goal_already_satisfied')
         return self._consume(sample, initial=True)
 

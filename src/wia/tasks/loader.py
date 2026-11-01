@@ -149,7 +149,8 @@ class LoadedTask:
         public = self.public_payload
         temporal = {}
         evaluation = getattr(getattr(self.definition, 'private', None), 'evaluation', None)
-        if getattr(evaluation, 'operation', None) == 'observe_two_phase_change':
+        if getattr(evaluation, 'operation', None) in (
+                'observe_two_phase_change', 'compare_change_and_restore_or_collect'):
             from .temporal_policy import survey_policy
             temporal = {'temporal_policy': survey_policy(evaluation.parameters)}
         return {**temporal, **({"run_mode": self.run_mode} if self.run_mode == "diagnostic" else {}),

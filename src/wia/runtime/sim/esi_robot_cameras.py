@@ -289,7 +289,8 @@ def configure_robot_cameras(session, path: Path, *, resolution=None):
     parameters = getattr(getattr(getattr(definition, 'private', None), 'evaluation', None), 'parameters', {})
     private_segmentation = (any('seg_instance' in sensor.modalities for sensor in session.robot.sensors.values())
         or getattr(runtime, 'requires_native_visual_discovery', False)
-        or parameters.get('requires_native_visual_discovery', False))
+        or parameters.get('requires_native_visual_discovery', False)
+        or parameters.get('actual_capability') == 'observed_anchor_region_relation')
     for name in registry.values():
         sensor = session.robot.sensors[name]
         target_size = head_size if name == session.camera_name and head_size is not None else dimensions

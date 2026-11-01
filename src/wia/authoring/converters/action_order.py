@@ -880,6 +880,9 @@ class OrderedStackEvaluator:
             not any(_supported(initial, 'middle', base) and (not self.parameters['top_keys'] or
                 any(_supported(initial, top, 'middle') for top in self.parameters['top_keys']))
                 for base in self.parameters['base_keys']))
+        self.initial_difficulty_eligible = self.initial_eligible
+        if self.parameters.get('manipulation_revision') == FINAL_STATE_REVISION:
+            self.initial_eligible = initial is not None
         return self.record(observation, action=None)
 
     def sample_step(self):
@@ -961,7 +964,7 @@ class OrderedStackEvaluator:
             self.final_since, self.final_pair = None, None
         support_transfer = self.parameters.get('manipulation_revision') == SUPPORT_TRANSFER_REVISION
         manipulation_check = 'middle_grasp_support_transfer_release' if support_transfer else 'middle_grasp_lift_release'
-        checks = {'initial_incomplete_supported_scene': self.initial_eligible,
+        checks = {('initial_native_scene_measured' if final_state else 'initial_incomplete_supported_scene'): self.initial_eligible,
             'native_measurement_available': self.measurement_error is None}
         if not final_state:
             checks.update({manipulation_check: self._manipulation_released('middle'),
@@ -980,6 +983,7 @@ class OrderedStackEvaluator:
             'selected_top': pair[1] if pair else None, 'histories': self.histories,
             'middle_placement': self.middle_placement, 'events': self.events,
             'native_state': measured, 'measurement_error': self.measurement_error,
+            'initial_difficulty_eligible': self.initial_difficulty_eligible,
             'controller_steps': self.sample_count, 'controller_dt_s': self.dt,
             'stable_controller_duration_s': self._elapsed(self.final_since),
             'stability_clock': 'consecutive native controller callbacks after env.step; not physics substeps',

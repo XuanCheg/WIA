@@ -1,22 +1,26 @@
 kind: category_robot_task
 id: task_2ee1eb5e9d6cc0ae2d839d9e
-version: 1
+version: 3
 status: pending
 source:
   provider: esi
   json: Perceptual Grounding/Material Transparency/office_large/meeting_room_1/office_large__meeting_room_1.json
 public:
-  objective: Place the whiskey stone inside its original hingeless jar and release it stably. If it is
-    already inside, leave it there and verify the final state.
-  success_criteria: The original small object is released, contacts its original container, satisfies
-    the native inside relation and stays stable for 15 consecutive physics steps. An already satisfied
-    state permits a no-op.
+  objective: Verify that the whiskey stone is inside its original hingeless jar. If it is outside, place
+    it inside and release it stably. Return "inside" in the answer field, then issue DONE. The declaration
+    may precede DONE in this same episode.
+  success_criteria: At DONE, the original small object must be released, contact its original container,
+    satisfy the native inside relation and remain stable for 15 consecutive physics steps. Credit also
+    requires your explicit answer="inside" declaration and your active DONE command. An already-contained
+    state requires no manipulation, but still requires both declarations.
   environment: The source inside/outside initial state, original container, object and dimensions are
     retained.
   constraints:
   - Use mounted observations and legal robot controls.
   - Do not extract an already-contained object merely to insert it again.
   - A visual overlap alone does not establish containment.
+  - A correct physical state alone earns no credit. Automatic termination or budget exhaustion does not
+    replace your active DONE command.
 requirements:
   capabilities:
   - base_translation
@@ -60,6 +64,7 @@ private:
         - opening, fit and gripper clearance
         - stable released relation
         native_operation_verified: false
+      require_inside_declaration_and_done: true
 scene:
   policy: native_then_minimal_patch_else_skip
   variants:
@@ -107,9 +112,10 @@ defaults:
   seed: 0
 repair:
   document_alias: T52
-  revision: already_contained_control_20261031
+  revision: explicit_inside_confirmation_20261101
   source_initial_answer: 'yes'
   source_geometry_preserved: true
   native_verification_at_definition_time: pending
   robot_start: A measured room corner; object and container source geometry remains unchanged.
   scope: An additional already-contained branch; T15, T16 and T17 are unchanged.
+  response_policy: 'T52 only: explicit inside declaration and active DONE; separate decisions are allowed.'

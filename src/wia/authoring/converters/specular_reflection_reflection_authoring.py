@@ -364,7 +364,7 @@ def build_reflection_observation(source, context, *, module, operation, camera, 
             'source_answer_applies_only_after_reference_qualification': True}}
     public = {'objective': 'Answer the following question about the initial head-camera observation: ' + question,
         'success_criteria': 'Report one of these source answer options: ' + ', '.join(options) + '. '
-            'Submit a standalone ANSWER: <option> line in world_observation. '
+            'Submit the selected option in the answer field. '
             'The question remains tied to the initial observation when you explore. You may answer immediately.',
         'environment': 'The original mirror, objects, materials and supports are preserved.',
         'constraints': ['Use the eight robot-mounted views and legal observation/navigation controls.',
@@ -448,7 +448,7 @@ def build_reflection_action(source, context, *, module, operation, camera, mirro
         'Classify the specified initial appearance as direct or reflected, then obtain a second view '
         'showing its direct/reflection relationship through legal lateral or torso movement.')
     task['public']['objective'] = source.raw['question'] + ' ' + action
-    task['public']['success_criteria'] = ('First submit a standalone ANSWER: <option> line in world_observation '
+    task['public']['success_criteria'] = ('First submit the selected option in the answer field '
         'using one of: ' + ', '.join(p['source_qa']['options']) + '. Then obtain new visible task features '
         'from a physically different legal viewpoint. A changed position alone does not verify the answer. '
         'No arbitrary travel distance or return is required. The answer remains tied to the initial reference.')

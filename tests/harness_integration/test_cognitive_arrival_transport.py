@@ -121,14 +121,14 @@ class ArrivalEnvironment(Environment):
         return await super().execute(action)
 
 
-def reply(command, world_observation):
-    return ModelReply(json.dumps({'action': command}), {'world_observation': world_observation})
+def reply(command, world_observation, *, rooms=()):
+    return ModelReply(json.dumps({'action': command}), {'world_observation': world_observation, 'arrived_rooms': list(rooms)})
 
 
-def test_accepted_standalone_reports_precede_motion_and_done_at_their_actual_boundaries(tmp_path):
+def test_structured_reports_precede_motion_and_done_at_their_actual_boundaries(tmp_path):
     environment = ArrivalEnvironment()
-    agent = MetadataAgent(reply('BASE_FWD', f'Observed a room.\nARRIVED: {A}\nARRIVED: {A}'),
-        reply('DONE', f' \tARRIVED: {B} \t'))
+    agent = MetadataAgent(reply('BASE_FWD', 'Observed a room.', rooms=[A, A]),
+        reply('DONE', 'Observed another room.', rooms=[B]))
     summary = asyncio.run(run_episode(environment, agent, tmp_path))
     assert summary['termination_reason'] == 'model_done'
     assert environment.calls == ['BASE_FWD']
@@ -166,7 +166,7 @@ def test_nonstring_world_observation_does_not_report_or_block_a_valid_command(va
     assert [event[0] for event in environment.events] == ['execute']
 
 
-def test_rejected_command_claims_are_discarded_before_a_valid_retry(tmp_path):
+def test_rejected_command_and_ignored_fields_do_not_submit_text_claims(tmp_path):
     environment = ArrivalEnvironment()
     agent = MetadataAgent(reply('FORBIDDEN', f'ARRIVED: {A}'),
         ModelReply(json.dumps({'action': 'DONE', 'extra': f'ARRIVED: {A}'}),
@@ -176,7 +176,7 @@ def test_rejected_command_claims_are_discarded_before_a_valid_retry(tmp_path):
     assert summary['termination_reason'] == 'model_done'
     assert not environment.events and not environment.calls
     record = json.loads((tmp_path / 'steps.jsonl').read_text())
-    assert [bool(attempt['parse_error']) for attempt in record['attempts']] == [True, True, False]
+    assert [bool(attempt['parse_error']) for attempt in record['attempts']] == [True, False]
     assert 'arrival_declarations' not in record
 
 
@@ -400,7 +400,7 @@ def test_actual_mcp_runner_reports_before_execute_and_done_without_adding_model_
     native, task, _ = attach_envelope(backend.observation_source, private)
     monkeypatch.setattr('wia.runtime.agent.mcp_environment.Client', lambda *args, **kwargs: Client(create_server(url)))
     completed = asyncio.Event()
-    agent = MetadataAgent(reply('BASE_FWD', f'ARRIVED: {A}'), reply('DONE', f'ARRIVED: {B}'))
+    agent = MetadataAgent(reply('BASE_FWD', 'Current room.', rooms=[A]), reply('DONE', 'Current room.', rooms=[B]))
 
     def success():
         observation = backend.observation_source.agent_observation()

@@ -274,8 +274,10 @@ class UncoverSelectPlaceEvaluator:
         from wia.authoring.io import write_json
         from wia.tasks.completion import progress
         available, placed = self._sample()
+        reveal_available = getattr(self.base, 'measurement_error', None) is None
+        available = available and reveal_available
         items = [
-            {'id': 'uncover_then_retrieve', 'kind': 'checkpoint', 'completed': self.retrieved, 'evaluation_validity': 'valid'},
+            {'id': 'uncover_then_retrieve', 'kind': 'checkpoint', 'completed': self.retrieved, 'evaluation_validity': 'valid' if self.retrieved or reveal_available else 'unavailable'},
             {'id': 'selected_target_delivered', 'kind': 'terminal_condition', 'completed': placed,
              'evaluation_validity': 'valid' if available else 'unavailable'}]
         value = {'schema': 'cloth_uncover_select_place_v1', 'snapshot_id': observation.snapshot_id,
@@ -283,7 +285,8 @@ class UncoverSelectPlaceEvaluator:
             'task_success': bool(available and self.retrieved and placed and self.other_preserved and not self.base.invalid),
             'constraints_satisfied': bool(self.other_preserved and not self.base.invalid),
             'evaluation_validity': 'complete' if available else 'unavailable',
-            'native_placement': self.placement.last}
+            'native_placement': self.placement.last,
+            'measurement_error': getattr(self.base, 'measurement_error', None)}
         value.update(progress(value))
         write_json(self.base.output.parent / 'state.json', value)
         return value

@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 import subprocess
 import signal
+import socket
 import sys
 import time
 
@@ -26,6 +27,12 @@ from wia.runtime.scene_capture_resident import RendererLogMonitor
 from wia.tasks.loader import load_task
 
 
+def unused_port():
+    with socket.socket() as sock:
+        sock.bind(('127.0.0.1', 0))
+        return sock.getsockname()[1]
+
+
 def parallel_sweep(args, plans, aliases, sequence):
     """Give each physical GPU one serial shard, retaining task settings/order."""
     gpus = [int(value) for value in args.gpus.split(',')]
@@ -33,13 +40,13 @@ def parallel_sweep(args, plans, aliases, sequence):
         raise ValueError('GPU indices must be distinct.')
     groups = [[aliases[p['task']['path']] for p in plans[index::len(gpus)]] for index in range(len(gpus))]
     preview = {'schema': 'wia_parallel_scene_sweep_v1', 'model_calls': 0, 'run_mode': args.run_mode,
-               'simulator_timeout_s': None, 'sequence': sequence,
+               'simulator_timeout_s': None, 'sequence': sequence, 'driver': args.driver,
                'workers': [{'gpu': gpu, 'tasks': group} for gpu, group in zip(gpus, groups) if group]}
     if args.dry_run:
         print(json.dumps(preview, indent=2))
         return 0
     devices = idle_devices()
-    if any(not any(d['index'] == gpu and d['idle'] for d in devices) for gpu in gpus):
+    if any(not any(d['index'] == gpu and (d['idle'] or getattr(args, 'allow_shared_gpus', False)) for d in devices) for gpu in gpus):
         raise RuntimeError('Every selected GPU must be idle; existing owners will not be displaced.')
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=False)
@@ -55,7 +62,10 @@ def parallel_sweep(args, plans, aliases, sequence):
             command = [sys.executable, '-u', str(Path(__file__).resolve()), '--gpu', str(worker['gpu']),
                 '--output', str(directory), '--config', str(args.config), '--sequence', str(args.sequence),
                 '--run-mode', args.run_mode,
+                '--driver', args.driver,
                 '--tasks', *worker['tasks']]
+            if getattr(args, 'allow_shared_gpus', False):
+                command.append('--allow-shared-gpus')
             process = subprocess.Popen(command, cwd=ROOT, stdout=log, stderr=subprocess.STDOUT,
                                        start_new_session=True)
             processes.append(process)
@@ -114,11 +124,18 @@ def main():
                         help='Exercise debug qualification or formal initialization; neither mode calls a model.')
     parser.add_argument('--scene-timeout', type=float, help=argparse.SUPPRESS)
     parser.add_argument('--tasks', nargs='+', help='Optional catalogue aliases; default: all configured tasks in order.')
+    parser.add_argument('--allow-shared-gpus', action='store_true',
+                        help='Explicitly authorized sharing; never stops other GPU processes.')
     parser.add_argument('--dry-run', action='store_true')
+    parser.add_argument('--driver', choices=('native', 'mcp'), default='native',
+                        help='mcp exercises the production gateway, control lease and episode runner.')
     args = parser.parse_args()
     prepared = prepare(args.config)
     catalogue = json.loads((ROOT/'explore_to_achieve/wia_v1/release/catalogue.json').read_text())['tasks']
     aliases = {str((ROOT/row['task_file']).resolve()): row['alias'].lower() for row in catalogue}
+    for plan in prepared['plans']:
+        task_path = Path(plan['task']['path']).resolve()
+        aliases.setdefault(str(task_path), task_path.stem.lower())
     plans = [p for p in prepared['plans'] if not args.tasks or aliases[p['task']['path']] in args.tasks]
     if args.tasks and {aliases[p['task']['path']] for p in plans} != set(args.tasks):
         parser.error('One or more selected aliases are absent from the configured catalogue.')
@@ -131,12 +148,12 @@ def main():
         return parallel_sweep(args, plans, aliases, sequence)
     preview = {'schema': 'wia_scene_sweep_plan_v1', 'gpu': args.gpu, 'model_calls': 0,
                'loading': 'serial', 'persistent_simulator': True, 'run_mode': args.run_mode,
-               'simulator_timeout_s': None, 'sequence': sequence,
+               'simulator_timeout_s': None, 'sequence': sequence, 'driver': args.driver,
                'tasks': [aliases[p['task']['path']] for p in plans]}
     if args.dry_run:
         print(json.dumps(preview, indent=2))
         return 0
-    device = next((d for d in idle_devices() if d['index'] == args.gpu and d['idle']), None)
+    device = next((d for d in idle_devices() if d['index'] == args.gpu and (d['idle'] or args.allow_shared_gpus)), None)
     if device is None:
         raise RuntimeError('Selected GPU is not idle; no existing owner will be displaced.')
     output = args.output.resolve()
@@ -155,6 +172,7 @@ def main():
         'OMNIGIBSON_HEADLESS': '1', 'OMNIGIBSON_GPU_ID': '0', 'OMNI_KIT_ACCEPT_EULA': 'YES'}
     gpu = {'physical_index': args.gpu, 'renderer_index': args.gpu, 'uuid': device['uuid'],
            'device_uuid': device['uuid'], 'CUDA_VISIBLE_DEVICES': device['uuid'], 'service': {}}
+    gpu.update(sharing_authorized=args.allow_shared_gpus, launch_device_snapshot=device)
     write_json(output/'gpu.json', gpu)
     report = {**preview, 'pid': os.getpid(), 'gpu_mapping': gpu,
               'started_at': datetime.now(timezone.utc).isoformat(),
@@ -172,7 +190,7 @@ def main():
             manifest = task.manifest(f'fixed-scene-{index:02d}-{alias}')
             manifest.update(max_steps=task.definition.defaults.max_steps, world_mode='run',
                 world_advances_during_inference=True, observation_condition='current', action_mode='parameterized',
-                model_name='no_model_fixed_native_sequence', reasoning_effort=None,
+                model_name='no_model_fixed_' + args.driver + '_sequence', reasoning_effort=None,
                 wall_timeout_s=None, agent_session='local_http_persistent', world_observation_log=True)
             write_json(directory/'episode_manifest.json', manifest)
             control = output/f'resident_{generation:03d}'
@@ -183,6 +201,9 @@ def main():
                       'output_dir': str(directory), 'started_at': datetime.now(timezone.utc).isoformat()}
             print(f'[sweep] {index+1}/{len(plans)} task={alias} stage=loading gpu={args.gpu}', flush=True)
             started = time.monotonic()
+            gateway = driver = None
+            handles = []
+            scene_stop_requested = False
             try:
                 argv = ['--task-file', str(task.path), '--variant', task.variant, '--scene-seed', str(task.seed),
                     '--episode-manifest', str(directory/'episode_manifest.json'), '--gpu-info', str(output/'gpu.json'),
@@ -190,7 +211,22 @@ def main():
                     '--trunk-control', '--parameterized-actions', '--primitive-profile', 'fine',
                     '--performance-profile', 'benchmark', '--macro-execution', 'metric_target',
                     '--observation-pipeline', 'optimized', '--preview-fps', '0', '--no-human-recording',
-                    '--validation-sequence', str(sequence_path), '--capture-agent-observation']
+                    ]
+                if args.driver == 'native':
+                    argv += ['--validation-sequence', str(sequence_path), '--capture-agent-observation']
+                else:
+                    native_port, gateway_port = unused_port(), unused_port()
+                    while gateway_port == native_port:
+                        gateway_port = unused_port()
+                    argv += ['--web', '--host', '127.0.0.1', '--port', str(native_port)]
+                    gateway_log = (directory/'gateway.log').open('w')
+                    handles.append(gateway_log)
+                    gateway = subprocess.Popen([sys.executable, '-u',
+                        str(ROOT/'src/wia/runtime/commands/run_gumi_gateway.py'),
+                        '--backend-url', f'http://127.0.0.1:{native_port}', '--host', '127.0.0.1',
+                        '--port', str(gateway_port)], cwd=ROOT, stdout=gateway_log, stderr=subprocess.STDOUT)
+                    record['transport'] = {'native_port': native_port, 'gateway_port': gateway_port,
+                                           'gateway_pid': gateway.pid}
                 client.submit(argv, directory)
                 monitor = RendererLogMonitor(directory/'simulator.log')
                 response_path = control/'responses'/f'{client.request_id}.json'
@@ -204,6 +240,31 @@ def main():
                             fatal = monitor.failure()
                             if fatal:
                                 raise RuntimeError(fatal)
+                            if args.driver == 'mcp':
+                                if gateway.poll() is not None:
+                                    raise RuntimeError('Owned MCP gateway exited before episode completion.')
+                                if (directory/'initialization_failure.json').exists():
+                                    raise RuntimeError('Native initialization failed; inspect initialization_failure.json.')
+                                if driver is None and (directory/'metadata.json').exists():
+                                    import requests
+                                    try:
+                                        ready = requests.get(f'http://127.0.0.1:{gateway_port}/api/agent/state', timeout=None)
+                                        available = ready.ok
+                                    except requests.RequestException:
+                                        available = False
+                                    if available:
+                                        agent_log = (directory/'agent.log').open('w')
+                                        handles.append(agent_log)
+                                        driver = subprocess.Popen([sys.executable, '-u', '-m',
+                                            'wia.runtime.agent.fixed_validation', '--url', f'http://127.0.0.1:{gateway_port}',
+                                            '--output', str(directory), '--task', str(task.path), '--variant', task.variant,
+                                            '--seed', str(task.seed), '--sequence', str(sequence_path), '--run-mode', args.run_mode],
+                                            cwd=ROOT, stdout=agent_log, stderr=subprocess.STDOUT)
+                                        record['transport']['driver_pid'] = driver.pid
+                                if driver is not None and driver.poll() is not None and not scene_stop_requested:
+                                    record['driver_exit_code'] = driver.returncode
+                                    client.stop_scene()
+                                    scene_stop_requested = True
                             if time.monotonic()-last_progress >= 30:
                                 stage = 'sequence' if (directory/'scorer_validation.json').exists() else 'loading'
                                 print(f'[sweep] task={alias} stage={stage} elapsed_s={time.monotonic()-started:.0f}', flush=True)
@@ -217,7 +278,7 @@ def main():
                             raise RuntimeError(receipt.get('error') or 'Native initialization failed.')
                         break
                     except Exception as error:
-                        if not client.retry_initialization(str(error), agent_started=False):
+                        if not client.retry_initialization(str(error), agent_started=driver is not None):
                             raise
                         monitor = RendererLogMonitor(directory/'simulator.log')
                         monitor.offset = 0
@@ -234,10 +295,30 @@ def main():
                 if not receipt.get('reusable'):
                     stop_service(control)
                     generation += 1
+            except KeyboardInterrupt:
+                # Cancel the owner before draining the gateway's in-flight requests.
+                # Otherwise gateway shutdown can wait for a scene that no caller stops.
+                if driver is not None and driver.poll() is None:
+                    driver.terminate()
+                    driver.wait()
+                stop_service(control, force=True)
+                raise
             except Exception as error:
                 record.update(status='runtime_error', error=f'{type(error).__name__}: {error}')
+                if driver is not None and driver.poll() is None:
+                    driver.terminate()
+                    driver.wait()
                 stop_service(control, force=True)
                 generation += 1
+            finally:
+                if driver is not None and driver.poll() is None:
+                    driver.terminate()
+                    driver.wait()
+                if gateway is not None and gateway.poll() is None:
+                    gateway.terminate()
+                    gateway.wait()
+                for handle in handles:
+                    handle.close()
             record['elapsed_s'] = time.monotonic()-started
             report['results'].append(record)
             write_json(output/'results.json', report)

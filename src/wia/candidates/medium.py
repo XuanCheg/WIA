@@ -227,7 +227,7 @@ def _m1(contract, frames, checks, evidence):
                 valid_events.append(time_s)
     event_time = min(valid_events) if valid_events else None
     checks.add("real_cleaning_contact", True if valid_events else False if events_available else None)
-    checks.add("observed_use", _observed(frames, f"use:{used}", after=event_time) if event_time is not None else None)
+    checks.add("observed_use", _observed(frames, f"use:{used}", after=event_time) if event_time is not None else False if events_available else None)
     checks.add("identity_continuity", _identity(frames, tools))
     unused = next(name for name in tools if name != used)
     checks.add("used_placement", _stable(frames, used, contract["used_region"], after=event_time))
@@ -470,13 +470,17 @@ def _m4(contract, frames, checks, evidence):
         checks.add(f"processed:{name}", complete is not None)
         load_index = entry["load_index"]
         loads = [ep for ep in entry["held_episodes"] if load_index is not None and ep["release_index"] <= load_index
+                 and _placement(frames[max(0, ep["start_index"] - 1)], name, spec["station"], require_rest=False) is False
                  and _placement(frames[ep["release_index"]], name, spec["station"], require_rest=False) is True
                  and all(_placement(f, name, spec["station"], require_rest=False) is True
                          for f in frames[ep["release_index"]:load_index + 1])]
-        checks.add(f"load_transport:{name}", True if loads else None)
+        checks.add(f"load_transport:{name}", True if loads else False if gaps_ok and all(
+            type(_map(f["objects"].get(name)).get("held")) is bool for f in frames) else None)
         deliveries = [ep for ep in entry["held_episodes"] if complete is not None and ep["start_s"] >= complete - _EPS
+                      and _placement(frames[max(0, ep["start_index"] - 1)], name, delivery, require_rest=False) is False
                       and _placement(frames[ep["release_index"]], name, delivery, require_rest=False) is True]
-        checks.add(f"delivery_transport:{name}", True if deliveries else None)
+        checks.add(f"delivery_transport:{name}", True if deliveries else False if gaps_ok and all(
+            type(_map(f["objects"].get(name)).get("held")) is bool for f in frames) else None)
         after = max(complete, deliveries[-1]["release_s"]) if complete is not None and deliveries else complete
         checks.add(f"delivered:{name}", _stable(frames, name, delivery, after=after) if complete is not None else False)
     final_clear = [_occupancy(frames[-1], name, station)

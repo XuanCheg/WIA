@@ -52,7 +52,7 @@ def build_definitions():
         'After release, keep the banana partially inside with the gripper at least '
         '2 cm clear for at least 0.5 seconds, with linear speed at most 0.02 m/s '
         'and angular speed at most 0.1 rad/s. An object resting entirely on top '
-        'does not count as inside. Submit ANSWER: <container label> and declare DONE.')
+        'does not count as inside. Submit the container label in the answer field and declare DONE.')
     public['constraints'].extend([
         'Use the existing guarded robot controls and visible container labels.',
         'Preserve all asset scales and keep every container within 2 cm and '

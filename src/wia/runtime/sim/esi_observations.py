@@ -71,6 +71,23 @@ class ESIObservationSource:
         self.initial_observation = None
         self._done_declaration = None
         self._episode_finalization = None
+        self.simulation_clock = None
+        self._simulation_clock_origin = None
+
+    def _sample_simulation_clock(self, observation):
+        """Bind the public M4 timer to an immutable camera boundary."""
+        if self._simulation_clock_origin is None:
+            return
+        now = float(self.session.pipeline.og.sim.current_time)
+        elapsed = now - self._simulation_clock_origin
+        previous = self.simulation_clock
+        if (not np.isfinite(elapsed) or elapsed < 0
+                or previous is not None and elapsed < previous['elapsed_simulation_s']):
+            raise ValueError('Simulation clock regressed within the task episode.')
+        self.simulation_clock = {'elapsed_simulation_s': elapsed,
+            'snapshot_id': observation.snapshot_id, 'action_step': observation.action_step,
+            'captured_at': observation.captured_at,
+            'origin': 'task_episode_start', 'unit': 'simulation_seconds'}
 
     def begin_episode(self, task_text: str) -> AgentObservation:
         """Start public task/history at the current scene, on the sensor owner.
@@ -84,6 +101,8 @@ class ESIObservationSource:
         self.task_text = task_text
         self.history = ()
         self.session.public_task_events = []
+        self.simulation_clock = None
+        self._simulation_clock_origin = None
         self.action_step = 0
         self.last_action_feedback = None
         self._done_declaration = None
@@ -116,6 +135,13 @@ class ESIObservationSource:
                 self.session.mapping_joint_world_initial_identity_status = {
                     'status': 'unavailable', 'reason': f'{type(error).__name__}: {error}'}
         evaluator = getattr(self.session, "task_evaluator", None)
+        task = getattr(self.session, 'loaded_task', None)
+        if task is not None and task.definition.private.evaluation.parameters.get('prototype') == 'M4':
+            # M4 has no prelude: its first measured frame starts the deadline.
+            # Read the same native clock before beginning the reducer; no physics
+            # steps occur between these operations.
+            self._simulation_clock_origin = float(self.session.pipeline.og.sim.current_time)
+            self._sample_simulation_clock(observation)
         if evaluator is not None:
             evaluator.begin_episode(observation)
             stability_window = getattr(self.session, 'initial_stability_window', None)
@@ -371,6 +397,10 @@ class ESIObservationSource:
         self.latest_snapshot = snapshot
         if action_boundary:
             self.boundary_observation = observation
+            self._sample_simulation_clock(observation)
+        capture_evidence = getattr(getattr(self.session, 'task_evaluator', None), 'capture_observation', None)
+        if action_boundary and callable(capture_evidence):
+            capture_evidence(observation)
         candidate_hook = getattr(self.session, 'candidate_observation_hook', None)
         if action_boundary and callable(candidate_hook):
             candidate_hook(observation)
@@ -473,6 +503,15 @@ class ESIObservationSource:
         if callable(report):
             report(rooms, observation)
 
+    def report_observed_objects(self, objects, delivered_views, *, snapshot_id, action_step):
+        _main_thread()
+        observation = self.agent_observation()
+        if observation.snapshot_id != snapshot_id or observation.action_step != action_step:
+            raise ValueError('Observation declaration refers to a stale boundary.')
+        evaluator = getattr(self.session, 'task_evaluator', None)
+        evaluator.report_observed_objects(objects, delivered_views, observation)
+        return {'ok': True, 'message': 'Observation declarations recorded.'}
+
     def report_answer(self, answer, *, snapshot_id, action_step):
         """Retain a model-authored answer at the current observation boundary."""
         _main_thread()
@@ -499,13 +538,14 @@ class ESIObservationSource:
         if requested != (observation.snapshot_id, observation.action_step):
             raise ValueError('DONE declaration boundary changed.')
         evaluator = getattr(self.session, 'task_evaluator', None)
-        if getattr(evaluator, 'requires_done_declaration', False) is True:
-            if not callable(getattr(evaluator, 'report_done', None)):
-                raise RuntimeError('Terminal task evaluation is unavailable.')
+        report_done = getattr(evaluator, 'report_done', None)
+        if getattr(evaluator, 'requires_done_declaration', False) is True and not callable(report_done):
+            raise RuntimeError('Terminal task evaluation is unavailable.')
+        if callable(report_done):
             # The owner queue excludes robot execution here. Rendering refreshes
             # the physically current stopped state without an extra hold step.
             observation = self.capture(action_boundary=True).observation
-            evaluator.report_done(observation)
+            report_done(observation)
         receipt = {'ok': True, 'message': 'DONE declaration recorded.',
                    'snapshot_id': observation.snapshot_id, 'action_step': observation.action_step}
         self._done_declaration = (requested, receipt)

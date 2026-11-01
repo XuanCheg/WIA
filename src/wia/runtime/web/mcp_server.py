@@ -67,6 +67,7 @@ def public_state(state):
         "available_cameras": [x for x in RGB_TO_VIEW.values() if x in state.get("available_views", ())],
         "frame_seq": state.get("frame_seq"), "frame_time": state.get("frame_time"),
         "observation_snapshot_id": state.get("observation_snapshot_id"),
+        "simulation_clock": state.get("simulation_clock"),
         "observation_captured_at": state.get("observation_captured_at"),
         "task_text": state.get("task_text"), "robot_type": state.get("robot_type"),
         "sim": state.get("sim"), "working_arm": state.get("working_arm"),

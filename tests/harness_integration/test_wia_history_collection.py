@@ -306,14 +306,14 @@ def test_removal_revokes_earlier_delivery_and_score_reads_never_advance_dwell(re
     assert evaluator.record(obs(8))['task_success']
 
 
-def test_missing_grasp_and_unsafe_terminal_state_never_pass(replay):
+def test_missing_grasp_fails_while_generic_safety_does_not_change_completion(replay):
     evaluator, _, _, grasp, _, placed = replay
     survey(replay)
     for key in evaluator.selected_keys:
         deliver(evaluator, grasp, placed, key)
     original = evaluator._placement
     evaluator._placement = lambda key: {**original(key), 'robot_terminal_safe': False}
-    assert not evaluator.record(obs(5))['task_success']
+    assert evaluator.record(obs(5))['task_success']
     evaluator._placement = original
     grasp.pop('object_name')
     result = evaluator.record(obs(6))

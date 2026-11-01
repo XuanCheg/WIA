@@ -1,6 +1,6 @@
 kind: category_robot_task
 id: wia_rigid_t24_family_v1__t24_furnished_native_support_v1
-version: 9
+version: 13
 status: pending
 source:
   provider: esi
@@ -10,13 +10,15 @@ public:
     along the other counter. Which container does the first aid kit best fit inside: the packing box or
     the mug or the tote? Place each named object partially inside its selected container. Leave it released
     and withdraw the robot hands at least 2 cm clear.'
-  success_criteria: 'Answer the original containment question for every named object. For each object,
-    verify partial insertion into its selected container with actual container contact and no interpenetration.
-    With empty open hands, no robot support or contact and hands at least 2 cm clear, maintain this state
-    for at least 0.5 seconds with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. An
-    object resting entirely on top does not count. No minimum lift height or prior grasp is required.
-    Targets may be verified sequentially and removed after verification to free a shared container. Finish
-    with empty open hands. Submit ANSWER: <container label> and declare DONE.'
+  success_criteria: Answer the original containment question for every named object. If several containers
+    permit stable partial insertion, choose the smaller suitable one. For each object, verify partial
+    insertion into its selected container with actual container contact and no interpenetration. With
+    both hands empty, the working gripper open, no robot support or contact and both hands at least 2
+    cm clear, maintain this state for at least 0.5 seconds with linear speed at most 0.02 m/s and angular
+    speed at most 0.1 rad/s. An object resting entirely on top does not count. No minimum lift height
+    or prior grasp is required. Targets may be verified sequentially and removed after verification to
+    free a shared container. Finish with both hands empty and the working gripper open. Return the selected
+    container label in the answer field and declare DONE.
   environment: A furnished utility room. The target and containers occupy separate native furniture surfaces;
     none is deliberately hidden.
   constraints:
@@ -343,6 +345,15 @@ scene:
           mode: complete_ground
           expected_scene: house_single_floor
           disable_grid: false
+      - operation: category_initialization
+        phase: after_postprocessing
+        module: wia.authoring.converters.wia_contact_awake_initialization
+        parameters:
+          revision: wia_contact_awake_initialization_v1
+          expected_scene: house_single_floor
+          object_names:
+          - obj_containee
+          sleep_threshold: 0.0
 qualification:
   on_failure: skip
   support: null
@@ -462,3 +473,24 @@ repair:
     scene_geometry_changed: false
     native_execution_verified: false
     scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.
+  open_hand_prompt_alignment_20261101:
+    rule: Both hands empty and withdrawn; the working gripper must be open. The inactive empty gripper
+      need not be fully open.
+    scorer_changed: false
+    basis: Existing native adapter and test_two_arm_readback_allows_inactive_half_open_empty_hand.
+  awake_contact_20261101:
+    revision: t24_awake_contact_20261101
+    reason: The target slept before the stable-insertion dwell; its geometry changed after the final native
+      contact witness, so exact retention correctly refused stale separations.
+    target: obj_containee
+    sleep_threshold: 0.0
+    initialization_only: true
+    runtime_wake_callbacks: false
+    geometry_changed: false
+    scoring_thresholds_changed: false
+    answer_changed: false
+    task_version: 13
+    scene_version: 9
+    baseline_probe: /local_home2/zhouxinyang/models/WIA/outputs/t24_fit_v7_20261101/00_t24/fit_probe.json
+    controlled_probe: /local_home2/zhouxinyang/models/WIA/outputs/t24_awake_tabletop_gpu0_20261101/00_t24_awake_control/fit_probe.json
+    diagnostic_mcp_replay: /local_home2/zhouxinyang/models/WIA/outputs/t24_awake_tabletop_mcp_gpu3_20261101/00_t24_awake_control/scorer_validation.json

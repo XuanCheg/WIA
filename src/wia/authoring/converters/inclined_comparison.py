@@ -133,6 +133,9 @@ class InclinedComparisonEvaluator:
             raise ValueError('Native public-control evidence is unavailable.')
         self.constraints_ok &= control.get('state_setter_used') is False
         grasp = self.controller.debug_gripper_state()
+        if (not isinstance(grasp, dict) or 'object_name' not in grasp
+                or any(type(grasp.get(k)) is not bool for k in ('holding', 'constraint_active', 'release_pending'))):
+            raise ValueError('Native ramp grasp history is unavailable.')
         names = {obj.name: key for key, obj in self.objects.items()}
         held = names.get(grasp.get('object_name')) if grasp.get('holding') and grasp.get('constraint_active') else None
         if held is not None and held not in self.trials and held not in self.spares:

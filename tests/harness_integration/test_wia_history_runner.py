@@ -77,7 +77,7 @@ class ProjectingFakeAgent:
         self.phase2_calls += 1
         if self.retry and self.phase2_calls == 1:
             return ModelReply('not a valid command', {'world_observation': 'Inspecting.'})
-        return ModelReply('{"action":"DONE"}', {'world_observation': 'ANSWER: yes'})
+        return ModelReply('{"action":"DONE"}', {'world_observation': 'Compared the views.', 'answer': 'yes'})
 
 
 @pytest.mark.parametrize('condition', ['history_removed', 'history_oracle'])

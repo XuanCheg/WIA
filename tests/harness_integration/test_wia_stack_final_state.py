@@ -163,15 +163,16 @@ def test_transient_measurement_failure_recovers_after_fresh_readback(tmp_path, n
     assert trial.result()['task_success']
 
 
-def test_action_final_mode_retains_initial_incomplete_scene_requirement(tmp_path, native_types):
+def test_action_final_mode_scores_measured_initially_complete_scene(tmp_path, native_types):
     trial = final_order(tmp_path, native_types)
     trial.support('middle', [trial.objects['base_candidate_0']])
     trial.evaluator.begin_episode(trial.observation)
     trial.step(12)
     result = trial.result()
-    assert result['checks']['initial_incomplete_supported_scene'] is False
-    assert result['task_success'] is False
-    assert result['completion_items'][0]['completed'] is False
+    assert result['initial_difficulty_eligible'] is False
+    assert result['checks']['initial_native_scene_measured'] is True
+    assert result['task_success'] is True
+    assert result['completion_items'][0]['completed'] is True
 
 
 @pytest.mark.parametrize('change', ['missing_null', 'non_null', 'unknown_revision'])

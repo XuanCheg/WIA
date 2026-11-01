@@ -53,6 +53,7 @@ class MCPRobotEnvironment:
         self.done_declaration_available = False
         self.episode_finalization_available = False
         self.requires_done_declaration = False
+        self.simulation_clock_required = False
 
     def attach_input_logger(self, logger):
         self._input_logger = logger
@@ -81,10 +82,12 @@ class MCPRobotEnvironment:
             "result": compact_json(result.model_dump(mode="json", by_alias=True))})
         return result
 
-    async def _http(self, path, body):
+    async def _http(self, path, body, *, allow_rejection=False):
         response = await asyncio.to_thread(requests.post, self.url + path, json=body, timeout=None)
         data = response.json()
         if data.get("ok") is not True:
+            if allow_rejection and response.status_code == 409:
+                return {'ok': False, 'message': data.get('message', 'Declaration was not accepted.')}
             raise RuntimeError(data.get("message", "Robot control request failed."))
         response.raise_for_status()
         return data
@@ -124,6 +127,7 @@ class MCPRobotEnvironment:
             response = await asyncio.to_thread(requests.get, self.url + '/api/agent/state', timeout=None)
             response.raise_for_status()
             current = response.json()
+        self.observation_declarations_available = current.get('observation_declarations_available') is True
         self.done_declaration_available = current.get('done_declaration_available') is True
         self.episode_finalization_available = current.get('episode_finalization_available') is True
         self.requires_done_declaration = current.get('requires_done_declaration') is True
@@ -140,6 +144,9 @@ class MCPRobotEnvironment:
                 "new_lease_action_step": self.resume_action_step if self.episode_contract is not None else 0,
                 "physical_scene_reset": False}
         try:
+            # Clock capability becomes available when the task episode begins.
+            state = await self._http_clock_state()
+            self.simulation_clock_required = state.get('simulation_clock') is not None
             self.client = Client(motion_transport(self.url + "/mcp"), read_timeout_seconds=None)
             await self.client.__aenter__()
             context = await self._call_tool("robot_get_context", {})
@@ -224,7 +231,20 @@ class MCPRobotEnvironment:
                 raise RuntimeError('Temporal phase requires a fresh snapshot at the retained action boundary.')
             self._pending_temporal_boundary = None
         self.last_observation = observation
+        if self.simulation_clock_required:
+            state = await self._http_clock_state()
+            clock = state.get('simulation_clock')
+            if (not isinstance(clock, dict) or clock.get('snapshot_id') != observation.snapshot_id
+                    or clock.get('action_step') != observation.action_step
+                    or clock.get('captured_at') != observation.captured_at):
+                raise RuntimeError('Simulation clock does not match the delivered observation boundary.')
+            self.action_context = dict(self.action_context or {}, simulation_clock=clock)
         return observation
+
+    async def _http_clock_state(self):
+        response = await asyncio.to_thread(requests.get, self.url + '/api/agent/state', timeout=None)
+        response.raise_for_status()
+        return response.json()
 
     async def world_metrics(self):
         try:
@@ -251,12 +271,28 @@ class MCPRobotEnvironment:
             'requested_at': requested, 'at': timestamp(), 'status': 'received', 'result': public})
         return public
 
+    async def report_observed_objects(self, objects, delivered_views, observation):
+        arguments = {'objects': objects, 'delivered_views': delivered_views,
+            'snapshot_id': observation.snapshot_id, 'action_step': observation.action_step,
+            'control_token': self.control_token}
+        result = await self._http('/api/agent/observed_objects', arguments)
+        return {key: result[key] for key in ('ok', 'message')}
+
     async def report_answer(self, answer, observation):
         """Submit public answer text; correctness remains private to the scorer."""
+        if str(answer).strip().upper() == 'SURVEY_COMPLETE':
+            raise ValueError('Submit survey completion through the separate survey declaration.')
+        return await self._report_answer(answer, observation)
+
+    async def report_survey(self, observation):
+        """An unmet survey prerequisite rejects the declaration without ending the episode."""
+        return await self._report_answer('SURVEY_COMPLETE', observation, allow_rejection=True)
+
+    async def _report_answer(self, answer, observation, *, allow_rejection=False):
         arguments = {'answer': answer, 'snapshot_id': observation.snapshot_id,
             'action_step': observation.action_step, 'control_token': self.control_token}
         requested = timestamp()
-        result = await self._http('/api/agent/answer', arguments)
+        result = await self._http('/api/agent/answer', arguments, allow_rejection=allow_rejection)
         public = {'ok': result['ok'], 'message': result['message']}
         self._record_input({'tool': 'robot_report_answer', 'arguments': compact_json(arguments),
             'requested_at': requested, 'at': timestamp(), 'status': 'received', 'result': public})

@@ -58,11 +58,11 @@ def test_original_qa_preserves_question_and_has_no_physical_completion_claim(tmp
                                output=tmp_path, assembler=PromptAssembler(task_mode="original_qa"))
     prompt = agent.prepare_request(request)
     assert agent.assembler.task_text(public) == question
-    assert "state your answer explicitly" in prompt.prompt()
+    assert "separate answer field" in prompt.prompt()
     assert "There is no physical success evaluator" in prompt.prompt()
     assert "An independent evaluator checks" not in prompt.prompt()
     assert "not merely explain" not in prompt.prompt()
-    assert prompt.structured_schema["required"] == ["command", "world_observation"]
+    assert prompt.structured_schema["required"] == ["command", "world_observation", "answer", "arrived_rooms", "survey_complete"]
     with pytest.raises(ValueError, match="Original QA"):
         PromptAssembler(task_mode="original_qa", world_observation=False)
 

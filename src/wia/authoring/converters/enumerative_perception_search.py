@@ -126,7 +126,7 @@ def build_search_candidate(sources, context, *, public_areas, name):
             'These pilot settings are newly declared and are not reconstructed source calibration.')
     public = {'objective': objective,
         'success_criteria': 'Observe and correctly declare every distinct target with no false declarations. '
-            'Submit one final ANSWER: JSON object with a declarations list; each entry contains group_id, identity, '
+            'Submit in the answer field a JSON-encoded string containing an object with a declarations list; each entry contains group_id, identity, '
             'room, area, snapshot_id, camera, and image_point [normalized horizontal, normalized vertical]. '
             'Point to the target in a delivered mounted image. Repeated sightings count once. '
             'Discovery requires informative visual evidence and a correct identity/location declaration.',

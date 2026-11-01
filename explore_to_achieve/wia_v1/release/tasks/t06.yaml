@@ -1,6 +1,6 @@
 kind: category_robot_task
 id: task_f8d83908263b09ab3a710b4f
-version: 3
+version: 5
 status: pending
 source:
   provider: esi
@@ -8,53 +8,49 @@ source:
 public:
   objective: 'Explore the complete preserved building once in one continuous episode.
 
-    goal_1: Are classroom_0 and corridor 2 (with display case and drinking fountain)
-    adjacent, with a direct connection between them?
+    goal_1: Are classroom_0 and corridor 2 (with display case and drinking fountain) adjacent, with a
+    direct connection between them?
 
-    goal_2: Are corridor 0 (near classroom 0) and corridor 2 (with display case and
-    drinking fountain) adjacent, with a direct connection between them?
+    goal_2: Are corridor 0 (the leftmost horizontal corridor section in the initial Global overview) and
+    corridor 2 (with display case and drinking fountain) adjacent, with a direct connection between them?
 
-    goal_3: Are corridor 1 (near bathroom 0) and corridor 2 (with display case and
-    drinking fountain) adjacent, with a direct connection between them?
+    goal_3: Are corridor 1 (the middle horizontal corridor section in the initial Global overview) and
+    corridor 2 (with display case and drinking fountain) adjacent, with a direct connection between them?
 
-    goal_4: Are corridor 0 (near classroom 0) and corridor 1 (near bathroom 0) adjacent,
-    with a direct connection between them?
+    goal_4: Are corridor 0 (the leftmost horizontal corridor section in the initial Global overview) and
+    corridor 1 (the middle horizontal corridor section in the initial Global overview) adjacent, with
+    a direct connection between them?
 
-    goal_5: Are classroom_0 and corridor 0 (near classroom 0) adjacent, with a direct
-    connection between them?'
-  success_criteria: 'Inspect the queried anchors and report each distinct required
-    room arrival while stably inside it. Shared unordered visits can satisfy multiple
-    questions. Submit one final JSON answer sheet in one world_observation line: ANSWER:
-    {"goal_1":"<answer>","goal_2":"<answer>","goal_3":"<answer>","goal_4":"<answer>","goal_5":"<answer>"}.
-    Use each question''s source options shown below. Legacy ANSWER: goal_N=<answer>
-    is accepted. No action or observation is required solely to answer another question.
+    goal_5: Are classroom_0 and corridor 0 (the leftmost horizontal corridor section in the initial Global
+    overview) adjacent, with a direct connection between them?'
+  success_criteria: 'Inspect the queried anchors and include each required room in arrived_rooms while
+    stably inside it, using its public name with spaces replaced by underscores (for example bedroom_0).
+    Shared unordered visits can satisfy multiple questions. Return one final JSON object in the answer
+    field: {"goal_1":"<answer>","goal_2":"<answer>","goal_3":"<answer>","goal_4":"<answer>","goal_5":"<answer>"}.
+    Use each question''s source options shown below. No action or observation is required solely to answer
+    another question.
 
-    goal_1: Report a standalone ANSWER: <option> line in world_observation, choosing
-    from: Yes, No. Answer direct adjacency: a No answer does not mean the rooms are
-    globally unreachable. Each distinct required room is counted once; no return tour
-    is required.
+    goal_1: Use the selected option as this goal''s value in the final answer mapping, choosing from: Yes, No. Answer direct adjacency:
+    a No answer does not mean the rooms are globally unreachable. Each distinct required room is counted
+    once; no return tour is required.
 
-    goal_2: Report a standalone ANSWER: <option> line in world_observation, choosing
-    from: Yes, No. Answer direct adjacency: a No answer does not mean the rooms are
-    globally unreachable. Each distinct required room is counted once; no return tour
-    is required.
+    goal_2: Use the selected option as this goal''s value in the final answer mapping, choosing from: Yes, No. Answer direct adjacency:
+    a No answer does not mean the rooms are globally unreachable. Each distinct required room is counted
+    once; no return tour is required.
 
-    goal_3: Report a standalone ANSWER: <option> line in world_observation, choosing
-    from: Yes, No. Answer direct adjacency: a No answer does not mean the rooms are
-    globally unreachable. Each distinct required room is counted once; no return tour
-    is required.
+    goal_3: Use the selected option as this goal''s value in the final answer mapping, choosing from: Yes, No. Answer direct adjacency:
+    a No answer does not mean the rooms are globally unreachable. Each distinct required room is counted
+    once; no return tour is required.
 
-    goal_4: Report a standalone ANSWER: <option> line in world_observation, choosing
-    from: Yes, No. Answer direct adjacency: a No answer does not mean the rooms are
-    globally unreachable. Each distinct required room is counted once; no return tour
-    is required.
+    goal_4: Use the selected option as this goal''s value in the final answer mapping, choosing from: Yes, No. Answer direct adjacency:
+    a No answer does not mean the rooms are globally unreachable. Each distinct required room is counted
+    once; no return tour is required.
 
-    goal_5: Report a standalone ANSWER: <option> line in world_observation, choosing
-    from: Yes, No. Answer direct adjacency: a No answer does not mean the rooms are
-    globally unreachable. Each distinct required room is counted once; no return tour
-    is required.'
-  environment: The complete original building, furniture and native doors are retained.
-    Use all eight mounted cameras and the initial Global overview.
+    goal_5: Use the selected option as this goal''s value in the final answer mapping, choosing from: Yes, No. Answer direct adjacency:
+    a No answer does not mean the rooms are globally unreachable. Each distinct required room is counted
+    once; no return tour is required.'
+  environment: The complete original building, furniture and native doors are retained. Use all eight
+    mounted cameras and the initial Global overview.
   constraints:
   - Preserve original room boundaries, queried anchors and doorway geometry.
   - Use legal robot controls; door opening requires actual physical interaction.

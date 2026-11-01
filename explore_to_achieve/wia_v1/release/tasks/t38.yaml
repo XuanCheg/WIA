@@ -1,37 +1,31 @@
 kind: category_robot_task
 id: task_redesign_cdb38ede71f9e832885a7654__t38_historical_multi_collection_v3
-version: 5
+version: 6
 status: pending
 source:
   provider: esi
   json: Temporal Understanding/Agent Observation/house_single_floor/living_room_0/house_single_floor__living_room_0__run_000.json
 public:
-  objective: 'Inspect all nine food items on the pantry shelves: three hamburgers
-    with filling, three plain buns, and three club sandwiches. Choose your own route
-    and remember the order in which you first inspect the distinct instances within
-    each category. Do not grasp or move any item before submitting ANSWER: SURVEY_COMPLETE
-    after all nine have been inspected. A delayed delivery request will then ask for
-    one to three items in total, using the first one or two instances you inspected
-    in each requested category. Retrieve those history-selected instances and leave
-    every requested item stably released on the same blue-rimmed serving tray.'
-  success_criteria: Survey all nine distinct items, receive the delayed category-count
-    request, physically grasp every requested history-selected instance, and leave
-    all of them stably supported on the serving tray with the robot withdrawn and
-    its hand empty.
-  environment: Food shelves face different approach directions in a furnished living
-    area, with a separate serving tray for delivery.
+  objective: 'Inspect all nine food items on the pantry shelves: three hamburgers with filling, three
+    plain buns, and three club sandwiches. Choose your own route and remember the order in which you first
+    inspect the distinct instances within each category. Do not grasp or move any item before setting
+    survey_complete=true with command DONE and answer=null after all nine have been inspected. A delayed
+    delivery request will then ask for one to three items in total, using the first one or two instances
+    you inspected in each requested category. Retrieve those history-selected instances and leave every
+    requested item stably released on the same blue-rimmed serving tray.'
+  success_criteria: Survey all nine distinct items, receive the delayed category-count request, physically
+    grasp every requested history-selected instance, and leave all of them stably supported on the serving
+    tray with the robot withdrawn and its hand empty.
+  environment: Food shelves face different approach directions in a furnished living area, with a separate
+    serving tray for delivery.
   constraints:
-  - Preserve all food items during the survey; after SURVEY_COMPLETE, move only the
-    requested instances.
-  - 'An inspection uses a synchronized mounted-camera view within 2 m: at least 144
-    visible pixels and a visible bounding-box short side of at least 12 pixels. This
-    records visual exposure, not recognition.'
-  - Simultaneous first inspections of two instances in the same requested category
-    do not establish an order and make that category history ambiguous. Different
-    categories may be first inspected together. Repeated views of an instance count
-    once.
-  - The frozen global overview is context only; it does not create a live inspection
-    event.
+  - Preserve all food items during the survey; after survey completion, move only the requested instances.
+  - 'An inspection uses a synchronized mounted-camera view within 2 m: at least 144 visible pixels and
+    a visible bounding-box short side of at least 12 pixels. This records visual exposure, not recognition.'
+  - Simultaneous first inspections of two instances in the same requested category do not establish an
+    order and make that category history ambiguous. Different categories may be first inspected together.
+    Repeated views of an instance count once.
+  - The frozen global overview is context only; it does not create a live inspection event.
 requirements:
   capabilities:
   - base_translation

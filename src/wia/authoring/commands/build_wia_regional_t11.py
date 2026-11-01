@@ -78,7 +78,11 @@ def build_package():
     success = original_task['public']['success_criteria']
     for original, neutral in aliases.items():
         success = success.replace(original, neutral)
-    task['public']['success_criteria'] = success.replace('ANSWER: <option>', 'ANSWER: <room label>')
+    task['public']['success_criteria'] = success.replace(
+        'Report a standalone ANSWER: <option> line in world_observation',
+        'Return the selected room label in the answer field').replace(
+        'Return the selected option in the answer field',
+        'Return the selected room label in the answer field')
     qa = task['private']['evaluation']['parameters']['source_qa']
     qa.update(question=QUESTION, options=list(NEUTRAL_OPTIONS), answer=aliases[original_qa['answer']])
     provenance = {

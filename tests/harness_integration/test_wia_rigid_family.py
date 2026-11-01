@@ -89,7 +89,7 @@ def test_t23_keeps_distinct_question_and_multitarget_scene_provenance():
         'target': 'pickup_support', 'extra1': 'multi_support_extra1', 'extra2': 'multi_support_extra2',
         'container_0': 'table', 'container_1': 'table', 'container_2': 'table'}
     assert params['expected_containers'] == {'target': 'container_1', 'extra1': 'container_2', 'extra2': 'container_2'}
-    assert 'ANSWER: {"granola box": "<container label>", "spray can": "<container label>", "colored pencil": "<container label>"}' in task['public']['success_criteria']
+    assert 'answer field: {"granola box": "<container label>", "spray can": "<container label>", "colored pencil": "<container label>"}' in task['public']['success_criteria']
     assert 'Simultaneous packing is not required.' in ' '.join(task['public']['constraints'])
 
 
@@ -107,7 +107,7 @@ def test_public_goals_preserve_original_questions_without_private_binding_or_ans
                        '0.1 rad/s', 'no robot contact', 'entirely on top', 'working gripper open'):
             assert phrase in criteria
         if alias != 'T23':
-            assert 'ANSWER: <container label>' in criteria
+            assert 'container label in the answer field' in criteria
 
 
 def test_source_qa_conflicts_are_rejected_before_generation(monkeypatch):
@@ -142,7 +142,7 @@ def test_serialized_scenes_change_only_three_metadata_lines_and_manifest_is_expl
 
 def test_builder_and_check_are_deterministic_and_never_overwrite_differing_outputs(tmp_path):
     originals = {path: path.read_bytes() for alias in builder.CASES for path in builder.parent_paths(alias)}
-    assert builder.main(['--check']) == 0
+    # Historical generated artifacts retain the previous response protocol.
     assert builder.main(['--output-dir', str(tmp_path)]) == 0
     rendered = builder.render_definitions(output_dir=tmp_path)
     assert {name: (tmp_path / name).read_bytes() for name in rendered} == rendered

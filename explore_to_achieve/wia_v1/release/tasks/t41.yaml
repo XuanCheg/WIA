@@ -1,6 +1,6 @@
 kind: category_robot_task
 id: task_redesign_bd0c096bec07a9036cd4bb66
-version: 7
+version: 8
 status: pending
 source:
   provider: esi
@@ -11,21 +11,22 @@ public:
 
     Phase 1: freely inspect comparison locations in a read-only survey of at most 10 decisions. Use mounted
     cameras and base/torso motion; arm and gripper commands are disabled. Incidental navigation contact
-    does not end the survey. Choose DONE or submit PHASE1_COMPLETE when ready; the event occurs unobserved
-    in this same episode. Phase 2: compare with memory and submit ANSWER: <original option>. Then perform
-    the applicable operation: if an object was added, put the actual added object on the collection and
-    inspection tray; if replaced, put the current replacement on the collection and inspection tray; if
-    moved, return the displaced object to its remembered original container/support; if removed, select
-    the matching category and model by appearance from the public spare inventory and replenish the remembered
-    original location; if unchanged, inspect all comparison locations with informative views and leave
-    the contents in place. No grasp is required for no-change. If several locations changed, complete
-    the applicable operation for each change. You may finish Phase 1 before visiting every location; the
-    phase switches automatically after ten decisions. Survey coverage is recorded but is not a transition
-    or full-success gate. The spare tray contains the complete candidate inventory from the beginning
-    in every event variant. Public spare inventory: spare 1 on the stocked spare tray: shaker; spare 2
-    on the stocked spare tray: jar of cumin; spare 3 on the stocked spare tray: butter; spare 4 on the
-    stocked spare tray: bottle of lavender oil. The spare table is visible and reachable during both phases.
-    Original answer options: ["yes", "no"]'
+    does not end the survey. Set survey_complete=true with command DONE when ready (plain DONE also advances
+    this survey); the event occurs unobserved in this same episode. Phase 2: compare with memory and perform
+    the applicable operation below. At final DONE, return the original option in the answer field: if
+    an object was added, put the actual added object on the collection and inspection tray; if replaced,
+    put the current replacement on the collection and inspection tray; if moved, return the displaced
+    object to its remembered original container/support; if removed, select the matching category and
+    model by appearance from the public spare inventory and replenish the remembered original location;
+    if unchanged, inspect all comparison locations with informative views and leave the contents in place.
+    No grasp is required for no-change. If several locations changed, complete the applicable operation
+    for each change. You may finish Phase 1 before visiting every location; the phase switches automatically
+    after ten decisions. Survey coverage is recorded but is not a transition or full-success gate. The
+    spare tray contains the complete candidate inventory from the beginning in every event variant. Public
+    spare inventory: spare 1 on the stocked spare tray: shaker; spare 2 on the stocked spare tray: jar
+    of cumin; spare 3 on the stocked spare tray: butter; spare 4 on the stocked spare tray: bottle of
+    lavender oil. The spare table is visible and reachable during both phases. Original answer options:
+    ["yes", "no"]'
   success_criteria: Use informative observations in both phases, report the correct original comparison
     answer, and complete the applicable change-dependent operation. Manipulation requires real selection
     of the history-bound object and stable released placement with native destination support/contact.

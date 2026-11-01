@@ -5,7 +5,6 @@ import asyncio
 import json
 import time
 import math
-import re
 from datetime import datetime, timezone
 from pathlib import Path
 from PIL import Image
@@ -35,23 +34,6 @@ def safely_recoverable(result, action):
             and result.get("reason") in RECOVERABLE_ERRORS and len(feedback) == 1
             and feedback[0].get("action") == action and feedback[0].get("motion_stopped") is True
             and (feedback[0].get("observable_error") or feedback[0].get("execution_status")) == result.get("reason"))
-
-
-def _temporal_declaration(text, phase):
-    """Recognize exactly one standalone marker from an accepted model output."""
-    if not isinstance(text, str):
-        return None
-    completions = re.findall(r'^[ \t]*PHASE1_COMPLETE[ \t]*$', text, re.MULTILINE)
-    answers = re.findall(r'^[ \t]*ANSWER:([^\r\n]*)$', text, re.MULTILINE)
-    if len(completions) + len(answers) != 1:
-        return None
-    if phase == 'phase_1' and len(completions) == 1:
-        return 'phase_1_complete', None
-    if phase == 'phase_2' and len(answers) == 1:
-        value = answers[0]
-        if value and value[0] in ' \t' and 1 <= len(value.strip()) <= 160:
-            return 'answer', value.strip()
-    return None
 
 
 class RobotEnvironment(Protocol):
@@ -264,11 +246,18 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                 Path(transitions[-1]['final_phase_1_payload']).read_text()))
     summary["max_recoverable_failures"] = max_recoverable_failures
     summary["recovered_execution_errors"] = list(resume_summary.get("recovered_execution_errors", [])) if resume_summary else []
+    delivered_tool_views = {}
+    def log_model_tool(event):
+        trace.depth_response(event)
+        result = event.get('result', {})
+        if (event.get('tool') == 'read_rgb_camera' and event.get('passed_to_model') is True
+                and isinstance(result, dict) and result.get('ok') is True):
+            delivered_tool_views.setdefault(result['snapshot_id'], set()).add(result['camera'])
     try:
         if hasattr(agent, "attach_output_logger"):
             agent.attach_output_logger(trace.public_event)
         if hasattr(agent, "attach_input_logger"):
-            agent.attach_input_logger(trace.depth_response)
+            agent.attach_input_logger(log_model_tool)
         observation = await environment.observe()
         candidate_history = (getattr(environment, 'initialization', None) or {}).get('candidate_observation_history')
         if candidate_history is not None:
@@ -367,23 +356,27 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                 try:
                     current_actions = phase_actions()
                     context = dict(getattr(environment, "action_context", None) or {})
+                    if getattr(environment, 'observation_declarations_available', False):
+                        context['observation_declarations_available'] = True
                     if temporal_episode:
                         phase = getattr(environment, 'temporal_phase', None)
                         context.update(temporal_episode=True, temporal_phase=phase,
                             phase_1_decisions_remaining=max(0, temporal_policy['phase_1_max_decisions'] - summary['phase_1_decisions']),
                             temporal_instruction=('Phase 1 permits base and torso survey motion only. Arm and gripper commands are disabled; incidental navigation contact is recorded without ending the survey. '
                                 'Keep this episode and its earlier observations. '
-                                'When Phase 1 inspection is complete, output a standalone PHASE1_COMPLETE '
-                                'line in world_observation with command DONE to advance; plain DONE also requests transition. '
+                                'When Phase 1 inspection is complete, set survey_complete=true '
+                                'with command DONE to advance; plain DONE also requests transition. '
                                 'The runner forces transition at the survey decision limit.'
                                 if phase == 'phase_1' else
                                 'Use the earlier Phase 1 observations and current Phase 2 observations. '
-                                'Submit a standalone ANSWER: <public option> line in world_observation '
+                                'Return the chosen public option in the separate answer field '
                                 'with command DONE for the final answer.'))
                         if temporal_feedback:
                             context['temporal_feedback'] = temporal_feedback
                     if recovery:
                         context["recovery"] = recovery
+                    if summary.get('history_collection_survey_complete'):
+                        context['history_collection_survey_complete'] = True
                     if resume_summary is not None:
                         context["interruption_resume"] = {
                             "accepted_decisions_before_resume": start_step-1,
@@ -475,6 +468,18 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                         pending_phase_observation = None
                     from wia.runtime.agent.output_normalization import normalize_extra_fields
                     reply = normalize_extra_fields(request, reply)
+                    from .task_response import TaskDecisionInput, unpack_task_response
+                    if isinstance(request, TaskDecisionInput):
+                        reply, task_response, observed_objects = unpack_task_response(request, reply)
+                        entry.update(task_response)
+                    else:
+                        from .observation_declarations import unpack_declarations
+                        reply, observed_objects = unpack_declarations(request, reply)
+                        # Programmatic policies expose the same explicit field in metadata.
+                        entry['answer'] = reply.metadata.get('answer')
+                        entry['arrived_rooms'] = reply.metadata.get('arrived_rooms', [])
+                        entry['survey_complete'] = reply.metadata.get('survey_complete', False)
+                    entry['observed_objects'] = observed_objects
                     raw = final_text_only(reply.raw_text)
                     metadata = model_metadata(reply.metadata)
                     received_at = timestamp()
@@ -593,27 +598,55 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
             if action is not None and deadline is not None and time.perf_counter() >= deadline:
                 summary["termination_reason"] = "timeout"
                 action = None
+            survey_continue = False
             if action is not None:
                 report = getattr(environment, 'report_arrivals', None)
+                declarations = entry.get('observed_objects')
+                if declarations is not None:
+                    views = sorted({row['name'] for row in projection} |
+                                   delivered_tool_views.get(request.sensor_inputs.snapshot_id, set()))
+                    record['observation_declarations'] = {'objects': declarations,
+                        'snapshot_id': request.sensor_inputs.snapshot_id, 'delivered_views': views,
+                        'receipt': await environment.report_observed_objects(
+                            declarations, views, request.sensor_inputs)}
                 text = entry.get('model_metadata', {}).get('world_observation', '')
-                answers = re.findall(r'^[ \t]*ANSWER:[ \t]*(\S[^\n]*)$', text, re.MULTILINE) if isinstance(text, str) else []
+                from .task_response import serialize_answer
+                answer = entry.get('answer')
+                answers = [serialize_answer(answer)] if answer is not None else []
                 answer_report = getattr(environment, 'report_answer', None)
                 if not temporal_episode and len(answers) == 1 and callable(answer_report):
                     record['answer_declaration'] = {'answer': answers[0],
                         'snapshot_id': observation.snapshot_id, 'action_step': observation.action_step,
                         'receipt': await answer_report(answers[0], observation)}
-                rooms = list(dict.fromkeys(re.findall(
-                    r'^[ \t]*ARRIVED:[ \t]+([a-z][a-z0-9_]*_[0-9]+)[ \t]*$', text, re.MULTILINE))) if isinstance(text, str) else []
+                rooms = list(dict.fromkeys(entry.get('arrived_rooms', [])))
                 if rooms and callable(report):
                     record['arrival_declarations'] = {'rooms': rooms,
                         'snapshot_id': observation.snapshot_id, 'action_step': observation.action_step,
                         'receipt': await report(rooms, observation)}
+                if entry.get('survey_complete') is True and not temporal_episode:
+                    survey_report = getattr(environment, 'report_survey', None)
+                    receipt = (await survey_report(observation) if callable(survey_report)
+                               else await answer_report('SURVEY_COMPLETE', observation))
+                    record['survey_declaration'] = {'snapshot_id': observation.snapshot_id,
+                        'action_step': observation.action_step, 'receipt': receipt}
+                    observation = await environment.observe()
+                    record['next_observation'] = str(archive.save(observation, directory / 'after').relative_to(output))
+                    if receipt.get('ok') is True:
+                        summary['history_collection_survey_complete'] = True
+                    else:
+                        record['survey_rejected'] = True
+                        pending_invalid_feedback = (
+                            'Survey completion was not accepted. Continue the required inspection and preserve '
+                            'the targets; no survey transition, terminal DONE or motion occurred.')
+                    survey_continue = True
             if action == DONE_ATOM:
-                temporal_continue = False
+                temporal_continue = survey_continue
                 if temporal_episode:
                     phase = getattr(environment, 'temporal_phase', None)
-                    declaration = (_temporal_declaration(text, phase)
-                        if record.get('model_requested_action', action) == DONE_ATOM else None)
+                    declaration = (('answer', answers[0]) if phase == 'phase_2'
+                        and len(answers) == 1 and isinstance(answers[0], str)
+                        and 1 <= len(answers[0].strip()) <= 160
+                        and record.get('model_requested_action', action) == DONE_ATOM else None)
                     record['temporal_phase'] = phase
                     if phase == 'phase_1':
                         declaration = ('phase_1_complete', None) if temporal_policy['phase_1_allow_early_transition'] else None
@@ -653,8 +686,8 @@ async def run_episode(environment: RobotEnvironment, agent: DecisionAgent, outpu
                     else:
                         temporal_continue = True
                         temporal_feedback = ('DONE did not include exactly one valid declaration for the current phase. '
-                            'Continue inspecting, or pair DONE with standalone PHASE1_COMPLETE in phase_1 '
-                            'or standalone ANSWER: <public option> in phase_2. No phase event or motion occurred.')
+                            'Continue inspecting, or pair DONE with survey_complete=true in phase_1 '
+                            'or a non-null answer field in phase_2. No phase event or motion occurred.')
                         record['temporal_continue_no_motion'] = True
                         record['temporal_declaration_error'] = 'missing_ambiguous_or_wrong_phase_marker'
                 if not temporal_continue and (qa_protocol is None or qa_stop):

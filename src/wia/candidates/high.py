@@ -121,7 +121,7 @@ def _stable(frames: list[dict], name: str, region: str) -> Check:
         if end - current >= STABLE_SECONDS - 1e-9:
             return True
         previous = current
-    return None
+    return False
 
 
 def _first_stable_time(frames: list[dict], name: str, region: str) -> float | None:
@@ -173,7 +173,7 @@ def _preserved(frames: list[dict], names: list[str]) -> Check:
 def _observed_before(frames: list[dict], tag: str, cutoff: float | None,
                      *, after: float | None = None) -> Check:
     if cutoff is None:
-        return None
+        return False if all(isinstance(f.get("observed"), list) for f in frames) else None
     missing = False
     for sample in frames:
         tags, time = sample.get("observed"), _number(sample.get("time_s"))
@@ -194,7 +194,7 @@ def _first_placement(frames: list[dict], names: list[str], region: str) -> float
 def _events(frames: list[dict], kind: str) -> list[dict]:
     result = []
     for sample in frames:
-        for event in sample.get("events", []):
+        for event in sample.get("events") or []:
             if event.get("type") == kind and event not in result:
                 result.append(event)
     return result
@@ -282,10 +282,11 @@ def _h2(contract: dict, frames: list[dict], checks: dict, cost: dict) -> None:
         disturbance_checks.append(branch_state)
         observed_checks.append(observed)
         sequence_checks.append(_all([event_valid, branch_state, observed]))
-    checks["post_delivery_check"] = _any(event_checks) if events else None
-    checks["authored_branch_state"] = _any(disturbance_checks) if disturbance_checks else None
-    checks["workspace_observed_after_event"] = _any(observed_checks) if observed_checks else None
-    checks["post_delivery_sequence"] = _any(sequence_checks) if sequence_checks else None
+    absent = False if all(isinstance(f.get("events"), list) for f in frames) else None
+    checks["post_delivery_check"] = _any(event_checks) if events else absent
+    checks["authored_branch_state"] = _any(disturbance_checks) if disturbance_checks else absent
+    checks["workspace_observed_after_event"] = _any(observed_checks) if observed_checks else absent
+    checks["post_delivery_sequence"] = _any(sequence_checks) if sequence_checks else absent
     checks["protected_preserved"] = _preserved(frames, contract.get("protected", []))
 
 
@@ -393,7 +394,7 @@ def evaluate(prototype: str, contract: dict, frame: dict, history: list[dict]) -
         raise ValueError(f"Unknown HIGH prototype: {prototype}")
     frames = [*history, frame]
     times = [_number(sample.get("time_s")) for sample in frames]
-    timeline = (None if None in times else all(a < b for a, b in zip(times, times[1:])))
+    timeline = True if None not in times and all(a < b for a, b in zip(times, times[1:])) else None
     checks: dict[str, Check] = {"timeline_measured": timeline}
     cost = _cost(frames)
     if timeline is True:

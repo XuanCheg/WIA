@@ -65,11 +65,11 @@ def region_visible(visible_names: set[str], name: str) -> bool:
     return name in visible_names or f"zone_{name}" in visible_names
 
 
-def wipe_waypoints(position: list, aabb: list, region: dict) -> list[dict]:
+def wipe_waypoints(position: list, aabb: list, region: dict, *, obstacles=()) -> list[dict]:
     """Plan sixteen continuous waypoints including a 0.1m supported wipe.
 
-    The patch is chosen inside the supplied region as near the original sponge
-    as its full footprint permits. No region or object identity is changed.
+    The patch stays inside the supplied region and avoids measured spare-tool
+    footprints. No region or object identity is changed.
     """
     origin, box, zone = _vector(position, 3), _bounds(aabb), _bounds(region.get("aabb"))
     if origin is None or box is None or zone is None:
@@ -78,16 +78,45 @@ def wipe_waypoints(position: list, aabb: list, region: dict) -> list[dict]:
     center = [(box[0][i] + box[1][i]) / 2 for i in (0, 1)]
     low, high = ([zone[0][i] + half[i] for i in (0, 1)],
                  [zone[1][i] - half[i] for i in (0, 1)])
-    axis = max((0, 1), key=lambda i: high[i] - low[i])
-    if high[axis] - low[axis] < .1 - 1e-9 or any(a > b for a, b in zip(low, high)):
+    if max(high[i] - low[i] for i in (0, 1)) < .1 - 1e-9 or any(a > b for a, b in zip(low, high)):
         raise ValueError("Cleaning region cannot contain the full sponge and 0.1m wipe")
-    start_center = [min(max(center[i], low[i]), high[i] - (.1 if i == axis else 0))
-                    for i in (0, 1)]
+    blockers = [_bounds(box) for box in obstacles]
+    if any(box is None for box in blockers):
+        raise ValueError('Wipe planning requires measured obstacle AABBs')
+    candidates = []
+    clearance = .01
+    for axis in (0, 1):
+        upper = [high[i] - (.1 if i == axis else 0) for i in (0, 1)]
+        if any(low[i] > upper[i] for i in (0, 1)):
+            continue
+        coordinates = []
+        for i in (0, 1):
+            values = [low[i], upper[i], min(max(center[i], low[i]), upper[i])]
+            for obstacle in blockers:
+                values += [obstacle[0][i] - half[i] - clearance - (.1 if i == axis else 0),
+                           obstacle[1][i] + half[i] + clearance]
+            coordinates.append(sorted({v for v in values if low[i] <= v <= upper[i]}))
+        for x in coordinates[0]:
+            for y in coordinates[1]:
+                point = [x, y]
+                sweep_low = [point[i] - half[i] for i in (0, 1)]
+                sweep_high = [point[i] + half[i] + (.1 if i == axis else 0) for i in (0, 1)]
+                if any(all(sweep_low[i] < obstacle[1][i] + clearance - 1e-9 and
+                           sweep_high[i] > obstacle[0][i] - clearance + 1e-9 for i in (0, 1))
+                       for obstacle in blockers):
+                    continue
+                candidates.append((sum((point[i] - center[i]) ** 2 for i in (0, 1)), axis, point))
+    if not candidates:
+        raise ValueError('Cleaning region has no unobstructed full-footprint 0.1m wipe')
+    _, axis, start_center = min(candidates)
     start = [origin[i] + start_center[i] - center[i] for i in (0, 1)]
     start.append(origin[2] + zone[1][2] - box[0][2])
     end = start.copy()
     end[axis] += .1
-    lifted_origin = [origin[0], origin[1], max(origin[2], start[2]) + .06]
+    lift_z = max(origin[2], start[2]) + .06
+    if blockers:
+        lift_z = max(lift_z, max(obstacle[1][2] for obstacle in blockers) + clearance + origin[2] - box[0][2])
+    lifted_origin = [origin[0], origin[1], lift_z]
     lifted_start, lifted_end = start.copy(), end.copy()
     lifted_start[2] = lifted_end[2] = lifted_origin[2]
     waypoints = []
@@ -200,6 +229,9 @@ class CandidateEvents:
             self.sim.step()
             if index == 0 and on_first_step is not None:
                 on_first_step()
+            sample = getattr(self, 'physics_sample_callback', None)
+            if callable(sample):
+                sample()
         self.state["placements"][name] = {"support": zone["support"], "authored_event": True}
 
     def _apply_h2(self, receipt):
@@ -264,16 +296,22 @@ class CandidateEvents:
             receipt["reason"] = "Native cleaning support is missing"
             return receipt
         original_position, orientation = [_list(value) for value in obj.get_position_orientation()]
-        waypoints = wipe_waypoints(original_position, [_list(value) for value in obj.aabb], surface)
         before = self._measure()
         other_names = [spec["name"] for spec in self.parameters["objects"] if spec["name"] != used]
+        waypoints = wipe_waypoints(original_position, [_list(value) for value in obj.aabb], surface,
+                                   obstacles=[before['objects'][name]['aabb'] for name in other_names])
         self._capture(receipt, callback, "m1_before_use")
         contact_event = None
         preservation = True
+        receipt['preservation_diagnostics'] = []
+        self.state['last_preview_receipt'] = receipt
         try:
             for waypoint in waypoints:
                 self._set(obj, waypoint["position"], orientation)
                 self.sim.step()
+                sample = getattr(self, 'physics_sample_callback', None)
+                if callable(sample):
+                    sample()
                 current = self._measure()
                 if waypoint["contact"]:
                     measured_box = current["objects"][used]["aabb"]
@@ -287,10 +325,26 @@ class CandidateEvents:
                             surface=surface["support"], contact_valid=valid,
                             contamination_physics_claimed=False)
                         receipt["events"].append(contact_event)
+                from wia.candidates.high import _orientation_delta
+                for name in other_names:
+                    first, latest = before['objects'].get(name, {}), current['objects'].get(name, {})
+                    receipt['preservation_diagnostics'].append({'object': name,
+                        'waypoint': deepcopy(waypoint), 'time_s': current['time_s'],
+                        'before': deepcopy(first), 'current': deepcopy(latest),
+                        'orientation_delta_rad': _orientation_delta(first, latest),
+                        'preserved': _preserved([before, current], [name])})
                 preserved = _preserved([before, current], other_names)
                 if preserved is not True:
                     preservation = preserved
-                    raise RuntimeError("An unowned object moved during the authored use preview")
+                    receipt.update(status='failed', preservation_valid=preserved,
+                        reason='unowned_object_moved' if preserved is False else 'preservation_measurement_unavailable')
+                    output = getattr(self.session, 'capture_output_dir', None)
+                    if output is not None:
+                        import json
+                        from pathlib import Path
+                        (Path(output) / 'candidate_preview_failure.json').write_text(json.dumps(receipt, indent=2) + '\n')
+                    raise RuntimeError('Authored use preview failed: ' + receipt['reason'] + '; ' +
+                        str([r for r in receipt['preservation_diagnostics'] if r['preserved'] is not True]))
                 self._capture(receipt, callback, waypoint["label"])
         finally:
             self._set(obj, original_position, orientation)

@@ -108,6 +108,10 @@ class CandidatePrelude:
         self.state["episode_prelude"] = {"status": "running", "initial_snapshot_id": boundary[0]}
         self.private_records = []
         self.evaluator.prelude_frames = []
+        # Images are sparse; every native step still needs a private physics
+        # sample for dwell and preservation checks across the authored event.
+        self.events.physics_sample_callback = lambda: self.evaluator.prelude_frames.append(
+            deepcopy(self.evaluator.measure()))
         self.session.candidate_public_history = None
         frames = []
         previous_hook = getattr(self.session, "candidate_observation_hook", _ABSENT)
@@ -147,8 +151,14 @@ class CandidatePrelude:
             self.run_status = "failed"
             self.state["episode_prelude"].update(status="failed", error=f"{type(error).__name__}: {error}")
             self.session.candidate_public_history = None
+            from pathlib import Path
+            if getattr(self.evaluator, 'output', None) is not None:
+                Path(self.evaluator.output).mkdir(parents=True, exist_ok=True)
+                (Path(self.evaluator.output) / 'prelude_failure.json').write_text(json.dumps({
+                    'error': str(error), 'preview': self.state.get('last_preview_receipt')}, indent=2) + '\n')
             raise
         finally:
+            self.events.physics_sample_callback = None
             if previous_hook is _ABSENT:
                 del self.session.candidate_observation_hook
             else:

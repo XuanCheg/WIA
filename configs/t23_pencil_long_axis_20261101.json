@@ -1,0 +1,19 @@
+{
+  "schema": "wia_native_scene_sequence_v1",
+  "purpose": "State-set geometry diagnostic only; not a robot trajectory or benchmark score.",
+  "actions": [],
+  "fit_probe": {
+    "targets": [
+      "extra2"
+    ],
+    "containers": [
+      "container_0"
+    ],
+    "orientations_xyz_deg": [],
+    "drop_clearance_m": 0.01,
+    "maximum_settle_s": 6.0,
+    "principal_axes": [
+      2
+    ]
+  }
+}

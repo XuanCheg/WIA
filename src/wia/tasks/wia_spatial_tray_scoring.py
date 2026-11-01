@@ -128,13 +128,13 @@ class SpatialTrayProgress:
         self._current = {}
         result = self._consume(sample, initial=True)
         self._initial_errors = list(result['measurement_errors'])
-        if sample.get('initial_supports_valid') is not True:
+        if not self.final_state and sample.get('initial_supports_valid') is not True:
             self._initial_errors.append('initial_separate_native_supports_unavailable_or_false')
         for key, row in sample.get('targets', {}).items():
-            if key in self.p['targets'] and self._inside(row):
+            if not self.final_state and key in self.p['targets'] and self._inside(row):
                 self._initial_errors.append(key + ':initially_inside_destination')
         grasp = sample.get('grasp', {})
-        if grasp.get('detached', grasp.get('released')) is not True or grasp.get('held_names') != []:
+        if not self.final_state and (grasp.get('detached', grasp.get('released')) is not True or grasp.get('held_names') != []):
             self._initial_errors.append('initial_aggregate_hands_not_released')
         if self._initial_errors:
             self._current['available'] = False

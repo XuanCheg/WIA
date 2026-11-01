@@ -91,7 +91,7 @@ scene:
             and one robot. Elapsed simulation time is the scheduling cost. Potato and pear use station
             A; apple uses station B. A job must remain released and supported in its station for its stated
             duration before delivery to the blue area. Early removal resets processing. Use simulation
-            time; model waits pause the world. Processing is a timed state machine, not cooking.
+            time; the world continues during model waits. Grasp and carry each job into its station, then grasp and carry it to delivery after processing. Processing is a timed state machine, not cooking.
           timed_process: true
           condition:
             duration_c: 8.0

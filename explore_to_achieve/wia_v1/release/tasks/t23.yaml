@@ -1,6 +1,6 @@
 kind: category_robot_task
 id: wia_rigid_t23_family_v1
-version: 8
+version: 10
 status: pending
 source:
   provider: esi
@@ -16,13 +16,17 @@ public:
 
     Containers: bucket, mug, wicker basket Place each named object partially inside its selected container.
     Leave it released and withdraw the robot hands at least 2 cm clear.'
-  success_criteria: 'Answer the original containment question for every named object. For each object,
-    verify partial insertion into its selected container with actual container contact and no interpenetration.
-    With empty open hands, no robot support or contact and hands at least 2 cm clear, maintain this state
-    for at least 0.5 seconds with linear speed at most 0.02 m/s and angular speed at most 0.1 rad/s. An
-    object resting entirely on top does not count. No minimum lift height or prior grasp is required.
-    Targets may be verified sequentially and removed after verification to free a shared container. Finish
-    with empty open hands. Submit ANSWER: <container label> and declare DONE.'
+  success_criteria: If several containers permit stable partial insertion, choose the smaller suitable
+    one. Answer the original containment question for every named object. For each object, verify partial
+    insertion into its selected container with actual container contact and no interpenetration. With
+    both hands empty, the working gripper open, no robot support or contact and both hands at least 2
+    cm clear, maintain this state for at least 0.5 seconds with linear speed at most 0.02 m/s and angular
+    speed at most 0.1 rad/s. An object resting entirely on top does not count. No minimum lift height
+    or prior grasp is required. Targets may be verified sequentially and removed after verification to
+    free a shared container. Finish with both hands empty and the working gripper open. Return answer
+    as an object with the exact public keys "granola box", "spray can" and "colored pencil", each mapped
+    to its chosen container label; then declare DONE. Use answer=null until ready to submit the complete
+    mapping.
   environment: The mug, wicker basket and bucket are exposed on the native bottom cabinet. The granola
     box, spray can and colored pencil remain on the native sofa. Retrieve the targets using the real R1
     robot.
@@ -105,17 +109,17 @@ private:
       - container_1
       - container_2
       expected_containers:
-        target: container_1
-        extra1: container_2
-        extra2: container_2
+        target: container_0
+        extra1: container_0
+        extra2: container_1
       target_labels:
         target: granola box
         extra1: spray can
         extra2: colored pencil
       expected_answers:
-        target: wicker basket
-        extra1: bucket
-        extra2: bucket
+        target: mug
+        extra1: mug
+        extra2: wicker basket
       minimum_lift_m: null
       stability_duration_s: 0.5
       maximum_linear_speed_m_s: 0.02
@@ -508,3 +512,32 @@ repair:
     scene_geometry_changed: false
     native_execution_verified: false
     scope: Outcome-based placement; essential passage and sequential insertion goals remain explicit.
+  best_fit_verification_20261101:
+    scope: Released stable partial insertion under the current task rules; state-set native fit diagnostics,
+      not a robot success trajectory.
+    original_release_answers:
+      expected_containers:
+        target: container_1
+        extra1: container_2
+        extra2: container_2
+      expected_answers:
+        target: wicker basket
+        extra1: bucket
+        extra2: bucket
+    confirmed_answers:
+      granola box: mug
+      spray can: mug
+      colored pencil: wicker basket
+    pencil_decision: User approved the smallest empirically verified container. Nine mug orientations
+      failed; this is not proof of universal mug infeasibility.
+    geometry_changed: false
+    source_qa_preserved: true
+    native_evidence: /local_home2/zhouxinyang/models/WIA/outputs/t23_fit_v7_20261101/00_t23/fit_probe.json
+    pencil_search_evidence:
+    - /local_home2/zhouxinyang/models/WIA/outputs/t23_pencil_long_axis_20261101/00_t23/fit_probe.json
+    - /local_home2/zhouxinyang/models/WIA/outputs/t23_pencil_other_axes_20261101/00_t23/fit_probe.json
+  open_hand_prompt_alignment_20261101:
+    rule: Both hands empty and withdrawn; the working gripper must be open. The inactive empty gripper
+      need not be fully open.
+    scorer_changed: false
+    basis: Existing native adapter and test_two_arm_readback_allows_inactive_half_open_empty_hand.

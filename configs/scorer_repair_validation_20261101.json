@@ -1,0 +1,55 @@
+{
+  "schema": "wia_native_scene_sequence_v1",
+  "purpose": "Diagnostic control and scorer checks; no model and no task-solving claim.",
+  "actions": [
+    {
+      "action": "BASE_TURN_LEFT",
+      "angle_deg": 5
+    },
+    {
+      "action": "BASE_TURN_RIGHT",
+      "angle_deg": 5
+    },
+    {
+      "action": "BASE_FWD",
+      "distance_m": 0.05
+    },
+    {
+      "action": "BASE_BACK",
+      "distance_m": 0.05
+    },
+    {
+      "action": "MV_UP",
+      "distance_m": 0.02
+    },
+    {
+      "action": "MV_DOWN",
+      "distance_m": 0.02
+    },
+    {
+      "action": "GRASP"
+    },
+    {
+      "action": "RELEASE"
+    }
+  ],
+  "declare_done": false,
+  "observed_objects": [
+    {
+      "label": "chandelier",
+      "camera": "agentview_rgb"
+    },
+    {
+      "label": "top cabinet",
+      "camera": "agentview_rgb"
+    },
+    {
+      "label": "commercial kitchen table",
+      "camera": "agentview_rgb"
+    },
+    {
+      "label": "paper towel dispenser",
+      "camera": "agentview_rgb"
+    }
+  ]
+}

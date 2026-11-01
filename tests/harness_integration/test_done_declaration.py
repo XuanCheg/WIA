@@ -74,7 +74,8 @@ def post_on_owner(backend, url, body, path='/api/agent/done'):
     return responses[0]
 
 
-def test_http_done_is_owned_nonmotion_fresh_private_and_idempotent(control_http):
+@pytest.mark.parametrize('requires_done', [True, False])
+def test_http_done_is_owned_nonmotion_fresh_private_and_idempotent(control_http, requires_done):
     backend, _, url, calls, rig = control_http
     token = claim(backend, url)
     reports = []
@@ -82,7 +83,7 @@ def test_http_done_is_owned_nonmotion_fresh_private_and_idempotent(control_http)
         assert threading.current_thread() is threading.main_thread()
         reports.append(observation)
         return {'correct': True, 'private_object': PRIVATE}
-    rig.task_evaluator = NS(requires_done_declaration=True, report_done=report)
+    rig.task_evaluator = NS(requires_done_declaration=requires_done, report_done=report)
     rig.pipeline.og.sim.current_time = 7.
     rig.pipeline.og.sim.step = lambda: pytest.fail('DONE must not step simulation')
     source = backend.observation_source
@@ -169,6 +170,27 @@ def test_failed_native_done_is_explicit_and_cannot_be_rescored(tmp_path):
     assert len(native.declarations) == 1 and wrapper.done_result['task_success'] is False
 
 
+def test_continuous_scorer_done_reads_latest_state_and_seals_it(tmp_path):
+    wrapper, native = envelope(tmp_path)
+    native.requires_done_declaration = False
+    state = {'complete': False}
+    def measured(observation, *, action):
+        value = native.value(observation, finalized=state['complete'])
+        value.update(evaluation_validity='complete',
+                     completion_items=[{'id': 'terminal', 'completed': state['complete']}])
+        return value
+    native.record = measured
+    assert wrapper.begin_episode(NS(snapshot_id=1, action_step=0))['score_percent'] == 0.
+    # The running world changes after the last action, before DONE.
+    state['complete'] = True
+    terminal = wrapper.report_done(NS(snapshot_id=2, action_step=0))
+    assert terminal['score_percent'] == 100. and terminal['evaluation_finalized']
+    assert terminal['model_declared_done'] and terminal['snapshot_id'] == 2
+    state['complete'] = False
+    assert wrapper.record(NS(snapshot_id=3, action_step=0), action=None) == terminal
+    assert not native.declarations
+
+
 class DoneEnvironment(Environment):
     def __init__(self, *, fail_done=False):
         super().__init__()
@@ -249,7 +271,7 @@ def test_runner_temporal_phase_one_done_does_not_declare_terminal(tmp_path):
                 'snapshot_id': observation.snapshot_id, 'action_step': observation.action_step}
     env.report_done = report_done
     result = asyncio.run(run_episode(env, SessionAgent(reply(text='PHASE1_COMPLETE'),
-        reply(text=f'ANSWER: {OPTION}')), tmp_path/'episode', max_steps=4))
+        reply(answer=OPTION)), tmp_path/'episode', max_steps=4))
     assert result['termination_reason'] == 'model_done' and phases == ['phase_2']
 
 

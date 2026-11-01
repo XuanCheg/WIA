@@ -101,7 +101,7 @@ def definitions():
          object_spec('item_03','apple','agveuv',offset=(.15,0),size=[.075,.075,.075])],
         {'station_a':1,'station_b':2,'delivery':3},
         {'jobs':{'item_01':{'station':'station_a','duration_s':12.},'item_02':{'station':'station_a','duration_s':4.},'item_03':{'station':'station_b','duration_s':8.}},'delivery_region':'delivery','deadline_s':120.,'handling_s':2.,'protected':[]},
-        'Process and deliver all three jobs as early as possible using two exclusive stations and one robot. Elapsed simulation time is the scheduling cost. Potato and pear use station A; apple uses station B. A job must remain released and supported in its station for its stated duration before delivery to the blue area. Early removal resets processing. Use simulation time; model waits pause the world. Processing is a timed state machine, not cooking.', timed_process=True)
+        'Process and deliver all three jobs as early as possible using two exclusive stations and one robot. Elapsed simulation time is the scheduling cost. Potato and pear use station A; apple uses station B. A job must remain released and supported in its station for its stated duration before delivery to the blue area. Early removal resets processing. Use simulation time; the world continues during model waits. Grasp and carry each job into its station, then grasp and carry it to delivery after processing. Processing is a timed state machine, not cooking.', timed_process=True)
     return rows
 
 
@@ -133,8 +133,8 @@ def build():
             bindings={o['name']:{'name':o['name']} for o in spec['objects']}
             objective=spec['objective']
             if pid=='M2':objective+=f' Orders: A={condition["orders"]["order_a"]}, B={condition["orders"]["order_b"]} units.'
-            if pid=='M4':objective+=f' Durations: potato=12 s, pear=4 s, apple={condition["duration_c"]} s. Deadline=120 simulation seconds. The 2-second abstract handling cost is a planning lower bound, not a measured controller time.'
-            task=dict(kind='category_robot_task',id=identity,version=1,status='pending',source={'provider':'esi','json':source_identity},
+            if pid=='M4':objective+=f' Durations: potato=12 s, pear=4 s, apple={condition["duration_c"]} s. Deadline=120 simulation seconds. The 2-second abstract handling cost is a planning lower bound, not a measured controller time. The observation-bound simulation_clock reports elapsed simulation seconds since this episode started; the deadline uses that same origin.'
+            task=dict(kind='category_robot_task',id=identity,version=2 if pid=='M4' else 1,status='pending',source={'provider':'esi','json':source_identity},
                 public={'objective':objective,'success_criteria':'Actual stable released placement, meaningful process evidence and preservation are required. Scene screenshots alone do not certify task completion.','environment':f'Derived {spec["scene_model"]} {spec["room"]} with source-context inventory.','constraints':['Use only public robot sensors and legal physical controls.','Preserve resident contents and protected furniture.']},
                 requirements={'capabilities':['base_translation','base_rotation','ee_translation','gripper','ee_rotation','trunk_height']},private={'bindings':bindings,'evaluation':{'type':'category_operation','module':MODULE,'operation':pid,'binding_keys':list(bindings),'parameters':spec}},scene=scene,qualification={'on_failure':'skip','target_movable_collidable':True,'initial_visibility':'none'},defaults={'seed':7,'max_steps':120,'wall_timeout_s':5400.,'world_advances_during_inference':False,'observation_condition':'current','action_mode':'parameterized'})
             sd=dict(kind='scene_patch',id=identity,version=1,status='pending',source=task['source'],bindings=bindings,scene=scene,seed=7,runtime={'preview_fps':0.,'camera_size':[512,512]})

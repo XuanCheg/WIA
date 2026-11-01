@@ -160,12 +160,13 @@ def build_definitions(alias, *, output_dir=DEFAULT_OUTPUT):
         'and partially insert it into the container selected for that object. Release '
         'it and withdraw the robot hands at least 2 cm clear.')
     if len(targets) > 1:
-        answer_instruction = 'Submit ANSWER: ' + json.dumps(
+        answer_instruction = 'Submit in the answer field: ' + json.dumps(
             {label: '<container label>' for label in case['target_labels'].values()}) + ' and declare DONE.'
     else:
-        answer_instruction = 'Submit ANSWER: <container label> and declare DONE.'
+        answer_instruction = 'Submit the container label in the answer field and declare DONE.'
     public['success_criteria'] = (
-        'Answer the original containment question for every named object. For each object, '
+        'Answer the original containment question for every named object. If several containers permit '
+        'stable partial insertion, choose the smaller suitable one. For each object, '
         'complete an actual grasp and a lift of at least 5 cm, then release it partially '
         'inside its selected container while touching that container. With no robot contact '
         'or support, and the robot hands at least 2 cm clear, maintain this state for at '

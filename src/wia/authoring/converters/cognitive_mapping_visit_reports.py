@@ -16,9 +16,9 @@ import numpy as np
 
 
 ARRIVAL_INSTRUCTION = (
-    "While physically and stably inside each required room, output a standalone line "
-    "'ARRIVED: <room_instance>' in your world_observation text, replacing <room_instance> "
-    "with the room instance you identify from your observations. Report each required room; "
+    "While physically and stably inside each required room, include its public room instance "
+    "in the arrived_rooms field, with spaces replaced by underscores (for example kitchen_0). "
+    "Identify the room from your observations. Report each required room; "
     "a declaration alone does not establish a visit. For an ordered route, report each step "
     "after completing its predecessor, including repeated room names. Out-of-order visits "
     "do not erase completed steps; revisit and report the pending step to continue."
@@ -447,7 +447,7 @@ def revise_mapping_result(source, context, result):
             'unavailable_is_not_agent_failure': True})
     evaluation['operation'] = REVISED_MAPPING_OPERATIONS[kind]
     task['public'] = {'objective': raw['question'],
-        'success_criteria': 'Report a standalone ANSWER: <option> line in world_observation, choosing from: '
+        'success_criteria': 'Return the selected option in the answer field, choosing from: '
             + ', '.join(str(x) for x in options) + '.',
         'environment': 'Explore the preserved original building using the robot-mounted observations.',
         'constraints': ['Preserve original room boundaries, queried anchors and doorway geometry.',
@@ -464,13 +464,13 @@ def revise_mapping_result(source, context, result):
                 required_order=[], arrival_report_required=False, public_route_required=False,
                 reachability_answer={'version': 'mapping_reachability_answer_v1', 'answer': 'unreachable',
                     'options': ['reachable', 'unreachable'], 'source': 'question_data.verification.graph_reachable',
-                    'public_format': 'ANSWER: adjacency=<Yes|No>; reachability=<reachable|unreachable>'})
+                    'public_format': 'answer field: adjacency=<Yes|No>; reachability=<reachable|unreachable>'})
             p['mechanism_contract']['required_native_evidence'] += ['source_unreachability_verified',
                 'native_graph_reachable_is_false', 'operable_doors_considered', 'reachability_evidence']
             public['objective'] = (raw['question'] + ' Separately determine whether any legal route connects '
                 'the two named regions, accounting for doors that can be physically opened.')
-            public['success_criteria'] = ('Submit one standalone line in world_observation: '
-                'ANSWER: adjacency=<Yes|No>; reachability=<reachable|unreachable>. '
+            public['success_criteria'] = ('Submit one string in the answer field: '
+                'adjacency=<Yes|No>; reachability=<reachable|unreachable>. '
                 'The two answers are scored independently. Direct adjacency and global reachability are distinct. '
                 'No arrival or route execution is required. Failure to find a route or an initially closed door '
                 'does not establish unreachability.')
@@ -618,11 +618,26 @@ class SourceAnswerMappingEvaluator:
     def __init__(self, session, controller, config, output, native):
         self.session, self.controller, self.config = session, controller, config
         self.parameters, self.native, self.output = config['parameters'], native, Path(output)
+        self.observation_declarations_available = self.parameters['actual_capability'] == 'observed_anchor_region_relation'
+        if self.observation_declarations_available:
+            from wia.native.mapping_observations import MappingObservationEvidence
+            self.observation_evidence = MappingObservationEvidence(session, config)
+
+    def capture_observation(self, observation):
+        if self.observation_declarations_available:
+            self.observation_evidence.capture_observation(observation)
+
+    def report_observed_objects(self, objects, delivered_views, observation):
+        if not self.observation_declarations_available:
+            raise ValueError('This task has no anchor declaration contract.')
+        self.observation_evidence.report(objects, delivered_views, observation)
 
     def begin_episode(self, observation):
         self.answer, self.route_stage = None, 0
         self.reachability_response = None
         self.anchor_evidence, self.route_events = {}, []
+        if self.observation_declarations_available:
+            self.observation_evidence.begin_episode()
         self.native.begin_episode(observation)
         return self.record(observation)
 
@@ -651,19 +666,9 @@ class SourceAnswerMappingEvaluator:
         return row
 
     def _observed_anchors(self):
-        entries = getattr(self.session, 'mapping_anchor_observations', {}).get(self.parameters['source_path'])
-        if not isinstance(entries, list):
-            return False
-        for row in entries:
-            key = row.get('binding')
-            if (key in self.parameters.get('required_anchor_bindings', [])
-                    and row.get('episode_id') == getattr(self.session, 'episode_id', None)
-                    and row.get('native_object_name') == self.config['bindings'][key]
-                    and row.get('observable_identity_verified') is True
-                    and row.get('public_label_association_verified') is True
-                    and row.get('delivered_rgb_verified') is True and row.get('snapshot_id')):
-                self.anchor_evidence.setdefault(key, deepcopy(row))
-        return True
+        for row in self.observation_evidence.receipts:
+            self.anchor_evidence.setdefault(row['binding'], deepcopy(row))
+        return self.observation_evidence.available()
 
     def record(self, observation, *, action=None):
         row = self.native.record(observation, action=action)
@@ -715,6 +720,9 @@ class SourceAnswerMappingEvaluator:
             completion_items=items, evaluation_validity='complete' if valid else 'unavailable',
             answer=self.answer, answer_correct=bool(correct), mapping_qualification=proof,
             observed_anchor_evidence=deepcopy(self.anchor_evidence), route_answer_stage=self.route_stage,
+            anchor_declarations=deepcopy(self.observation_evidence.claims) if self.observation_declarations_available else [],
+            anchor_capture_evidence=deepcopy(self.observation_evidence.capture) if self.observation_declarations_available else None,
+            native_anchor_relation=deepcopy(getattr(self.native, 'relation_evidence', None)),
             task_success=bool(valid and row['task_constraints_satisfied'] and all(item['completed'] for item in items)))
         from wia.tasks.completion import progress
         row.update(progress(row))

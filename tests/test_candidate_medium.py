@@ -304,8 +304,8 @@ def test_m4_resource_violations_and_missing_transport_are_not_success():
     for sample in frames:
         sample["objects"]["a"]["held"] = False
     result = score("M4", contract, frames)
-    assert not result["task_success"] and result["evaluation_validity"] == "unavailable"
-    assert result["checks"]["load_transport:a"] is None
+    assert not result["task_success"] and result["evaluation_validity"] == "complete"
+    assert result["checks"]["load_transport:a"] is False
 
 
 def test_m4_complete_native_tick_history_is_required():

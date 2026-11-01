@@ -1,14 +1,14 @@
 kind: category_robot_task
 id: wia_produce_appearance_seed101
-version: 6
+version: 7
 status: pending
 source:
   provider: esi
   json: Specular Reflection/Correspondence/office_cubicles_left/meeting_room_0/wia_furnished_background_v1.json
 public:
-  objective: 'Inspect the produce appearance inside the red outline in the initial head-camera view. Submit
-    ANSWER: reflected or ANSWER: direct. Deliver the corresponding real item inside the stockpot if reflected,
-    or onto the cutting board if direct.'
+  objective: Inspect the produce appearance inside the red outline in the initial head-camera view. Return
+    "reflected" or "direct" in the answer field. Deliver the corresponding real item inside the stockpot
+    if reflected, or onto the cutting board if direct.
   success_criteria: Leave all required original items in the branch-correct destination and requested
     spatial relation, released without robot support and stable for at least 0.5 seconds, with linear
     speed at most 0.02 m/s and angular speed at most 0.1 rad/s. Finish with empty open hands, withdrawn

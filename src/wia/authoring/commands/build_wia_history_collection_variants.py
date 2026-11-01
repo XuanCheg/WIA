@@ -159,7 +159,7 @@ def translate_definitions(parent_task, parent_scene, entry, provenance):
         'Inspect all nine food items on the pantry shelves: three hamburgers with filling, three plain buns, '
         'and three club sandwiches. Choose your own route and remember the order in which you first '
         'inspect the distinct instances within each category. Do not grasp or move any item before submitting '
-        'ANSWER: SURVEY_COMPLETE after all nine have been inspected. A delayed delivery request will then '
+        'survey_complete=true with command DONE and answer=null after all nine have been inspected. A delayed delivery request will then '
         'ask for one to three items in total, using the first one or two instances you inspected in each '
         'requested category. Retrieve those history-selected instances and leave every requested item '
         'stably released on the same blue-rimmed serving tray.')
@@ -168,7 +168,7 @@ def translate_definitions(parent_task, parent_scene, entry, provenance):
         'requested history-selected instance, and leave all of them stably supported on the serving tray '
         'with the robot withdrawn and its hand empty.')
     public['constraints'] = [
-        'Preserve all food items during the survey; after SURVEY_COMPLETE, move only the requested instances.',
+        'Preserve all food items during the survey; after survey completion, move only the requested instances.',
         parent_task['public']['constraints'][1],
         'Simultaneous first inspections of two instances in the same requested category do not establish '
         'an order and make that category history ambiguous. Different categories may be first inspected '

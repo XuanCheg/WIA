@@ -1,6 +1,6 @@
 kind: category_robot_task
 id: iw_m4_02
-version: 1
+version: 2
 status: pending
 source:
   provider: esi
@@ -9,10 +9,9 @@ public:
   objective: 'Process and deliver all three jobs as early as possible using two exclusive stations and
     one robot. Elapsed simulation time is the scheduling cost. Potato and pear use station A; apple uses
     station B. A job must remain released and supported in its station for its stated duration before
-    delivery to the blue area. Early removal resets processing. Use simulation time; model waits pause
-    the world. Processing is a timed state machine, not cooking. Durations: potato=12 s, pear=4 s, apple=24.0
+    delivery to the blue area. Early removal resets processing. Use simulation time; the world continues during model waits. Grasp and carry each job into its station, then grasp and carry it to delivery after processing. Processing is a timed state machine, not cooking. Durations: potato=12 s, pear=4 s, apple=24.0
     s. Deadline=120 simulation seconds. The 2-second abstract handling cost is a planning lower bound,
-    not a measured controller time.'
+    not a measured controller time. The observation-bound simulation_clock reports elapsed simulation seconds since this episode started; the deadline uses that same origin.'
   success_criteria: Actual stable released placement, meaningful process evidence and preservation are
     required. Scene screenshots alone do not certify task completion.
   environment: Derived restaurant_diner kitchen_0 with source-context inventory.

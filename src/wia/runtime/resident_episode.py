@@ -15,6 +15,7 @@ import time
 import uuid
 import ast
 import runpy
+import hashlib
 
 from .lifecycle_log import emit
 
@@ -209,6 +210,13 @@ class ResidentEpisodeClient:
         command = [self.python, '-u', str(root / 'src/wia/runtime/commands/run_esi_episode_service.py'),
                    '--control-dir', str(self.control), '--task-profiles', os.environ['WIA_RESIDENT_TASK_PROFILES']]
         appdata = self.control / 'appdata'
+        # Keep disposable simulator caches off a nearly full results volume.
+        # The control files and experiment evidence remain under self.control.
+        cache_root = os.environ.get('WIA_RESIDENT_CACHE_ROOT')
+        if cache_root and not appdata.exists():
+            cache = Path(cache_root).resolve() / hashlib.sha256(str(self.control.resolve()).encode()).hexdigest()[:20]
+            cache.mkdir(parents=True, exist_ok=True)
+            appdata.symlink_to(cache, target_is_directory=True)
         (appdata / 'native_tmp').mkdir(parents=True, exist_ok=True)
         env = dict(self.environment, CUDA_VISIBLE_DEVICES=self.gpu['uuid'], CUDA_DEVICE_ORDER='PCI_BUS_ID',
                    OMNIGIBSON_APPDATA_PATH=str(appdata), XDG_CACHE_HOME=str(appdata / 'xdg_cache'),

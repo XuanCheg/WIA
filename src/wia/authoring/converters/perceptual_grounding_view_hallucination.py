@@ -103,7 +103,7 @@ class CategoryConverter(ConverterBase):
         task['public'] = {
             'objective': 'Inspect the candidate whose appearance changes across viewpoints. Determine whether it is '
                 + ' or '.join(choices) + f', and place that same candidate {prep} {label}. '
-                + 'Report its category in world_observation as ANSWER: <category>.',
+                + 'Return its category in the answer field.',
             'success_criteria': f'Report the correct category, select the original candidate and release it stably {prep} {label} '
                 + 'for 15 consecutive physics steps. Identification, selection and placement are distinct obligations.',
             'environment': 'The original ambiguous object, support and source viewpoint geometry are preserved.',

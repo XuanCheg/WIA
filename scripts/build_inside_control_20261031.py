@@ -1,7 +1,7 @@
 """Add one source-preserving already-contained control; leave T15--T17 unchanged.
 
 Run: PYTHONPATH=src python scripts/build_inside_control_20261031.py
-The generated task is pending until its native relation and no-op score are measured.
+The control requires a public inside declaration and active DONE in the same episode.
 """
 from copy import deepcopy
 import hashlib
@@ -16,6 +16,26 @@ from wia.authoring.converters.perceptual_grounding_material_transparency import 
 from wia.tasks.interaction_setup import prepare_definitions
 from wia.tasks.loader import task_definition
 from wia.tasks.schema import SceneDefinition
+
+
+def require_explicit_confirmation(task):
+    """Apply the user-requested T52-only response gate without changing its world."""
+    task['version'] = 3
+    task['private']['evaluation']['parameters']['require_inside_declaration_and_done'] = True
+    task['public']['objective'] = (
+        'Verify that the whiskey stone is inside its original hingeless jar. If it is outside, '
+        'place it inside and release it stably. Return "inside" in the answer field, then '
+        'issue DONE. The declaration may precede DONE in this same episode.')
+    task['public']['success_criteria'] = (
+        'At DONE, the original small object must be released, contact its original container, '
+        'satisfy the native inside relation and remain stable for 15 consecutive physics steps. '
+        'Credit also requires your explicit answer="inside" declaration and your active DONE command. '
+        'An already-contained state requires no manipulation, but still requires both declarations.')
+    task['public']['constraints'].append(
+        'A correct physical state alone earns no credit. Automatic termination or budget exhaustion '
+        'does not replace your active DONE command.')
+    task['repair'].update(revision='explicit_inside_confirmation_20261101',
+        response_policy='T52 only: explicit inside declaration and active DONE; separate decisions are allowed.')
 
 
 def main():
@@ -47,6 +67,7 @@ def main():
         'native_verification_at_definition_time': 'pending',
         'robot_start': 'A measured room corner; object and container source geometry remains unchanged.',
         'scope': 'An additional already-contained branch; T15, T16 and T17 are unchanged.'}
+    require_explicit_confirmation(task)
     task_definition(task)
     SceneDefinition.model_validate(scene)
     for folder, value in [('tasks', task), ('scenes', scene)]:
@@ -74,8 +95,9 @@ def main():
     (evidence / 'inside_control_definition.json').write_text(json.dumps({
         'alias': 'T52', 'source_identity': identity, 'source_sha256': hashlib.sha256(source.path.read_bytes()).hexdigest(),
         'preserved_definitions': preserved, 'source_answer_is_not_native_verification': True,
-        'source_assets_scales_poses_and_objective_preserved': True}, indent=2) + '\n')
-    print('Added T52; active catalogue contains 60 instances. Native no-op validation is pending.')
+        'source_assets_scales_poses_preserved': True,
+        'response_requirement': 'T52-only explicit inside declaration and active DONE in the same episode'}, indent=2) + '\n')
+    print('Added T52; active catalogue contains 60 instances. Native declaration/DONE validation is pending.')
 
 
 if __name__ == '__main__':

@@ -350,7 +350,7 @@ class CategoryConverter(ConverterBase):
         category = layout['target_category'].replace('_', ' ')
         public = {'objective': f'Find all {len(targets)} distinct {category} objects in the separated regions: '
                 + '; '.join(labels[key] for key in anchors) + '. '
-                + 'For each fully inspected region report world_observation as ANSWER: <region label>.',
+                + 'For each fully inspected region submit its public label in the answer field.',
             'success_criteria': 'Visually discover every distinct target in its original region and report each named region. '
                 + 'Facing an anchor or approaching a region does not establish discovery.',
             'environment': 'Original chairs define the same region boundaries and target membership as the source.',
