@@ -1,0 +1,886 @@
+{
+  "run": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326",
+  "baseline": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_20261031_212148",
+  "counts": {
+    "passed": 40,
+    "runtime_error": 6,
+    "issues_found": 13,
+    "incomplete_coverage": 1
+  },
+  "baseline_counts": {
+    "passed": 19,
+    "issues_found": 37,
+    "runtime_error": 4
+  },
+  "wall_minutes": 118.64125696666666,
+  "final_validity_counts": {
+    "complete": 42,
+    "not_reached": 8,
+    "unavailable": 9,
+    "partial": 1
+  },
+  "action_outcomes": {
+    "completed": 416
+  },
+  "recovered_passes": [
+    "t23",
+    "t24",
+    "t25",
+    "t26",
+    "t30",
+    "t32",
+    "t33",
+    "t40",
+    "t41",
+    "t45",
+    "t46",
+    "t47",
+    "t48",
+    "r-c1",
+    "r-c2",
+    "r-c3",
+    "r-s1",
+    "r-s2",
+    "r-s3",
+    "r-a1",
+    "r-a2",
+    "gf2-1",
+    "gf2-2"
+  ],
+  "regressed_passes": [
+    "t06",
+    "t36"
+  ],
+  "tasks": [
+    {
+      "task": "t01",
+      "gpu": 4,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 362.0286984713748,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_00/00_t01"
+    },
+    {
+      "task": "t02",
+      "gpu": 5,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 770.2194291651249,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_01/00_t02"
+    },
+    {
+      "task": "t04",
+      "gpu": 6,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 288.97691347263753,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_02/00_t04"
+    },
+    {
+      "task": "t05",
+      "gpu": 7,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 361.55448656808585,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_03/00_t05"
+    },
+    {
+      "task": "t06",
+      "gpu": 4,
+      "baseline_status": "passed",
+      "status": "runtime_error",
+      "command_attempts": 0,
+      "final_validity": null,
+      "seconds": 208.54805274214596,
+      "events": [],
+      "finding": "GPU crash during reused native scene loading; passed the baseline. No successful command sequence in this run.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_00/01_t06"
+    },
+    {
+      "task": "t07",
+      "gpu": 5,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 494.36928745452315,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_01/01_t07"
+    },
+    {
+      "task": "t08",
+      "gpu": 6,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 718.4321182053536,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_02/01_t08"
+    },
+    {
+      "task": "t09",
+      "gpu": 7,
+      "baseline_status": "issues_found",
+      "status": "issues_found",
+      "command_attempts": 8,
+      "final_validity": "unavailable",
+      "seconds": 376.7520698281005,
+      "events": [
+        "DONE"
+      ],
+      "finding": "Observed-anchor evidence remains unavailable; full sequence and DONE completed.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_03/01_t09"
+    },
+    {
+      "task": "t10",
+      "gpu": 4,
+      "baseline_status": "issues_found",
+      "status": "issues_found",
+      "command_attempts": 8,
+      "final_validity": "unavailable",
+      "seconds": 441.6917334198952,
+      "events": [
+        "DONE"
+      ],
+      "finding": "native_visit_episode_start_rejected remains; full sequence and DONE completed.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_00/02_t10"
+    },
+    {
+      "task": "t11",
+      "gpu": 5,
+      "baseline_status": "issues_found",
+      "status": "issues_found",
+      "command_attempts": 8,
+      "final_validity": "unavailable",
+      "seconds": 578.1053329696879,
+      "events": [
+        "DONE"
+      ],
+      "finding": "Observed-anchor evidence remains unavailable; full sequence and DONE completed.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_01/02_t11"
+    },
+    {
+      "task": "t15",
+      "gpu": 6,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 282.4111617980525,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_02/02_t15"
+    },
+    {
+      "task": "t16",
+      "gpu": 7,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 335.7035989202559,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_03/02_t16"
+    },
+    {
+      "task": "t17",
+      "gpu": 4,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 277.44642416667193,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_00/03_t17"
+    },
+    {
+      "task": "t18",
+      "gpu": 5,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 269.7995063671842,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_01/03_t18"
+    },
+    {
+      "task": "t21",
+      "gpu": 6,
+      "baseline_status": "issues_found",
+      "status": "issues_found",
+      "command_attempts": 8,
+      "final_validity": "unavailable",
+      "seconds": 596.288220833987,
+      "events": [
+        "DONE"
+      ],
+      "finding": "Initial native pose-preservation qualification remains unavailable; full sequence and DONE completed.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_02/03_t21"
+    },
+    {
+      "task": "t22",
+      "gpu": 7,
+      "baseline_status": "issues_found",
+      "status": "runtime_error",
+      "command_attempts": 0,
+      "final_validity": null,
+      "seconds": 1231.2322393367067,
+      "events": [],
+      "finding": "20-minute watchdog; 10-minute stack is blocked in configure_robot_cameras -> simulator.render. Initial-hand/revision repair was not reached.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_03/03_t22"
+    },
+    {
+      "task": "t23",
+      "gpu": 4,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 421.6223396901041,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_00/04_t23"
+    },
+    {
+      "task": "t24",
+      "gpu": 5,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 439.3251680638641,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_01/04_t24"
+    },
+    {
+      "task": "t25",
+      "gpu": 6,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 251.47383814677596,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_02/04_t25"
+    },
+    {
+      "task": "t26",
+      "gpu": 7,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 322.497408493422,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_03/04_t26"
+    },
+    {
+      "task": "t28",
+      "gpu": 4,
+      "baseline_status": "issues_found",
+      "status": "runtime_error",
+      "command_attempts": 0,
+      "final_validity": null,
+      "seconds": 1231.0577272912487,
+      "events": [],
+      "finding": "20-minute watchdog; 10-minute stack is blocked in configure_robot_cameras -> simulator.render. Scoring repair was not reached.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_00/05_t28"
+    },
+    {
+      "task": "t30",
+      "gpu": 5,
+      "baseline_status": "runtime_error",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 142.20227161608636,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_01/05_t30"
+    },
+    {
+      "task": "t32",
+      "gpu": 6,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 107.16355190519243,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_02/05_t32"
+    },
+    {
+      "task": "t33",
+      "gpu": 7,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 404.80266622360796,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_03/05_t33"
+    },
+    {
+      "task": "t35",
+      "gpu": 4,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 303.4551535760984,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_00/06_t35"
+    },
+    {
+      "task": "t36",
+      "gpu": 5,
+      "baseline_status": "passed",
+      "status": "runtime_error",
+      "command_attempts": 0,
+      "final_validity": null,
+      "seconds": 1231.1747122332454,
+      "events": [],
+      "finding": "20-minute watchdog; 10-minute stack is blocked in configure_robot_cameras -> simulator.render. Passed the baseline.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_01/06_t36"
+    },
+    {
+      "task": "t38",
+      "gpu": 6,
+      "baseline_status": "runtime_error",
+      "status": "incomplete_coverage",
+      "command_attempts": 8,
+      "final_validity": "partial",
+      "seconds": 407.5926261385903,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No renderer crash in this run; all eight commands and DONE completed. Final scoring is partial, so diagnostic coverage is incomplete.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_02/06_t38"
+    },
+    {
+      "task": "t40",
+      "gpu": 7,
+      "baseline_status": "runtime_error",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 412.61570022348315,
+      "events": [
+        "phase_1_complete",
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_03/06_t40"
+    },
+    {
+      "task": "t41",
+      "gpu": 4,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 291.8355259774253,
+      "events": [
+        "phase_1_complete",
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_00/07_t41"
+    },
+    {
+      "task": "t42",
+      "gpu": 5,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 455.65879398118705,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_01/07_t42"
+    },
+    {
+      "task": "t43",
+      "gpu": 6,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 153.21486908197403,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_02/07_t43"
+    },
+    {
+      "task": "t44",
+      "gpu": 7,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 212.3257891908288,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_03/07_t44"
+    },
+    {
+      "task": "t45",
+      "gpu": 4,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 270.40869958978146,
+      "events": [
+        "phase_1_complete",
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_00/08_t45"
+    },
+    {
+      "task": "t46",
+      "gpu": 5,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 217.3187722535804,
+      "events": [
+        "phase_1_complete",
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_01/08_t46"
+    },
+    {
+      "task": "t47",
+      "gpu": 6,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 431.90527261421084,
+      "events": [
+        "phase_1_complete",
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_02/08_t47"
+    },
+    {
+      "task": "t48",
+      "gpu": 7,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 451.57009686809033,
+      "events": [
+        "phase_1_complete",
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_03/08_t48"
+    },
+    {
+      "task": "t49",
+      "gpu": 4,
+      "baseline_status": "issues_found",
+      "status": "issues_found",
+      "command_attempts": 0,
+      "final_validity": null,
+      "seconds": 362.7014268729836,
+      "events": [],
+      "finding": "Native timing was reconciled to 240 Hz physics / 60 Hz rendering and action. Initialization then failed with a max() reduction on an empty tensor.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_00/09_t49"
+    },
+    {
+      "task": "t50",
+      "gpu": 5,
+      "baseline_status": "issues_found",
+      "status": "runtime_error",
+      "command_attempts": 0,
+      "final_validity": null,
+      "seconds": 1203.5328142521903,
+      "events": [],
+      "finding": "Native timing was reconciled to 240/60/60 Hz. Watchdog stack is blocked in interaction_setup._place_robot -> simulator.step.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_01/09_t50"
+    },
+    {
+      "task": "r-c1",
+      "gpu": 6,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 184.2759428853169,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_02/09_r-c1"
+    },
+    {
+      "task": "r-c2",
+      "gpu": 7,
+      "baseline_status": "runtime_error",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 192.93840292934328,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_03/09_r-c2"
+    },
+    {
+      "task": "r-c3",
+      "gpu": 4,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 454.6946120299399,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_00/10_r-c3"
+    },
+    {
+      "task": "r-s1",
+      "gpu": 5,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 253.9023035755381,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_01/10_r-s1"
+    },
+    {
+      "task": "r-s2",
+      "gpu": 6,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 155.63553908187896,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_02/10_r-s2"
+    },
+    {
+      "task": "r-s3",
+      "gpu": 7,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 327.66876419167966,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_03/10_r-s3"
+    },
+    {
+      "task": "r-a1",
+      "gpu": 4,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 360.5284777758643,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_00/11_r-a1"
+    },
+    {
+      "task": "r-a2",
+      "gpu": 5,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 275.6210091523826,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_01/11_r-a2"
+    },
+    {
+      "task": "iw_h1_02",
+      "gpu": 6,
+      "baseline_status": "issues_found",
+      "status": "issues_found",
+      "command_attempts": 8,
+      "final_validity": "unavailable",
+      "seconds": 247.35154542513192,
+      "events": [
+        "DONE"
+      ],
+      "finding": "Future inspection/delivery event evidence remains unavailable despite the completed control sequence.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_02/11_iw_h1_02"
+    },
+    {
+      "task": "iw_h2_02",
+      "gpu": 7,
+      "baseline_status": "issues_found",
+      "status": "issues_found",
+      "command_attempts": 8,
+      "final_validity": "unavailable",
+      "seconds": 289.4367165612057,
+      "events": [
+        "DONE"
+      ],
+      "finding": "Future inspection/delivery event evidence remains unavailable despite the completed control sequence.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_03/11_iw_h2_02"
+    },
+    {
+      "task": "iw_h3_03",
+      "gpu": 4,
+      "baseline_status": "issues_found",
+      "status": "issues_found",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 284.41755970660597,
+      "events": [
+        "DONE"
+      ],
+      "finding": "Only the initial record is unavailable; subsequent records and final scoring are complete.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_00/12_iw_h3_03"
+    },
+    {
+      "task": "iw_h4_02",
+      "gpu": 5,
+      "baseline_status": "issues_found",
+      "status": "issues_found",
+      "command_attempts": 8,
+      "final_validity": "unavailable",
+      "seconds": 263.616969932802,
+      "events": [
+        "DONE"
+      ],
+      "finding": "Approach/withdrawal event evidence remains unavailable despite the completed control sequence.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_01/12_iw_h4_02"
+    },
+    {
+      "task": "iw_h5_02",
+      "gpu": 6,
+      "baseline_status": "issues_found",
+      "status": "issues_found",
+      "command_attempts": 8,
+      "final_validity": "unavailable",
+      "seconds": 260.88315431121737,
+      "events": [
+        "DONE"
+      ],
+      "finding": "Destination-observation-before-release evidence remains unavailable despite the completed control sequence.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_02/12_iw_h5_02"
+    },
+    {
+      "task": "iw_m1_01",
+      "gpu": 7,
+      "baseline_status": "issues_found",
+      "status": "issues_found",
+      "command_attempts": 0,
+      "final_validity": null,
+      "seconds": 222.04842226672918,
+      "events": [],
+      "finding": "Authored-use preview still rejects movement of an unowned object before the sequence.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_03/12_iw_m1_01"
+    },
+    {
+      "task": "iw_m2_01",
+      "gpu": 4,
+      "baseline_status": "issues_found",
+      "status": "issues_found",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 334.5023499224335,
+      "events": [
+        "DONE"
+      ],
+      "finding": "Only the initial record is unavailable; subsequent records and final scoring are complete.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_00/13_iw_m2_01"
+    },
+    {
+      "task": "iw_m3_01",
+      "gpu": 5,
+      "baseline_status": "issues_found",
+      "status": "runtime_error",
+      "command_attempts": 0,
+      "final_validity": null,
+      "seconds": 220.39908432774246,
+      "events": [],
+      "finding": "GPU crash during loading; no sequence executed.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_01/13_iw_m3_01"
+    },
+    {
+      "task": "iw_m4_02",
+      "gpu": 6,
+      "baseline_status": "issues_found",
+      "status": "issues_found",
+      "command_attempts": 8,
+      "final_validity": "unavailable",
+      "seconds": 207.50045083649457,
+      "events": [
+        "DONE"
+      ],
+      "finding": "Transport-event evidence remains unavailable despite the completed control sequence.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_02/13_iw_m4_02"
+    },
+    {
+      "task": "gf2-1",
+      "gpu": 7,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 288.43200601264834,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_03/13_gf2-1"
+    },
+    {
+      "task": "gf2-2",
+      "gpu": 4,
+      "baseline_status": "issues_found",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 323.0327703477815,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_00/14_gf2-2"
+    },
+    {
+      "task": "gf3-1",
+      "gpu": 5,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 295.46109211444855,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_01/14_gf3-1"
+    },
+    {
+      "task": "gf3-2",
+      "gpu": 6,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 259.77509674429893,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_02/14_gf3-2"
+    },
+    {
+      "task": "t52",
+      "gpu": 7,
+      "baseline_status": "passed",
+      "status": "passed",
+      "command_attempts": 8,
+      "final_validity": "complete",
+      "seconds": 311.46529354248196,
+      "events": [
+        "DONE"
+      ],
+      "finding": "No issue found by the expanded fixed-sequence diagnostic.",
+      "output_dir": "/local_home2/zhouxinyang/models/WIA/outputs/scene_sweep_4gpu_repaired_20261031_235326/worker_03/14_t52"
+    }
+  ]
+}
