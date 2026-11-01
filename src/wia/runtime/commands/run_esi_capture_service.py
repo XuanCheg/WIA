@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 from contextlib import contextmanager, nullcontext
+from functools import lru_cache
 import faulthandler
 import gc
 import importlib.util
@@ -19,6 +20,44 @@ import signal
 import sys
 import time
 import traceback
+
+
+@contextmanager
+def cached_deletion_patterns():
+    """Cache Isaac 4.5 deletion regexes without bypassing any native callback."""
+    module = sys.modules.get('isaacsim.core.prims.impl.prim')
+    if module is None:
+        yield False
+        return
+    original = module.re
+    compile_pattern = lru_cache(maxsize=65536)(original.compile)
+
+    class RegexCache:
+        def match(self, pattern, string, flags=0):
+            return compile_pattern(pattern, flags).match(string)
+
+        def __getattr__(self, name):
+            return getattr(original, name)
+
+    module.re = RegexCache()
+    try:
+        yield True
+    finally:
+        module.re = original
+        compile_pattern.cache_clear()
+
+
+def remove_unowned_scene_cameras(og):
+    """Remove extra scene cameras through their SDK API before parent deletion."""
+    from omnigibson.sensors import VisionSensor
+    simulator = og.sim
+    owned = {id(sensor) for scene in simulator.scenes for robot in scene.robots
+             for sensor in robot.sensors.values()}
+    owned.add(id(simulator.viewer_camera))
+    extra = [sensor for sensor in tuple(VisionSensor.SENSORS.values()) if id(sensor) not in owned]
+    for sensor in extra:
+        sensor.remove()
+    return len(extra)
 
 
 @contextmanager
@@ -54,6 +93,20 @@ def native_stage_cleanup(og):
     previous = vars(simulator).get('_partial_clear', missing)
     patched = getattr(og, '__version__', None) == '3.7.1'
     unsubscribed = []
+    clear_errors = []
+    original_clear = og.clear
+
+    def clear(*args, **kwargs):
+        if clear_errors:
+            raise clear_errors[0]
+        try:
+            return original_clear(*args, **kwargs)
+        except BaseException as error:
+            clear_errors.append(error)
+            print('[native-stage-cleanup] ' + json.dumps({'stage': 'native_clear_failed',
+                'error': f'{type(error).__name__}: {error}'}), flush=True)
+            raise
+
     if patched:
         original = simulator._partial_clear
         handles = ('_pre_physics_step_callback', '_post_physics_step_callback', '_simulation_event_callback')
@@ -74,15 +127,23 @@ def native_stage_cleanup(og):
 
             simulator.add_callback_on_stop(callback_name, unsubscribe)
             try:
-                return original()
+                with cached_deletion_patterns() as cached:
+                    print('[native-stage-cleanup] ' + json.dumps({'stage': 'native_clear',
+                        'deletion_regex_cache': cached}), flush=True)
+                    return original()
             finally:
                 simulator.remove_callback_on_stop(callback_name)
 
         simulator._partial_clear = partial_clear
+    og.clear = clear
     print('[native-stage-cleanup] ' + json.dumps({'stage': 'started', 'scene_count': len(simulator.scenes),
         'policy': 'official_full_cleanup', 'physx_subscription_fix': patched}), flush=True)
     try:
         yield
+        # Some source cleanup hooks swallow SDK exceptions. A partially cleared
+        # simulator must never be cleared a second time or certified reusable.
+        if clear_errors:
+            raise clear_errors[0]
     except BaseException as error:
         print('[native-stage-cleanup] ' + json.dumps({'stage': 'failed',
             'error': f'{type(error).__name__}: {error}', 'unsubscribed': unsubscribed}), flush=True)
@@ -91,6 +152,7 @@ def native_stage_cleanup(og):
         print('[native-stage-cleanup] ' + json.dumps({'stage': 'completed',
             'unsubscribed': unsubscribed}), flush=True)
     finally:
+        og.clear = original_clear
         if patched:
             if previous is missing:
                 del simulator._partial_clear
@@ -154,6 +216,12 @@ def install_lifecycle(adapters, session_class, state):
                 'elapsed_s': time.monotonic() - state['request_started_at']})
         state['reusable'] = False
         with native_stage_cleanup(og):
+            # These cameras are not owned by a robot, so scene object removal
+            # does not detach them before deleting their parent scene prim.
+            if getattr(og, '__version__', None) == '3.7.1':
+                removed = remove_unowned_scene_cameras(og)
+                print('[native-stage-cleanup] ' + json.dumps({'stage': 'extra_cameras_removed',
+                    'count': removed}), flush=True)
             if session.task_module is not None and session.env is not None:
                 pipeline.task_cleanup_runtime(session.task_module, session.env, session.payload, session.task_state)
             # Some original cleanup hooks already clear the stage.

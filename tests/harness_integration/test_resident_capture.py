@@ -122,7 +122,7 @@ def test_native_cleanup_keeps_object_sensor_cleanup_and_cancels_old_callbacks_on
 
     scene = Scene()
     sim = Simulator()
-    og = SimpleNamespace(sim=sim, __version__=version)
+    og = SimpleNamespace(sim=sim, __version__=version, clear=lambda: None)
     with native_stage_cleanup(og):
         # Source cleanup may stop before clearing. This must not unsubscribe a
         # still-live simulator, or replace the native scene.clear method.
@@ -152,10 +152,86 @@ def test_unsupported_subscription_api_rejects_reuse_before_mutating_scene():
     sim = SimpleNamespace(scenes=[], _partial_clear=lambda: None,
         _pre_physics_step_callback=object(), _post_physics_step_callback=object(),
         _simulation_event_callback=object())
-    og = SimpleNamespace(sim=sim, __version__='3.7.1')
+    og = SimpleNamespace(sim=sim, __version__='3.7.1', clear=lambda: None)
     with pytest.raises(RuntimeError, match='do not support'):
         with native_stage_cleanup(og):
             pytest.fail('Unsupported cleanup was allowed')
+
+
+def test_subscription_failure_restores_native_method_and_propagates_before_scene_removal():
+    events, callbacks = [], {}
+    def fail():
+        raise RuntimeError('Native unsubscribe failed')
+    def partial_clear():
+        for callback in callbacks.values():
+            callback()
+        events.append('scene-removed')
+    sim = SimpleNamespace(scenes=[], _partial_clear=partial_clear,
+        add_callback_on_stop=lambda name, callback: callbacks.update({name: callback}),
+        remove_callback_on_stop=lambda name: callbacks.pop(name),
+        _pre_physics_step_callback=SimpleNamespace(unsubscribe=lambda: events.append('pre-unsubscribed')),
+        _post_physics_step_callback=SimpleNamespace(unsubscribe=fail),
+        _simulation_event_callback=SimpleNamespace(unsubscribe=lambda: events.append('event-unsubscribed')))
+    og = SimpleNamespace(sim=sim, __version__='3.7.1', clear=lambda: None)
+    with pytest.raises(RuntimeError, match='Native unsubscribe failed'):
+        with native_stage_cleanup(og):
+            sim._partial_clear()
+    assert sim._partial_clear is partial_clear and callbacks == {}
+    assert events == ['pre-unsubscribed']
+
+
+def test_swallowed_source_clear_error_is_preserved_without_a_second_native_clear():
+    calls = []
+    def clear():
+        calls.append(True)
+        raise ValueError('First native clear failed')
+    og = SimpleNamespace(sim=SimpleNamespace(scenes=[]), clear=clear)
+    with pytest.raises(ValueError, match='First native clear failed'):
+        with native_stage_cleanup(og):
+            for _ in range(2):
+                try:
+                    og.clear()
+                except ValueError:
+                    pass
+    assert calls == [True] and og.clear is clear
+
+
+def test_deletion_regex_cache_preserves_native_matching_and_restores_module(monkeypatch):
+    import re
+    import sys
+    from wia.runtime.commands.run_esi_capture_service import cached_deletion_patterns
+    compilations = []
+    def compile(pattern, flags=0):
+        compilations.append(pattern)
+        return re.compile(pattern, flags)
+    original = SimpleNamespace(compile=compile, match=re.match)
+    module = SimpleNamespace(re=original)
+    monkeypatch.setitem(sys.modules, 'isaacsim.core.prims.impl.prim', module)
+    # More patterns than Python's normal 512-entry cache, revisited across
+    # deletion callbacks. Native regex meaning and callback execution persist.
+    patterns = [f'^/World/scene_0/actor_{i}/link_[0-9]+$' for i in range(600)]
+    with cached_deletion_patterns() as enabled:
+        assert enabled
+        for _ in range(2):
+            for i, pattern in enumerate(patterns):
+                for path in (f'/World/scene_0/actor_{i}/link_2', f'/World/scene_0/actor_{i}/other'):
+                    assert bool(module.re.match(pattern, path)) == bool(re.match(pattern, path))
+    assert len(compilations) == 600 and module.re is original
+
+
+def test_extra_scene_camera_removed_before_its_parent_without_double_removing_robot_sensors(monkeypatch):
+    import sys
+    from wia.runtime.commands.run_esi_capture_service import remove_unowned_scene_cameras
+    removed = []
+    def sensor(name):
+        return SimpleNamespace(remove=lambda: removed.append(name))
+    mounted, viewer, overview = (sensor(name) for name in ('mounted', 'viewer', 'overview'))
+    monkeypatch.setitem(sys.modules, 'omnigibson.sensors', SimpleNamespace(VisionSensor=SimpleNamespace(
+        SENSORS={'mounted': mounted, 'viewer': viewer, 'overview': overview})))
+    scene = SimpleNamespace(robots=[SimpleNamespace(sensors={'mounted': mounted})])
+    og = SimpleNamespace(sim=SimpleNamespace(scenes=[scene], viewer_camera=viewer))
+    assert remove_unowned_scene_cameras(og) == 1
+    assert removed == ['overview']
 
 
 def test_runtime_key_fences_code_family_and_render_settings(tmp_path):

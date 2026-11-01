@@ -199,11 +199,13 @@ class NativeSceneEditor:
 
     def discard_session_world(self, session):
         """Reuse the resident capture lifecycle, keeping the native app alive."""
-        from wia.runtime.commands.run_esi_capture_service import native_stage_cleanup
+        from wia.runtime.commands.run_esi_capture_service import native_stage_cleanup, remove_unowned_scene_cameras
         pipeline=session.pipeline
         og=pipeline.og
         application,simulator=og.app,og.sim
         with native_stage_cleanup(og):
+            if getattr(og,'__version__',None)=='3.7.1':
+                remove_unowned_scene_cameras(og)
             if session.task_module is not None and session.env is not None:
                 pipeline.task_cleanup_runtime(session.task_module,session.env,session.payload,session.task_state)
             if og.sim is simulator:

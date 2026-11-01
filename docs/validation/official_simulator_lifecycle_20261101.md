@@ -26,9 +26,9 @@ The installed [official environment tests](https://github.com/StanfordVL/BEHAVIO
 
 By default, `og.clear()` preserves the previous physics/render/action timestep. A new task with different required frequencies must supply its own settings. This agrees with the existing WIA timing reconciliation repair.
 
-## Differences in WIA
+## Differences in WIA before the repair
 
-The per-GPU request service, request ownership, task-specific cleanup integration and periodic process retirement are WIA additions. More significantly, [run_esi_capture_service.py](/local_home2/zhouxinyang/models/WIA/src/wia/runtime/commands/run_esi_capture_service.py:44) temporarily replaces each scene's `clear()` with a shortened cleanup that skips native object removal and its callbacks. It also resets SyntheticData graph handles before official sensor cleanup. Consequently, calling `og.clear()` here does not mean WIA follows the complete official cleanup sequence.
+The per-GPU request service, request ownership, task-specific cleanup integration and periodic process retirement are WIA additions. At the audited baseline (`d7a42d1`), `run_esi_capture_service.py` temporarily replaced each scene's `clear()` with a shortened cleanup that skipped native object removal and its callbacks. It also reset SyntheticData graph handles before official sensor cleanup. Consequently, calling `og.clear()` there did not mean WIA followed the complete official cleanup sequence.
 
 These differences are concrete candidates for lifecycle investigation, not proven causes of the observed GPU crashes, camera-render hangs or placement hangs. The earlier explanation that same-process cross-scene reuse itself was a WIA invention was too broad and is corrected by this audit.
 
@@ -49,3 +49,11 @@ NVIDIA's [current SimulationApp API](https://docs.isaacsim.omniverse.nvidia.com/
 ## Consequence for the pending repair
 
 First compare the standard official cleanup path with WIA's shortened cleanup and validate the narrow official subscription fix against this installation. Retain the requested per-GPU persistent application architecture. Use fresh-process runs as an explicit isolation control or fallback, rather than describing them as the official requirement. No code patch, GPU rerun, scorer change or successful repair is claimed by this audit.
+
+## Implemented correction
+
+Commit `f6c4fbd` replaces the shortened cleanup and premature SyntheticData reset with `native_stage_cleanup` in the episode service, capture service, native editor and empty-stage timing/profile rebuild paths. Official object removal, sensor teardown, cache reset and stage reconstruction are retained. Kit application reuse and the existing bounded process lifetime are preserved.
+
+For OmniGibson 3.7.1 only, the compatibility shim temporarily wraps the current Simulator's `_partial_clear`. It registers a native stop callback during that method so the exact three upstream subscriptions are cancelled after existing stop callbacks and before scene removal. This avoids a second `stop()` invocation, which would otherwise run existing stop callbacks twice. The temporary method and callback are restored even on failure. Other SDK versions use their native implementation. An unsupported subscription API or a cleanup exception fails visibly and prevents reuse.
+
+The first 77 focused CPU checks passed; an additional passing regression verifies propagation and restoration if native unsubscribe fails. Native verification uses eight scenes on GPUs 4–7, two sequential scenes per resident process: T01/T36, T06/T49, T22/T50, T28/iw_m3_01. T01 is a healthy control. Commands, task definitions, seeds, physics profiles and scorers are unchanged. This selection changes shard order relative to the preceding full sweep, so runtime and pass-count comparisons are not controlled single-variable experiments. Native outcomes are recorded separately after completion.
