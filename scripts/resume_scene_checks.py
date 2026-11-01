@@ -57,6 +57,18 @@ def main():
         max(len(w['tasks']) for w in report['workers'])) for w in report['workers']
         for task in w['tasks'][step:step+1])}
     refreshed = 0.
+    if not pending:
+        results = []
+        for index, worker in enumerate(report['workers']):
+            value = workers[index]
+            value['completed'] = {row['task'] for row in value['results']} == set(value['tasks'])
+            write_json(Path(worker['output_dir'])/'results.json', value)
+            results.extend(dict(row, index=order[row['task']], worker=index, gpu=worker['gpu'])
+                           for row in value['results'])
+        report.update(results=sorted(results, key=lambda row: row['index']),
+                      completed=all(value['completed'] for value in workers),
+                      finished_at=datetime.now(timezone.utc).isoformat())
+        write_json(output/'results.json', report)
     while pending:
         for item in list(pending):
             directory, control = item['directory'], item['control']
@@ -81,7 +93,11 @@ def main():
             if error:
                 record['error'] = error
             workers[item['worker']]['results'].append(record)
-            stop_service(control, force=bool(error or not receipt.get('reusable')))
+            if error or not receipt.get('reusable'):
+                stop_service(control, force=True)
+            else:
+                from wia.runtime.resident_episode import stop_unless_retained
+                stop_unless_retained(control)
             pending.remove(item)
         if not pending or time.monotonic()-refreshed >= 30:
             results = []

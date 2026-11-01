@@ -212,7 +212,15 @@ class ScenePatches:
         for item in self._realized:
             if item['operation'] == 'prepare_category_interaction':
                 from .interaction_setup import initialize_interaction
-                item['initialization_evidence'] = initialize_interaction(session, self.bindings, item)
+                from wia.native.esi_category_evaluation import owned_category_module
+                owners = [getattr(owned_category_module(patch['module']), 'prepare_interaction', None)
+                    for patch in self.applied if patch['operation'] == 'category_initialization'
+                    and patch.get('phase') == 'after_postprocessing']
+                owners = [hook for hook in owners if callable(hook)]
+                if len(owners) > 1:
+                    raise ValueError('An interaction layout requires a single native initializer owner.')
+                item['initialization_evidence'] = (owners[0](session, self.bindings, item) if owners
+                    else initialize_interaction(session, self.bindings, item))
                 self.applied.append(copy.deepcopy(item))
                 for initialized in self.applied:
                     if (initialized['operation'] == 'category_initialization'

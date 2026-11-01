@@ -330,12 +330,17 @@ def _m3(contract, frames, checks, evidence):
             checks.add(f"closed:{unit}", closed if type(closed) is bool else None)
     states = {unit: _stable(frames, contract["payload"], unit) for unit in contents}
     selected = [unit for unit, state in states.items() if state is True]
-    unique = len(selected) == 1
-    checks.add("payload_unique_unit", True if unique else None if not selected and None in states.values() else False)
+    known = all(state is not None for state in states.values())
+    selected_state = len(selected) == 1 if known or len(selected) > 1 else None
+    unique = selected_state is True
+    checks.add("payload_unique_unit", selected_state)
     unit = selected[0] if unique else None
-    checks.add("content_eligible", unit in eligible if unique else False)
-    checks.add("payload_inside", _stable_inside(frames, contract["payload"], unit) if unique else None)
-    checks.add("observed_selected_contents", _observed(frames, f"contents:{unit}") if unique else None)
+    checks.add("content_eligible", unit in eligible if unique else False if selected_state is False else None)
+    # With a fully measured placement channel and no selected unit, the goal is
+    # incomplete. Missing placement data must still remain unavailable.
+    absent = False if selected_state is False else None
+    checks.add("payload_inside", _stable_inside(frames, contract["payload"], unit) if unique else absent)
+    checks.add("observed_selected_contents", _observed(frames, f"contents:{unit}") if unique else absent)
     evidence.update(eligible_units=eligible, selected_unit=unit, actual_content_by_unit=dict(contents))
 
 
@@ -502,7 +507,7 @@ def evaluate(prototype, contract, frame, history):
     times = [_number(_map(sample).get("time_s")) for sample in frames]
     valid_clock = all(t is not None for t in times) and all(b > a for a, b in zip(times, times[1:]))
     checks.add("native_clock", True if valid_clock else None)
-    checks.add("history_baseline", True if history else None)
+    checks.add("history_baseline", True if valid_clock else None)
     if not valid_clock:
         return checks.result(prototype, evidence)
     checks.add("protected_unchanged", _protected(frames, contract.get("protected", [])))

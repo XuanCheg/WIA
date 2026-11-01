@@ -318,11 +318,17 @@ class SweepRetrieveEvaluator:
         self.episode, self.initial = 0, None
 
     def begin_episode(self, observation):
-        qualification = qualify_operation(self.session, self.controller, self.config, self.objects)
-        if not qualification['accepted']:
-            raise ValueError('Native cover preconditions failed at episode start: ' + str(qualification))
+        from wia.runtime.prechecks import enabled
+        if enabled(self.session):
+            qualification = qualify_operation(self.session, self.controller, self.config, self.objects)
+            if not qualification['accepted']:
+                raise ValueError('Native cover preconditions failed at episode start: ' + str(qualification))
+            initial = qualification['native_state']
+        else:
+            initial = _state(self.session, self.controller, self.objects,
+                full_cloth_contacts=self.parameters.get('cover_revision') == 'full_cover_redrape_v1')
         self.episode += 1
-        self.initial = qualification['native_state']
+        self.initial = initial
         self.hand_contact_seen, self.revealed_before_grasp, self.invalid = False, False, False
         self.measurement_error = None
         self.last_time = self.initial['time_s']
@@ -584,6 +590,20 @@ class CategoryConverter(ConverterBase):
 def _qualified_deformable_placement(session, item, cloth, parameters):
     from wia.tasks.deformable_support import measure_deformable_placement
     setup = getattr(session, 'category_interaction_setup', {})
+    if parameters.get('cover_revision') == 'full_cover_redrape_v1':
+        inventory = getattr(session, '_redesigned_cloth_inventory', {})
+        receipt = getattr(session, '_redesigned_cloth_cover', {})
+        loaded = getattr(session, 'loaded_task', None)
+        if (loaded is None or loaded.source_sha256 != parameters['source_sha256'] or
+                inventory.get('cloth_name') != cloth.name or item.name not in inventory.get('item_names', []) or
+                receipt.get('revision') != 'native_cloth_redrape_20261020_v1'):
+            return {'available': False, 'accepted': False, 'reason': 'native_redrape_inventory_unavailable'}
+        loaded.verify_unchanged()
+        from .deformable_redrape import initial_cover_evidence
+        items = [session.env.scene.object_registry('name', name) for name in inventory['item_names']]
+        measured = initial_cover_evidence(session, cloth, items)
+        return {'available': True, 'accepted': receipt.get('accepted') is True and measured['accepted'],
+            'layout_owner': receipt['revision'], 'native_cover': measured, 'relocated': False}
     receipt = setup.get('deformable_cover', {})
     if (setup.get('accepted') is not True or setup.get('relocated') is not True or
             receipt.get('context', {}).get('source_identity') != parameters['source_identity'] or

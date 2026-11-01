@@ -216,9 +216,16 @@ class NativeVisitReportEvaluator:
             stream.write(json.dumps(row, allow_nan=False) + '\n')
 
     def begin_episode(self, observation):
-        self.start_checks = self._qualify_start()
-        if not self.start_checks or not all(self.start_checks.values()):
-            raise ValueError('native_visit_episode_start_rejected')
+        from wia.runtime.prechecks import enabled
+        if enabled(self.session):
+            self.start_checks = self._qualify_start()
+            if not self.start_checks or not all(self.start_checks.values()):
+                raise ValueError('native_visit_episode_start_rejected')
+        else:
+            baseline = getattr(self, '_begin_baseline', None)
+            if callable(baseline):
+                baseline()
+            self.start_checks = {}
         self.episode += 1
         self.active = True
         self.visited, self.reported, self.visits, self.arrival_reports = set(), set(), [], []

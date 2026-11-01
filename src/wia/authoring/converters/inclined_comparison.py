@@ -72,8 +72,10 @@ class InclinedComparisonEvaluator:
         self.last_clock = None
 
     def begin_episode(self, observation):
-        qualification = qualify_operation(self.session, self.controller, self.config, self.objects)
-        if not qualification['accepted']:
+        from wia.runtime.prechecks import episode_qualification, permits_episode
+        qualification = episode_qualification(self.session, qualify_operation,
+            self.session, self.controller, self.config, self.objects)
+        if not permits_episode(self.session, qualification):
             raise ValueError('Ramp comparison initialization failed: ' + str(qualification))
         self.initial = {key: _pose(obj) for key, obj in self.objects.items()}
         self.ramp_materials = _friction(self.objects['ramp'])

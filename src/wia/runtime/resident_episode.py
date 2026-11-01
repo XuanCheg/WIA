@@ -83,6 +83,26 @@ def process_matches(control, pid):
         return False
 
 
+def stop_unless_retained(control):
+    """Leave a successfully restored, paused native world available on its GPU."""
+    service = read_service(control)
+    if service is not None and service.get('state') == 'SCENE_RUNNING':
+        receipt = Path(service.get('output_dir', '')) / 'persistent_scene_receipt.json'
+        completed = json.loads(receipt.read_text()) if receipt.is_file() else {}
+        if completed.get('world_retained') and completed.get('scene_exit_code') == 0:
+            # Older running services published the native receipt before their
+            # final state update. Wait for that update instead of stopping them.
+            while service is not None and service.get('state') == 'SCENE_RUNNING':
+                time.sleep(.2)
+                service = read_service(control)
+    if service is not None and service.get('state') == 'SCENE_RETAINED':
+        emit('scene_retained', pid=service['pid'], control_dir=str(control),
+             output_dir=service.get('retained_output_dir'), physics_paused=True)
+        return service
+    stop_service(control)
+    return None
+
+
 def stop_service(control, *, force=False):
     """Stop only the verified worker-owned service, including after interruption."""
     control = Path(control)
@@ -127,7 +147,7 @@ def read_service(control):
 
 def owns_gpu(control, physical_index, device_uuid):
     service = read_service(control)
-    if service is None or service.get('state') != 'IDLE':
+    if service is None or service.get('state') not in ('IDLE', 'SCENE_RETAINED'):
         return False
     gpu_file = Path(control) / 'gpu.json'
     if not gpu_file.exists():
@@ -166,7 +186,7 @@ class ResidentEpisodeClient:
                 emit('simulator_recycling', pid=service['pid'], reason='previous_native_failure')
                 stop_service(self.control, force=True)
                 return self.ensure(quiet=quiet)
-            if service.get('state') != 'IDLE':
+            if service.get('state') not in ('IDLE', 'SCENE_RETAINED'):
                 raise RuntimeError('Resident simulator is not reusable: ' + str(service))
             maximum = int(os.environ.get('WIA_RESIDENT_MAX_SCENES', '4'))
             if maximum > 0 and service.get('completed_scenes', 0) >= maximum:

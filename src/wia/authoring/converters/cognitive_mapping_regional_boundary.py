@@ -717,6 +717,10 @@ class RegionalOperationEvaluator(NativeVisitReportEvaluator):
         measured['state_valid'] = bool(measured['state_valid'] and support['robot_supported_upright'])
         return settled_native_state(self.session, measured, minimum_up_dot=.9)
 
+    def _begin_baseline(self):
+        self.initial_anchors = [_anchor_state(self.bound[key]) for key in self.config['binding_keys']]
+        self.relation_evidence = _relation_evidence(self.session, self.config, self.bound)
+
     def _qualify_start(self):
         door_evidence = _native_door_evidence(self.session)
         (self.output / 'initial_native_doors.json').write_text(

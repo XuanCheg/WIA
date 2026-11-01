@@ -8,6 +8,8 @@ centre-only Inside predicate; missing geometric evidence remains unavailable.
 """
 from __future__ import annotations
 
+from wia.runtime.prechecks import episode_qualification, permits_episode
+
 from copy import deepcopy
 from dataclasses import dataclass
 import hashlib
@@ -529,7 +531,7 @@ class RigidPartialInsertionEvaluator:
         self._contact_witness_episode += 1
         self._contact_witness_time_s = None
         self._contact_retention_diagnostics.clear()
-        self.initial_qualification = qualify_operation(
+        self.initial_qualification = episode_qualification(self.session, qualify_operation,
             self.session, self.controller, self.config, self.objects)
         self.initial = {}
         for key in dict.fromkeys([*self.p['targets'], *self.p['containers']]):
@@ -860,7 +862,7 @@ class RigidPartialInsertionEvaluator:
         self.sample_step()
         measured = self.scorer.result()
         initially_qualified = (isinstance(self.initial_qualification, dict) and
-                               self.initial_qualification.get('accepted') is True)
+                               permits_episode(self.session, self.initial_qualification))
         normalize = lambda text: ' '.join(str(text).lower().replace('_', ' ').split())
         answers = {key: normalize(self.answer.get(key, '')) == normalize(expected)
                    for key, expected in self.p['expected_answers'].items()}

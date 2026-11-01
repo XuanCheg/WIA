@@ -80,10 +80,11 @@ def test_dry_run_does_not_access_gpus_or_network(tmp_path, monkeypatch):
 
 @pytest.mark.parametrize('skip_gpu_check', [False, True])
 @pytest.mark.parametrize('auto', [False, True])
-def test_supervisor_accounts_for_crashed_worker(tmp_path, monkeypatch, skip_gpu_check, auto):
+@pytest.mark.parametrize('formal', [False, True])
+def test_supervisor_accounts_for_crashed_worker(tmp_path, monkeypatch, skip_gpu_check, auto, formal):
     monkeypatch.delenv('CUDA_VISIBLE_DEVICES', raising=False)
     devices = [{'index':i,'uuid':f'GPU-{i}','idle':True} for i in range(2)]
-    if skip_gpu_check:
+    if skip_gpu_check or formal:
         monkeypatch.setenv('WIA_SKIP_GPU_CHECK', '1')
         monkeypatch.setattr(bench, 'inventory_devices', lambda: [{**d, 'idle': False} for d in devices])
         def forbidden():
@@ -93,13 +94,23 @@ def test_supervisor_accounts_for_crashed_worker(tmp_path, monkeypatch, skip_gpu_
         monkeypatch.delenv('WIA_SKIP_GPU_CHECK', raising=False)
         monkeypatch.setattr(bench,'idle_devices',lambda:devices)
     monkeypatch.setattr(bench,'gateway_preflight',lambda policy:None)
+    value = prepared(tmp_path, 4)
+    if formal:
+        def forbidden_precheck(*args, **kwargs):
+            raise AssertionError('Formal launches must not run external prechecks.')
+        monkeypatch.setattr(bench, 'gateway_preflight', forbidden_precheck)
+        monkeypatch.setattr(bench.socket, 'socket', forbidden_precheck)
+        monkeypatch.delenv('WIA_TEST_MISSING_CREDENTIAL', raising=False)
+        for plan in value['plans']:
+            plan['evaluation']['run_mode'] = 'benchmark'
+            plan['policy']['api_key_env'] = 'WIA_TEST_MISSING_CREDENTIAL'
     class Process:
         count = 0
         def __init__(self, command, **kwargs):
             assert kwargs['env']['CUDA_VISIBLE_DEVICES'] == f'GPU-{Process.count}'
             assert kwargs['env']['WIA_RESIDENT_CONTROL_DIR'].endswith(f'resident_{Process.count:02d}')
             assert kwargs['env']['WIA_BENCH_EVENTS'].endswith(f'worker_{Process.count:02d}_events.jsonl')
-            if skip_gpu_check:
+            if skip_gpu_check or formal:
                 assert kwargs['env']['WIA_SKIP_GPU_CHECK'] == '1'
             self.pid = 100 + Process.count
             self.returncode = Process.count
@@ -114,7 +125,7 @@ def test_supervisor_accounts_for_crashed_worker(tmp_path, monkeypatch, skip_gpu_
         def poll(self):
             return self.returncode
     monkeypatch.setattr(bench.subprocess,'Popen',Process)
-    result=bench.launch(prepared(tmp_path,4),gpus=None if auto else [0,1],worker_count=2,port_base=18880)
+    result=bench.launch(value,gpus=None if auto else [0,1],worker_count=2,port_base=18880)
     assert [t['status'] for t in result['trials']] == [
         'completed_unsuccessful','runtime_error','completed_unsuccessful','runtime_error']
     assert result['worker_exit_codes'] == [0,1]

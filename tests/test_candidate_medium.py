@@ -179,6 +179,20 @@ def test_m3_actual_contents_change_destination_without_fixed_inspection_order():
     assert frames[0]["observed"] == ["contents:unit_b"]
 
 
+def test_m3_unplaced_initial_frame_is_measured_incomplete():
+    contract, frames = m3()
+    initial = frames[0]
+    initial['objects']['cheese'] = obj(4)
+    initial['objects']['cheese']['inside'] = []
+    result = evaluate('M3', contract, initial, [])
+    assert result['evaluation_validity'] == 'complete'
+    assert result['checks']['history_baseline'] is True
+    assert result['checks']['payload_unique_unit'] is False
+    assert result['checks']['payload_inside'] is False
+    assert result['checks']['observed_selected_contents'] is False
+    assert not result['task_success']
+
+
 def test_m3_nominal_mapping_open_door_and_unobserved_contents_cannot_pass():
     contract, frames = m3()
     for sample in frames:

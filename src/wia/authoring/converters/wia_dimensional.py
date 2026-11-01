@@ -8,6 +8,8 @@ private coordinates to the public observation/prompt channel.
 """
 from __future__ import annotations
 
+from wia.runtime.prechecks import episode_qualification, permits_episode
+
 from wia.authoring.modules import module_identity
 
 from copy import deepcopy
@@ -541,7 +543,7 @@ class DimensionalEvaluator:
             raise RuntimeError('The dimensional episode has already begun.')
         self.initial = _measure(self.session, self.controller, self.config, self.objects)
         self.last_sample = deepcopy(self.initial)
-        self.initial_qualification = _qualification(self.session, self.config, self.objects, self.initial)
+        self.initial_qualification = episode_qualification(self.session, _qualification, self.session, self.config, self.objects, self.initial)
         self.pure_parameters = deepcopy(self.p)
         self.pure_parameters['operation'] = self.config['operation']
         aperture = self.initial.get('measured_aperture')
@@ -578,7 +580,7 @@ class DimensionalEvaluator:
                 'completed': False, 'evaluation_validity': 'unavailable', 'kind': 'terminal_condition'}]})
         if self.p['scoring'].get('manipulation_revision') is not None:
             measured['manipulation_revision'] = self.p['scoring']['manipulation_revision']
-        qualified = self.initial_qualification['accepted'] is True
+        qualified = permits_episode(self.session, self.initial_qualification)
         result = {**deepcopy(measured), 'schema': self.p['revision'], 'snapshot_id': observation.snapshot_id,
             'action_step': observation.action_step, 'action': action,
             'physical_scorer_schema': measured.get('schema'),

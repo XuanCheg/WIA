@@ -516,9 +516,11 @@ class TemporalChangeEvaluator:
         if self.episode or self.controller.phase != 'phase_1':
             raise ValueError('A temporal episode must start once in Phase 1.')
         measured = self.controller.measure(self.executor)
-        write_json(self.output / 'phase_1_initial_qualification.json', measured)
-        if not measured['valid']:
-            raise ValueError('The original Phase 1 failed native qualification.')
+        from wia.runtime.prechecks import enabled
+        if enabled(self.session):
+            write_json(self.output / 'phase_1_initial_qualification.json', measured)
+            if not measured['valid']:
+                raise ValueError('The original Phase 1 failed native qualification.')
         self.survey_reference = self.controller._unchanged_world()
         self._survey_contacts(measured)
         self.controller.survey_violation = False

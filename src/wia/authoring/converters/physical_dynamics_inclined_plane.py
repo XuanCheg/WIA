@@ -7,6 +7,8 @@ Native hooks are read-only and run through the existing guarded robot runtime.
 """
 from __future__ import annotations
 
+from wia.runtime.prechecks import episode_qualification, permits_episode
+
 from wia.authoring.modules import module_identity
 
 from wia.tasks.background_policy import legal_background_contact, legal_background_grasp
@@ -414,7 +416,7 @@ class InclinedPlaneEvaluator:
         self.last_native_time, self.clock_valid = self.initial_clock['time_s'], True
         self.initially_empty = gripper.get('object_name') is None and gripper.get('constraint_active') is False
         bound = self.objects
-        self.preconditions = qualify_operation(self.session, self.controller, self.config, bound)
+        self.preconditions = episode_qualification(self.session, qualify_operation, self.session, self.controller, self.config, bound)
         self.lifted, self.previous_held, self.pending_release = False, False, None
         self.previous_row = None
         self.trace, self.trace_valid = [], True
@@ -479,7 +481,7 @@ class InclinedPlaneEvaluator:
                 sample['angular_speed_rad_s'] <= MAXIMUM_ANGULAR_SPEED for sample in recent))
         outcome = 'fallen_by_legacy_height_screen' if fallen else 'slid_or_rolled' if drift > SLIDE_THRESHOLD_M else (
             'stable_on_slope' if stable else 'unsettled_within_observation_window')
-        criteria = {'native_initial_preconditions': self.preconditions['accepted'],
+        criteria = {'native_initial_preconditions': permits_episode(self.session, self.preconditions),
                     'initially_empty': self.initially_empty, 'native_held_lift_observed': self.lifted,
                     'released_after_top_surface_support': bool(self.trace),
                     'native_unheld_trace_complete': elapsed >= OBSERVATION_SECONDS - 1e-7 and
@@ -532,7 +534,7 @@ class InclinedPlaneEvaluator:
                  'snapshot_id': observation.snapshot_id, 'action_step': observation.action_step,
                  'action': action, 'configuration': self.config,
                  'initial_native_target': self.initial, 'initial_native_preconditions': self.preconditions}
-        available = bool(self.preconditions['accepted'] and self.clock_valid and
+        available = bool(permits_episode(self.session, self.preconditions) and self.clock_valid and
             (self.config['operation'] != APPARATUS_OPERATION or self.control_evidence_available))
         value.update(task_revision=APPARATUS_REVISION if self.config['operation'] == APPARATUS_OPERATION else TASK_REVISION, evaluation_validity='complete' if available else 'unavailable',
             intended_motion_context=MECHANISM_CONTRACT['intended_motion'],

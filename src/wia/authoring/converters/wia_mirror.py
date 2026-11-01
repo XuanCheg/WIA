@@ -8,6 +8,8 @@ private optical identity/coordinates through public prompts.
 """
 from __future__ import annotations
 
+from wia.runtime.prechecks import episode_qualification, permits_episode
+
 from wia.authoring.modules import module_identity
 
 from copy import deepcopy
@@ -790,7 +792,7 @@ class MirrorEvaluator:
         self.initial = _sample(self.session, self.controller, self.config, self.objects)
         measured = self.scorer.begin(self.initial)
         self.last_sample = deepcopy(self.initial)
-        self.initial_qualification = _qualification(self.session, self.config, self.objects, self.initial, measured)
+        self.initial_qualification = episode_qualification(self.session, _qualification, self.session, self.config, self.objects, self.initial, measured)
         self.active = True
         return self.record(observation)
 
@@ -807,7 +809,7 @@ class MirrorEvaluator:
             return None
         measured = self.scorer.result()
         validity = measured['evaluation_validity']
-        if validity != 'invalid' and self.initial_qualification['accepted'] is not True:
+        if validity != 'invalid' and not permits_episode(self.session, self.initial_qualification):
             validity = 'unavailable'
         result = {**measured, 'schema': self.p['revision'], 'snapshot_id': observation.snapshot_id,
                   'action_step': observation.action_step, 'action': action,

@@ -12,6 +12,7 @@ from wia.runtime.scene_capture_queue import write_json
 def run(session, executor, output, sequence):
     output = Path(output)
     report = {'schema': 'wia_native_scene_validation_v1', 'model_calls': 0,
+              'prechecks_enabled': getattr(session, '_wia_prechecks_enabled', True),
               'benchmark_score': False, 'sequence': deepcopy(sequence), 'observations': [],
               'actions': [], 'events': [], 'pending_coverage': [], 'errors': [], 'started_at': time.time()}
     path = output/'scorer_validation.json'

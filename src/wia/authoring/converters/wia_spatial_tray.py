@@ -7,6 +7,8 @@ launches a reference policy, manipulation, navigation or simulation process.
 """
 from __future__ import annotations
 
+from wia.runtime.prechecks import episode_qualification, permits_episode
+
 from wia.authoring.modules import module_identity
 
 from copy import deepcopy
@@ -386,7 +388,7 @@ class SpatialTrayEvaluator:
             raise RuntimeError('The spatial-tray episode has already begun.')
         self.initial = _measure(self.session, self.controller, self.config, self.bound)
         self.last_sample = deepcopy(self.initial)
-        self.initial_qualification = _qualification(self.session, self.p, self.initial)
+        self.initial_qualification = episode_qualification(self.session, _qualification, self.session, self.p, self.initial)
         self.scorer = SpatialTrayProgress(self.p)
         self.scorer.begin(self.initial)
         return self.record(observation)
@@ -400,7 +402,7 @@ class SpatialTrayEvaluator:
         if self.scorer is None:
             return None
         result = self.scorer.result()
-        if self.initial_qualification['accepted'] is not True:
+        if not permits_episode(self.session, self.initial_qualification):
             result.update(evaluation_validity='unavailable', completion_score=None, score_percent=None,
                           task_success=False, physical_success=False)
         result.update(snapshot_id=observation.snapshot_id, action_step=observation.action_step, action=action,

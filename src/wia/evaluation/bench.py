@@ -128,7 +128,8 @@ def snapshot(output, workers):
 
 def launch(prepared, *, gpus=None, worker_count=4, port_base=8800, dry_run=False,
            log_interval=30, persistent_simulator=True):
-    skip_gpu_check = os.environ.get('WIA_SKIP_GPU_CHECK') == '1'
+    formal = all(plan['evaluation'].get('run_mode', 'diagnostic') == 'benchmark' for plan in prepared['plans'])
+    skip_gpu_check = formal or os.environ.get('WIA_SKIP_GPU_CHECK') == '1'
     if worker_count < 1:
         raise ValueError('Worker count must be positive.')
     if not math.isfinite(log_interval) or log_interval <= 0:
@@ -142,6 +143,8 @@ def launch(prepared, *, gpus=None, worker_count=4, port_base=8800, dry_run=False
                          if skip_gpu_check else 'Dry run only; auto GPU indices are placeholders. Live checks occur before execution.')}
     receipts = {}
     for plan in prepared['plans']:
+        if plan['evaluation'].get('run_mode', 'diagnostic') == 'benchmark':
+            continue
         policy = plan['policy']
         key_env = policy.get('api_key_env')
         if key_env and not os.environ.get(key_env):
@@ -162,17 +165,18 @@ def launch(prepared, *, gpus=None, worker_count=4, port_base=8800, dry_run=False
         if skip_gpu_check:
             raise ValueError('A selected GPU index is absent from the device inventory.')
         raise ValueError('Every selected GPU must currently be idle; existing jobs will not be displaced.')
-    for worker in workers:
+    for worker in (() if formal else workers):
         with socket.socket() as listener:
             listener.bind(('127.0.0.1', worker['plans'][0]['environment']['port']))
     output = Path(prepared['output_dir'])
     existing = output.parent
     while not existing.exists():
         existing = existing.parent
-    free = shutil.disk_usage(existing).free
-    print(f'[bench] disk_free_GiB={free/2**30:.1f} load_average={os.getloadavg()} '
-          f'memory={Path("/proc/meminfo").read_text().split("MemAvailable:")[1].splitlines()[0].strip()}',
-          file=sys.stderr, flush=True)
+    if not formal:
+        free = shutil.disk_usage(existing).free
+        print(f'[bench] disk_free_GiB={free/2**30:.1f} load_average={os.getloadavg()} '
+              f'memory={Path("/proc/meminfo").read_text().split("MemAvailable:")[1].splitlines()[0].strip()}',
+              file=sys.stderr, flush=True)
     output.mkdir(parents=True, exist_ok=False)
     (output/'bench_plan.json').write_text(json.dumps({'workers': workers, 'devices': selected,
         'persistent_simulator': persistent_simulator, 'log_interval_s': log_interval,
@@ -241,9 +245,9 @@ def launch(prepared, *, gpus=None, worker_count=4, port_base=8800, dry_run=False
         raise
     finally:
         if persistent_simulator:
-            from wia.runtime.resident_episode import stop_service
+            from wia.runtime.resident_episode import stop_unless_retained
             for index in range(len(workers)):
-                stop_service(output/f'resident_{index:02d}')
+                stop_unless_retained(output/f'resident_{index:02d}')
         bar.close()
         for log in logs:
             log.close()
@@ -274,8 +278,8 @@ def main():
         result = run(prepared)
     finally:
         if control:
-            from wia.runtime.resident_episode import stop_service
-            stop_service(control)
+            from wia.runtime.resident_episode import stop_unless_retained
+            stop_unless_retained(control)
     return int(any(t['status'] not in ('completed_success', 'completed_unsuccessful') for t in result['trials']))
 
 

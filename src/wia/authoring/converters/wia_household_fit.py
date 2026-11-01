@@ -6,6 +6,8 @@ active_layout; this adapter only reads native geometry, contacts and robot state
 """
 from __future__ import annotations
 
+from wia.runtime.prechecks import episode_qualification, permits_episode
+
 from copy import deepcopy
 from pathlib import Path
 
@@ -503,7 +505,7 @@ class HouseholdFitEvaluator(native.DimensionalEvaluator):
             raise RuntimeError('The household fit episode has already begun.')
         self.initial = _measure(self.session, self.controller, self.config, self.objects)
         self.last_sample = deepcopy(self.initial)
-        self.initial_qualification = _qualification(self.session, self.config, self.objects, self.initial)
+        self.initial_qualification = episode_qualification(self.session, _qualification, self.session, self.config, self.objects, self.initial)
         self.pure_parameters = deepcopy(self.p)
         self.pure_parameters['operation'] = self.config['operation']
         aperture = self.initial.get('measured_aperture')

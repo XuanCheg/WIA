@@ -512,6 +512,7 @@ def main(argv: list[str] | None = None, *, initial_observation_capture=None) -> 
     session.standby_until_agent = args.standby_until_agent
     session.scene_adapter = declarative or scene_only or tabletop
     session.loaded_task = task
+    session._wia_prechecks_enabled = args.run_mode != 'benchmark'
     if task is not None:
         session.public_task_text = task.task_text
     session.agent_observation_config = ObservationConfig.load(args.agent_observation_config)
@@ -589,7 +590,7 @@ def main(argv: list[str] | None = None, *, initial_observation_capture=None) -> 
                 executor.on_macro_result = log_macro
         if scene_only is not None:
             scene_only.prepare_after_controller_initialization(session)
-        if tabletop is not None:
+        if tabletop is not None and args.run_mode != 'benchmark':
             tabletop.qualify(session)
         if explore is not None:
             explore.finish_setup(session, output)
@@ -694,7 +695,7 @@ def main(argv: list[str] | None = None, *, initial_observation_capture=None) -> 
         controller.on_step = sample_safety
         if episode_manifest is not None:
             session.episode_id = episode_manifest['episode_id']
-        if task is not None and not task.release_v1:
+        if task is not None and not task.release_v1 and args.run_mode != 'benchmark':
             from wia.runtime.sim.esi_native_qualification import apply_reviewed_qualification
             apply_reviewed_qualification(session, controller, task, output)
         # Capture clients can freeze their full input at the actual first boundary,
@@ -702,8 +703,12 @@ def main(argv: list[str] | None = None, *, initial_observation_capture=None) -> 
         initial = (initial_observation_capture(session) if initial_observation_capture is not None
                    else source.capture(action_boundary=True) if source is not None else None)
         if declarative is not None:
-            qualification = declarative.qualify(session, executor, output,
-                                                observation=initial.observation if initial is not None else None)
+            if args.run_mode == 'benchmark':
+                from wia.runtime.prechecks import skipped
+                qualification = skipped(output, declarative.applied)
+            else:
+                qualification = declarative.qualify(session, executor, output,
+                    observation=initial.observation if initial is not None else None)
             qualification_finished = True
             (output / "task_status.json").write_text(json.dumps({"task_id": task.definition.id,
                 "episode_id": episode_manifest["episode_id"], "qualification_status": qualification.status,
@@ -730,8 +735,12 @@ def main(argv: list[str] | None = None, *, initial_observation_capture=None) -> 
                         'policy': 'unchanged_controller_hold_after_begin_episode'}
                 session.initial_stability_window = initial_stability_window
         if scene_only is not None:
-            qualification = scene_only.qualify(session, executor, output,
-                                              observation=initial.observation if initial is not None else None)
+            if args.run_mode == 'benchmark':
+                from wia.runtime.prechecks import skipped
+                qualification = skipped(output, scene_only.applied)
+            else:
+                qualification = scene_only.qualify(session, executor, output,
+                    observation=initial.observation if initial is not None else None)
             qualification_finished = True
             (output / "scene_status.json").write_text(json.dumps({
                 "scene_id": scene_selection.definition.id, "qualification_status": qualification.status,
@@ -767,7 +776,7 @@ def main(argv: list[str] | None = None, *, initial_observation_capture=None) -> 
             json.dump(metadata, stream, ensure_ascii=False, indent=2)
             stream.write("\n")
         checker = getattr(session, "private_visibility_checker", None)
-        if checker is not None and declarative is None:
+        if checker is not None and declarative is None and args.run_mode != 'benchmark':
             checker.check_initial(initial.observation if initial is not None else None)
         print(f"[robot] name: {metadata['robot_name']} | type: {metadata['robot_type']} | "
               f"action_dim: {metadata['action_dim']}", flush=True)
@@ -807,6 +816,41 @@ def main(argv: list[str] | None = None, *, initial_observation_capture=None) -> 
 
                 run_manipulation_checks(session, controller, output, json.loads(args.demo_config.read_text()),
                                         executor=executor)
+        resident = globals().get('resident_scene')
+        if resident is not None:
+            resident.prepare(session)
+            if args.validation_sequence and declarative is not None and not hasattr(session, 'temporal_phase_controller'):
+                from copy import deepcopy
+                saved_control = {key: deepcopy(getattr(controller, key)) for key in
+                    ('hold_action', 'inactive_targets', '_arm_target_pose', '_active_control', '_last_control_result', 'gripper_command')
+                    if hasattr(controller, key)}
+                def validate_retained(directory, sequence):
+                    nonlocal output, source
+                    output = Path(directory)
+                    output.mkdir(parents=True, exist_ok=False)
+                    for key, value in saved_control.items():
+                        setattr(controller, key, deepcopy(value))
+                    for context in getattr(controller, '_arm_contexts', {}).values():
+                        context['ik_guard'].reset()
+                        context['_arm_target_pose'] = None
+                        context['gripper_command'] = 'HOLD'
+                    session._observation_source = None
+                    session.invalidate_camera_cache()
+                    source = session.observation_source
+                    source.human_depth_visualizations = args.human_depth_visualizations
+                    session.task_evaluator = declarative.create_evaluator(session, controller, output / 'private_evaluation')
+                    session.safety_observer = SafetyObserver(session, controller, output / 'private_safety')
+                    from wia.runtime.sim.esi_scene_validation import run
+                    simulator = session.pipeline.og.sim
+                    resident.prepare(session)
+                    simulator.play()
+                    try:
+                        from wia.runtime.commands.run_esi_capture_service import native_log
+                        with native_log(output / 'simulator.log'):
+                            return run(session, executor, output, sequence)
+                    finally:
+                        resident.finish(session)
+                resident.validate = validate_retained
         if args.validate_scorer or args.validation_sequence:
             from wia.runtime.sim.esi_scene_validation import run as validate_scene
             sequence = (json.loads(args.validation_sequence.read_text()) if args.validation_sequence
@@ -830,6 +874,8 @@ def main(argv: list[str] | None = None, *, initial_observation_capture=None) -> 
                             capture_fps=args.capture_fps, duration_s=args.web_duration_s,
                             preview_fps=args.preview_fps, observation_pipeline=args.observation_pipeline,
                             viewer_config=viewer_config, recording_dir=recording_dir)
+        if resident is not None:
+            session._wia_retain_completed = True
     except Exception as error:
         if not qualification_finished:
             traceback.print_exc()

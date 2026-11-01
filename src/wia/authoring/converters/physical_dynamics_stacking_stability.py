@@ -7,6 +7,8 @@ The campaign owns native captures; this module never starts GPU work or actions.
 """
 from __future__ import annotations
 
+from wia.runtime.prechecks import episode_qualification, permits_episode
+
 from wia.authoring.modules import module_identity
 
 from wia.tasks.background_policy import legal_background_grasp
@@ -343,7 +345,7 @@ class StackOperationEvaluator:
     def begin_episode(self, observation):
         self.episode += 1
         self.initial = self.measure()[0]
-        self.preconditions = qualify_operation(self.session, self.controller, self.config, self.bound)
+        self.preconditions = episode_qualification(self.session, qualify_operation, self.session, self.controller, self.config, self.bound)
         self.previous_held, self.previous_on_top, self.previous_touching = None, {}, {}
         self.current_lifted, self.lifted, self.released = False, set(), {}
         self.release_events, self.wrong_object_grasped = [], False
@@ -416,7 +418,7 @@ class StackOperationEvaluator:
                     self.trace.append({'time_s': now, 'objects': rows})
             self.last_time = now
         duration = self.trace[-1]['time_s'] - self.trace[0]['time_s'] if self.trace else 0.
-        criteria = {'native_initial_preconditions': self.preconditions['accepted'],
+        criteria = {'native_initial_preconditions': permits_episode(self.session, self.preconditions),
             'native_measurement_available': True,
             'native_contact_order_upright_stationary_unheld': order is not None,
             'continuous_native_stability_window': duration >= STABILITY_SECONDS - 1e-7 and
@@ -489,7 +491,7 @@ class StackOperationEvaluator:
             if not self.trace or self.trace[-1]['time_s'] - self.trace[0]['time_s'] < STABILITY_SECONDS - 1e-7:
                 self.trace.append({'time_s': now, 'objects': rows})
         duration = self.trace[-1]['time_s'] - self.trace[0]['time_s'] if self.trace else 0.
-        criteria = {'native_initial_preconditions': self.preconditions['accepted'],
+        criteria = {'native_initial_preconditions': permits_episode(self.session, self.preconditions),
                     'two_upper_real_lift_and_supported_release_events': order is not None,
                     'native_contact_order_upright_stationary_unheld': order is not None,
                     'continuous_native_stability_window': duration >= STABILITY_SECONDS - 1e-7 and
@@ -521,7 +523,7 @@ class StackOperationEvaluator:
                   'snapshot_id': observation.snapshot_id, 'action_step': observation.action_step,
                   'action': action, 'configuration': self.config, 'initial_native_objects': self.initial,
                   'initial_native_preconditions': self.preconditions, 'stability_trace': self.trace}
-        available = bool(self.preconditions['accepted'])
+        available = bool(permits_episode(self.session, self.preconditions))
         released = len({event['upper'] for event in self.release_events}) >= 2
         record.update(task_revision=TASK_REVISION, evaluation_validity='complete' if available else 'unavailable',
             completion_items=[{'id': 'two_supported_upper_releases', 'kind': 'checkpoint', 'completed': released,

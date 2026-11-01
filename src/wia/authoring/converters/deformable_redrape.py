@@ -1,4 +1,4 @@
-"""Initialize a fully draped native cloth before the existing support relocation.
+"""Initialize the authored floor layout using a fully draped native cloth.
 
 Run native checks with src/wia/runtime/commands/check_esi_core_native.py and a versioned task
 containing this initializer. No reset or particle editing is allowed in episodes.
@@ -133,6 +133,9 @@ def on_interaction_initialized(session, evidence):
     for sensor in session.robot.sensors.values():
         if 'rgb' in sensor.modalities and 'seg_instance' not in sensor.modalities:
             sensor.add_modality('seg_instance')
+    from wia.runtime.prechecks import enabled
+    if not enabled(session):
+        return
     for _ in range(3):
         og.sim.render()
     measured = initial_cover_evidence(session, cloth, items)
@@ -142,6 +145,22 @@ def on_interaction_initialized(session, evidence):
     session.category_interaction_setup['initial_full_cover_evidence'] = measured
     session.category_interaction_setup['native_redrape_initialization'] = session._redesigned_cloth_cover
     session.category_interaction_setup['accepted'] &= measured['accepted']
+
+
+def prepare_interaction(session, bindings, policy):
+    """Keep the native redrape layout instead of searching for a rigid table."""
+    receipt = session._redesigned_cloth_cover
+    inventory = session._redesigned_cloth_inventory
+    if bindings['cloth'].name != inventory['cloth_name'] or bindings['item'].name not in inventory['item_names']:
+        raise ValueError('The redrape inventory does not match the task bindings.')
+    result = {'accepted': receipt.get('accepted') is True, 'relocated': False,
+        'layout_owner': 'native_cloth_redrape_20261020_v1',
+        'native_redrape_initialization': receipt,
+        'group_translation_m': [0., 0., 0.],
+        'reason': None if receipt.get('accepted') is True else 'native_redrape_cover_incomplete'}
+    session.category_interaction_setup = result
+    session._category_interaction_initialized = True
+    return result
 
 
 def _legacy_config(config):

@@ -192,7 +192,8 @@ class CategoryEvaluationEnvelope:
         session = getattr(self.native, 'session', None)
         private = getattr(self.task.definition, 'private', None)
         evaluation = getattr(private, 'evaluation', None)
-        if session is not None and evaluation is not None:
+        from wia.runtime.prechecks import enabled
+        if session is not None and evaluation is not None and enabled(session):
             config = evaluation.model_dump()
             parameters = config.get('parameters', {})
             if parameters.get('destination_contract') or parameters.get('region_label_contract'):

@@ -80,9 +80,9 @@ def episode_timeout(value):
     return None if value.lower() == "none" else float(value)
 
 
-def query_local_gpus():
+def query_local_gpus(*, formal=False):
     """Read identities only when the launch script disables occupancy checks."""
-    skip = os.environ.get('WIA_SKIP_GPU_CHECK') == '1'
+    skip = formal or os.environ.get('WIA_SKIP_GPU_CHECK') == '1'
     fields = 'index,uuid' if skip else 'index,uuid,utilization.gpu,memory.used'
     query = subprocess.run(['nvidia-smi', '--query-gpu=' + fields,
         '--format=csv,noheader,nounits'], capture_output=True, text=True, check=True)
@@ -278,7 +278,7 @@ def main(argv=None):
         (output / "task.yaml").write_bytes(task.path.read_bytes())
         (output / "episode_manifest.json").write_text(json.dumps(episode_manifest, indent=2) + "\n")
     state_path = output / 'local_runtime.json'
-    query, devices, idle, skip_gpu_check = query_local_gpus()
+    query, devices, idle, skip_gpu_check = query_local_gpus(formal=args.run_mode == 'benchmark')
     selected_gpu = args.gpu if args.gpu is not None else (idle[0] if idle else None)
     resident_control = os.environ.get('WIA_RESIDENT_CONTROL_DIR')
     owned_resident = False
@@ -400,12 +400,13 @@ def main(argv=None):
                 state_path.write_text(json.dumps(runtime, indent=2) + "\n")
         print("[experiment]", output.name, stage, flush=True)
     # The caller must finish/stop its previous scene before launching a fresh one.
-    try:
-        existing = requests.get(url+"/api/state", timeout=None)
-        if existing.ok:
-            raise RuntimeError("Stop the previous native service before starting a fresh scene.")
-    except requests.RequestException:
-        pass
+    if args.run_mode != 'benchmark':
+        try:
+            existing = requests.get(url+"/api/state", timeout=None)
+            if existing.ok:
+                raise RuntimeError("Stop the previous native service before starting a fresh scene.")
+        except requests.RequestException:
+            pass
     save_status("initializing")
     resident_client = None
     from wia.runtime.lifecycle_log import emit
@@ -486,7 +487,7 @@ def main(argv=None):
             emit('simulator_initialized', **lifecycle, elapsed_s=round(time.monotonic()-scene_started, 2))
         emit('scene_ready', **lifecycle, elapsed_s=round(time.monotonic()-scene_started, 2),
              persistent_simulator=bool(resident_control))
-        if args.preview_fps > 0:
+        if args.preview_fps > 0 and args.run_mode != 'benchmark':
             verify_human_preview(url, output)
         if args.record:
             response = requests.post(url+"/api/start", json={}, timeout=None)
@@ -512,18 +513,19 @@ def main(argv=None):
             recording_dir=str(output / "recordings"))
         current_gpu["service"].setdefault("mcp", {}).update(status="running",
             server_pid=gateway.pid, url=agent_url + '/mcp', backend_url=url)
-        if args.preview_fps > 0:
+        if args.preview_fps > 0 and args.run_mode != 'benchmark':
             current_gpu["service"].update(verified_at_utc=datetime.now(timezone.utc).isoformat(),
                 verification_file=str(output / "gumi_preview_verification.json"))
         if task is not None:
-            save_status("qualified", qualification_status=read_native_qualification(output)["qualification_status"],
+            save_status("ready" if args.run_mode == 'benchmark' else "qualified",
+                        qualification_status=read_native_qualification(output)["qualification_status"],
                         episode_manifest=str(output/"episode_manifest.json"))
         state_path.write_text(json.dumps(current_gpu, indent=2) + "\n")
         if args.initialize_only:
             save_status('initialization_only_completed', agent_started=False, model_calls=0)
             return 0
         minimum_context = int(os.environ.get('WIA_MIN_MODEL_CONTEXT', '0'))
-        if minimum_context and args.backend == 'openai_chat_completions':
+        if args.run_mode != 'benchmark' and minimum_context and args.backend == 'openai_chat_completions':
             endpoint = (args.base_url or args.local_base_url).rstrip('/') + '/models'
             credential = os.environ.get(backend_metadata(args)['api_key_env'], '')
             headers = {'Authorization': 'Bearer ' + credential} if credential else {}
@@ -647,19 +649,23 @@ def main(argv=None):
                 if service is None or service.get('state') != 'SCENE_RUNNING':
                     break
                 time.sleep(.2)
+        world_retained = False
         if not retained:
             native_stopped = resident_client is not None and read_service(resident_control) is None
-            emit('scene_cleared' if (output/"native_exit_code.txt").exists() else
+            receipt_path = output / 'persistent_scene_receipt.json'
+            receipt = json.loads(receipt_path.read_text()) if receipt_path.exists() else {}
+            world_retained = not native_stopped and receipt.get('world_retained') is True
+            emit('scene_retained' if world_retained else 'scene_cleared' if (output/"native_exit_code.txt").exists() else
                  'scene_disposed' if native_stopped else 'scene_closed', **lifecycle)
-        save_status("finished", simulator_retained=retained,
+        save_status("finished", simulator_retained=retained or world_retained,
                     native_exit_code=(output/"native_exit_code.txt").read_text().strip()
                     if (output/"native_exit_code.txt").exists() else None)
         current_gpu = json.loads(state_path.read_text())
         if current_gpu.get("service", {}).get("output_dir") == str(output):
             current_gpu["service"].update(status="running" if retained else
-                "stopped" if manifest["native_exit_code"] is not None or native_stopped else "stopping",
+                "scene_retained" if world_retained else "stopped" if manifest["native_exit_code"] is not None or native_stopped else "stopping",
                 recording=False, control_owner="human", last_completed_experiment=str(output/"experiment.json"),
-                simulator_retained_after_episode=retained)
+                simulator_retained_after_episode=retained or world_retained)
             current_gpu["service"].setdefault("agent", {}).update(status="idle", control_owner="human",
                 last_completed_episode=str(output / manifest.get("active_episode_dir", "episode") / "summary.json"))
             current_gpu["service"].setdefault("gumi", {}).update(

@@ -242,7 +242,11 @@ def main():
         report['interrupted'] = True
     finally:
         for control in controls:
-            stop_service(control, force=report.get('interrupted', False))
+            service = read_service(control)
+            if service is not None and service.get('state') == 'SCENE_RETAINED' and not report.get('interrupted'):
+                report.setdefault('retained_scenes', []).append({**service, 'control_dir': str(control)})
+            else:
+                stop_service(control, force=report.get('interrupted', False))
         report['finished_at'] = datetime.now(timezone.utc).isoformat()
         write_json(output/'results.json', report)
     return int(not report['completed'] or any(r['status'] != 'passed' for r in report['results']))
