@@ -374,7 +374,7 @@ class ResidentCapture:
             if self.preloader is not None:
                 waiting = time.monotonic()
                 try:
-                    preload = self.preload_inputs(manifest).result(timeout=manifest['timeout_s'] or None)
+                    preload = self.preload_inputs(manifest).result()
                 except Exception as error:
                     preload = {'status': 'failed', 'error': f'{type(error).__name__}: {error}',
                         'scope': 'CPU read-ahead only; native capture continues with the original assets.'}
@@ -387,7 +387,7 @@ class ResidentCapture:
             queue.heartbeat(claim, child_pid=self.process.pid, child_pgid=self.process.pid,
                 child_start_ticks=self.native_owner['start_ticks'])
             queue.transition(claim, 'RUNNING', gpu=self.gpu, native_output=str(output),
-                started_at=time.time(), timeout_s=manifest['timeout_s'], persistent_simulator=True)
+                started_at=time.time(), timeout_s=None, persistent_simulator=True)
             (output / 'resident_service.log').symlink_to(self.control / 'service.log')
             scratch = Path(self.gpu['appdata_path']) / 'native_tmp'
             write_json(output / 'gpu.json', {**self.gpu, 'persistent_simulator': True,
@@ -408,8 +408,6 @@ class ResidentCapture:
                     'job_id': job_id, 'native_output': str(output), 'heartbeat': time.time()})
                 if self.stopping() or (queue.job_dir(job_id) / 'cancel.json').exists():
                     raise RuntimeError('Resident capture interrupted by its owner or cancellation request.')
-                if manifest['timeout_s'] and time.monotonic() - began >= manifest['timeout_s']:
-                    raise TimeoutError('Resident capture exceeded its immutable timeout.')
                 if self.process.poll() is not None:
                     if response_path.is_file():
                         break  # A failed teardown can publish intact images before exiting.

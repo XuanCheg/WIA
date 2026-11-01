@@ -49,11 +49,11 @@ def resume_command(agent, previous, destination):
 
 
 def stop_recording(url, output):
-    response = requests.post(url + '/api/stop', json={}, timeout=600)
+    response = requests.post(url + '/api/stop', json={}, timeout=None)
     response.raise_for_status()
     write_json(output / 'recording_result.json', response.json())
     while True:
-        response = requests.get(url + '/api/state', timeout=10)
+        response = requests.get(url + '/api/state', timeout=None)
         response.raise_for_status()
         state = response.json()
         if state.get('recording_status') not in ('recording', 'finalizing'):
@@ -115,7 +115,7 @@ def wait_for_debug_control(output, *, url, gateway_url, agent, cwd, record, save
         started_recording = False
         try:
             if record:
-                response = requests.post(url + '/api/start', json={}, timeout=10)
+                response = requests.post(url + '/api/start', json={}, timeout=None)
                 response.raise_for_status()
                 started_recording = response.json().get('ok') is True
                 if not started_recording:

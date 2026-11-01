@@ -86,11 +86,8 @@ def create_gateway(backend_url, *, review_url=None):
         headers['Accept-Encoding'] = 'identity'
         body = await request.body()
         try:
-            read_timeout = 1320
-            if path.split('?', 1)[0] in ('/api/control/claim', '/api/agent/command', '/api/agent/step', '/api/step', '/mcp'):
-                read_timeout = None
             response = await asyncio.to_thread(requests.request, request.method, backend_url+path,
-                                               data=body, headers=headers, stream=True, timeout=(5, read_timeout))
+                                               data=body, headers=headers, stream=True, timeout=None)
         except (requests.RequestException, ValueError, TypeError, KeyError):
             if request.method == 'GET' and path.split('?', 1)[0] in ('/', '/index.html'):
                 return HTMLResponse(WAITING_PAGE, headers={'Cache-Control': 'no-store'})

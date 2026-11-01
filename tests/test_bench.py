@@ -274,7 +274,7 @@ while not (args.control_dir/'stop_service.json').exists():
     try:
         client.ensure()
         assert resident.read_service(control)['pid'] == processes[0].pid
-        resident.stop_service(control, timeout=2)
+        resident.stop_service(control)
         assert processes[0].wait(timeout=5) == 0
         assert resident.read_service(control) is None
     finally:

@@ -180,7 +180,8 @@ def prepare(config_path, *, execution_mode=None, max_steps=None):
         effective = {"max_steps": defaults["max_steps"], "timeout": None,
                      "action_mode": defaults["action_mode"],
                      "world": "run" if defaults["world_advances_during_inference"] else "pause",
-                     "observation_condition": defaults["observation_condition"], "run_mode": "benchmark", **episode_evaluation}
+                     "observation_condition": defaults["observation_condition"], "run_mode": "benchmark", **episode_evaluation,
+                     "timeout": None}
         rigid = getattr(definition, "kind", None) == "rigid_containment_task"
         selected = release_entry(task_path)
         default_variant = selected['variant'] if selected else ("tabletop" if rigid else "original")

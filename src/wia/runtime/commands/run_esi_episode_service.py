@@ -38,6 +38,7 @@ def main():
     root = WIA_RUNTIME_ROOT
     sys.path.insert(0, str(root))
     control = args.control_dir.resolve()
+    faulthandler.register(signal.SIGUSR1, file=sys.stderr, all_threads=True)
     profiles = json.loads(args.task_profiles.read_text())
     import wia.runtime.scene_capture_adapters as adapters
     from wia.runtime.sim.esi_omnigibson import ESISession, _import_pipeline
@@ -104,7 +105,6 @@ def main():
                 atomic_json(control / 'service.json', {**response, 'state': 'SCENE_RUNNING', 'pid': os.getpid()})
                 code = 1
                 with native_log(output / 'simulator.log'):
-                    faulthandler.dump_traceback_later(600, repeat=False)
                     try:
                         response['native_macro_profile'] = reset_macros(profile)
                         if request.get('camera_sync_diagnostic'):
@@ -126,7 +126,6 @@ def main():
                         response.update(reusable=False, error=f'{type(error).__name__}: {error}')
                         traceback.print_exc()
                     finally:
-                        faulthandler.cancel_dump_traceback_later()
                         active['request_id'] = None
                         response['scene_exit_code'] = code
                         atomic_json(output / 'persistent_scene_receipt.json', response)
@@ -146,7 +145,7 @@ def main():
             time.sleep(.2)
     finally:
         stopping.set()
-        thread.join(timeout=2)
+        thread.join()
     return 0
 
 

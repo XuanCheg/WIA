@@ -1,4 +1,4 @@
-"""Bounded native release smoke test, no model. Run: python scripts/smoke_release_native.py --task t01 --gpu 4 --output OUTPUT.
+"""Native release smoke test, no model. Run: python scripts/smoke_release_native.py --task t01 --gpu 4 --output OUTPUT.
 
 Run in a persistent terminal with the behavior environment. Existing GPU owners
 are never displaced. The output retains device mapping, command and exit status.
@@ -24,7 +24,7 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--actions', action='store_true')
     parser.add_argument('--scorer', action='store_true', help='Begin a no-action episode and validate native score availability.')
-    parser.add_argument('--timeout', type=float, default=600, help='Native diagnostic wall deadline in seconds.')
+    parser.add_argument('--timeout', type=float, help=argparse.SUPPRESS)
     args = parser.parse_args()
     query = subprocess.check_output(['nvidia-smi', '--query-gpu=index,uuid,utilization.gpu,memory.used',
                                     '--format=csv,noheader,nounits'], text=True)
@@ -40,7 +40,7 @@ def main():
     manifest = task.manifest('native-smoke-' + args.task)
     manifest.update(max_steps=defaults.max_steps, world_mode='pause', world_advances_during_inference=False,
         observation_condition=defaults.observation_condition, action_mode='parameterized', model_name='no_model_native_smoke',
-        reasoning_effort=None, wall_timeout_s=600, agent_session='local_http_persistent', world_observation_log=True)
+        reasoning_effort=None, wall_timeout_s=None, agent_session='local_http_persistent', world_observation_log=True)
     (output / 'episode_manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     gpu = {'execution_mode': 'local', 'CUDA_VISIBLE_DEVICES': row[1].strip(), 'uuid': row[1].strip(),
            'renderer_index': args.gpu, 'physical_index': args.gpu, 'device_uuid': row[1].strip(),
@@ -65,18 +65,15 @@ def main():
     if args.actions:
         command.append('--validate-base')
     else:
-        command += ['--web', '--host', '127.0.0.1', '--port', str(9800 + args.gpu), '--web-duration-s', '1']
+        command += ['--web', '--host', '127.0.0.1', '--port', str(9800 + args.gpu)]
     if args.scorer:
         command.append('--validate-scorer')
     receipt = {'schema': 'release_native_smoke_v1', 'task': args.task, 'gpu': gpu, 'command': command,
                'pid': os.getpid(), 'model_calls': 0, 'VK_ICD_FILENAMES': env['VK_ICD_FILENAMES'], 'LD_LIBRARY_PATH': env['LD_LIBRARY_PATH'], 'cache': str(cache), 'started': time.time()}
     (output / 'smoke.json').write_text(json.dumps(receipt, indent=2) + '\n')
-    try:
-        with (output / 'native.log').open('w') as log:
-            result = subprocess.run(command, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=args.timeout)
-        receipt['returncode'] = result.returncode
-    except subprocess.TimeoutExpired:
-        receipt.update(returncode=None, error='native smoke deadline exceeded')
+    with (output / 'native.log').open('w') as log:
+        result = subprocess.run(command, env=env, stdout=log, stderr=subprocess.STDOUT)
+    receipt['returncode'] = result.returncode
     receipt['wall_time_s'] = time.time() - receipt['started']
     receipt['task_status'] = json.loads((output / 'task_status.json').read_text()) if (output / 'task_status.json').exists() else None
     receipt['observation_saved'] = (output / 'agent_observation/observation.json').is_file()

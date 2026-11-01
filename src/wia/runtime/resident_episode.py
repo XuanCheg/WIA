@@ -83,7 +83,7 @@ def process_matches(control, pid):
         return False
 
 
-def stop_service(control, timeout=30):
+def stop_service(control, *, force=False):
     """Stop only the verified worker-owned service, including after interruption."""
     control = Path(control)
     service = read_service(control)
@@ -96,7 +96,7 @@ def stop_service(control, timeout=30):
             return
         # Startup has no service.json yet; terminate the verified owned child directly.
         try:
-            os.kill(service['pid'], signal.SIGTERM)
+            os.kill(service['pid'], signal.SIGKILL if force else signal.SIGTERM)
         except ProcessLookupError:
             return
     emit('simulator_stopping', pid=service['pid'])
@@ -105,21 +105,13 @@ def stop_service(control, timeout=30):
         client = ResidentEpisodeClient(control, {}, {}, '')
         client.request_id = service['request_id']
         client.stop_scene()
-    deadline = time.monotonic() + timeout
-    while process_matches(control, service['pid']) and time.monotonic() < deadline:
-        time.sleep(.2)
-    for sig in (signal.SIGTERM, signal.SIGKILL):
-        if not process_matches(control, service['pid']):
-            break
+    if force and process_matches(control, service['pid']):
         try:
-            os.kill(service['pid'], sig)
+            os.kill(service['pid'], signal.SIGKILL)
         except ProcessLookupError:
-            break
-        deadline = time.monotonic() + 5
-        while process_matches(control, service['pid']) and time.monotonic() < deadline:
-            time.sleep(.2)
-    if process_matches(control, service['pid']):
-        raise RuntimeError('Owned resident simulator failed to exit.')
+            pass
+    while process_matches(control, service['pid']):
+        time.sleep(.2)
     emit('simulator_stopped', pid=service['pid'])
 
 
@@ -163,26 +155,18 @@ class ResidentEpisodeClient:
         if service is not None:
             if service.get('state') == 'FAILED':
                 emit('simulator_recycling', pid=service['pid'], reason='previous_native_failure')
-                stop_service(self.control)
+                stop_service(self.control, force=True)
                 return self.ensure(quiet=quiet)
-            deadline = time.monotonic() + 120
-            while service.get('state') == 'SCENE_RUNNING' and time.monotonic() < deadline:
+            while service.get('state') == 'SCENE_RUNNING':
                 time.sleep(.2)
                 service = read_service(self.control)
                 if service is None:
                     return self.ensure(quiet=quiet)
             if service.get('state') == 'FAILED':
                 emit('simulator_recycling', pid=service['pid'], reason='previous_native_failure')
-                stop_service(self.control)
+                stop_service(self.control, force=True)
                 return self.ensure(quiet=quiet)
             if service.get('state') != 'IDLE':
-                previous_output = service.get('output_dir')
-                progress = Path(previous_output) / 'progress.json' if previous_output else None
-                if (progress is not None and progress.exists()
-                        and json.loads(progress.read_text()).get('stage') == 'scene_cleanup'):
-                    emit('simulator_recycling', pid=service['pid'], reason='previous_cleanup_timeout')
-                    stop_service(self.control)
-                    return self.ensure(quiet=quiet)
                 raise RuntimeError('Resident simulator is not reusable: ' + str(service))
             maximum = int(os.environ.get('WIA_RESIDENT_MAX_SCENES', '4'))
             if maximum > 0 and service.get('completed_scenes', 0) >= maximum:
@@ -219,18 +203,9 @@ class ResidentEpisodeClient:
                 'OMP_NUM_THREADS': '2', 'OPENBLAS_NUM_THREADS': '2', 'MKL_NUM_THREADS': '2'},
                 stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
         (self.control / 'process.json').write_text(json.dumps({'pid': process.pid}) + '\n')
-        deadline = time.monotonic() + 120
         while read_service(self.control) is None:
             if process.poll() is not None:
                 raise RuntimeError('Resident episode service exited during startup; inspect service.log.')
-            if time.monotonic() >= deadline:
-                process.terminate()
-                try:
-                    process.wait(timeout=10)
-                except subprocess.TimeoutExpired:
-                    process.kill()
-                    process.wait()
-                raise RuntimeError('Resident episode service did not become ready; inspect service.log.')
             time.sleep(.5)
         emit('simulator_service_ready', pid=process.pid, elapsed_s=round(time.monotonic()-started, 2))
 
@@ -281,7 +256,7 @@ class ResidentEpisodeClient:
         previous = read_service(self.control)
         emit('simulator_cold_fallback', request_id=self.request_id, reason=reason,
              pid=previous.get('pid') if previous else None)
-        stop_service(self.control)
+        stop_service(self.control, force=True)
         archive = self.output / 'initialization_attempts' / self.request_id
         archive.mkdir(parents=True, exist_ok=False)
         retained = self.input_entries | {'initialization_attempts', 'gateway.log',
@@ -312,15 +287,7 @@ class ResidentEpisodeClient:
         failure = {'request_id': self.request_id, 'native_pid': pid, 'reusable': False,
                    'error': reason, 'scene_exit_code': -9, 'renderer_failure': True,
                    'exit_code_source': 'Synthetic disposal marker, not a waitpid exit status.'}
-        for sig in (signal.SIGTERM, signal.SIGKILL):
-            if read_service(self.control) is None:
-                break
-            os.kill(pid, sig)
-            deadline = time.monotonic() + 5
-            while read_service(self.control) is not None and time.monotonic() < deadline:
-                time.sleep(.2)
-        if read_service(self.control) is not None:
-            raise RuntimeError('Failed resident owner has not exited; no replacement is allowed.')
+        stop_service(self.control, force=True)
         for path in (Path(output) / 'persistent_scene_receipt.json',
                      self.control / 'responses' / (self.request_id + '.json')):
             path.write_text(json.dumps(failure, indent=2) + '\n')

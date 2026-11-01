@@ -112,7 +112,7 @@ class ESIPreviewBackend:
             "step_tokens": [], "aliases": {}, "history": [],
         }
 
-    def submit(self, kind, arg=None, timeout=60.0) -> dict:
+    def submit(self, kind, arg=None, timeout=None) -> dict:
         return {"ok": False, "status": 405, "message": READ_ONLY_MESSAGE}
 
 
@@ -162,8 +162,7 @@ def run_preview(session, metadata: dict, *, host: str = "127.0.0.1", port: int =
         print(f"[esi-web] GUMI read-only preview: http://{host}:{server.server_port}", flush=True)
         print(f"[esi-web] cameras: {backend.state()['camera_names']}; physics paused", flush=True)
         print("[esi-web] Ctrl+C stops preview; robot movement is disabled", flush=True)
-        deadline = time.monotonic() + duration_s if duration_s is not None else None
-        while deadline is None or time.monotonic() < deadline:
+        while True:
             started = time.monotonic()
             if human_preview and preview_fps > 0:
                 if observation_pipeline == "legacy":
@@ -178,8 +177,6 @@ def run_preview(session, metadata: dict, *, host: str = "127.0.0.1", port: int =
                     if viewer:
                         viewer.publish_preview(preview)
             delay = max(0.0, 1.0 / (preview_fps or 2.) - (time.monotonic() - started))
-            if deadline is not None:
-                delay = min(delay, max(0.0, deadline - time.monotonic()))
             time.sleep(delay)
     except KeyboardInterrupt:
         print("[esi-web] stopping preview", flush=True)
@@ -189,7 +186,7 @@ def run_preview(session, metadata: dict, *, host: str = "127.0.0.1", port: int =
             viewer.close()
         if thread.is_alive():
             server.shutdown()
-            thread.join(timeout=5)
+            thread.join()
         server.server_close()
         for sig, handler in previous_signals.items():
             signal.signal(sig, handler)

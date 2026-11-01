@@ -7,8 +7,8 @@ Use --execution-mode local for a standalone server, with one worker per GPU slot
 Add --persistent-simulator to retain the native engine across compatible jobs.
 Queue capture_retention.json can opt selected GPU UUIDs into retaining the last
 completed world until eligible queued work needs the GPU. Retention has no
-elapsed-time limit; explicit worker stops and failures can still end it. Existing
-cancellation and timeout handling before capture completion remains unchanged.
+elapsed-time limit; explicit worker stops and failures can still end it.
+Pre-completion capture also has no time limit; explicit cancellation is retained.
 No Agent episodes are run. Supervisors can share a queue across all idle GPUs.
 """
 from __future__ import annotations
@@ -52,9 +52,9 @@ def fresh_gpu_available(gpu):
     """Recheck a fresh-process worker's device before claiming another job."""
     try:
         clients = subprocess.check_output(['nvidia-smi', '--query-compute-apps=pid,gpu_uuid',
-            '--format=csv,noheader,nounits'], text=True, timeout=10)
+            '--format=csv,noheader,nounits'], text=True)
         rows = subprocess.check_output(['nvidia-smi', '--query-gpu=uuid,utilization.gpu,memory.used,memory.free',
-            '--format=csv,noheader,nounits'], text=True, timeout=10)
+            '--format=csv,noheader,nounits'], text=True)
         values = next(line.split(',') for line in rows.splitlines()
                       if line.split(',')[0].strip() == gpu['uuid'])
         utilization, used, free = map(lambda value: int(value.strip()), values[1:])
@@ -195,25 +195,20 @@ def group_members(pgid):
     return members
 
 
-def stop_group(pgid, process=None, *, grace_s=10):
+def stop_group(pgid, process=None, *, grace_s=None):
     if pgid == os.getpgrp():
         raise RuntimeError("Refusing to terminate the worker or interactive shell process group.")
-    for sig, grace in ((signal.SIGTERM, grace_s), (signal.SIGKILL, 10)):
-        if not group_members(pgid):
-            break
-        try:
-            os.killpg(pgid, sig)
-        except ProcessLookupError:
-            break
-        until = time.monotonic() + grace
-        while group_members(pgid) and time.monotonic() < until:
-            if process is not None:
-                process.poll()
-            time.sleep(.2)
-    if process is not None:
-        process.wait(timeout=5)
     if group_members(pgid):
-        raise RuntimeError("Owned simulator process group did not exit; claim retained.")
+        try:
+            os.killpg(pgid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+    while group_members(pgid):
+        if process is not None:
+            process.poll()
+        time.sleep(.2)
+    if process is not None:
+        process.wait()
 
 
 def confirm_stopped(claim):
@@ -368,7 +363,8 @@ def queue_retention_gpu(queue, gpu):
     return {**gpu, 'retain_world': True, 'queue_retention': {
         'mode': 'retain_last_world', 'policy_file': str(policy_path),
         'gpu_uuid': gpu['uuid'], 'close_trigger': 'eligible_queued_work',
-        'retained_timeout_s': None, 'pre_completion_timeout_and_cancel_unchanged': True,
+        'retained_timeout_s': None, 'pre_completion_timeout_s': None,
+        'pre_completion_timeout_and_cancel_unchanged': False, 'explicit_cancellation_unchanged': True,
         'explicit_worker_stop_and_failures_can_end_retention': True}}
 
 
@@ -426,8 +422,8 @@ def capture_job(queue, claim, gpu, *, stopping=lambda: False, job_id=None,
                 candidate_prefix=None, pilot_control=None):
     """Capture, then retain an opted-in world without an automatic residency timeout.
 
-    Existing worker stops/failures and pre-completion cancel/timeout behavior still
-    apply. Queue continuation closes only through the native exact-snapshot request
+    Explicit worker stops/failures and pre-completion cancellation still apply.
+    Queue continuation closes only through the native exact-snapshot request
     protocol; no next claim is acquired while this native process remains alive.
     """
     selected_job_id = job_id
@@ -504,7 +500,7 @@ def capture_job(queue, claim, gpu, *, stopping=lambda: False, job_id=None,
             queue.heartbeat(claim, native_output=str(output), child_pid=process.pid,
                             child_pgid=process.pid, child_start_ticks=native_tmp_owner['start_ticks'])
             queue.transition(claim, "RUNNING", gpu=gpu, native_output=str(output), command=command,
-                             started_at=time.time(), timeout_s=manifest["timeout_s"])
+                             started_at=time.time(), timeout_s=None)
             try:
                 while process.poll() is None:
                     if not retained and gpu.get("retain_world"):
@@ -539,13 +535,11 @@ def capture_job(queue, claim, gpu, *, stopping=lambda: False, job_id=None,
                     write_json(queue.root / "workers" / f"{claim['worker']['id']}.json", {
                         **claim["worker"], "state": "RETAINED" if retained else "RUNNING", "job_id": job_id,
                         "native_pid": process.pid, "native_output": str(output), "heartbeat": time.time()})
-                    # The bounded capture completes before residency begins. A held
+                    # Capture completes before residency begins. A held
                     # world retains GPU ownership without an outstanding queue claim.
-                    timed_out = (not retained and bool(manifest["timeout_s"])
-                                 and time.monotonic() - began >= manifest["timeout_s"])
                     cancelled = not retained and (queue.job_dir(job_id) / "cancel.json").exists()
                     interrupted = stopping()
-                    if timed_out or cancelled or interrupted:
+                    if cancelled or interrupted:
                         stop_group(process.pid, process)
                         break
                     time.sleep(2)

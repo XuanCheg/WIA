@@ -138,11 +138,11 @@ class RobotBridge:
             raise ValueError("Backend URL must be an HTTP(S) URL without credentials, query or fragment.")
         self.backend_url = backend_url.rstrip("/")
 
-    async def request(self, method, path, *, body=None, read_timeout=10):
+    async def request(self, method, path, *, body=None, read_timeout=None):
         # A worker performs HTTP only. The simulator's main thread still owns
         # the queue, every physics step and every camera capture.
         return await asyncio.to_thread(requests.request, method, self.backend_url + path,
-                                       json=body, timeout=(5, read_timeout))
+                                       json=body, timeout=None)
 
     async def state(self, *, context=False):
         try:
@@ -295,7 +295,7 @@ class RobotBridge:
 
     async def observation(self, *, include_sensor_data=False):
         try:
-            response = await self.request("GET", "/api/agent-observation", read_timeout=30)
+            response = await self.request("GET", "/api/agent-observation")
             response.raise_for_status()
             payload = response.json()
             observation = AgentObservation.from_payload(payload)

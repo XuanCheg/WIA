@@ -32,6 +32,7 @@ class GripperControlConfig:
     timeout_wall_s: float | None = None
 
     def __post_init__(self):
+        object.__setattr__(self, 'timeout_wall_s', None)
         if self.grasp_mode != "assisted":
             raise ValueError("Milestone 4 uses assisted grasp only.")
         for name, value in vars(self).items():

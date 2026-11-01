@@ -357,7 +357,7 @@ class ESIControlBackend(ESIPreviewBackend):
             return {"ok": False, "status": 400, "message": str(error)}
         return self._submit_transaction(plan.command, {}, timeout, action_mode="parameterized")
 
-    def submit_arrivals(self, rooms, snapshot_id, action_step, token, timeout=30.):
+    def submit_arrivals(self, rooms, snapshot_id, action_step, token, timeout=None):
         """Queue Agent-authored room claims; return no private room or score data."""
         import re
         if (not isinstance(rooms, list) or not 1 <= len(rooms) <= 16
@@ -371,7 +371,7 @@ class ESIControlBackend(ESIPreviewBackend):
         return self._submit_transaction(ArrivalDeclarations(tuple(dict.fromkeys(rooms)), snapshot_id, action_step),
                                         {}, timeout, control_token=token)
 
-    def submit_answer(self, answer, snapshot_id, action_step, token, timeout=30.):
+    def submit_answer(self, answer, snapshot_id, action_step, token, timeout=None):
         """Serialize answer reporting under the same lease as robot commands."""
         if (not isinstance(answer, str) or not answer.strip() or len(answer) > 4096
                 or type(snapshot_id) is not int or snapshot_id < 0
@@ -382,7 +382,7 @@ class ESIControlBackend(ESIPreviewBackend):
         return self._submit_transaction(AnswerDeclaration(answer, snapshot_id, action_step),
                                         {}, timeout, control_token=token)
 
-    def submit_done(self, snapshot_id, action_step, token, timeout=30.):
+    def submit_done(self, snapshot_id, action_step, token, timeout=None):
         """Queue a nonmotion terminal declaration under the existing Agent lease."""
         if (type(snapshot_id) is not int or snapshot_id < 1
                 or type(action_step) is not int or action_step < 0):
@@ -392,7 +392,7 @@ class ESIControlBackend(ESIPreviewBackend):
         return self._submit_transaction(DoneDeclaration(snapshot_id, action_step),
                                         {}, timeout, control_token=token)
 
-    def submit_temporal(self, event, answer, snapshot_id, action_step, token, timeout=30.):
+    def submit_temporal(self, event, answer, snapshot_id, action_step, token, timeout=None):
         """Serialize phase declarations under the same lease as physical actions."""
         if (event not in ('phase_1_complete', 'phase_1_budget_exhausted', 'answer')
                 or (event in ('phase_1_complete', 'phase_1_budget_exhausted') and answer is not None)

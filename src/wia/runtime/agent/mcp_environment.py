@@ -16,11 +16,11 @@ from core.agent.trace_log import compact_json, timestamp
 
 @asynccontextmanager
 async def motion_transport(url):
-    """Keep motion receipt streams open until their simulation-time deadline."""
+    """Keep simulator receipt streams open until a result or explicit cancellation."""
     import httpx2
     from mcp.client.streamable_http import streamable_http_client
     from mcp.shared._httpx_utils import create_mcp_http_client
-    async with create_mcp_http_client(timeout=httpx2.Timeout(30., read=None)) as http:
+    async with create_mcp_http_client(timeout=httpx2.Timeout(None)) as http:
         async with streamable_http_client(url, http_client=http) as streams:
             yield streams
 
@@ -35,7 +35,7 @@ class MCPRobotEnvironment:
         if type(world_advances_during_inference) is not bool:
             raise ValueError("world_advances_during_inference must be boolean.")
         self.world_advances_during_inference = world_advances_during_inference
-        self.read_timeout_s = 70
+        self.read_timeout_s = None
         self.control_token = None
         self.client = None
         self.capabilities = None
@@ -81,7 +81,7 @@ class MCPRobotEnvironment:
         return result
 
     async def _http(self, path, body):
-        response = await asyncio.to_thread(requests.post, self.url + path, json=body, timeout=(5, None if path == "/api/control/claim" else self.read_timeout_s))
+        response = await asyncio.to_thread(requests.post, self.url + path, json=body, timeout=None)
         data = response.json()
         if data.get("ok") is not True:
             raise RuntimeError(data.get("message", "Robot control request failed."))
@@ -91,7 +91,7 @@ class MCPRobotEnvironment:
     async def __aenter__(self):
         current = None
         if self.resume_action_step is not None:
-            response = await asyncio.to_thread(requests.get, self.url + "/api/agent/state", timeout=(5, 10))
+            response = await asyncio.to_thread(requests.get, self.url + "/api/agent/state", timeout=None)
             response.raise_for_status()
             current = response.json()
             if self.episode_contract is not None and not current.get("declarative_resume_available"):
@@ -100,7 +100,7 @@ class MCPRobotEnvironment:
                     or current.get("control_owner") != "human" or current.get("task_text") != self.task_text):
                 raise RuntimeError("Live action boundary changed after interruption; refuse to reset or replay commands.")
         if self.episode_contract is not None:
-            response = await asyncio.to_thread(requests.get, self.url + "/api/agent/state", timeout=(5, 10))
+            response = await asyncio.to_thread(requests.get, self.url + "/api/agent/state", timeout=None)
             response.raise_for_status()
             current = response.json()
             if current.get("episode_contract") != self.episode_contract:
@@ -110,17 +110,17 @@ class MCPRobotEnvironment:
         if self.resume_action_step is not None and self.episode_contract is not None:
             claim["resume_action_step"] = self.resume_action_step
         if self.action_mode == "parameterized":
-            response = await asyncio.to_thread(requests.get, self.url + "/api/agent/state", timeout=(5, 10))
+            response = await asyncio.to_thread(requests.get, self.url + "/api/agent/state", timeout=None)
             response.raise_for_status()
             current = response.json()
             setting = current.get("parameterized_actions")
             if not setting:
                 raise RuntimeError("Backend must explicitly enable parameterized commands.")
             self.macro_limits = MacroLimits(**setting["limits"])
-            self.read_timeout_s = self.macro_limits.request_timeout_s + 10
+            self.read_timeout_s = None
             claim["action_mode"] = self.action_mode
         if current is None:
-            response = await asyncio.to_thread(requests.get, self.url + '/api/agent/state', timeout=(5, 10))
+            response = await asyncio.to_thread(requests.get, self.url + '/api/agent/state', timeout=None)
             response.raise_for_status()
             current = response.json()
         self.done_declaration_available = current.get('done_declaration_available') is True
@@ -173,14 +173,12 @@ class MCPRobotEnvironment:
                 except (requests.RequestException, RuntimeError):
                     # Unknown transport outcome: request cancellation, never replay a motion.
                     await self._http("/api/control/cancel", {"control_token": self.control_token})
-                    for _ in range(100):
-                        response = await asyncio.to_thread(requests.get, self.url + "/api/agent/state", timeout=5)
+                    while True:
+                        response = await asyncio.to_thread(requests.get, self.url + "/api/agent/state", timeout=None)
                         if not response.json().get("busy"):
                             await self._http("/api/control/release", {"control_token": self.control_token})
                             break
                         await asyncio.sleep(0.1)
-                    else:
-                        raise RuntimeError("Robot cancellation pending; control remains locked.")
         finally:
             self.control_token = None
             if self.client is not None:
@@ -228,7 +226,7 @@ class MCPRobotEnvironment:
 
     async def world_metrics(self):
         try:
-            response = await asyncio.to_thread(requests.get, self.url + "/api/agent/state", timeout=(5, 10))
+            response = await asyncio.to_thread(requests.get, self.url + "/api/agent/state", timeout=None)
         except requests.ReadTimeout:
             # Timing telemetry is not a command receipt or an observation boundary.
             # Preserve missing evidence without discarding a completed model reply.

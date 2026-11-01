@@ -147,7 +147,8 @@ def test_policy_is_opt_in_uuid_fenced_and_applied_before_native_launch(harness, 
     assert not list((state.output / 'retained_requests').glob('*.json'))
     if expected:
         assert gpu['queue_retention']['retained_timeout_s'] is None
-        assert gpu['queue_retention']['pre_completion_timeout_and_cancel_unchanged']
+        assert gpu['queue_retention']['pre_completion_timeout_s'] is None
+        assert gpu['queue_retention']['explicit_cancellation_unchanged']
         assert gpu['queue_retention']['explicit_worker_stop_and_failures_can_end_retention']
 
 
@@ -275,14 +276,16 @@ def test_explicit_retain_world_keeps_existing_indefinite_behavior(harness, with_
 @pytest.mark.parametrize('world_overrides', [
     {'job_id': 'capture_foreign'}, {'capture_signature': 'foreign_signature'}, {'pid': 123},
 ])
-def test_foreign_world_never_finishes_and_existing_pre_completion_timeout_still_stops(harness, world_overrides):
+def test_foreign_world_never_finishes_and_explicit_cancellation_still_stops(harness, world_overrides):
     state = harness
     enable_retention(state)
     state.world_overrides = world_overrides
     state.queue.enqueue()
-    state.on_sleep = lambda: None
+    def cancel():
+        write_json(state.queue.job_dir(CURRENT_JOB)/'cancel.json',{})
+    state.on_sleep = cancel
     worker.capture_job(state.queue, state.claim, state.gpu)
     assert not state.queue.finished and len(state.stops) == 1
-    assert state.queue.status(CURRENT_JOB)['state'] == 'FAILED'
-    assert read_json(state.output / 'process_exit.json')['timeout'] is True
+    assert state.queue.status(CURRENT_JOB)['state'] == 'CANCELLED'
+    assert read_json(state.output / 'process_exit.json')['timeout'] is False
     assert not list((state.output / 'retained_requests').glob('*.json'))

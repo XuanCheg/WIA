@@ -30,7 +30,7 @@ def test_failed_cold_scene_is_recorded_and_next_scene_still_runs(tmp_path, monke
         return NS(path=Path(path),variant='adapted',seed=0,
                   definition=NS(defaults=NS(max_steps=10)),manifest=lambda episode:{})
     monkeypatch.setitem(namespace,'load_task',task)
-    monkeypatch.setitem(namespace,'stop_service',lambda control:None)
+    monkeypatch.setitem(namespace,'stop_service',lambda control,**kwargs:None)
     attempts = []
     class Client:
         def __init__(self,control,*args):self.control=control

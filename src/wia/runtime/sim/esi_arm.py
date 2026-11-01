@@ -55,6 +55,7 @@ class ArmControlConfig:
     initial_trunk_joint_positions_rad: list[float] | None = None
 
     def __post_init__(self):
+        object.__setattr__(self, 'timeout_wall_s', None)
         if self.working_arm != "left":
             raise ValueError("Milestone 3 supports only the left working arm.")
         for name, value in vars(self).items():

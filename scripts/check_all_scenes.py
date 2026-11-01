@@ -32,7 +32,7 @@ def parallel_sweep(args, plans, aliases, sequence):
     if not gpus or len(gpus) != len(set(gpus)):
         raise ValueError('GPU indices must be distinct.')
     groups = [[aliases[p['task']['path']] for p in plans[index::len(gpus)]] for index in range(len(gpus))]
-    preview = {'schema': 'wia_parallel_scene_sweep_v1', 'model_calls': 0, 'sequence': sequence,
+    preview = {'schema': 'wia_parallel_scene_sweep_v1', 'model_calls': 0, 'simulator_timeout_s': None, 'sequence': sequence,
                'workers': [{'gpu': gpu, 'tasks': group} for gpu, group in zip(gpus, groups) if group]}
     if args.dry_run:
         print(json.dumps(preview, indent=2))
@@ -53,7 +53,7 @@ def parallel_sweep(args, plans, aliases, sequence):
             logs.append(log)
             command = [sys.executable, '-u', str(Path(__file__).resolve()), '--gpu', str(worker['gpu']),
                 '--output', str(directory), '--config', str(args.config), '--sequence', str(args.sequence),
-                '--scene-timeout', str(args.scene_timeout), '--tasks', *worker['tasks']]
+                '--tasks', *worker['tasks']]
             process = subprocess.Popen(command, cwd=ROOT, stdout=log, stderr=subprocess.STDOUT,
                                        start_new_session=True)
             processes.append(process)
@@ -91,12 +91,7 @@ def parallel_sweep(args, plans, aliases, sequence):
                 os.killpg(process.pid, signal.SIGINT)
     finally:
         for process in processes:
-            try:
-                process.wait(timeout=90)
-            except subprocess.TimeoutExpired:
-                # A native world can be expensive to discard; retain its ownership
-                # and report it rather than terminating an unrelated process.
-                report.setdefault('cleanup_pending_pids', []).append(process.pid)
+            process.wait()
         report['worker_exit_codes'] = [process.poll() for process in processes]
         report['finished_at'] = datetime.now(timezone.utc).isoformat()
         write_json(output/'results.json', report)
@@ -113,7 +108,7 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--config', type=Path, default=ROOT/'configs/bench_deepseek_60.yaml')
     parser.add_argument('--sequence', type=Path, default=ROOT/'configs/native_scene_validation.json')
-    parser.add_argument('--scene-timeout', type=float, default=1200)
+    parser.add_argument('--scene-timeout', type=float, help=argparse.SUPPRESS)
     parser.add_argument('--tasks', nargs='+', help='Optional catalogue aliases; default: all configured tasks in order.')
     parser.add_argument('--dry-run', action='store_true')
     args = parser.parse_args()
@@ -124,12 +119,14 @@ def main():
     if args.tasks and {aliases[p['task']['path']] for p in plans} != set(args.tasks):
         parser.error('One or more selected aliases are absent from the configured catalogue.')
     sequence = json.loads(args.sequence.read_text())
-    if not plans or args.scene_timeout <= 0:
-        parser.error('Select at least one task and a positive scene timeout.')
+    if not plans:
+        parser.error('Select at least one task.')
+    if args.scene_timeout is not None:
+        print('[sweep] --scene-timeout is ignored; simulator time limits are disabled.', flush=True)
     if args.gpus:
         return parallel_sweep(args, plans, aliases, sequence)
     preview = {'schema': 'wia_scene_sweep_plan_v1', 'gpu': args.gpu, 'model_calls': 0,
-               'loading': 'serial', 'persistent_simulator': True, 'sequence': sequence,
+               'loading': 'serial', 'persistent_simulator': True, 'simulator_timeout_s': None, 'sequence': sequence,
                'tasks': [aliases[p['task']['path']] for p in plans]}
     if args.dry_run:
         print(json.dumps(preview, indent=2))
@@ -191,14 +188,11 @@ def main():
                     '--validation-sequence', str(sequence_path), '--capture-agent-observation']
                 client.submit(argv, directory)
                 monitor = RendererLogMonitor(directory/'simulator.log')
-                deadline = time.monotonic() + args.scene_timeout
                 response_path = control/'responses'/f'{client.request_id}.json'
                 last_progress = time.monotonic()
                 while True:
                     try:
                         while not response_path.exists():
-                            if time.monotonic() >= deadline:
-                                raise TimeoutError('Native load/sequence deadline exceeded.')
                             service = read_service(control)
                             if service is None or service.get('state') == 'FAILED':
                                 raise RuntimeError('Owned native service failed before its response.')
@@ -222,7 +216,6 @@ def main():
                             raise
                         monitor = RendererLogMonitor(directory/'simulator.log')
                         monitor.offset = 0
-                        deadline = time.monotonic() + args.scene_timeout
                         response_path = control/'responses'/f'{client.request_id}.json'
                         record['cold_fallback'] = True
                 record['native_receipt'] = receipt
@@ -238,7 +231,7 @@ def main():
                     generation += 1
             except Exception as error:
                 record.update(status='runtime_error', error=f'{type(error).__name__}: {error}')
-                stop_service(control)
+                stop_service(control, force=True)
                 generation += 1
             record['elapsed_s'] = time.monotonic()-started
             report['results'].append(record)
@@ -249,7 +242,7 @@ def main():
         report['interrupted'] = True
     finally:
         for control in controls:
-            stop_service(control)
+            stop_service(control, force=report.get('interrupted', False))
         report['finished_at'] = datetime.now(timezone.utc).isoformat()
         write_json(output/'results.json', report)
     return int(not report['completed'] or any(r['status'] != 'passed' for r in report['results']))

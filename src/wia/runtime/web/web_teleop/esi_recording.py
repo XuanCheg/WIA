@@ -113,12 +113,7 @@ class CompactVideoWriter:
     def close(self):
         try:
             self.process.stdin.close()
-            try:
-                code = self.process.wait(timeout=15)
-            except subprocess.TimeoutExpired:
-                self.process.kill()
-                self.process.wait()
-                raise RuntimeError('Video encoder did not finish.') from None
+            code = self.process.wait()
             if code != 0 or not self.path.is_file() or self.path.stat().st_size == 0:
                 raise RuntimeError(f'Cannot finalize {self.path.name}; see encoder log.')
         finally:
@@ -304,7 +299,7 @@ class HumanVideoRecorder:
                             '-t', str(max(1/self.config.video_fps, duration/self.config.playback_speed)),
                             '-an', '-c:v', 'libx264', '-preset', 'fast', '-crf', str(self.config.video_crf),
                             '-threads', '2', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', str(path)],
-                            stdout=subprocess.PIPE, stderr=log, timeout=600, text=True)
+                            stdout=subprocess.PIPE, stderr=log, text=True)
                     if self.performance:
                         self.performance.add('video_encode_wall_time', time.perf_counter()-started)
                     if process.returncode or not path.exists() or not path.stat().st_size:
@@ -358,9 +353,7 @@ class HumanVideoRecorder:
             self.status = 'finalizing'
             worker = self.worker
             self.finish_event.set()
-        worker.join(timeout=45)
-        if worker.is_alive():
-            return {'ok': False, 'status': 504, 'message': 'Videos are still finalizing; check recording status.'}
+        worker.join()
         with self.lock:
             if self.error:
                 return {'ok': False, 'status': 500, 'message': self.error}
@@ -465,4 +458,4 @@ class HumanVideoRecorder:
         if self.state()['recording']:
             self.finish()
         elif self.worker is not None and self.worker.is_alive():
-            self.worker.join(timeout=45)
+            self.worker.join()

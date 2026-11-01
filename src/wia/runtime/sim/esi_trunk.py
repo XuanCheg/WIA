@@ -31,6 +31,7 @@ class TrunkControlConfig:
     settle_steps: int = 6
 
     def __post_init__(self):
+        object.__setattr__(self, 'timeout_wall_s', None)
         if any(isinstance(v, bool) or not np.isfinite(v) or v <= 0 for name, v in vars(self).items() if not (name == "timeout_wall_s" and v is None)):
             raise ValueError("Trunk control settings must be finite and positive.")
         if (self.minimum_height_m >= self.maximum_height_m or self.translation_tolerance_m >= self.translation_m

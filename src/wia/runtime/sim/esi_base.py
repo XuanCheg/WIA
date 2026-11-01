@@ -58,6 +58,7 @@ class BaseControlConfig:
     recovery_max_base_yaw_step_deg: float = 0.05
 
     def __post_init__(self):
+        object.__setattr__(self, 'timeout_wall_s', None)
         for name, value in vars(self).items():
             if name == "timeout_wall_s" and value is None:
                 continue

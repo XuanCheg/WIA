@@ -76,7 +76,7 @@ def finalize_task_record(output, manifest, status):
 
 
 def episode_timeout(value):
-    """Use 'none' to disable only the overall episode deadline."""
+    """Parse model duration settings and deprecated episode duration options."""
     return None if value.lower() == "none" else float(value)
 
 
@@ -100,13 +100,12 @@ def read_native_qualification(output):
     return None
 
 
-def verify_human_preview(url, output, *, timeout_s=30.):
+def verify_human_preview(url, output, *, timeout_s=None):
     """Verify live human frames before acquiring any Agent control lease."""
-    deadline = time.monotonic() + timeout_s
     first = None
-    while time.monotonic() < deadline:
-        state = requests.get(url + "/api/agent/state", timeout=5).json()
-        response = requests.get(url + "/api/camera-group/robot", timeout=5)
+    while True:
+        state = requests.get(url + "/api/agent/state", timeout=None).json()
+        response = requests.get(url + "/api/camera-group/robot", timeout=None)
         response.raise_for_status()
         group = response.json()
         if not group.get("images") or not {"head", "wrist"} <= set(group["images"]):
@@ -138,7 +137,6 @@ def verify_human_preview(url, output, *, timeout_s=30.):
             (output / "gumi_preview_verification.json").write_text(json.dumps(result, indent=2) + "\n")
             return result
         time.sleep(.2)
-    raise RuntimeError("GUMI live preview did not publish two fresh robot camera frames.")
 
 
 def retain_completed_simulator(url, output, *, requested, rollout_completed):
@@ -146,7 +144,7 @@ def retain_completed_simulator(url, output, *, requested, rollout_completed):
     if not requested or not rollout_completed or (output / "native_exit_code.txt").exists():
         return False
     try:
-        response = requests.get(url + "/api/agent/state", timeout=5)
+        response = requests.get(url + "/api/agent/state", timeout=None)
         response.raise_for_status()
         state = response.json()
         return state.get("control_owner") == "human" and state.get("busy") is False
@@ -187,7 +185,7 @@ def main(argv=None):
     parser.add_argument("--max-steps", type=int, default=-1,
                         help="-1 uses the task default; a positive value overrides it.")
     parser.add_argument("--timeout", type=episode_timeout, default=argparse.SUPPRESS,
-                        help="Overall episode seconds, or 'none' for no episode deadline.")
+                        help="Deprecated and ignored; simulator wall-time limits are disabled.")
     parser.add_argument("--action-mode", choices=("fixed", "parameterized"))
     parser.add_argument("--macro-execution", choices=("metric_target", "primitive_replay"), default="metric_target")
     from wia.runtime.commands.run_esi_agent import (add_backend_arguments, validate_backend_arguments,
@@ -218,6 +216,7 @@ def main(argv=None):
     parser.add_argument('--initialize-only', action='store_true',
                         help='Load and qualify without a model; debug retains the scene and batch clears it.')
     args = parser.parse_args(argv)
+    args.timeout = None
     args.model_timeout = getattr(args, "model_timeout", None if args.backend in ("codex", "codex_cli") else 180)
     args.execution_mode = args.execution_mode or ("debug" if args.run_mode == "diagnostic" else "batch")
     if args.execution_mode == "batch" and args.keep_simulator:
@@ -371,8 +370,6 @@ def main(argv=None):
     if physical_evaluator:
         agent += ["--evaluation-file", str(output/"private_evaluation/state.json")]
     agent += ["--world-observation-log" if args.world_observation_log else "--no-world-observation-log"]
-    if args.timeout is not None:
-        agent += ["--episode-timeout", str(args.timeout)]
     manifest = {"stage": "initializing", "native_command": native, "agent_command": agent, "seed": args.seed,
         "scene_config": str(output/("scene.json" if task is None else "task.yaml")),
         "scene_config_sha256": hashlib.sha256((output/("scene.json" if task is None else "task.yaml")).read_bytes()).hexdigest(),
@@ -404,7 +401,7 @@ def main(argv=None):
         print("[experiment]", output.name, stage, flush=True)
     # The caller must finish/stop its previous scene before launching a fresh one.
     try:
-        existing = requests.get(url+"/api/state", timeout=2)
+        existing = requests.get(url+"/api/state", timeout=None)
         if existing.ok:
             raise RuntimeError("Stop the previous native service before starting a fresh scene.")
     except requests.RequestException:
@@ -456,8 +453,6 @@ def main(argv=None):
                     failure = failure or 'Owned native service failed during scene initialization.'
                 if (output/'native_exit_code.txt').exists() or (output/'initialization_failure.json').exists():
                     failure = failure or 'Native initialization failed; inspect simulator.log.'
-                if time.monotonic() - scene_started >= 1200:
-                    failure = failure or 'Native initialization exceeded the 1200-second deadline.'
                 if failure:
                     if resident_client.retry_initialization(failure, agent_started=False):
                         renderer_monitor = RendererLogMonitor(output/'simulator.log')
@@ -467,7 +462,7 @@ def main(argv=None):
                         save_status('initializing', cold_fallback=True, agent_started=False)
                         continue
                     from wia.runtime.resident_episode import stop_service
-                    stop_service(resident_control)
+                    stop_service(resident_control, force=True)
                     raise RuntimeError(failure + ' Cold initialization failed; no further startup retry.')
             if gateway.poll() is not None:
                 raise RuntimeError('Owned MCP gateway exited; inspect gateway.log.')
@@ -480,7 +475,7 @@ def main(argv=None):
             if (output/"native_exit_code.txt").exists():
                 raise RuntimeError("Native initialization failed; inspect simulator.log.")
             try:
-                response = requests.get(agent_url+"/api/agent/state", timeout=3)
+                response = requests.get(agent_url+"/api/agent/state", timeout=None)
                 if response.ok and (output/"metadata.json").exists():
                     break
             except requests.RequestException:
@@ -494,7 +489,7 @@ def main(argv=None):
         if args.preview_fps > 0:
             verify_human_preview(url, output)
         if args.record:
-            response = requests.post(url+"/api/start", json={}, timeout=10)
+            response = requests.post(url+"/api/start", json={}, timeout=None)
             response.raise_for_status()
             recording = response.json().get("ok") is True
         current_gpu = json.loads(state_path.read_text())
@@ -572,9 +567,10 @@ def main(argv=None):
         emit('agent_running', **lifecycle)
         with (output/"agent.log").open("w") as stream:
             completed = subprocess.run(agent, cwd=ROOT, stdout=stream, stderr=subprocess.STDOUT)
-        finished_deadline = time.monotonic()+5
-        while (output/"private_exploration/state.json").exists() and time.monotonic() < finished_deadline:
+        while (output/"private_exploration/state.json").exists():
             if json.loads((output/"private_exploration/state.json").read_text()).get("episode_finished"):
+                break
+            if (output/'native_exit_code.txt').exists() or (resident_client is not None and read_service(resident_control) is None):
                 break
             time.sleep(.1)
         summary = json.loads((output/"episode/summary.json").read_text()) if (output/"episode/summary.json").exists() else {}
@@ -596,11 +592,10 @@ def main(argv=None):
     finally:
         if recording:
             try:
-                response = requests.post(url+"/api/stop", json={}, timeout=600)
+                response = requests.post(url+"/api/stop", json={}, timeout=None)
                 (output/"recording_result.json").write_text(json.dumps(response.json(), indent=2)+"\n")
-                export_deadline = time.monotonic()+600
-                while time.monotonic() < export_deadline:
-                    state = requests.get(url+"/api/state", timeout=10).json()
+                while True:
+                    state = requests.get(url+"/api/state", timeout=None).json()
                     if state.get("recording_status") not in ("recording", "finalizing"):
                         (output/"recording_verification.json").write_text(json.dumps(state.get("last_recording"), indent=2)+"\n")
                         if state.get("recording_error"):
@@ -632,11 +627,7 @@ def main(argv=None):
                     (output / name).write_bytes((output / source).read_bytes())
         if gateway is not None and not retained and gateway.poll() is None:
             gateway.terminate()
-            try:
-                gateway.wait(timeout=10)
-            except subprocess.TimeoutExpired:
-                gateway.kill()
-                gateway.wait()
+            gateway.wait()
         if gateway_log is not None:
             gateway_log.close()
         if not retained and not (output/"native_exit_code.txt").exists():
@@ -645,14 +636,13 @@ def main(argv=None):
                 resident_client.stop_scene()
             else:
                 subprocess.run(["tmux", "send-keys", "-t", target, "C-c"], check=True)
-        deadline = time.monotonic()+120
-        while not retained and not (output/"native_exit_code.txt").exists() and time.monotonic() < deadline:
+        while not retained and not (output/"native_exit_code.txt").exists():
             if resident_client is not None and read_service(resident_control) is None:
                 break
             time.sleep(1)
         if not retained and resident_client is not None:
             from wia.runtime.resident_episode import read_service
-            while time.monotonic() < deadline:
+            while True:
                 service = read_service(resident_control)
                 if service is None or service.get('state') != 'SCENE_RUNNING':
                     break
@@ -660,7 +650,7 @@ def main(argv=None):
         if not retained:
             native_stopped = resident_client is not None and read_service(resident_control) is None
             emit('scene_cleared' if (output/"native_exit_code.txt").exists() else
-                 'scene_disposed' if native_stopped else 'scene_clear_timeout', **lifecycle)
+                 'scene_disposed' if native_stopped else 'scene_closed', **lifecycle)
         save_status("finished", simulator_retained=retained,
                     native_exit_code=(output/"native_exit_code.txt").read_text().strip()
                     if (output/"native_exit_code.txt").exists() else None)

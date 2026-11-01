@@ -77,7 +77,7 @@ def source_route_pilot(session, controller, task, command, output):
             if error <= report['waypoint_tolerance_m']:
                 report['waypoints_reached'] = index + 1
                 break
-            if len(report['commands']) >= budget.max_steps or time.monotonic() - began >= budget.wall_timeout_s:
+            if len(report['commands']) >= budget.max_steps:
                 report.update(status='pilot_budget_exhausted', stopped_waypoint=index)
                 save()
                 return report

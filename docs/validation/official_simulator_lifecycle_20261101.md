@@ -57,3 +57,29 @@ Commit `f6c4fbd` replaces the shortened cleanup and premature SyntheticData rese
 For OmniGibson 3.7.1 only, the compatibility shim temporarily wraps the current Simulator's `_partial_clear`. It registers a native stop callback during that method so the exact three upstream subscriptions are cancelled after existing stop callbacks and before scene removal. This avoids a second `stop()` invocation, which would otherwise run existing stop callbacks twice. The temporary method and callback are restored even on failure. Other SDK versions use their native implementation. An unsupported subscription API or a cleanup exception fails visibly and prevents reuse.
 
 The first 77 focused CPU checks passed; an additional passing regression verifies propagation and restoration if native unsubscribe fails. Native verification uses eight scenes on GPUs 4–7, two sequential scenes per resident process: T01/T36, T06/T49, T22/T50, T28/iw_m3_01. T01 is a healthy control. Commands, task definitions, seeds, physics profiles and scorers are unchanged. This selection changes shard order relative to the preceding full sweep, so runtime and pass-count comparisons are not controlled single-variable experiments. Native outcomes are recorded separately after completion.
+
+## Follow-up corrections and fallback policy
+
+The first native check exposed expensive regex compilation inside Isaac's real prim-deletion callbacks and a source cleanup hook swallowing an initial SDK clear failure. The follow-up retains every native object removal/callback, caches compiled deletion patterns within a bounded teardown-only cache, and releases extra non-robot/non-viewer cameras through their SDK API before parent scene deletion. The first clear exception is retained; a partially failed clear cannot be attempted a second time.
+
+Different native launch macro settings now require a new owned Kit process. The client and service resolve the same defaults and declared overrides, including GPU dynamics and flatcache. Matching profiles retain the application; the service refuses hot macro changes after application launch. This is a conservative compatibility boundary, not proof that macro changes caused every observed renderer failure.
+
+The user explicitly requested kill/restart fallback and recording failed cold scenes before proceeding. Default behavior is:
+
+1. An actual reused-scene initialization failure retires the verified owner, archives the failed attempt, and tries the identical task/seed/arguments once in a fresh process. Elapsed real time does not trigger fallback.
+2. If initialization was already cold, or the cold retry fails, record the failure and continue the diagnostic task list. No repeated cold attempts are made.
+3. Once Agent execution starts, automatic replay is prohibited. A completed diagnostic sequence is also not replayed. Scorer unavailability alone does not trigger an initialization retry.
+4. An actual completed-episode cleanup failure retires the old owner before the next task. Slow cleanup waits without a deadline. Active Agent/debug worlds are protected.
+5. Before a new owner starts, unanswered old requests receive explicit retirement records so they cannot be executed again. These records do not invent native exit codes or certify success.
+
+Failed warm artifacts remain under `TRIAL/initialization_attempts/REQUEST_ID/`; `TRIAL/simulator_fallback.json` records the cause and archive location. Cold failure evidence remains in the trial's native logs, initialization failure record and diagnostic results. Lifecycle events identify fallback and process recycling. No model/API calls or Agent decisions are replayed during this recovery.
+
+CPU coverage includes matching/changed launch profiles, failed-owner disposal, original artifact preservation, bounded cold attempts, a real two-process CPU service demonstrating owner replacement without request replay, and a diagnostic coordinator demonstrating continuation after a failed cold scene. Native evidence and unresolved scene/scorer failures are documented in the accompanying validation report.
+
+## Current real-time policy and completed cold evidence
+
+The user subsequently removed simulator real-time limits and explicitly retained simulated-time convergence/blocked-motion rules. Startup, loading, switching, cleanup, capture, local simulator HTTP/MCP waits, video finalization and macro execution have no wall-clock deadline. Legacy motion wall-time settings and macro duration fields are ignored. Task decision/primitive/distance/angle budgets, physical convergence/blocked-motion predicates and model API timeout/retry rules remain intact. Polling intervals are status sampling, not failure deadlines. Genuine native failures and explicit user stops can still dispose the verified owner.
+
+To apply this to the two already running cold checks, replaced only their three CPU watchdog processes. The native PIDs 2315416 (T49/GPU 4) and 2315411 (T50/GPU 6) continued unchanged under [resume_scene_checks.py](/local_home2/zhouxinyang/models/WIA/scripts/resume_scene_checks.py). Both eventually completed all eight actions, returned native exit code 0 and completed official full cleanup. T49 took approximately 35.9 minutes overall (10.27-second cleanup); T50 took 29.5 minutes (9.00-second cleanup). These observations show why a 20-minute wall deadline cannot establish that these scene initializations are broken. Historical watchdog outcomes remain preserved and were not rescored.
+
+Both cold runs still report unavailable grading at their ten observation boundaries; this is an unresolved scorer issue, not a load or teardown failure. All owned native processes exited and GPUs 4–7 returned to 19–20 MiB. No model API call was made.

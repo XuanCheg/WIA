@@ -154,7 +154,7 @@ class ESIViewerBackend:
             state['message'] = state['recording_error']
         return state
 
-    def submit(self, kind, arg=None, timeout=60.):
+    def submit(self, kind, arg=None, timeout=None):
         if kind == 'start':
             if not self.recording_enabled:
                 return {'ok': False, 'status': 405, 'message': 'Human recording is disabled for this profile.'}

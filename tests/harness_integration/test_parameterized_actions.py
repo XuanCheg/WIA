@@ -129,14 +129,14 @@ def test_single_macro_boundary_and_partial_failure(options, executed, status):
     assert AgentObservation.from_payload(observation.to_payload()).metadata() == observation.metadata()
 
 
-def test_macro_deadline_cancels_current_primitive_then_stops(monkeypatch):
+def test_macro_ignores_legacy_wall_deadline_for_slow_primitives(monkeypatch):
     clock = [0.0]
     monkeypatch.setattr("core.action_interface.time.monotonic", lambda: clock[0])
     executor, source, _, calls, _, cancel = make_executor(clock=clock)
     result = executor.execute_macro({"action": "BASE_RIGHT", "distance_m": 0.25},
         resolution=RESOLUTION, limits=replace(LIMITS, max_duration_s=2), should_cancel=cancel.is_set)
-    assert result["timeout"] and not result["completed"] and len(calls) == 2
-    assert source.agent_observation().last_action_feedback.execution_status == "timeout"
+    assert not result["timeout"] and result["completed"] and len(calls) == 5
+    assert source.agent_observation().last_action_feedback.execution_status == "completed"
 
 
 def test_fine_profile_keeps_arm_8cm_and_trunk_30cm_with_other_caps_unchanged():
@@ -151,7 +151,7 @@ def test_fine_profile_keeps_arm_8cm_and_trunk_30cm_with_other_caps_unchanged():
     for action in ("MV_FWD", "MV_DOWN"):
         assert bounds[action]["primitive_step"] == .005 and bounds[action]["maximum"] == .08
         assert bounds[action]["minimum"] == .0025 and bounds[action]["max_primitives"] == 16
-        assert bounds[action]["max_duration_s"] == 180
+        assert bounds[action]["max_duration_s"] is None
         assert compile_action({"action": action, "distance_m": .08}, CAPABILITIES, resolution, limits).repeat_count == 16
         assert compile_action({"action": action, "distance_m": .0025}, CAPABILITIES, resolution, limits).effective_magnitude == .005
         with pytest.raises(ValueError, match="maximum"):
@@ -162,11 +162,11 @@ def test_fine_profile_keeps_arm_8cm_and_trunk_30cm_with_other_caps_unchanged():
         with pytest.raises(ValueError, match="maximum"):
             compile_action({"action": action, "distance_m": .305}, CAPABILITIES, resolution, limits)
     assert bounds["BASE_FWD"]["maximum"] == .4 and bounds["BASE_FWD"]["max_primitives"] == 8
-    assert bounds["ROTATE_CW"]["maximum"] == 40 and bounds["ROTATE_CW"]["max_duration_s"] == 90
-    assert limits.request_timeout_s == 210
+    assert bounds["ROTATE_CW"]["maximum"] == 40 and bounds["ROTATE_CW"]["max_duration_s"] is None
+    assert limits.request_timeout_s is None
 
 
-def test_macro_uses_per_action_duration_and_reports_remaining_count(monkeypatch):
+def test_arm_macro_ignores_legacy_wall_duration_and_preserves_primitive_cap(monkeypatch):
     clock = [0.0]
     monkeypatch.setattr("core.action_interface.time.monotonic", lambda: clock[0])
     limits = replace(LIMITS, max_arm_primitives=16, max_arm_duration_s=3, max_duration_s=2)
@@ -174,7 +174,33 @@ def test_macro_uses_per_action_duration_and_reports_remaining_count(monkeypatch)
     executor, _, _, calls, _, cancel = make_executor(clock=clock)
     result = executor.execute_macro({"action": "MV_UP", "distance_m": .08},
         resolution=resolution, limits=limits, should_cancel=cancel.is_set)
-    assert result["timeout"] and len(calls) == 3 and result["execution"]["remaining_count"] == 13
+    assert not result["timeout"] and result['completed'] and len(calls) == 16
+    assert result["execution"]["remaining_count"] == 0
+
+
+def test_metric_target_has_no_real_time_deadline(monkeypatch):
+    clock=[0.]
+    monkeypatch.setattr('core.action_interface.time.monotonic',lambda:clock[0])
+    def metric(action,magnitude,*,should_cancel):
+        clock[0]+=100000.
+        assert not should_cancel()
+        return action_result(action,completed=True,timeout=False,requested={'distance_m':magnitude},
+            actual={'distance_m':magnitude},message='completed',reason='completed',cancelled=False)
+    executor=ActionExecutor(lambda *args,**kwargs:None,capabilities=CAPABILITIES,
+        execute_metric=metric,macro_execution='metric_target')
+    result=executor.execute_macro({'action':'BASE_FWD','distance_m':.10},resolution=RESOLUTION,
+        limits=replace(LIMITS,max_duration_s=.001))
+    assert result['completed'] and not result['timeout'] and result['duration_s']>=100000.
+
+
+@pytest.mark.parametrize('strategy',['primitive_replay','metric_target'])
+def test_controller_simulation_timeout_is_still_propagated(strategy):
+    def stop(action,*args,**kwargs):
+        return action_result(action,completed=False,timeout=True,requested={},actual={},
+            message='Controller simulation-time limit reached',reason='timeout',cancelled=False)
+    executor=ActionExecutor(stop,capabilities=CAPABILITIES,execute_metric=stop,macro_execution=strategy)
+    result=executor.execute_macro({'action':'BASE_FWD','distance_m':.10},resolution=RESOLUTION,limits=LIMITS)
+    assert result['timeout'] and not result['completed'] and result['reason']=='timeout'
 
 
 def test_fixed_action_still_has_one_original_execution_and_history_shape():
@@ -298,7 +324,8 @@ def test_mcp_macro_owner_transaction_and_three_decision_budget(control_http, mon
 
     summary = asyncio.run(run())
     assert summary["termination_reason"] == "model_done"
-    assert (summary["agent_decisions"], summary["model_calls"], summary["macro_actions"], summary["primitive_actions"]) == (3, 4, 2, 8)
+    assert (summary["agent_decisions"], summary["decision_calls"], summary["macro_actions"], summary["primitive_actions"]) == (3, 4, 2, 8)
+    assert summary['model_calls'] is None  # The synthetic Agent exposes no HTTP-attempt accounting.
     assert calls == ["BASE_RIGHT"]*2 + ["BASE_TURN_LEFT"]*6
     assert len(boundaries) == backend.steps == backend.observation_source.action_step == 2
     assert len(backend.observation_source.history) == 2

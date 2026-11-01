@@ -52,7 +52,7 @@ def test_resident_lifetime_recycles_owned_service_without_gpu_queries(tmp_path, 
     state = [{'state':'IDLE', 'pid':123, 'completed_scenes':4}]
     stopped = []
     monkeypatch.setattr(resident, 'read_service', lambda path: state[0])
-    def stop(path):
+    def stop(path, **kwargs):
         stopped.append(path)
         state[0] = None
     monkeypatch.setattr(resident, 'stop_service', stop)
@@ -84,7 +84,7 @@ def test_submit_reuses_only_matching_native_launch_profiles(tmp_path, monkeypatc
     state = [{'state':'IDLE', 'pid':123, 'completed_scenes':1, 'native_macro_profile':defaults,
               **({} if unknown_defaults else {'macro_defaults':defaults})}]
     stopped = []
-    def stop(path):
+    def stop(path, **kwargs):
         stopped.append(path)
         state[0] = None
     monkeypatch.setattr(resident,'stop_service',stop)
@@ -141,7 +141,7 @@ def test_warm_initialization_falls_back_once_cold_and_preserves_failure_artifact
     (output/'initialization_failure.json').write_text('{"error":"load failed"}')
     (output/'gateway.log').write_text('Live gateway\n')
     stopped = []
-    def stop(path):
+    def stop(path, **kwargs):
         assert (output/'simulator.log').exists()
         stopped.append(state[0]['pid'])
         state[0] = None
@@ -248,13 +248,67 @@ while not (c/'stop_service.json').exists():
         while not response.exists():
             assert time.monotonic()<deadline
             time.sleep(.01)
-        assert processes[0].wait(timeout=5)==0 and processes[0].pid!=processes[1].pid
+        assert processes[0].wait(timeout=5) in (0,-9) and processes[0].pid!=processes[1].pid
         handled=[json.loads(line) for line in (control/'handled.jsonl').read_text().splitlines()]
         assert [row['request_id'] for row in handled]==[previous,client.request_id]
         assert json.loads((control/'responses'/f'{previous}.json').read_text())['retired_before_restart']
         assert (output/'initialization_attempts'/previous/'simulator.log').exists()
     finally:
-        resident.stop_service(control,timeout=2)
+        resident.stop_service(control)
         for process in processes:
             try:process.wait(timeout=5)
             except resident.subprocess.TimeoutExpired:process.kill();process.wait()
+
+
+def test_simulator_startup_waits_past_arbitrary_real_time_without_termination(tmp_path, monkeypatch):
+    from wia.runtime import resident_episode as resident
+    clock=[0.];spawned=[];polls=[0]
+    def service(control):
+        if not spawned:return None
+        polls[0]+=1
+        return None if polls[0]<3 else {'pid':456,'state':'IDLE','completed_scenes':0}
+    def forbidden(*args,**kwargs):
+        raise AssertionError('Slow startup must not be terminated or query GPU state')
+    class Process:
+        pid=456
+        def __init__(self,*args,**kwargs):spawned.append(True)
+        def poll(self):return None
+        terminate=kill=forbidden
+    monkeypatch.setattr(resident,'read_service',service)
+    monkeypatch.setattr(resident.subprocess,'Popen',Process)
+    monkeypatch.setattr(resident.subprocess,'check_output',forbidden)
+    monkeypatch.setattr(resident.time,'monotonic',lambda:clock[0])
+    monkeypatch.setattr(resident.time,'sleep',lambda seconds:clock.__setitem__(0,clock[0]+100000.))
+    monkeypatch.setenv('WIA_RESIDENT_TASK_PROFILES',str(tmp_path/'profiles.json'))
+    client=resident.ResidentEpisodeClient(tmp_path/'control',{'uuid':'fixture'}, {},'python')
+    client.ensure()
+    assert polls[0]==3 and clock[0]>=200000.
+
+
+def test_previous_scene_cleanup_waits_without_recycling_for_elapsed_time(tmp_path, monkeypatch):
+    from wia.runtime import resident_episode as resident
+    reads=[0];clock=[0.]
+    def service(control):
+        reads[0]+=1
+        return {'pid':123,'state':'SCENE_RUNNING' if reads[0]<3 else 'IDLE','completed_scenes':1}
+    def forbidden(*args,**kwargs):
+        raise AssertionError('Elapsed cleanup time must not restart the owner')
+    monkeypatch.setattr(resident,'read_service',service)
+    monkeypatch.setattr(resident,'stop_service',forbidden)
+    monkeypatch.setattr(resident.subprocess,'Popen',forbidden)
+    monkeypatch.setattr(resident.time,'monotonic',lambda:clock[0])
+    monkeypatch.setattr(resident.time,'sleep',lambda seconds:clock.__setitem__(0,clock[0]+100000.))
+    resident.ResidentEpisodeClient(tmp_path,{}, {},'python').ensure(quiet=True)
+    assert reads[0]==3 and clock[0]>=200000.
+
+
+def test_legacy_motion_wall_timeouts_are_ignored_but_simulation_limits_are_preserved():
+    from dataclasses import replace
+    from wia.runtime.sim.esi_base import BaseControlConfig
+    from wia.runtime.sim.esi_arm import ArmControlConfig
+    from wia.runtime.sim.esi_gripper import GripperControlConfig
+    from wia.runtime.sim.esi_trunk import TrunkControlConfig
+    for original in (BaseControlConfig.load(),ArmControlConfig.load(),GripperControlConfig(),TrunkControlConfig()):
+        config=replace(original,timeout_wall_s=1e-9)
+        assert config.timeout_wall_s is None
+        assert config.timeout_sim_s==original.timeout_sim_s

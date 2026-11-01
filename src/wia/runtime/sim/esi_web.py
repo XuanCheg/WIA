@@ -38,7 +38,6 @@ def run_esi_control(session, metadata: dict, controller, executor, *, host="127.
     previous_boundary_hook = source.on_boundary_start
     source.on_boundary_start = lambda: backend.owner_phase(
         "capturing_observation" if backend.control_owner == "agent" else "human_idle")
-    deadline = time.monotonic() + duration_s if duration_s is not None else None
     next_capture = 0.0
     from wia.runtime.sim.esi_rendering import RecordingCadence
     recording_cadence = RecordingCadence(metadata.get("performance", {}).get("recording_hz", 5.0))
@@ -116,7 +115,7 @@ def run_esi_control(session, metadata: dict, controller, executor, *, host="127.
         backend.closing.set()
 
     def expired():
-        return backend.closing.is_set() or (deadline is not None and time.monotonic() >= deadline)
+        return backend.closing.is_set()
 
     try:
         controller.on_step = on_step
@@ -175,7 +174,7 @@ def run_esi_control(session, metadata: dict, controller, executor, *, host="127.
         backend.shutdown()
         preview_stop.set()
         if preview_thread.is_alive():
-            preview_thread.join(timeout=5)
+            preview_thread.join()
         if viewer is not None:
             viewer.close()
         try:
@@ -183,7 +182,7 @@ def run_esi_control(session, metadata: dict, controller, executor, *, host="127.
         finally:
             if thread.is_alive():
                 server.shutdown()
-                thread.join(timeout=5)
+                thread.join()
             server.server_close()
             for sig, handler in previous_signals.items():
                 signal.signal(sig, handler)

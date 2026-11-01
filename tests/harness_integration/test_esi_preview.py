@@ -119,6 +119,8 @@ def test_renderer_and_camera_reads_stay_on_main_thread():
 
     def record():
         calls.append(threading.get_ident())
+        if len(calls) >= 8:
+            raise KeyboardInterrupt
 
     def observe(*, include_wrist, include_scene=False, include_sensors=False):
         assert include_wrist
