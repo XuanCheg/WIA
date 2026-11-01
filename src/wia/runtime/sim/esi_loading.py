@@ -47,8 +47,8 @@ def reconcile_resident_timing(og, env_config, defaults):
     if og.sim.scenes:
         raise RuntimeError('Cannot change simulator timing while a scene is loaded.')
     application = og.app
-    from wia.runtime.commands.run_esi_capture_service import discard_whole_stage
-    with discard_whole_stage(og):
+    from wia.runtime.commands.run_esi_capture_service import native_stage_cleanup
+    with native_stage_cleanup(og):
         og.clear(**desired)
     if og.app is not application or og.sim.scenes:
         raise RuntimeError('Timing reconciliation changed the application or retained a scene.')

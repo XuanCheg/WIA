@@ -10,8 +10,7 @@ import yaml
 
 from wia.runtime.scene_capture_queue import CaptureQueue, PROTOCOL, read_json, sha256, write_json
 from wia.runtime.scene_capture_resident import ResidentCapture, recover_rendered_attempt, runtime_identity
-from wia.runtime.commands.run_esi_capture_service import (discard_whole_stage, install_lifecycle, load_asset_runtime,
-                                            reset_discarded_sensor_graphs)
+from wia.runtime.commands.run_esi_capture_service import native_stage_cleanup, install_lifecycle, load_asset_runtime
 
 
 def lifecycle_fixture(cleanup_clears=False):
@@ -88,31 +87,75 @@ def test_close_rejects_application_replacement():
         session.close()
 
 
-def test_whole_stage_discard_retains_system_cleanup_and_restores_scene_method():
+@pytest.mark.parametrize('version', ['3.7.1', '3.9.0'])
+def test_native_cleanup_keeps_object_sensor_cleanup_and_cancels_old_callbacks_only_at_clear(version):
     events = []
 
     class Scene:
         def clear(self):
             events.append('per-object-removal')
 
+    class Simulator:
+        def __init__(self):
+            self.scenes = [scene]
+            self.callbacks = {'existing': lambda: events.append('existing-stop-callback')}
+            for name in ('_pre_physics_step_callback', '_post_physics_step_callback', '_simulation_event_callback'):
+                setattr(self, name, SimpleNamespace(unsubscribe=lambda key=name: events.append(key)))
+
+        def add_callback_on_stop(self, name, callback):
+            self.callbacks[name] = callback
+
+        def remove_callback_on_stop(self, name):
+            self.callbacks.pop(name)
+
+        def stop(self):
+            events.append('physics-stopped')
+            for callback in self.callbacks.values():
+                callback()
+
+        def _partial_clear(self):
+            self.stop()
+            for item in self.scenes:
+                item.clear()
+            events.append('sensor-removal')
+            events.append('global-cache-cleanup')
+
     scene = Scene()
-    scene.active_systems = {'water': SimpleNamespace(name='water')}
-    scene.clear_system = lambda **kwargs: events.append(kwargs['system_name'])
-    scene._transition_rule_api = SimpleNamespace(clear=lambda: events.append('rules'))
-    og = SimpleNamespace(sim=SimpleNamespace(scenes=[scene]))
-    with discard_whole_stage(og):
-        scene.clear()
-    assert events == ['water', 'rules']
-    scene.clear()
-    assert events == ['water', 'rules', 'per-object-removal']
+    sim = Simulator()
+    og = SimpleNamespace(sim=sim, __version__=version)
+    with native_stage_cleanup(og):
+        # Source cleanup may stop before clearing. This must not unsubscribe a
+        # still-live simulator, or replace the native scene.clear method.
+        sim.stop()
+        assert events == ['physics-stopped', 'existing-stop-callback']
+        events.clear()
+        sim._partial_clear()
+    expected = ['physics-stopped', 'existing-stop-callback']
+    if version == '3.7.1':
+        expected += ['_pre_physics_step_callback', '_post_physics_step_callback', '_simulation_event_callback']
+    assert events == expected + ['per-object-removal', 'sensor-removal', 'global-cache-cleanup']
+    assert '_partial_clear' not in vars(sim) and 'clear' not in vars(scene)
+    assert list(sim.callbacks) == ['existing']
 
 
-def test_discarded_sensor_graph_handles_reset_after_physics_stop():
-    events = []
-    simulator = SimpleNamespace(stop=lambda: events.append('physics-stopped'))
-    data = SimpleNamespace(reset=lambda **kwargs: events.append(kwargs))
-    reset_discarded_sensor_graphs(simulator, data)
-    assert events == ['physics-stopped', {'usd': False}]
+def test_failed_cleanup_marks_engine_unusable_and_does_not_swallow_error():
+    session, og, _, _, state = lifecycle_fixture()
+    def clear():
+        raise RuntimeError('Native object cleanup failed')
+    og.clear = clear
+    with pytest.raises(RuntimeError, match='Native object cleanup failed'):
+        session.close()
+    assert not state['reusable']
+
+
+def test_unsupported_subscription_api_rejects_reuse_before_mutating_scene():
+    sim = SimpleNamespace(scenes=[], _partial_clear=lambda: None,
+        _pre_physics_step_callback=object(), _post_physics_step_callback=object(),
+        _simulation_event_callback=object())
+    og = SimpleNamespace(sim=sim, __version__='3.7.1')
+    with pytest.raises(RuntimeError, match='do not support'):
+        with native_stage_cleanup(og):
+            pytest.fail('Unsupported cleanup was allowed')
 
 
 def test_runtime_key_fences_code_family_and_render_settings(tmp_path):

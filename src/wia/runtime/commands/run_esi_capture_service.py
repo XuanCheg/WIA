@@ -41,46 +41,61 @@ def native_log(path):
 
 
 @contextmanager
-def discard_whole_stage(og):
-    """Keep SDK global cleanup, dropping the complete USD stage only once.
+def native_stage_cleanup(og):
+    """Use complete SDK cleanup with the PR #2114 fix for OmniGibson 3.7.1.
 
-    No object survives this operation. Physics is stopped by og.clear before
-    scene cleanup, active systems and transition rules retain their own cleanup,
-    and og.clear then closes the entire stage and resets global registries.
-    Per-object USD removal and its callbacks are unnecessary for this discard.
+    The temporary stop callback runs inside the original _partial_clear, after
+    its existing stop callbacks and before scene removal. No second stop, scene
+    method replacement or premature SyntheticData reset is performed. Other SDK
+    versions retain their native implementation.
     """
+    simulator = og.sim
     missing = object()
-    previous = []
-    for scene in list(og.sim.scenes):
-        if not callable(getattr(scene, 'clear', None)):
-            continue
-        previous.append((scene, vars(scene).get('clear', missing)))
+    previous = vars(simulator).get('_partial_clear', missing)
+    patched = getattr(og, '__version__', None) == '3.7.1'
+    unsubscribed = []
+    if patched:
+        original = simulator._partial_clear
+        handles = ('_pre_physics_step_callback', '_post_physics_step_callback', '_simulation_event_callback')
+        # Verify the exact API before attempting cleanup. Unsupported teardown
+        # must fail visibly so its owner retires the process.
+        subscriptions = [(name, getattr(simulator, name)) for name in handles]
+        if not all(callable(getattr(handle, 'unsubscribe', None)) for _, handle in subscriptions):
+            raise RuntimeError('OmniGibson 3.7.1 PhysX subscriptions do not support the official clear fix.')
 
-        def clear(discarded=scene):
-            for system in list(discarded.active_systems.values()):
-                discarded.clear_system(system_name=system.name)
-            rules = getattr(discarded, '_transition_rule_api', None)
-            if rules is not None:
-                rules.clear()
+        def partial_clear():
+            callback_name = 'wia_physx_clear_' + str(id(simulator))
 
-        scene.clear = clear
+            def unsubscribe():
+                for name, handle in subscriptions:
+                    if name not in unsubscribed:
+                        handle.unsubscribe()
+                        unsubscribed.append(name)
+
+            simulator.add_callback_on_stop(callback_name, unsubscribe)
+            try:
+                return original()
+            finally:
+                simulator.remove_callback_on_stop(callback_name)
+
+        simulator._partial_clear = partial_clear
+    print('[native-stage-cleanup] ' + json.dumps({'stage': 'started', 'scene_count': len(simulator.scenes),
+        'policy': 'official_full_cleanup', 'physx_subscription_fix': patched}), flush=True)
     try:
         yield
+    except BaseException as error:
+        print('[native-stage-cleanup] ' + json.dumps({'stage': 'failed',
+            'error': f'{type(error).__name__}: {error}', 'unsubscribed': unsubscribed}), flush=True)
+        raise
+    else:
+        print('[native-stage-cleanup] ' + json.dumps({'stage': 'completed',
+            'unsubscribed': unsubscribed}), flush=True)
     finally:
-        for scene, original in previous:
-            if original is missing:
-                del scene.clear
+        if patched:
+            if previous is missing:
+                del simulator._partial_clear
             else:
-                scene.clear = original
-
-
-def reset_discarded_sensor_graphs(simulator, synthetic_data):
-    """Drop graph handles before sensor removal; the entire stage is discarded next."""
-    simulator.stop()
-    # Old session-layer graphs disappear with close_stage. Clearing Python
-    # handles first avoids Replicator traversing an already invalid node while
-    # VisionSensor.clear detaches the original camera products.
-    synthetic_data.reset(usd=False)
+                simulator._partial_clear = previous
 
 
 def load_asset_runtime(path, hash_file):
@@ -101,7 +116,7 @@ def load_asset_runtime(path, hash_file):
     return value, sys.modules['wia.runtime.sim.esi_prepared_assets'].prepared_asset_loading
 
 
-def install_lifecycle(adapters, session_class, state, *, before_stage_discard=None):
+def install_lifecycle(adapters, session_class, state):
     """Replace process shutdown only; retain the frozen scene/camera code."""
     original_selection = adapters.install_gpu_selection
     original_texture = adapters.isolate_texture_cache
@@ -137,9 +152,8 @@ def install_lifecycle(adapters, session_class, state, *, before_stage_discard=No
         if state.get('output'):
             adapters.write_json(Path(state['output']) / 'progress.json', {'stage': 'scene_cleanup',
                 'elapsed_s': time.monotonic() - state['request_started_at']})
-        if before_stage_discard is not None:
-            before_stage_discard()
-        with discard_whole_stage(og):
+        state['reusable'] = False
+        with native_stage_cleanup(og):
             if session.task_module is not None and session.env is not None:
                 pipeline.task_cleanup_runtime(session.task_module, session.env, session.payload, session.task_state)
             # Some original cleanup hooks already clear the stage.
@@ -149,6 +163,7 @@ def install_lifecycle(adapters, session_class, state, *, before_stage_discard=No
             raise RuntimeError('Native scene cleanup did not preserve an empty, live application.')
         state['scene_clear_s'] = time.monotonic() - began
         state['application_identity'] = id(application)
+        state['reusable'] = True
 
     adapters.install_gpu_selection = selection
     adapters.isolate_texture_cache = texture
@@ -178,12 +193,7 @@ def main():
     faulthandler.register(signal.SIGUSR1, file=sys.stderr, all_threads=True)
     lifecycle = {'reusable': True, 'application_identity': None, 'scene_clear_s': 0.}
 
-    def reset_graphs():
-        import omnigibson as og
-        from omni.syntheticdata import SyntheticData
-        reset_discarded_sensor_graphs(og.sim, SyntheticData.Get())
-
-    install_lifecycle(adapters, ESISession, lifecycle, before_stage_discard=reset_graphs)
+    install_lifecycle(adapters, ESISession, lifecycle)
     asset_runtime, asset_context = (load_asset_runtime(args.asset_runtime, sha256)
                                     if args.asset_runtime else (None, None))
     write_json(control / 'service.json', {'state': 'READY', 'pid': os.getpid(),

@@ -2,7 +2,7 @@
 
 Run through WIA's resident episode client, never beside an existing GPU owner.
 Each request invokes the original native runner; its HTTP server, controllers,
-sensors and evaluator close before the existing whole-stage discard lifecycle.
+sensors and evaluator close before the official full scene cleanup lifecycle.
 """
 from __future__ import annotations
 
@@ -41,7 +41,7 @@ def main():
     profiles = json.loads(args.task_profiles.read_text())
     import wia.runtime.scene_capture_adapters as adapters
     from wia.runtime.sim.esi_omnigibson import ESISession, _import_pipeline
-    from wia.runtime.commands.run_esi_capture_service import install_lifecycle, native_log, reset_discarded_sensor_graphs, discard_whole_stage
+    from wia.runtime.commands.run_esi_capture_service import install_lifecycle, native_log, native_stage_cleanup
     import wia.runtime.commands.run_esi_robot as run_esi_robot
     pipeline = _import_pipeline(WIA_ESI_ROOT)
     pipeline.og._wia_resident_episode = True
@@ -63,16 +63,11 @@ def main():
         if changed and pipeline.og.app is not None:
             if pipeline.og.sim.scenes:
                 raise RuntimeError('Cannot change native physics profile while a world is loaded.')
-            from omni.syntheticdata import SyntheticData
-            reset_discarded_sensor_graphs(pipeline.og.sim, SyntheticData.Get())
-            with discard_whole_stage(pipeline.og):
+            with native_stage_cleanup(pipeline.og):
                 pipeline.og.clear()
         return values
     state = {'reusable': True, 'application_identity': None, 'scene_clear_s': 0.}
-    def reset_graphs():
-        from omni.syntheticdata import SyntheticData
-        reset_discarded_sensor_graphs(pipeline.og.sim, SyntheticData.Get())
-    install_lifecycle(adapters, ESISession, state, before_stage_discard=reset_graphs)
+    install_lifecycle(adapters, ESISession, state)
     active = {'request_id': None}
     stopping = threading.Event()
     def watcher():

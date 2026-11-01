@@ -199,13 +199,11 @@ class NativeSceneEditor:
 
     def discard_session_world(self, session):
         """Reuse the resident capture lifecycle, keeping the native app alive."""
-        from wia.runtime.commands.run_esi_capture_service import discard_whole_stage, reset_discarded_sensor_graphs
-        from omni.syntheticdata import SyntheticData
+        from wia.runtime.commands.run_esi_capture_service import native_stage_cleanup
         pipeline=session.pipeline
         og=pipeline.og
         application,simulator=og.app,og.sim
-        reset_discarded_sensor_graphs(simulator,SyntheticData.Get())
-        with discard_whole_stage(og):
+        with native_stage_cleanup(og):
             if session.task_module is not None and session.env is not None:
                 pipeline.task_cleanup_runtime(session.task_module,session.env,session.payload,session.task_state)
             if og.sim is simulator:

@@ -227,6 +227,7 @@ def persistent(inputs,tmp_path,monkeypatch):
     sim.save=save
     def clear():
         events.append('clear')
+        og.sim.stop()
         for scene in list(og.sim.scenes):scene.clear()
         og.sim=NativeSim(stopped=True);og.sim.scenes=[]
     og.clear=clear
@@ -236,7 +237,7 @@ def persistent(inputs,tmp_path,monkeypatch):
     def stop():events.append('stop');sim.stopped=True;sim.playing=False
     sim.stop=stop
     # Keep the real resident helpers; only the native runtime is mocked.
-    assert callable(run_esi_capture_service.discard_whole_stage)
+    assert callable(run_esi_capture_service.native_stage_cleanup)
     created=[]
     class Session:
         def __init__(self,source,**kwargs):
@@ -287,8 +288,8 @@ def test_load_autosaves_before_discard_and_retains_application_pid_with_fresh_bo
     assert response['app_identity']==identity and response['native_simulator_identity']!=old_simulator
     assert response['world_available'] is response['recovery_load_allowed'] is True
     assert response['autosave']['task_sha256']==old.loaded_task.file_sha256
-    assert events.index('validate')<events.index('save')<events.index('stop')<events.index('source_cleanup')<events.index('clear')<events.index('new_reset')
-    assert ('graphs_reset',{'usd':False}) in events
+    assert events.index('validate')<events.index('save')<events.index('source_cleanup')<events.index('clear')<events.index('stop')<events.index('new_reset')
+    assert ('graphs_reset',{'usd':False}) not in events
     assert 'old_close_forbidden' not in events and old.closed is True
     assert len(created)==1 and app.session is created[0]
     assert app.session.loaded_task.path==new_inputs.task.path and hasattr(app.session,'scene_adapter')
