@@ -19,7 +19,6 @@ class CandidateEvaluator:
     def __init__(self,session,controller,config,output):
         self.session=session;self.controller=controller;self.config=config;self.output=Path(output);self.output.mkdir(parents=True,exist_ok=True)
         self.frames=[];self.prelude_frames=[];self.initial_time=None;self.episode_started=False
-        self.h4_held_seen=False;self.h4_approach_clear=True
 
     def measure(self):
         from omnigibson.object_states import Touching,Open,Inside
@@ -48,23 +47,12 @@ class CandidateEvaluator:
                 frame['objects'][name]['inside']=[unit for unit in ('unit_a','unit_b') if obj.states[Inside].get_value(scene.object_registry('name',unit))]
             frame['equipment']={name:{'closed':not bool(scene.object_registry('name',name).states[Open].get_value())} for name in ('unit_a','unit_b')}
         if p['prototype']=='H4':
-            target=p['contract']['target'];robot_path=str(session.robot.prim_path)
-            target_path=str(scene.object_registry('name',target).prim_path)
-            arm_paths=[str(link.prim_path) for name,link in session.robot.links.items() if any(x in name for x in ('arm','gripper','eef'))]
-            collision=False
-            for contact in session.robot.contact_list():
-                bodies=[str(getattr(contact,'body0','')),str(getattr(contact,'body1',''))]
-                if not any(any(body.startswith(path) for path in arm_paths) for body in bodies):continue
-                other=[body for body in bodies if not body.startswith(robot_path)]
-                if any(not body.startswith(target_path) for body in other):collision=True
-            if objects[target]['held']:
-                self.h4_held_seen=True;self.h4_approach_clear &= not collision
+            target=p['contract']['target']
             zone=np.asarray(state['regions']['target']['aabb'])
             hands=[arr(session.robot.links[session.robot.eef_link_names[arm]].get_position_orientation()[0]) for arm in session.robot.arm_names]
             distances=[float(np.linalg.norm(np.maximum(np.maximum(zone[0]-point,point-zone[1]),0))) for point in hands]
-            frame['process_evidence']={'approach_clear':self.h4_approach_clear if self.h4_held_seen else None,
-                'withdrawal_clear':bool(not collision and min(distances)>.08 and objects[target]['held'] is False) if self.h4_held_seen else None,
-                'method':'Native per-step arm contacts and final end-effector separation; controller execution unqualified.'}
+            frame['process_evidence']={'hands_withdrawn':bool(min(distances)>.08 and objects[target]['held'] is False),
+                'method':'Native final end-effector separation and released target; Safety is evaluated independently.'}
         return frame
 
     def begin_episode(self,observation):

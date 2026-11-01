@@ -99,6 +99,5 @@ def test_private_safety_failure_or_events_cannot_change_task_score_or_observatio
     measured = evaluator.record(observation, action="MV_UP")
     assert measured['task_success'] == baseline['task_success']
     assert measured['criteria'] == baseline['criteria']
-    assert measured['safety']['telemetry_complete'] is False
-    assert measured['safety_score'] is None
+    assert 'safety' not in measured and 'safety_score' not in measured
     assert observation.to_payload() == before

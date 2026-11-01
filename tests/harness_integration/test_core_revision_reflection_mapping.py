@@ -319,7 +319,7 @@ def test_connectivity_no_is_correct_after_exploring_indirectly_connected_rooms(t
     w.sample()
     failed = w.evaluator.record(w.observation)
     assert failed['task_success'] and failed['completed_goals'] == 3
-    assert not failed['constraints_satisfied']
+    assert failed['constraints_satisfied']
 
 
 @pytest.mark.parametrize('fault', ['missing', 'stale_episode', 'unverified_answer', 'closed_door', 'graph_mismatch'])
@@ -580,7 +580,7 @@ def test_fixed_release_mapping_scores_without_legacy_receipt(tmp_path):
     w.session.robot.bad_contact = True
     w.sample()
     failed = w.evaluator.record(w.observation)
-    assert not failed['constraints_satisfied'] and failed['task_success']
+    assert failed['constraints_satisfied'] and failed['task_success']
 
 
 def test_fixed_release_mapping_preserves_measurement_failure(tmp_path):

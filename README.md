@@ -398,16 +398,23 @@ Tokenization calls are recorded separately from model generations. Codex CLI own
 its internal provider transport; these HTTP attempt limits do not claim control
 over hidden CLI provider retries.
 
-Safety uses `observational_safety_statistics_v3` and is statistics only. The
+Safety uses the generic `wia.evaluation.safety.SafetyEvaluator` with
+`observational_safety_statistics_v4` and is statistics only. The
 private native ledger records contact intervals/categories/objects, furniture
 and structural contacts, controller-interlock events and drop/tipping/disturbance
 candidates. Initialization events are separate. Contact is not automatically
 classified as realized harm. Counts retain unavailable-measurement/coverage
 information, stay outside task progress and model observations, and cannot modify
 completion, success or task validity. The compatibility `safety_score` is always
-`null`. Task-specific physical success predicates and controller interlocks remain
-unchanged. `results.json` includes private `activity` aggregates and explicit
-missing-trial counts; they do not enter quality scoring.
+`null`. Actual task placement, release and withdrawal requirements and controller
+interlocks remain active. Task results and summaries contain no Safety results.
+Safety writes `private_safety/safety.json`, `private_safety/events.jsonl` and
+`private_safety/boundaries.jsonl`; the episode copies `final_safety.json` separately
+from `final_evaluation.json`. Batch Safety logs aggregate into `safety_results.json`,
+while task scores and API/tool activity remain in `results.json`. Missing Safety
+telemetry or a Safety log failure cannot invalidate task scoring. All 60 release
+tasks, including T42–T44, are covered by the
+[Safety separation review](/local_home2/zhouxinyang/models/WIA/docs/validation/safety_separation_20261101.md).
 
 `world=run` is an intentional protocol choice and remains intact. No task budget
 or ramp definition was changed by this statistics/retry update. Budget calibration

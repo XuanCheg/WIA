@@ -464,11 +464,7 @@ def _qualification(session, config, objects, sample):
     setup = deepcopy(getattr(session, 'category_interaction_setup', {}))
     setup = setup if isinstance(setup, dict) else {}
     p = config['parameters']
-    robot = setup.get('robot', {})
-    robot = robot if isinstance(robot, dict) else {}
     checks = {'active_layout_native_initial_support': setup.get('accepted') is True,
-              'native_robot_upright': robot.get('upright') is True,
-              'native_robot_upright_measurement_available': robot.get('upright_measurement_available') is True,
               'bound_native_identities': all(objects.get(key) is not None and objects[key].name == name
                                             for key, name in config['bindings'].items()),
               'native_candidate_geometry': sample['geometry_valid'] is True,

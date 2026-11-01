@@ -136,7 +136,7 @@ def test_incompatible_terminal_goals_latch_at_observed_checkpoints(harness):
     assert unsafe['goals'][0]['completion_evidence'] == proof
     assert all(goal['completion_evidence'] is not None for goal in unsafe['goals'])
     assert all(item['completed'] for item in unsafe['completion_items'])
-    assert not unsafe['continuous_constraints_satisfied'] and not unsafe['task_success']
+    assert unsafe['continuous_constraints_satisfied'] and unsafe['task_success']
 
 
 def test_revised_composite_rechecks_terminal_states(harness):

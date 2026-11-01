@@ -572,15 +572,17 @@ def _array(value):
     return array(value)
 
 
-def _robot_safety(session):
+def _robot_safety(session, *, include_safety=True):
     """Read current room and contacts; never place or move the robot here."""
     import torch
     from wia.tasks.interaction_setup import _objects, _robot_contact_check
     robot, scene = session.robot, session.env.scene
-    floors = [obj for obj in _objects(scene) if obj.category in ('floors', 'floor')]
     position = _array(robot.get_position_orientation()[0])
-    floor_z = float(scene.trav_map.floor_heights[0])
-    checks = _robot_contact_check(robot, [obj.prim_path for obj in floors], floor_z)
+    checks = {}
+    if include_safety:
+        floors = [obj for obj in _objects(scene) if obj.category in ('floors', 'floor')]
+        floor_z = float(scene.trav_map.floor_heights[0])
+        checks = _robot_contact_check(robot, [obj.prim_path for obj in floors], floor_z)
     checks['same_source_room'] = scene.seg_map.get_room_instance_by_point(
         torch.tensor(position[:2], dtype=torch.float32)) == session.room_name
     checks['native_r1'] = type(robot).__name__ == 'R1' and not robot.visual_only

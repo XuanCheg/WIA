@@ -284,9 +284,9 @@ def qualify_operation(session, executor, config, bound):
         controller = getattr(executor, 'controller', None)
         if controller is None:
             raise ValueError('Native executor controller unavailable.')
-        safety = _robot_safety(session)
+        context = _robot_safety(session, include_safety=False)
         measured = _placement_measurements(session, controller, config, bound['obj_small'], bound['obj_container'])
-        checks = {key: safety[key] for key in ('floor_supported', 'collision_free', 'same_source_room', 'native_r1')}
+        checks = {key: context[key] for key in ('same_source_room', 'native_r1')}
         checks['relation_telemetry_available'] = not measured['measurement_errors']
         checks['movable_collidable_target'] = not bound['obj_small'].visual_only and not bound['obj_small'].fixed_base
         return {'accepted': all(checks.values()), 'checks': checks,

@@ -58,7 +58,6 @@ def finalize_task_record(output, manifest, status):
         task_progress_is_final=summary.get("task_progress_is_final", False),
         agent_decisions=summary.get("agent_decisions"), decision_calls=summary.get("decision_calls"),
         model_calls=summary.get("model_calls"), request_accounting=summary.get("request_accounting"),
-        safety_statistics=summary.get("safety_statistics"),
         task_progress=summary.get("task_progress"),
         evaluation_validity=summary.get("evaluation_validity", "unavailable"),
         scoring_version=summary.get("scoring_version"),
@@ -582,6 +581,8 @@ def main(argv=None):
                              ("final_evaluation.json", "private_evaluation/state.json")):
             if (output/source).exists():
                 (output/name).write_bytes((output/source).read_bytes())
+        from wia.evaluation.safety import snapshot_safety_log
+        snapshot_safety_log(output)
         save_status("rollout_completed", agent_exit_code=completed.returncode,
                     termination_reason=summary.get("termination_reason", "driver_initialization_failed"),
                     task_success=summary.get("task_success"), run_mode=args.run_mode,
@@ -629,6 +630,8 @@ def main(argv=None):
                                  ("final_evaluation.json", "private_evaluation/state.json")):
                 if (output / source).exists():
                     (output / name).write_bytes((output / source).read_bytes())
+            from wia.evaluation.safety import snapshot_safety_log
+            snapshot_safety_log(output)
         if gateway is not None and not retained and gateway.poll() is None:
             gateway.terminate()
             gateway.wait()

@@ -268,7 +268,7 @@ def test_history_real_source_apparatus_and_schema_are_concrete(tmp_path):
     assert all(next(x for x in config['objects'] if x['name'] == k)['fixed_base'] is False for k in p['target_keys'])
 
 
-def test_release_pending_and_real_robot_support_are_required():
+def test_release_pending_is_required_but_robot_safety_is_independent():
     tracker = history.NativePlacementProgress({'release_stability_steps': 2,
         'maximum_release_speed_m_s': .02, 'maximum_release_angular_speed_rad_s': .1})
     state = {'gripper': {'holding': False, 'constraint_active': False, 'release_pending': True, 'object_name': None},
@@ -278,7 +278,8 @@ def test_release_pending_and_real_robot_support_are_required():
         assert tracker.update(state, 'target', count_step=True) == (True, False)
     state['gripper']['release_pending'] = False
     state['robot_terminal_safe'] = None
-    assert tracker.update(state, 'target', count_step=True) == (False, False)
+    assert tracker.update(state, 'target', count_step=True) == (True, False)
+    assert tracker.update(state, 'target', count_step=True) == (True, True)
 
 
 def test_moved_recipe_requires_real_matching_source_event():

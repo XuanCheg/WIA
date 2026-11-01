@@ -18,14 +18,4 @@ def aggregate_activity(trials):
             counts.update(((a or {}).get('tool_calls', {}).get(status) or {}).get('by_name', {}))
         result['tools'][status] = {'total': sum(counts.values()), 'by_name': dict(counts),
             'missing_trials': sum(not a or 'tool_calls' not in a for a in accounts)}
-    safety = Counter()
-    for trial in trials:
-        safety.update((trial.get('safety_statistics') or {}).get('event_counts', {}))
-    result['safety'] = {'mode': 'statistics_only', 'event_counts': dict(safety),
-        'missing_trials': sum(t.get('safety_statistics') is None for t in trials),
-        'affects_scoring': False, 'passed_to_model': False}
-    for key in ('nonfloor_contact_intervals', 'furniture_contact_intervals', 'structure_contact_intervals',
-                'incidental_contact_candidates', 'controller_interlock_events', 'unsafe_confirmed_events'):
-        result['safety'][key] = {'known_sum': sum((t.get('safety_statistics') or {}).get(key, 0) for t in trials),
-            'missing_trials': sum(key not in (t.get('safety_statistics') or {}) for t in trials)}
     return result

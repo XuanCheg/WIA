@@ -17,7 +17,7 @@ import threading
 import numpy as np
 
 from wia.authoring.io import write_json
-from wia.tasks.interaction_setup import array, _robot_contact_check
+from wia.tasks.interaction_setup import array
 from wia.authoring.converters.temporal_understanding_two_phase import physical_target_keys
 
 MODULE = 'wia.authoring.converters.temporal_understanding_two_phase'
@@ -287,23 +287,14 @@ class TemporalPhaseController:
                 checks['inactive:' + key] = (not _visible(self.objects[key])
                     and (row['fixed_base'] or (p.get('task_edit2_physical') and key in physical_target_keys(p)))
                     and row['position'][0] > 900. and row['position'][1] > 900.)
-        robot = None
         if executor is not None:
-            floor = self.objects['floor']
-            floor_z = float(array(floor.aabb[1])[2])
-            robot = _robot_contact_check(self.session.robot, [floor.prim_path], floor_z)
-            q = np.asarray(_pose(self.session.robot)['quaternion_xyzw'])
-            q = q / np.linalg.norm(q)
-            checks['robot_floor_support'] = robot['floor_supported']
-            checks['robot_clear'] = robot['collision_free']
-            checks['robot_upright'] = bool(1 - 2 * (q[0] ** 2 + q[1] ** 2) >= .9)
             gripper = executor.debug_gripper_state()
             if not (p.get('task_edit2_physical') and self.phase == 'phase_2'):
                 checks['gripper_empty'] = (gripper.get('object_name') is None
                     and gripper.get('holding') is False and gripper.get('constraint_active') is False)
         checks = {key: bool(value) for key, value in checks.items()}
         return {'phase': self.phase, 'slots': slots, 'objects': rows,
-                'robot_support': robot, 'checks': checks, 'valid': bool(all(checks.values()))}
+                'checks': checks, 'valid': bool(all(checks.values()))}
 
     def advance(self):
         """One source-defined external event; no robot command or physics step."""
@@ -468,16 +459,6 @@ class TemporalChangeEvaluator:
         self.survey_violations = []
         self.survey_violation_evidence = {}
         self.survey_environment_warnings = {}
-        self.survey_contact_bodies = set()
-        self.survey_contact_history_verified = True
-
-    def _survey_contacts(self, measured):
-        """Latch all non-floor contacts, including unresolved external bodies."""
-        support = measured.get('robot_support')
-        if not isinstance(support, dict) or 'unexpected_contact_bodies' not in support:
-            self.survey_contact_history_verified = False
-            return
-        self.survey_contact_bodies.update(support['unexpected_contact_bodies'])
 
     def _survey_drift(self, name, evidence, failures, key):
         policy = getattr(self.session, 'background_movement_policy', None)
@@ -491,16 +472,10 @@ class TemporalChangeEvaluator:
         elif (not policy or 'protected' not in policy or 'measurement_errors' not in policy
               or policy['measurement_errors'] or getattr(self.session, 'background_policy_error', None)):
             reason = 'dependency_measurement_unverified'
-        elif not self.survey_contact_history_verified:
-            reason = 'contact_history_unverified'
-        elif self.survey_contact_bodies:
-            # Conservatively retain protection even for indirect motion after
-            # contact with another object; current contact absence is insufficient.
-            reason = 'non_floor_robot_contact_during_survey'
         else:
             if key not in self.survey_environment_warnings:
                 self.survey_environment_warnings[key] = dict(evidence,
-                    reason='noncritical_drift_without_observed_robot_contact',
+                    reason='noncritical_native_scene_drift',
                     last_boundary=self.last_boundary)
                 write_json(self.output / 'survey_environment_warnings.json', {
                     'phase': 'phase_1', 'warnings': self.survey_environment_warnings})
@@ -522,7 +497,6 @@ class TemporalChangeEvaluator:
             if not measured['valid']:
                 raise ValueError('The original Phase 1 failed native qualification.')
         self.survey_reference = self.controller._unchanged_world()
-        self._survey_contacts(measured)
         self.controller.survey_violation = False
         self.controller.agent_observation_started = True
         self.episode = 1
@@ -533,11 +507,11 @@ class TemporalChangeEvaluator:
                 or self.last_boundary != (observation.snapshot_id, observation.action_step)):
             raise ValueError('Phase 1 completion does not match the active observation.')
         if self.survey_violations:
-            raise ValueError('Phase 1 read-only safety check failed; inspect private survey evidence.')
+            raise ValueError('Phase 1 read-only task contract failed; inspect private survey evidence.')
         measured = self.controller.measure(self.executor)
         self.sample_step()
         if self.survey_violations:
-            raise ValueError('Phase 1 read-only safety check failed; inspect private survey evidence.')
+            raise ValueError('Phase 1 read-only task contract failed; inspect private survey evidence.')
         self.phase_1 = {'snapshot_id': observation.snapshot_id, 'action_step': observation.action_step,
                         'native_state': measured}
         self.phase_1_robot = array(self.session.robot.get_position_orientation()[0]).copy()
@@ -555,14 +529,8 @@ class TemporalChangeEvaluator:
         if self.controller.phase == 'phase_1' and self.survey_reference is not None:
             current = self.controller._unchanged_world()
             original = self.survey_reference
-            try:
-                measured = self.controller.measure(self.executor)
-            except Exception:
-                self.survey_contact_history_verified = False
-                raise
-            self._survey_contacts(measured)
-            # Robot pose/joints may change. Only noncritical background drift
-            # with a verified, contact-free history is an environment warning.
+            measured = self.controller.measure(self.executor)
+            # Generic contacts belong to the independent Safety evaluator.
             protected = {key: pose for key, pose in original['poses'].items()
                          if key != self.session.robot.name}
             failures = {}
@@ -608,7 +576,7 @@ class TemporalChangeEvaluator:
             nav['faults'].append('unsampled_or_discontinuous_native_motion')
         measured = self.controller.measure(self.executor)
         if not measured['valid']:
-            nav['faults'].append('native_source_or_robot_safety_failed')
+            nav['faults'].append('native_source_state_invalid')
         nav['samples'] += 1
         nav['travel_m'] += float(np.linalg.norm(position[:2] - np.asarray(nav['previous_position_m'])[:2]))
         nav['maximum_departure_m'] = max(nav['maximum_departure_m'], float(np.linalg.norm(
@@ -636,7 +604,7 @@ class TemporalChangeEvaluator:
         return {'phase_2_controlled_native_steps': nav['samples'] > 0,
             'phase_2_real_base_travel': nav['travel_m'] >= minimum and nav['maximum_departure_m'] >= minimum,
             'phase_2_original_container_visited': bool(nav['visited_containers']),
-            'phase_2_continuously_safe_sampled_motion': not nav['faults'],
+            'phase_2_continuous_native_motion': not nav['faults'],
             'phase_2_stopped': nav['stopped']}
 
     def record(self, observation, *, action=None):
@@ -685,8 +653,6 @@ class TemporalChangeEvaluator:
             'phase_1_survey_violations': self.survey_violations,
             'phase_1_survey_violation_evidence': self.survey_violation_evidence,
             'phase_1_environment_warnings': self.survey_environment_warnings,
-            'phase_1_contact_history': {'verified': self.survey_contact_history_verified,
-                                      'non_floor_bodies': sorted(self.survey_contact_bodies)},
             'evaluation_validity': 'unavailable' if error else 'complete',
             'scoring_version': 'task_completion_v2',
             'observation_evidence': {'captured': True, 'delivered_to_agent': 'recorded_by_runner',

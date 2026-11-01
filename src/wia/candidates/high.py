@@ -349,9 +349,8 @@ def _h4(contract: dict, frames: list[dict], checks: dict, cost: dict) -> None:
         for name, value in moved.items() if value is True])
     checks["anchors_preserved"] = _preserved(frames, contract["anchors"])
     evidence = frames[-1].get("process_evidence", {})
-    for key in ("approach_clear", "withdrawal_clear"):
-        value = evidence.get(key)
-        checks[key] = value if isinstance(value, bool) else None
+    value = evidence.get("hands_withdrawn")
+    checks["hands_withdrawn"] = value if isinstance(value, bool) else None
     cost["relocation_count"] = None if None in moved.values() else sum(value is True for value in moved.values())
 
 

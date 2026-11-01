@@ -708,13 +708,7 @@ class RegionalOperationEvaluator(NativeVisitReportEvaluator):
         super().__init__(session, controller, config, output)
 
     def _measure_native(self):
-        measured = measure_room_state(self.session, parameters=self.parameters)
-        pose = {'position': measured['position'], 'quaternion_xyzw': measured['quaternion_xyzw']}
-        support = _robot_support_evidence(self.session, pose)
-        if not support.get('native_contacts_available', False):
-            raise ValueError(support.get('contact_support_reason') or 'native_contact_measurement_unavailable')
-        measured['native_support'] = support
-        measured['state_valid'] = bool(measured['state_valid'] and support['robot_supported_upright'])
+        measured = measure_room_state(self.session, parameters=self.parameters, include_safety=False)
         return settled_native_state(self.session, measured, minimum_up_dot=.9)
 
     def _begin_baseline(self):
@@ -730,7 +724,6 @@ class RegionalOperationEvaluator(NativeVisitReportEvaluator):
         measured = self._measure_native()
         return {'native_anchor_relation_preserved': bool(self.relation_evidence['region_relation_consistent']),
             'native_required_regions_exist': self.required.issubset(measured['known_regions']),
-            'native_initial_floor_contact_and_pose': measured['state_valid'],
             'native_initial_region_known': measured['root_region'] in measured['known_regions']}
 
     def _additional_checks(self, measured):

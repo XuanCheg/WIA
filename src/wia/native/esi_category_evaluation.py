@@ -319,11 +319,6 @@ class CategoryEvaluationEnvelope:
         if session is not None:
             from wia.tasks.background_policy import record_background_movements
             value['background_movements'] = record_background_movements(session)
-            safety = getattr(session, 'safety_observer', None)
-            if safety is not None:
-                from wia.runtime.sim.esi_safety import private_safety_result
-                value['safety'] = private_safety_result(safety)
-                value['safety_score'] = value['safety']['safety_score']
 
         from wia.authoring.io import write_json
         write_json(self.output / 'state.json', value)

@@ -400,7 +400,7 @@ def initialize_scene(session, parameters):
     construction_materials = _construction_material_binding(parameters)
     import torch
     import omnigibson as og
-    from wia.tasks.interaction_setup import array, _robot_contact_check
+    from wia.tasks.interaction_setup import array
     from omnigibson.object_states import Touching
     layout = parameters['layout']
     gripper_receipt = _initial_gripper_state(session, layout)
@@ -537,25 +537,14 @@ def initialize_scene(session, parameters):
             receipt['accepted'] = (receipt['touching'] and receipt['within_footprint'] and
                 abs(receipt['bottom_gap_m']) < .015 and receipt['speed_m_s'] < .02)
         receipts[obj.name] = receipt
-    floor = session.env.scene.object_registry('name', layout['floor_name'])
-    if floor is None:
-        from wia.tasks.interaction_setup import _objects
-        position = array(session.robot.get_position_orientation()[0])
-        floors = [obj for obj in _objects(session.env.scene) if obj.category == 'floors' and
-            np.all(position[:2] >= array(obj.aabb[0])[:2]) and np.all(position[:2] <= array(obj.aabb[1])[:2])]
-        if not floors:
-            raise ValueError('No loaded native floor supports the declared robot start.')
-        floor = min(floors, key=lambda obj: abs(float(array(obj.aabb[1])[2] - position[2])))
-    robot = _robot_contact_check(session.robot, [floor.prim_path], float(array(floor.aabb[1])[2]))
-    result = {'revision': parameters['revision'], 'accepted': bool(
-        all(x['accepted'] for x in receipts.values()) and robot['floor_supported'] and robot['collision_free']),
-        'supported_items': receipts, 'robot': robot,
-        'validation_scope': 'Native initial support and floor contacts; route and manipulation remain unverified.'}
+    result = {'revision': parameters['revision'], 'accepted': bool(all(x['accepted'] for x in receipts.values())),
+        'supported_items': receipts,
+        'validation_scope': 'Native item support; robot Safety, route and manipulation are not task qualification predicates.'}
     if getattr(session, '_release_edge_policy', False):
         result['pickup_edge_placements'] = list(getattr(session, 'pickup_edge_placements', []))
     if fixed_mount_snapshots:
         result['validation_scope'] = ('Native dynamic supports, explicitly fixed mount geometry and pose stability, '
-            'and robot floor contacts. Fixed mounts do not certify gravity-supported contact. '
+            'without robot Safety predicates. Fixed mounts do not certify gravity-supported contact. '
             'Route and manipulation remain unverified.')
     if construction_materials:
         result['material_binding_initialization'] = material_receipt

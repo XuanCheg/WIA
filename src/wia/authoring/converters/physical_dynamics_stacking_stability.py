@@ -249,14 +249,8 @@ def _robot_start_checks(session):
     rooms = [scene.seg_map.get_room_instance_by_point(np.array([x, y]))
              for x in (low[0], (low[0] + high[0]) / 2, high[0])
              for y in (low[1], (low[1] + high[1]) / 2, high[1])]
-    objects = scene.objects.values() if isinstance(scene.objects, dict) else scene.objects
-    floors = [obj for obj in objects if obj.category in ('floor', 'floors')]
-    external = [bodies for bodies in _external_contacts(robot) if bodies]
-    floor_contacts = [bodies for bodies in external if all('groundPlane' in body or any(
-        _belongs(body, floor) for floor in floors) for body in bodies)]
     return {'in_original_room': all(room == session.room_name for room in rooms),
-            'has_floor_contact': bool(floor_contacts), 'no_obstacle_contact': len(external) == len(floor_contacts),
-            'footprint_rooms': rooms, 'external_contacts': external}
+            'footprint_rooms': rooms}
 
 
 def qualify_operation(session, executor, config, bound):
@@ -288,8 +282,7 @@ def qualify_operation(session, executor, config, bound):
                 row['linear_speed_m_s'] <= MAXIMUM_LINEAR_SPEED and row['angular_speed_rad_s'] <= MAXIMUM_ANGULAR_SPEED)
         checks.update(original_floor_collidable=not floor.visual_only,
                       initial_gripper_empty=gripper['all_arms_free'],
-                      robot_supported_in_original_room=robot['in_original_room'] and robot['has_floor_contact'] and
-                          robot['no_obstacle_contact'])
+                      robot_in_original_room=robot['in_original_room'])
         checks['initial_objects_separate'] = all(not bound[a].states[Touching].get_value(bound[b])
                                                  for a, b in permutations(OBJECT_KEYS, 2))
         accepted = bool(all(checks.values()))

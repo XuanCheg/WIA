@@ -684,14 +684,14 @@ def main(argv: list[str] | None = None, *, initial_observation_capture=None) -> 
                 "frame": "robot_base", "reference_link": "torso_link4", "arm_hold": "joint_positions"}
         if session.robot is None or executor is None:
             raise RuntimeError("Native robot and control interface are required for every execution mode.")
-        from wia.runtime.sim.esi_safety import SafetyObserver
-        session.safety_observer = SafetyObserver(session, controller, output / 'private_safety')
-        session.safety_observer.sample_step()
+        from wia.evaluation.safety import SafetyEvaluator, run_safety_hook
+        session.safety_evaluator = session.safety_observer = SafetyEvaluator(session, controller, output / 'private_safety')
+        run_safety_hook(session, 'sample_step')
         safety_previous_step = controller.on_step
         def sample_safety():
             if safety_previous_step:
                 safety_previous_step()
-            session.safety_observer.sample_step()
+            run_safety_hook(session, 'sample_step')
         controller.on_step = sample_safety
         if episode_manifest is not None:
             session.episode_id = episode_manifest['episode_id']
@@ -839,7 +839,7 @@ def main(argv: list[str] | None = None, *, initial_observation_capture=None) -> 
                     source = session.observation_source
                     source.human_depth_visualizations = args.human_depth_visualizations
                     session.task_evaluator = declarative.create_evaluator(session, controller, output / 'private_evaluation')
-                    session.safety_observer = SafetyObserver(session, controller, output / 'private_safety')
+                    session.safety_evaluator = session.safety_observer = SafetyEvaluator(session, controller, output / 'private_safety')
                     from wia.runtime.sim.esi_scene_validation import run
                     simulator = session.pipeline.og.sim
                     resident.prepare(session)

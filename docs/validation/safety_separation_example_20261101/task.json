@@ -1,0 +1,40 @@
+{
+  "provenance": "Synthetic CPU fixture; no native simulation or model API call.",
+  "schema": "wia.high_candidate_evaluation.v1",
+  "prototype": "H4",
+  "evaluation_validity": "complete",
+  "task_success": true,
+  "checks": {
+    "timeline_measured": true,
+    "target_placed": true,
+    "blocker_motion_measured": true,
+    "moved_blockers_stored": true,
+    "anchors_preserved": true,
+    "hands_withdrawn": true
+  },
+  "reasons": [],
+  "action_cost": {
+    "elapsed_sim_s": 1.0,
+    "object_path_length_m": 3.0,
+    "release_count": 3,
+    "relocation_count": 2
+  },
+  "progress": {
+    "scoring_version": "task_completion_v2",
+    "evaluation_validity": "complete",
+    "completion_items": [
+      {
+        "id": "task",
+        "completed": true,
+        "evaluation_validity": "valid",
+        "kind": "terminal_condition"
+      }
+    ],
+    "completed_goals": 1,
+    "total_goals": 1,
+    "completion_score": 1.0,
+    "score_percent": 100.0,
+    "diagnostic_lower_bound": 1.0,
+    "constraints_satisfied": true
+  }
+}

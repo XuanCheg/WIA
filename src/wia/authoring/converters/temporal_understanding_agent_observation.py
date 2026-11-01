@@ -1039,23 +1039,7 @@ def native_temporal_placement(session, executor, config, target_key, destination
     if target is None or destination is None:
         raise ValueError('Native target or destination binding unavailable.')
     measured = _placement_measurements(session, executor, config, target, destination)
-    try:
-        from wia.tasks.interaction_setup import _robot_contact_check
-        objects = scene.objects.values() if isinstance(scene.objects, dict) else scene.objects
-        floors = [obj for obj in objects if obj.category in ('floor', 'floors')]
-        if not floors:
-            raise ValueError('Native floor bodies unavailable.')
-        floor_z = max(float(_array(obj.aabb[1])[2]) for obj in floors)
-        base = _robot_contact_check(session.robot, [obj.prim_path for obj in floors], floor_z)
-        quaternion = _array(session.robot.get_position_orientation()[1])
-        quaternion = quaternion / np.linalg.norm(quaternion)
-        measured['robot_terminal_safe'] = bool(base['floor_supported'] and base['collision_free']
-            and 1 - 2 * (quaternion[0] ** 2 + quaternion[1] ** 2) >= .95)
-        measured['robot_contact_evidence'] = base
-        measured['target_dynamic_collidable'] = not target.fixed_base and not target.visual_only
-    except (ValueError, AttributeError, RuntimeError, KeyError, TypeError) as error:
-        measured['robot_terminal_safe'] = None
-        measured['measurement_errors']['robot_support'] = f'{type(error).__name__}: {error}'
+    measured['target_dynamic_collidable'] = not target.fixed_base and not target.visual_only
     return measured
 
 
@@ -1079,9 +1063,9 @@ class NativePlacementProgress:
         released = isinstance(grasp, dict) and all(grasp.get(key) is False for key in
             ('holding', 'constraint_active', 'release_pending')) and grasp.get('object_name') is None
         available = all(measured.get(key) is not None for key in ('destination_relation', 'linear_speed_m_s',
-            'angular_speed_rad_s', 'robot_withdrawn', 'robot_terminal_safe', 'target_dynamic_collidable')) and grasp is not None
+            'angular_speed_rad_s', 'robot_withdrawn', 'target_dynamic_collidable')) and grasp is not None
         stable = bool(available and released and measured['destination_relation'] and measured['robot_withdrawn']
-            and measured['robot_terminal_safe'] and measured['target_dynamic_collidable']
+            and measured['target_dynamic_collidable']
             and measured['linear_speed_m_s'] <= self.parameters['maximum_release_speed_m_s']
             and measured['angular_speed_rad_s'] <= self.parameters['maximum_release_angular_speed_rad_s'])
         if not stable:
@@ -1289,7 +1273,7 @@ def qualify_history_retrieval(session, executor, config, bound):
             checks['native_target_support:' + key] = bool(obj.states[Touching].get_value(support))
         measured = native_temporal_placement(session, executor, config, config['parameters']['target_keys'][0],
                                              config['parameters']['destination_key'])
-        checks['stable_floor_supported_robot'] = measured.get('robot_terminal_safe') is True
+        checks['native_target_physics'] = measured.get('target_dynamic_collidable') is True
         return {'accepted': all(checks.values()), 'checks': checks, 'native_inventory': references,
             'informative_history_and_retrieval_verified': False}
     except (ValueError, AttributeError, RuntimeError, KeyError, TypeError, ImportError) as error:

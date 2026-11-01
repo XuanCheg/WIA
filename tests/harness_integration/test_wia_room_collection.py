@@ -675,7 +675,7 @@ def test_preview_continuation_requires_explicit_boolean_true(monkeypatch):
 
 
 @pytest.mark.parametrize('failure', ['floor_supported', 'upright', 'collision_free', 'unavailable'])
-def test_robot_initialization_failure_rejects_aggregate_without_losing_support_receipts(monkeypatch, failure):
+def test_robot_safety_cannot_reject_measured_task_initialization(monkeypatch, failure):
     session, _, _ = _initialization_fixture(monkeypatch)
     contacts = session.robot.contact_list()
     if failure == 'floor_supported':
@@ -688,17 +688,17 @@ def test_robot_initialization_failure_rejects_aggregate_without_losing_support_r
     else:
         session.env.scene.trav_map.floor_heights = []
     result = collection.initialize_scene(session, {'layout': layout(), 'operation': collection.ORDERED_OPERATION})
-    assert result['accepted'] is False
+    assert result['accepted'] is True
     assert all(row['accepted'] for row in result['inventory_supports'].values())
     assert all(row['room_matches'] for row in result['inventory'].values())
     assert session.category_interaction_setup is result
     assert session.wia_room_collection_initialization is result
     if failure == 'unavailable':
         assert result['robot_initialization']['measurement_available'] is False
-        assert 'measurement unavailable' in result['reason']
+        assert 'reason' not in result
     else:
         assert result['robot_initialization'][failure] is False
-        assert failure in result['reason']
+        assert 'reason' not in result
 
 
 @pytest.mark.parametrize('failure', ['support', 'room', 'parent'])

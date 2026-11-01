@@ -140,7 +140,7 @@ def test_survey_records_background_motion_without_cancelling(world, tmp_path):
 
 @pytest.mark.parametrize('restriction', [None, 'critical', 'missing_policy',
                                         'dependency_error', 'contact', 'contact_error'])
-def test_passive_background_drift_retains_contact_evidence_without_cancelling(world, tmp_path, restriction):
+def test_background_drift_and_missing_safety_do_not_cancel_phase_transition(world, tmp_path, restriction):
     door = Object('door', 'door', [2., 0., 1.])
     door.n_joints = 1
     joints = np.array([.7591391])
@@ -166,8 +166,7 @@ def test_passive_background_drift_retains_contact_evidence_without_cancelling(wo
         def unavailable():
             raise RuntimeError('Contact read failed')
         world.session.robot.contact_list = unavailable
-        with pytest.raises(RuntimeError, match='Contact read failed'):
-            evaluator.sample_step()
+        evaluator.sample_step()
         world.session.robot.contact_list = contacts
     joints[0] += .0061134
     evaluator.sample_step()
@@ -182,9 +181,7 @@ def test_passive_background_drift_retains_contact_evidence_without_cancelling(wo
     result = evaluator.record(NS(snapshot_id=2, action_step=0), action=None)
     assert result['phase'] == 'phase_2'
     assert result['transition']['world_unchanged']
-    assert result['phase_1_contact_history'] == {
-        'verified': restriction != 'contact_error',
-        'non_floor_bodies': ['/World/another_object/link'] if restriction == 'contact' else []}
+    assert 'phase_1_contact_history' not in result
     assert door.pose_writes == 0
     assert joints[0] == pytest.approx(.7652525)
 
@@ -331,7 +328,7 @@ def test_navigation_contact_does_not_cancel_or_block_transition(world, tmp_path)
         body0='/World/robot/base', body1='/World/table/base_link')]
     evaluator.sample_step()
     assert not world.controller.survey_violation
-    assert 'native_check:robot_clear' in evaluator.survey_environment_warnings
+    assert 'native_check:robot_clear' not in evaluator.survey_environment_warnings
     evaluator.prepare_phase_transition(observation)
     world.controller.advance()
     assert world.controller.phase == 'phase_2'

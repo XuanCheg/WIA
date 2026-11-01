@@ -92,9 +92,8 @@ class ESIObservationSource:
         self.initial_overview_status = 'unavailable'
         self.initial_overview_failure = None
         self.initial_observation = None
-        safety = getattr(self.session, 'safety_observer', None)
-        if safety is not None:
-            safety.begin_episode()
+        from wia.evaluation.safety import run_safety_hook
+        run_safety_hook(self.session, 'begin_episode')
         observation = self.capture(action_boundary=True).observation
         # Initial ambiguity/history reducers must see exactly the same complete
         # input bundle as the Agent, including the frozen Global image.
@@ -213,6 +212,8 @@ class ESIObservationSource:
             self._captured_physical_generation = getattr(self.session, "_physical_step_generation", 0)
             if action_boundary:
                 self.session._action_boundary_ready = True
+                from wia.evaluation.safety import record_safety
+                record_safety(self.session, snapshot.observation)
             return snapshot
         finally:
             self.session._boundary_capture_depth = depth

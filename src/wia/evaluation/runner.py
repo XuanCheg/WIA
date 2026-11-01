@@ -318,7 +318,7 @@ def summarize(summary):
             "agent_decisions": summary.get("agent_decisions"), "executed_actions": summary.get("executed_actions"),
             "model_calls": summary.get("model_calls"), "decision_calls": summary.get("decision_calls"),
             "request_accounting": summary.get("request_accounting"),
-            "safety_statistics": summary.get("safety_statistics"), "timings": summary.get("timings"),
+            "timings": summary.get("timings"),
             "usage": usage, "token_accounting": usage_report(summary), "cost": summary.get("cost"),
             "model_logs": summary.get("model_logs")}
 
@@ -354,4 +354,6 @@ def run(prepared):
         temporary = output / 'results.json.tmp'
         temporary.write_text(json.dumps(aggregate, indent=2, allow_nan=False) + "\n")
         temporary.replace(output / 'results.json')
+        from .safety import write_safety_log
+        write_safety_log(results, output / 'safety_results.json')
     return aggregate

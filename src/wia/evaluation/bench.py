@@ -261,6 +261,8 @@ def launch(prepared, *, gpus=None, worker_count=4, port_base=8800, dry_run=False
               'request_accounting': accounting, 'elapsed_s': time.monotonic()-started,
               'worker_exit_codes': [p.returncode for p in processes]}
     (output/'results.json').write_text(json.dumps(result, indent=2, allow_nan=False)+'\n')
+    from .safety import write_safety_log
+    write_safety_log(trials, output / 'safety_results.json')
     return result
 
 

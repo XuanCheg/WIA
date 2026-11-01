@@ -483,7 +483,6 @@ def initialize_scene(session, parameters):
     accepted = bool(receipt['accepted'] and all(row['room_matches'] for row in inventory.values())
                     and all(row.get('authored_xy_preserved', True) for row in inventory.values())
                     and all(row['accepted'] for row in supports.values())
-                    and all(robot_initialization[key] for key in ('floor_supported', 'upright', 'collision_free'))
                     and not preview_only)
     result = {**receipt, 'accepted': accepted, 'inventory': inventory, 'explicit_relocations': relocations,
               'inventory_supports': supports, 'support_alignments': alignments,

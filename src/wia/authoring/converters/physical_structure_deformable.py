@@ -277,7 +277,6 @@ def qualify_operation(session, executor, config, bound):
                   'initial_target_stationary': row['item_linear_speed_m_s'] <= .02,
                   'initial_gripper_empty': g.get('object_name') is None and g.get('constraint_active') is False,
                   'initial_hand_not_touching_cloth': not row['working_hand_cloth_contacts'],
-                  'initial_other_robot_links_not_touching_cloth': not row['other_robot_cloth_contacts'],
                   'robot_footprint_in_original_room': row['robot_in_original_room'],
                   'existing_native_rigid_assisted_mode': row['rigid_assisted_grasp_mode']}
         checks = {k: bool(v) for k, v in checks.items()}
@@ -357,8 +356,6 @@ class SweepRetrieveEvaluator:
                       abs(row['item_aabb_min'][2] - initial['item_aabb_min'][2]) <= .015 and row['item_touching_task_support'])
         cloth_clear = row['initial_region_overlap_faces'] == 0 and shift >= CLOTH_SHIFT_M
         if new_sample:
-            if row['other_robot_cloth_contacts']:
-                self.invalid = True
             self.hand_contact_seen |= bool(row['working_hand_cloth_contacts'])
             if held and not self.revealed_before_grasp:
                 self.invalid = True
@@ -371,7 +368,6 @@ class SweepRetrieveEvaluator:
                      row['cloth_point_count'] == initial['cloth_point_count'] and
                      row['cloth_face_count'] == initial['cloth_face_count'] and
                      abs(row['floor_top_m'] - initial['floor_top_m']) <= .001 and
-                     row['cloth_min_z'] >= row['floor_top_m'] - .03 and
                      all(not self.objects[key].visual_only and not self.objects[key].fixed_base for key in ('item', 'cloth')))
         self.criteria = {'working_hand_contact_seen': self.hand_contact_seen,
                          'native_cloth_moved_10cm_and_mesh_clear': cloth_clear,

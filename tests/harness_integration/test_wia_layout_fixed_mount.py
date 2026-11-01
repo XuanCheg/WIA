@@ -96,7 +96,7 @@ def test_stable_mount_without_velocity_or_contact_reports_measured_geometry(moun
     assert link['kinematic_evidence'] == 'native_kinematic_only_boolean'
     assert link['all_collision_meshes_enabled'] is True
     assert mount.calls['steps'] == 90 and len(mount.calls['rays']) == 2
-    assert len(mount.calls['robot_checks']) == 1
+    assert len(mount.calls['robot_checks']) == 0
     assert len(mount.target.pose_writes) == 2 and mount.target.still_calls == 1
     assert p == before
     json.dumps(result, allow_nan=False)

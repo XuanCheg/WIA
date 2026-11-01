@@ -222,7 +222,7 @@ def h4():
     move(frames, "item", 0, time=.5)
     move(frames, "block_a", 1)
     move(frames, "block_b", 1)
-    frames[-1]["process_evidence"] = {"approach_clear": True, "withdrawal_clear": True}
+    frames[-1]["process_evidence"] = {"hands_withdrawn": True}
     return contract, frames
 
 
@@ -239,7 +239,7 @@ def test_h4_requires_measured_motion_proof_and_anchor_preservation():
     evaluated = result("H4", contract, frames)
     assert evaluated["evaluation_validity"] == "unavailable"
     assert not evaluated["task_success"]
-    frames[-1]["process_evidence"] = {"approach_clear": True, "withdrawal_clear": True}
+    frames[-1]["process_evidence"] = {"hands_withdrawn": True}
     frames[10]["objects"]["fixed"]["orientation"] = [0, 0, math.sin(.1), math.cos(.1)]
     assert result("H4", contract, frames)["checks"]["anchors_preserved"] is False
 

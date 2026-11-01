@@ -246,8 +246,6 @@ def finalize_evaluation_summary(summary, latest_progress, run_mode):
     terminal_error = bool(summary.get('terminal_evaluation_error'))
     if latest_progress:
         summary['task_progress'] = {k: v for k, v in latest_progress.items() if not k.startswith('safety_')}
-        summary['safety_statistics'] = latest_progress.get('safety_statistics')
-        summary['safety_exposure'] = latest_progress.get('safety_exposure')
         summary.update({key: latest_progress.get(key) for key in (
             'evaluation_validity', 'scoring_version', 'completion_score', 'score_percent',
             'constraints_satisfied')})
@@ -567,10 +565,6 @@ def main(argv=None):
                 measured_success = validate_episode_evaluation(data, observation, args.task, loaded_task)
                 latest_progress.clear()
                 latest_progress.update(data.get('progress', {}))
-                if 'safety' in data:
-                    safety = data['safety']
-                    latest_progress.update(safety_statistics=safety.get('statistics'),
-                        safety_exposure=safety.get('exposure'))
                 (output / "evaluation.json").write_text(json.dumps(data, indent=2) + "\n")
                 return measured_success
             def integrity():

@@ -230,11 +230,11 @@ def test_v2_initial_evaluation_reports_its_revision_and_preserves_native_qualifi
     assert v2['native_measurements'] == v1['native_measurements']
     assert v2['evaluation_validity'] == 'pending_done' and v2['task_success'] is False
     native.session.category_interaction_setup['robot']['upright'] = False
-    assert adapter.qualify_operation(native.session, native.controller, native.config, native.objects)['accepted'] is False
+    assert adapter.qualify_operation(native.session, native.controller, native.config, native.objects)['accepted'] is True
     blocked = evaluator(native).begin_episode(native.observation)
     assert blocked['schema'] == 'wia_dimensional_v2'
     assert blocked['evaluation_validity'] == 'pending_done' and blocked['physical_success'] is False
-    assert blocked['native_evaluation_validity'] == 'unavailable'
+    assert blocked['native_evaluation_validity'] == 'complete'
 
 
 def test_v2_unavailable_aperture_receipt_cannot_report_the_v1_schema(native):
@@ -276,16 +276,16 @@ def test_final_state_adapter_rejects_unversioned_null_lift_and_unknown_revision(
 @pytest.mark.parametrize('field,value', [('upright', False), ('upright', None),
                                        ('upright_measurement_available', False),
                                        ('upright_measurement_available', None)])
-def test_upright_gate_cannot_inherit_accepted_or_default_missing_measurement_to_true(native, field, value):
+def test_robot_safety_flags_do_not_gate_dimensional_task_evidence(native, field, value):
     native.session.category_interaction_setup['robot'][field] = value
     qualification = adapter.qualify_operation(native.session, native.controller, native.config, native.objects)
     assert qualification['checks']['active_layout_native_initial_support'] is True
-    assert qualification['checks']['native_robot_' + field] is False
-    assert qualification['accepted'] is False
+    assert 'native_robot_' + field not in qualification['checks']
+    assert qualification['accepted'] is True
     result = evaluator(native).begin_episode(native.observation)
-    assert result['initial_qualification']['accepted'] is False
+    assert result['initial_qualification']['accepted'] is True
     assert result['evaluation_validity'] == 'pending_done'
-    assert result['native_evaluation_validity'] == 'unavailable' and result['physical_success'] is False
+    assert result['native_evaluation_validity'] == 'complete' and result['physical_success'] is False
 
 
 def test_rotated_native_block_dimensions_use_body_frame_collision_vertices(native):

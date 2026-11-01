@@ -288,7 +288,7 @@ def _validate_config(session, config):
     return parameters
 
 
-def measure_native_state(session, pose=None, *, parameters):
+def measure_native_state(session, pose=None, *, parameters, include_safety=True):
     """Read actual robot/chassis, original room segmentation and native contacts."""
     robot, scene = session.robot, session.env.scene
     if pose is None:
@@ -316,7 +316,7 @@ def measure_native_state(session, pose=None, *, parameters):
     objects = scene.objects.values() if isinstance(scene.objects, dict) else scene.objects
     floor_paths = [obj.prim_path for obj in objects if getattr(obj, 'category', None) in ('floor', 'floors')]
     contacts, nonfloor, floor_contacts = [], [], []
-    for contact in robot.contact_list():
+    for contact in robot.contact_list() if include_safety else ():
         bodies = [str(contact.body0), str(contact.body1)]
         external = [body for body in bodies if not (body == robot.prim_path or body.startswith(robot.prim_path + '/'))]
         if not external:
@@ -338,7 +338,7 @@ def measure_native_state(session, pose=None, *, parameters):
         and row['normal'] is not None and abs(row['position'][2] - floor_z) <= parameters[
             'floor_contact_height_tolerance_m'] and abs(row['normal'][2]) >= parameters[
             'minimum_floor_contact_vertical_normal'] for row in floor_contacts))
-    return {'position': position.tolist(), 'quaternion_xyzw': quaternion.tolist(),
+    measured = {'position': position.tolist(), 'quaternion_xyzw': quaternion.tolist(),
         'root_region': root_region, 'chassis_region': region, 'footprint_regions': footprint_regions,
         'known_regions': sorted(room_names), 'floor_contact': floor_contact,
         'floor_layer_known': bool(layer_known), 'segmentation_floor_idx': floor_idx,
@@ -349,6 +349,11 @@ def measure_native_state(session, pose=None, *, parameters):
         # Only a known region containing the sampled chassis footprint earns a visit.
         'state_valid': bool(floor_contact and not nonfloor),
         'visit_eligible': bool(region in room_names)}
+    if not include_safety:
+        for key in ('floor_contact', 'floor_contact_present', 'native_floor_contacts', 'nonfloor_contacts', 'contacts'):
+            measured.pop(key)
+        measured['state_valid'] = bool(layer_known and region in room_names)
+    return measured
 
 
 def qualify_operation(session, executor, config, bound):
@@ -474,12 +479,11 @@ class ConnectivityEvaluator(NativeVisitReportEvaluator):
         super().__init__(session, controller, config, output)
 
     def _measure_native(self):
-        measured = measure_native_state(self.session, parameters=self.parameters)
+        measured = measure_native_state(self.session, parameters=self.parameters, include_safety=False)
         return settled_native_state(self.session, measured)
 
     def _qualify_start(self):
         measured = self._measure_native()
         regions = self.required or {self.parameters['source_region'], self.parameters['target_region']}
         return {'native_required_regions_exist': regions.issubset(measured['known_regions']),
-            'native_initial_floor_contact_and_pose': measured['state_valid'],
             'native_initial_region_known': measured['root_region'] in measured['known_regions']}

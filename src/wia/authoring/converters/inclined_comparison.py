@@ -116,12 +116,8 @@ class InclinedComparisonEvaluator:
         release_ready = (top and abs(local[0] - self.p['release_local_x_m']) <= .025 and
             abs(local[1]) <= .025 and orientation_ok and
             row['linear_speed_m_s'] <= .05 and row['angular_speed_rad_s'] <= .2)
-        dlo, dhi = self.p['safe_bounds_m']
-        safe = (np.all(np.array(row['aabb_min'])[:2] >= np.array(dlo)[:2] - .01) and
-            np.all(np.array(row['aabb_max'])[:2] <= np.array(dhi)[:2] + .01) and
-            row['aabb_min'][2] >= dlo[2] - .04)
         return {**row, 'release_ready': bool(release_ready), 'in_receiver': bool(in_receiver),
-            'safe': bool(safe), 'interference': interference, 'local_ramp_position': local.tolist()}
+            'interference': interference, 'local_ramp_position': local.tolist()}
 
     def _sample(self):
         if not self.active:
@@ -177,7 +173,7 @@ class InclinedComparisonEvaluator:
             if trace is None:
                 continue
             if not trace['complete']:
-                trace['valid'] &= bool(now - trace['last_time'] <= .1 and row['safe'] and not row['interference'])
+                trace['valid'] &= bool(now - trace['last_time'] <= .1 and not row['interference'])
                 trace['last_time'], trace['samples'] = now, trace['samples'] + 1
                 if row['in_receiver'] and trace['arrival_s'] is None:
                     trace['arrival_s'] = now - trace['release_time']

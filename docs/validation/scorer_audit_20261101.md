@@ -1,5 +1,7 @@
 # Release scorer audit — 2026-11-01
 
+Follow-up: the [independent Safety implementation](/local_home2/zhouxinyang/models/WIA/docs/validation/safety_separation_20261101.md) addresses F02 and includes all 60 release tasks, including T42–T44. The original audit results and counterexample artifacts below retain their historical scope and observations.
+
 ## Outcome and scope
 
 Reviewed **57 configured release tasks, 16 entry modules and 28 distinct evaluator operations**, including nested composite members. T42–T44 are excluded as requested. The nested members add no new operation beyond those 28. Coverage includes task contracts, pure reducers, native evidence adapters, shared completion formulas, observation producers and terminal transport. This is a source/CPU audit, not 57 new simulator executions or a task-solving benchmark.

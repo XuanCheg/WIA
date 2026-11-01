@@ -135,7 +135,7 @@ def test_local_mode_uses_exact_bound_upward_surface_for_both_rays(native):
     assert receipt['support_ray_start_m'] == native.calls['rays'][1][0]
     assert receipt['support_ray_end_m'] == native.calls['rays'][1][1]
     assert native.calls['steps'] == 90
-    assert native.calls['robot_checks'] == [(native.session.robot, ['/World/floor'], 0.)]
+    assert native.calls['robot_checks'] == []
     assert len(native.target.pose_writes) == 2 and native.target.still_calls == 1
     assert native.target.pose_writes[1][0][2] == pytest.approx(LOCAL_Z + .1 + .003, abs=1e-7)
     assert p == before
@@ -181,7 +181,7 @@ def test_aabb_alignment_and_final_local_measurement_are_independent(native):
     low, high = native.target.aabb
     xy = ((low + high) / 2)[:2].tolist()
     assert native.calls['rays'][0] == ([*xy, GLOBAL_TOP_Z + .10], [*xy, 0.], {'only_closest': False})
-    assert native.calls['robot_checks'] == [(native.session.robot, ['/World/floor'], 0.)]
+    assert native.calls['robot_checks'] == []
     assert p == before
 
 
@@ -246,8 +246,8 @@ def test_legacy_aabb_mode_keeps_original_receipt_and_steps_without_rays(native, 
                 'speed_m_s': 0., 'bottom_gap_m': float(low[2] - GLOBAL_TOP_Z),
                 'aabb_m': [low.tolist(), high.tolist()], 'accepted': True}
     assert result == {'revision': 'fixture_support_v1', 'accepted': True,
-        'supported_items': {'target': expected}, 'robot': {'floor_supported': True, 'collision_free': True},
-        'validation_scope': 'Native initial support and floor contacts; route and manipulation remain unverified.'}
+        'supported_items': {'target': expected},
+        'validation_scope': 'Native item support; robot Safety, route and manipulation are not task qualification predicates.'}
     assert native.calls['rays'] == [] and native.calls['steps'] == 90
     assert native.target.pose_writes[1][0][2] == pytest.approx(GLOBAL_TOP_Z + .1 + .003, abs=1e-7)
 
@@ -264,7 +264,7 @@ def test_local_mode_preserves_existing_acceptance_thresholds(native, condition):
         native.hits[1] = [hit(LOCAL_Z - .02)]
     result = active_layout.initialize_scene(native.session, parameters())
     assert result['supported_items']['target']['accepted'] is result['accepted'] is False
-    assert native.calls['steps'] == 90 and len(native.calls['robot_checks']) == 1
+    assert native.calls['steps'] == 90 and len(native.calls['robot_checks']) == 0
 
 
 def test_unknown_surface_mode_is_rejected(native):

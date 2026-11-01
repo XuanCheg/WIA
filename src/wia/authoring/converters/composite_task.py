@@ -207,12 +207,14 @@ class CompositeEvaluator:
             latest = self.last.get(key, {})
             faults = latest.get('faults') or latest.get('motion_faults') or latest.get('invalid_reasons') or []
             checks = latest.get('checks', latest.get('criteria', {}))
-            invariant_keys = [name for name in checks if any(token in name for token in
-                ('continuous', 'preserv', 'unchanged', 'currently_safe', 'current_native_state_valid'))]
-            safe = (not faults and latest.get('continuous_constraints_satisfied', True)
-                    and latest.get('constraints_satisfied', True)
-                    and all(checks[name] for name in invariant_keys))
-            constraints_satisfied = constraints_satisfied and bool(safe)
+            if 'task_constraints_satisfied' in latest:
+                task_valid = latest['task_constraints_satisfied'] is True
+            else:
+                invariant_keys = [name for name in checks if any(token in name for token in
+                    ('preserv', 'unchanged'))]
+                task_valid = (not faults and latest.get('constraints_satisfied', True)
+                        and all(checks[name] for name in invariant_keys))
+            constraints_satisfied = constraints_satisfied and bool(task_valid)
             # Revised children own their historical checkpoints. Terminal
             # predicates must describe the current world, not a past success.
             measured = deepcopy(latest if self.revised else self.completed.get(key, {}).get('native_result', latest))
@@ -226,10 +228,11 @@ class CompositeEvaluator:
             elif not measured:
                 measured = {'task_success': False, 'evaluation_validity': 'unavailable',
                             'completion_items': declared_items(member['evaluation'])}
-            measured['continuous_constraints_satisfied'] = bool(safe)
+            measured['continuous_constraints_satisfied'] = bool(task_valid)
+            measured['task_constraints_satisfied'] = bool(task_valid)
             child = progress(measured)
             goal.update(progress=child, evaluation_validity=child['evaluation_validity'],
-                        continuous_constraints_satisfied=bool(safe))
+                        continuous_constraints_satisfied=bool(task_valid))
             if child['completion_items'] is None:
                 denominator_known = False
                 continue

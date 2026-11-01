@@ -96,13 +96,12 @@ def create_r1_executor(controller) -> ActionExecutor:
     def execute(action, **kwargs):
         guard(action)
         public_action_begin(controller, action)
-        safety = getattr(controller.session, 'safety_observer', None)
-        if safety is not None:
-            safety.begin_action(action)
+        from wia.evaluation.safety import run_safety_hook
+        safety = getattr(controller.session, 'safety_evaluator', None) or getattr(controller.session, 'safety_observer', None)
+        run_safety_hook(controller.session, 'begin_action', action)
         try:
             result = controller.execute(action, **kwargs)
-            if safety is not None:
-                safety.end_action(result)
+            run_safety_hook(controller.session, 'end_action', result)
             return result
         finally:
             public_action_end(controller)
@@ -111,13 +110,12 @@ def create_r1_executor(controller) -> ActionExecutor:
     def execute_metric(action, magnitude, **kwargs):
         guard(action)
         public_action_begin(controller, action)
-        safety = getattr(controller.session, 'safety_observer', None)
-        if safety is not None:
-            safety.begin_action({'action': action, 'magnitude': magnitude})
+        from wia.evaluation.safety import run_safety_hook
+        safety = getattr(controller.session, 'safety_evaluator', None) or getattr(controller.session, 'safety_observer', None)
+        run_safety_hook(controller.session, 'begin_action', {'action': action, 'magnitude': magnitude})
         try:
             result = controller.execute_metric(action, magnitude, **kwargs)
-            if safety is not None:
-                safety.end_action(result)
+            run_safety_hook(controller.session, 'end_action', result)
             return result
         finally:
             public_action_end(controller)

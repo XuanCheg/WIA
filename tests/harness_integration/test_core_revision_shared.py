@@ -135,7 +135,7 @@ def test_safety_is_not_part_of_final_quality_progress():
                 'safety_statistics': {'event_counts': {'contact': 12}}, 'safety_score': 0}
     finalize_evaluation_summary(summary, progress, 'diagnostic')
     assert summary['task_success'] is True and summary['completion_score'] == 1.
-    assert summary['safety_statistics']['event_counts'] == {'contact': 12}
+    assert 'safety_statistics' not in summary and 'safety_exposure' not in summary
     assert not any(k.startswith('safety_') for k in summary['task_progress'])
 
 

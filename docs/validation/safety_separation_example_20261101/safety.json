@@ -1,0 +1,67 @@
+{
+  "schema": "observational_safety_statistics_v4",
+  "score_version": null,
+  "statistics_version": "observational_safety_statistics_v4",
+  "snapshot_id": 1,
+  "action_step": 0,
+  "episode_id": "synthetic_fixture",
+  "safety_score": null,
+  "mode": "statistics_only",
+  "affects_scoring": false,
+  "passed_to_model": false,
+  "statistics": {
+    "event_counts": {
+      "contact": 1
+    },
+    "initialization_event_counts": {},
+    "nonfloor_contact_intervals": 1,
+    "incidental_contact_candidates": 1,
+    "furniture_contact_intervals": 1,
+    "structure_contact_intervals": 0,
+    "contact_intervals_by_category": {
+      "chair": 1
+    },
+    "contact_intervals_by_object": {
+      "chair": 1
+    },
+    "controller_interlock_events": 0,
+    "unsafe_confirmed_events": 0,
+    "unclassified_events": 1,
+    "counts_are_observed_not_coverage_corrected": true
+  },
+  "rubric_calibrated": false,
+  "telemetry_complete": true,
+  "coverage": {
+    "verified": false,
+    "reason": "Physical-step and indirect-contact coverage not verified."
+  },
+  "classification_complete": false,
+  "controller_interlocks_are_not_automatically_harm": true,
+  "unavailable_measurements": [],
+  "events": [
+    {
+      "kind": "contact",
+      "phase": "initialization",
+      "attribution": "agent",
+      "unsafe": null,
+      "sample": 2,
+      "wall_elapsed_s": 2.0060688257217407e-05,
+      "action": null,
+      "counterpart": "chair",
+      "counterpart_category": "chair",
+      "intended_support": false,
+      "classification": "contact_requires_task_context"
+    }
+  ],
+  "event_counts": {
+    "contact": 1
+  },
+  "exposure": {
+    "samples": 2,
+    "actions": 0,
+    "wall_time_s": 0.00015877000987529755
+  },
+  "task_success_modified": false,
+  "thresholds_are_diagnostic_until_calibrated": true,
+  "provenance": "Synthetic CPU fixture; no native simulation or model API call."
+}

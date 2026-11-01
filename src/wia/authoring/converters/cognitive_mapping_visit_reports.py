@@ -49,8 +49,7 @@ def completion_public_goal(public, subclass, *, ordered=False):
     if scoring not in result['success_criteria']:
         result['success_criteria'] += ' ' + scoring
     safety = 'All existing collision, floor support, uprightness and protected-object constraints remain effective throughout the episode.'
-    if safety not in result['success_criteria']:
-        result['success_criteria'] += ' ' + safety
+    result['success_criteria'] = result['success_criteria'].replace(safety, '').strip()
     replacements = {
         'Keep room-defining furniture and the original building unchanged.':
             'Preserve the original building and task-critical room-defining anchors.',
@@ -130,7 +129,7 @@ def visit_parameters(required_regions, *, required_order=None, route_evidence=No
 
 
 def settled_native_state(session, measured, *, minimum_up_dot=.95):
-    """Add native chassis velocity/upright checks without altering the scene."""
+    """Measure stopped room occupancy independently of generic robot Safety."""
     robot = session.robot
     chassis = robot.links[robot.base_footprint_link_name]
     linear, angular = (native_array(value) for value in (
@@ -144,9 +143,10 @@ def settled_native_state(session, measured, *, minimum_up_dot=.95):
     up_dot = float(1 - 2 * (x*x + y*y))
     return {**measured, 'linear_speed_m_s': float(np.linalg.norm(linear)),
         'angular_speed_rad_s': float(np.linalg.norm(angular)), 'up_dot': up_dot,
-        'state_valid': bool(measured['state_valid'] and up_dot >= minimum_up_dot),
-        'occupancy_valid': bool(measured.get('floor_contact', measured['state_valid'])
-                                and up_dot >= minimum_up_dot)}
+        'state_valid': bool(measured['chassis_region'] in measured['known_regions']
+                            and measured.get('floor_layer_known', True)),
+        'occupancy_valid': bool(measured['chassis_region'] in measured['known_regions']
+                                and measured.get('floor_layer_known', True))}
 
 
 class NativeVisitReportEvaluator:
@@ -240,10 +240,6 @@ class NativeVisitReportEvaluator:
 
     def _read_boundary(self):
         measured = self._measure_native()
-        if measured.get('nonfloor_contacts'):
-            self.faults.add('native_nonfloor_contact')
-        if not self._occupancy_valid(measured):
-            self.faults.add('native_floor_contact_or_pose_failed')
         displacement = float(np.linalg.norm(np.asarray(measured['position']) - self.previous))
         if displacement > self.controller.config.translation_tolerance_m:
             self.faults.add('unsampled_native_motion')
@@ -275,10 +271,6 @@ class NativeVisitReportEvaluator:
             limit = min(limit, self.parameters['maximum_step_displacement_m'])
         if elapsed <= 0 or distance > limit:
             self.faults.add('motion_clock_or_continuity_failed')
-        if measured.get('nonfloor_contacts'):
-            self.faults.add('native_nonfloor_contact')
-        if not self._occupancy_valid(measured):
-            self.faults.add('native_floor_contact_or_pose_failed')
         if not all(extra_checks.values()):
             self.faults.add('native_category_invariant_failed')
         self.samples += 1
@@ -368,9 +360,7 @@ class NativeVisitReportEvaluator:
             'required_native_room_set_visited': self.required.issubset(self.visited),
             'required_agent_room_set_reported': self.required.issubset(self.reported),
             'source_requested_order_proven': self.order_stage == len(self.required_order),
-            'continuous_safe_native_trajectory': not self.faults,
-            'task_trajectory_evidence_valid': not self._task_faults(),
-            'current_native_state_valid': bool(measured is not None and measured['state_valid']), **additional}
+            'task_trajectory_evidence_valid': not self._task_faults(), **additional}
         definitions = ([(f'step:{index}:{room}', room) for index, room in enumerate(self.required_order)]
                        if self.required_order else [(f'room:{room}', room) for room in sorted(self.required)])
         items = [{'id': item_id, 'room': room, 'completed': item_id in self.completed_events,
@@ -380,13 +370,11 @@ class NativeVisitReportEvaluator:
         completed = sum(item['completed'] for item in items)
         validity = 'unavailable' if self.measurement_errors else 'complete'
         score = completed / len(items) if items and validity == 'complete' else None
-        constraints_satisfied = bool(not self.faults and measured is not None
-                                     and measured['state_valid'] and all(additional.values()))
+        constraints_satisfied = bool(not self._task_faults() and measured is not None and all(additional.values()))
         row = {'schema': self.schema, 'episode': self.episode,
             'snapshot_id': observation.snapshot_id, 'action_step': observation.action_step,
             'action': action, 'operation': self.config['operation'],
-            'task_success': bool(all(value for key, value in checks.items()
-                if key not in ('continuous_safe_native_trajectory', 'current_native_state_valid'))),
+            'task_success': bool(all(checks.values())),
             'checks': checks, 'native_state': measured,
             'scoring_version': 'task_completion_v2', 'evaluation_validity': validity,
             'completion_items': items, 'completed_goals': completed, 'total_goals': len(items),
@@ -395,13 +383,12 @@ class NativeVisitReportEvaluator:
             'constraints_satisfied': constraints_satisfied,
             'continuous_constraints_satisfied': constraints_satisfied,
             'task_constraints_satisfied': bool(not self._task_faults() and all(additional.values())),
-            'safety_affects_task_success': False,
             'measurement_errors': list(self.measurement_errors),
             'required_regions': sorted(self.required), 'visited_regions': sorted(self.visited),
             'reported_regions': sorted(self.reported), 'required_order': self.required_order,
             'order_stage': self.order_stage, 'measured_visits': self.visits,
             'arrival_reports': self.arrival_reports, 'native_control_samples': self.samples,
-            'sampled_travel_m': self.travel_m, 'motion_faults': sorted(self.faults),
+            'sampled_travel_m': self.travel_m, 'motion_faults': sorted(self._task_faults()),
             'proof_requirements': {'stable_full_chassis_control_samples': self.stability_steps,
                 'explicit_agent_arrival_reports': self.parameters['arrival_report_required'],
                 'required_room_set': bool(self.required),
